@@ -10,7 +10,7 @@
   --gold: #f1cf82;
   --red: #e18a76;
   --blue: #90c5e9;
-  --tap: 48px;
+  --tap: 44px;
 }
 * { box-sizing: border-box; }
 html { min-height: 100%; background: var(--page); }
@@ -21,6 +21,7 @@ body {
   color: var(--text);
   background: var(--page);
   font-family: system-ui, sans-serif;
+  overflow: hidden;
 }
 button, input { font: inherit; }
 button {
@@ -33,120 +34,296 @@ button {
   touch-action: manipulation;
   cursor: pointer;
 }
-button:focus-visible, input:focus-visible, summary:focus-visible {
+button:focus-visible, input:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 2px;
 }
 button:disabled { opacity: .48; cursor: default; }
 [hidden] { display: none !important; }
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
-/* Add modest CSS safe-area insets; do not hard-code host-specific 88/98 px gutters. */
+/* Safe area is additive; host chrome can differ and must not be guessed as a fixed 88/98px inset. */
 #app {
-  width: min(100%, 480px);
+  width: min(100%, 520px);
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   margin-inline: auto;
-  padding-block-start: calc(env(safe-area-inset-top, 0px) + 12px);
-  padding-block-end: calc(env(safe-area-inset-bottom, 0px) + 16px);
-  padding-inline: 14px;
+  padding-block-start: calc(env(safe-area-inset-top, 0px) + 8px);
+  padding-block-end: calc(env(safe-area-inset-bottom, 0px) + 10px);
+  padding-inline: 12px;
+  display: flex;
+  flex-direction: column;
 }
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  min-height: 48px;
-  margin-bottom: 16px;
+  gap: 10px;
+  min-height: 44px;
+  margin: 0 0 8px;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 10px;
+  padding-bottom: 6px;
 }
-h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
+h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 .wallet-pill {
   display: inline-flex;
   align-items: baseline;
   gap: 5px;
-  min-height: 36px;
-  padding: 5px 10px;
+  min-height: 34px;
+  padding: 4px 9px;
   border: 1px solid #8c7951;
   border-radius: 999px;
   color: var(--gold);
   background: #302b21;
   font-variant-numeric: tabular-nums;
 }
-.wallet-pill strong { font-size: 17px; }
+.wallet-pill strong { font-size: 16px; }
 .screen { display: block; }
-.home-screen { display: grid; gap: 14px; padding-top: clamp(28px, 9vh, 72px); }
-.lead { margin: 0 0 8px; text-align: center; font-size: 18px; line-height: 1.55; }
-.cta { width: 100%; min-height: 56px; padding: 12px 16px; font-size: 17px; }
+#homeScreen:not([hidden]), #roomScreen:not([hidden]) { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+
+/* Home: two large, direct actions; no nested menus or developer notes. */
+.home-screen {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 420px);
+  margin-inline: auto;
+  padding-top: clamp(20px, 5vh, 42px);
+}
+.lead { margin: 0 0 5px; text-align: center; font-size: 18px; line-height: 1.45; }
+.home-choice, .cta { width: 100%; min-height: 56px; padding: 12px 16px; font-size: 17px; }
 .cta-primary { border-color: #ffe1a1; color: #251f13; background: linear-gradient(#f5d58b, #d4aa54); }
 .cta-secondary { background: #344a4d; }
-.home-note, .status-line { margin: 2px 0; color: var(--muted); font-size: 13px; text-align: center; }
+.home-note, .room-hint, .status-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.room-screen h2 { margin: 4px 0 8px; font-size: 21px; }
+.room-hint { margin-bottom: 16px; }
+.room-code-label { display: block; margin: 18px 0 6px; color: var(--muted); font-size: 14px; }
+.room-join-row { display: grid; grid-template-columns: minmax(0, 1fr) 80px; gap: 8px; }
+.room-join-row input {
+  min-width: 0;
+  min-height: var(--tap);
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--panel);
+}
+.room-screen > .text-button { display: block; margin: 12px auto; }
 .multi-status-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
 .status-line:empty { display: none; }
-.room-screen h2 { margin: 4px 0 18px; font-size: 21px; }
-.room-code-label { display: block; margin: 20px 0 7px; color: var(--muted); font-size: 14px; }
-.room-join-row { display: grid; grid-template-columns: minmax(0, 1fr) 88px; gap: 8px; }
-.room-join-row input { min-width: 0; min-height: var(--tap); padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); background: var(--panel); }
-.text-button { min-height: 44px; padding: 7px 10px; border: 0; color: var(--muted); background: transparent; text-decoration: underline; text-underline-offset: 3px; }
-.room-screen > .text-button { display: block; margin: 14px auto; }
-.game-topline { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
-.round-status { margin: 0; color: var(--gold); font-size: 14px; font-weight: 650; }
-.phase-title { margin: 4px 0 12px; font-size: 20px; text-align: center; }
+.text-button {
+  min-height: var(--tap);
+  padding: 6px 10px;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#gameScreen:not([hidden]) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+.game-topline { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
+.round-status { margin: 0; color: var(--gold); font-size: 14px; font-weight: 700; }
+.menu-button { min-width: 72px; text-align: center; }
+.phase-title { margin: 2px 0 8px; font-size: 18px; line-height: 1.25; text-align: center; }
+#comparison:not([hidden]) { display: block; flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 8px; }
+
+/* Stake first, then the full army card is one immediate-pick target. */
+.stake-card {
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 9px 7px;
+  background: var(--panel);
+}
+.stake-card h3 { display: flex; align-items: baseline; gap: 7px; margin: 0 0 6px; font-size: 14px; }
+.optional-label { color: var(--muted); font-size: 11px; font-weight: 500; }
+.stake-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.stake-option { min-width: 0; min-height: 44px; padding: 5px 2px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.stake-option[aria-pressed="true"] {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  color: #fff5d9;
+  background: #51432b;
+}
+.stake-hint { margin: 6px 0 2px; color: var(--muted); font-size: 11px; line-height: 1.3; text-align: center; }
+.choice-hint { margin: 0; color: var(--gold); font-size: 12px; line-height: 1.3; text-align: center; }
+
 .army-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.army-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: var(--panel); }
-.army-card h3 { margin: 0 0 5px; text-align: center; font-size: 16px; }
-.army-red h3 { color: var(--red); }
-.army-blue h3 { color: var(--blue); }
+.army-card {
+  min-width: 0;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  overflow: hidden;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  text-align: left;
+}
+.army-card:active { filter: brightness(1.14); }
+.army-red { border-color: #94594e; }
+.army-blue { border-color: #4d7288; }
+.army-title { display: block; text-align: center; font-size: 16px; font-weight: 800; }
+.army-red .army-title, .units-side-red h3 { color: var(--red); }
+.army-blue .army-title, .units-side-blue h3 { color: var(--blue); }
 .army-preview {
   display: block;
   width: 100%;
+  min-height: 88px;
   height: auto;
   aspect-ratio: 5 / 3;
   border-radius: 6px;
   background: #35463d;
   image-rendering: pixelated;
 }
-.army-summary { min-height: 2.6em; margin: 6px 0; color: var(--muted); font-size: 12px; line-height: 1.35; text-align: center; }
-.team-button { width: 100%; min-height: 50px; padding-inline: 5px; font-size: 14px; }
-.red-button { border-color: #d49383; background: #693a34; }
-.blue-button { border-color: #8db8d1; background: #294d62; }
-.team-button[aria-pressed="true"], .stake-option[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 1px; }
-.stake-card { margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--panel); }
-.stake-card h3 { margin: 0 0 9px; font-size: 14px; }
-.stake-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-.stake-option { min-width: 0; min-height: 46px; padding-inline: 2px; font-size: 13px; }
-.stake-hint { min-height: 1.5em; margin: 8px 0 6px; color: var(--muted); font-size: 12px; line-height: 1.4; text-align: center; }
-.confirm-button { min-height: 56px; margin-top: 3px; }
-.skip-button { display: block; margin: 4px auto -4px; font-size: 13px; }
-.battle #field {
+.unit-stats {
+  display: block;
+  min-width: 0;
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.25;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.team-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: auto;
+  border-radius: 7px;
+  color: #fff5ec;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+.army-red .team-action { background: #693a34; }
+.army-blue .team-action { background: #294d62; }
+.army-card[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 1px; }
+.army-card[aria-pressed="true"] .team-action { color: #251f13; background: var(--gold); }
+.secondary-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin-top: 4px; }
+.secondary-actions .text-button { min-width: 0; font-size: 12px; }
+.compatibility-hooks { display: none !important; }
+
+/* The active battle owns the remaining viewport; preserve the canvas ratio and avoid oversized fixed gutters. */
+#battle:not([hidden]) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  gap: 4px;
+}
+.battle-toolbar { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
+.battle-clock { margin: 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.units-toggle { min-height: 44px; min-width: 70px; padding: 6px 10px; color: #211c13; background: var(--gold); }
+.field-stage { display: grid; flex: 1; place-items: center; min-height: 0; width: 100%; }
+#field {
   display: block;
   width: 100%;
-  height: auto;
-  margin: 0 auto;
+  height: 100%;
   aspect-ratio: 480 / 538;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: #35463d;
   image-rendering: pixelated;
+  object-fit: contain;
 }
-.battle-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
-.control-button { min-width: 0; min-height: 48px; padding-inline: 3px; font-size: 13px; }
-.result-panel { margin-top: 16px; border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--panel); text-align: center; }
-.result-title { margin: 0 0 7px; font-size: 22px; }
-.result-summary { margin: 0 0 8px; font-size: 15px; line-height: 1.5; }
-.result-panel .cta { margin-top: 10px; }
-.score-details { margin-top: 7px; color: var(--muted); text-align: left; }
-.help-details { margin-top: 22px; color: var(--muted); font-size: 13px; }
-.help-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
-.help-details p { margin: 4px 0 0; line-height: 1.5; }
-@media (max-width: 340px) {
-  #app { padding-inline: 10px; }
-  .army-card { padding: 6px; }
-  .team-button { font-size: 13px; }
-  .stake-card { padding: 10px; }
-}
+.battle-controls { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+.control-button { min-width: 0; min-height: 44px; padding: 4px 1px; font-size: 10px; line-height: 1.1; white-space: normal; }
 
-#unitKind{min-height:44px;max-width:100%;font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px}#unitTrait{min-height:2.8em;margin:6px 0}
+/* Result feedback is readable, brief, and normally advances without a tap. */
+.result-panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: min(100%, 430px);
+  margin: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  background: var(--panel);
+  text-align: center;
+}
+.result-title { margin: 0 0 5px; font-size: 21px; }
+.result-summary { margin: 0 0 6px; font-size: 13px; line-height: 1.4; white-space: pre-line; }
+.score-line { margin: 4px 0; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.score-separator { padding-inline: 4px; }
+.result-countdown { min-height: 1.3em; margin: 5px 0; color: var(--gold); font-size: 12px; }
+.result-hold { display: block; width: 100%; font-size: 12px; }
+.result-next { margin-top: 8px; }
+
+/* One explicit UNITS action opens a read-only overlay; no trait accordion. */
+.units-panel {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(10px, env(safe-area-inset-top, 0px)) 12px max(10px, env(safe-area-inset-bottom, 0px));
+  background: rgb(0 0 0 / 72%);
+}
+.units-panel:not([hidden]) { display: grid; }
+.units-dialog {
+  width: min(100%, 480px);
+  max-height: 100%;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--page);
+  box-shadow: 0 12px 36px rgb(0 0 0 / 45%);
+}
+.units-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.units-heading h2 { margin: 0; font-size: 18px; }
+.units-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.units-side { min-width: 0; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.units-side h3 { margin: 0 0 6px; font-size: 15px; text-align: center; }
+.units-stat-list { font-size: 11px; line-height: 1.35; }
+.units-note { margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
+
+@media (max-width: 350px) {
+  #app { padding-inline: 8px; }
+  .army-grid { gap: 6px; }
+  .army-card { padding: 6px; }
+  .unit-stats { font-size: 11px; }
+  .team-action { font-size: 13px; }
+  .control-button { font-size: 9px; }
+}
+@media (max-height: 640px) {
+  .app-header { margin-bottom: 5px; }
+  .home-screen { padding-top: 12px; gap: 8px; }
+  .phase-title { margin-bottom: 5px; }
+  .army-card { gap: 4px; }
+  .battle-toolbar { min-height: 36px; }
+}
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -159,108 +336,142 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
   window.__gameBootComplete = function () { box.hidden = true; };
 }());
 </script>
-<!-- Static integration shell only. Keep existing combat engine and sprite atlas/renderer. -->
+<!-- Candidate UI shell only. Keep battle, wallet, room, and sprite logic in the existing controller. -->
 <main id="app">
-<header class="app-header">
-  <h1>どっちが勝つ？</h1>
-  <div class="wallet-pill" aria-label="ゲーム内通貨">
-    <span aria-hidden="true">G</span><strong id="balance">100</strong>
-  </div>
-</header>
-
-<section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
-  <p id="homeTitle" class="lead">2つの軍を見比べて、勝つ方を予想しよう！</p>
-  <button id="soloStart" class="cta cta-primary">ひとりで遊ぶ</button>
-  <button id="showMultiplayer" class="cta cta-secondary">みんなで遊ぶ</button>
-  <p class="home-note">予想は無料。上乗せしなくても遊べます。</p>
-</section>
-
-<button id="mockRoom" hidden>mock</button>
-
-<section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
-  <h2 id="roomTitle">みんなで遊ぶ</h2>
-  <p class="status-line">部屋は GRAVITY 連携用です（接続は未検証）。接続できないときも、ひとりで遊べます。</p>
-  <button id="createRoom" class="cta cta-primary">部屋をつくる</button>
-  <button id="beginRound" class="cta cta-primary" hidden>第1戦をはじめる</button>
-  <label class="room-code-label" for="roomId">部屋コードで参加</label>
-  <div class="room-join-row">
-    <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
-    <button id="joinRoom" class="cta cta-secondary">参加</button>
-  </div>
-  <button id="backHome" class="text-button">戻る</button>
-</section>
-
-<div id="multiStatusRow" class="multi-status-row" hidden><p id="roomStatus" class="status-line" aria-live="polite"></p><button id="exitRoom" class="text-button" hidden>退出してひとりに戻る</button></div>
-
-<section id="gameScreen" class="screen game-screen" hidden aria-labelledby="phaseTitle">
-  <div class="game-topline"><p id="status" class="round-status"></p><button id="gameHome" class="text-button">ホーム</button></div>
-  <h2 id="phaseTitle" class="phase-title">勝つのはどっち？</h2>
-
-  <section id="comparison" class="comparison" aria-label="予想する軍を選ぶ">
-    <div class="army-grid">
-      <article class="army-card army-red" aria-labelledby="redTitle">
-        <h3 id="redTitle">朱軍</h3>
-        <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="朱軍の兵士の編成"></canvas>
-        <p id="redList" class="army-summary" aria-live="polite"></p>
-        <button id="red" class="team-button red-button" aria-pressed="false">朱軍が勝つ</button>
-      </article>
-      <article class="army-card army-blue" aria-labelledby="blueTitle">
-        <h3 id="blueTitle">蒼軍</h3>
-        <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="蒼軍の兵士の編成"></canvas>
-        <p id="blueList" class="army-summary" aria-live="polite"></p>
-        <button id="blue" class="team-button blue-button" aria-pressed="false">蒼軍が勝つ</button>
-      </article>
+  <header class="app-header">
+    <h1>どっちが勝つ？</h1>
+    <div class="wallet-pill" aria-label="ゲーム内通貨">
+      <strong id="balance">100 G</strong>
     </div>
+  </header>
 
-    <label for="unitKind">兵種の特徴</label> <select id="unitKind" aria-describedby="unitTrait"></select>
-    <p id="unitTrait" class="status-line" aria-live="polite"></p>
-    <button id="formationToggle" class="text-button">両軍の配置を見る</button>
-    <section class="stake-card" aria-labelledby="stakeTitle">
-      <h3 id="stakeTitle">予想を選んだら、Gを上乗せ（任意）</h3>
-      <div class="stake-options" role="group" aria-label="上乗せ額">
-        <button id="stake0" class="stake-option" aria-pressed="true">なし</button>
-        <button id="stake10" class="stake-option" aria-pressed="false">10 G</button>
-        <button id="stake25" class="stake-option" aria-pressed="false">25 G</button>
-        <button id="stake50" class="stake-option" aria-pressed="false">50 G</button>
+  <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
+    <p id="homeTitle" class="lead">2つの軍を見比べて、勝つ方を選ぼう。</p>
+    <button id="soloStart" class="home-choice cta-primary" type="button">ひとりで遊ぶ</button>
+    <button id="showMultiplayer" class="home-choice cta-secondary" type="button">みんなで遊ぶ</button>
+    <p class="home-note">予想は無料。上乗せはいつでも任意です。</p>
+  </section>
+
+  <button id="mockRoom" type="button" hidden aria-hidden="true" tabindex="-1"></button>
+
+  <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
+    <h2 id="roomTitle">みんなで遊ぶ</h2>
+    <p class="room-hint">部屋をつくるか、部屋コードで合流できます。</p>
+    <button id="createRoom" class="cta cta-primary" type="button">部屋をつくる</button>
+    <button id="beginRound" class="cta cta-primary" type="button" hidden>第1戦をはじめる</button>
+    <label class="room-code-label" for="roomId">部屋コードで参加</label>
+    <div class="room-join-row">
+      <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
+      <button id="joinRoom" class="cta cta-secondary" type="button">参加</button>
+    </div>
+    <button id="backHome" class="text-button" type="button">ホームへ戻る</button>
+  </section>
+
+  <div id="multiStatusRow" class="multi-status-row" hidden>
+    <p id="roomStatus" class="status-line" aria-live="polite"></p>
+    <button id="exitRoom" class="text-button" type="button" hidden>退出してひとりに戻る</button>
+  </div>
+
+  <section id="gameScreen" class="screen game-screen" hidden aria-labelledby="phaseTitle">
+    <div class="game-topline">
+      <p id="status" class="round-status" aria-live="polite">第 1 / 20 戦</p>
+      <button id="gameHome" class="text-button menu-button" type="button">メニュー</button>
+    </div>
+    <h2 id="phaseTitle" class="phase-title">勝つのはどっち？</h2>
+
+    <section id="comparison" class="comparison" aria-label="軍を比べて勝つ方を予想">
+      <section class="stake-card" aria-labelledby="stakeTitle">
+        <h3 id="stakeTitle">上乗せ額 <span class="optional-label">任意</span></h3>
+        <div class="stake-options" role="group" aria-label="上乗せ額を先に選ぶ">
+          <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
+          <button id="stake10" class="stake-option" type="button" aria-pressed="false">10 G</button>
+          <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
+          <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
+        </div>
+        <p id="stakeHint" class="stake-hint" aria-live="polite">無料予想：的中 +10 G / はずれても 0 G</p>
+        <p class="choice-hint">額を選んだら、勝つと思う軍カードをタップ。</p>
+      </section>
+
+      <div class="army-grid" role="group" aria-label="勝つと思う軍を選ぶ">
+        <button id="red" class="army-card army-red" type="button" aria-pressed="false">
+          <span class="army-title" id="redTitle">朱軍</span>
+          <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="朱軍の兵士"></canvas>
+          <span id="redList" class="army-summary sr-only" aria-live="off"></span>
+          <span id="redStats" class="unit-stats" aria-live="off">兵情報</span>
+          <span class="team-action">朱軍が勝つ</span>
+        </button>
+        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false">
+          <span class="army-title" id="blueTitle">蒼軍</span>
+          <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="蒼軍の兵士"></canvas>
+          <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
+          <span id="blueStats" class="unit-stats" aria-live="off">兵情報</span>
+          <span class="team-action">蒼軍が勝つ</span>
+        </button>
       </div>
-      <p id="stakeHint" class="stake-hint" aria-live="polite">無料予想：的中 +10 G / はずれても 0 G</p>
-      <button id="confirm" class="cta cta-primary confirm-button" disabled>この予想でバトル！</button>
-      <button id="skip" class="text-button skip-button">予想せず、バトルを見る</button>
+
+      <div class="secondary-actions">
+        <button id="skip" class="text-button" type="button">予想せず観戦</button>
+        <button id="formationToggle" class="text-button" type="button">実際の配置を見る</button>
+      </div>
+
+      <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
+      <div class="compatibility-hooks" hidden aria-hidden="true">
+        <label for="unitKind">兵種の特徴</label><select id="unitKind"></select>
+        <p id="unitTrait"></p>
+      </div>
+      <button id="confirm" type="button" hidden aria-hidden="true" tabindex="-1">確定</button>
+    </section>
+
+    <section id="battle" class="battle" hidden aria-label="バトルを観戦">
+      <div class="battle-toolbar">
+        <p id="battleClock" class="battle-clock" aria-live="off"></p>
+        <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵情報</button>
+      </div>
+      <div class="field-stage">
+        <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
+      </div>
+      <div id="battleControls" class="battle-controls" aria-label="戦場の操作">
+        <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
+        <button id="speedDown" class="control-button" type="button" aria-label="戦闘速度を下げる">速度 −</button>
+        <button id="speedUp" class="control-button" type="button" aria-label="戦闘速度を上げる">速度 ＋</button>
+        <button id="zoomOut" class="control-button" type="button" aria-label="戦場を縮小">縮小</button>
+        <button id="zoomIn" class="control-button" type="button" aria-label="戦場を拡大">拡大</button>
+        <button id="effects" class="control-button" type="button" aria-label="演出を切り替える">演出</button>
+        <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
+      </div>
+    </section>
+
+    <section id="resultPanel" class="result-panel" hidden aria-live="polite" aria-atomic="true">
+      <h3 id="message" class="result-title"></h3>
+      <p id="breakdown" class="result-summary"></p>
+      <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
+      <p id="resultCountdown" class="result-countdown" aria-live="off"></p>
+      <button id="resultHold" class="text-button result-hold" type="button">結果をゆっくり見る</button>
+      <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
   </section>
 
-  <section id="battle" class="battle" hidden aria-label="バトルを観戦">
-    <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
-    <p id="battleClock" class="status-line" aria-live="off"></p>
-    <div id="battleControls" class="battle-controls">
-      <button id="pause" class="control-button">一時停止</button>
-      <button id="speed" class="control-button">速度 1×</button>
-      <button id="effects" class="control-button">演出</button>
+  <!-- The original has one UNITS action. This read-only overlay never changes the simulation. -->
+  <section id="unitsPanel" class="units-panel" role="dialog" aria-modal="true" aria-labelledby="unitsTitle" hidden>
+    <div class="units-dialog">
+      <div class="units-heading">
+        <h2 id="unitsTitle">両軍の兵情報</h2>
+        <button id="unitsClose" class="text-button" type="button">閉じる</button>
+      </div>
+      <div class="units-grid">
+        <section class="units-side units-side-red" aria-labelledby="unitsRedTitle">
+          <h3 id="unitsRedTitle">朱軍</h3>
+          <div id="unitsRedStats" class="unit-stats units-stat-list"></div>
+        </section>
+        <section class="units-side units-side-blue" aria-labelledby="unitsBlueTitle">
+          <h3 id="unitsBlueTitle">蒼軍</h3>
+          <div id="unitsBlueStats" class="unit-stats units-stat-list"></div>
+        </section>
+      </div>
+      <p class="units-note">ソロでは表示中に一時停止。オンライン観戦中は戦闘が続きます。</p>
     </div>
   </section>
-
-  <section id="resultPanel" class="result-panel" hidden aria-live="polite">
-    <h3 id="message" class="result-title"></h3>
-    <p id="breakdown" class="result-summary"></p>
-    <details id="scoreDetails" class="score-details">
-      <summary>成績を見る</summary>
-      <p>純益：<span id="profit"></span></p>
-      <p>正解：<span id="hits"></span></p>
-      <p class="hint">GRAVITY の負スコア受付は未確認です。</p><p id="scoreStatus" aria-live="polite"></p>
-    </details>
-
-    <button id="next" class="cta cta-primary">次の戦いへ</button>
-  </section>
-</section>
-
-<details id="help" class="help-details">
-  <summary>遊び方・17兵種の特徴</summary>
-  <p>G は購入・換金できないゲーム内ポイントです。開始は100 G、全20戦。勝つ軍を選び、任意で0 / 10 / 25 / 50 Gを上乗せします（残高以内）。無料予想は的中 +10 G、はずれても減りません。</p>
-  <p>上乗せして的中すると +10 G に上乗せ額と同額の利益が加わり、はずれると上乗せ分だけ失います。例：25 Gを上乗せすると的中 +35 G、はずれ −25 G。見るだけ・引き分けは増減なし。残高0 Gでも無料予想は続けられます。純益スコアは残高−開始100 Gです。</p>
-  <p>左右のカードは兵種の代表姿と人数です。「両軍の配置を見る」で実際の布陣も確認できます。同じ兵数でも、射程・丈夫さ・位置・相性で結果は変わります。60秒で決着しなければ引き分けです。</p>
-  <p>飛行に届くのは弓・砲・氷術師・雷術師・亡霊術師・羽トカゲ。兵種ごとの特徴は予想画面で選んで確認できます。戦いごとに新しい両軍になります。後半ほど兵種が増え、最大3兵種の混成です。</p>
-</details>
-
 </main>
 <script id="game-runtime">
 'use strict';
@@ -855,6 +1066,10 @@ function step(dt){
   if(collectEvents)for(const child of arrivals){publishCombatEvent({type:'summon_spawn',parentToken:child.ownerToken,childToken:tokenOf(child),k:child.k,side:child.side,x:child.x,y:child.y});if(child.splitChild)publishCombatEvent({type:'split_spawn',parentToken:child.ownerToken,childToken:tokenOf(child),k:child.k,side:child.side,x:child.x,y:child.y});}
  }
  const alive=units.filter(u=>!u.dead).sort(stableOrder),pending=new Map(),moves=new Map(),attacks=[],spawnRequests=[],near=nearbyGrid(alive);
+ // Targetability is a shared tick-start snapshot, not actor iteration order.
+ const targetLayers=new Map(alive.map(u=>[u,layerOf(u)]));
+ const canTargetSnapshot=(a,b)=>(TYPES[a.k].attackTargetMask||['ground']).includes(targetLayers.get(b));
+ const snapshotBodies=alive.map(v=>({k:v.k,x:v.x,y:v.y,burrowStage:targetLayers.get(v)==='underground'?'underground':undefined}));
  const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[];
  const resolvedHits=collectEvents?[]:null,healIntents=collectEvents?new Map():null,damageByTarget=collectEvents?new Map():null,golemContacts=collectEvents?[]:null;
  function hit(u,n,ranged,sourceKind,sourceToken){
@@ -866,7 +1081,7 @@ function step(dt){
  for(const u of alive){
   tokenOf(u);if(u.originForward===undefined)u.originForward=u.y<=FIELD.h/2?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
-  const enemies=alive.filter(v=>v.side!==u.side&&canTarget(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
+  const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
@@ -889,7 +1104,7 @@ function step(dt){
    u.summonCd=(u.summonCd??t.summonInitialDelay??t.summonCooldown??0)-dt;
    if(u.summonCd<=0&&sideCounts[u.side]<TEAM_CAP){
     const spawnIndex=u.spawnCount??0,token=`${tokenOf(u)}/summon:${spawnIndex}`;
-    const occupied=alive.concat(spawnRequests.map(s=>({k:'goblin',x:s.x,y:s.y,side:s.parent.side}))),pos=spawnPosition(u,token,occupied);
+    const occupied=snapshotBodies.concat(spawnRequests.map(s=>({k:'goblin',x:s.x,y:s.y,side:s.parent.side}))),pos=spawnPosition(u,token,occupied);
     if(pos){spawnRequests.push({parent:u,spawnIndex,token,...pos});u.spawnCount=spawnIndex+1;u.summonCharges--;u.summonCd=t.summonCooldown??4;sideCounts[u.side]++}
     else u.summonCd=.25;
    }
@@ -909,21 +1124,21 @@ function step(dt){
   if(dist>t.reach+1/2048){
    let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
-   const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&canCollide(u,v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
+   const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&targetLayers.get(u)===targetLayers.get(v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
    if(blocked){const turn=(u.priority??.25)<.5?-1:1,tx=ny*u.originForward*turn,ty=-nx*u.originForward*turn;nx+=tx*1.35;ny+=ty*1.35;const length=Math.hypot(nx,ny);nx/=length;ny/=length}
    const baseSpeed=u.chargeReady?t.chargeSpeed:t.speed,speed=u.slowUntil>elapsed?baseSpeed*u.slowFactor:baseSpeed;const travel=Math.min(speed*dt,Math.max(0,dist-t.reach));moves.set(u,{x:u.x+nx*travel,y:u.y+ny*travel});
   }else if(u.cd<=0){u.cd=t.rate;attacks.push([u,target,t])}
  }
  for(const [u,target,t]of attacks){
   if(t.explosionDamage){
-   for(const v of alive)if(v.side!==u.side&&canTarget(u,v)&&Math.hypot(v.x-u.x,v.y-u.y)<=t.explosionRadius+radiusOf(v)+1e-7)hit(v,t.explosionDamage,false,u.k,tokenOf(u));
+   for(const v of alive)if(v.side!==u.side&&canTargetSnapshot(u,v)&&Math.hypot(v.x-u.x,v.y-u.y)<=t.explosionRadius+radiusOf(v)+1e-7)hit(v,t.explosionDamage,false,u.k,tokenOf(u));
    forcedDeaths.add(u);if(collectEvents)publishCombatEvent({type:'bomb_explode',sourceToken:tokenOf(u),x:u.x,y:u.y,radius:t.explosionRadius});
   }else if(t.chainCount){
    let from=u,next=target;const struck=new Set();
    for(let index=0;index<t.chainCount&&next;index++){
     hit(next,t.dmg*Math.pow(t.chainFalloff,index),true,u.k,tokenOf(u));struck.add(next);
     if(collectEvents)publishCombatEvent({type:'chain_link',sourceToken:tokenOf(u),fromToken:tokenOf(from),targetToken:tokenOf(next),x:from.x,y:from.y,targetX:next.x,targetY:next.y,fromX:from.x,fromY:from.y,toX:next.x,toY:next.y,index});
-    from=next;const candidates=alive.filter(v=>v.side!==u.side&&!struck.has(v)&&canTarget(u,v)&&Math.hypot(v.x-from.x,v.y-from.y)<=t.chainRange+1e-7);
+    from=next;const candidates=alive.filter(v=>v.side!==u.side&&!struck.has(v)&&canTargetSnapshot(u,v)&&Math.hypot(v.x-from.x,v.y-from.y)<=t.chainRange+1e-7);
     candidates.sort((a,b)=>Math.hypot(a.x-from.x,a.y-from.y)-Math.hypot(b.x-from.x,b.y-from.y)||stableOrder(a,b));next=candidates[0];
    }
   }else if(t.projectile){
@@ -941,8 +1156,8 @@ function step(dt){
  for(const s of shots){
   const dx=s.target.x-s.x,dy=s.target.y-s.y,d=Math.hypot(dx,dy);
   if(d<=210*dt+1e-7){
-   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(layerOf(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
-   else if(!s.target.dead&&s.mask.includes(layerOf(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
+   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
+   else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
    s.done=true;
   }else if(d>1e-8){s.x=snapPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
  }
@@ -1150,7 +1365,7 @@ update=function(){
   const w=currentWallet(),q=id=>document.querySelector(id);
   q('#status').textContent='第 '+round+' / 20 戦';
   q('#balance').textContent=w.balance+' G';q('#profit').textContent=credits(w.score);q('#hits').textContent=w.correctCount+' / '+walletState.completedRounds;
-  q('#phaseTitle').textContent=state==='choose'?'比較して予想':state==='fight'?'戦場を観戦':round>=20?'20戦の最終結果':'今回の結果';
+  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=20?'20戦の最終結果':'今回の結果';
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
@@ -1397,6 +1612,75 @@ document.querySelector('#exitRoom').onclick=()=>leaveMulti();
 document.querySelector('#formationToggle').onclick=()=>{formationVisible=!formationVisible;document.querySelector('#formationToggle').textContent=formationVisible?'配置を閉じる':'両軍の配置を見る';syncFormation();if(formationVisible)draw();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',drawArmyPreviews);
 showScreen('home');
+
+// Interaction contract: choose stake first, then one army tap commits once.
+// No implicit predictions and no automatic restart after round 20.
+const RESULT_READ_SECONDS=3;
+let resultReadHeld=false;
+let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
+function resetResultRead(){resultReadSeconds=0;resultReadLast=null;}
+function commitArmy(side){
+ if(screenMode!=='game'||state!=='choose')return;
+ if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
+ selectSide(side);startPrediction(false);
+}
+document.querySelector('#red').onclick=()=>commitArmy(0);
+document.querySelector('#blue').onclick=()=>commitArmy(1);
+// Compatibility hook remains inert and hidden; there is no second confirmation.
+document.querySelector('#confirm').hidden=true;
+document.querySelector('#confirm').onclick=()=>{};
+function advanceResultRead(t){
+ if(multiSession||state!=='result'||round>=20||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
+ if(resultReadRound!==round){resetResultRead();resultReadRound=round;resultReadHeld=false;}
+ if(resultReadHeld){resultReadLast=null;return;}
+ if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
+ resultReadLast=t;
+ const next=document.querySelector('#next');
+ next.textContent='次の戦いへ · '+Math.max(0,Math.ceil(RESULT_READ_SECONDS-resultReadSeconds));
+ if(resultReadSeconds>=RESULT_READ_SECONDS){resetResultRead();nextPrediction();}
+}
+const flowLoop=loop;
+loop=function(t){flowLoop(t);advanceResultRead(t);};
+if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',resetResultRead);
+const flowScreen=showScreen;
+showScreen=function(next){if(next!==screenMode)resetResultRead();flowScreen(next);};
+
+function toggleResultHold(){if(multiSession||state!=='result'||round>=20)return;resultReadHeld=!resultReadHeld;resultReadLast=null;const b=document.querySelector('#resultHold');if(b)b.textContent=resultReadHeld?'自動で進むのを再開':'結果をゆっくり見る';}
+const holdButton=document.querySelector('#resultHold');if(holdButton)holdButton.onclick=toggleResultHold;
+// Read-only camera and units inspection. Never affects combat coordinates/RNG.
+let cameraZoom=1,unitsOpen=false,unitsPausedSolo=false,unitsReturnFocus=null;
+const flowDraw=draw;
+draw=function(){
+ const alive=units.filter(u=>!u.dead),cx=alive.length?alive.reduce((n,u)=>n+u.x,0)/alive.length:240,cy=alive.length?alive.reduce((n,u)=>n+u.y,0)/alive.length:269;
+ ctx.save();ctx.clearRect(0,0,480,538);
+ const x=Math.max(240/cameraZoom,Math.min(480-240/cameraZoom,cx)),y=Math.max(269/cameraZoom,Math.min(538-269/cameraZoom,cy));
+ ctx.translate(240,269);ctx.scale(cameraZoom,cameraZoom);ctx.translate(-x,-y);flowDraw();ctx.restore();
+};
+function setCameraZoom(direction){const values=[1,1.25,1.5,2],i=values.indexOf(cameraZoom);cameraZoom=values[Math.max(0,Math.min(values.length-1,i+direction))];draw();syncFlowControls();}
+function fillUnitStats(){for(const side of [0,1]){const node=document.querySelector(side?'#unitsBlueStats':'#unitsRedStats');if(!node)continue;const groups={};for(const u of units.filter(u=>u.side===side)){const g=groups[u.k]||(groups[u.k]={count:0,alive:0,hp:0});g.count++;if(!u.dead){g.alive++;g.hp+=Math.max(0,u.hp);}}
+ node.textContent=Object.entries(groups).map(([k,g])=>{const t=TYPES[k];return t.name+' ×'+g.count+'（生存 '+g.alive+'）\nHP '+Math.ceil(g.hp)+' / '+(t.hp*g.count)+' · 攻撃 '+t.dmg+' · 間隔 '+t.rate+' 秒\n'+UNIT_DETAILS[k];}).join('\n\n');const card=document.querySelector(side?'#blueStats':'#redStats');if(card)card.textContent=node.textContent;}}
+function toggleUnits(open){
+ const panel=document.querySelector('#unitsPanel');if(!panel)return;
+ if(open&&!unitsOpen){unitsReturnFocus=document.activeElement;unitsPausedSolo=!multiSession&&state==='fight'&&!paused;if(unitsPausedSolo)setPaused(true);}
+ if(!open&&unitsOpen&&unitsPausedSolo){setPaused(false);unitsPausedSolo=false;}
+ unitsOpen=open;panel.hidden=!open;if(open){fillUnitStats();document.querySelector('#unitsClose')?.focus?.();}else unitsReturnFocus?.focus?.();syncFlowControls();
+}
+function syncFlowControls(){
+ const q=id=>document.querySelector(id),s=multiSession?.getState();
+ q('#gameScreen')?.setAttribute('data-phase',state);
+ const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<20;
+ const hold=q('#resultHold');if(hold){hold.hidden=!!multiSession||round>=20;hold.textContent=resultReadHeld?'自動で進むのを再開':'結果をゆっくり見る';}
+ const countdown=q('#resultCountdown');if(countdown)countdown.textContent=multiSession?'':round>=20?'20戦終了':state==='result'?(resultReadHeld?'自動進行を停止中':Math.max(0,Math.ceil(RESULT_READ_SECONDS-resultReadSeconds))+'秒後に次の予想へ'):'';
+ for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2]])if(q(id))q(id).disabled=disabled;
+ if(unitsOpen||state==='choose')fillUnitStats();
+}
+for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}],['#zoomOut',()=>setCameraZoom(-1)],['#zoomIn',()=>setCameraZoom(1)]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
+const flowUpdate=update;update=function(){flowUpdate();syncFlowControls();};
+const flowDisplayMulti=displayMultiState;displayMultiState=function(){flowDisplayMulti();syncFlowControls();};
+const flowAdvance=advanceResultRead;advanceResultRead=function(t){if(unitsOpen){resultReadLast=null;syncFlowControls();return;}flowAdvance(t);syncFlowControls();};
+syncFlowControls();
+
+if(typeof document.addEventListener==='function')document.addEventListener('keydown',e=>{if(!unitsOpen)return;if(e.key==='Escape'){e.preventDefault();toggleUnits(false);}else if(e.key==='Tab'){e.preventDefault();document.querySelector('#unitsClose')?.focus?.();}});
 
 requestAnimationFrame(loop);
 if(typeof window!=='undefined'&&window.__gameBootComplete)window.__gameBootComplete();

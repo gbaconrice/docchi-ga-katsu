@@ -54,6 +54,10 @@ function step(dt){
   if(collectEvents)for(const child of arrivals){publishCombatEvent({type:'summon_spawn',parentToken:child.ownerToken,childToken:tokenOf(child),k:child.k,side:child.side,x:child.x,y:child.y});if(child.splitChild)publishCombatEvent({type:'split_spawn',parentToken:child.ownerToken,childToken:tokenOf(child),k:child.k,side:child.side,x:child.x,y:child.y});}
  }
  const alive=units.filter(u=>!u.dead).sort(stableOrder),pending=new Map(),moves=new Map(),attacks=[],spawnRequests=[],near=nearbyGrid(alive);
+ // Targetability is a shared tick-start snapshot, not actor iteration order.
+ const targetLayers=new Map(alive.map(u=>[u,layerOf(u)]));
+ const canTargetSnapshot=(a,b)=>(TYPES[a.k].attackTargetMask||['ground']).includes(targetLayers.get(b));
+ const snapshotBodies=alive.map(v=>({k:v.k,x:v.x,y:v.y,burrowStage:targetLayers.get(v)==='underground'?'underground':undefined}));
  const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[];
  const resolvedHits=collectEvents?[]:null,healIntents=collectEvents?new Map():null,damageByTarget=collectEvents?new Map():null,golemContacts=collectEvents?[]:null;
  function hit(u,n,ranged,sourceKind,sourceToken){
@@ -65,7 +69,7 @@ function step(dt){
  for(const u of alive){
   tokenOf(u);if(u.originForward===undefined)u.originForward=u.y<=FIELD.h/2?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
-  const enemies=alive.filter(v=>v.side!==u.side&&canTarget(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
+  const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
@@ -88,7 +92,7 @@ function step(dt){
    u.summonCd=(u.summonCd??t.summonInitialDelay??t.summonCooldown??0)-dt;
    if(u.summonCd<=0&&sideCounts[u.side]<TEAM_CAP){
     const spawnIndex=u.spawnCount??0,token=`${tokenOf(u)}/summon:${spawnIndex}`;
-    const occupied=alive.concat(spawnRequests.map(s=>({k:'goblin',x:s.x,y:s.y,side:s.parent.side}))),pos=spawnPosition(u,token,occupied);
+    const occupied=snapshotBodies.concat(spawnRequests.map(s=>({k:'goblin',x:s.x,y:s.y,side:s.parent.side}))),pos=spawnPosition(u,token,occupied);
     if(pos){spawnRequests.push({parent:u,spawnIndex,token,...pos});u.spawnCount=spawnIndex+1;u.summonCharges--;u.summonCd=t.summonCooldown??4;sideCounts[u.side]++}
     else u.summonCd=.25;
    }
@@ -108,21 +112,21 @@ function step(dt){
   if(dist>t.reach+1/2048){
    let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
-   const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&canCollide(u,v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
+   const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&targetLayers.get(u)===targetLayers.get(v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
    if(blocked){const turn=(u.priority??.25)<.5?-1:1,tx=ny*u.originForward*turn,ty=-nx*u.originForward*turn;nx+=tx*1.35;ny+=ty*1.35;const length=Math.hypot(nx,ny);nx/=length;ny/=length}
    const baseSpeed=u.chargeReady?t.chargeSpeed:t.speed,speed=u.slowUntil>elapsed?baseSpeed*u.slowFactor:baseSpeed;const travel=Math.min(speed*dt,Math.max(0,dist-t.reach));moves.set(u,{x:u.x+nx*travel,y:u.y+ny*travel});
   }else if(u.cd<=0){u.cd=t.rate;attacks.push([u,target,t])}
  }
  for(const [u,target,t]of attacks){
   if(t.explosionDamage){
-   for(const v of alive)if(v.side!==u.side&&canTarget(u,v)&&Math.hypot(v.x-u.x,v.y-u.y)<=t.explosionRadius+radiusOf(v)+1e-7)hit(v,t.explosionDamage,false,u.k,tokenOf(u));
+   for(const v of alive)if(v.side!==u.side&&canTargetSnapshot(u,v)&&Math.hypot(v.x-u.x,v.y-u.y)<=t.explosionRadius+radiusOf(v)+1e-7)hit(v,t.explosionDamage,false,u.k,tokenOf(u));
    forcedDeaths.add(u);if(collectEvents)publishCombatEvent({type:'bomb_explode',sourceToken:tokenOf(u),x:u.x,y:u.y,radius:t.explosionRadius});
   }else if(t.chainCount){
    let from=u,next=target;const struck=new Set();
    for(let index=0;index<t.chainCount&&next;index++){
     hit(next,t.dmg*Math.pow(t.chainFalloff,index),true,u.k,tokenOf(u));struck.add(next);
     if(collectEvents)publishCombatEvent({type:'chain_link',sourceToken:tokenOf(u),fromToken:tokenOf(from),targetToken:tokenOf(next),x:from.x,y:from.y,targetX:next.x,targetY:next.y,fromX:from.x,fromY:from.y,toX:next.x,toY:next.y,index});
-    from=next;const candidates=alive.filter(v=>v.side!==u.side&&!struck.has(v)&&canTarget(u,v)&&Math.hypot(v.x-from.x,v.y-from.y)<=t.chainRange+1e-7);
+    from=next;const candidates=alive.filter(v=>v.side!==u.side&&!struck.has(v)&&canTargetSnapshot(u,v)&&Math.hypot(v.x-from.x,v.y-from.y)<=t.chainRange+1e-7);
     candidates.sort((a,b)=>Math.hypot(a.x-from.x,a.y-from.y)-Math.hypot(b.x-from.x,b.y-from.y)||stableOrder(a,b));next=candidates[0];
    }
   }else if(t.projectile){
@@ -140,8 +144,8 @@ function step(dt){
  for(const s of shots){
   const dx=s.target.x-s.x,dy=s.target.y-s.y,d=Math.hypot(dx,dy);
   if(d<=210*dt+1e-7){
-   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(layerOf(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
-   else if(!s.target.dead&&s.mask.includes(layerOf(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
+   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
+   else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
    s.done=true;
   }else if(d>1e-8){s.x=snapPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
  }

@@ -1,103 +1,137 @@
-<!-- Static integration shell only. Keep existing combat engine and sprite atlas/renderer. -->
+<!-- Candidate UI shell only. Keep battle, wallet, room, and sprite logic in the existing controller. -->
 <main id="app">
-<header class="app-header">
-  <h1>どっちが勝つ？</h1>
-  <div class="wallet-pill" aria-label="ゲーム内通貨">
-    <span aria-hidden="true">G</span><strong id="balance">100</strong>
-  </div>
-</header>
-
-<section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
-  <p id="homeTitle" class="lead">2つの軍を見比べて、勝つ方を予想しよう！</p>
-  <button id="soloStart" class="cta cta-primary">ひとりで遊ぶ</button>
-  <button id="showMultiplayer" class="cta cta-secondary">みんなで遊ぶ</button>
-  <p class="home-note">予想は無料。上乗せしなくても遊べます。</p>
-</section>
-
-<button id="mockRoom" hidden>mock</button>
-
-<section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
-  <h2 id="roomTitle">みんなで遊ぶ</h2>
-  <p class="status-line">部屋は GRAVITY 連携用です（接続は未検証）。接続できないときも、ひとりで遊べます。</p>
-  <button id="createRoom" class="cta cta-primary">部屋をつくる</button>
-  <button id="beginRound" class="cta cta-primary" hidden>第1戦をはじめる</button>
-  <label class="room-code-label" for="roomId">部屋コードで参加</label>
-  <div class="room-join-row">
-    <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
-    <button id="joinRoom" class="cta cta-secondary">参加</button>
-  </div>
-  <button id="backHome" class="text-button">戻る</button>
-</section>
-
-<div id="multiStatusRow" class="multi-status-row" hidden><p id="roomStatus" class="status-line" aria-live="polite"></p><button id="exitRoom" class="text-button" hidden>退出してひとりに戻る</button></div>
-
-<section id="gameScreen" class="screen game-screen" hidden aria-labelledby="phaseTitle">
-  <div class="game-topline"><p id="status" class="round-status"></p><button id="gameHome" class="text-button">ホーム</button></div>
-  <h2 id="phaseTitle" class="phase-title">勝つのはどっち？</h2>
-
-  <section id="comparison" class="comparison" aria-label="予想する軍を選ぶ">
-    <div class="army-grid">
-      <article class="army-card army-red" aria-labelledby="redTitle">
-        <h3 id="redTitle">朱軍</h3>
-        <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="朱軍の兵士の編成"></canvas>
-        <p id="redList" class="army-summary" aria-live="polite"></p>
-        <button id="red" class="team-button red-button" aria-pressed="false">朱軍が勝つ</button>
-      </article>
-      <article class="army-card army-blue" aria-labelledby="blueTitle">
-        <h3 id="blueTitle">蒼軍</h3>
-        <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="蒼軍の兵士の編成"></canvas>
-        <p id="blueList" class="army-summary" aria-live="polite"></p>
-        <button id="blue" class="team-button blue-button" aria-pressed="false">蒼軍が勝つ</button>
-      </article>
+  <header class="app-header">
+    <h1>どっちが勝つ？</h1>
+    <div class="wallet-pill" aria-label="ゲーム内通貨">
+      <strong id="balance">100 G</strong>
     </div>
+  </header>
 
-    <label for="unitKind">兵種の特徴</label> <select id="unitKind" aria-describedby="unitTrait"></select>
-    <p id="unitTrait" class="status-line" aria-live="polite"></p>
-    <button id="formationToggle" class="text-button">両軍の配置を見る</button>
-    <section class="stake-card" aria-labelledby="stakeTitle">
-      <h3 id="stakeTitle">予想を選んだら、Gを上乗せ（任意）</h3>
-      <div class="stake-options" role="group" aria-label="上乗せ額">
-        <button id="stake0" class="stake-option" aria-pressed="true">なし</button>
-        <button id="stake10" class="stake-option" aria-pressed="false">10 G</button>
-        <button id="stake25" class="stake-option" aria-pressed="false">25 G</button>
-        <button id="stake50" class="stake-option" aria-pressed="false">50 G</button>
+  <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
+    <p id="homeTitle" class="lead">2つの軍を見比べて、勝つ方を選ぼう。</p>
+    <button id="soloStart" class="home-choice cta-primary" type="button">ひとりで遊ぶ</button>
+    <button id="showMultiplayer" class="home-choice cta-secondary" type="button">みんなで遊ぶ</button>
+    <p class="home-note">予想は無料。上乗せはいつでも任意です。</p>
+  </section>
+
+  <button id="mockRoom" type="button" hidden aria-hidden="true" tabindex="-1"></button>
+
+  <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
+    <h2 id="roomTitle">みんなで遊ぶ</h2>
+    <p class="room-hint">部屋をつくるか、部屋コードで合流できます。</p>
+    <button id="createRoom" class="cta cta-primary" type="button">部屋をつくる</button>
+    <button id="beginRound" class="cta cta-primary" type="button" hidden>第1戦をはじめる</button>
+    <label class="room-code-label" for="roomId">部屋コードで参加</label>
+    <div class="room-join-row">
+      <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
+      <button id="joinRoom" class="cta cta-secondary" type="button">参加</button>
+    </div>
+    <button id="backHome" class="text-button" type="button">ホームへ戻る</button>
+  </section>
+
+  <div id="multiStatusRow" class="multi-status-row" hidden>
+    <p id="roomStatus" class="status-line" aria-live="polite"></p>
+    <button id="exitRoom" class="text-button" type="button" hidden>退出してひとりに戻る</button>
+  </div>
+
+  <section id="gameScreen" class="screen game-screen" hidden aria-labelledby="phaseTitle">
+    <div class="game-topline">
+      <p id="status" class="round-status" aria-live="polite">第 1 / 20 戦</p>
+      <button id="gameHome" class="text-button menu-button" type="button">メニュー</button>
+    </div>
+    <h2 id="phaseTitle" class="phase-title">勝つのはどっち？</h2>
+
+    <section id="comparison" class="comparison" aria-label="軍を比べて勝つ方を予想">
+      <section class="stake-card" aria-labelledby="stakeTitle">
+        <h3 id="stakeTitle">上乗せ額 <span class="optional-label">任意</span></h3>
+        <div class="stake-options" role="group" aria-label="上乗せ額を先に選ぶ">
+          <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
+          <button id="stake10" class="stake-option" type="button" aria-pressed="false">10 G</button>
+          <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
+          <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
+        </div>
+        <p id="stakeHint" class="stake-hint" aria-live="polite">無料予想：的中 +10 G / はずれても 0 G</p>
+        <p class="choice-hint">額を選んだら、勝つと思う軍カードをタップ。</p>
+      </section>
+
+      <div class="army-grid" role="group" aria-label="勝つと思う軍を選ぶ">
+        <button id="red" class="army-card army-red" type="button" aria-pressed="false">
+          <span class="army-title" id="redTitle">朱軍</span>
+          <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="朱軍の兵士"></canvas>
+          <span id="redList" class="army-summary sr-only" aria-live="off"></span>
+          <span id="redStats" class="unit-stats" aria-live="off">兵情報</span>
+          <span class="team-action">朱軍が勝つ</span>
+        </button>
+        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false">
+          <span class="army-title" id="blueTitle">蒼軍</span>
+          <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="蒼軍の兵士"></canvas>
+          <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
+          <span id="blueStats" class="unit-stats" aria-live="off">兵情報</span>
+          <span class="team-action">蒼軍が勝つ</span>
+        </button>
       </div>
-      <p id="stakeHint" class="stake-hint" aria-live="polite">無料予想：的中 +10 G / はずれても 0 G</p>
-      <button id="confirm" class="cta cta-primary confirm-button" disabled>この予想でバトル！</button>
-      <button id="skip" class="text-button skip-button">予想せず、バトルを見る</button>
+
+      <div class="secondary-actions">
+        <button id="skip" class="text-button" type="button">予想せず観戦</button>
+        <button id="formationToggle" class="text-button" type="button">実際の配置を見る</button>
+      </div>
+
+      <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
+      <div class="compatibility-hooks" hidden aria-hidden="true">
+        <label for="unitKind">兵種の特徴</label><select id="unitKind"></select>
+        <p id="unitTrait"></p>
+      </div>
+      <button id="confirm" type="button" hidden aria-hidden="true" tabindex="-1">確定</button>
+    </section>
+
+    <section id="battle" class="battle" hidden aria-label="バトルを観戦">
+      <div class="battle-toolbar">
+        <p id="battleClock" class="battle-clock" aria-live="off"></p>
+        <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵情報</button>
+      </div>
+      <div class="field-stage">
+        <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
+      </div>
+      <div id="battleControls" class="battle-controls" aria-label="戦場の操作">
+        <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
+        <button id="speedDown" class="control-button" type="button" aria-label="戦闘速度を下げる">速度 −</button>
+        <button id="speedUp" class="control-button" type="button" aria-label="戦闘速度を上げる">速度 ＋</button>
+        <button id="zoomOut" class="control-button" type="button" aria-label="戦場を縮小">縮小</button>
+        <button id="zoomIn" class="control-button" type="button" aria-label="戦場を拡大">拡大</button>
+        <button id="effects" class="control-button" type="button" aria-label="演出を切り替える">演出</button>
+        <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
+      </div>
+    </section>
+
+    <section id="resultPanel" class="result-panel" hidden aria-live="polite" aria-atomic="true">
+      <h3 id="message" class="result-title"></h3>
+      <p id="breakdown" class="result-summary"></p>
+      <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
+      <p id="resultCountdown" class="result-countdown" aria-live="off"></p>
+      <button id="resultHold" class="text-button result-hold" type="button">結果をゆっくり見る</button>
+      <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
   </section>
 
-  <section id="battle" class="battle" hidden aria-label="バトルを観戦">
-    <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
-    <p id="battleClock" class="status-line" aria-live="off"></p>
-    <div id="battleControls" class="battle-controls">
-      <button id="pause" class="control-button">一時停止</button>
-      <button id="speed" class="control-button">速度 1×</button>
-      <button id="effects" class="control-button">演出</button>
+  <!-- The original has one UNITS action. This read-only overlay never changes the simulation. -->
+  <section id="unitsPanel" class="units-panel" role="dialog" aria-modal="true" aria-labelledby="unitsTitle" hidden>
+    <div class="units-dialog">
+      <div class="units-heading">
+        <h2 id="unitsTitle">両軍の兵情報</h2>
+        <button id="unitsClose" class="text-button" type="button">閉じる</button>
+      </div>
+      <div class="units-grid">
+        <section class="units-side units-side-red" aria-labelledby="unitsRedTitle">
+          <h3 id="unitsRedTitle">朱軍</h3>
+          <div id="unitsRedStats" class="unit-stats units-stat-list"></div>
+        </section>
+        <section class="units-side units-side-blue" aria-labelledby="unitsBlueTitle">
+          <h3 id="unitsBlueTitle">蒼軍</h3>
+          <div id="unitsBlueStats" class="unit-stats units-stat-list"></div>
+        </section>
+      </div>
+      <p class="units-note">ソロでは表示中に一時停止。オンライン観戦中は戦闘が続きます。</p>
     </div>
   </section>
-
-  <section id="resultPanel" class="result-panel" hidden aria-live="polite">
-    <h3 id="message" class="result-title"></h3>
-    <p id="breakdown" class="result-summary"></p>
-    <details id="scoreDetails" class="score-details">
-      <summary>成績を見る</summary>
-      <p>純益：<span id="profit"></span></p>
-      <p>正解：<span id="hits"></span></p>
-      <p class="hint">GRAVITY の負スコア受付は未確認です。</p><p id="scoreStatus" aria-live="polite"></p>
-    </details>
-
-    <button id="next" class="cta cta-primary">次の戦いへ</button>
-  </section>
-</section>
-
-<details id="help" class="help-details">
-  <summary>遊び方・17兵種の特徴</summary>
-  <p>G は購入・換金できないゲーム内ポイントです。開始は100 G、全20戦。勝つ軍を選び、任意で0 / 10 / 25 / 50 Gを上乗せします（残高以内）。無料予想は的中 +10 G、はずれても減りません。</p>
-  <p>上乗せして的中すると +10 G に上乗せ額と同額の利益が加わり、はずれると上乗せ分だけ失います。例：25 Gを上乗せすると的中 +35 G、はずれ −25 G。見るだけ・引き分けは増減なし。残高0 Gでも無料予想は続けられます。純益スコアは残高−開始100 Gです。</p>
-  <p>左右のカードは兵種の代表姿と人数です。「両軍の配置を見る」で実際の布陣も確認できます。同じ兵数でも、射程・丈夫さ・位置・相性で結果は変わります。60秒で決着しなければ引き分けです。</p>
-  <p>飛行に届くのは弓・砲・氷術師・雷術師・亡霊術師・羽トカゲ。兵種ごとの特徴は予想画面で選んで確認できます。戦いごとに新しい両軍になります。後半ほど兵種が増え、最大3兵種の混成です。</p>
-</details>
-
 </main>

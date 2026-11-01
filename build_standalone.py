@@ -38,11 +38,8 @@ b+=bundle('SDKAdapter','multiplayer/sdk-adapter.mjs','const {PROTOCOL,encode,dec
 b+=bundle('CompactReplay','replay/compact-replay.mjs')
 s=s.replace('const TYPES=',b+'\nconst TYPES=',1)
 s=s.replace('function loop(t)',(root/'source/effects-adapter.js').read_text()+'\nfunction loop(t)',1)
-s=s.replace('<div class="wallet"',"""<details id="modePanel"><summary>ひとり / みんなで観戦（通信試作）</summary><p class="hint">SDK実機未検証。部屋操作はボタンを押したときだけ接続します。既定はオフラインひとり用です。</p><div class="actions"><button id="mockRoom">2人ローカルmock</button><button id="createRoom">部屋を作る</button></div><label>部屋ID <input id="roomId" type="text" autocomplete="off" maxlength="128"></label><div class="actions"><button id="joinRoom">部屋に参加</button><button id="exitRoom" hidden>退出してひとりに戻る</button></div><button id="beginRound" hidden>このメンバーで第1戦へ</button><p id="roomStatus" class="hint">オフライン・ひとり用</p></details><div class="wallet" """,1)
-# fix replacement attribute spacing
-s=s.replace('class="wallet"  aria-label','class="wallet" aria-label')
 code=(root/'source/multi-ui.js').read_text()
-s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\nrequestAnimationFrame(loop);')
+s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\n'+(root/'source/flow-ui.js').read_text()+'\nrequestAnimationFrame(loop);')
 s=re.sub(r'<style>[\s\S]*?</style>', lambda m:'<style>'+(root/'source/ui.css').read_text()+'</style>',s,count=1)
 s=re.sub(r'<main>[\s\S]*?</main>', lambda m:(root/'source/ui-shell.html').read_text(),s,count=1)
 s=s.replace("canvas=document.querySelector('canvas')","canvas=document.querySelector('#field')")
