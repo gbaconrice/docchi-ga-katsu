@@ -112,6 +112,7 @@ function syncPredictionPreview(){
  if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){q('#comparison').hidden=predictionPreview;q('#battle').hidden=!predictionPreview;q('#battleControls').hidden=true;}
  for(const id of ['#battleClock','#unitsToggle','#soundToggle'])if(q(id))q(id).hidden=predictionPreview||(id==='#battleClock'&&state!=='fight');
  if(q('#formationBack'))q('#formationBack').hidden=!predictionPreview;
+ q('#gameScreen')?.setAttribute('data-field-view',String(state==='fight'||predictionPreview));
 }
 function setPredictionPreview(value){if(value&&state!=='choose')return;predictionPreview=!!value;previewOpening=initialUnits;if(value){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;syncCameraInput();}syncPredictionPreview();if(predictionPreview)draw();}
 document.querySelector('#formationToggle').onclick=()=>setPredictionPreview(true);

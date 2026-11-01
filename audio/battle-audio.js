@@ -39,6 +39,8 @@
     let master = null;
     let noiseBuffer = null;
     let ambientGain = null;
+    let ambientDuckGain = null;
+    let specialSfx = null;
     let ambientNodes = [];
     let ambientLevel = 0;
     let muted = false;
@@ -51,6 +53,7 @@
     let lastHitAt = -Infinity;
     let lastSpecialAt = -Infinity;
     let lastHealAt = -Infinity;
+    let lastDuckAt = -Infinity;
     let nodes = new Set();
     let voices = new Set();
     let queuedCues = [];
@@ -122,6 +125,8 @@
       if (typeof Context !== 'function') return false;
       try {
         context = new Context();
+        specialSfx = typeof globalThis.createOriginalSpecialSfxBank === 'function'
+          ? globalThis.createOriginalSpecialSfxBank(context) : null;
         master = managed(context.createGain());
         master.gain.value = muted || suppressed ? 0 : 0.42;
         master.connect(context.destination);
@@ -154,6 +159,8 @@
       for (const n of ambientNodes) releaseNode(n);
       ambientNodes = [];
       ambientGain = null;
+      ambientDuckGain = null;
+      specialSfx = null;
       if (master) releaseNode(master);
       master = null;
       try { context?.close?.(); } catch (_) { /* unavailable/closed */ }
@@ -222,12 +229,15 @@
     }
 
     function makeAmbient() {
-      if (!context || ambientGain || nodeCount() + 7 > MAX_NODES) return;
+      if (!context || ambientGain || nodeCount() + 8 > MAX_NODES) return;
       try {
         ambientGain = managed(context.createGain());
         ambientGain.gain.value = 0;
-        ambientGain.connect(master);
-        ambientNodes.push(ambientGain);
+        ambientDuckGain = managed(context.createGain());
+        ambientDuckGain.gain.value = 1;
+        ambientGain.connect(ambientDuckGain);
+        ambientDuckGain.connect(master);
+        ambientNodes.push(ambientGain, ambientDuckGain);
         // A quiet two-note fifth with no beat loop or external asset: a soft
         // room-tone bed, not another foreground melody.
         for (const [hz, amp] of [[55, 0.013], [82.41, 0.0075], [110, 0.0025]]) {
@@ -243,6 +253,7 @@
         for (const n of ambientNodes) releaseNode(n);
         ambientNodes = [];
         ambientGain = null;
+        ambientDuckGain = null;
       }
     }
 
@@ -259,6 +270,19 @@
       const ok = ensureContext(event);
       if (ok) syncAmbient();
       return ok;
+    }
+
+    function duckAmbient(depth = 0.76, duration = 0.28) {
+      if (!enabled() || !ambientDuckGain) return;
+      const t = now();
+      if (t - lastDuckAt < 0.045) return;
+      lastDuckAt = t;
+      try {
+        const p = ambientDuckGain.gain;
+        p.cancelScheduledValues(t);
+        p.setValueAtTime(depth, t);
+        p.linearRampToValueAtTime(1, t + duration);
+      } catch (_) { /* absent automation is non-fatal */ }
     }
 
     function startVoice(duration) {
@@ -393,6 +417,11 @@
     }
 
     function playCue(kind, intensity = 1, guard = null, fromQueue = false) {
+      const special = { golem: 'heavy', storm: 'zap', bomb: 'blast', drake: 'metal' };
+      if (special[kind]) {
+        if (specialSfx) return playSpecialCue(kind, intensity);
+        kind = special[kind]; // graceful fallback if the bank did not load
+      }
       const specs = {
         select: { duration: 0.065, tones: [[620, 0.17, 0.024, 'triangle', 0, 455]], noise: [0.024, 0.18, 2200] },
         start:  { duration: 0.19, tones: [[146.8, 0.16, 0.025, 'triangle'], [220, 0.15, 0.012, 'sine', 0.035]], noise: [0.075, 0.13, 680] },
@@ -426,6 +455,29 @@
         addTone(voice, freq, dur, amp * volume, type, delay || 0, bend || 0);
       if (spec.noise) addNoise(voice, spec.noise[0], spec.noise[1] * volume, spec.noise[2], spec.noise[3] || 0);
       if (voice.pending === 0) endVoice(voice);
+      return true;
+    }
+
+    function playSpecialCue(kind, intensity = 1) {
+      if (!specialSfx || !enabled() || voices.size >= MAX_VOICES || nodeCount() + 2 > MAX_NODES) return false;
+      let buffer;
+      try { buffer = specialSfx.getBuffer(kind); } catch (_) { return false; }
+      if (!buffer || !(buffer.duration > 0)) return false;
+      const voice = startVoice(buffer.duration);
+      if (!voice) return false;
+      const t = now() + 0.008;
+      const amplitude = ({ golem: 0.40, storm: 0.38, bomb: 0.36, drake: 0.37 })[kind] * clamp(intensity, 0.55, 1);
+      try {
+        voice.bus.gain.cancelScheduledValues(t);
+        voice.bus.gain.setValueAtTime(amplitude, t);
+      } catch (_) { voice.bus.gain.value = amplitude; }
+      try {
+        const source = managed(context.createBufferSource());
+        source.buffer = buffer;
+        if (!attachSource(voice, source, 0, buffer.duration, 0.02)) return false;
+      } catch (_) { endVoice(voice); return false; }
+      if (voice.pending === 0) endVoice(voice);
+      duckAmbient(kind === 'bomb' ? 0.72 : 0.77, kind === 'bomb' ? 0.34 : 0.25);
       return true;
     }
 
@@ -496,11 +548,11 @@
         if (!event || typeof event.type !== 'string') continue;
         let candidate = null;
         switch (event.type) {
-          case 'bomb_explode': candidate = { cue: 'blast', rank: 8, source: event.sourceToken }; break;
+          case 'bomb_explode': candidate = { cue: 'bomb', rank: 8, source: event.sourceToken }; break;
           case 'charge_impact': candidate = { cue: 'heavy', rank: 7, source: event.sourceToken }; break;
-          case 'golem_ground_contact': candidate = { cue: 'heavy', rank: 6, source: event.sourceToken }; break;
+          case 'golem_ground_contact': candidate = { cue: 'golem', rank: 6, source: event.sourceToken }; break;
           case 'chain_link':
-            if (event.index === undefined || event.index === 0) candidate = { cue: 'zap', rank: 5, source: event.sourceToken };
+            candidate = { cue: 'storm', rank: 5, source: event.sourceToken };
             break;
           case 'heal':
             if (Number(event.actualAmount) > 0) candidate = { cue: 'heal', rank: 4, source: event.sourceToken };
@@ -508,7 +560,7 @@
           case 'burrow_emerge': candidate = { cue: 'emerge', rank: 3, source: event.sourceToken }; break;
           case 'slow_applied': candidate = { cue: 'magic', rank: 2, source: event.sourceToken }; break;
           case 'resolved_hit':
-            if (Number(event.amount) > 0) candidate = { cue: hitCue(event.sourceKind), rank: 1, source: event.sourceToken, amount: Number(event.amount) };
+            if (Number(event.amount) > 0) candidate = { cue: String(event.sourceKind || '').toLowerCase() === 'drake' ? 'drake' : hitCue(event.sourceKind), rank: 1, source: event.sourceToken, amount: Number(event.amount) };
             break;
         }
         if (candidate && (!best || candidate.rank > best.rank ||
@@ -528,7 +580,8 @@
         if (t - lastHealAt < 0.52) return 0;
         lastHealAt = t;
       }
-      const strength = best.cue === 'blast' || best.cue === 'heavy' ? 0.88 :
+      const strength = best.cue === 'blast' || best.cue === 'heavy' || best.cue === 'golem' || best.cue === 'bomb' ? 0.88 :
+        best.cue === 'storm' ? 0.78 :
         best.cue === 'magic' || best.cue === 'heal' || best.cue === 'zap' ? 0.66 :
           clamp(0.55 + (best.amount || 1) / 45, 0.55, 0.86);
       return playCue(best.cue, strength, { battleId: key, phase: 'battle' }) ? 1 : 0;
@@ -541,7 +594,7 @@
       const source = Array.isArray(effects) ? effects : [];
       for (const effect of source) {
         switch (effect?.kind) {
-          case 'hit_spark': mapped.push({ type: 'resolved_hit', sourceKind: 'goblin', amount: 1 }); break;
+          case 'hit_spark': mapped.push({ type: 'resolved_hit', sourceKind: effect.sourceKind || effect.k || 'goblin', amount: 1 }); break;
           case 'charge_trail': mapped.push({ type: 'charge_impact' }); break;
           case 'bomb_explosion': mapped.push({ type: 'bomb_explode' }); break;
           case 'ground_slam': mapped.push({ type: 'golem_ground_contact' }); break;

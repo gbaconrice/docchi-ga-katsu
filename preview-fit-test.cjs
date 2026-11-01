@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');const h=fs.readFileSync(process.argv[2]||'index.html','utf8');const nodes={};for(const m of h.matchAll(/<([a-z0-9]+)\b([^>]*)>/g)){const id=m[2].match(/id="([^"]+)"/);if(id)nodes['#'+id[1]]={hidden:/\bhidden\b/.test(m[2]),disabled:/\bdisabled\b/.test(m[2]),setAttribute(k,v){this[k]=v;}}}let raf=[],images=[];const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)});for(const id of ['#field','#armyPreviewRed','#armyPreviewBlue'])nodes[id].getContext=()=>ctx;const c={console,TextEncoder,TextDecoder,btoa,atob,URLSearchParams,location:{search:''},document:{getElementById:id=>nodes['#'+id]||null,querySelector:s=>s==='canvas'?nodes['#field']:nodes[s]||null},requestAnimationFrame:f=>raf.push(f),Image:class{constructor(){this.complete=true;this.naturalWidth=1000;images.push(this)}}};c.window=c;const listeners={};c.addEventListener=(type,fn)=>{listeners[type]=fn};if(process.env.NO_ENCODER)c.TextEncoder=undefined;vm.createContext(c);for(const [i,m] of [...h.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].entries()){new vm.Script(m[1],{filename:'inline-'+i}).runInContext(c)};if(nodes['#bootStatus']&&!nodes['#bootStatus'].hidden)throw Error('boot monitor not cleared');
+const run=s=>vm.runInContext(s,c);let now=0;
+function frame(n=1){for(let i=0;i<n;i++){now+=100;const q=raf;raf=[];for(const f of q)f(now)}}
+function click(id){assert(nodes[id],id);assert(!nodes[id].disabled,id+' disabled');assert.equal(typeof nodes[id].onclick,'function',id+' missing handler');nodes[id].onclick()}
+
+
+
+
+click('#soloStart');assert.equal(nodes['#gameScreen']['data-field-view'],'false');click('#stake25');click('#blue');
+const before=run('JSON.stringify({units,initialUnits,walletState,seed,elapsed,choice,selectedStake,selectedSide})');
+click('#formationToggle');assert.equal(run('state'),'choose');assert.equal(nodes['#gameScreen']['data-phase'],'choose');assert.equal(nodes['#gameScreen']['data-field-view'],'true');assert.equal(nodes['#comparison'].hidden,true);assert.equal(nodes['#battle'].hidden,false);assert.equal(nodes['#battleControls'].hidden,true);frame(5);assert.equal(run('JSON.stringify({units,initialUnits,walletState,seed,elapsed,choice,selectedStake,selectedSide})'),before);
+click('#formationBack');assert.equal(nodes['#gameScreen']['data-field-view'],'false');assert.equal(nodes['#comparison'].hidden,false);assert.equal(nodes['#battle'].hidden,true);assert.equal(run('selectedStake'),25);assert.equal(run('selectedSide'),1);
+click('#confirm');assert.equal(nodes['#gameScreen']['data-field-view'],'true');assert.equal(run('state'),'fight');
+const css=fs.readFileSync('source/ui.css','utf8');assert(css.includes('#gameScreen[data-field-view="true"] .field-stage'));assert(!css.includes('#gameScreen[data-phase="fight"]'));assert(css.includes('inset: 0;'));assert(css.includes('height: 100%;'));
+console.log('PASS preview and fight share field-fit attribute/CSS; choose phase unchanged; back restores compare; preview preserves world/wallet/draft/clock. Static DOM only, not visual proof.');

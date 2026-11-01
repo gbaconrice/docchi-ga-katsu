@@ -126,7 +126,7 @@ async function enterNative(kind){
  if(multiBusy||multiSession||state==='fight')return;const roomId=document.querySelector('#roomId').value?.trim();if(kind==='join'&&!roomId){document.querySelector('#roomStatus').textContent='部屋IDを入力してください';return;}
  multiBusy=true;document.querySelector('#roomStatus').textContent='部屋へ接続しています…';
  try{
-  if(!multiAdapter){const sdk=await loadNativeSDK();multiAdapter=await SDKAdapter.install({sdk,nonce:()=>crypto.randomUUID(),sessionFactory:MultiBinding.createWalletSession,sessionOptions:{onChange:onMultiChange}});}
+  if(!multiAdapter){const sdk=await loadNativeSDK();multiAdapter=await SDKAdapter.install({sdk,nonce:()=>crypto.randomUUID(),sessionFactory:MultiBinding.createWalletSession,onReaction:(sender,wire)=>receiveReaction(sender,wire),sessionOptions:{onChange:onMultiChange}});}
   nativeProfileVerified=true;multiUser=multiAdapter.userId;multiHost=kind==='create';multiError='';multiRoundSeen=null;multiPlayback=null;mockGuest=null;
   multiSession=kind==='create'?await multiAdapter.create():await multiAdapter.join(roomId);multiSnapshot=multiSession.getState();document.querySelector('#roomId').value=multiAdapter.getRoomId();displayMultiState();
  }catch(e){document.querySelector('#roomStatus').textContent=String(e.message)+' / オフラインひとり用は継続できます。';if(multiAdapter)document.querySelector('#exitRoom').hidden=false;}

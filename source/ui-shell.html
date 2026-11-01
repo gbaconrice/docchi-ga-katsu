@@ -82,9 +82,17 @@
     <section id="battle" class="battle" hidden aria-label="戦闘">
       <div class="battle-toolbar">
         <p id="battleClock" class="battle-clock" aria-live="off"></p>
+        <div id="reaction-feedback" class="reaction-feedback" aria-live="polite" aria-atomic="true"></div>
         <button id="formationBack" class="text-button" type="button" hidden aria-controls="comparison">戻る</button>
         <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵種</button>
         <button id="soundToggle" class="sound-toggle" type="button" aria-label="音を切り替える">音</button>
+        <button id="reactionToggle" class="sound-toggle reaction-toggle" type="button" aria-label="リアクションを選ぶ" aria-controls="reaction-bar" aria-expanded="false" hidden>☺</button>
+        <div id="reaction-bar" class="reaction-bar" role="group" aria-label="リアクション" hidden>
+          <button id="reactionWow" type="button" aria-label="びっくり">!?</button>
+          <button id="reactionCheer" type="button" aria-label="応援">いけー！</button>
+          <button id="reactionFrustrated" type="button" aria-label="くやしい">ぐぬ…</button>
+          <button id="reactionApplause" type="button" aria-label="拍手">ぱちぱち</button>
+        </div>
       </div>
       <div class="field-stage">
       <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
@@ -98,6 +106,7 @@
         <button id="zoomReset" class="control-button" type="button" aria-label="戦場全体を表示">全体</button>
         <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
       </div>
+      <div id="reaction-backdrop" class="reaction-backdrop" hidden aria-hidden="true"></div>
     </section>
 
     <section id="resultPanel" class="result-panel" hidden aria-live="polite" aria-atomic="true">

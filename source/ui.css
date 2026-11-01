@@ -254,8 +254,10 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   min-height: 0;
   gap: 4px;
 }
-.battle-toolbar { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
-.battle-clock { margin: 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.battle-toolbar { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 4px; min-height: 40px; }
+.battle-clock { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.reaction-feedback { flex: 1 1 auto; min-width: 0; overflow: hidden; color: var(--gold); font-size: 11px; line-height: 1.2; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.reaction-feedback:empty { display: none; }
 .units-toggle { min-height: 44px; min-width: 70px; padding: 6px 10px; color: #211c13; background: var(--gold); }
 .sound-toggle { min-height: 44px; min-width: 44px; padding: 6px 9px; font-size: 12px; }
 .field-stage { display: grid; flex: 1; place-items: center; min-height: 0; width: 100%; }
@@ -345,17 +347,17 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 @media (min-width: 900px) and (min-height: 640px) {
   #app { width: min(100%, 980px); padding-inline: 24px; }
   .app-header { min-height: 38px; margin-bottom: 4px; padding-bottom: 4px; }
-  #gameScreen[data-phase="fight"] { position: relative; }
-  #gameScreen[data-phase="fight"] > .game-topline {
+  #gameScreen[data-field-view="true"] { position: relative; }
+  #gameScreen[data-field-view="true"] > .game-topline {
     position: absolute;
     z-index: 4;
     inset: 0 0 auto;
     min-height: 36px;
     pointer-events: none;
   }
-  #gameScreen[data-phase="fight"] > .game-topline > * { pointer-events: auto; }
-  #gameScreen[data-phase="fight"] #battle:not([hidden]) { position: relative; gap: 0; }
-  #gameScreen[data-phase="fight"] .battle-toolbar {
+  #gameScreen[data-field-view="true"] > .game-topline > * { pointer-events: auto; }
+  #gameScreen[data-field-view="true"] #battle:not([hidden]) { position: relative; gap: 0; }
+  #gameScreen[data-field-view="true"] .battle-toolbar {
     position: absolute;
     z-index: 3;
     inset: 38px auto auto 50%;
@@ -364,15 +366,15 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
     min-height: 36px;
     pointer-events: none;
   }
-  #gameScreen[data-phase="fight"] .battle-toolbar > * { pointer-events: auto; }
-  #gameScreen[data-phase="fight"] .field-stage {
+  #gameScreen[data-field-view="true"] .battle-toolbar > * { pointer-events: auto; }
+  #gameScreen[data-field-view="true"] .field-stage {
     position: absolute;
     inset: 0;
     width: min(100%, 600px);
     height: 100%;
     margin-inline: auto;
   }
-  #gameScreen[data-phase="fight"] .battle-controls {
+  #gameScreen[data-field-view="true"] .battle-controls {
     position: absolute;
     z-index: 4;
     top: 50%;
@@ -387,7 +389,7 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
     border-radius: 10px;
     background: rgb(17 26 32 / 78%);
   }
-  #gameScreen[data-phase="fight"] .control-button { width: 100%; font-size: 11px; }
+  #gameScreen[data-field-view="true"] .control-button { width: 100%; font-size: 11px; }
 }
 @media (max-width: 355px) {
   #app { padding-inline: 8px; }
@@ -399,3 +401,45 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 
 .result-progress {height:3px;width:min(100%,220px);margin:12px auto 0;background:#ffffff22;overflow:hidden;border-radius:2px}
 .result-progress span {display:block;height:100%;background:var(--gold,#e6c56b);transform-origin:left center}
+
+
+/* Optional reactions share the existing toolbar row; the 44px choices overlay that row. */
+.reaction-toggle { flex: 0 0 44px; min-width: 44px; min-height: 44px; padding: 4px 2px; font-size: 11px; }
+.reaction-backdrop {
+  position: fixed;
+  z-index: 32;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  cursor: default;
+  touch-action: manipulation;
+}
+.reaction-backdrop[hidden], .reaction-bar[hidden] { display: none !important; }
+.reaction-bar {
+  position: absolute;
+  z-index: 35;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(44px, 1fr));
+  gap: 2px;
+  width: min(248px, calc(100vw - 16px));
+  height: 44px;
+  padding: 0;
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 45%);
+}
+.reaction-bar button { min-width: 44px; min-height: 44px; padding: 3px 2px; font-size: 11px; line-height: 1; white-space: nowrap; }
+/* Outside taps are swallowed by the backdrop while only the entry and choices remain interactive. */
+#battle[data-reaction-open="true"] .battle-toolbar { z-index:34; pointer-events: none; }
+#battle[data-reaction-open="true"] #reaction-bar { pointer-events: auto; }
+
+@media (min-width: 900px) and (min-height: 640px) {
+  #gameScreen[data-field-view="true"] #battle[data-reaction-open="true"] .battle-toolbar { z-index: 34; }
+}

@@ -1,7 +1,8 @@
+import {createReactionSdkBridge} from '../reactions/reaction-sdk-bridge.mjs';
 import {PROTOCOL,encode,decode,createSession} from './protocol.mjs';
 /** No native call happens until install / create / join is explicitly called. */
 const installedRooms=new WeakSet();
-export async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Promise(r=>setTimeout(r,ms)),discoveryMs=800,sessionOptions={}}) {
+export async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Promise(r=>setTimeout(r,ms)),discoveryMs=800,sessionOptions={},onReaction=()=>false}) {
   if(typeof nonce!=='function')throw new TypeError('unique nonce factory required');
   if(installedRooms.has(sdk.room))throw new Error('adapter-already-installed');
   const profile=await sdk.user.getMyUserInfo();
@@ -11,6 +12,7 @@ export async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>n
   const send=async message=>{try{const r=await sdk.room.sendMessage({message});if(r?.errno!==undefined&&r.errno!==0)throw new Error('send-failed');return r;}catch(error){session?.close();return {errno:-1,error:String(error)};}};
   const control=body=>send(encode({protocol:PROTOCOL,version:1,roomId,...body}));
   const tickets=new Map();
+  const reactionBridge=createReactionSdkBridge({getContext:()=>{const s=session?.getState();return s?{joined:nativeJoined,roomId,sessionId,userId,protocol:PROTOCOL,mode:s.mode,phase:s.phase,roundId:s.roundId,participants:s.participants,spectators:s.spectators}:null;},sendSdk:message=>sdk.room.sendMessage({message}),onReaction});
   // Install once per adapter. SDK unsubscribe availability is not established.
   installedRooms.add(sdk.room);
   sdk.room.receiveMessage(payload=>{
@@ -22,6 +24,7 @@ export async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>n
       if(d.room_id!==undefined)session?.memberLeft(sender);return;
     }
     if(payload.type!=='aitools_game_sendmsg')return;
+    if(reactionBridge.receive(payload).handled)return;
     const m=decode(d.msg_data);if(!m||m.roomId!==roomId||!sender)return;
     if(m.type==='discover'&&hostId===userId&&typeof m.nonce==='string'){
       if(tickets.size>=16&&!tickets.has(sender))return;
@@ -71,6 +74,6 @@ export async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>n
     join(id){if(typeof id!=='string'||!id)throw new Error('invalid-room-id');return enter('join',id);},
     async exit(){if(pending)throw new Error('entry-pending');const r=await sdk.room.exit();if(r?.errno!==0)throw new Error('exit-failed');nativeJoined=false;session?.close();session=null;roomId=null;tickets.clear();discovery=null;},
     async list(){return sdk.room.getPublicRoomList();},
-    getRoomId:()=>roomId,getSession:()=>session
+    sendReaction:wire=>reactionBridge.send(wire),getRoomId:()=>roomId,getSession:()=>session
   });
 }

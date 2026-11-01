@@ -25,7 +25,7 @@
   ],
   "method": "100 deterministic synthetic eligible carry rosters per round, sizes 1..cap, pure and mixed, streaks0..7; not outcome-selected",
   "sourceHashes": {
-    "index.html": "a868b3cb3f1f01e35137c66d5fe735088b9ac1c09064c30aec62c5a1df3b0d39",
+    "index.html": "453595d1f0cfa19ead5a874936348744ec6cc9ca1d3dfeeffee2bb503b59f52f",
     "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
     "source/solo-v3.template": "4a641236e91b3a44642f8f8ca1f64bcbd5a5372aaea00594414cfcab5a314da9",
     "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"

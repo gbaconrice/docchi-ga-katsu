@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+require('./special-sfx-bank.js');
 const { createBattleAudio, MAX_VOICES, MAX_NODES } = require('./battle-audio.js');
 
 class Param {
@@ -26,8 +27,8 @@ class FakeNode {
 class FakeContext {
   static instances = [];
   constructor() {
-    this.state = 'running'; this.currentTime = 1; this.sampleRate = 8000;
-    this.destination = { kind: 'destination' }; this.nodes = [];
+    this.state = 'running'; this.currentTime = 1; this.sampleRate = 22050;
+    this.destination = { kind: 'destination' }; this.nodes = []; this.buffers = [];
     FakeContext.instances.push(this);
   }
   createGain() { return new FakeNode(this, 'gain'); }
@@ -36,7 +37,8 @@ class FakeContext {
   createBiquadFilter() { return new FakeNode(this, 'filter'); }
   createBuffer(channels, length, sampleRate) {
     const data = Array.from({ length: channels }, () => new Float32Array(length));
-    return { channels, length, sampleRate, getChannelData: channel => data[channel] };
+    const buffer = { channels, length, sampleRate, duration: length / sampleRate, getChannelData: channel => data[channel] };
+    this.buffers.push(buffer); return buffer;
   }
   resume() { this.state = 'running'; return Promise.resolve(); }
   suspend() { this.state = 'suspended'; return Promise.resolve(); }
@@ -73,6 +75,10 @@ function fakeDocument() {
   };
 }
 
+function finishVoices(ctx) {
+  for (const node of [...ctx.nodes]) if (typeof node.onended === 'function') node.onended();
+}
+
 async function main() {
   // Construction and synthetic/non-user events must not create/resume WebAudio.
   FakeContext.instances.length = 0;
@@ -107,6 +113,36 @@ async function main() {
   assert.equal(audio.ingestCombatEvents([{ type: 'resolved_hit', amount: 4 }], {
     battleId: 'old-room:round-1', tick: 4
   }), 0, 'stale/reconnected room cannot feed another battle');
+  finishVoices(ctx);
+
+  // Enhanced special cues are selected only from their real combat-event kinds.
+  ctx.currentTime += 0.3;
+  assert.equal(audio.ingestCombatEvents([
+    { type: 'resolved_hit', sourceKind: 'golem', amount: 50 },
+    { type: 'golem_ground_contact', sourceToken: 'golem:1' }
+  ], { battleId: 'room-abc:round-1', tick: 41 }), 1);
+  assert.ok(ctx.buffers.some(b => Math.abs(b.duration - 0.48) < 1 / b.sampleRate), 'golem receives the original stone-body sample');
+  assert.ok(ctx.nodes.filter(n => n.kind === 'gain').some(n => n.gain.events.some(ev => ev[0] === 'linear' && ev[1] === 1)),
+    'special impacts briefly duck and release the ambience bus');
+  finishVoices(ctx);
+  ctx.currentTime += 0.3;
+  assert.equal(audio.ingestCombatEvents([
+    { type: 'chain_link', index: 0 }, { type: 'chain_link', index: 1 }, { type: 'chain_link', index: 2 }
+  ], { battleId: 'room-abc:round-1', tick: 42 }), 1, 'multiple actual links coalesce to one tick accent');
+  assert.ok(ctx.buffers.some(b => Math.abs(b.duration - 0.34) < 1 / b.sampleRate), 'storm chain uses the electric sample');
+  finishVoices(ctx);
+  ctx.currentTime += 0.3;
+  assert.equal(audio.ingestCombatEvents([{ type: 'bomb_explode', sourceToken: 'bomb:1' }], {
+    battleId: 'room-abc:round-1', tick: 43
+  }), 1);
+  assert.ok(ctx.buffers.some(b => Math.abs(b.duration - 0.56) < 1 / b.sampleRate), 'bomb uses the contained core + debris sample');
+  finishVoices(ctx);
+  ctx.currentTime += 0.3;
+  assert.equal(audio.ingestCombatEvents([{ type: 'resolved_hit', sourceKind: 'drake', amount: 25 }], {
+    battleId: 'room-abc:round-1', tick: 44
+  }), 1);
+  assert.ok(ctx.buffers.some(b => Math.abs(b.duration - 0.36) < 1 / b.sampleRate), 'drake bite/wing impact has no fire cue');
+  finishVoices(ctx);
 
   // Severity/meaning distinctions are synthesized without files or network.
   ctx.currentTime += 0.3;
@@ -162,7 +198,7 @@ async function main() {
   }
 
   // Simulate the browser firing scheduled source `ended` events before result.
-  for (const node of [...ctx.nodes]) if (typeof node.onended === 'function') node.onended();
+  finishVoices(ctx);
   assert.equal(audio.activeVoiceCount, 0);
 
   // Results are one-shot per canonical battle key; replay cannot re-award audio.
