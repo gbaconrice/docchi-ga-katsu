@@ -3,9 +3,9 @@ export const GAME_MODE = 'GRAVITY_QUICK10_V1';
 export const TOTAL_ROUNDS = 10;
 export function createScoreBridge({isGravity=false,isEmbedded=false,postMessage}={}){
  const attempted=new Set();
- return Object.freeze({submit({sessionId,playerId,players,completedRounds,totalRounds=TOTAL_ROUNDS,mode,action,spectator=false}){
+ return Object.freeze({submit({sessionId,playerId,players,completedRounds,totalRounds=TOTAL_ROUNDS,mode,action,spectator=false,terminalReason=null}){
   if(!(typeof isGravity==='function'?isGravity():isGravity)||!isEmbedded)return {status:'standalone'};
-  if(!['finish','lobby','replay'].includes(action)||spectator||!((mode===GAME_MODE&&completedRounds===TOTAL_ROUNDS&&totalRounds===TOTAL_ROUNDS)||(mode==='GRAVITY_SOLO_EXTEND_V1'&&Number.isSafeInteger(totalRounds)&&totalRounds>=10&&totalRounds%5===0&&completedRounds===totalRounds)))return {status:'ineligible'};
+  if(!['finish','lobby','replay'].includes(action)||spectator||!((mode===GAME_MODE&&completedRounds===TOTAL_ROUNDS&&totalRounds===TOTAL_ROUNDS)||(mode==='GRAVITY_SOLO_EXTEND_V1'&&Number.isSafeInteger(totalRounds)&&totalRounds>=10&&totalRounds%5===0&&(completedRounds===totalRounds||(terminalReason==='bankrupt'&&Number.isSafeInteger(completedRounds)&&completedRounds>10&&completedRounds<totalRounds&&Array.isArray(players)&&players.length===1&&players[0]?.playerId===playerId&&players[0]?.balance===0)))))return {status:'ineligible'};
   if(typeof sessionId!=='string'||!sessionId||typeof playerId!=='string'||!Array.isArray(players))return {status:'invalid'};
   const own=players.find(p=>p.playerId===playerId);
   if(!own||!Number.isSafeInteger(own.score)||typeof postMessage!=='function')return {status:'invalid'};

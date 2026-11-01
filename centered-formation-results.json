@@ -1,0 +1,7 @@
+{
+  "pass": true,
+  "fits": 2241,
+  "plans": 1000,
+  "typedPlans": 40,
+  "check": "packing admission unchanged; visual midpoint269 or physical boundary clamp; all pair distances/bounds; generator RNG/rosters/costs/work identical; constructor fields except y exact; preview plan equals opening positions"
+}

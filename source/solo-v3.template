@@ -225,6 +225,7 @@ if(typeof document.addEventListener==='function')document.addEventListener('visi
 function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
+function soloTerminalBoundary(){return !multiSession&&!!walletState&&(walletState.completedRounds===walletState.maxRounds||SoloWallet.isBankrupt(walletState));}
 let soloRunEnded=false;function sessionRoundLimit(){return multiSession?TOTAL_ROUNDS:(walletState?.maxRounds||TOTAL_ROUNDS);}
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
 function freshWallet(){soloRunEnded=false;pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=SoloWallet.createSession({sessionId:'extend-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}

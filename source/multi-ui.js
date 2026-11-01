@@ -4,7 +4,7 @@ const scoreBridge=ScoreBridge.createScoreBridge({isGravity:()=>gravityContext||n
 async function submitFinalScore(action){
  if(!multiSession&&!walletState)return {status:'ineligible'};
  const snapshot=multiSession?multiSession.getState():null;
- const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:walletState.maxRounds,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
+ const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:walletState.maxRounds,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,terminalReason:walletState.terminalReason,action};
  if(input.completedRounds!==input.totalRounds||input.spectator)return {status:'ineligible'};
  if(globalThis.parent&&globalThis.parent!==globalThis&&!gravityContext&&!nativeProfileVerified){
   try{const sdk=await loadNativeSDK();let timer;const profile=await Promise.race([sdk.user.getMyUserInfo(),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),3000)})]);clearTimeout(timer);nativeProfileVerified=profile?.errno===0&&!!profile.data?.user_id;}catch{}

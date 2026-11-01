@@ -24,8 +24,12 @@ export function createSession({sessionId,playerIds,config={},mode=GAME_MODE}){
   if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
   return freeze({schemaVersion:3,mode:GAME_MODE,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,maxRounds:TOTAL_ROUNDS,extensions:[],ledger:[]});
 }
+/** Closed solo bankruptcy is balance-based; the first ten rounds retain free recovery. */
+export function isBankrupt(state){modeState(state);return state.players.length===1&&!state.currentRound&&state.completedRounds>=TOTAL_ROUNDS&&state.players[0].balance<=0;}
+export function canFinishRun(state){modeState(state);return !state.currentRound&&(state.completedRounds===state.maxRounds||isBankrupt(state));}
 export function openRound(state,{sessionId,roundId,deadline}){
   session(state,sessionId);int(roundId);int(deadline);
+  if(isBankrupt(state))fail('SESSION_BANKRUPT');
   if(state.currentRound?.roundId===roundId){if(state.currentRound.deadline!==deadline) fail('ROUND_CONFLICT'); return state;}
   if(state.currentRound) fail('ROUND_STILL_OPEN');
   if(roundId!==state.completedRounds+1 || roundId>state.maxRounds) fail('ROUND_OUT_OF_ORDER');
@@ -61,7 +65,7 @@ export function settleRound(state,{sessionId,roundId,outcome,now}){
     if(!Number.isSafeInteger(p.balance)||p.balance<0||!Number.isSafeInteger(p.score)||!Number.isSafeInteger(p.correctCount)) fail('BALANCE_INVARIANT');
     entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake,correct,delta,balanceBefore:before,balanceAfter:p.balance,scoreAfter:p.score});
   }
-  next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;return freeze(next);
+  next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;if(isBankrupt(next))next.terminalReason='bankrupt';return freeze(next);
 }
 /** Stable roster: known identity resumes; an unknown identity is spectator, never newly funded. */
 export function reconnectPlayer(state,{sessionId,playerId}){
@@ -88,6 +92,7 @@ export function extendSession(state,{sessionId,requestId,roundId,additionalRound
   const old=state.extensions.find(e=>e.requestId===requestId);
   if(old){if(old.fromRound!==roundId||old.additionalRounds!==additionalRounds)fail('EXTENSION_CONFLICT');return state;}
   if(state.currentRound)fail('ROUND_STILL_OPEN');
+  if(isBankrupt(state))fail('SESSION_BANKRUPT');
   if(roundId!==state.completedRounds||roundId!==state.maxRounds)fail('EXTENSION_NOT_AT_BOUNDARY');
   const target=state.maxRounds+additionalRounds;if(!Number.isSafeInteger(target))fail('ROUND_LIMIT_OVERFLOW');
   const next=clone(state);next.maxRounds=target;next.extensions.push({requestId,fromRound:roundId,toRound:target,additionalRounds});if(next.extensions.length>EXTENSION_RETENTION)next.extensions.splice(0,next.extensions.length-EXTENSION_RETENTION);return freeze(next);
