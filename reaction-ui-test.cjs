@@ -5,11 +5,11 @@ return {c,nodes,run,listeners,frame(delta){now+=delta;const q=raf;raf=[];for(con
 const assert=require('assert');const a=make();a.c.testNow=10000;a.run('Date.now=()=>testNow;reactionChannel.close();reactionChannel=null;reactionSessionKey=null;syncReactions()');
 const snapshot=()=>a.run('JSON.stringify({units,walletState,elapsed,acc,choice,seed,round})');const before=snapshot();let prevented=0,stopped=0;const e={preventDefault(){prevented++},stopPropagation(){stopped++}};
 assert.equal(a.nodes['#reactionToggle'].hidden,false);a.nodes['#reactionToggle'].onclick(e);assert.equal(a.nodes['#reaction-bar'].hidden,false);assert.equal(a.run('paused'),false);
-a.nodes['#reactionWow'].onclick(e);assert.equal(a.nodes['#reaction-bar'].hidden,true);assert.equal(a.nodes['#reaction-feedback'].textContent,'!?');assert.equal(snapshot(),before);
-a.nodes['#reactionToggle'].onclick(e);a.nodes['#reactionApplause'].onclick(e);assert.equal(a.nodes['#reaction-feedback'].textContent,'!?','cooldown');
-a.c.testNow+=1001;a.nodes['#reactionToggle'].onclick(e);a.nodes['#reactionApplause'].onclick(e);assert.equal(a.nodes['#reaction-feedback'].textContent,'ぱちぱち');
+a.nodes['#reactionWow'].onclick(e);assert.equal(a.nodes['#reaction-bar'].hidden,true);assert.equal((a.nodes['#reactionFeedbackLabel']||a.nodes['#reaction-feedback']).textContent,'びっくり');assert.equal(snapshot(),before);
+a.nodes['#reactionToggle'].onclick(e);a.nodes['#reactionApplause'].onclick(e);assert.equal((a.nodes['#reactionFeedbackLabel']||a.nodes['#reaction-feedback']).textContent,'びっくり','cooldown');
+a.c.testNow+=1001;a.nodes['#reactionToggle'].onclick(e);a.nodes['#reactionApplause'].onclick(e);assert.equal((a.nodes['#reactionFeedbackLabel']||a.nodes['#reaction-feedback']).textContent,'拍手');
 a.nodes['#reactionToggle'].onclick(e);a.nodes['#reaction-backdrop'].onclick(e);assert.equal(a.nodes['#reaction-bar'].hidden,true);assert(prevented>0&&stopped>0);assert.equal(snapshot(),before,'reactions mutate core/ledger');
-a.c.testNow+=2601;a.run('syncReactions()');assert.equal(a.nodes['#reaction-feedback'].textContent,'');
+a.c.testNow+=2601;a.run('syncReactions()');assert.equal((a.nodes['#reactionFeedbackLabel']||a.nodes['#reaction-feedback']).textContent,'');
 a.nodes['#reactionToggle'].onclick(e);a.nodes['#pause'].onclick(e);a.run('syncReactions()');assert.equal(a.nodes['#reaction-bar'].hidden,true);assert.equal(a.nodes['#reactionToggle'].hidden,true);assert.equal(a.nodes['#reaction-backdrop'].hidden,true);a.nodes['#pauseResume'].onclick(e);a.run('syncReactions()');assert.equal(a.nodes['#reactionToggle'].hidden,false);
 a.c.document.hidden=true;a.listeners['document:visibilitychange']();assert.equal(a.nodes['#reactionToggle'].hidden,true);a.c.document.hidden=false;a.run('syncReactions();state="result";update()');assert.equal(a.nodes['#reactionToggle'].hidden,true);assert.equal(a.run('reactionChannel.getFeed().length'),0);
 console.log('PASS inline reaction: optional popover, no pause/core/ledger mutation, click-through consumed, cooldown/TTL, hidden/pause/result clear');

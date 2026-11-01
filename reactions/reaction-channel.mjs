@@ -14,10 +14,10 @@ export const REACTION_TYPE = 'reaction';
 // Text-first tiny stamps, not emoji-only UI. An art pass may replace their
 // presentation without changing the stable wire IDs below.
 export const REACTIONS = Object.freeze({
-  wow: Object.freeze({label: '!?', accessibleLabel: 'びっくり'}),
-  cheer: Object.freeze({label: 'いけー！', accessibleLabel: '応援'}),
-  frustrated: Object.freeze({label: 'ぐぬ…', accessibleLabel: 'くやしい'}),
-  applause: Object.freeze({label: 'ぱちぱち', accessibleLabel: '拍手'})
+  wow: Object.freeze({label: 'びっくり', accessibleLabel: 'びっくり'}),
+  cheer: Object.freeze({label: '応援', accessibleLabel: '応援'}),
+  frustrated: Object.freeze({label: 'くやしい', accessibleLabel: 'くやしい'}),
+  applause: Object.freeze({label: '拍手', accessibleLabel: '拍手'})
 });
 
 export const REACTION_LIMITS = Object.freeze({

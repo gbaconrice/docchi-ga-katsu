@@ -1,0 +1,2234 @@
+[
+  {
+    "existing_role": "shield",
+    "source_asset": "f1_silverguardsquire",
+    "source_commit": "2843f2400854136598631288c2e8dfb8f5173de7",
+    "license": "CC0-1.0",
+    "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+    "source_url": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f1_silverguardsquire.png",
+    "source_png_sha256": "62d6a45508b8a961620beaf852188d458916b70300d652235f906c67725a189e",
+    "native_cell": [
+      80,
+      80
+    ],
+    "native_idle_bbox": [
+      21,
+      30,
+      60,
+      64
+    ],
+    "review_anchor": [
+      40,
+      63
+    ],
+    "anchor_validated_all_clips": true,
+    "clips": {
+      "attack": 13,
+      "breathing": 14,
+      "death": 11,
+      "hit": 3,
+      "idle": 10,
+      "run": 8
+    },
+    "illustrative_frame_ms": 83,
+    "original_timing_verified": false,
+    "integration_approved": false,
+    "notes": "既存盾兵 / contact8確認済み",
+    "anchor_validation": "Original native cell registration preserved; alpha bounds audited in every frame, stance/run/attack/hit/death samples visually checked. Fixed anchor, never alpha-bottom realignment. Healer intentionally bobs/leans.",
+    "attack_sync": {
+      "contactFrame": 8,
+      "event": "resolved_hit",
+      "pre_frames": [
+        0,
+        7
+      ],
+      "post_frames": [
+        8,
+        12
+      ],
+      "physics_authoritative": true,
+      "original_contact_timing_verified": false,
+      "frame_choice_basis": "Visual pose/weapon release review, NOT original game timing claim. Runtime actual event wins."
+    },
+    "runtime_clips": {
+      "attack": {
+        "image": "candidate/shield/attack.png",
+        "sha256": "5f5b7e1b447a3e8b93d03937ea8762da35fdf27bb4fd46f6c459ae4154adc99b",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "breathing": {
+        "image": "candidate/shield/breathing.png",
+        "sha256": "fa1085be7b7e9cbd766e123388eee878c2f1602a32128d5f7f9e969ffaf559ca",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 1040,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "death": {
+        "image": "candidate/shield/death.png",
+        "sha256": "e3f98fb48a90f8723b215e338708c79698973f8a62b710b5a2f5f73f89c619b0",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "hit": {
+        "image": "candidate/shield/hit.png",
+        "sha256": "073c4c1fd4f82661d7bba15dfd359a73a4c7b96b5ed973770bd4d34329ace36d",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "idle": {
+        "image": "candidate/shield/idle.png",
+        "sha256": "ec368fd3721aee468298261a85d8ee5df853326e287086a58a3cb6b15481f68a",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "run": {
+        "image": "candidate/shield/run.png",
+        "sha256": "2f1fe4796f87b9685fc3550154ccd65674fc77be7225dc082165d11527b45e6d",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      }
+    }
+  },
+  {
+    "existing_role": "reaper_mantis",
+    "source_asset": "neutral_monstershreddingmantis",
+    "source_commit": "2843f2400854136598631288c2e8dfb8f5173de7",
+    "license": "CC0-1.0",
+    "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+    "source_url": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_monstershreddingmantis.png",
+    "source_png_sha256": "994c3e8095a8b40af66e45056b9b0e5f93ace18819e882a61107b629801b10e0",
+    "native_cell": [
+      80,
+      80
+    ],
+    "native_idle_bbox": [
+      24,
+      23,
+      66,
+      64
+    ],
+    "review_anchor": [
+      40,
+      63
+    ],
+    "anchor_validated_all_clips": true,
+    "clips": {
+      "attack": 12,
+      "breathing": 12,
+      "death": 11,
+      "hit": 3,
+      "idle": 13,
+      "run": 7
+    },
+    "illustrative_frame_ms": 83,
+    "original_timing_verified": false,
+    "integration_approved": false,
+    "notes": "既存カマキリ / 鎌接点の確認待ち",
+    "anchor_validation": "Original native cell registration preserved; alpha bounds audited in every frame, stance/run/attack/hit/death samples visually checked. Fixed anchor, never alpha-bottom realignment. Healer intentionally bobs/leans.",
+    "attack_sync": {
+      "contactFrame": 5,
+      "event": "resolved_hit",
+      "pre_frames": [
+        0,
+        4
+      ],
+      "post_frames": [
+        5,
+        11
+      ],
+      "physics_authoritative": true,
+      "original_contact_timing_verified": false,
+      "frame_choice_basis": "Visual pose/weapon release review, NOT original game timing claim. Runtime actual event wins."
+    },
+    "runtime_clips": {
+      "attack": {
+        "image": "candidate/reaper_mantis/attack.png",
+        "sha256": "5edddcc1120957c5802909e146c0800962a1172405853ed6aa8a6115a50ba377",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "breathing": {
+        "image": "candidate/reaper_mantis/breathing.png",
+        "sha256": "22fd6443e396f7b9b9fff955f91346edbc8b9f90415c9c99110ed966d612ab1e",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "death": {
+        "image": "candidate/reaper_mantis/death.png",
+        "sha256": "b9216b03f6e50388146e7a6ba9f402d5a07a17c8791cfbe3a65c35798008a650",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "hit": {
+        "image": "candidate/reaper_mantis/hit.png",
+        "sha256": "85492b1b6582f6529dcf43c4a27f90faf8e319d3cfe34c66d1fbfb56f63fa903",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "idle": {
+        "image": "candidate/reaper_mantis/idle.png",
+        "sha256": "dc9971aa78c589970a5a8747a4957cc769cb9c22c5e18de5a7e187085f04253b",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 560,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 640,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 800,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      },
+      "run": {
+        "image": "candidate/reaper_mantis/run.png",
+        "sha256": "7520a84a312507bf64058a02659f907aed7d7e201ccd925cf891cf503d484e6a",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 80,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 160,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 320,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 400,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 80,
+            "h": 80,
+            "durationMs": 83
+          }
+        ]
+      }
+    },
+    "baked_fx_contract": "Small scythe highlights only. Single actual melee event; no new sweep AoE. Contact5 is first forward cut; frame6 continuation."
+  },
+  {
+    "existing_role": "archer",
+    "source_asset": "f1_backlinearcher",
+    "source_commit": "2843f2400854136598631288c2e8dfb8f5173de7",
+    "license": "CC0-1.0",
+    "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+    "source_url": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f1_backlinearcher.png",
+    "source_png_sha256": "a543bf791afa51e81452234dc68989ba8181cedcece03ee0ddd58ec02b49ccf3",
+    "native_cell": [
+      120,
+      120
+    ],
+    "native_idle_bbox": [
+      46,
+      64,
+      94,
+      104
+    ],
+    "review_anchor": [
+      60,
+      103
+    ],
+    "anchor_validated_all_clips": true,
+    "clips": {
+      "attack": 24,
+      "breathing": 14,
+      "death": 15,
+      "hit": 3,
+      "idle": 12,
+      "projectile": 3,
+      "run": 8
+    },
+    "illustrative_frame_ms": 83,
+    "original_timing_verified": false,
+    "integration_approved": false,
+    "notes": "既存弓兵 / releaseと装飾FXの適合確認待ち",
+    "anchor_validation": "Original native cell registration preserved; alpha bounds audited in every frame, stance/run/attack/hit/death samples visually checked. Fixed anchor, never alpha-bottom realignment. Healer intentionally bobs/leans.",
+    "attack_sync": {
+      "releaseFrame": 20,
+      "event": "projectile_release",
+      "pre_frames": [
+        0,
+        19
+      ],
+      "post_frames": [
+        20,
+        23
+      ],
+      "physics_authoritative": true,
+      "original_contact_timing_verified": false,
+      "frame_choice_basis": "Visual pose/weapon release review, NOT original game timing claim. Runtime actual event wins."
+    },
+    "runtime_clips": {
+      "attack": {
+        "image": "candidate/archer/attack.png",
+        "sha256": "be4959c9da0d397d691dfb9d0aae25d7fe180f18062c6969ddac736491b5a0d7",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 360,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 600,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 840,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1080,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1200,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1440,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1560,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1680,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1800,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1920,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2040,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2160,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2280,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2400,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2520,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2640,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 2760,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "breathing": {
+        "image": "candidate/archer/breathing.png",
+        "sha256": "e5671882c3ecba50ffba79cb4e2e19846b6b87d658f627d10278c4c180e77b23",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 360,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 600,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 840,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1080,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1200,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1440,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1560,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "death": {
+        "image": "candidate/archer/death.png",
+        "sha256": "67904e601703e6a6da3730e160aea8f7f8a6c0e8ca8fdcc871c71f7451a6e7be",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 360,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 600,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 840,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1080,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1200,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1440,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1560,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1680,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "hit": {
+        "image": "candidate/archer/hit.png",
+        "sha256": "86d4be4c9394a8fd9ac1b6ce2f87509a2dec78186fde5200d4f7cf2d888e4976",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "idle": {
+        "image": "candidate/archer/idle.png",
+        "sha256": "44b055715d3b6f47598da5f0efbf913361258033102b640f045b61dce44ddc34",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 360,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 600,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 840,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 960,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1080,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1200,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "projectile": {
+        "image": "candidate/archer/projectile.png",
+        "sha256": "03966c470d94502690535f9bad5663a03c230416d0af571eded5c346b9e40612",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      },
+      "run": {
+        "image": "candidate/archer/run.png",
+        "sha256": "009d0d2dd6c64370b04702284ccba6f66b0c529ae079bd9e0ee3130832269a22",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 120,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 240,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 360,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 480,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 600,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 720,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          },
+          {
+            "x": 840,
+            "y": 0,
+            "w": 120,
+            "h": 120,
+            "durationMs": 83
+          }
+        ]
+      }
+    },
+    "baked_fx_contract": "Self-local light rim during charge. Not AoE. Release20. Source projectile clip is preserved but NOT approved as automatic replacement for current projectile; avoid double arrows."
+  },
+  {
+    "existing_role": "healer",
+    "source_asset": "neutral_healingmystic",
+    "source_commit": "2843f2400854136598631288c2e8dfb8f5173de7",
+    "license": "CC0-1.0",
+    "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+    "source_url": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_healingmystic.png",
+    "source_png_sha256": "89e62f91e5508b7062cd1fc80dc4b44e84e273a2e5d050f25379aa299be2edf5",
+    "native_cell": [
+      110,
+      110
+    ],
+    "native_idle_bbox": [
+      21,
+      37,
+      85,
+      92
+    ],
+    "review_anchor": [
+      55,
+      91
+    ],
+    "anchor_validated_all_clips": true,
+    "clips": {
+      "attack": 16,
+      "breathing": 14,
+      "death": 15,
+      "hit": 3,
+      "idle": 14,
+      "run": 8
+    },
+    "illustrative_frame_ms": 83,
+    "original_timing_verified": false,
+    "integration_approved": false,
+    "notes": "既存治療兵 / 実heal同期の適合確認待ち",
+    "anchor_validation": "Original native cell registration preserved; alpha bounds audited in every frame, stance/run/attack/hit/death samples visually checked. Fixed anchor, never alpha-bottom realignment. Healer intentionally bobs/leans.",
+    "attack_sync": {
+      "castFrame": 7,
+      "event": "actual_heal_event",
+      "pre_frames": [
+        0,
+        6
+      ],
+      "post_frames": [
+        7,
+        15
+      ],
+      "physics_authoritative": true,
+      "original_contact_timing_verified": false,
+      "frame_choice_basis": "Visual pose/weapon release review, NOT original game timing claim. Runtime actual event wins."
+    },
+    "runtime_clips": {
+      "attack": {
+        "image": "candidate/healer/attack.png",
+        "sha256": "f2ed3d839c5033f0f66afcd4c81c95339af7b2b166bdb3c20c384f43425fb91c",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 440,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 550,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 660,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 770,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 990,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1100,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1210,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1430,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1540,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1650,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      },
+      "breathing": {
+        "image": "candidate/healer/breathing.png",
+        "sha256": "d6de9cfbbda4653cb078a4ded8754c0ed088dbe9ac769ace988a4694c4fdff1b",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 440,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 550,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 660,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 770,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 990,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1100,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1210,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1430,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      },
+      "death": {
+        "image": "candidate/healer/death.png",
+        "sha256": "dc342bdf917a0ea5ddbb16df2356c04767d31dd6bc53cba470708162484e857a",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 440,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 550,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 660,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 770,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 990,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1100,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1210,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1430,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1540,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      },
+      "hit": {
+        "image": "candidate/healer/hit.png",
+        "sha256": "fe3166dee0188b1e037cca3981d3615728d60c2467c55278e4b6023bd47fdffe",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      },
+      "idle": {
+        "image": "candidate/healer/idle.png",
+        "sha256": "e7c2e9dd6024bb575adc776101b6ce87d140938db2ae5618c196aa47e7a9ba84",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 440,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 550,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 660,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 770,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 880,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 990,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1100,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1210,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1320,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 1430,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      },
+      "run": {
+        "image": "candidate/healer/run.png",
+        "sha256": "8b7606c6e81f022b7632fe7548347b771c474fb0d073cd24c8c85397de0a2098",
+        "frames": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 110,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 220,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 330,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 440,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 550,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 660,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          },
+          {
+            "x": 770,
+            "y": 0,
+            "w": 110,
+            "h": 110,
+            "durationMs": 83
+          }
+        ]
+      }
+    },
+    "baked_fx_contract": "Palm-local green vortices also exist in idle; do not interpret as healing area/range. Existing targeted heal only. Hover/bob visual is not a flying mechanic. Live visual QA required; if misleading, keep old healer rather than invent ability."
+  }
+]

@@ -19,7 +19,7 @@ let multiShownWallets=null,multiBattleWaitAt=0;
 let multiInitial=null,multiReplay=null,multiPlayback=null,multiPlaybackStarted=0,multiRoundSeen=null,multiLastPump=0,multiHeartbeat=0,mockGuest=null,mockQueue=[],multiError='';
 const soloUpdate=update,soloStart=startPrediction,soloNext=nextPrediction,soloLoop=loop,soloWallet=currentWallet,baseSpriteFrame=spriteFrame;
 currentWallet=function(){if(!multiSession)return soloWallet();const shown=['locked','battle'].includes(multiSnapshot?.phase)?multiShownWallets:multiSnapshot?.wallets;const p=shown?.find(p=>p.playerId===multiUser)||{balance:100,score:0,correctCount:0};return {...p,maxStake:Math.min(50,p.balance),reserved:0};};
-spriteFrame=function(u){return multiPlayback&&Number.isInteger(u.pose)?u.pose:baseSpriteFrame(u)};
+spriteFrame=function(u){if(state==='result'&&resultClipFrames.has(u.id))return resultClipFrames.get(u.id);return multiPlayback&&Number.isInteger(u.pose)?u.pose:baseSpriteFrame(u)};
 function displayMultiState(){
  if(!multiSession||!multiSnapshot||multiRecording)return;
  const s=multiSnapshot,q=id=>document.querySelector(id),player=s.participants.includes(multiUser),ready=s.readyIds.includes(multiUser);
@@ -59,12 +59,13 @@ function openMultiRound(){
 }
 let replayJobToken=0;
 function cancelReplayJob(){replayJobToken++;multiRecording=false;multiBusy=false;if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(false));}
+function legacyRecordedFrame(u){return baseSpriteFrame(u);}
 function createCanonicalRecording(){
- units=JSON.parse(JSON.stringify(multiInitial));pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
- const recorder=CompactReplay.createCompactRecorder(),read=()=>({units,shots,poseFor:baseSpriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let recordingError=null;
+ resultClipFrames=new Map();resultClipTail=null;resultClipKey=null;units=JSON.parse(JSON.stringify(multiInitial));pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
+ const recorder=CompactReplay.createCompactRecorder({retireAfterTicksFor:u=>LICENSED_CLIP_REGISTRIES[u.k]?VariableClips.deathHoldTicks(LICENSED_CLIP_REGISTRIES[u.k]):36}),read=()=>({units,shots,frameFor:u=>baseSpriteFrame(u),facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let recordingError=null;
  try{recorder.capture(0,read());}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}
  return {capture(tick){if(recordingError)throw Error(recordingError);recorder.capture(tick,read(),state==='result');},finish({ticks,recordingError:laterError}){const outcome=winner===null?'draw':winner===0?'A':'B';recordingError=recordingError||laterError;
-  if(!recordingError){try{const replay=recorder.finish({ticks,winner:outcome});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:512};CompactReplay.createPlayback(replay);return replay;}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}
+  if(!recordingError){try{const replay=recorder.finish({ticks,winner:outcome});const finalIds=new Set(CompactReplay.createPlayback(replay).at(ticks).units.map(u=>u.id));replay.presentationTail=buildShieldPresentationTail(units.filter(u=>finalIds.has(u.id)));replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:512};CompactReplay.createPlayback(replay);return replay;}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}
   return {engineVersion:CompactReplay.COMPACT_VERSION,ticks,winner:outcome,events:[],unavailable:'replay-byte-cap'};
  }};
 }

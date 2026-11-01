@@ -1,0 +1,9 @@
+Unit art: Counterplay Games; OpenDuelyst archive/contributors.
+License: CC0-1.0. Verbatim supplied license/source evidence is in licenses/.
+Pinned source commit: 2843f2400854136598631288c2e8dfb8f5173de7.
+shield: f1_silverguardsquire
+reaper_mantis: neutral_monstershreddingmantis
+archer: f1_backlinearcher
+healer: neutral_healingmystic
+Exact per-asset source URLs and SHA-256 values are in each role.clips.json.
+No whole-project license is assigned by this conversion.

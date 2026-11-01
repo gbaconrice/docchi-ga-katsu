@@ -4,7 +4,8 @@ function reactionLive(){return screenMode==='game'&&state==='fight'&&!multiRecor
 function reactionRender(){
  const node=document.querySelector('#reaction-feedback');if(!node)return;
  const feed=reactionChannel?reactionChannel.getFeed():[];
- node.textContent=feed.slice(-1).map(e=>ReactionLane.REACTIONS[e.emoji].label).join('');
+ const latest=feed[feed.length-1],active=!!latest&&reactionLive();
+ node.textContent=latest?ReactionLane.REACTIONS[latest.emoji].label:'';node.hidden=!active;node.setAttribute('data-active',String(active));document.querySelector('#battle').setAttribute('data-reaction-feedback',String(active));
 }
 function closeReactionMenu(){reactionOpen=false;syncReactions();}
 function syncReactions(){

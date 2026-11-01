@@ -24,7 +24,7 @@ function syncPersonalResult(now){
  q('#battle').hidden=!!multiSession&&!multiReplay;q('#battleControls').hidden=true;
  for(const id of ['#battleClock','#unitsToggle','#soundToggle','#reactionToggle','#formationBack'])if(q(id))q(id).hidden=true;
  if(document.hidden===true){cancelPersonalResult();return;}if(!Number.isFinite(now)||scene.cancelled)return;
- if(scene.start===null)scene.start=now;const elapsed=Math.max(0,now-scene.start);syncBattleAudio();
+ if(scene.start===null)scene.start=now;const elapsed=Math.max(0,now-scene.start);updateResultClipTail(key,elapsed);syncBattleAudio();
  const advance=(stage,at,fn)=>{if(scene.stage<stage&&elapsed>=at){scene.stage=stage;fn();}};
  advance(1,120,()=>{audioCall(()=>battleAudio.playResultStage(audioBattleKey(),'stamp'));resultAnimate('#message',[{opacity:.45,transform:'scale(.88)'},{opacity:1,transform:'scale(1.04)'},{opacity:1,transform:'scale(1)'}],{duration:200,easing:'ease-out'});});
  advance(2,280,()=>{if(Number.isSafeInteger(entry?.delta))audioCall(()=>battleAudio.playResultStage(audioBattleKey(),'delta',{delta:entry.delta,stake:entry.stake}));resultAnimate('#breakdown',[{transform:'translateY(5px)',opacity:.65},{transform:'translateY(-2px)',opacity:1},{transform:'translateY(0)',opacity:1}],{duration:230,easing:'ease-out'});});

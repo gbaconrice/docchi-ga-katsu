@@ -45,6 +45,13 @@ b+=bundle('MultiBinding','multiplayer/wallet-binding.mjs','const wallet=Wallet;c
 b+=bundle('ReactionSdkBridge','reactions/reaction-sdk-bridge.mjs','const {parseReactionWire,REACTION_MODE,REACTION_PROTOCOL,REACTION_TYPE}=ReactionLane;')
 b+=bundle('SDKAdapter','multiplayer/sdk-adapter.mjs','const {PROTOCOL,encode,decode,createSession}=MultiProtocol;const {createReactionSdkBridge}=ReactionSdkBridge;')
 b+=bundle('CompactReplay','replay/compact-replay.mjs')
+b+=bundle('VariableClips','clips/clip-sampler.mjs')
+clip_specs={k:json.loads((root/('clips/'+k+'.clips.json')).read_text()) for k in ['shield','reaper_mantis','archer','healer']}
+for m in clip_specs.values():
+ v=m['visual_insets'];m['visual_insets']=[v['left'],v['top'],v['right'],v['bottom']]
+clip_data={k+'Licensed':'data:image/png;base64,'+base64.b64encode((root/'clips'/spec['atlas']).read_bytes()).decode() for k,spec in clip_specs.items()}
+s=s.replace('const spriteImages={};', 'const LICENSED_CLIP_SPECS='+json.dumps(clip_specs)+';const LICENSED_CLIP_REGISTRIES=Object.fromEntries(Object.entries(LICENSED_CLIP_SPECS).map(([k,s])=>[k,VariableClips.compileClips(s)]));const SHIELD_CLIP_REGISTRY=LICENSED_CLIP_REGISTRIES.shield;Object.assign(SPRITE_ASSETS,'+json.dumps(clip_data)+');\nconst spriteImages={};')
+
 s=s.replace('const TYPES=',(root/'audio/special-sfx-bank.js').read_text()+'\n'+(root/'audio/battle-audio.js').read_text()+'\n'+b+'\nconst TYPES=',1)
 s=s.replace('function loop(t)',(root/'source/effects-adapter.js').read_text()+'\nfunction loop(t)',1)
 code=(root/'source/multi-ui.js').read_text()

@@ -7,6 +7,15 @@ for test in checkpoint-ui-test.cjs unit-name-ui-test.cjs typed-generator-inline-
 # Full 25-round end-to-end physics path is deliberately optional because it is slow.
 if [ "${FULL_RUN:-0}" = 1 ]; then node extension-ui-test.cjs; fi
 
+node clips/clip-sampler.test.mjs
+node licensed-clips-ui-test.cjs
+
+node --test replay/variable-clips.test.mjs replay/presentation-tail.test.mjs
+
 node centered-formation.test.mjs
 node bankruptcy.test.mjs
 node bankrupt-ui-test.cjs
+python retheme-static-contract-test.py
+node host-layout-contract-test.cjs
+
+node --test clips/compiler.test.mjs

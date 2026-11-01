@@ -1,0 +1,1542 @@
+{
+  "neutral_healingmystic_attack_000.png": {
+    "rect": [
+      333,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      87,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_001.png": {
+    "rect": [
+      666,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      87,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_002.png": {
+    "rect": [
+      666,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      35,
+      87,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_003.png": {
+    "rect": [
+      666,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      38,
+      87,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_004.png": {
+    "rect": [
+      666,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      87,
+      89
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_005.png": {
+    "rect": [
+      666,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      42,
+      87,
+      86
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_006.png": {
+    "rect": [
+      666,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      23,
+      40,
+      87,
+      85
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_007.png": {
+    "rect": [
+      666,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      23,
+      31,
+      107,
+      100
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_008.png": {
+    "rect": [
+      666,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      45,
+      44,
+      104,
+      101
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_009.png": {
+    "rect": [
+      555,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      46,
+      46,
+      107,
+      103
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_010.png": {
+    "rect": [
+      555,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      45,
+      45,
+      108,
+      104
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_011.png": {
+    "rect": [
+      555,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      46,
+      43,
+      109,
+      105
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_012.png": {
+    "rect": [
+      555,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      45,
+      42,
+      109,
+      106
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_013.png": {
+    "rect": [
+      555,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      45,
+      41,
+      107,
+      108
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_014.png": {
+    "rect": [
+      555,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      45,
+      40,
+      109,
+      109
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_attack_015.png": {
+    "rect": [
+      555,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      35,
+      39,
+      110,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_000.png": {
+    "rect": [
+      555,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      85,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_001.png": {
+    "rect": [
+      555,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      85,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_002.png": {
+    "rect": [
+      555,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      87,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_003.png": {
+    "rect": [
+      555,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      87,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_004.png": {
+    "rect": [
+      444,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      38,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_005.png": {
+    "rect": [
+      444,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      38,
+      86,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_006.png": {
+    "rect": [
+      444,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      86,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_007.png": {
+    "rect": [
+      444,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_008.png": {
+    "rect": [
+      444,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_009.png": {
+    "rect": [
+      444,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_010.png": {
+    "rect": [
+      444,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      35,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_011.png": {
+    "rect": [
+      444,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      35,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_012.png": {
+    "rect": [
+      444,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      86,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_breathing_013.png": {
+    "rect": [
+      444,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      86,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_000.png": {
+    "rect": [
+      444,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      24,
+      41,
+      82,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_001.png": {
+    "rect": [
+      333,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      24,
+      42,
+      82,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_002.png": {
+    "rect": [
+      333,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      23,
+      41,
+      82,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_003.png": {
+    "rect": [
+      333,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      22,
+      40,
+      84,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_004.png": {
+    "rect": [
+      333,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      39,
+      85,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_005.png": {
+    "rect": [
+      666,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      38,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_006.png": {
+    "rect": [
+      333,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      19,
+      35,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_007.png": {
+    "rect": [
+      333,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      17,
+      33,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_008.png": {
+    "rect": [
+      333,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      16,
+      31,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_009.png": {
+    "rect": [
+      333,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      15,
+      30,
+      86,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_010.png": {
+    "rect": [
+      222,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      14,
+      28,
+      87,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_011.png": {
+    "rect": [
+      222,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      14,
+      27,
+      87,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_012.png": {
+    "rect": [
+      222,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      15,
+      26,
+      87,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_013.png": {
+    "rect": [
+      222,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      16,
+      25,
+      74,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_death_014.png": {
+    "rect": [
+      222,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      44,
+      75,
+      68,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_hit_000.png": {
+    "rect": [
+      444,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      24,
+      41,
+      82,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_hit_001.png": {
+    "rect": [
+      333,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      24,
+      42,
+      82,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_hit_002.png": {
+    "rect": [
+      333,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      23,
+      41,
+      82,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_000.png": {
+    "rect": [
+      222,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      85,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_001.png": {
+    "rect": [
+      222,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      39,
+      87,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_002.png": {
+    "rect": [
+      222,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      38,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_003.png": {
+    "rect": [
+      222,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      86,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_004.png": {
+    "rect": [
+      111,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      36,
+      86,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_005.png": {
+    "rect": [
+      111,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      36,
+      86,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_006.png": {
+    "rect": [
+      111,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      22,
+      37,
+      86,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_007.png": {
+    "rect": [
+      111,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      86,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_008.png": {
+    "rect": [
+      111,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      39,
+      87,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_009.png": {
+    "rect": [
+      111,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      38,
+      87,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_010.png": {
+    "rect": [
+      111,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      37,
+      87,
+      90
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_011.png": {
+    "rect": [
+      111,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      87,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_012.png": {
+    "rect": [
+      111,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      36,
+      87,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_idle_013.png": {
+    "rect": [
+      0,
+      888,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      37,
+      87,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_000.png": {
+    "rect": [
+      0,
+      777,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      19,
+      62,
+      69,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_001.png": {
+    "rect": [
+      0,
+      666,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      61,
+      70,
+      93
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_002.png": {
+    "rect": [
+      0,
+      555,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      60,
+      70,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_003.png": {
+    "rect": [
+      0,
+      444,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      59,
+      70,
+      92
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_004.png": {
+    "rect": [
+      0,
+      333,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      19,
+      62,
+      70,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_005.png": {
+    "rect": [
+      0,
+      222,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      21,
+      62,
+      69,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_006.png": {
+    "rect": [
+      0,
+      111,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      20,
+      63,
+      70,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  },
+  "neutral_healingmystic_run_007.png": {
+    "rect": [
+      0,
+      0,
+      110,
+      110
+    ],
+    "alphaBounds": [
+      19,
+      63,
+      69,
+      91
+    ],
+    "anchor": [
+      55,
+      91
+    ],
+    "sourceSize": [
+      110,
+      110
+    ]
+  }
+}

@@ -49,4 +49,7 @@ Headless DOM/canvas stubの検査は実画面QAではありません。旧versio
 ## ランキング・権利
 score bridgeは正規の本人signed純益のみ、選択した最終区切りの明示終了操作で一度。継続中の中間送信なし。standalone送信なし。負値受理、native実通信、旧固定長スコアとのboard/cohort分離は外部設定確認が必要です。ここでは実送信しません。
 
-独自code/sprite/arena/音と採用済みCC0効果5点。CC0記録はassets/effects。原作素材や第三者キャラクター転用なし。全体に新規LICENSEを勝手に付与していません。
+ゲームcode・既存sprite・arena・音の独自制作部分に加え、SpritePilotのCC0効果5点と、Duelyst由来のCC0キャラクター4種を採用しています。出典・原本・ライセンスは assets/effects と clips に記録しています。Behold Battleの画像素材は使用しておらず、権利不明の素材も使用していません。採用した第三者素材を自作とは称しません。個別素材のCC0をゲーム全体へ拡張せず、新たな全体LICENSEも付与していません。
+
+## UI / artwork refresh
+The responsive paper-and-ink UI and four licensed CC0 unit animations (shield, mantis, archer, healer) are integrated. Full source clips are retained, not reduced to nine poses; other twenty selectable roles keep their previous artwork. Original third-party attribution and source files are in clips/. All rejected reaction images are absent; short text reactions temporarily preserve the feature. Final stamp artwork is unfinished. See QUALITY-INTEGRATION.md. Actual screen/mobile/native verification is to follow publication; code tests are not visual approval.
