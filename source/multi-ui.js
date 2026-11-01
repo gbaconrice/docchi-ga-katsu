@@ -1,0 +1,125 @@
+// Online transport is opt-in. Default startup performs no native API or CDN call.
+let multiSession=null,multiAdapter=null,multiHost=false,multiUser=null,multiSnapshot=null,multiBusy=false,multiRecording=false;
+let multiPredictionPending=false;
+let multiShownWallets=null,multiBattleWaitAt=0;
+let multiInitial=null,multiReplay=null,multiPlayback=null,multiPlaybackStarted=0,multiRoundSeen=null,multiLastPump=0,multiHeartbeat=0,mockGuest=null,mockQueue=[],multiError='';
+const soloUpdate=update,soloStart=startPrediction,soloNext=nextPrediction,soloLoop=loop,soloWallet=currentWallet,baseSpriteFrame=spriteFrame;
+currentWallet=function(){if(!multiSession)return soloWallet();const shown=['locked','battle'].includes(multiSnapshot?.phase)?multiShownWallets:multiSnapshot?.wallets;const p=shown?.find(p=>p.playerId===multiUser)||{balance:100,score:0,correctCount:0};return {...p,maxStake:Math.min(50,p.balance),reserved:0};};
+spriteFrame=function(u){return multiPlayback&&Number.isInteger(u.pose)?u.pose:baseSpriteFrame(u)};
+function displayMultiState(){
+ if(!multiSession||!multiSnapshot||multiRecording)return;
+ const s=multiSnapshot,q=id=>document.querySelector(id),player=s.participants.includes(multiUser),ready=s.readyIds.includes(multiUser);
+ round=s.roundId||1;
+ if(s.phase==='predict')state='choose';else if(['locked','battle'].includes(s.phase))state='fight';else if(['settle','result'].includes(s.phase))state='result';else state='choose';
+ soloUpdate();
+ q('#comparison').hidden=s.phase!=='predict';q('#battle').hidden=s.phase!=='battle'||!multiPlayback;q('#resultPanel').hidden=!['settle','result'].includes(s.phase);
+ q('#pause').hidden=true;q('#speed').hidden=true;
+ q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';q('#skip').disabled=ready||multiPredictionPending||!player||s.phase!=='predict';
+ q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
+ for(const n of [0,10,25,50])q('#stake'+n).disabled=ready||multiPredictionPending||!player||n>currentWallet().maxStake;
+ q('#beginRound').hidden=!(multiHost&&s.phase==='lobby');q('#exitRoom').hidden=false;
+ const role=player?(multiHost?'ホスト':'参加者'):'観戦のみ';
+ q('#roomStatus').textContent=(mockGuest?'同端末mock（相手は自動の無料予想） / ':('SDK通信試作 / 部屋ID '+(multiAdapter?.getRoomId()||'—')+' / '))+role+' / '+s.participants.length+'人 / '+s.phase+(ready?' / 予想受付済み':multiPredictionPending?' / 予想送信中（受付確認待ち）':'')+(s.phase==='predict'?' / あと約'+Math.max(0,Math.ceil((s.deadline-Date.now())/1000))+'秒':'')+(multiError?' / '+multiError:'')+(s.replayError?' / 観戦記録の転送障害（確定結果は維持）':'');
+ q('#phaseTitle').textContent=s.phase==='lobby'?'参加者待ち':s.phase==='predict'?'みんなで予想':s.phase==='locked'?'予想締切・戦闘記録を準備':s.phase==='battle'?(multiPlayback?'同じ戦闘記録を観戦':'戦闘記録を受信中'):s.phase==='stopped'?'通信を停止しました':'今回の結果';
+ q('#hits').textContent=currentWallet().correctCount+' / '+(s.phase==='result'||s.phase==='settle'?round:round-1);
+ if(s.phase==='result'||s.phase==='settle'){
+  q('#message').textContent=s.winner==='invalid'?'戦闘が無効（ホスト確定通知）':s.winner==='draw'?'引き分け':(s.winner==='A'?'朱軍':'蒼軍')+'の勝利';
+  const ranks=(s.wallets||[]).slice().sort((a,b)=>b.score-a.score);
+  let prior=null,rankNo=0;
+  q('#breakdown').textContent=ranks.map((p,i)=>{if(p.score!==prior)rankNo=i+1;prior=p.score;return rankNo+'位 '+(p.playerId===multiUser?'あなた':p.playerId)+'：純益 '+credits(p.score)+' / 残高 '+p.balance+' G / 正解 '+p.correctCount;}).join('\n');
+  q('#next').hidden=!multiHost;q('#next').disabled=s.phase!=='result';q('#next').textContent=round>=20?'20戦終了（退出して再開）':'ホスト：次の戦いへ';
+ }
+ if(s.phase==='stopped'){q('#comparison').hidden=true;q('#battle').hidden=true;q('#resultPanel').hidden=true;q('#roomStatus').textContent='停止：'+s.stoppedReason+'。未精算の予約は差し引きません。退出して戻れます。';}
+}
+update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
+function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units)units=JSON.parse(JSON.stringify(s.matchup.units));}if(multiSession)displayMultiState();}
+function resetMultiRound(){multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
+function publicMatchup(){return {engineVersion:'v5-collision',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxUnits:16};}
+function openMultiRound(){
+ if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=20)return;
+ const nextRound=s.roundId===null?1:s.roundId+1;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
+ multiSession.openRound({roundId:round,durationMs:30000,matchup:publicMatchup()});multiSnapshot=multiSession.getState();displayMultiState();
+}
+function buildCanonicalReplay(){
+ multiRecording=true;
+ try{
+  units=JSON.parse(JSON.stringify(multiInitial));shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();state='fight';winner=null;choice=null;
+  const recorder=CompactReplay.createCompactRecorder(),read=()=>({units,shots,poseFor:baseSpriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving});let ticks=0;
+  recorder.capture(0,read());
+  while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++;recorder.capture(ticks,read(),state==='result');}
+  const replay=recorder.finish({ticks,winner:winner===null?'draw':winner===0?'A':'B'});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH}};CompactReplay.createPlayback(replay);return replay;
+ }finally{multiRecording=false;}
+}
+function preparePlayback(replay,now){
+ multiReplay=replay;multiPlayback=CompactReplay.createPlayback(replay);multiPlaybackStarted=now;applyReplayFrame(0);
+}
+function applyReplayFrame(tick){
+ const frame=multiPlayback.at(tick);units=frame.units;shots=frame.shots;
+ for(const u of units)visualFor(u).face=u.face;
+ draw();
+}
+startPrediction=function(skip=false){
+ if(!multiSession)return soloStart(skip);
+ const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser)||(!skip&&selectedSide===null))return;
+ multiPredictionPending=multiSession.predict(skip?null:selectedSide===0?'A':'B',skip?0:selectedStake);
+ if(mockGuest)mockGuest.predict('A',0);
+ multiSnapshot=multiSession.getState();displayMultiState();
+};
+nextPrediction=function(){if(!multiSession)return soloNext();openMultiRound();};
+document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#skip').onclick=()=>startPrediction(true);document.querySelector('#next').onclick=()=>nextPrediction();
+function drainMock(){let n=0;while(mockQueue.length&&n++<10000){const [to,from,wire]=mockQueue.shift();to()?.receive(from,wire);}}
+function pumpMulti(now){
+ if(!multiSession)return;
+ if(now-multiLastPump>=100){multiLastPump=now;drainMock();if(mockGuest?.getState().phase==='predict'&&!mockGuest.getState().readyIds.includes('mock-guest'))mockGuest.predict('A',0);drainMock();multiSession.tick();mockGuest?.tick();drainMock();}
+ if(multiHost&&now-multiHeartbeat>=5000){multiHeartbeat=now;multiSession.heartbeat();drainMock();}
+ multiSnapshot=multiSession.getState();const s=multiSnapshot;
+ if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units)units=JSON.parse(JSON.stringify(s.matchup.units));}
+ if(multiHost&&s.phase==='locked'&&!multiBusy){multiBusy=true;try{multiSession.startBattle(buildCanonicalReplay());}catch(e){multiError=String(e.message);multiSession.close();}finally{multiBusy=false;}return;}
+ if(s.phase==='battle'){
+  const replay=multiSession.getReplay();
+  const delivered=!multiHost||multiSession.isReplayDelivered()||now-multiBattleWaitAt>=2000;
+  if(multiHost&&!replay&&s.replayError){multiError='戦闘結果は確定済み・観戦記録を再生できません';multiSession.settleRound();multiSession.showResult();return;}
+  if(replay&&!multiPlayback&&delivered)try{preparePlayback(replay,now);}catch(e){multiError='再生形式エラー';multiSession.close();}
+  if(multiPlayback){
+   const tick=Math.min(multiReplay.ticks,(now-multiPlaybackStarted)*.06);
+   applyReplayFrame(tick);
+   if(multiHost&&tick>=multiReplay.ticks)try{multiSession.settleRound();multiSession.showResult();}catch(e){if(e.message!=='replay-delivery-pending'){multiError=e.message;multiSession.close();}}
+  }
+ }
+ if(multiHost&&s.phase==='settle')multiSession.showResult();
+ displayMultiState();
+}
+loop=function(t){if(!multiSession)return soloLoop(t);pumpMulti(Date.now());requestAnimationFrame(loop)};
+function beginMock(){
+ if(multiSession||multiBusy||state==='fight')return;
+ multiUser='you';multiHost=true;multiError='';multiLastPump=0;multiHeartbeat=0;multiRoundSeen=null;
+ multiSession=MultiBinding.createWalletSession({roomId:'local-mock',sessionId:'mock-'+Date.now(),userId:'you',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>mockGuest,'you',wire]),onChange:onMultiChange});
+ const sid=multiSession.getState().sessionId;
+ mockGuest=MultiProtocol.createSession({roomId:'local-mock',sessionId:sid,userId:'mock-guest',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>multiSession,'mock-guest',wire])});
+ multiSnapshot=multiSession.getState();multiSession.hello();drainMock();displayMultiState();
+}
+async function loadNativeSDK(){
+ if(globalThis.AgentSDK?.room&&globalThis.AgentSDK?.user)return globalThis.AgentSDK;
+ await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://cdn.gravity.place/fe/sdk/index-1.0.2.min.js';const timer=setTimeout(()=>reject(Error('SDK読み込みがタイムアウトしました')),15000);script.onload=()=>{clearTimeout(timer);resolve()};script.onerror=()=>{clearTimeout(timer);reject(Error('SDKを読み込めません。ひとり用は利用できます。'))};document.head.appendChild(script);});
+ if(!globalThis.AgentSDK?.room||!globalThis.AgentSDK?.user)throw Error('SDK未接続。GRAVITY内の対応環境が必要です。');
+ return globalThis.AgentSDK;
+}
+async function enterNative(kind){
+ if(multiBusy||multiSession||state==='fight')return;const roomId=document.querySelector('#roomId').value?.trim();if(kind==='join'&&!roomId){document.querySelector('#roomStatus').textContent='部屋IDを入力してください';return;}
+ multiBusy=true;document.querySelector('#roomStatus').textContent='SDKへ接続中（実機未検証）';
+ try{
+  if(!multiAdapter){const sdk=await loadNativeSDK();multiAdapter=await SDKAdapter.install({sdk,nonce:()=>crypto.randomUUID(),sessionFactory:MultiBinding.createWalletSession,sessionOptions:{onChange:onMultiChange}});}
+  multiUser=multiAdapter.userId;multiHost=kind==='create';multiError='';multiRoundSeen=null;multiPlayback=null;mockGuest=null;
+  multiSession=kind==='create'?await multiAdapter.create():await multiAdapter.join(roomId);multiSnapshot=multiSession.getState();document.querySelector('#roomId').value=multiAdapter.getRoomId();displayMultiState();
+ }catch(e){document.querySelector('#roomStatus').textContent=String(e.message)+' / オフラインひとり用は継続できます。';if(multiAdapter)document.querySelector('#exitRoom').hidden=false;}
+ finally{multiBusy=false;}
+}
+async function leaveMulti(){
+ if(multiBusy)return;multiBusy=true;
+ try{if(multiAdapter&&!mockGuest)await multiAdapter.exit();multiSession?.close();multiSession=null;mockGuest=null;mockQueue=[];multiSnapshot=null;multiPlayback=null;multiReplay=null;round=1;mistakes=0;correct=0;freshWallet();openPrediction((Math.random()*4294967296)>>>0);
+ for(const id of ['#red','#blue','#skip','#next']){document.querySelector(id).disabled=false;document.querySelector(id).hidden=false;}
+ document.querySelector('#pause').hidden=false;document.querySelector('#speed').hidden=false;document.querySelector('#exitRoom').hidden=true;document.querySelector('#beginRound').hidden=true;document.querySelector('#roomStatus').textContent='オフライン・ひとり用';update();
+ }catch(e){document.querySelector('#roomStatus').textContent='退出失敗：'+e.message+'。もう一度退出してください。';}finally{multiBusy=false;}
+}
+document.querySelector('#mockRoom').onclick=beginMock;document.querySelector('#createRoom').onclick=()=>enterNative('create');document.querySelector('#joinRoom').onclick=()=>enterNative('join');
+document.querySelector('#exitRoom').onclick=leaveMulti;document.querySelector('#beginRound').onclick=openMultiRound;

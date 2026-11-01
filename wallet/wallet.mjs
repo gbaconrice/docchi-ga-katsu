@@ -1,0 +1,73 @@
+/** Deterministic host-authoritative game-credit ledger. No money, SDK or networking. */
+export const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:20, precision:0});
+const fail = code => { throw new Error(code); };
+const int = (value, code='INVALID_INTEGER') => { if (!Number.isSafeInteger(value) || value < 0) fail(code); return value; };
+const id = value => { if(typeof value !== 'string' || !value.trim()) fail('INVALID_ID'); return value; };
+const freeze = value => { if(value && typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);} return value; };
+const clone = state => JSON.parse(JSON.stringify(state));
+const session = (state, sessionId) => { if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
+const player = (state, playerId) => { const p=state.players.find(p=>p.playerId===playerId); if(!p) fail('UNKNOWN_PLAYER'); return p; };
+const active = (state, roundId) => { if(!state.currentRound || state.currentRound.roundId!==roundId) fail('ROUND_NOT_ACTIVE'); return state.currentRound; };
+export function createSession({sessionId,playerIds,config={}}){
+  id(sessionId);
+  if(!Array.isArray(playerIds)||!playerIds.length) fail('PLAYERS_REQUIRED');
+  playerIds.forEach(id); if(new Set(playerIds).size!==playerIds.length) fail('DUPLICATE_PLAYER');
+  if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k))) fail('UNKNOWN_CONFIG');
+  const c={...DEFAULT_CONFIG,...config}; Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
+  if(c.precision!==0) fail('INTEGER_CREDITS_ONLY');
+  if(!c.totalRounds) fail('INVALID_CONFIG');
+  if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
+  return freeze({schemaVersion:1,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
+}
+export function openRound(state,{sessionId,roundId,deadline}){
+  session(state,sessionId);int(roundId);int(deadline);
+  if(state.currentRound?.roundId===roundId){if(state.currentRound.deadline!==deadline) fail('ROUND_CONFLICT'); return state;}
+  if(state.currentRound) fail('ROUND_STILL_OPEN');
+  if(roundId!==state.completedRounds+1 || roundId>state.config.totalRounds) fail('ROUND_OUT_OF_ORDER');
+  const next=clone(state); next.currentRound={roundId,deadline,commits:[]}; return freeze(next);
+}
+export function commitPrediction(state,{sessionId,roundId,playerId,side,stake=0,now}){
+  session(state,sessionId);int(roundId);int(now); int(stake,'INVALID_STAKE');
+  const p=player(state,playerId), r=active(state,roundId);
+  if(!['A','B',null].includes(side)) fail('INVALID_SIDE');
+  if(side===null && stake!==0) fail('SKIP_CANNOT_STAKE');
+  const old=r.commits.find(c=>c.playerId===playerId);
+  if(old){if(old.side===side && old.stake===stake) return state; fail('COMMIT_LOCKED');}
+  if(now>=r.deadline) fail('COMMIT_DEADLINE');
+  if(stake>Math.min(p.balance,state.config.stakeCap)) fail('STAKE_EXCEEDS_LIMIT');
+  const next=clone(state);next.currentRound.commits.push({playerId,side,stake});return freeze(next);
+}
+export function settleRound(state,{sessionId,roundId,outcome,now}){
+  session(state,sessionId);int(roundId);int(now);
+  if(!['A','B','draw','invalid'].includes(outcome)) fail('INVALID_OUTCOME');
+  const old=state.ledger.find(e=>e.roundId===roundId);
+  if(old){if(old.outcome!==outcome) fail('SETTLEMENT_CONFLICT');return state;}
+  const r=active(state,roundId); if(now<r.deadline && r.commits.length!==state.players.length) fail('ROUND_NOT_CLOSED');
+  const next=clone(state), entries=[];
+  for(const p of next.players){
+    const c=r.commits.find(c=>c.playerId===p.playerId), predicted=!!c?.side;
+    const valid=outcome==='A'||outcome==='B';
+    const correct=predicted && valid ? c.side===outcome : null;
+    const stake=c?.stake??0;
+    const delta=correct===true ? state.config.correctReward+stake*state.config.winMultiplier : correct===false ? -stake : 0;
+    const before=p.balance;p.balance+=delta;p.score=p.balance-state.config.initialBalance;
+    if(correct===true)p.correctCount++;
+    if(!Number.isSafeInteger(p.balance)||p.balance<0||!Number.isSafeInteger(p.score)) fail('BALANCE_INVARIANT');
+    entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake,correct,delta,balanceBefore:before,balanceAfter:p.balance,scoreAfter:p.score});
+  }
+  next.ledger.push({sessionId,roundId,outcome,entries});next.completedRounds=roundId;next.currentRound=null;return freeze(next);
+}
+/** Stable roster: known identity resumes; an unknown identity is spectator, never newly funded. */
+export function reconnectPlayer(state,{sessionId,playerId}){
+  session(state,sessionId);id(playerId);const p=state.players.find(p=>p.playerId===playerId);
+  return freeze(p?{role:'player',...p}:{role:'spectator',playerId});
+}
+export function walletView(state,playerId){
+  const p=player(state,playerId),reserved=state.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
+  return freeze({...p,reserved,available:p.balance-reserved,maxStake:Math.min(p.balance,state.config.stakeCap)});
+}
+/** Competition rank depends solely on signed profit; equal profits share rank. No SDK submission. */
+export function standings(state){
+  const rows=state.players.map(p=>({...p})).sort((a,b)=>b.score-a.score || (a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));
+  let rank=0;return freeze(rows.map((p,i)=>{if(i===0||p.score!==rows[i-1].score)rank=i+1;return{rank,...p};}));
+}
