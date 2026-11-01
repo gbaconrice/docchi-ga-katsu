@@ -1,9 +1,0 @@
-const fs=require('fs'),assert=require('assert'),{performance}=require('perf_hooks');
-const core=fs.readFileSync(__dirname+'/baseline-v5-core.js','utf8');
-const api=new Function('document',core+`;update=()=>{};function draw(){};return {TYPES,RADII,rng,generated(s,r){round=r;setup(s);return units.map(u=>({...u}))},run(input,opt={}){units=input.map(u=>({...u}));shots=[];elapsed=0;state='fight';choice=opt.choice??null;let ticks=0,maxOverlap=0;const t0=performance.now();while(state==='fight'&&ticks<(opt.ticks??3601)){step(1/60);ticks++;if(opt.overlap)for(let i=0;i<units.length;i++)for(let j=i+1;j<units.length;j++)if(!units[i].dead&&!units[j].dead)maxOverlap=Math.max(maxOverlap,RADII[units[i].k]+RADII[units[j].k]-Math.hypot(units[i].x-units[j].x,units[i].y-units[j].y))}return {winner,state,seconds:elapsed,ticks,ms:performance.now()-t0,maxOverlap,units:units.map(u=>({...u}))}}}`)({querySelector:()=>({getContext:()=>({})})});
-function u(k,side,x,y,priority,hp=api.TYPES[k].hp){return {k,side,x,y,priority,id:Math.round(priority*1e6),hp,cd:0,dead:false}}
-function reflected(list){return list.map(v=>({...v,side:1-v.side,y:538-v.y,originForward:v.originForward===undefined?undefined:-v.originForward}))}
-function close(a,b,epsilon=1e-6){assert(Math.abs(a-b)<epsilon,`${a} != ${b}`)}
-function compare(a,b,reflect=false){assert.equal(a.winner,b.winner===null?null:reflect?1-b.winner:b.winner);close(a.seconds,b.seconds);for(let v of a.units){let w=b.units.find(x=>x.priority===v.priority);close(v.hp,w.hp);close(v.x,w.x);close(v.y,reflect?538-w.y:w.y);assert.equal(v.dead,w.dead)}}
-
-module.exports={api,u,reflected,compare};

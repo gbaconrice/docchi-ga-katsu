@@ -1,0 +1,12 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');const script=fs.readFileSync('index.html','utf8').match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1];
+const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),d={getContext:()=>ctx,setAttribute(){}},c={TextEncoder,TextDecoder,btoa,atob,Math,document:{querySelector:()=>d},requestAnimationFrame:()=>{}};
+vm.createContext(c);vm.runInContext(script,c);vm.runInContext("openSoloScreen()",c);const run=s=>vm.runInContext(s,c);
+
+const results=[];for(const role of ['boar','bombbug','frostmage','stormmage','burrower','slime']){
+ c.role=role;run(`setup(55);multiInitial=[];for(let side=0;side<2;side++)for(let i=0;i<8;i++){const k=side?['sword','shield','archer','rider'][i%4]:role;multiInitial.push({id:side*100+i,side,k,x:60+(i%4)*110,y:(side?400:130)+(side?-1:1)*Math.floor(i/4)*40,hp:TYPES[k].hp,cd:0,priority:(i+1)/10,dead:false})}`);
+ const replay=run('buildCanonicalReplay()');const json=JSON.stringify(replay);assert.equal(run('JSON.stringify(buildCanonicalReplay())'),json,'repeat '+role);
+ c.trace=replay;assert(run('CompactReplay.createPlayback(trace).at(trace.ticks).units.every(u=>Number.isInteger(u.presentationFlags))'));
+ results.push({role,bytes:Buffer.byteLength(json),ticks:replay.ticks,spawns:replay.events.reduce((n,e)=>n+e[3].length,0),effects:replay.events.reduce((n,e)=>n+e[5].length,0)});
+}
+run(`let seen=new Set;for(let r=1;r<=20;r++)for(let seed=1;seed<=150;seed++){round=r;setup(seed);if(r===3&&!units.some(u=>u.k==='boar'||u.k==='slime'))throw Error('missing featured introduction');if(r<=5&&budgets[0].spent!==budgets[1].spent)throw Error('opening budget mismatch');if(units.some(u=>u.k==='slimelet'))throw Error('child initial');for(const side of [0,1]){const army=units.filter(u=>u.side===side),kinds=new Set(army.map(u=>u.k));if(army.length>8||kinds.size>(r<=5?1:r<=11?2:3))throw Error('composition cap');if(army.every(u=>u.k==='bombbug'))throw Error('pure bomb army');if(army.some(u=>u.k==='drake')&&!units.some(u=>u.side!==side&&TYPES[u.k].attackTargetMask.includes('air')))throw Error('unreachable flyer');for(const u of army)seen.add(u.k)}}if(seen.size!==17)throw Error('missing selectable type '+seen.size)`);
+console.log(JSON.stringify({pass:true,normal16EntityActualReplays:results,generatorTrials:3000,all17Seen:true,noInitialChild:true,noPureBombArmy:true}));

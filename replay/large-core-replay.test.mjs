@@ -1,7 +1,7 @@
 import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
 import {createCompactRecorder,createPlayback} from './compact-replay.mjs';
 import {packReplay,createSender,createReceiver} from '../multiplayer/replay-transfer.mjs';
-const script=fs.readFileSync('index.html','utf8').match(/<script>([\s\S]*)<\/script>/)[1],ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),d={getContext:()=>ctx,setAttribute(){}};
+const script=fs.readFileSync('index.html','utf8').match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1],ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),d={getContext:()=>ctx,setAttribute(){}};
 const c={TextEncoder,TextDecoder,btoa,atob,Math,document:{querySelector:()=>d},requestAnimationFrame:()=>{},makeRecorder:createCompactRecorder};
 vm.createContext(c);vm.runInContext(script,c);const run=s=>vm.runInContext(s,c);
 const output=[];

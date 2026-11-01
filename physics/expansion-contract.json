@@ -1,0 +1,238 @@
+{
+  "types": {
+    "boar": {
+      "cost": 5,
+      "name": "突進猪",
+      "hp": 155,
+      "dmg": 20,
+      "rate": 1.2,
+      "speed": 30,
+      "radius": 14,
+      "reach": 4,
+      "range": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "chargeBonus": 32,
+      "chargeSpeed": 72,
+      "knockback": 22
+    },
+    "bombbug": {
+      "cost": 3,
+      "name": "爆弾甲虫",
+      "hp": 55,
+      "dmg": 0,
+      "rate": 60,
+      "speed": 48,
+      "radius": 9,
+      "reach": 5,
+      "range": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "explosionDamage": 115,
+      "explosionRadius": 50
+    },
+    "frostmage": {
+      "cost": 4,
+      "name": "氷術師",
+      "hp": 85,
+      "dmg": 15,
+      "rate": 1.4,
+      "speed": 23,
+      "radius": 8,
+      "reach": 110,
+      "range": 118,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "slowFactor": 0.55,
+      "slowDuration": 1.5,
+      "slowImmunity": 0.75
+    },
+    "stormmage": {
+      "cost": 5,
+      "name": "雷術師",
+      "hp": 80,
+      "dmg": 24,
+      "rate": 1.4,
+      "speed": 22,
+      "radius": 8,
+      "reach": 95,
+      "range": 103,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "chainCount": 3,
+      "chainRange": 60,
+      "chainFalloff": 0.65
+    },
+    "burrower": {
+      "cost": 5,
+      "name": "地潜り虫",
+      "hp": 120,
+      "dmg": 25,
+      "rate": 1.1,
+      "speed": 35,
+      "radius": 11,
+      "reach": 5,
+      "range": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burrowWarning": 0.5,
+      "burrowTravel": 0.3
+    },
+    "slime": {
+      "cost": 4,
+      "name": "分裂スライム",
+      "hp": 115,
+      "dmg": 12,
+      "rate": 1.4,
+      "speed": 20,
+      "radius": 16,
+      "reach": 3,
+      "range": 19,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "splitCount": 2,
+      "splitKind": "slimelet"
+    },
+    "slimelet": {
+      "cost": 0,
+      "name": "小スライム",
+      "hp": 35,
+      "dmg": 7,
+      "rate": 0.9,
+      "speed": 34,
+      "radius": 7,
+      "reach": 3,
+      "range": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "spawnOnly": true
+    }
+  },
+  "selectableIds": [
+    "boar",
+    "bombbug",
+    "frostmage",
+    "stormmage",
+    "burrower",
+    "slime"
+  ],
+  "spawnOnlyIds": [
+    "slimelet"
+  ],
+  "maxAlivePerTeam": 32,
+  "maxCreatedPerTeam": 128,
+  "statusFields": {
+    "slowUntil": "absolute sim seconds, active only elapsed < slowUntil",
+    "slowFactor": ".55; never stacks",
+    "slowImmuneUntil": "absolute sim seconds, blocks refresh and reapplication for 0.75s after slow ends",
+    "chargeReady": "boolean, first impact not yet consumed",
+    "burrowStage": [
+      "warning",
+      "underground",
+      "done"
+    ],
+    "burrowUntil": "absolute sim seconds for current stage"
+  },
+  "presentationFlags": {
+    "1": "elapsed < slowUntil",
+    "2": "burrowStage === 'underground'",
+    "4": "boar && chargeReady"
+  },
+  "events": {
+    "charge_impact": [
+      "sourceToken",
+      "targetToken",
+      "x",
+      "y",
+      "targetX",
+      "targetY"
+    ],
+    "bomb_explode": [
+      "sourceToken",
+      "x",
+      "y",
+      "radius"
+    ],
+    "slow_applied": [
+      "sourceToken",
+      "targetToken",
+      "x",
+      "y",
+      "until",
+      "factor"
+    ],
+    "chain_link": [
+      "sourceToken",
+      "fromToken",
+      "targetToken",
+      "x",
+      "y",
+      "targetX",
+      "targetY",
+      "fromX",
+      "fromY",
+      "toX",
+      "toY",
+      "index"
+    ],
+    "burrow_warning": [
+      "sourceToken",
+      "x",
+      "y",
+      "sourceX",
+      "sourceY",
+      "targetX",
+      "targetY",
+      "until"
+    ],
+    "burrow_start": [
+      "sourceToken",
+      "x",
+      "y",
+      "targetX",
+      "targetY",
+      "until"
+    ],
+    "burrow_emerge": [
+      "sourceToken",
+      "x",
+      "y"
+    ],
+    "slime_split": [
+      "parentToken",
+      "x",
+      "y",
+      "count"
+    ],
+    "split_spawn": [
+      "parentToken",
+      "childToken",
+      "k",
+      "side",
+      "x",
+      "y"
+    ]
+  },
+  "eventNotes": {
+    "burrow_warning": "x/y are destination; sourceX/Y are current unit. warning is 0.5s vulnerable ground, underground is 0.3s untargetable, no repeat.",
+    "split_spawn": "also emits standard summon_spawn for same child; visual consumers must deduplicate or select one",
+    "slime_split": "count is actual queued children after team-cap/space checks; children enter next tick"
+  }
+}

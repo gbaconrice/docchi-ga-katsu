@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト試作 v6.2</title><style>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト増補試作 v7</title><style>
 *{box-sizing:border-box}body{margin:0;background:#111a20;color:#efe7d3;font-family:system-ui,sans-serif}main{max-width:480px;margin:auto;padding: max(12px,env(safe-area-inset-top)) 14px max(16px,env(safe-area-inset-bottom))}header{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #827457;padding-bottom:8px}h1{font-size:20px;margin:0;letter-spacing:.15em}small,.sub{color:#b8b29e} .sub{font-size:12px;margin:7px 0 12px}#status{font-size:14px;color:#e9c97f}canvas{display:block;width:100%;aspect-ratio: 1 / 1.12;border:1px solid #766747;border-radius:5px;background:#35463d} .teams{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.team{background:#212d30;border:1px solid #52605a;padding:9px;border-radius:4px;min-height:86px}.team b{font-size:14px}.team p{font-size:12px;line-height:1.5;margin:5px 0 0;color:#dedacb}.red b{color:#ffad91}.blue b{color:#9fcef1}#message{text-align:center;min-height:46px;font-size:14px;line-height:1.5;margin:10px 0}.actions{display:flex;gap:8px}button{flex:1;min-height:48px;background:#344a4d;color:#fff5dc;border:1px solid #9c9b7c;border-radius:5px;font-size:15px;font-weight:bold;cursor:pointer}button:disabled{opacity:.4}button.redbtn{background:#773f36}button.bluebtn{background:#315672}button:focus-visible{outline:3px solid #f7d994}details{font-size:12px;color:#c3beac;margin-top:14px}details p{line-height:1.6} .foot{font-size:11px;color:#939c8d;margin-top:12px}
 
 [hidden]{display:none!important}.wallet{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:12px 0}.wallet div{background:#212d30;padding:8px;text-align:center}.wallet span{display:block;font-size:11px;color:#b8b29e}.wallet strong{font-size:18px}h2{font-size:16px;margin:12px 0 8px}.stakes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}button[aria-pressed=true]{outline:3px solid #f7d994;outline-offset:-3px}.panel{margin:12px 0;padding:12px;border:1px solid #52605a;border-radius:5px}.hint{font-size:12px;line-height:1.6;color:#c3beac}.breakdown{white-space:pre-line;line-height:1.8;font-size:14px}#confirm{width:100%;margin:8px 0}#skip{font-size:13px;background:#212d30}#phaseTitle{color:#e9c97f}canvas{max-height:54vh;width:auto;max-width:100%;margin:auto}
@@ -93,7 +93,7 @@ function standings(state){
 return {DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings};})();
 
 const TYPES={sword:{name:'剣士',hp:100,dmg:17,range:25,rate:1.0,speed:32},shield:{name:'盾兵',hp:170,dmg:10,range:23,rate:1.2,speed:23,armor:.55},spear:{name:'槍兵',hp:85,dmg:18,range:44,rate:1.25,speed:27},archer:{name:'弓兵',hp:60,dmg:14,range:150,rate:1.25,speed:24,projectile:true},cannon:{name:'砲兵',hp:72,dmg:23,range:125,rate:2.2,speed:19,projectile:true,splash:38},rider:{name:'騎兵',hp:230,dmg:38,range:27,rate:1.15,speed:45},healer:{name:'治療兵',hp:65,dmg:7,range:90,rate:1.35,speed:24,heal:13}};
-const keys=Object.keys(TYPES), canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');let speed=1,paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
+const keys=Object.keys(TYPES).filter(k=>k!=='slimelet'), canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');let speed=1,paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
 function rng(s){return ()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
 let budgets=[];const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};
 // Optional opening generator: not installed in index.html by this candidate.
@@ -111,14 +111,15 @@ function generateEarlyArmies(seed){
 let previousArmyKinds=[];
 function makeArmy(r,side){
  const place=(k,i)=>({id:side*100+i,side,k,x:90+(i%4)*90,y:(side===0?120:418)+(side===0?1:-1)*Math.floor(i/4)*36,hp:TYPES[k].hp,cd:r()*.5,priority:r(),dead:false});
- if(round<=5){const plan=generateEarlyArmies(seed);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
+ if(round<=5){const earlyKeys=['sword','shield','spear','archer','rider',...(round>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,COST[k]])),round===3?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
  let budget=12+Math.min(12,Math.floor((round-1)/2))+Math.floor(r()*5)-2,planned=budget,a=[];
- const unlock={goblin:6,golem:8,drake:12,wraith:15};const pool=keys.filter(k=>round>=(unlock[k]||1)),maxKinds=round<=11?2:3,kindCount=1+Math.floor(r()*maxKinds),available=[];
+ const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12};const pool=keys.filter(k=>round>=(unlock[k]||1)),maxKinds=round<=11?2:3,kindCount=1+Math.floor(r()*maxKinds),available=[];
  if(side===1&&previousArmyKinds.length===1)pool.splice(pool.indexOf(previousArmyKinds[0]),1);
  if(side===1&&!previousArmyKinds.some(k=>TYPES[k].attackTargetMask?.includes('air'))&&pool.includes('drake'))pool.splice(pool.indexOf('drake'),1);
  for(let i=0;i<kindCount&&pool.length;i++)available.push(pool.splice(Math.floor(r()*pool.length),1)[0]);
  if(side===1&&previousArmyKinds.includes('drake')){if(!available.includes('archer'))available[0]='archer';budget-=COST.archer;a.push(place('archer',0));}
  while(budget>=2&&a.length<8){const options=available.filter(k=>COST[k]<=budget);if(!options.length)break;const k=options[Math.floor(r()*options.length)];budget-=COST[k];a.push(place(k,a.length))}
+ if(a.length&&a.every(u=>u.k==='bombbug')){const first=a[0];a[0]={...first,k:'sword',hp:TYPES.sword.hp};budget+=COST.bombbug-COST.sword;}
  budgets[side]={planned,spent:planned-budget};if(side===0)previousArmyKinds=[...new Set(a.map(u=>u.k))];return a;
 }
 function setup(s){seed=s>>>0;let r=rng(seed);units=[...makeArmy(r,0),...makeArmy(r,1)];shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
@@ -198,23 +199,30 @@ step=function(dt){
     const enemies=units.filter(e=>e.side!==u.side&&!e.dead);
     enemies.sort((a,b)=>Math.hypot(a.x-u.x,a.y-u.y)-Math.hypot(b.x-u.x,b.y-u.y));
     if(enemies.length&&Math.abs(enemies[0].x-u.x)>1)v.face=enemies[0].x>u.x?1:-1;
-  }  consumeCombatEvents(typeof combatEvents==='undefined'?[]:combatEvents);
+  }
+  for(const u of units){const flags=(elapsed<(u.slowUntil||0)?1:0)|(u.burrowStage==='underground'?2:0)|(u.k==='boar'&&u.chargeReady&&visualFor(u).moving?4:0);if(flags||u.presentationFlags!==undefined)u.presentationFlags=flags;}
+  consumeCombatEvents(typeof combatEvents==='undefined'?[]:combatEvents);
 };
 const combatSetup=setup;
 setup=function(s){visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;combatSetup(s)};
 function spriteFrame(u){
   const v=visualFor(u),age=visualTime-v.attack;
+  if(!u.dead&&u.burrowStage==='warning')return 3;
   if(u.dead)return v.death!==null&&visualTime-v.death<.16?7:8;
   // Strike starts on the exact melee damage / arrow-spawn tick. No delayed damage.
   if(age<.085)return 4;
   if(age<.245)return 5;
   if(visualTime-v.hit<.1)return 6;
   const t=TYPES[u.k];
-  if(state==='fight'&&u.cd>0&&u.cd<=.14&&(units.some(e=>!e.dead&&e.side!==u.side&&Math.hypot(e.x-u.x,e.y-u.y)-(t.radius||0)-(TYPES[e.k].radius||0)<=(t.reach??t.range)+1/2048)||(t.heal&&units.some(e=>!e.dead&&e.side===u.side&&e.hp<TYPES[e.k].hp&&Math.hypot(e.x-u.x,e.y-u.y)<90+1e-7))))return 3;
+  if(u.k!=='burrower'&&state==='fight'&&u.cd>0&&u.cd<=.14&&(units.some(e=>!e.dead&&e.side!==u.side&&Math.hypot(e.x-u.x,e.y-u.y)-(t.radius||0)-(TYPES[e.k].radius||0)<=(t.reach??t.range)+1/2048)||(t.heal&&units.some(e=>!e.dead&&e.side===u.side&&e.hp<TYPES[e.k].hp&&Math.hypot(e.x-u.x,e.y-u.y)<90+1e-7))))return 3;
   if(v.moving){const ms=(visualTime*1000)%350;return ms<110?1:ms<175?0:ms<285?2:0}
   return 0;
 }
 function drawSprite(u){
+  const flags=u.presentationFlags||0;
+  if(!u.dead&&(flags&4)){const facing=visualFor(u).face;ctx.strokeStyle='#e9bd86';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(u.x-facing*12,u.y-4);ctx.lineTo(u.x-facing*24,u.y-4);ctx.moveTo(u.x-facing*10,u.y+1);ctx.lineTo(u.x-facing*20,u.y+1);ctx.stroke();}
+  if(!u.dead&&(flags&2)){ctx.strokeStyle='#ad9277';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(u.x,u.y,12,5,0,0,Math.PI*2);ctx.stroke();return true;}
+  if(!u.dead&&(flags&1)){ctx.strokeStyle='#adebff';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(u.x,u.y,16,7,0,0,Math.PI*2);ctx.stroke();}
   if(!(u.k in SPRITE_ROWS)&&!MONSTER_META[u.k])return false;
   const monster=MONSTER_META[u.k],expansion=EXPANSION_ROLES.has(u.k),cell=monster?monster.cell[0]:expansion?64:48,anchor=monster?monster.anchor:expansion?[29,53]:[21,41],hover=u.dead?0:(monster?.hover_gap||0);
   const image=spriteImages[monster?u.k+'_'+(u.side?'blue':'red'):(u.side?'blue':'red')+(expansion?'Expansion':'')];
@@ -249,7 +257,7 @@ if(typeof document.addEventListener==='function')document.addEventListener('visi
 function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
-const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚'};
+const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
 function freshWallet(){walletState=Wallet.createSession({sessionId:'solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
 function credits(n){return (n>0?'+':'')+n+' G'}
 function currentWallet(){return Wallet.walletView(walletState,PLAYER)}

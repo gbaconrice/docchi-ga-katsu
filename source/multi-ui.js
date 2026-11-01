@@ -49,7 +49,7 @@ function displayMultiState(){
 update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
 function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units)units=JSON.parse(JSON.stringify(s.matchup.units));}if(multiSession)displayMultiState();}
 function resetMultiRound(){multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
-function publicMatchup(){return {engineVersion:'v6-monsters',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:16,maxActiveUnits:64,maxCreatedEntities:256};}
+function publicMatchup(){return {engineVersion:'v7-expansion',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:16,maxActiveUnits:64,maxCreatedEntities:256};}
 function openMultiRound(){
  if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=20)return;
  const nextRound=s.roundId===null?1:s.roundId+1;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
@@ -58,11 +58,11 @@ function openMultiRound(){
 function buildCanonicalReplay(){
  multiRecording=true;
  try{
-  units=JSON.parse(JSON.stringify(multiInitial));shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
+  units=JSON.parse(JSON.stringify(multiInitial));pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
   const recorder=CompactReplay.createCompactRecorder(),read=()=>({units,shots,poseFor:baseSpriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects});let ticks=0;
   recorder.capture(0,read());
   while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++;recorder.capture(ticks,read(),state==='result');}
-  const replay=recorder.finish({ticks,winner:winner===null?'draw':winner===0?'A':'B'});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(keys.map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:256};CompactReplay.createPlayback(replay);return replay;
+  const replay=recorder.finish({ticks,winner:winner===null?'draw':winner===0?'A':'B'});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:256};CompactReplay.createPlayback(replay);return replay;
  }finally{multiRecording=false;}
 }
 function preparePlayback(replay,now){

@@ -1,0 +1,170 @@
+[
+  {
+    "a": "boar",
+    "n": 3,
+    "b": "archer",
+    "m": 5,
+    "budgetA": 15,
+    "budgetB": 15,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 11.992500000000176
+  },
+  {
+    "a": "boar",
+    "n": 3,
+    "b": "spear",
+    "m": 5,
+    "budgetA": 15,
+    "budgetB": 15,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 13.579166666666918
+  },
+  {
+    "a": "bombbug",
+    "n": 8,
+    "b": "rider",
+    "m": 3,
+    "budgetA": 24,
+    "budgetB": 24,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 2.8283333333333287
+  },
+  {
+    "a": "bombbug",
+    "n": 7,
+    "b": "drake",
+    "m": 3,
+    "budgetA": 21,
+    "budgetB": 21,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 19.95000000000015
+  },
+  {
+    "a": "frostmage",
+    "n": 7,
+    "b": "golem",
+    "m": 3,
+    "budgetA": 28,
+    "budgetB": 27,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 22.310000000000016
+  },
+  {
+    "a": "frostmage",
+    "n": 3,
+    "b": "archer",
+    "m": 4,
+    "budgetA": 12,
+    "budgetB": 12,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 10.202500000000084
+  },
+  {
+    "a": "stormmage",
+    "n": 3,
+    "b": "goblin",
+    "m": 8,
+    "budgetA": 15,
+    "budgetB": 16,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 6.388333333333316
+  },
+  {
+    "a": "stormmage",
+    "n": 3,
+    "b": "archer",
+    "m": 5,
+    "budgetA": 15,
+    "budgetB": 15,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 8.811666666666683
+  },
+  {
+    "a": "burrower",
+    "n": 3,
+    "b": "archer",
+    "m": 5,
+    "budgetA": 15,
+    "budgetB": 15,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 11.752500000000161
+  },
+  {
+    "a": "burrower",
+    "n": 3,
+    "b": "sword",
+    "m": 5,
+    "budgetA": 15,
+    "budgetB": 15,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 8.833333333333353
+  },
+  {
+    "a": "slime",
+    "n": 3,
+    "b": "cannon",
+    "m": 2,
+    "budgetA": 12,
+    "budgetB": 12,
+    "wins": [
+      20,
+      0,
+      0
+    ],
+    "meanSeconds": 15.10250000000033
+  },
+  {
+    "a": "slime",
+    "n": 3,
+    "b": "sword",
+    "m": 4,
+    "budgetA": 12,
+    "budgetB": 12,
+    "wins": [
+      0,
+      20,
+      0
+    ],
+    "meanSeconds": 15.965833333333695
+  }
+]

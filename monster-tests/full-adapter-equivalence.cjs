@@ -1,5 +1,0 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert'),{records}=require('./full-goldens.json');
-const script=fs.readFileSync('index.html','utf8').match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1],ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),d={getContext:()=>ctx,setAttribute(){}},c={TextEncoder,TextDecoder,btoa,atob,Math,document:{querySelector:()=>d},requestAnimationFrame:()=>{}};
-vm.createContext(c);vm.runInContext(script,c);
-for(const r of records){c.input=r.initial;c.rr=r.round;const actual=vm.runInContext(`(()=>{round=rr;setup(1);units=JSON.parse(JSON.stringify(input));shots=[];pendingSummons=[];elapsed=0;state='fight';choice=null;let ticks=0;while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++}return {winner,state,seconds:elapsed,ticks,units,pendingSummons}})()`,c);assert.deepEqual(JSON.parse(JSON.stringify(actual)),r.expected);}
-console.log('PASS: 20 independent final monster-core goldens match full sprite/effect adapter exactly; no gameplay interference');

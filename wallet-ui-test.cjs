@@ -27,6 +27,6 @@ run('selectStake(50)');assert.equal(run('selectedStake'),0);
 run("selectSide(0);startPrediction();walletState=Wallet.settleRound(walletState,{sessionId:'zero',roundId:round,outcome:'A',now:0});state='result';update()");
 assert.equal(run('currentWallet().balance'),10);assert.equal(run('currentWallet().score'),-90);
 assert(!/残機|3回外れ/.test(html.slice(0,html.indexOf('<script>'))));
-assert.equal((html.match(/data:image\/png;base64,/g)||[]).length,17);
+assert.equal((html.match(/data:image\/png;base64,/g)||[]).length,31);
 assert(!/(?:src|href)=["']https?:\/\//.test(html.slice(0,html.indexOf('<script>'))));
 console.log('PASS: explicit side+stake, no implicit wager, duplicate lock, reserve, settlement once, skip, 20-round continuation, new-session reset, zero-balance recovery, signed score, phase DOM, standalone assets');
