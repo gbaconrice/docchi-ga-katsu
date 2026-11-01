@@ -43,7 +43,7 @@ function makeArmy(r,side){
  if(stage<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(stage>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,BALANCE_COST[k]])),round===2?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
  const unitCap=round===1?8:stage<=5?12:stage<=11?16:stage<=16?24:32;
  const planned=side===1?Math.min(160,Math.max(Math.round((12+2*(stage-1))*1),Math.ceil(leftArmyCost*Math.pow(1+Math.min(carryStreak,4)*0.005,advance))+Math.round(0.5*advance))):12+Math.min(12,Math.floor((stage-1)/2))+Math.floor(r()*5)-2;
- const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12};
+ const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12,screech_cricket:7,reaper_mantis:7,spore_toad:9,rootwarden_treant:11};
  let pool=keys.filter(k=>stage>=(unlock[k]||1)&&(stage>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
  if(side===1&&previousArmyKinds.length===1)pool=pool.filter(k=>k!==previousArmyKinds[0]);
  if(side===1&&!previousArmyKinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))pool=pool.filter(k=>k!=='drake');
@@ -67,7 +67,19 @@ function makeArmy(r,side){
  const a=kinds.map(place),spent=kinds.reduce((n,k)=>n+BALANCE_COST[k],0);budgets[side]={planned,spent};if(side===0)previousArmyKinds=[...new Set(kinds)];return a;
 }
 
-function setup(s){seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1]){const army=units.filter(u=>u.side===side);army.forEach((u,i)=>{const depth=Math.floor(i/8),rows=Math.min(8,army.length-depth*8);u.x=army.length<=8?(side?360:120):(side?420-depth*50:60+depth*50);u.y=269-(rows-1)*25+(i%8)*50;u.originForward=side?-1:1;});}initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
+function layoutOpeningArmy(army,side){
+ const large=army.filter(u=>TYPES[u.k].radius>25);
+ if(!large.length){army.forEach((u,i)=>{const depth=Math.floor(i/8),rows=Math.min(8,army.length-depth*8);u.x=army.length<=8?(side?360:120):(side?420-depth*50:60+depth*50);u.y=269-(rows-1)*25+(i%8)*50;u.originForward=side?-1:1;});return;}
+ const columns=Math.min(4,Math.max(Math.ceil(army.length/8),Math.ceil(large.length/6))),start=columns===4?47:Math.max(80,120-(columns-1)*27),slots=[];
+ for(let col=0;col<columns;col++)for(let row=0;row<8;row++)slots.push({x:start+col*54,y:80+row*54,used:false});
+ // Large original art is kept inside the canvas without shrinking or changing body radius.
+ const safe=slots.filter(p=>p.x>=80&&p.y>=154);
+ const preferred=[...safe,...slots.filter(p=>!safe.includes(p))];
+ const place=(u,p)=>{p.used=true;u.x=side?480-p.x:p.x;u.y=p.y;u.originForward=side?-1:1;};
+ large.forEach((u,i)=>place(u,preferred[i]));
+ for(const u of army)if(!large.includes(u))place(u,slots.find(p=>!p.used));
+}
+function setup(s){seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1])layoutOpeningArmy(units.filter(u=>u.side===side),side);initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
 function update(){}
 
 // Independent collision candidate. Circle footprints are gameplay geometry.
@@ -145,7 +157,7 @@ step=function(dt){
     enemies.sort((a,b)=>Math.hypot(a.x-u.x,a.y-u.y)-Math.hypot(b.x-u.x,b.y-u.y));
     if(enemies.length&&Math.abs(enemies[0].x-u.x)>1)v.face=enemies[0].x>u.x?1:-1;
   }
-  for(const u of units){const flags=(elapsed<(u.slowUntil||0)?1:0)|(u.burrowStage==='underground'?2:0)|(u.k==='boar'&&u.chargeReady&&visualFor(u).moving?4:0);if(flags||u.presentationFlags!==undefined)u.presentationFlags=flags;}
+  for(const u of units){const flags=CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving);if(flags||u.presentationFlags!==undefined)u.presentationFlags=flags;}
   consumeCombatEvents(typeof combatEvents==='undefined'?[]:combatEvents);
 };
 const combatSetup=setup;
@@ -168,12 +180,13 @@ function drawSprite(u){
   if(!u.dead&&(flags&4)){const facing=visualFor(u).face;ctx.strokeStyle='#e9bd86';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(u.x-facing*12,u.y-4);ctx.lineTo(u.x-facing*24,u.y-4);ctx.moveTo(u.x-facing*10,u.y+1);ctx.lineTo(u.x-facing*20,u.y+1);ctx.stroke();}
   if(!u.dead&&(flags&2)){ctx.strokeStyle='#ad9277';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(u.x,u.y,12,5,0,0,Math.PI*2);ctx.stroke();return true;}
   if(!u.dead&&(flags&1)){ctx.strokeStyle='#adebff';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(u.x,u.y,16,7,0,0,Math.PI*2);ctx.stroke();}
+  if(!u.dead&&(flags&8)){ctx.fillStyle='#bd83cd';ctx.fillRect(Math.round(u.x)-3,Math.round(u.y)+5,6,3);}
   if(!(u.k in SPRITE_ROWS)&&!MONSTER_META[u.k])return false;
-  const monster=MONSTER_META[u.k],expansion=EXPANSION_ROLES.has(u.k),cell=monster?monster.cell[0]:expansion?64:48,anchor=monster?monster.anchor:expansion?[29,53]:[21,41],hover=u.dead?0:(monster?.hover_gap||0);
+  const monster=MONSTER_META[u.k],expansion=EXPANSION_ROLES.has(u.k),cell=monster?monster.cell[0]:expansion?64:48,cellH=monster?monster.cell[1]:cell,anchor=monster?monster.anchor:expansion?[29,53]:[21,41],hover=u.dead?0:(monster?.hover_gap||0);
   const image=spriteImages[monster?u.k+'_'+(u.side?'blue':'red'):(u.side?'blue':'red')+(expansion?'Expansion':'')];
   if(!image||!image.complete||!image.naturalWidth)return false;
   ctx.save();ctx.translate(Math.round(u.x),Math.round(u.y)-hover);ctx.scale(visualFor(u).face,1);
-  ctx.imageSmoothingEnabled=false;ctx.drawImage(image,spriteFrame(u)*cell,(monster?0:SPRITE_ROWS[u.k])*cell,cell,cell,-anchor[0],-anchor[1],cell,cell);
+  ctx.imageSmoothingEnabled=false;ctx.drawImage(image,spriteFrame(u)*cell,(monster?0:SPRITE_ROWS[u.k])*cell,cell,cellH,-anchor[0],-anchor[1],cell,cellH);
   ctx.restore();
   if(!u.dead){ctx.fillStyle='#121b19';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28*Math.max(0,u.hp/TYPES[u.k].hp),4)}
   if(monster){ctx.fillStyle=u.side?'#79b1ce':'#e49a78';ctx.fillRect(Math.round(u.x)-6,Math.round(u.y)+3,12,3);}

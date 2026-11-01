@@ -1,0 +1,334 @@
+{
+  "status": "9-pose ART CANDIDATE, unintegrated",
+  "native_pixel_scale": 1,
+  "units": [
+    {
+      "id": "screech_cricket",
+      "status": "provisional art ID; no combat implementation",
+      "cell": [
+        40,
+        40
+      ],
+      "anchor": [
+        20,
+        35
+      ],
+      "proposed_hit_radius": 8,
+      "frames": [
+        "idle",
+        "walk_a",
+        "walk_b",
+        "windup",
+        "strike",
+        "recover",
+        "hit",
+        "fall",
+        "down"
+      ],
+      "alpha_bounds": [
+        [
+          1,
+          8,
+          37,
+          37
+        ],
+        [
+          3,
+          7,
+          37,
+          37
+        ],
+        [
+          2,
+          8,
+          37,
+          37
+        ],
+        [
+          1,
+          8,
+          37,
+          37
+        ],
+        [
+          1,
+          5,
+          37,
+          37
+        ],
+        [
+          1,
+          9,
+          37,
+          37
+        ],
+        [
+          2,
+          11,
+          35,
+          37
+        ],
+        [
+          6,
+          16,
+          37,
+          33
+        ],
+        [
+          6,
+          23,
+          37,
+          38
+        ]
+      ],
+      "png_sha256": "aa0f058a65320eb13645ee360413a59585534f3cc95bd324af8fcc527c3ca2f1",
+      "unique_pose_count": 9
+    },
+    {
+      "id": "reaper_mantis",
+      "status": "provisional art ID; no combat implementation",
+      "cell": [
+        72,
+        72
+      ],
+      "anchor": [
+        34,
+        67
+      ],
+      "proposed_hit_radius": 13,
+      "frames": [
+        "idle",
+        "walk_a",
+        "walk_b",
+        "windup",
+        "strike",
+        "recover",
+        "hit",
+        "fall",
+        "down"
+      ],
+      "alpha_bounds": [
+        [
+          4,
+          3,
+          61,
+          70
+        ],
+        [
+          1,
+          3,
+          62,
+          69
+        ],
+        [
+          8,
+          3,
+          63,
+          70
+        ],
+        [
+          4,
+          3,
+          59,
+          70
+        ],
+        [
+          4,
+          3,
+          68,
+          70
+        ],
+        [
+          4,
+          4,
+          66,
+          70
+        ],
+        [
+          4,
+          6,
+          59,
+          70
+        ],
+        [
+          6,
+          27,
+          65,
+          60
+        ],
+        [
+          6,
+          36,
+          65,
+          69
+        ]
+      ],
+      "png_sha256": "1c11491cf9a8db9b09b037ed36121ed1c96515ce69ef83b053c4fa68200aff9c",
+      "unique_pose_count": 9
+    },
+    {
+      "id": "spore_toad",
+      "status": "provisional art ID; no combat implementation",
+      "cell": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        81
+      ],
+      "proposed_hit_radius": 17,
+      "frames": [
+        "idle",
+        "walk_a",
+        "walk_b",
+        "windup",
+        "strike",
+        "recover",
+        "hit",
+        "fall",
+        "down"
+      ],
+      "alpha_bounds": [
+        [
+          9,
+          23,
+          84,
+          82
+        ],
+        [
+          6,
+          22,
+          88,
+          82
+        ],
+        [
+          12,
+          25,
+          83,
+          82
+        ],
+        [
+          9,
+          32,
+          84,
+          82
+        ],
+        [
+          9,
+          18,
+          86,
+          82
+        ],
+        [
+          9,
+          25,
+          84,
+          82
+        ],
+        [
+          9,
+          29,
+          83,
+          82
+        ],
+        [
+          4,
+          41,
+          87,
+          73
+        ],
+        [
+          4,
+          56,
+          87,
+          84
+        ]
+      ],
+      "png_sha256": "49810a96db259a5fedb5549c4e7fa5ea8687999f527de32c247d77d7f7b0b75a",
+      "unique_pose_count": 9
+    },
+    {
+      "id": "rootwarden_treant",
+      "status": "provisional art ID; no combat implementation",
+      "cell": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        148
+      ],
+      "proposed_hit_radius": 27,
+      "frames": [
+        "idle",
+        "walk_a",
+        "walk_b",
+        "windup",
+        "strike",
+        "recover",
+        "hit",
+        "fall",
+        "down"
+      ],
+      "alpha_bounds": [
+        [
+          9,
+          2,
+          147,
+          151
+        ],
+        [
+          11,
+          3,
+          151,
+          149
+        ],
+        [
+          6,
+          3,
+          143,
+          151
+        ],
+        [
+          3,
+          3,
+          144,
+          148
+        ],
+        [
+          2,
+          2,
+          151,
+          153
+        ],
+        [
+          6,
+          4,
+          149,
+          151
+        ],
+        [
+          4,
+          5,
+          150,
+          151
+        ],
+        [
+          17,
+          19,
+          132,
+          151
+        ],
+        [
+          21,
+          83,
+          156,
+          152
+        ]
+      ],
+      "png_sha256": "c9377ea76444e9a60be40a5e2c000f0782749a4545b2042f3a11692e46eb95c2",
+      "unique_pose_count": 9
+    }
+  ]
+}

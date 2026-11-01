@@ -1,6 +1,6 @@
 // v10 horizontal combat: side 0 advances +x, side 1 advances -x; stats/caps unchanged.
-const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7};
-const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3};
+const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7,screech_cricket:8,reaper_mantis:13,spore_toad:17,rootwarden_treant:27};
+const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3,screech_cricket:58,reaper_mantis:9,spore_toad:65,rootwarden_treant:5};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
 const TEAM_CAP=32,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
 function stableOrder(a,b){const p=(a.priority??0)-(b.priority??0),k=(a.k??'').localeCompare(b.k??'');if(p||k)return p||k;const ai=Number(a.id??0),bi=Number(b.id??0);if(Number.isFinite(ai)&&Number.isFinite(bi)&&ai!==bi)return ai-bi;return String(a.token??a.id??'').localeCompare(String(b.token??b.id??''))}
@@ -61,13 +61,22 @@ function step(dt){
  const targetLayers=new Map(alive.map(u=>[u,layerOf(u)]));
  const canTargetSnapshot=(a,b)=>(TYPES[a.k].attackTargetMask||['ground']).includes(targetLayers.get(b));
  const snapshotBodies=alive.map(v=>({k:v.k,x:v.x,y:v.y,burrowStage:targetLayers.get(v)==='underground'?'underground':undefined}));
- const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[];
+ const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[],cadenceIntents=[],poisonIntents=[];
+ const wardProviders=alive.filter(u=>TYPES[u.k].wardRadius).map(u=>({u,x:u.x,y:u.y}));
+ const startPositions=new Map(alive.map(u=>[u,{x:u.x,y:u.y}]));
  const resolvedHits=collectEvents?[]:null,healIntents=collectEvents?new Map():null,damageByTarget=collectEvents?new Map():null,golemContacts=collectEvents?[]:null;
- function hit(u,n,ranged,sourceKind,sourceToken){
-  const amount=n*(ranged?(TYPES[u.k].armor||1):1);
+ function hit(u,n,ranged,sourceKind,sourceToken,delivery='direct'){
+  let amount=n*(ranged?(TYPES[u.k].armor||1):1);
+  if(delivery==='melee'&&TYPES[u.k].parryReduction&&!u.parrySpent){u.parrySpent=true;const blocked=amount*TYPES[u.k].parryReduction;amount-=blocked;if(collectEvents)publishCombatEvent({type:'parry_block',sourceToken:tokenOf(u),attackerToken:sourceToken,x:u.x,y:u.y,blocked});}
+  if(delivery==='projectile'){
+   const p=startPositions.get(u),providers=wardProviders.filter(w=>w.u.side===u.side&&Math.hypot(w.x-p.x,w.y-p.y)<=TYPES[w.u.k].wardRadius+1e-7).sort((a,b)=>TYPES[b.u.k].wardReduction-TYPES[a.u.k].wardReduction||stableOrder(a.u,b.u));
+   if(providers.length){const w=providers[0].u,blocked=amount*TYPES[w.k].wardReduction;amount-=blocked;if(collectEvents)publishCombatEvent({type:'ward_block',sourceToken:tokenOf(w),targetToken:tokenOf(u),x:u.x,y:u.y,blocked});}
+  }
   pending.set(u,(pending.get(u)||0)-amount);
-  if(collectEvents&&amount>0){resolvedHits.push({target:u,amount,sourceKind,sourceToken});damageByTarget.set(u,(damageByTarget.get(u)||0)+amount)}
+  if(collectEvents&&amount>0){resolvedHits.push({target:u,amount,sourceKind,sourceToken,delivery});damageByTarget.set(u,(damageByTarget.get(u)||0)+amount)}
  }
+ // Existing poison is resolved with this tick's damage, even if its source died.
+ for(const u of alive)while(u.poisonNextAt!==undefined&&u.poisonNextAt<=elapsed+1e-9&&u.poisonNextAt<=u.poisonUntil+1e-9){hit(u,u.poisonDps*.5,false,'spore_toad',u.poisonSourceToken,'poison');u.poisonNextAt+=.5;}
  const sideCounts=[0,0];for(const u of alive)sideCounts[u.side]++;
  for(const u of alive){
   tokenOf(u);if(u.originForward===undefined)u.originForward=u.side===0?1:-1;
@@ -121,7 +130,13 @@ function step(dt){
   }else if(u.cd<=0){u.cd=t.rate;attacks.push([u,target,t])}
  }
  for(const [u,target,t]of attacks){
-  if(t.explosionDamage){
+  if(t.poisonRadius){
+   if(collectEvents)publishCombatEvent({type:'poison_cloud',sourceToken:tokenOf(u),x:target.x,y:target.y,radius:t.poisonRadius});
+   for(const v of alive)if(v.side!==u.side&&canTargetSnapshot(u,v)&&Math.hypot(v.x-target.x,v.y-target.y)<=t.poisonRadius+radiusOf(v)+1e-7)poisonIntents.push({target:v,sourceToken:tokenOf(u),t});
+   hit(target,t.dmg,false,u.k,tokenOf(u));
+  }else if(t.cadenceDelay){
+   hit(target,t.dmg,false,u.k,tokenOf(u));cadenceIntents.push({target,sourceToken:tokenOf(u),t});
+  }else if(t.explosionDamage){
    for(const v of alive)if(v.side!==u.side&&canTargetSnapshot(u,v)&&Math.hypot(v.x-u.x,v.y-u.y)<=t.explosionRadius+radiusOf(v)+1e-7)hit(v,t.explosionDamage,false,u.k,tokenOf(u));
    forcedDeaths.add(u);if(collectEvents)publishCombatEvent({type:'bomb_explode',sourceToken:tokenOf(u),x:u.x,y:u.y,radius:t.explosionRadius});
   }else if(t.chainCount){
@@ -137,7 +152,7 @@ function step(dt){
    shots.push({side:u.side,k:u.k,sourceToken,x:u.x,y:u.y,target,damage:t.dmg,splash:t.splash||0,mask:t.attackTargetMask||['ground'],...(t.slowDuration?{slowFactor:t.slowFactor,slowDuration:t.slowDuration,slowImmunity:t.slowImmunity}:{})});
    if(collectEvents)publishCombatEvent({type:'projectile_release',source:sourceToken,sourceToken,k:u.k,target:targetToken,targetToken,x:u.x,y:u.y});
   }else{
-   hit(target,t.dmg+(u.chargeReady?t.chargeBonus:0),false,u.k,tokenOf(u));
+   hit(target,t.dmg+(u.chargeReady?t.chargeBonus:0),false,u.k,tokenOf(u),'melee');
    if(u.chargeReady){u.chargeReady=false;const dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),push=knockbacks.get(target)||{x:0,y:0};const knock=t.knockback*Math.min(1,massOf(u)/massOf(target));push.x+=(d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)))*knock;push.y+=(d>1e-8?dy/d:0)*knock;knockbacks.set(target,push);if(collectEvents)publishCombatEvent({type:'charge_impact',sourceToken:tokenOf(u),targetToken:tokenOf(target),x:u.x,y:u.y,targetX:target.x,targetY:target.y});}
    if(collectEvents&&u.k==='golem')golemContacts.push({source:u,target});
   }
@@ -147,8 +162,8 @@ function step(dt){
  for(const s of shots){
   const dx=s.target.x-s.x,dy=s.target.y-s.y,d=Math.hypot(dx,dy);
   if(d<=210*dt+1e-7){
-   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
-   else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
+   if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken,'projectile'));
+   else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken,'projectile');if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
    s.done=true;
   }else if(d>1e-8){s.x=snapXPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
  }
@@ -168,6 +183,8 @@ function step(dt){
  }
  for(const u of forcedDeaths){u.hp=0;u.dead=true;}
  for(const slow of slowIntents){const u=slow.target;if(u.dead||(u.slowImmuneUntil||0)>elapsed)continue;u.slowFactor=slow.factor;u.slowUntil=elapsed+slow.duration;u.slowImmuneUntil=u.slowUntil+slow.immunity;if(collectEvents)publishCombatEvent({type:'slow_applied',sourceToken:slow.sourceToken,targetToken:tokenOf(u),x:u.x,y:u.y,until:u.slowUntil,factor:u.slowFactor});}
+ for(const a of cadenceIntents){const u=a.target;if(u.dead||(u.cadenceImmuneUntil||0)>elapsed)continue;u.cd=Math.max(0,u.cd)+a.t.cadenceDelay;u.cadenceImmuneUntil=elapsed+a.t.cadenceImmunity;if(collectEvents)publishCombatEvent({type:'cadence_delayed',sourceToken:a.sourceToken,targetToken:tokenOf(u),x:u.x,y:u.y,delay:a.t.cadenceDelay,immuneUntil:u.cadenceImmuneUntil});}
+ for(const a of poisonIntents){const u=a.target;if(u.dead||(u.poisonImmuneUntil||0)>elapsed)continue;u.poisonUntil=elapsed+a.t.poisonDuration;u.poisonDps=a.t.poisonDps;u.poisonNextAt=elapsed+.5;u.poisonSourceToken=a.sourceToken;u.poisonImmuneUntil=u.poisonUntil+a.t.poisonImmunity;if(collectEvents)publishCombatEvent({type:'poison_applied',sourceToken:a.sourceToken,targetToken:tokenOf(u),x:u.x,y:u.y,until:u.poisonUntil,dps:u.poisonDps});}
  // Death splitting is requested after simultaneous damage, never by descendants.
  const splitAlive=alive.filter(u=>!u.dead);const splitCounts=[splitAlive.filter(u=>u.side===0).length,splitAlive.filter(u=>u.side===1).length];for(const req of spawnRequests)splitCounts[req.parent.side]++;
  for(const parent of alive){const t=TYPES[parent.k];if(!parent.dead||!t.splitCount||parent.splitDone)continue;parent.splitDone=true;let created=0;
@@ -178,7 +195,7 @@ function step(dt){
   if(collectEvents)publishCombatEvent({type:'slime_split',parentToken:tokenOf(parent),x:parent.x,y:parent.y,count:created});
  }
  if(collectEvents){
-  for(const h of resolvedHits)publishCombatEvent({type:'resolved_hit',targetToken:tokenOf(h.target),source: h.sourceToken,sourceToken:h.sourceToken,sourceKind:h.sourceKind,x:h.target.x,y:h.target.y,amount:h.amount});
+  for(const h of resolvedHits)publishCombatEvent({type:'resolved_hit',targetToken:tokenOf(h.target),source: h.sourceToken,sourceToken:h.sourceToken,sourceKind:h.sourceKind,delivery:h.delivery,x:h.target.x,y:h.target.y,amount:h.amount});
   for(const h of resolvedHeals)publishCombatEvent({type:'heal',source:h.sourceToken,sourceToken:h.sourceToken,target:tokenOf(h.target),targetToken:tokenOf(h.target),x:h.target.x,y:h.target.y,actualAmount:h.actualAmount});
   for(const c of golemContacts)publishCombatEvent({type:'golem_ground_contact',source:tokenOf(c.source),sourceToken:tokenOf(c.source),target:tokenOf(c.target),targetToken:tokenOf(c.target),x:c.target.x,y:c.target.y});
  }

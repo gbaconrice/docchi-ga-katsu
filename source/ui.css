@@ -16,6 +16,7 @@ html { min-height: 100%; background: var(--page); }
 body {
   min-height: 100vh;
   min-height: 100dvh;
+  min-height: var(--app-viewport-height, var(--app-viewport-default, 100vh));
   margin: 0;
   color: var(--text);
   background: var(--page);
@@ -51,16 +52,18 @@ button:disabled { opacity: .48; cursor: default; }
   border: 0 !important;
 }
 
-/* Safe area is additive; host chrome can differ and must not be guessed as a fixed 88/98px inset. */
+/* Standalone uses the browser safe area; an embedded host may supply only a measured, viewport-relative overlay inset. */
 #app {
   width: min(100%, 520px);
   height: 100vh;
   height: 100dvh;
+  height: var(--app-viewport-height, var(--app-viewport-default, 100vh));
   min-height: 100vh;
   min-height: 100dvh;
+  min-height: var(--app-viewport-height, var(--app-viewport-default, 100vh));
   margin-inline: auto;
-  padding-block-start: calc(env(safe-area-inset-top, 0px) + 8px);
-  padding-block-end: calc(env(safe-area-inset-bottom, 0px) + 10px);
+  padding-block-start: calc(max(env(safe-area-inset-top, 0px), var(--gravity-host-top-inset, 0px)) + 8px);
+  padding-block-end: calc(max(env(safe-area-inset-bottom, 0px), var(--gravity-host-bottom-inset, 0px)) + 10px);
   padding-inline: 12px;
   display: flex;
   flex-direction: column;
@@ -302,7 +305,9 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   inset: 0;
   display: grid;
   place-items: center;
-  padding: max(10px, env(safe-area-inset-top, 0px)) 12px max(10px, env(safe-area-inset-bottom, 0px));
+  padding-block-start: max(10px, env(safe-area-inset-top, 0px), var(--gravity-host-top-inset, 0px));
+  padding-inline: 12px;
+  padding-block-end: max(10px, env(safe-area-inset-bottom, 0px), var(--gravity-host-bottom-inset, 0px));
   background: rgb(0 0 0 / 72%);
 }
 .units-panel:not([hidden]) { display: grid; }
@@ -443,3 +448,5 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 @media (min-width: 900px) and (min-height: 640px) {
   #gameScreen[data-field-view="true"] #battle[data-reaction-open="true"] .battle-toolbar { z-index: 34; }
 }
+
+@supports (height: 100dvh) { :root { --app-viewport-default: 100dvh; } }

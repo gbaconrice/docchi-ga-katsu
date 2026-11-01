@@ -13,6 +13,8 @@ monster_types={k:{field:value for field,value in meta.items() if field!='cost'} 
 s=s.replace('const keys=Object.keys(TYPES)',"Object.assign(TYPES,"+json.dumps(monster_types)+");for(const k of Object.keys(TYPES)){TYPES[k].collisionLayer??='ground';TYPES[k].attackTargetMask??=(['archer','cannon'].includes(k)?['ground','air']:['ground']);}let pendingSummons=[],combatEvents=[];\nconst keys=Object.keys(TYPES)")
 s=s.replace("function setup(s){seed=", "function setup(s){pendingSummons=[];combatEvents=[];seed=")
 s=s.replace("const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};", "const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};Object.assign(COST,"+json.dumps({k:meta['cost'] for k,meta in contract['types'].items()})+");")
+exp_assets={key:'data:image/png;base64,'+base64.b64encode((root/'assets/expansion'/file).read_bytes()).decode() for key,file in [('redExpansion','gravity_expansion_atlas_red.png'),('blueExpansion','gravity_expansion_atlas.png')]}
+s=re.sub(r'Object.assign\(SPRITE_ASSETS,\{"redExpansion"[^\n]*\n',lambda m:'Object.assign(SPRITE_ASSETS,'+json.dumps(exp_assets)+');\n',s)
 monster_meta=json.loads((root/'assets/monsters/monster_units.json').read_text())['roles']
 monster_assets={k+'_'+side:'data:image/png;base64,'+base64.b64encode((root/'assets/monsters'/file).read_bytes()).decode() for k,m in monster_meta.items() for side,file in [('blue',m['atlas']),('red',m['red_atlas'])]}
 monster_block='const MONSTER_META='+json.dumps(monster_meta)+';\nObject.assign(SPRITE_ASSETS,'+json.dumps(monster_assets)+');\n'

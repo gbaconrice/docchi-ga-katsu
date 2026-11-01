@@ -1,0 +1,669 @@
+{
+  "config": {
+    "id": "cricket2",
+    "kind": "screech_cricket",
+    "cost": 2
+  },
+  "split": "heldout101..110",
+  "complete": true,
+  "physicsSha256": "e84f6d573f5f3571f2a2e1846b84d90e673e7766ded884a287be31186f78ad37",
+  "method": "10 paired deterministic seeds each; identical initial entities, HP, costs, positions and priorities. Only named ability field set to0 in isolated test engine. Full-battle end HP is descriptive and may be survivor-biased.",
+  "fixtures": [
+    {
+      "name": "cricket_with_swords_vs_melee_equal_budget",
+      "kind": "screech_cricket",
+      "ablatedField": "cadenceDelay",
+      "rows": [
+        {
+          "seed": 101,
+          "on": {
+            "winner": 0,
+            "ticks": 533,
+            "hp": [
+              314,
+              0
+            ],
+            "applications": 7
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 535,
+            "hp": [
+              287,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 613,
+            "hp": [
+              197,
+              0
+            ]
+          },
+          "allyHpDelta": 27,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 102,
+          "on": {
+            "winner": 0,
+            "ticks": 538,
+            "hp": [
+              260,
+              0
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 538,
+            "hp": [
+              251,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 507,
+            "hp": [
+              180,
+              0
+            ]
+          },
+          "allyHpDelta": 9,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 103,
+          "on": {
+            "winner": 0,
+            "ticks": 587,
+            "hp": [
+              305,
+              0
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 587,
+            "hp": [
+              296,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 413,
+            "hp": [
+              254,
+              0
+            ]
+          },
+          "allyHpDelta": 9,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 104,
+          "on": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              250,
+              0
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              223,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 533,
+            "hp": [
+              217,
+              0
+            ]
+          },
+          "allyHpDelta": 27,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 105,
+          "on": {
+            "winner": 0,
+            "ticks": 504,
+            "hp": [
+              242,
+              0
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 549,
+            "hp": [
+              214,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 549,
+            "hp": [
+              225,
+              0
+            ]
+          },
+          "allyHpDelta": 28,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 106,
+          "on": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              250,
+              0
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              223,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 533,
+            "hp": [
+              217,
+              0
+            ]
+          },
+          "allyHpDelta": 27,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 107,
+          "on": {
+            "winner": 0,
+            "ticks": 646,
+            "hp": [
+              196,
+              0
+            ],
+            "applications": 7
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 646,
+            "hp": [
+              185,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 427,
+            "hp": [
+              226,
+              0
+            ]
+          },
+          "allyHpDelta": 11,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 108,
+          "on": {
+            "winner": 0,
+            "ticks": 502,
+            "hp": [
+              260,
+              0
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 581,
+            "hp": [
+              230,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 633,
+            "hp": [
+              198,
+              0
+            ]
+          },
+          "allyHpDelta": 30,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 109,
+          "on": {
+            "winner": 0,
+            "ticks": 500,
+            "hp": [
+              279,
+              0
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 560,
+            "hp": [
+              223,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 429,
+            "hp": [
+              267,
+              0
+            ]
+          },
+          "allyHpDelta": 56,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 110,
+          "on": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              250,
+              0
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 0,
+            "ticks": 475,
+            "hp": [
+              223,
+              0
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 573,
+            "hp": [
+              197,
+              0
+            ]
+          },
+          "allyHpDelta": 27,
+          "enemyHpDelta": 0
+        }
+      ],
+      "summary": {
+        "onWins": 10,
+        "offWins": 10,
+        "replacementWins": 10,
+        "meanHpMarginVsReplacement": 42.8,
+        "onDraws": 0,
+        "offDraws": 0,
+        "meanAllyHpDelta": 25.1,
+        "meanEnemyHpDelta": 0,
+        "totalApplications": 58
+      }
+    },
+    {
+      "name": "cricket_with_swords_vs_melee_counter",
+      "kind": "screech_cricket",
+      "ablatedField": "cadenceDelay",
+      "rows": [
+        {
+          "seed": 101,
+          "on": {
+            "winner": 1,
+            "ticks": 881,
+            "hp": [
+              0,
+              72
+            ],
+            "applications": 8
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1023,
+            "hp": [
+              0,
+              45
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 873,
+            "hp": [
+              30,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 27
+        },
+        {
+          "seed": 102,
+          "on": {
+            "winner": 1,
+            "ticks": 861,
+            "hp": [
+              0,
+              90
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 881,
+            "hp": [
+              0,
+              90
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1040,
+            "hp": [
+              2,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 103,
+          "on": {
+            "winner": 1,
+            "ticks": 861,
+            "hp": [
+              0,
+              90
+            ],
+            "applications": 7
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 881,
+            "hp": [
+              0,
+              90
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 898,
+            "hp": [
+              2,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 104,
+          "on": {
+            "winner": 1,
+            "ticks": 1015,
+            "hp": [
+              0,
+              45
+            ],
+            "applications": 9
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 879,
+            "hp": [
+              0,
+              69
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 644,
+            "hp": [
+              102,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -24
+        },
+        {
+          "seed": 105,
+          "on": {
+            "winner": 1,
+            "ticks": 851,
+            "hp": [
+              0,
+              106
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 871,
+            "hp": [
+              0,
+              117
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 808,
+            "hp": [
+              0,
+              50
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -11
+        },
+        {
+          "seed": 106,
+          "on": {
+            "winner": 1,
+            "ticks": 899,
+            "hp": [
+              0,
+              72
+            ],
+            "applications": 8
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 959,
+            "hp": [
+              0,
+              61
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 848,
+            "hp": [
+              100,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 11
+        },
+        {
+          "seed": 107,
+          "on": {
+            "winner": 1,
+            "ticks": 800,
+            "hp": [
+              0,
+              108
+            ],
+            "applications": 6
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 806,
+            "hp": [
+              0,
+              98
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 979,
+            "hp": [
+              30,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 10
+        },
+        {
+          "seed": 108,
+          "on": {
+            "winner": 1,
+            "ticks": 891,
+            "hp": [
+              0,
+              72
+            ],
+            "applications": 8
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 889,
+            "hp": [
+              0,
+              72
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 811,
+            "hp": [
+              0,
+              24
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 0
+        },
+        {
+          "seed": 109,
+          "on": {
+            "winner": 1,
+            "ticks": 851,
+            "hp": [
+              0,
+              106
+            ],
+            "applications": 5
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 871,
+            "hp": [
+              0,
+              117
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 816,
+            "hp": [
+              0,
+              78
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -11
+        },
+        {
+          "seed": 110,
+          "on": {
+            "winner": 1,
+            "ticks": 880,
+            "hp": [
+              0,
+              69
+            ],
+            "applications": 8
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1034,
+            "hp": [
+              0,
+              45
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 762,
+            "hp": [
+              82,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": 24
+        }
+      ],
+      "summary": {
+        "onWins": 0,
+        "offWins": 0,
+        "replacementWins": 7,
+        "meanHpMarginVsReplacement": -102.6,
+        "onDraws": 0,
+        "offDraws": 0,
+        "meanAllyHpDelta": 0,
+        "meanEnemyHpDelta": 2.6,
+        "totalApplications": 70
+      }
+    }
+  ]
+}

@@ -33,22 +33,28 @@ showScreen=function(next){if(next!==screenMode)resetResultRead();flowScreen(next
 
 // Read-only camera and units inspection. Never affects combat coordinates/RNG.
 let cameraZoom=1,unitsOpen=false,unitsPausedSolo=false,unitsReturnFocus=null;
-let cameraX=240,cameraY=269,cameraDrag=null;
-function clampCamera(){cameraX=Math.max(240/cameraZoom,Math.min(480-240/cameraZoom,cameraX));cameraY=Math.max(269/cameraZoom,Math.min(538-269/cameraZoom,cameraY));}
+let cameraX=240,cameraY=269,cameraDrag=null,cameraFitScale=1,cameraFitBounds={left:0,top:0,right:480,bottom:538};
+function centerFixedCamera(){cameraX=(cameraFitBounds.left+cameraFitBounds.right)/2;cameraY=(cameraFitBounds.top+cameraFitBounds.bottom)/2;}
+function configureFixedCamera(){
+ cameraFitBounds={left:0,top:0,right:480,bottom:538};cameraFitScale=1;
+ if(initialUnits.some(u=>(TYPES[u.k].radius||0)>25))for(const u of initialUnits){const m=MONSTER_META[u.k];if(!m)continue;const r=TYPES[u.k].radius||0,v=m.visual_insets||[m.anchor[0],m.anchor[1],m.cell[0]-m.anchor[0],m.cell[1]-m.anchor[1]],hover=m.hover_gap||0;cameraFitBounds.left=Math.min(cameraFitBounds.left,r-v[0]-4);cameraFitBounds.right=Math.max(cameraFitBounds.right,480-r+v[2]+4);cameraFitBounds.top=Math.min(cameraFitBounds.top,r-Math.max(v[1],m.anchor[1]+5)-hover-4);cameraFitBounds.bottom=Math.max(cameraFitBounds.bottom,538-r+v[3]-hover+4);}
+ cameraFitScale=Math.min(1,480/(cameraFitBounds.right-cameraFitBounds.left),538/(cameraFitBounds.bottom-cameraFitBounds.top));cameraZoom=1;centerFixedCamera();cameraDrag=null;
+}
+function clampCamera(){const scale=cameraFitScale*cameraZoom,hx=240/scale,hy=269/scale,b=cameraFitBounds;cameraX=b.right-b.left<=2*hx?(b.left+b.right)/2:Math.max(b.left+hx,Math.min(b.right-hx,cameraX));cameraY=b.bottom-b.top<=2*hy?(b.top+b.bottom)/2:Math.max(b.top+hy,Math.min(b.bottom-hy,cameraY));}
 const flowDraw=draw;
 draw=function(){
- clampCamera();ctx.save();ctx.clearRect(0,0,480,538);
- ctx.translate(240,269);ctx.scale(cameraZoom,cameraZoom);ctx.translate(-cameraX,-cameraY);flowDraw();ctx.restore();
+ clampCamera();ctx.save();ctx.clearRect(0,0,480,538);ctx.fillStyle="#35463d";ctx.fillRect(0,0,480,538);
+ ctx.translate(240,269);ctx.scale(cameraFitScale*cameraZoom,cameraFitScale*cameraZoom);ctx.translate(-cameraX,-cameraY);flowDraw();ctx.restore();
 };
 function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'none':'auto';el.style.cursor=cameraZoom>1?(cameraDrag?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraZoom>1?'。拡大中はドラッグで移動、全体ボタンで戻る':''));}
-function resetCamera(){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;syncCameraInput();draw();syncFlowControls();}
+function resetCamera(){cameraZoom=1;centerFixedCamera();cameraDrag=null;syncCameraInput();draw();syncFlowControls();}
 function setCameraZoom(direction){const values=[1,1.25,1.5,2],i=values.indexOf(cameraZoom);cameraZoom=values[Math.max(0,Math.min(values.length-1,i+direction))];cameraDrag=null;clampCamera();syncCameraInput();draw();syncFlowControls();}
 const cameraCanvas=document.querySelector('#field');
 cameraCanvas.onpointerdown=e=>{if(cameraZoom<=1||e.isPrimary===false||(e.button!==undefined&&e.button!==0))return;const r=cameraCanvas.getBoundingClientRect();const scale=Math.min(r.width/480,r.height/538);if(!(scale>0))return;cameraDrag={id:e.pointerId,x:e.clientX,y:e.clientY,cx:cameraX,cy:cameraY,scale};cameraCanvas.setPointerCapture?.(e.pointerId);e.preventDefault?.();syncCameraInput();};
-cameraCanvas.onpointermove=e=>{if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraX=cameraDrag.cx-(e.clientX-cameraDrag.x)/(cameraDrag.scale*cameraZoom);cameraY=cameraDrag.cy-(e.clientY-cameraDrag.y)/(cameraDrag.scale*cameraZoom);clampCamera();e.preventDefault?.();draw();};
+cameraCanvas.onpointermove=e=>{if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraX=cameraDrag.cx-(e.clientX-cameraDrag.x)/(cameraDrag.scale*cameraFitScale*cameraZoom);cameraY=cameraDrag.cy-(e.clientY-cameraDrag.y)/(cameraDrag.scale*cameraFitScale*cameraZoom);clampCamera();e.preventDefault?.();draw();};
 function endCameraDrag(e){if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraDrag=null;if(cameraCanvas.hasPointerCapture?.(e.pointerId))cameraCanvas.releasePointerCapture(e.pointerId);syncCameraInput();}
 cameraCanvas.onpointerup=endCameraDrag;cameraCanvas.onpointercancel=endCameraDrag;cameraCanvas.onlostpointercapture=()=>{cameraDrag=null;syncCameraInput();};
-const cameraSetup=setup;setup=function(seedValue){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue);syncCameraInput();};
+const cameraSetup=setup;setup=function(seedValue){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue);configureFixedCamera();syncCameraInput();draw();};
 const cameraResetMultiRound=resetMultiRound;resetMultiRound=function(){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraResetMultiRound();syncCameraInput();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',()=>{cameraDrag=null;clampCamera();syncCameraInput();draw();});
 // Copy-only override for fillUnitStats; append after screen-ui.js and flow-ui.js.
@@ -59,7 +65,7 @@ function fillUnitStats() {
     cannon: '範囲攻撃', rider: '高速', healer: '回復', goblin: '小型',
     golem: '', drake: '飛行', wraith: '小鬼召喚', boar: '突進',
     bombbug: '自爆', frostmage: '鈍足', stormmage: '連鎖攻撃',
-    burrower: '潜行', slime: '2体分裂', slimelet: ''
+    burrower: '潜行', slime: '2体分裂', slimelet: '',screech_cricket:'攻撃遅延',reaper_mantis:'一度受け流し',spore_toad:'毒',rootwarden_treant:'射撃防壁'
   };
   if (typeof UNIT_DETAILS !== 'undefined') Object.assign(UNIT_DETAILS, traits);
   if (typeof ROLE_NOTES !== 'undefined') Object.assign(ROLE_NOTES, traits);
@@ -114,7 +120,7 @@ function syncPredictionPreview(){
  if(q('#formationBack'))q('#formationBack').hidden=!predictionPreview;
  q('#gameScreen')?.setAttribute('data-field-view',String(state==='fight'||predictionPreview));
 }
-function setPredictionPreview(value){if(value&&state!=='choose')return;predictionPreview=!!value;previewOpening=initialUnits;if(value){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;syncCameraInput();}syncPredictionPreview();if(predictionPreview)draw();}
+function setPredictionPreview(value){if(value&&state!=='choose')return;predictionPreview=!!value;previewOpening=initialUnits;if(value){cameraZoom=1;centerFixedCamera();cameraDrag=null;syncCameraInput();}syncPredictionPreview();if(predictionPreview)draw();}
 document.querySelector('#formationToggle').onclick=()=>setPredictionPreview(true);
 const previewBack=document.querySelector('#formationBack');if(previewBack)previewBack.onclick=()=>setPredictionPreview(false);
 

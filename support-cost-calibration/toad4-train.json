@@ -1,0 +1,359 @@
+{
+  "config": {
+    "id": "toad4",
+    "kind": "spore_toad",
+    "cost": 4
+  },
+  "split": "train1..5",
+  "complete": true,
+  "physicsSha256": "e84f6d573f5f3571f2a2e1846b84d90e673e7766ded884a287be31186f78ad37",
+  "method": "10 paired deterministic seeds each; identical initial entities, HP, costs, positions and priorities. Only named ability field set to0 in isolated test engine. Full-battle end HP is descriptive and may be survivor-biased.",
+  "fixtures": [
+    {
+      "name": "toad_with_shields_vs_ground_swarm_equal_budget",
+      "kind": "spore_toad",
+      "ablatedField": "poisonRadius",
+      "rows": [
+        {
+          "seed": 1,
+          "on": {
+            "winner": 1,
+            "ticks": 683,
+            "hp": [
+              0,
+              288
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 696,
+            "hp": [
+              0,
+              416
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 714,
+            "hp": [
+              0,
+              330
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -128
+        },
+        {
+          "seed": 2,
+          "on": {
+            "winner": 1,
+            "ticks": 688,
+            "hp": [
+              0,
+              254
+            ],
+            "applications": 13
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 692,
+            "hp": [
+              0,
+              410
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 840,
+            "hp": [
+              0,
+              300
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -156
+        },
+        {
+          "seed": 3,
+          "on": {
+            "winner": 1,
+            "ticks": 687,
+            "hp": [
+              0,
+              264
+            ],
+            "applications": 14
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 710,
+            "hp": [
+              0,
+              410
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 674,
+            "hp": [
+              0,
+              310
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -146
+        },
+        {
+          "seed": 4,
+          "on": {
+            "winner": 1,
+            "ticks": 683,
+            "hp": [
+              0,
+              282
+            ],
+            "applications": 13
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 684,
+            "hp": [
+              0,
+              420
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 618,
+            "hp": [
+              0,
+              350
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -138
+        },
+        {
+          "seed": 5,
+          "on": {
+            "winner": 1,
+            "ticks": 692,
+            "hp": [
+              0,
+              282
+            ],
+            "applications": 14
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 663,
+            "hp": [
+              0,
+              406
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 1,
+            "ticks": 735,
+            "hp": [
+              0,
+              340
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -124
+        }
+      ],
+      "summary": {
+        "onWins": 0,
+        "offWins": 0,
+        "replacementWins": 0,
+        "meanHpMarginVsReplacement": 52,
+        "onDraws": 0,
+        "offDraws": 0,
+        "meanAllyHpDelta": 0,
+        "meanEnemyHpDelta": -138.4,
+        "totalApplications": 64
+      }
+    },
+    {
+      "name": "toad_with_shields_vs_ground_swarm_counter",
+      "kind": "spore_toad",
+      "ablatedField": "poisonRadius",
+      "rows": [
+        {
+          "seed": 1,
+          "on": {
+            "winner": 1,
+            "ticks": 1979,
+            "hp": [
+              0,
+              34
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1500,
+            "hp": [
+              0,
+              134
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1409,
+            "hp": [
+              256.5000000000001,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -100
+        },
+        {
+          "seed": 2,
+          "on": {
+            "winner": 1,
+            "ticks": 1979,
+            "hp": [
+              0,
+              34
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1500,
+            "hp": [
+              0,
+              134
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1409,
+            "hp": [
+              287.30000000000007,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -100
+        },
+        {
+          "seed": 3,
+          "on": {
+            "winner": 1,
+            "ticks": 1981,
+            "hp": [
+              0,
+              34
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1500,
+            "hp": [
+              0,
+              134
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1345,
+            "hp": [
+              271.9000000000001,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -100
+        },
+        {
+          "seed": 4,
+          "on": {
+            "winner": 1,
+            "ticks": 1981,
+            "hp": [
+              0,
+              34
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1500,
+            "hp": [
+              0,
+              134
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1345,
+            "hp": [
+              271.9000000000001,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -100
+        },
+        {
+          "seed": 5,
+          "on": {
+            "winner": 1,
+            "ticks": 1981,
+            "hp": [
+              0,
+              34
+            ],
+            "applications": 10
+          },
+          "off": {
+            "winner": 1,
+            "ticks": 1508,
+            "hp": [
+              0,
+              134
+            ],
+            "applications": 0
+          },
+          "sameBudgetReplacement": {
+            "winner": 0,
+            "ticks": 1409,
+            "hp": [
+              287.30000000000007,
+              0
+            ]
+          },
+          "allyHpDelta": 0,
+          "enemyHpDelta": -100
+        }
+      ],
+      "summary": {
+        "onWins": 0,
+        "offWins": 0,
+        "replacementWins": 5,
+        "meanHpMarginVsReplacement": -308.98000000000013,
+        "onDraws": 0,
+        "offDraws": 0,
+        "meanAllyHpDelta": 0,
+        "meanEnemyHpDelta": -100,
+        "totalApplications": 50
+      }
+    }
+  ]
+}

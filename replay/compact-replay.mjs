@@ -1,11 +1,11 @@
 /** Bounded canonical presentation trace. Spawns carry metadata; guests never simulate. */
-export const COMPACT_VERSION='v7-expansion-status-vectorfx-v1';
-export const ROLES=['sword','shield','spear','archer','cannon','rider','healer','goblin','golem','drake','wraith','boar','bombbug','frostmage','stormmage','burrower','slime','slimelet'];
-export const FX_KINDS=['hit_spark','ground_slam','magic_sparkle','muzzle_flash','charge_trail','bomb_explosion','frost_hit','chain_arc','burrow_warning','burrow_emerge','slime_split'];
+export const COMPACT_VERSION='v12-four-species-statusfx-v1';
+export const ROLES=['sword','shield','spear','archer','cannon','rider','healer','goblin','golem','drake','wraith','boar','bombbug','frostmage','stormmage','burrower','slime','slimelet','screech_cricket','reaper_mantis','spore_toad','rootwarden_treant'];
+export const FX_KINDS=['hit_spark','ground_slam','magic_sparkle','muzzle_flash','charge_trail','bomb_explosion','frost_hit','chain_arc','burrow_warning','burrow_emerge','slime_split','cadence_delayed','parry_block','poison_cloud','poison_applied','ward_block'];
 const finite=Number.isFinite;
 const DELTA_COLUMNS=[3,4,5,6,7,8,11];
 const withinActiveCap=rows=>{const list=[...rows];return [0,1].every(side=>list.filter(u=>u[1]===side&&!u[6]).length<=32)};
-const validFlags=x=>Number.isSafeInteger(x)&&x>=0&&x<=7;
+const validFlags=x=>Number.isSafeInteger(x)&&x>=0&&x<=63;
 const boundedCoordinate=x=>finite(x)&&Math.abs(x)<=10000;
 const validId=x=>(typeof x==='string'&&x.length>0&&x.length<=160)||(Number.isSafeInteger(x)&&x>=0);
 function validRow(u){return Array.isArray(u)&&u.length===12&&validId(u[0])&&u.slice(1,9).every(finite)&&[0,1].includes(u[1])&&Number.isInteger(u[2])&&u[2]>=0&&u[2]<ROLES.length&&Math.abs(u[3])<=10000&&Math.abs(u[4])<=10000&&Math.abs(u[5])<=100000&&[0,1].includes(u[6])&&Number.isInteger(u[7])&&u[7]>=-1&&u[7]<=8&&[-1,1].includes(u[8])&&typeof u[9]==='string'&&u[9].length<=160&&(u[10]===null||typeof u[10]==='string'&&u[10].length<=160)&&validFlags(u[11])}
@@ -80,4 +80,10 @@ export function createPlayback(replay){
   effects=effects.filter(f=>tick-f[4]<48).slice(-24);
   return {units:[...rows.values()].map(u=>({id:u[0],side:u[1],k:ROLES[u[2]],x:u[3],y:u[4],hp:u[5],dead:!!u[6],pose:u[7]<0?([1,0,2,0][Math.floor((tick*1000/60)%350/87.5)]):u[7],face:u[8],token:u[9],ownerToken:u[10],presentationFlags:u[11]})),shots:shots.map(s=>({side:s[0],x:s[1],y:s[2],k:ROLES[s[3]],angle:s[4]})),effects:effects.map(f=>({kind:FX_KINDS[f[0]],x:f[1],y:f[2],face:f[3],tick:f[4],targetX:f[5],targetY:f[6]}))};
  }};
+}
+
+/** Host-only presentation adapter: never advances mechanics; supply host elapsed. */
+export function fourSpeciesPresentationFlags(u,elapsed,moving=false){
+ if(!u||!Number.isFinite(elapsed)||elapsed<0||!validFlags(u.presentationFlags??0))throw Error('invalid-status-input');
+ return ((elapsed<(u.slowUntil||0)?1:0)|(u.burrowStage==='underground'?2:0)|(u.k==='boar'&&u.chargeReady&&moving?4:0))|(u.parrySpent?16:0)|(!u.dead&&(u.poisonUntil??0)>elapsed+1e-9?8:0)|(!u.dead&&(u.cadenceImmuneUntil??0)>elapsed?32:0);
 }

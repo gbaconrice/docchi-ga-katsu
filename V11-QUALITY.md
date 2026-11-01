@@ -13,6 +13,3 @@ Four deterministic synthesized PCM accents: golem ground contact, storm chain, b
 Real speaker/mobile audition and visual QA have not been performed. PCM peak/bounds and fake WebAudio tests are not claims about perceived sound quality.
 
 Known audio difference: canonical hit-spark records do not retain attack source species. Drake's dedicated impact plays from solo's actual resolved-hit event, while multiplayer replay currently falls back to a generic contact sound. Golem, storm and bomb have distinct recorded effect kinds. This candidate does not extend replay schema merely for this audio difference.
-
-## Preview fit QA correction
-A real-browser report on the prior public version found the static formation preview cropped at 1280×720, while live battle fit correctly. Desktop layout was gated only by fight phase; preview kept choose phase and therefore missed the field-fit rules. The correction uses a presentation-only data-field-view attribute for both battle and preview. Returning removes it and restores comparison. Phase, draft/BET, world, seed, clock and wallet are unchanged. Full-inline DOM/attribute and CSS checks pass; corrected visual behavior still needs browser re-verification.

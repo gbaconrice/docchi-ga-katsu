@@ -560,6 +560,7 @@
           case 'burrow_emerge': candidate = { cue: 'emerge', rank: 3, source: event.sourceToken }; break;
           case 'slow_applied': candidate = { cue: 'magic', rank: 2, source: event.sourceToken }; break;
           case 'resolved_hit':
+            if (event.delivery === 'poison') break;
             if (Number(event.amount) > 0) candidate = { cue: String(event.sourceKind || '').toLowerCase() === 'drake' ? 'drake' : hitCue(event.sourceKind), rank: 1, source: event.sourceToken, amount: Number(event.amount) };
             break;
         }

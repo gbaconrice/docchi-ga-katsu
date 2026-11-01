@@ -1,0 +1,139 @@
+{
+  "status": "candidate-not-calibrated",
+  "types": {
+    "screech_cricket": {
+      "hp": 65,
+      "dmg": 8,
+      "rate": 1.3,
+      "speed": 34,
+      "radius": 8,
+      "reach": 58,
+      "cost": 2,
+      "cadenceDelay": 0.35,
+      "cadenceImmunity": 3.5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "reaper_mantis": {
+      "hp": 125,
+      "dmg": 29,
+      "rate": 1.25,
+      "speed": 31,
+      "radius": 13,
+      "reach": 9,
+      "cost": 5,
+      "parryReduction": 0.7,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "spore_toad": {
+      "hp": 145,
+      "dmg": 6,
+      "rate": 3.5,
+      "speed": 18,
+      "radius": 17,
+      "reach": 65,
+      "cost": 4,
+      "poisonRadius": 42,
+      "poisonDuration": 3,
+      "poisonDps": 4,
+      "poisonImmunity": 1,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "rootwarden_treant": {
+      "hp": 350,
+      "dmg": 24,
+      "rate": 2,
+      "speed": 12,
+      "radius": 27,
+      "reach": 5,
+      "cost": 9,
+      "wardRadius": 80,
+      "wardReduction": 0.25,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    }
+  },
+  "events": [
+    "cadence_delayed",
+    "parry_block",
+    "poison_cloud",
+    "poison_applied",
+    "ward_block"
+  ],
+  "layout": {
+    "minimumCenterSpacing": 54,
+    "recommended": 56,
+    "maxRadius": 27
+  },
+  "state": [
+    "cadenceImmuneUntil",
+    "parrySpent",
+    "poisonUntil",
+    "poisonDps",
+    "poisonSourceToken",
+    "poisonImmuneUntil",
+    "poisonNextAt"
+  ],
+  "bounds": {
+    "activePerTeam": 32,
+    "recordsPerTeam": 128,
+    "newSummons": false
+  },
+  "poisonPulseSeconds": 0.5,
+  "eventFields": {
+    "cadence_delayed": [
+      "sourceToken",
+      "targetToken",
+      "x",
+      "y",
+      "delay",
+      "immuneUntil"
+    ],
+    "parry_block": [
+      "sourceToken",
+      "attackerToken",
+      "x",
+      "y",
+      "blocked"
+    ],
+    "poison_cloud": [
+      "sourceToken",
+      "x",
+      "y",
+      "radius"
+    ],
+    "poison_applied": [
+      "sourceToken",
+      "targetToken",
+      "x",
+      "y",
+      "until",
+      "dps"
+    ],
+    "ward_block": [
+      "sourceToken",
+      "targetToken",
+      "x",
+      "y",
+      "blocked"
+    ]
+  },
+  "resolvedHitAdditionalField": {
+    "delivery": [
+      "direct",
+      "melee",
+      "projectile",
+      "poison"
+    ]
+  }
+}
