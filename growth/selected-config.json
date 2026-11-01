@@ -1,0 +1,12 @@
+{
+  "version": "shape-first-v1",
+  "growthPerRound": 14,
+  "rightMultiplier": 1.06,
+  "lateFromRound": 7,
+  "swarmProbability": 0.25,
+  "giantProbability": 0.10,
+  "modelSha256": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+  "admissionGeneratorSha256": "b13cad520eed1df98798104297852b4957f0f3f98f88154d9acc71a06aa5e5d8",
+  "validation": "601–610, three arms × 100 battles; frozen before evaluation",
+  "limit": "Provisional balance, finite growth/cap. Shape rates are targets, not guarantees."
+}

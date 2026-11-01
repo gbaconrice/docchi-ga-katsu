@@ -460,14 +460,16 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 .result-winner { margin:0 0 4px; font-size:12px; color:#c5c3ad; }
 #breakdown { font-variant-numeric:tabular-nums; }
 .result-ranking { font-size:12px; margin:6px 0; }
+.checkpoint-net { margin:2px 0 0; color:var(--muted); font-size:12px; line-height:1.2; font-variant-numeric:tabular-nums; }
 
 #gameScreen[data-personal-result="true"] #resultPanel { width:min(calc(100% - 24px),430px); left:0; right:0; margin-inline:auto; padding:8px 12px; }
 #gameScreen[data-personal-result="true"] #message { font-size:20px; line-height:1.15; margin:3px 0; }
 #gameScreen[data-personal-result="true"] #breakdown { font-size:22px; line-height:1.2; margin:4px 0; }
-#gameScreen[data-personal-result="true"] #resultPanel[data-final="false"] .score-line { display:none; }
 #gameScreen[data-personal-result="true"] .result-progress { margin-top:4px; }
 
 #gameScreen[data-personal-result="true"] #resultPanel { max-height:calc(100% - 16px); }
+
+.extension-choices {display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.extension-choices small {grid-column:1/-1;font-size:11px;color:#c5c3ad;text-align:center}
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -596,8 +598,12 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
       <h3 id="message" class="result-title"></h3>
       <p id="breakdown" class="result-summary"></p>
       <p id="resultRanking" class="result-ranking" hidden></p>
-      <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
+      <p id="checkpointNet" class="checkpoint-net" hidden></p>
+      <div class="compatibility-hooks" hidden aria-hidden="true">
+        <span id="profit"></span><span id="hits"></span>
+      </div>
       <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <div id="extensionChoices" class="extension-choices" hidden><button id="extend5" type="button">+5 戦</button><button id="extend10" type="button">+10 戦</button><small>延長後は BET 損益のみ</small></div>
       <div id="resultProgress" class="result-progress" hidden aria-label="次の対戦まで"><span id="resultProgressFill"></span></div>
       <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
@@ -716,6 +722,253 @@ function standings(state){
 }
 
 return {GAME_MODE,TOTAL_ROUNDS,DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings};})();
+const SoloWallet=(()=>{
+/** Deterministic host-authoritative game-credit ledger. No money, SDK or networking. */
+const GAME_MODE = 'GRAVITY_SOLO_EXTEND_V1';
+const TOTAL_ROUNDS = 10;
+const LEDGER_RETENTION = 20, EXTENSION_RETENTION = 16;
+const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:10, precision:0});
+const fail = code => { throw new Error(code); };
+const int = (value, code='INVALID_INTEGER') => { if (!Number.isSafeInteger(value) || value < 0) fail(code); return value; };
+const id = value => { if(typeof value !== 'string' || !value.trim()) fail('INVALID_ID'); return value; };
+const freeze = value => { if(value && typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);} return value; };
+const clone = state => JSON.parse(JSON.stringify(state));
+const modeState = state => {if(state?.mode!==GAME_MODE||state?.schemaVersion!==3||state?.config?.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_GAME_MODE');if(!Number.isSafeInteger(state.maxRounds)||state.maxRounds<TOTAL_ROUNDS||!Array.isArray(state.extensions))fail('INVALID_EXTENSION_STATE');};
+const session = (state, sessionId) => { modeState(state); if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
+const player = (state, playerId) => { const p=state.players.find(p=>p.playerId===playerId); if(!p) fail('UNKNOWN_PLAYER'); return p; };
+const active = (state, roundId) => { if(!state.currentRound || state.currentRound.roundId!==roundId) fail('ROUND_NOT_ACTIVE'); return state.currentRound; };
+function createSession({sessionId,playerIds,config={},mode=GAME_MODE}){
+  if(mode!==GAME_MODE)fail('INCOMPATIBLE_GAME_MODE');
+  id(sessionId);
+  if(!Array.isArray(playerIds)||!playerIds.length) fail('PLAYERS_REQUIRED');
+  playerIds.forEach(id); if(new Set(playerIds).size!==playerIds.length) fail('DUPLICATE_PLAYER');
+  if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k))) fail('UNKNOWN_CONFIG');
+  const c={...DEFAULT_CONFIG,...config}; Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
+  if(c.precision!==0) fail('INTEGER_CREDITS_ONLY');
+  if(c.totalRounds!==TOTAL_ROUNDS) fail('INCOMPATIBLE_ROUND_COUNT');
+  if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
+  return freeze({schemaVersion:3,mode:GAME_MODE,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,maxRounds:TOTAL_ROUNDS,extensions:[],ledger:[]});
+}
+function openRound(state,{sessionId,roundId,deadline}){
+  session(state,sessionId);int(roundId);int(deadline);
+  if(state.currentRound?.roundId===roundId){if(state.currentRound.deadline!==deadline) fail('ROUND_CONFLICT'); return state;}
+  if(state.currentRound) fail('ROUND_STILL_OPEN');
+  if(roundId!==state.completedRounds+1 || roundId>state.maxRounds) fail('ROUND_OUT_OF_ORDER');
+  const next=clone(state); next.currentRound={roundId,deadline,commits:[]}; return freeze(next);
+}
+function commitPrediction(state,{sessionId,roundId,playerId,side,stake=0,now}){
+  session(state,sessionId);int(roundId);int(now); int(stake,'INVALID_STAKE');
+  const p=player(state,playerId), r=active(state,roundId);
+  if(!['A','B',null].includes(side)) fail('INVALID_SIDE');
+  if(side===null && stake!==0) fail('SKIP_CANNOT_STAKE');
+  const old=r.commits.find(c=>c.playerId===playerId);
+  if(old){if(old.side===side && old.stake===stake) return state; fail('COMMIT_LOCKED');}
+  if(now>=r.deadline) fail('COMMIT_DEADLINE');
+  if(stake>Math.min(p.balance,state.config.stakeCap)) fail('STAKE_EXCEEDS_LIMIT');
+  const next=clone(state);next.currentRound.commits.push({playerId,side,stake});return freeze(next);
+}
+function settleRound(state,{sessionId,roundId,outcome,now}){
+  session(state,sessionId);int(roundId);int(now);
+  if(!['A','B','draw','invalid'].includes(outcome)) fail('INVALID_OUTCOME');
+  const old=state.ledger.find(e=>e.roundId===roundId);
+  if(old){if(old.outcome!==outcome) fail('SETTLEMENT_CONFLICT');return state;}
+  if(roundId<=state.completedRounds)fail('SETTLEMENT_HISTORY_EXPIRED');
+  const r=active(state,roundId); if(now<r.deadline && r.commits.length!==state.players.length) fail('ROUND_NOT_CLOSED');
+  const next=clone(state), entries=[];
+  for(const p of next.players){
+    const c=r.commits.find(c=>c.playerId===p.playerId), predicted=!!c?.side;
+    const valid=outcome==='A'||outcome==='B';
+    const correct=predicted && valid ? c.side===outcome : null;
+    const stake=c?.stake??0;
+    const delta=roundId>TOTAL_ROUNDS&&stake===0?0:correct===true ? (roundId<=TOTAL_ROUNDS?state.config.correctReward:0)+stake*state.config.winMultiplier : correct===false ? -stake : 0;
+    const before=p.balance;p.balance+=delta;p.score=p.balance-state.config.initialBalance;
+    if(correct===true)p.correctCount++;
+    if(!Number.isSafeInteger(p.balance)||p.balance<0||!Number.isSafeInteger(p.score)||!Number.isSafeInteger(p.correctCount)) fail('BALANCE_INVARIANT');
+    entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake,correct,delta,balanceBefore:before,balanceAfter:p.balance,scoreAfter:p.score});
+  }
+  next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;return freeze(next);
+}
+/** Stable roster: known identity resumes; an unknown identity is spectator, never newly funded. */
+function reconnectPlayer(state,{sessionId,playerId}){
+  session(state,sessionId);id(playerId);const p=state.players.find(p=>p.playerId===playerId);
+  return freeze(p?{role:'player',...p}:{role:'spectator',playerId});
+}
+function walletView(state,playerId){
+  modeState(state);
+  const p=player(state,playerId),reserved=state.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
+  return freeze({...p,reserved,available:p.balance-reserved,maxStake:Math.min(p.balance,state.config.stakeCap)});
+}
+/** Competition rank depends solely on signed profit; equal profits share rank. No SDK submission. */
+function standings(state){
+  modeState(state);
+  const rows=state.players.map(p=>({...p})).sort((a,b)=>b.score-a.score || (a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));
+  let rank=0;return freeze(rows.map((p,i)=>{if(i===0||p.score!==rows[i-1].score)rank=i+1;return{rank,...p};}));
+}
+
+/** Explicit solo continuation only at the closed current boundary. No money is granted. */
+function extendSession(state,{sessionId,requestId,roundId,additionalRounds}){
+  session(state,sessionId);id(requestId);int(roundId);int(additionalRounds);
+  if(![5,10].includes(additionalRounds))fail('INVALID_EXTENSION_SIZE');
+  if(state.players.length!==1)fail('SOLO_EXTENSION_ONLY');
+  const old=state.extensions.find(e=>e.requestId===requestId);
+  if(old){if(old.fromRound!==roundId||old.additionalRounds!==additionalRounds)fail('EXTENSION_CONFLICT');return state;}
+  if(state.currentRound)fail('ROUND_STILL_OPEN');
+  if(roundId!==state.completedRounds||roundId!==state.maxRounds)fail('EXTENSION_NOT_AT_BOUNDARY');
+  const target=state.maxRounds+additionalRounds;if(!Number.isSafeInteger(target))fail('ROUND_LIMIT_OVERFLOW');
+  const next=clone(state);next.maxRounds=target;next.extensions.push({requestId,fromRound:roundId,toRound:target,additionalRounds});if(next.extensions.length>EXTENSION_RETENTION)next.extensions.splice(0,next.extensions.length-EXTENSION_RETENTION);return freeze(next);
+}
+
+return {GAME_MODE,TOTAL_ROUNDS,LEDGER_RETENTION,EXTENSION_RETENTION,DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings,extendSession};})();
+const GrowthGenerator=(()=>{
+/** Bounded pre-bet roster generator. No simulation, outcomes, prediction, money or I/O. */
+const GENERATOR_VERSION='reinforced-left-prototype-v1';
+const LIMITS=Object.freeze({perArmy:64,candidateSamples:32,left:8,right:232,top:10,bottom:528,gap:2});
+const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v)}return v};
+const rnd=seed=>()=>{seed=(seed+0x6D2B79F5)>>>0;let t=seed;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296};
+function createGenerator(inputCatalog,{growthPerRound=10,rightMultiplier=1,estimator=null}={}){
+ if(!Number.isFinite(rightMultiplier)||rightMultiplier<=0)throw Error("INVALID_MULTIPLIER");
+ if(!Number.isSafeInteger(growthPerRound)||growthPerRound<0)throw Error("INVALID_GROWTH");
+ const catalog=JSON.parse(JSON.stringify(inputCatalog)),keys=Object.keys(catalog).sort();for(const k of keys){const t=catalog[k];if(!Number.isSafeInteger(t.cost)||t.cost<1||!Number.isSafeInteger(t.estimateCost)||t.estimateCost<1||!Number.isFinite(t.radius)||t.radius<=0)throw Error('INVALID_CATALOG')}freeze(catalog);
+ const cost=kinds=>kinds.reduce((s,k)=>s+catalog[k].estimateCost,0),actual=kinds=>kinds.reduce((s,k)=>s+catalog[k].cost,0),maxBudget=Math.max(...keys.map(k=>catalog[k].estimateCost))*64;
+ function fit(kinds){if(!Array.isArray(kinds)||kinds.length>64||kinds.some(k=>!catalog[k]))return null;const sorted=kinds.map((k,i)=>({k,i,r:catalog[k].radius})).sort((a,b)=>b.r-a.r||a.k.localeCompare(b.k)||a.i-b.i);let x=8,y=10,rowHeight=0;const placed=[];for(const u of sorted){const size=2*u.r;if(x+size>232+1e-9){x=8;y+=rowHeight+2;rowHeight=0}if(y+size>528+1e-9)return null;placed.push({k:u.k,inputIndex:u.i,x:x+u.r,y:y+u.r,radius:u.r});x+=size+2;rowHeight=Math.max(rowHeight,size)}return placed.sort((a,b)=>a.inputIndex-b.inputIndex)}
+ const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12,screech_cricket:7,reaper_mantis:7,spore_toad:9,rootwarden_treant:11,sky_harpooner:10,bounty_hound:8,siege_crab:12};
+ function generate({round,streak,carryKinds,seed,previousOutcome=null}){
+  if(!Number.isSafeInteger(round)||round<1||!Number.isSafeInteger(streak)||streak<0||!Number.isSafeInteger(seed)||seed<0||seed>0xffffffff||!Array.isArray(carryKinds)||carryKinds.some(k=>!catalog[k]))throw Error('INVALID_INPUT');
+  if(![null,'A','B','draw','invalid'].includes(previousOutcome))throw Error('INVALID_PREVIOUS_OUTCOME');const fresh=previousOutcome==='draw'||previousOutcome==='invalid';if(fresh&&(carryKinds.length||streak!==0))throw Error('FRESH_ROUND_CONFLICT');if(round>1&&!carryKinds.length&&!fresh)throw Error('MISSING_CARRY');if(!fit(carryKinds))throw Error('CARRY_DOES_NOT_FIT');
+  const r=rnd(seed),stage=round>=10?20:1+Math.floor((round-1)*19/9),pool=keys.filter(k=>stage>=(unlock[k]||1)&&(stage>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
+  const base=carryKinds.slice(),left=base.slice();if(!left.length){const starters=round===1?['sword','shield','spear','archer','rider']:pool.filter(k=>k!=='healer');left.push(starters[Math.floor(r()*starters.length)]);}
+  const baseCost=cost(left),target=Math.min(maxBudget,round===1?18:Math.max(baseCost+Math.max(4,Math.ceil(baseCost*.12)),18+Math.min(growthPerRound,maxBudget)*Math.min(round-1,maxBudget)));
+  const oldKinds=[...new Set(left)],addKinds=oldKinds.slice();if(round>=7&&oldKinds.length<3){const extra=pool.filter(k=>!oldKinds.includes(k)&&k!=='healer');if(extra.length)addKinds.push(extra[Math.floor(r()*extra.length)]);}
+  let leftAttempts=0;while(left.length<64){const candidates=addKinds.filter(k=>cost(left)+catalog[k].estimateCost<=target&&fit([...left,k]));leftAttempts+=addKinds.length;if(!candidates.length)break;const existing=candidates.filter(k=>oldKinds.includes(k));const choices=existing.length&&(r()<.85||!candidates.some(k=>!oldKinds.includes(k)))?existing:candidates;left.push(choices[Math.floor(r()*choices.length)]);}
+  const leftCost=cost(left),requiredKinds=round<=3?1:round<=6?2:3,needAir=left.includes('drake'),hasAir=left.some(k=>catalog[k].air);let rightPool=pool.filter(k=>hasAir||k!=='drake');if(new Set(left).size===1&&round<=3)rightPool=rightPool.filter(k=>k!==left[0]);
+  const rightTarget=Math.min(maxBudget,Math.round(leftCost*rightMultiplier)),lo=Math.floor(rightTarget*.9),hi=Math.ceil(rightTarget*1.1),samples=[];const safe=['archer','sword','shield','spear','goblin'].filter(k=>rightPool.includes(k));samples.push(safe.slice(0,requiredKinds));
+  for(let i=1;i<32;i++){const a=rightPool.slice();for(let j=a.length-1;j>0;j--){const n=Math.floor(r()*(j+1));[a[j],a[n]]=[a[n],a[j]]}samples.push(i===1&&['wraith','rider','stormmage'].every(k=>rightPool.includes(k))?['wraith','rider','stormmage'].slice(0,requiredKinds):a.slice(0,requiredKinds));}
+  let best=null,bestDistance=Infinity,rightAttempts=0;const representatives=[];
+  for(const kinds of samples){if(kinds.length!==requiredKinds||(needAir&&!kinds.some(k=>catalog[k].air)))continue;let representative=null,representativeDistance=Infinity;const roster=kinds.slice();if(cost(roster)>hi||!fit(roster))continue;
+   for(let step=0;step<=64;step++){const spent=cost(roster),support=roster.filter(k=>k==='healer').length;if(spent>=lo&&spent<=hi&&support<=Math.max(1,Math.floor(roster.length*.35))){const distance=Math.abs(spent-rightTarget);if(distance<representativeDistance){representative=roster.slice();representativeDistance=distance;}if(distance<bestDistance||(distance===bestDistance&&r()<.5)){best=roster.slice();bestDistance=distance}}
+    if(roster.length===64)break;const additions=kinds.filter(k=>spent+catalog[k].estimateCost<=hi&&fit([...roster,k]));rightAttempts+=kinds.length;if(!additions.length)break;const k=additions[Math.floor(r()*additions.length)];roster.push(k);
+   }
+   if(representative)representatives.push(representative);
+  }
+  // Admission fallback only: bounded deterministic construction, never combat/result sampling.
+  let admissionFallback=null;
+  if(!best){
+   const signature=ks=>ks.slice().sort().join('|'),leftSignature=signature(left),ordered=rightPool.slice().sort((a,b)=>catalog[b].estimateCost-catalog[a].estimateCost||catalog[a].radius-catalog[b].radius||a.localeCompare(b));
+   const proposals=[];
+   // Preserve the carry composition approximately before trying a final density anchor.
+   for(let attempt=0;attempt<31;attempt++){
+    const roster=left.slice(),distinct=[...new Set(roster)],a=ordered[attempt%ordered.length],b=ordered[(attempt+7)%ordered.length];
+    if(distinct.length<requiredKinds){
+     const missing=ordered.filter(k=>!distinct.includes(k));
+     for(let j=0;j<requiredKinds-distinct.length;j++)roster[roster.length-1-j]=missing[(attempt+j)%missing.length];
+    }else{roster[roster.length-1]=attempt%2===0?a:distinct[attempt%distinct.length];if(attempt%3===0&&roster.length>1)roster[roster.length-2]=b;}
+    proposals.push(roster);
+   }
+   if(requiredKinds===3&&['rider','wraith','stormmage'].every(k=>rightPool.includes(k)))proposals.push([...Array(31).fill('rider'),...Array(32).fill('wraith'),'stormmage']);
+   let tried=0;
+   for(const roster of proposals){tried++;const spent=cost(roster),support=roster.filter(k=>k==='healer').length;
+    if(new Set(roster).size!==requiredKinds||roster.some(k=>!rightPool.includes(k))||signature(roster)===leftSignature||spent<lo||spent>hi||support>Math.max(1,Math.floor(roster.length*.35))||(needAir&&!roster.some(k=>catalog[k].air))||!fit(roster))continue;
+    best=roster.slice();representatives.push(best);bestDistance=Math.abs(spent-rightTarget);admissionFallback={version:'bounded-copy-replacement-v1',attempts:tried,maxAttempts:32,reason:'random-pool-no-feasible-challenger'};break;
+   }
+  }
+  if(!best)throw Error('NO_FEASIBLE_CHALLENGER');
+  let modelDecision=null;if(estimator){const compose=ks=>Object.fromEntries([...new Set(ks)].map(k=>[k,ks.filter(x=>x===k).length])),a=compose(left);const ranked=representatives.map((roster,i)=>({roster,i,margin:estimator.predict([a,compose(roster)])}));if(ranked.some(v=>!Number.isFinite(v.margin)))throw Error('INVALID_ESTIMATED_MARGIN');ranked.sort((a,b)=>Math.abs(a.margin)-Math.abs(b.margin)||Math.abs(cost(a.roster)-rightTarget)-Math.abs(cost(b.roster)-rightTarget)||a.i-b.i);best=ranked[0].roster;modelDecision={modelId:estimator.modelId||'candidate-unstamped',predictedMargin:ranked[0].margin,candidateCount:ranked.length,selection:'absolute predicted margin only; no solver'};}
+  const additions=left.slice(base.length),leftPositions=fit(left),rightPositions=fit(best).map(p=>({...p,x:480-p.x}));
+  return freeze({...admissionFallback?{admissionFallback}:{},generatorVersion:estimator?'composition-ranking-candidate-v1':GENERATOR_VERSION,modelDecision,growthPerRound,rightMultiplier,round,seed,streak,previousOutcome,baseKinds:base,reinforcementKinds:additions,leftKinds:left,rightKinds:best,leftPositions,rightPositions,estimatedCosts:[leftCost,cost(best)],actualCosts:[actual(left),actual(best)],targetCost:target,band:[lo,hi],basePreserved:true,leftGrowthLimited:leftCost<target,requiredRightKinds:requiredKinds,work:{sampledCombinations:32,leftAttempts,rightAttempts}});
+ }
+ return Object.freeze({generate,fit,estimateCost:cost,catalog});
+}
+
+return {GENERATOR_VERSION,LIMITS,createGenerator};})();
+const CompositionFeatures=(()=>{
+const FEATURE_VERSION='composition-odd-v1';
+function createFeatures(meta){const kinds=Object.keys(meta).sort(),names=[...kinds.map(k=>'type:'+k),'log_count','log_cost','log_hp','ranged_share','front_hp_share','anti_air_vs_air','air_uncountered','aoe_vs_small_mass','heal_front','ward_vs_projectile','hound_vs_children','summon_vs_low_aoe','poison_vs_ground'];
+function army(c){const a={n:0,cost:0,hp:0,air:0,anti:0,aoe:0,small:0,heal:0,frontHp:0,ward:0,projectile:0,hound:0,summon:0,poison:0,ranged:0};for(const[k,n]of Object.entries(c)){if(!meta[k]||!Number.isSafeInteger(n)||n<0||n>64)throw Error('invalid-composition');const t=meta[k];a.n+=n;a.cost+=n*t.cost;a.hp+=n*t.hp;a.air+=n*+t.air;a.anti+=n*+t.anti;a.aoe+=n*+t.aoe;a.small+=n*+(t.radius<=11);a.heal+=n*+t.heal;a.frontHp+=n*t.hp*+t.front;a.ward+=n*+t.ward;a.projectile+=n*+t.projectile;a.hound+=n*+(k==='bounty_hound');a.summon+=n*t.childPotential;a.poison+=n*+(k==='spore_toad');a.ranged+=n*+t.ranged;}if(a.n<1||a.n>64)throw Error('invalid-army-count');const n=a.n;for(const k of ['air','anti','aoe','small','heal','ward','projectile','hound','summon','poison','ranged'])a[k]/=n;a.frontHp/=a.hp;return a;}
+function vector(compositions){const[ca,cb]=compositions,a=army(ca),b=army(cb),diff=(k)=>a[k]-b[k];return[...kinds.map(k=>((ca[k]||0)-(cb[k]||0))/(a.n+b.n)),Math.log((a.n+1)/(b.n+1)),Math.log((a.cost+1)/(b.cost+1)),Math.log((a.hp+1)/(b.hp+1)),diff('ranged'),diff('frontHp'),a.anti*b.air-b.anti*a.air,a.air*(1-b.anti)-b.air*(1-a.anti),a.aoe*b.small*Math.min(4,b.n/16)-b.aoe*a.small*Math.min(4,a.n/16),a.heal*a.frontHp-b.heal*b.frontHp,a.ward*b.projectile-b.ward*a.projectile,a.hound*b.summon-b.hound*a.summon,a.summon*(1-b.aoe)-b.summon*(1-a.aoe),a.poison*(1-b.air)-b.poison*(1-a.air)];}
+return{names,vector,interactionStart:kinds.length+5};}
+function createEstimator(model){if(model.featureVersion!==FEATURE_VERSION)throw Error('model-version');const f=createFeatures(model.meta);if(JSON.stringify(f.names)!==JSON.stringify(model.names))throw Error('feature-schema');return{predict(composition){const x=f.vector(composition);const raw=x.reduce((s,v,i)=>s+v/model.scale[i]*model.coefficients[i],0);return Math.max(-1,Math.min(1,raw));},features:f};}
+
+return {FEATURE_VERSION,createFeatures,createEstimator};})();
+const TypedGrowthGenerator=(()=>{const {createGenerator}=GrowthGenerator;
+/** Experimental shape-first generator. Shape draw is seed-only; no physics/outcome query. */
+const random=seed=>()=>{seed=(seed+0x6D2B79F5)>>>0;let t=seed;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296};
+const freeze=x=>{if(x&&typeof x==='object'){Object.values(x).forEach(freeze);Object.freeze(x)}return x};
+const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12,screech_cricket:7,reaper_mantis:7,spore_toad:9,rootwarden_treant:11,sky_harpooner:10,bounty_hound:8,siege_crab:12};
+const TYPED_CONFIG=Object.freeze({version:'shape-first-v1',lateFromRound:7,swarmProbability:.25,giantProbability:.10,swarmMin:50,swarmMax:64,giantMax:20,candidates:32});
+function createTypedGenerator(catalog,options){if(!options.estimator)throw Error('typed-model-required');const normal=createGenerator(catalog,options),cost=ks=>ks.reduce((s,k)=>s+catalog[k].estimateCost,0),actual=ks=>ks.reduce((s,k)=>s+catalog[k].cost,0),compose=ks=>Object.fromEntries([...new Set(ks)].map(k=>[k,ks.filter(v=>v===k).length]));
+ function generate(args){
+  const randomMode=random((args.seed^0x72f4a1b9)>>>0),modeRoll=randomMode(),requested=args.round<7?'normal':modeRoll<.25?'swarm':modeRoll<.35?'giant':'normal';
+  // Prebuilt fallback avoids an unbounded retry; its left roster is exactly the frozen original generator's.
+  const plan=normal.generate(args),fallback=reason=>freeze({...plan,archetypeDecision:{version:TYPED_CONFIG.version,requested,realized:'normal',fallbackReason:reason,modeRoll,candidates:0}});
+  if(requested==='normal')return fallback(null);
+  const stage=args.round>=10?20:1+Math.floor((args.round-1)*19/9),hasAir=plan.leftKinds.some(k=>catalog[k].air),needAir=plan.leftKinds.includes('drake');
+  let pool=Object.keys(catalog).sort().filter(k=>stage>=(unlock[k]||1)&&(hasAir||k!=='drake'));
+  if(requested==='swarm'&&plan.leftKinds.every(k=>k==='drake'))return fallback('swarm-ineligible-all-air-opponent');
+  const lo=plan.band[0],hi=plan.band[1],target=Math.round(plan.estimatedCosts[0]*options.rightMultiplier),r=random((args.seed^0xc2851a3d)>>>0),large=pool.filter(k=>catalog[k].radius>=25),cheap=pool.filter(k=>catalog[k].cost<=3),a=compose(plan.leftKinds),candidates=[];let minCountImpossible=0,fitFailures=0;
+  for(let sample=0;sample<32;sample++){
+   let kinds;
+   if(requested==='swarm'){const fixed=['goblin','screech_cricket'].filter(k=>cheap.includes(k)),third=cheap.filter(k=>!fixed.includes(k)&&(!needAir||catalog[k].air));if(fixed.length!==2||!third.length)continue;kinds=[...fixed,third[Math.floor(r()*third.length)]];}
+   else{if(large.length<2)continue;const shuffled=large.slice().sort();for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]}const first=shuffled.slice(0,2),third=pool.filter(k=>!first.includes(k)&&(!needAir||catalog[k].air));if(!third.length)continue;kinds=[...first,third[Math.floor(r()*third.length)]];}
+   const prices=kinds.map(k=>catalog[k].estimateCost),minPrice=Math.min(...prices),maxPrice=Math.max(...prices),lower=Math.max(kinds.length,requested==='swarm'?50:3,Math.ceil(lo/maxPrice)),upper=Math.min(requested==='swarm'?64:20,Math.floor(hi/minPrice));if(lower>upper){minCountImpossible++;continue;}
+   const n=lower+Math.floor(r()*(upper-lower+1)),roster=kinds.slice();
+   while(roster.length<n){const remaining=n-roster.length-1,spent=cost(roster);const allowed=kinds.filter(k=>{const next=spent+catalog[k].estimateCost;return next+remaining*minPrice<=hi&&next+remaining*maxPrice>=lo&&normal.fit([...roster,k])});if(!allowed.length)break;roster.push(allowed[Math.floor(r()*allowed.length)]);}
+   if(roster.length!==n||cost(roster)<lo||cost(roster)>hi||!normal.fit(roster)){fitFailures++;continue;}
+   if(requested==='giant'&&roster.filter(k=>catalog[k].radius>=25).length<Math.ceil(n/2))continue;
+   if(roster.filter(k=>k==='healer').length>Math.max(1,Math.floor(n*.35)))continue;
+   const margin=options.estimator.predict([a,compose(roster)]);if(!Number.isFinite(margin))throw Error('typed-invalid-model');candidates.push({roster,margin,sample});
+  }
+  if(!candidates.length)return fallback(minCountImpossible===32?'count-budget-infeasible':'no-feasible-typed-roster');
+  candidates.sort((a,b)=>Math.abs(a.margin)-Math.abs(b.margin)||Math.abs(cost(a.roster)-target)-Math.abs(cost(b.roster)-target)||a.sample-b.sample);const best=candidates[0],right=best.roster;
+  return freeze({...plan,generatorVersion:'shape-first-model-candidate-v1',rightKinds:right,rightPositions:normal.fit(right).map(p=>({...p,x:480-p.x})),estimatedCosts:[plan.estimatedCosts[0],cost(right)],actualCosts:[plan.actualCosts[0],actual(right)],modelDecision:{modelId:options.estimator.modelId||'candidate-unstamped',predictedMargin:best.margin,candidateCount:candidates.length,selection:'shape first, absolute predicted margin; no solver'},archetypeDecision:{version:TYPED_CONFIG.version,requested,realized:requested,fallbackReason:null,modeRoll,candidates:candidates.length,minCountImpossible,fitFailures,normalFallbackPool:32,typedPool:32}});
+ }
+ return Object.freeze({generate,fit:normal.fit,estimateCost:normal.estimateCost,catalog:normal.catalog});
+}
+
+return {TYPED_CONFIG,createTypedGenerator};})();
+const OpeningUnits=(()=>{
+/** Production opening unit constructor shared by HTML and offline calibration. */
+function instantiateOpening(plan,types){
+ if(!plan||!Number.isSafeInteger(plan.round)||plan.round<1||!Number.isSafeInteger(plan.seed)||plan.seed<0||plan.seed>0xffffffff||!Array.isArray(plan.leftPositions)||!Array.isArray(plan.rightPositions))throw Error('invalid-opening-plan');
+ let stream=plan.seed>>>0;const next=()=>{stream=(Math.imul(stream,1664525)+1013904223)>>>0;return stream/4294967296;};
+ const units=[];
+ for(const [side,positions] of [plan.leftPositions,plan.rightPositions].entries()){
+  if(positions.length>64)throw Error('opening-army-cap');
+  for(const [i,p] of positions.entries()){
+   if(!types[p.k]||!Number.isFinite(p.x)||!Number.isFinite(p.y))throw Error('invalid-opening-unit');
+   units.push({id:side*100+i,token:`r${plan.round}:s${plan.seed}:${side}:${i}`,side,k:p.k,x:p.x,y:p.y,hp:types[p.k].hp,cd:next()*.5,priority:next(),dead:false,originForward:side?-1:1});
+  }
+ }
+ return units;
+}
+
+return {instantiateOpening};})();
+const FixedTickJob=(()=>{
+/** Host-only fixed-tick orchestration. No clocks or scheduling affect simulation dt. */
+async function runFixedTickJob({step,done,finish,onCapture,shouldCancel=()=>false,now=()=>performance.now(),yieldControl=()=>new Promise(resolve=>setTimeout(resolve,0)),maxSliceMs=8,maxStepsPerSlice=16,maxTicks=3601}={}){
+ if(typeof step!=='function'||typeof done!=='function'||typeof finish!=='function'||(onCapture!==undefined&&typeof onCapture!=='function')||typeof shouldCancel!=='function'||typeof now!=='function'||typeof yieldControl!=='function'||!Number.isFinite(maxSliceMs)||maxSliceMs<=0||!Number.isSafeInteger(maxStepsPerSlice)||maxStepsPerSlice<1||!Number.isSafeInteger(maxTicks)||maxTicks<1)throw new TypeError('invalid-fixedtick-job-options');
+ let ticks=0,recordingError=null,captureEnabled=typeof onCapture==='function';
+ const checkCancel=()=>{if(shouldCancel()){const error=new Error('fixedtick-job-cancelled');error.name='AbortError';throw error}};
+ const clock=()=>{const t=now();if(!Number.isFinite(t))throw new TypeError('invalid-job-clock');return t};
+ while(true){
+  checkCancel();
+  if(done())return finish({ticks,recordingError});
+  if(ticks>=maxTicks)throw new Error('fixedtick-job-tick-limit');
+  const start=clock();let sliceSteps=0;
+  do{
+   checkCancel();
+   // The step receives fixed dt and the upcoming canonical tick, never wall time.
+   step(1/60,ticks+1);ticks++;sliceSteps++;
+   if(captureEnabled){try{onCapture(ticks)}catch(error){if(error?.message!=='replay-byte-cap')throw error;recordingError='replay-byte-cap';captureEnabled=false}}
+   checkCancel();
+   if(done())return finish({ticks,recordingError});
+   if(ticks>=maxTicks)throw new Error('fixedtick-job-tick-limit');
+  }while(sliceSteps<maxStepsPerSlice&&clock()-start<maxSliceMs);
+  await yieldControl();
+ }
+}
+
+return {runFixedTickJob};})();
+const compositionModel={"featureVersion": "composition-odd-v1", "status": "pruned-offline-candidate-not-runtime-adopted", "disabledInteractions": ["heal_front", "hound_vs_children", "summon_vs_low_aoe", "poison_vs_ground"], "meta": {"sword": {"cost": 3, "hp": 100, "radius": 9, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "shield": {"cost": 4, "hp": 170, "radius": 12, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "spear": {"cost": 3, "hp": 85, "radius": 9, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "archer": {"cost": 3, "hp": 60, "radius": 8, "air": false, "anti": true, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 0}, "cannon": {"cost": 6, "hp": 72, "radius": 14, "air": false, "anti": true, "aoe": true, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 0}, "rider": {"cost": 8, "hp": 230, "radius": 15, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "healer": {"cost": 4, "hp": 65, "radius": 8, "air": false, "anti": false, "aoe": false, "heal": true, "front": false, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "goblin": {"cost": 2, "hp": 50, "radius": 7, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "golem": {"cost": 9, "hp": 390, "radius": 25, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "drake": {"cost": 7, "hp": 145, "radius": 13, "air": true, "anti": true, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "wraith": {"cost": 8, "hp": 90, "radius": 9, "air": false, "anti": true, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 3}, "boar": {"cost": 5, "hp": 155, "radius": 14, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "bombbug": {"cost": 3, "hp": 55, "radius": 9, "air": false, "anti": false, "aoe": true, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "frostmage": {"cost": 4, "hp": 85, "radius": 8, "air": false, "anti": true, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 0}, "stormmage": {"cost": 5, "hp": 80, "radius": 8, "air": false, "anti": true, "aoe": true, "heal": false, "front": false, "ward": false, "projectile": false, "ranged": true, "childPotential": 0}, "burrower": {"cost": 5, "hp": 120, "radius": 11, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "slime": {"cost": 4, "hp": 115, "radius": 16, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 2}, "screech_cricket": {"cost": 2, "hp": 65, "radius": 8, "air": false, "anti": false, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": false, "ranged": true, "childPotential": 0}, "reaper_mantis": {"cost": 5, "hp": 125, "radius": 13, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "spore_toad": {"cost": 4, "hp": 145, "radius": 17, "air": false, "anti": false, "aoe": true, "heal": false, "front": false, "ward": false, "projectile": false, "ranged": true, "childPotential": 0}, "rootwarden_treant": {"cost": 9, "hp": 350, "radius": 27, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": true, "projectile": false, "ranged": false, "childPotential": 0}, "sky_harpooner": {"cost": 5, "hp": 95, "radius": 11, "air": false, "anti": true, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 0}, "bounty_hound": {"cost": 4, "hp": 110, "radius": 11, "air": false, "anti": false, "aoe": false, "heal": false, "front": true, "ward": false, "projectile": false, "ranged": false, "childPotential": 0}, "siege_crab": {"cost": 9, "hp": 300, "radius": 28, "air": false, "anti": false, "aoe": false, "heal": false, "front": false, "ward": false, "projectile": true, "ranged": true, "childPotential": 0}}, "names": ["type:archer", "type:boar", "type:bombbug", "type:bounty_hound", "type:burrower", "type:cannon", "type:drake", "type:frostmage", "type:goblin", "type:golem", "type:healer", "type:reaper_mantis", "type:rider", "type:rootwarden_treant", "type:screech_cricket", "type:shield", "type:siege_crab", "type:sky_harpooner", "type:slime", "type:spear", "type:spore_toad", "type:stormmage", "type:sword", "type:wraith", "log_count", "log_cost", "log_hp", "ranged_share", "front_hp_share", "anti_air_vs_air", "air_uncountered", "aoe_vs_small_mass", "heal_front", "ward_vs_projectile", "hound_vs_children", "summon_vs_low_aoe", "poison_vs_ground"], "scale": [0.2775204570528693, 0.10615516788742779, 0.1340510649796265, 0.07369303982124839, 0.042895161508514135, 0.07135344742451333, 0.04847594018734203, 0.1024914364043825, 0.19222638463138303, 0.038360520106939654, 0.04099684908252354, 0.06116046051626404, 0.07536025217788886, 0.03691362326729252, 0.1144253900072428, 0.11313316720334886, 0.05235417740672992, 0.07023510197697501, 0.10245952899511945, 0.19791054995205953, 0.07109998678391685, 0.05320512463497264, 0.26124911836896053, 0.044986773440271105, 0.44127208975452914, 0.062163548057066156, 0.36104977208312583, 0.560919907379804, 0.555681556420672, 0.10812172438769407, 0.06397586058180386, 0.46920698221154233, 0.04763135958498228, 0.0712838060987248, 0.2099247016387343, 0.5071039572583652, 0.1620709365919003], "coefficients": [0.09038254016678725, 0.011676596961205231, 0.10417150464914654, -0.024986901687557385, -0.009136807941764205, -0.016913800828983826, -0.0407332322376719, 0.006556105834205122, -0.062427136822652295, -0.021203532929502323, -0.04026012610678303, -0.03636998960599985, 0.0007147235040635842, -0.05206044721577099, 0.030808639108688043, -0.07317014553339216, 0.05528948716930353, -0.02867817492180964, -0.04908242114320281, 0.0448798416023153, -0.10565089200129517, 0.07550448540523041, 0.0038669513097016562, -0.034451104541259915, 0.05644486158690261, 0.05691302425364057, -0.0638821366874608, 0.03142483251534386, 0.0162327570167481, 0.03138848945691246, 0.07404886927788312, 0.16627332449684168, 0, 0.0026954531159662913, 0, 0, 0], "lambda": 10, "trainingRows": 396};const compositionEstimator=CompositionFeatures.createEstimator(compositionModel);compositionEstimator.modelId="4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0";const growthGenerator=TypedGrowthGenerator.createTypedGenerator({"sword": {"cost": 3, "estimateCost": 3, "radius": 9, "air": false}, "shield": {"cost": 4, "estimateCost": 4, "radius": 12, "air": false}, "spear": {"cost": 3, "estimateCost": 3, "radius": 9, "air": false}, "archer": {"cost": 3, "estimateCost": 3, "radius": 8, "air": true}, "cannon": {"cost": 6, "estimateCost": 6, "radius": 14, "air": true}, "rider": {"cost": 8, "estimateCost": 8, "radius": 15, "air": false}, "healer": {"cost": 4, "estimateCost": 4, "radius": 8, "air": false}, "goblin": {"cost": 2, "estimateCost": 2, "radius": 7, "air": false}, "golem": {"cost": 9, "estimateCost": 9, "radius": 25, "air": false}, "drake": {"cost": 7, "estimateCost": 7, "radius": 13, "air": true}, "wraith": {"cost": 8, "estimateCost": 8, "radius": 9, "air": true}, "boar": {"cost": 5, "estimateCost": 5, "radius": 14, "air": false}, "bombbug": {"cost": 3, "estimateCost": 3, "radius": 9, "air": false}, "frostmage": {"cost": 4, "estimateCost": 4, "radius": 8, "air": true}, "stormmage": {"cost": 5, "estimateCost": 7, "radius": 8, "air": true}, "burrower": {"cost": 5, "estimateCost": 5, "radius": 11, "air": false}, "slime": {"cost": 4, "estimateCost": 4, "radius": 16, "air": false}, "screech_cricket": {"cost": 2, "estimateCost": 2, "radius": 8, "air": false}, "reaper_mantis": {"cost": 5, "estimateCost": 5, "radius": 13, "air": false}, "spore_toad": {"cost": 4, "estimateCost": 4, "radius": 17, "air": false}, "rootwarden_treant": {"cost": 9, "estimateCost": 9, "radius": 27, "air": false}, "sky_harpooner": {"cost": 5, "estimateCost": 5, "radius": 11, "air": true}, "bounty_hound": {"cost": 4, "estimateCost": 4, "radius": 11, "air": false}, "siege_crab": {"cost": 9, "estimateCost": 9, "radius": 28, "air": false}},{growthPerRound:14,rightMultiplier:1.06,estimator:compositionEstimator});
 const RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;
 
 
@@ -1448,7 +1701,7 @@ const RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;
       if (stage === 'delta') {
         if (!Number.isSafeInteger(detail?.delta)) return false;
         const delta = detail.delta;
-        if (result.won === true && delta <= 0 || result.won === false && delta > 0 ||
+        if (result.won === true && delta < 0 || result.won === false && delta > 0 ||
             result.won === false && result.stake === 0 && delta < 0 || result.won === null && delta !== 0) return false;
       }
       if (!rememberResultStage(key, stage)) return false;
@@ -1727,7 +1980,7 @@ function parseReactionWire(wire) {
  * At most four short-lived stamps are kept; no reaction history is persisted.
  */
 function createReactionChannel({
-  roomId, sessionId, userId, send,
+  roomId, sessionId, userId, send, localOnly=false,
   getMembers = () => [],
   now = Date.now,
   onChange = () => {},
@@ -1787,7 +2040,7 @@ function createReactionChannel({
   }
 
   function setRound(id) {
-    if (id !== null && !validRound(id)) throw new TypeError('roundId must be null or 1..10');
+    if (id !== null && !(localOnly?Number.isSafeInteger(id)&&id>=1:validRound(id))) throw new TypeError('roundId must be null or 1..10');
     if (roundId === id) return false;
     roundId = id;
     feed = [];
@@ -1796,12 +2049,13 @@ function createReactionChannel({
   }
 
   function react(emoji) {
-    if (closed || roundId === null || !reactionIds.has(emoji)) return false;
+    if (closed || roundId === null || !reactionIds.has(emoji)||!validSeq(seq+1)) return false;
     const timestamp = currentTime();
     if (timestamp === null || timestamp - lastSentAt < caps.sendCooldownMs) return false;
     while (sentTimes.length && timestamp - sentTimes[0] >= caps.sendWindowMs) sentTimes.shift();
     if (sentTimes.length >= caps.sendWindowMax) return false;
     const event = {roomId, sessionId, roundId, emoji, seq: seq + 1};
+    if(!localOnly){
     let wire;
     try { wire = encodeEvent(event, caps.maxWireBytes); } catch { return false; }
     try {
@@ -1809,6 +2063,7 @@ function createReactionChannel({
       if (result === false) return false;
       if (result?.then) result.catch(() => {});
     } catch { return false; }
+    }
     seq = event.seq;
     lastSentAt = timestamp;
     sentTimes.push(timestamp);
@@ -1818,7 +2073,7 @@ function createReactionChannel({
   }
 
   function receive(sender, wire) {
-    if (closed || roundId === null || !validId(sender) || sender === userId || !isAllowedMember(sender)) return false;
+    if (localOnly || closed || roundId === null || !validId(sender) || sender === userId || !isAllowedMember(sender)) return false;
     const event = decodeEvent(wire, caps.maxWireBytes);
     if (!event || event.roomId !== roomId || event.sessionId !== sessionId || event.roundId !== roundId) return false;
     // SDK callback identity is authoritative; fields in event are never treated as actor IDs.
@@ -1857,7 +2112,7 @@ function createScoreBridge({isGravity=false,isEmbedded=false,postMessage}={}){
  const attempted=new Set();
  return Object.freeze({submit({sessionId,playerId,players,completedRounds,totalRounds=TOTAL_ROUNDS,mode,action,spectator=false}){
   if(!(typeof isGravity==='function'?isGravity():isGravity)||!isEmbedded)return {status:'standalone'};
-  if(!['finish','lobby','replay'].includes(action)||spectator||mode!==GAME_MODE||completedRounds!==TOTAL_ROUNDS||totalRounds!==TOTAL_ROUNDS)return {status:'ineligible'};
+  if(!['finish','lobby','replay'].includes(action)||spectator||!((mode===GAME_MODE&&completedRounds===TOTAL_ROUNDS&&totalRounds===TOTAL_ROUNDS)||(mode==='GRAVITY_SOLO_EXTEND_V1'&&Number.isSafeInteger(totalRounds)&&totalRounds>=10&&totalRounds%5===0&&completedRounds===totalRounds)))return {status:'ineligible'};
   if(typeof sessionId!=='string'||!sessionId||typeof playerId!=='string'||!Array.isArray(players))return {status:'invalid'};
   const own=players.find(p=>p.playerId===playerId);
   if(!own||!Number.isSafeInteger(own.score)||typeof postMessage!=='function')return {status:'invalid'};
@@ -2092,7 +2347,7 @@ function createSession({roomId, sessionId, userId, hostId, members=[], send, mod
       // Canonical fixed-tick events/outcome, produced by a separate deterministic core.
       if(!replay||!sid(replay.engineVersion)||!integer(replay.ticks)||!['A','B','draw'].includes(replay.winner)||!Array.isArray(replay.events))throw new Error('invalid-replay');
       let packed=null,replayError=null;
-      try{packed=packReplay(replay,`${sessionId}:${state.roundId}`);}catch(error){if(error.message!=='replay-buffer-cap')throw error;replayError='replay-buffer-cap';}
+      try{if(replay.unavailable==='replay-byte-cap')throw Error('replay-buffer-cap');if(replay.unavailable!==undefined)throw Error('invalid-replay-unavailable');packed=packReplay(replay,`${sessionId}:${state.roundId}`);}catch(error){if(error.message!=='replay-buffer-cap')throw error;replayError='replay-buffer-cap';}
       const replayStartAt=now()+2000;if(!integer(replayStartAt))throw new Error('invalid-clock');
       const prepared=settle({sessionId,roundId:state.roundId,winner:replay.winner,bets:clone(state.bets),now:now()});
       if(prepared?.then)throw new Error('synchronous-settlement-required');
@@ -2319,12 +2574,15 @@ async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Prom
 return {install};})();
 const CompactReplay=(()=>{
 /** Bounded canonical presentation trace. Spawns carry metadata; guests never simulate. */
-const COMPACT_VERSION='v14-three-species-v1';
+const COMPACT_VERSION='large-army64-v1';
 const ROLES=['sword','shield','spear','archer','cannon','rider','healer','goblin','golem','drake','wraith','boar','bombbug','frostmage','stormmage','burrower','slime','slimelet','screech_cricket','reaper_mantis','spore_toad','rootwarden_treant','sky_harpooner','bounty_hound','siege_crab'];
 const FX_KINDS=['hit_spark','ground_slam','magic_sparkle','muzzle_flash','charge_trail','bomb_explosion','frost_hit','chain_arc','burrow_warning','burrow_emerge','slime_split','cadence_delayed','parry_block','poison_cloud','poison_applied','ward_block','drake_claw'];
+const MAX_REPLAY_BYTES=2*1024*1024;
+const replayByteLength=replay=>new TextEncoder().encode(JSON.stringify(replay)).byteLength;
 const finite=Number.isFinite;
+const initialTeamCap=rows=>[0,1].every(side=>rows.filter(u=>u[1]===side).length<=64);
 const DELTA_COLUMNS=[3,4,5,6,7,8,11];
-const withinActiveCap=rows=>{const list=[...rows];return [0,1].every(side=>list.filter(u=>u[1]===side&&!u[6]).length<=32)};
+const withinActiveCap=rows=>{const list=[...rows];return [0,1].every(side=>list.filter(u=>u[1]===side&&!u[6]).length<=64)};
 const validFlags=x=>Number.isSafeInteger(x)&&x>=0&&x<=63;
 const boundedCoordinate=x=>finite(x)&&Math.abs(x)<=10000;
 const validId=x=>(typeof x==='string'&&x.length>0&&x.length<=160)||(Number.isSafeInteger(x)&&x>=0);
@@ -2332,24 +2590,25 @@ function validRow(u){return Array.isArray(u)&&u.length===12&&validId(u[0])&&u.sl
 function validShots(ss){return Array.isArray(ss)&&ss.length<=2048&&ss.every(s=>Array.isArray(s)&&s.length===5&&s.every(finite)&&[0,1].includes(s[0])&&Number.isInteger(s[3])&&s[3]>=0&&s[3]<ROLES.length&&[s[1],s[2]].every(boundedCoordinate)&&Math.abs(s[4])<=4)}
 function validEffects(fx){return Array.isArray(fx)&&fx.length<=24&&fx.every(f=>Array.isArray(f)&&f.length===7&&f.every(finite)&&Number.isInteger(f[0])&&f[0]>=0&&f[0]<FX_KINDS.length&&[-1,1].includes(f[3])&&Number.isInteger(f[4])&&f[4]>=0&&f[4]<=3601&&[f[1],f[2],f[5],f[6]].every(boundedCoordinate))}
 function encodeEffects(effects,tick){if(!Array.isArray(effects))throw Error('invalid-effects');const fx=effects.map(f=>[FX_KINDS.indexOf(f.kind),Math.round(f.x),Math.round(f.y),f.face??1,f.tick??tick,Math.round(f.targetX??f.toX??f.x),Math.round(f.targetY??f.toY??f.y)]);if(!validEffects(fx)||fx.some(f=>f[4]>tick))throw Error('invalid-effects');return fx;}
-function encodeShots(shots){const out=shots.map(s=>[s.side,Math.round(s.x),Math.round(s.y),ROLES.indexOf(s.k||'archer'),Math.round((s.angle??Math.atan2((s.target?.y??s.y)-s.y,(s.target?.x??s.x)-s.x))*1000)/1000]);if(!validShots(out))throw Error('invalid-shots');return out;}
-function createCompactRecorder({positionEvery=6,maxUnits=256,maxInitial=64,statusFor=u=>u.presentationFlags??0}={}){
- if(!Number.isInteger(positionEvery)||positionEvery<1||positionEvery>60||!Number.isInteger(maxUnits)||maxUnits<1||maxUnits>256||!Number.isInteger(maxInitial)||maxInitial<1||maxInitial>64||typeof statusFor!=='function')throw Error('invalid-recorder-options');
- let initial=null,previous=new Map(),retired=new Set(),deadAt=new Map(),seen=new Set(),lastShots='',lastTick=-1;const events=[];
+function encodeShots(shots){const out=shots.map(s=>[s.side,Math.round(s.x),Math.round(s.y),ROLES.indexOf(s.k??'archer'),Math.round((s.angle??Math.atan2((s.target?.y??s.y)-s.y,(s.target?.x??s.x)-s.x))*1000)/1000]);if(!validShots(out))throw Error('invalid-shots');return out;}
+function createCompactRecorder({positionEvery=6,maxUnits=512,maxInitial=128,statusFor=u=>u.presentationFlags??0}={}){
+ if(!Number.isInteger(positionEvery)||positionEvery<1||positionEvery>60||!Number.isInteger(maxUnits)||maxUnits<1||maxUnits>512||!Number.isInteger(maxInitial)||maxInitial<1||maxInitial>128||typeof statusFor!=='function')throw Error('invalid-recorder-options');
+ let initial=null,previous=new Map(),retired=new Set(),deadAt=new Map(),seen=new Set(),lastShots='',lastTick=-1;const events=[];const seenPerSide=[0,0];let byteEstimate=0,failed=false;function addEvent(e){byteEstimate+=replayByteLength(e)+1;if(byteEstimate>MAX_REPLAY_BYTES){failed=true;throw Error('replay-byte-cap')}events.push(e)}
  return {capture(tick,{units,shots,poseFor=()=>0,facingFor=u=>u.side?-1:1,movingFor=()=>false,effects=[],statusFor:readStatus=statusFor},force=false){
+  if(failed)throw Error('recorder-failed');
   if(!Number.isInteger(tick)||tick<0||tick>3601||tick<=lastTick||!Array.isArray(units)||!Array.isArray(shots)||units.length>maxUnits)throw Error('invalid-capture');
   if(units.some(u=>retired.has(u.id)&&!u.dead))throw Error('reused-id');
   const fx=encodeEffects(effects,tick),currentShots=encodeShots(shots);
   const rows=units.filter(u=>!retired.has(u.id)).slice().sort((a,b)=>String(a.id).localeCompare(String(b.id))).map(u=>[u.id,u.side,ROLES.indexOf(u.k),Math.round(u.x),Math.round(u.y),Math.round(u.hp*100)/100,u.dead?1:0,movingFor(u)&&poseFor(u)<3?-1:poseFor(u),facingFor(u),String(u.token??u.id),u.ownerToken??null,readStatus(u)]);
   if(!withinActiveCap(rows))throw Error('active-team-cap');
   if(rows.some(u=>!validRow(u))||new Set(rows.map(u=>u[0])).size!==rows.length)throw Error('invalid-unit');
-  if(!initial){if(tick!==0)throw Error('initial-tick');if(rows.length>maxInitial)throw Error('initial-cap');initial=rows;for(const row of rows){previous.set(row[0],row.slice());seen.add(row[0])}lastTick=tick;lastShots=JSON.stringify(currentShots);events.push([tick,[],currentShots,[],[],fx]);return}
+  if(!initial){if(tick!==0)throw Error('initial-tick');if(rows.length>maxInitial||!initialTeamCap(rows))throw Error('initial-cap');initial=rows;byteEstimate=replayByteLength(rows);for(const row of rows){previous.set(row[0],row.slice());seen.add(row[0]);seenPerSide[row[1]]++}lastTick=tick;lastShots=JSON.stringify(currentShots);addEvent([tick,[],currentShots,[],[],fx]);return}
   const updates=[],spawns=[],despawns=[];
   for(const row of rows){
    if(row[6]&&!deadAt.has(row[0]))deadAt.set(row[0],tick);
    if(deadAt.has(row[0])&&tick-deadAt.get(row[0])>=36){despawns.push(row[0]);previous.delete(row[0]);retired.add(row[0]);continue}
    const prior=previous.get(row[0]);
-   if(!prior){if(seen.has(row[0])||seen.size>=maxUnits)throw Error('entity-cap-or-reused-id');seen.add(row[0]);spawns.push(row);previous.set(row[0],row.slice());continue}
+   if(!prior){if(seen.has(row[0])||seen.size>=maxUnits||seenPerSide[row[1]]>=256)throw Error('entity-cap-or-reused-id');seen.add(row[0]);seenPerSide[row[1]]++;spawns.push(row);previous.set(row[0],row.slice());continue}
    if([0,1,2,9,10].some(col=>row[col]!==prior[col]))throw Error('immutable-unit-metadata');
    let mask=0,values=[];const critical=row[5]!==prior[5]||row[6]!==prior[6]||row[11]!==prior[11]||(row[7]!==prior[7]&&row[7]>=3);
    for(let bit=0;bit<DELTA_COLUMNS.length;bit++){const col=DELTA_COLUMNS[bit];if(col<5&&!force&&!critical&&tick%positionEvery!==0)continue;if(row[col]!==prior[col]){mask|=1<<bit;values.push(row[col]);prior[col]=row[col]}}
@@ -2361,23 +2620,26 @@ function createCompactRecorder({positionEvery=6,maxUnits=256,maxInitial=64,statu
    if(encoded!==lastShots){sample=current;lastShots=encoded}
   }
 
-  if(updates.length||spawns.length||despawns.length||sample!==null||fx.length||force)events.push([tick,updates,sample,spawns,despawns,fx]);lastTick=tick;
+  if(updates.length||spawns.length||despawns.length||sample!==null||fx.length||force)addEvent([tick,updates,sample,spawns,despawns,fx]);lastTick=tick;
  },finish({ticks,winner}){
+  if(failed)throw Error('recorder-failed');
   if(!initial||lastTick!==ticks||!['A','B','draw'].includes(winner))throw Error('invalid-finish');
-  if(events.at(-1)[0]!==ticks)events.push([ticks,[],null,[],[],[]]);
-  return {engineVersion:COMPACT_VERSION,ticks,winner,initial,events,positionEvery,maxEntities:maxUnits};
+  if(events.at(-1)[0]!==ticks)addEvent([ticks,[],null,[],[],[]]);
+  const replay={engineVersion:COMPACT_VERSION,ticks,winner,initial,events,positionEvery,maxEntities:maxUnits};if(replayByteLength(replay)>MAX_REPLAY_BYTES){failed=true;throw Error('replay-byte-cap')}return replay;
  }};
 }
 function createPlayback(replay){
- if(!replay||replay.engineVersion!==COMPACT_VERSION||!['A','B','draw'].includes(replay.winner)||!Number.isInteger(replay.maxEntities)||replay.maxEntities<1||replay.maxEntities>256||!Number.isInteger(replay.positionEvery)||replay.positionEvery<1||replay.positionEvery>60||!Number.isInteger(replay.ticks)||replay.ticks<0||replay.ticks>3601||!Array.isArray(replay.initial)||replay.initial.length>64||replay.initial.length>replay.maxEntities||!Array.isArray(replay.events)||replay.events.length>3602)throw Error('invalid-replay');
- const rows=new Map(),seen=new Set();
- for(const row of replay.initial){if(!validRow(row)||rows.has(row[0]))throw Error('invalid-unit');rows.set(row[0],row.slice());seen.add(row[0])}
+ if(replayByteLength(replay)>MAX_REPLAY_BYTES)throw Error('replay-byte-cap');
+ if(!replay||replay.engineVersion!==COMPACT_VERSION||!['A','B','draw'].includes(replay.winner)||!Number.isInteger(replay.maxEntities)||replay.maxEntities<1||replay.maxEntities>512||!Number.isInteger(replay.positionEvery)||replay.positionEvery<1||replay.positionEvery>60||!Number.isInteger(replay.ticks)||replay.ticks<0||replay.ticks>3601||!Array.isArray(replay.initial)||replay.initial.length>128||replay.initial.length>replay.maxEntities||!Array.isArray(replay.events)||replay.events.length>3602)throw Error('invalid-replay');
+ const rows=new Map(),seen=new Set(),seenPerSide=[0,0];
+ for(const row of replay.initial){if(!validRow(row)||rows.has(row[0]))throw Error('invalid-unit');rows.set(row[0],row.slice());seen.add(row[0]);seenPerSide[row[1]]++}
+ if(!initialTeamCap(replay.initial))throw Error('initial-cap');
  if(!withinActiveCap(rows.values()))throw Error('active-team-cap');
  const checkRows=new Map([...rows].map(([id,row])=>[id,row.slice()]));let last=-1;
  for(const e of replay.events){
-  if(!Array.isArray(e)||e.length!==6||!Number.isInteger(e[0])||e[0]<=last||e[0]>replay.ticks||!Array.isArray(e[1])||e[1].length>256||!Array.isArray(e[3])||e[3].length>256||!Array.isArray(e[4])||e[4].length>256||!validEffects(e[5]))throw Error('invalid-event');
+  if(!Array.isArray(e)||e.length!==6||!Number.isInteger(e[0])||e[0]<=last||e[0]>replay.ticks||!Array.isArray(e[1])||e[1].length>512||!Array.isArray(e[3])||e[3].length>512||!Array.isArray(e[4])||e[4].length>512||!validEffects(e[5]))throw Error('invalid-event');
   if(e[5].some(f=>f[4]>e[0]))throw Error('future-effect');
-  for(const row of e[3]){if(!validRow(row)||seen.has(row[0])||seen.size>=replay.maxEntities)throw Error('invalid-spawn');seen.add(row[0]);checkRows.set(row[0],row.slice())}
+  for(const row of e[3]){if(!validRow(row)||seen.has(row[0])||seen.size>=replay.maxEntities||seenPerSide[row[1]]>=256)throw Error('invalid-spawn');seen.add(row[0]);seenPerSide[row[1]]++;checkRows.set(row[0],row.slice())}
   for(const d of e[1]){
    if(!Array.isArray(d)||!checkRows.has(d[0])||!Number.isInteger(d[1])||d[1]<1||d[1]>127||d.length!==2+d[1].toString(2).replace(/0/g,'').length||!d.slice(1).every(finite))throw Error('invalid-delta');
    const row=checkRows.get(d[0]);let j=2;for(let bit=0;bit<DELTA_COLUMNS.length;bit++)if(d[1]&(1<<bit))row[DELTA_COLUMNS[bit]]=d[j++];if(!validRow(row))throw Error('invalid-delta-value');
@@ -2408,10 +2670,10 @@ function fourSpeciesPresentationFlags(u,elapsed,moving=false){
  return ((elapsed<(u.slowUntil||0)?1:0)|(u.burrowStage==='underground'?2:0)|(u.k==='boar'&&u.chargeReady&&moving?4:0))|(u.parrySpent?16:0)|(!u.dead&&(u.poisonUntil??0)>elapsed+1e-9?8:0)|(!u.dead&&(u.cadenceImmuneUntil??0)>elapsed?32:0);
 }
 
-return {COMPACT_VERSION,ROLES,FX_KINDS,createCompactRecorder,createPlayback,fourSpeciesPresentationFlags};})();
+return {COMPACT_VERSION,ROLES,FX_KINDS,MAX_REPLAY_BYTES,replayByteLength,createCompactRecorder,createPlayback,fourSpeciesPresentationFlags};})();
 
 const TYPES={sword:{name:'剣士',hp:100,dmg:17,range:25,rate:1.0,speed:32},shield:{name:'盾兵',hp:170,dmg:10,range:23,rate:1.2,speed:23,armor:.55},spear:{name:'槍兵',hp:85,dmg:18,range:44,rate:1.25,speed:27},archer:{name:'弓兵',hp:60,dmg:14,range:150,rate:1.25,speed:24,projectile:true},cannon:{name:'砲兵',hp:72,dmg:23,range:125,rate:2.2,speed:19,projectile:true,splash:38},rider:{name:'騎兵',hp:230,dmg:38,range:27,rate:1.15,speed:45},healer:{name:'治療兵',hp:65,dmg:7,range:90,rate:1.35,speed:24,heal:13}};
-Object.assign(TYPES,{"goblin": {"name": "\u5c0f\u9b3c", "hp": 50, "dmg": 9, "range": 16, "rate": 0.62, "speed": 54, "attackTargetMask": ["ground"], "collisionLayer": "ground", "radius": 7, "reach": 4}, "golem": {"name": "\u5ca9\u5de8\u4eba", "hp": 390, "dmg": 50, "range": 27, "rate": 2.5, "speed": 15, "reach": 2, "attackTargetMask": ["ground"], "collisionLayer": "ground", "mass": 2600, "radius": 25}, "drake": {"name": "\u7fbd\u30c8\u30ab\u30b2", "hp": 145, "dmg": 25, "range": 28, "rate": 1.15, "speed": 38, "reach": 12, "attackTargetMask": ["ground", "air"], "collisionLayer": "air", "flying": true, "radius": 13}, "wraith": {"name": "\u4ea1\u970a\u8853\u5e2b", "hp": 90, "dmg": 15, "range": 88, "rate": 1.3, "speed": 22, "projectile": true, "attackTargetMask": ["ground", "air"], "collisionLayer": "ground", "summonCharges": 3, "summonInitialDelay": 0.25, "summonCooldown": 1.5, "radius": 9, "reach": 63}, "boar": {"name": "\u7a81\u9032\u732a", "hp": 155, "dmg": 20, "rate": 1.2, "speed": 30, "radius": 14, "reach": 4, "range": 18, "collisionLayer": "ground", "attackTargetMask": ["ground"], "chargeBonus": 32, "chargeSpeed": 72, "knockback": 22}, "bombbug": {"name": "\u7206\u5f3e\u7532\u866b", "hp": 55, "dmg": 0, "rate": 60, "speed": 48, "radius": 9, "reach": 5, "range": 14, "collisionLayer": "ground", "attackTargetMask": ["ground"], "explosionDamage": 115, "explosionRadius": 50}, "frostmage": {"name": "\u6c37\u8853\u5e2b", "hp": 85, "dmg": 15, "rate": 1.4, "speed": 23, "radius": 8, "reach": 110, "range": 118, "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "projectile": true, "slowFactor": 0.55, "slowDuration": 1.5, "slowImmunity": 0.75}, "stormmage": {"name": "\u96f7\u8853\u5e2b", "hp": 80, "dmg": 24, "rate": 1.4, "speed": 22, "radius": 8, "reach": 95, "range": 103, "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "chainCount": 3, "chainRange": 60, "chainFalloff": 0.65}, "burrower": {"name": "\u5730\u6f5c\u308a\u866b", "hp": 120, "dmg": 25, "rate": 1.1, "speed": 35, "radius": 11, "reach": 5, "range": 16, "collisionLayer": "ground", "attackTargetMask": ["ground"], "burrowWarning": 0.5, "burrowTravel": 0.3}, "slime": {"name": "\u5206\u88c2\u30b9\u30e9\u30a4\u30e0", "hp": 115, "dmg": 12, "rate": 1.4, "speed": 20, "radius": 16, "reach": 3, "range": 19, "collisionLayer": "ground", "attackTargetMask": ["ground"], "splitCount": 2, "splitKind": "slimelet"}, "slimelet": {"name": "\u5c0f\u30b9\u30e9\u30a4\u30e0", "hp": 35, "dmg": 7, "rate": 0.9, "speed": 34, "radius": 7, "reach": 3, "range": 10, "collisionLayer": "ground", "attackTargetMask": ["ground"], "spawnOnly": true}, "screech_cricket": {"hp": 65, "dmg": 8, "rate": 1.3, "speed": 34, "radius": 8, "reach": 58, "cadenceDelay": 0.35, "cadenceImmunity": 3.5, "collisionLayer": "ground", "attackTargetMask": ["ground"]}, "reaper_mantis": {"hp": 125, "dmg": 29, "rate": 1.25, "speed": 31, "radius": 13, "reach": 9, "parryReduction": 0.7, "collisionLayer": "ground", "attackTargetMask": ["ground"]}, "spore_toad": {"hp": 145, "dmg": 6, "rate": 3.5, "speed": 18, "radius": 17, "reach": 65, "poisonRadius": 42, "poisonDuration": 3, "poisonDps": 4, "poisonImmunity": 1, "collisionLayer": "ground", "attackTargetMask": ["ground"]}, "rootwarden_treant": {"hp": 350, "dmg": 24, "rate": 2, "speed": 12, "radius": 27, "reach": 5, "wardRadius": 80, "wardReduction": 0.25, "collisionLayer": "ground", "attackTargetMask": ["ground"]}, "sky_harpooner": {"hp": 95, "dmg": 10, "rate": 1.6, "speed": 24, "radius": 11, "reach": 145, "projectile": true, "airDamageMultiplier": 2.4, "targetPriority": "air", "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "name": "\u929b\u5175", "range": 145}, "bounty_hound": {"hp": 110, "dmg": 18, "rate": 0.9, "speed": 40, "radius": 11, "reach": 5, "targetPriority": "child", "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u731f\u72ac", "range": 5}, "siege_crab": {"hp": 300, "dmg": 55, "rate": 3, "speed": 12, "radius": 28, "reach": 150, "armor": 0.7, "projectile": true, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u7832\u87f9", "range": 150}});for(const k of Object.keys(TYPES)){TYPES[k].collisionLayer??='ground';TYPES[k].attackTargetMask??=(['archer','cannon'].includes(k)?['ground','air']:['ground']);}let pendingSummons=[],combatEvents=[];
+Object.assign(TYPES,{"goblin": {"name": "\u5c0f\u9b3c", "hp": 50, "dmg": 9, "range": 16, "rate": 0.62, "speed": 54, "attackTargetMask": ["ground"], "collisionLayer": "ground", "radius": 7, "reach": 4}, "golem": {"name": "\u5ca9\u5de8\u4eba", "hp": 390, "dmg": 50, "range": 27, "rate": 2.5, "speed": 15, "reach": 2, "attackTargetMask": ["ground"], "collisionLayer": "ground", "mass": 2600, "radius": 25}, "drake": {"name": "\u7fbd\u30c8\u30ab\u30b2", "hp": 145, "dmg": 25, "range": 28, "rate": 1.15, "speed": 38, "reach": 12, "attackTargetMask": ["ground", "air"], "collisionLayer": "air", "flying": true, "radius": 13}, "wraith": {"name": "\u4ea1\u970a\u8853\u5e2b", "hp": 90, "dmg": 15, "range": 88, "rate": 1.3, "speed": 22, "projectile": true, "attackTargetMask": ["ground", "air"], "collisionLayer": "ground", "summonCharges": 3, "summonInitialDelay": 0.25, "summonCooldown": 1.5, "radius": 9, "reach": 63}, "boar": {"name": "\u7a81\u9032\u732a", "hp": 155, "dmg": 20, "rate": 1.2, "speed": 30, "radius": 14, "reach": 4, "range": 18, "collisionLayer": "ground", "attackTargetMask": ["ground"], "chargeBonus": 32, "chargeSpeed": 72, "knockback": 22}, "bombbug": {"name": "\u7206\u5f3e\u7532\u866b", "hp": 55, "dmg": 0, "rate": 60, "speed": 48, "radius": 9, "reach": 5, "range": 14, "collisionLayer": "ground", "attackTargetMask": ["ground"], "explosionDamage": 115, "explosionRadius": 50}, "frostmage": {"name": "\u6c37\u8853\u5e2b", "hp": 85, "dmg": 15, "rate": 1.4, "speed": 23, "radius": 8, "reach": 110, "range": 118, "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "projectile": true, "slowFactor": 0.55, "slowDuration": 1.5, "slowImmunity": 0.75}, "stormmage": {"name": "\u96f7\u8853\u5e2b", "hp": 80, "dmg": 24, "rate": 1.4, "speed": 22, "radius": 8, "reach": 95, "range": 103, "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "chainCount": 3, "chainRange": 60, "chainFalloff": 0.65}, "burrower": {"name": "\u5730\u6f5c\u308a\u866b", "hp": 120, "dmg": 25, "rate": 1.1, "speed": 35, "radius": 11, "reach": 5, "range": 16, "collisionLayer": "ground", "attackTargetMask": ["ground"], "burrowWarning": 0.5, "burrowTravel": 0.3}, "slime": {"name": "\u5206\u88c2\u30b9\u30e9\u30a4\u30e0", "hp": 115, "dmg": 12, "rate": 1.4, "speed": 20, "radius": 16, "reach": 3, "range": 19, "collisionLayer": "ground", "attackTargetMask": ["ground"], "splitCount": 2, "splitKind": "slimelet"}, "slimelet": {"name": "\u5c0f\u30b9\u30e9\u30a4\u30e0", "hp": 35, "dmg": 7, "rate": 0.9, "speed": 34, "radius": 7, "reach": 3, "range": 10, "collisionLayer": "ground", "attackTargetMask": ["ground"], "spawnOnly": true}, "screech_cricket": {"hp": 65, "dmg": 8, "rate": 1.3, "speed": 34, "radius": 8, "reach": 58, "cadenceDelay": 0.35, "cadenceImmunity": 3.5, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u30b3\u30aa\u30ed\u30ae"}, "reaper_mantis": {"hp": 125, "dmg": 29, "rate": 1.25, "speed": 31, "radius": 13, "reach": 9, "parryReduction": 0.7, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u30ab\u30de\u30ad\u30ea"}, "spore_toad": {"hp": 145, "dmg": 6, "rate": 3.5, "speed": 18, "radius": 17, "reach": 65, "poisonRadius": 42, "poisonDuration": 3, "poisonDps": 4, "poisonImmunity": 1, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u80de\u5b50\u30ac\u30a8\u30eb"}, "rootwarden_treant": {"hp": 350, "dmg": 24, "rate": 2, "speed": 12, "radius": 27, "reach": 5, "wardRadius": 80, "wardReduction": 0.25, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u6a39\u4eba"}, "sky_harpooner": {"hp": 95, "dmg": 10, "rate": 1.6, "speed": 24, "radius": 11, "reach": 145, "projectile": true, "airDamageMultiplier": 2.4, "targetPriority": "air", "collisionLayer": "ground", "attackTargetMask": ["ground", "air"], "name": "\u929b\u5175", "range": 145}, "bounty_hound": {"hp": 110, "dmg": 18, "rate": 0.9, "speed": 40, "radius": 11, "reach": 5, "targetPriority": "child", "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u731f\u72ac", "range": 5}, "siege_crab": {"hp": 300, "dmg": 55, "rate": 3, "speed": 12, "radius": 28, "reach": 150, "armor": 0.7, "projectile": true, "collisionLayer": "ground", "attackTargetMask": ["ground"], "name": "\u7832\u87f9", "range": 150}});for(const k of Object.keys(TYPES)){TYPES[k].collisionLayer??='ground';TYPES[k].attackTargetMask??=(['archer','cannon'].includes(k)?['ground','air']:['ground']);}let pendingSummons=[],combatEvents=[];
 const keys=Object.keys(TYPES).filter(k=>k!=='slimelet'), canvas=document.querySelector('#field'),ctx=canvas.getContext('2d');let speed=1,paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
 function rng(s){return ()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
 let budgets=[];const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};Object.assign(COST,{"goblin": 2, "golem": 9, "drake": 7, "wraith": 8, "boar": 5, "bombbug": 3, "frostmage": 4, "stormmage": 5, "burrower": 5, "slime": 4, "slimelet": 0, "screech_cricket": 2, "reaper_mantis": 5, "spore_toad": 4, "rootwarden_treant": 9, "sky_harpooner": 5, "bounty_hound": 4, "siege_crab": 9});
@@ -2431,7 +2693,7 @@ function generateEarlyArmies(seed,eligibleCosts=null,featuredKinds=null){
 }
 
 let previousArmyKinds=[],pendingCarryKinds=null,initialKinds=[[],[]],initialUnits=[],carryStreak=0,leftArmyCost=0;
-function progressRound(n=round){return 1+Math.floor((Math.max(1,Math.min(TOTAL_ROUNDS,n))-1)*19/(TOTAL_ROUNDS-1));}
+function progressRound(n=round){return n>10?20+2*(n-10):1+Math.floor((Math.max(1,n)-1)*19/9);}
 const BALANCE_COST=Object.fromEntries(Object.entries(COST).map(([k,v])=>[k,Math.max(1,Math.round(v*({"stormmage":1.4}[k]||1)))]));let leftArmyCount=0;
 function makeArmy(r,side){
  const stage=progressRound(),advance=round<=1?1:stage-progressRound(round-1);
@@ -2476,14 +2738,19 @@ function layoutOpeningArmy(army,side){
  large.forEach((u,i)=>place(u,preferred[i]));
  for(const u of army)if(!large.includes(u))place(u,slots.find(p=>!p.used));
 }
-function setup(s){pendingSummons=[];combatEvents=[];seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1])layoutOpeningArmy(units.filter(u=>u.side===side),side);initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
+let openingPlan=null;
+function prepareOpening(s){const nextSeed=s>>>0,base=pendingCarryKinds?[...pendingCarryKinds]:[],plan=growthGenerator.generate({round,streak:base.length?carryStreak:0,carryKinds:base,seed:nextSeed,previousOutcome:round>1&&!base.length?'draw':null});return {nextSeed,base,plan,opening:OpeningUnits.instantiateOpening(plan,TYPES)};}
+function setup(s,prepared=null){
+ const {nextSeed,base,plan,opening}=prepared||prepareOpening(s),armies=[opening.filter(u=>u.side===0),opening.filter(u=>u.side===1)];
+ pendingSummons=[];combatEvents=[];seed=nextSeed;carryStreak=base.length?carryStreak:0;openingPlan=plan;pendingCarryKinds=null;previousArmyKinds=[...new Set(plan.leftKinds)];leftArmyCount=armies[0].length;leftArmyCost=plan.estimatedCosts[0];budgets=[{planned:Math.max(plan.targetCost,plan.estimatedCosts[0]),spent:plan.estimatedCosts[0]},{planned:plan.band[1],spent:plan.estimatedCosts[1]}];units=armies.flat();initialKinds=[plan.leftKinds.slice(),plan.rightKinds.slice()];initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw();
+}
 function update(){}
 
 // v10 horizontal combat: side 0 advances +x, side 1 advances -x; stats/caps unchanged.
 const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7,screech_cricket:8,reaper_mantis:13,spore_toad:17,rootwarden_treant:27,sky_harpooner:11,bounty_hound:11,siege_crab:28};
 const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3,screech_cricket:58,reaper_mantis:9,spore_toad:65,rootwarden_treant:5,sky_harpooner:145,bounty_hound:5,siege_crab:150};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
-const TEAM_CAP=32,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
+const TEAM_CAP=64,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
 function stableOrder(a,b){const p=(a.priority??0)-(b.priority??0),k=(a.k??'').localeCompare(b.k??'');if(p||k)return p||k;const ai=Number(a.id??0),bi=Number(b.id??0);if(Number.isFinite(ai)&&Number.isFinite(bi)&&ai!==bi)return ai-bi;return String(a.token??a.id??'').localeCompare(String(b.token??b.id??''))}
 function tokenOf(u){if(u.token===undefined)u.token=String(u.id??`${u.side}:${u.k}:${u.priority??0}`);return String(u.token)}
 function layerOf(u){return u.burrowStage==='underground'?'underground':TYPES[u.k].collisionLayer||'ground'}
@@ -2492,20 +2759,24 @@ function canTarget(attacker,target){const mask=TYPES[attacker.k].attackTargetMas
 function radiusOf(u){return TYPES[u.k].radius}
 function massOf(u){const m=TYPES[u.k].mass;return Number.isFinite(m)&&m>0?m:radiusOf(u)**2}
 function nearbyGrid(list,positions=null){
+ // Numeric keys cover the bounded battlefield plus off-field movement intents.
+ // Rare unbounded test coordinates use string keys without numeric aliasing.
+ const keyOf=(cx,cy)=>cx>=-32&&cx<32&&cy>=-32&&cy<32?(cx+32)*64+cy+32:cx+','+cy;
  const cells=new Map();
- for(const u of list){const p=positions?positions.get(u):u,key=Math.floor(p.x/GRID_SIZE)+','+Math.floor(p.y/GRID_SIZE);if(!cells.has(key))cells.set(key,[]);cells.get(key).push(u)}
- return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++)for(const u of cells.get((cx+dx)+','+(cy+dy))||[])found.push(u);return found.sort(stableOrder)};
+ for(const u of list){const p=positions?positions.get(u):u,key=keyOf(Math.floor(p.x/GRID_SIZE),Math.floor(p.y/GRID_SIZE));let cell=cells.get(key);if(!cell){cell=[];cells.set(key,cell)}cell.push(u)}
+ return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++){const cell=cells.get(keyOf(cx+dx,cy+dy));if(cell)for(const u of cell)found.push(u)}return found.sort(stableOrder)};
 }
 function snapPosition(v){return Math.round(v*4096)/4096}
 // X reflection needs an odd tie rule about the field center, not absolute Math.round.
 // Epsilon is in quantized units (under 3e-11 world px), only resolving float ties.
 function snapXPosition(v){const q=(v-FIELD.w/2)*4096;return FIELD.w/2+(q<0?-1:1)*Math.floor(Math.abs(q)+.5+1e-7)/4096}
 function resolveBodies(alive,positions){
- // Jacobi: unordered same-layer pairs, simultaneous corrections, inverse explicit mass.
+ // Same Jacobi pair/update order and arithmetic; reusable index-based scratch arrays.
+ const count=alive.length,index=new Map(alive.map((u,i)=>[u,i])),points=alive.map(u=>positions.get(u)),radii=alive.map(radiusOf),inverseMass=alive.map(u=>1/massOf(u)),dxs=new Float64Array(count),dys=new Float64Array(count);
  for(let pass=0;pass<8;pass++){
-  const near=nearbyGrid(alive,positions),index=new Map(alive.map((u,i)=>[u,i])),delta=new Map(alive.map(u=>[u,{x:0,y:0}]));let maximum=0;
-  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
-  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
+  const near=nearbyGrid(alive,positions);dxs.fill(0);dys.fill(0);let maximum=0;
+  for(let i=0;i<count;i++){const u=alive[i],p=points[i],ru=radii[i];for(const v of near(p.x,p.y,ru+MAX_RADIUS)){const j=index.get(v);if(j<=i||!canCollide(u,v))continue;const q=points[j],rv=radii[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=inverseMass[i],iv=inverseMass[j],correction=penetration+.005;dxs[i]-=nx*correction*iu/(iu+iv);dys[i]-=ny*correction*iu/(iu+iv);dxs[j]+=nx*correction*iv/(iu+iv);dys[j]+=ny*correction*iv/(iu+iv)}}
+  for(let i=0;i<count;i++){const p=points[i],r=radii[i],length=Math.hypot(dxs[i],dys[i]),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+dxs[i]*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+dys[i]*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
   if(maximum<.04)break;
  }
 }
@@ -2541,6 +2812,8 @@ function step(dt){
  // Targetability is a shared tick-start snapshot, not actor iteration order.
  const targetLayers=new Map(alive.map(u=>[u,layerOf(u)]));
  const canTargetSnapshot=(a,b)=>(TYPES[a.k].attackTargetMask||['ground']).includes(targetLayers.get(b));
+ const targetCache=new Map();
+ const enemiesFor=u=>{const mask=TYPES[u.k].attackTargetMask||['ground'],key=u.side+':'+mask.join(',');let list=targetCache.get(key);if(!list){list=alive.filter(v=>v.side!==u.side&&mask.includes(targetLayers.get(v)));targetCache.set(key,list)}return list};
  const snapshotBodies=alive.map(v=>({k:v.k,x:v.x,y:v.y,burrowStage:targetLayers.get(v)==='underground'?'underground':undefined}));
  const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[],cadenceIntents=[],poisonIntents=[];
  const wardProviders=alive.filter(u=>TYPES[u.k].wardRadius).map(u=>({u,x:u.x,y:u.y}));
@@ -2562,7 +2835,7 @@ function step(dt){
  for(const u of alive){
   tokenOf(u);if(u.originForward===undefined)u.originForward=u.side===0?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
-  const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
+  const enemies=enemiesFor(u);moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
@@ -2603,7 +2876,7 @@ function step(dt){
   const gap=v=>Math.hypot(v.x-u.x,v.y-u.y)-radiusOf(u)-radiusOf(v);
   const preferred=t.targetPriority==='air'?enemies.filter(v=>targetLayers.get(v)==='air'):t.targetPriority==='child'?enemies.filter(v=>v.ownerToken!==undefined&&v.ownerToken!==null&&String(v.ownerToken).length>0):[];
   const targetPool=preferred.length?preferred:enemies;
-  let dist=Math.min(...targetPool.map(gap));const target=targetPool.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
+  let dist=Infinity;const gaps=new Array(targetPool.length);for(let i=0;i<targetPool.length;i++){const d=gap(targetPool[i]);gaps[i]=d;if(d<dist)dist=d}let target;for(let i=0;i<targetPool.length;i++)if(Math.abs(gaps[i]-dist)<1e-7){target=targetPool[i];break}
   if(dist>t.reach+1/2048){
    let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
@@ -2696,8 +2969,13 @@ function step(dt){
 }
 
 function damage(u,n,ranged){u.hp-=n*(ranged?(TYPES[u.k].armor||1):1);if(u.hp<=0)u.dead=true}
+// Reused presentation-only pointer list; never reorder the simulation roster.
+const drawOrderCache=[];
+function presentationLayer(u){return u.dead?0:(TYPES[u.k]?.collisionLayer==='air'?2:1);}
+function presentationOrder(a,b){const layer=presentationLayer(a)-presentationLayer(b);if(layer)return layer;const dy=a.y-b.y;if(dy)return dy;const ak=a.token??a.id??'',bk=b.token??b.id??'';if(typeof ak!==typeof bk)return typeof ak==='number'?-1:1;return ak<bk?-1:ak>bk?1:0;}
+function orderedDrawUnits(){drawOrderCache.length=units.length;for(let i=0;i<units.length;i++)drawOrderCache[i]=units[i];drawOrderCache.sort(presentationOrder);return drawOrderCache;}
 const ARENA_ASSET="data:image/png;base64,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";const arenaImage=typeof Image!=='undefined'?new Image():null;if(arenaImage){arenaImage.onload=()=>draw();arenaImage.src=ARENA_ASSET;}function drawArenaFloor(){if(arenaImage&&arenaImage.complete&&arenaImage.naturalWidth){ctx.imageSmoothingEnabled=false;ctx.drawImage(arenaImage,0,0,480,538);}else{ctx.fillStyle='#35463d';ctx.fillRect(0,0,480,538);}}
-function draw(){ctx.clearRect(0,0,480,538);drawArenaFloor();drawCombatEffects('ground');for(let u of units){if(drawSprite(u))continue;if(u.dead)continue;let color=u.side?'#86bde0':'#df8e78';ctx.save();ctx.translate(u.x,u.y);ctx.fillStyle='#0c1716aa';ctx.beginPath();ctx.ellipse(1,8,15,8,0,0,7);ctx.fill();ctx.fillStyle=color;ctx.strokeStyle='#f4dfb5';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,13,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#17252a';ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText({sword:'剣',shield:'盾',spear:'槍',archer:'弓',cannon:'砲',rider:'騎',healer:'癒',goblin:'鬼',golem:'岩',drake:'翼',wraith:'霊'}[u.k],0,0);ctx.fillStyle='#121b19';ctx.fillRect(-14,-21,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(-14,-21,28*Math.max(0,u.hp/TYPES[u.k].hp),4);ctx.restore()}drawCombatEffects('above');ctx.fillStyle='#f4dda1';for(const s of shots){if(drawProjectile(s))continue;ctx.beginPath();ctx.arc(s.x,s.y-(s.k==='wraith'?25:16),3,0,7);ctx.fill()}}
+function draw(){ctx.clearRect(0,0,480,538);drawArenaFloor();drawCombatEffects('ground');for(let u of orderedDrawUnits()){if(drawSprite(u))continue;if(u.dead)continue;let color=u.side?'#86bde0':'#df8e78';ctx.save();ctx.translate(u.x,u.y);ctx.fillStyle='#0c1716aa';ctx.beginPath();ctx.ellipse(1,8,15,8,0,0,7);ctx.fill();ctx.fillStyle=color;ctx.strokeStyle='#f4dfb5';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,13,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#17252a';ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText({sword:'剣',shield:'盾',spear:'槍',archer:'弓',cannon:'砲',rider:'騎',healer:'癒',goblin:'鬼',golem:'岩',drake:'翼',wraith:'霊'}[u.k],0,0);ctx.fillStyle='#121b19';ctx.fillRect(-14,-21,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(-14,-21,28*Math.max(0,u.hp/TYPES[u.k].hp),4);ctx.restore()}drawCombatEffects('above');ctx.fillStyle='#f4dda1';for(const s of shots){if(drawProjectile(s))continue;ctx.beginPath();ctx.arc(s.x,s.y-(s.k==='wraith'?25:16),3,0,7);ctx.fill()}}
 
 // Presentation-only sprite adapter. No changes to combat rules or random stream.
 const SPRITE_ROWS={sword:0,shield:1,archer:2,spear:0,cannon:1,rider:2,healer:3};
@@ -2728,7 +3006,7 @@ step=function(dt){
   consumeCombatEvents(typeof combatEvents==='undefined'?[]:combatEvents);
 };
 const combatSetup=setup;
-setup=function(s){visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;combatSetup(s)};
+setup=function(s,prepared){visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;combatSetup(s,prepared)};
 function spriteFrame(u){
   const v=visualFor(u),age=visualTime-v.attack;
   if(!u.dead&&u.burrowStage==='warning')return 3;
@@ -2755,7 +3033,7 @@ function drawSprite(u){
   ctx.save();ctx.translate(Math.round(u.x),Math.round(u.y)-hover);ctx.scale(visualFor(u).face,1);
   ctx.imageSmoothingEnabled=false;ctx.drawImage(image,spriteFrame(u)*cell,(monster?0:SPRITE_ROWS[u.k])*cell,cell,cellH,-anchor[0],-anchor[1],cell,cellH);
   ctx.restore();
-  if(!u.dead){ctx.fillStyle='#121b19';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28*Math.max(0,u.hp/TYPES[u.k].hp),4)}
+  if(!u.dead){ctx.fillStyle='#121b19';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-(monster?.visual_insets?.[1]??BASE_VISUAL_META[u.k]?.visual_insets?.[1]??anchor[1])-5,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-(monster?.visual_insets?.[1]??BASE_VISUAL_META[u.k]?.visual_insets?.[1]??anchor[1])-5,28*Math.max(0,u.hp/TYPES[u.k].hp),4)}
   if(monster){ctx.fillStyle=u.side?'#79b1ce':'#e49a78';ctx.fillRect(Math.round(u.x)-6,Math.round(u.y)+3,12,3);}
   return true;
 }
@@ -2860,28 +3138,29 @@ if(typeof document.addEventListener==='function')document.addEventListener('visi
 function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
+let soloRunEnded=false;function sessionRoundLimit(){return multiSession?TOTAL_ROUNDS:(walletState?.maxRounds||TOTAL_ROUNDS);}
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
-function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'quick10-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
+function freshWallet(){soloRunEnded=false;pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=SoloWallet.createSession({sessionId:'extend-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
 function credits(n){return (n>0?'+':'')+n+' G'}
-function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
+function currentWallet(){return SoloWallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s);};
+setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s,prepared);};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
-  q('#status').textContent='第 '+round+' / 10 戦';
+  q('#status').textContent='第 '+round+' / '+sessionRoundLimit()+' 戦';
   q('#balance').textContent=w.balance+' G';q('#profit').textContent=credits(w.score);q('#hits').textContent=w.correctCount+' / '+walletState.completedRounds;
-  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=TOTAL_ROUNDS?'10戦の最終結果':'今回の結果';
+  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=sessionRoundLimit()?'区切りの結果':'今回の結果';
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
   for(const n of [0,10,25,50]){const b=q('#stake'+n);b.disabled=n>w.maxStake;if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedStake===n));}
   q('#confirm').disabled=selectedSide===null;
-  q('#stakeHint').textContent=selectedStake?'正解 '+credits(10+selectedStake)+' · 外れ −'+selectedStake+' G':'正解 +10 G';
+  q('#stakeHint').textContent=selectedStake?'正解 '+credits((round<=10?10:0)+selectedStake)+' · 外れ −'+selectedStake+' G':round<=10?'正解 +10 G':'BET 0 G · 増減なし';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
-  q('#next').textContent=round>=TOTAL_ROUNDS?'もう一度':'次の戦いへ';
+  q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
-    const entry=walletState.ledger[round-1].entries[0];
+    const entry=walletState.ledger.find(r=>r.roundId===round).entries[0];
     q('#message').textContent=winner===null?'引き分け':(winner===0?'左':'右')+'の勝利';
     const label=entry.side===null?'見るだけ':entry.correct?'的中':'はずれ';
     q('#breakdown').textContent=label+' '+credits(entry.delta);
@@ -2891,20 +3170,22 @@ function selectSide(side){if(state!=='choose')return;selectedSide=side;update()}
 function selectStake(n){if(state!=='choose'||![0,10,25,50].includes(n)||n>currentWallet().maxStake)return;selectedStake=n;update()}
 function startPrediction(skip=false){
   if(state!=='choose'||skip||selectedSide===null)return;
-  walletState=Wallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
+  walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
   choice=skip?null:selectedSide;state='fight';paused=false;resetSoloClock();update();
 }
 const spriteStep=step;
 step=function(dt){spriteStep(dt);if(state==='result'&&walletState&&walletState.completedRounds<round&&walletState.currentRound?.commits.length===walletState.players.length){
-  walletState=Wallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome:winner===null?'draw':winner===0?'A':'B',now:0});update();
+  walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome:winner===null?'draw':winner===0?'A':'B',now:0});update();
 }};
 function openPrediction(seedValue){
-  walletState=Wallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER});setup(seedValue);
+  const prepared=prepareOpening(seedValue),nextWallet=SoloWallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER});walletState=nextWallet;setup(seedValue,prepared);
 }
 function nextPrediction(){
   if(state!=='result')return;
-  if(round>=TOTAL_ROUNDS){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
+  const before={round,mistakes,correct,speed,walletState,soloRunEnded,pendingCarryKinds,carryStreak,initialKinds,initialUnits,walletSessionCounter};
+  try{if(round>=sessionRoundLimit()){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
   openPrediction((Math.random()*4294967296)>>>0);
+  }catch(error){({round,mistakes,correct,speed,walletState,soloRunEnded,pendingCarryKinds,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);throw error;}
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
 for(const n of [0,10,25,50])document.querySelector('#stake'+n).onclick=()=>selectStake(n);
@@ -2917,8 +3198,8 @@ const scoreBridge=ScoreBridge.createScoreBridge({isGravity:()=>gravityContext||n
 async function submitFinalScore(action){
  if(!multiSession&&!walletState)return {status:'ineligible'};
  const snapshot=multiSession?multiSession.getState():null;
- const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:TOTAL_ROUNDS,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
- if(input.completedRounds!==TOTAL_ROUNDS||input.spectator)return {status:'ineligible'};
+ const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:walletState.maxRounds,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
+ if(input.completedRounds!==input.totalRounds||input.spectator)return {status:'ineligible'};
  if(globalThis.parent&&globalThis.parent!==globalThis&&!gravityContext&&!nativeProfileVerified){
   try{const sdk=await loadNativeSDK();let timer;const profile=await Promise.race([sdk.user.getMyUserInfo(),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),3000)})]);clearTimeout(timer);nativeProfileVerified=profile?.errno===0&&!!profile.data?.user_id;}catch{}
  }
@@ -2962,24 +3243,39 @@ function displayMultiState(){
 update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
 function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));configureFixedCamera();}}if(multiSession)displayMultiState();}
 function resetMultiRound(){multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
-function publicMatchup(){return {engineVersion:CompactReplay.COMPACT_VERSION,runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
+function publicMatchup(){return {engineVersion:CompactReplay.COMPACT_VERSION,runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:128,maxActiveUnits:128,maxCreatedEntities:512};}
 function openMultiRound(){
  if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=TOTAL_ROUNDS)return;
- const nextRound=s.roundId===null?1:s.roundId+1;const priorWorld={round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,cameraFitScale,cameraFitBounds,budgets:budgets.slice()};
+ const nextRound=s.roundId===null?1:s.roundId+1;const priorWorld={round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,leftArmyCount,openingPlan,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,cameraFitScale,cameraFitBounds,budgets:budgets.slice()};
  try{carryStreak=s.phase==='result'?(s.winner==='A'?carryStreak+1:s.winner==='B'?1:0):0;pendingCarryKinds=s.phase==='result'&&(s.winner==='A'||s.winner==='B')?multiInitial.filter(u=>u.side===(s.winner==='A'?0:1)).map(u=>u.k):null;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
  multiSession.openRound({roundId:round,durationMs:30000,matchup:publicMatchup()});multiSnapshot=multiSession.getState();displayMultiState();
- }catch(error){const current=multiSession.getState();if(current.roundId!==nextRound||current.phase!=='predict'){({round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,cameraFitScale,cameraFitBounds,budgets}=priorWorld);}throw error;}
+ }catch(error){const current=multiSession.getState();if(current.roundId!==nextRound||current.phase!=='predict'){({round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,leftArmyCount,openingPlan,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,cameraFitScale,cameraFitBounds,budgets}=priorWorld);}throw error;}
+}
+let replayJobToken=0;
+function cancelReplayJob(){replayJobToken++;multiRecording=false;multiBusy=false;if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(false));}
+function createCanonicalRecording(){
+ units=JSON.parse(JSON.stringify(multiInitial));pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
+ const recorder=CompactReplay.createCompactRecorder(),read=()=>({units,shots,poseFor:baseSpriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let recordingError=null;
+ try{recorder.capture(0,read());}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}
+ return {capture(tick){if(recordingError)throw Error(recordingError);recorder.capture(tick,read(),state==='result');},finish({ticks,recordingError:laterError}){const outcome=winner===null?'draw':winner===0?'A':'B';recordingError=recordingError||laterError;
+  if(!recordingError){try{const replay=recorder.finish({ticks,winner:outcome});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:512};CompactReplay.createPlayback(replay);return replay;}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}
+  return {engineVersion:CompactReplay.COMPACT_VERSION,ticks,winner:outcome,events:[],unavailable:'replay-byte-cap'};
+ }};
 }
 function buildCanonicalReplay(){
- multiRecording=true;
- try{
-  units=JSON.parse(JSON.stringify(multiInitial));pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;state='fight';winner=null;choice=null;
-  const recorder=CompactReplay.createCompactRecorder(),read=()=>({units,shots,poseFor:baseSpriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let ticks=0;
-  recorder.capture(0,read());
-  while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++;recorder.capture(ticks,read(),state==='result');}
-  const replay=recorder.finish({ticks,winner:winner===null?'draw':winner===0?'A':'B'});replay.geometry={field:[480,538],radii:{...RADII},reach:{...REACH},layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:256};CompactReplay.createPlayback(replay);return replay;
- }finally{multiRecording=false;}
+ multiRecording=true;try{const job=createCanonicalRecording();let ticks=0,recordingError=null;while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++;if(!recordingError)try{job.capture(ticks);}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}if(state==='fight')throw Error('replay-tick-limit');return job.finish({ticks,recordingError});}finally{multiRecording=false;}
 }
+async function buildCanonicalReplayAsync({shouldCancel=()=>false,yieldControl,now}={}){
+ const token=replayJobToken;multiRecording=true;
+ try{const job=createCanonicalRecording();return await FixedTickJob.runFixedTickJob({step:()=>spriteStep(1/60),done:()=>state!=='fight',onCapture:tick=>job.capture(tick),finish:meta=>job.finish(meta),shouldCancel:()=>token!==replayJobToken||shouldCancel(),...(yieldControl?{yieldControl}:{}),now:now||(()=>typeof performance!=='undefined'?performance.now():Date.now()),maxSliceMs:8,maxStepsPerSlice:16,maxTicks:3601});}finally{if(token===replayJobToken)multiRecording=false;}
+}
+function startAsyncHostReplay(){
+ const owner=multiSession,token=++replayJobToken;multiBusy=true;
+ document.querySelector('#battle').hidden=false;document.querySelector('#battleControls').hidden=true;document.querySelector('#comparison').hidden=true;document.querySelector('#roomStatus').textContent='対戦準備中…';draw();
+ if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(true));
+ void buildCanonicalReplayAsync({shouldCancel:()=>multiSession!==owner||owner.getState().phase!=='locked'}).then(replay=>{if(token===replayJobToken&&multiSession===owner&&owner.getState().phase==='locked')owner.startBattle(replay);}).catch(e=>{if(e.name!=='AbortError'&&token===replayJobToken){multiError=String(e.message);owner.close();}}).finally(()=>{if(token===replayJobToken){multiBusy=false;multiRecording=false;if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(false));displayMultiState();}});
+}
+
 function preparePlayback(replay,now){
  multiReplay=replay;multiPlayback=CompactReplay.createPlayback(replay);multiPlaybackStarted=now;applyReplayFrame(0);
 }
@@ -2996,7 +3292,7 @@ startPrediction=function(skip=false){
  if(mockGuest)mockGuest.predict('A',0);
  multiSnapshot=multiSession.getState();displayMultiState();
 };
-nextPrediction=function(){if(!multiSession){if(round>=TOTAL_ROUNDS)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
+nextPrediction=function(){if(!multiSession){if(round>=sessionRoundLimit())submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
 document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#next').onclick=()=>nextPrediction();
 function drainMock(){let n=0;while(mockQueue.length&&n++<10000){const [to,from,wire]=mockQueue.shift();to()?.receive(from,wire);}}
 function pumpMulti(now){
@@ -3005,7 +3301,7 @@ function pumpMulti(now){
  if(multiHost&&now-multiHeartbeat>=5000){multiHeartbeat=now;multiSession.heartbeat();drainMock();}
  multiSnapshot=multiSession.getState();const s=multiSnapshot;
  if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));configureFixedCamera();}}
- if(multiHost&&s.phase==='locked'&&!multiBusy){multiBusy=true;try{multiSession.startBattle(buildCanonicalReplay());}catch(e){multiError=String(e.message);multiSession.close();}finally{multiBusy=false;}return;}
+ if(multiHost&&s.phase==='locked'&&!multiBusy){if(typeof setTimeout==='function'){startAsyncHostReplay();return;}multiBusy=true;try{multiSession.startBattle(buildCanonicalReplay());}catch(e){multiError=String(e.message);multiSession.close();}finally{multiBusy=false;}return;}
  if(s.phase==='battle'){
   const replay=multiSession.getReplay();
   const playbackClock=multiSession.getPlaybackClock();
@@ -3045,7 +3341,7 @@ async function enterNative(kind){
  }catch(e){document.querySelector('#roomStatus').textContent=String(e.message)+' / オフラインひとり用は継続できます。';if(multiAdapter)document.querySelector('#exitRoom').hidden=false;}
  finally{multiBusy=false;}
 }
-async function leaveMulti(){
+async function leaveMulti(){cancelReplayJob();
  if(multiBusy)return;multiBusy=true;submitFinalScore('lobby');
  try{if(multiAdapter&&!mockGuest)await multiAdapter.exit();multiSession?.close();multiSession=null;mockGuest=null;mockQueue=[];multiSnapshot=null;multiPlayback=null;multiReplay=null;round=1;mistakes=0;correct=0;freshWallet();openPrediction((Math.random()*4294967296)>>>0);
  for(const id of ['#red','#blue','#next']){document.querySelector(id).disabled=false;document.querySelector(id).hidden=false;}
@@ -3127,7 +3423,7 @@ const RESULT_READ_SECONDS=3;
 let pausePanelOpen=false,pausePanelWasPaused=false;
 let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
 function resetResultRead(){resultReadSeconds=0;resultReadLast=null;syncResultProgress();}
-function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=TOTAL_ROUNDS||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
+function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=sessionRoundLimit()||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
 function commitArmy(side){
  if(screenMode!=='game'||state!=='choose')return;
  if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
@@ -3139,7 +3435,7 @@ document.querySelector('#blue').onclick=()=>commitArmy(1);
 document.querySelector('#confirm').hidden=false;
 document.querySelector('#confirm').onclick=()=>{if(!predictionPreview)startPrediction(false);};
 function advanceResultRead(t){
- if(multiSession||state!=='result'||round>=TOTAL_ROUNDS||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
+ if(multiSession||state!=='result'||round>=sessionRoundLimit()||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
  if(resultReadRound!==round){resetResultRead();resultReadRound=round;}
  if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
  resultReadLast=t;
@@ -3158,15 +3454,16 @@ showScreen=function(next){if(next!==screenMode)resetResultRead();flowScreen(next
 let cameraZoom=1,unitsOpen=false,unitsPausedSolo=false,unitsReturnFocus=null;
 let cameraX=240,cameraY=269,cameraDrag=null,cameraFitScale=1,cameraFitBounds={left:0,top:0,right:480,bottom:538};
 function centerFixedCamera(){cameraX=(cameraFitBounds.left+cameraFitBounds.right)/2;cameraY=(cameraFitBounds.top+cameraFitBounds.bottom)/2;}
+const BASE_VISUAL_META={"sword": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [18, 40, 24, 0], "hover_gap": 0}, "shield": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [16, 38, 22, 0], "hover_gap": 0}, "archer": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [15, 36, 24, 0], "hover_gap": 0}, "spear": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [20, 49, 33, 0], "hover_gap": 0}, "cannon": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [22, 39, 29, 1], "hover_gap": 0}, "rider": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [24, 51, 31, 1], "hover_gap": 0}, "healer": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [17, 49, 22, 0], "hover_gap": 0}};
 function configureFixedCamera(){
  cameraFitBounds={left:0,top:0,right:480,bottom:538};cameraFitScale=1;
- if(initialUnits.some(u=>(TYPES[u.k].radius||0)>25))for(const u of initialUnits){const m=MONSTER_META[u.k];if(!m)continue;const r=TYPES[u.k].radius||0,v=m.visual_insets||[m.anchor[0],m.anchor[1],m.cell[0]-m.anchor[0],m.cell[1]-m.anchor[1]],hover=m.hover_gap||0;cameraFitBounds.left=Math.min(cameraFitBounds.left,r-v[0]-4);cameraFitBounds.right=Math.max(cameraFitBounds.right,480-r+v[2]+4);cameraFitBounds.top=Math.min(cameraFitBounds.top,r-Math.max(v[1],m.anchor[1]+5)-hover-4);cameraFitBounds.bottom=Math.max(cameraFitBounds.bottom,538-r+v[3]-hover+4);}
+ for(const u of initialUnits){const m=MONSTER_META[u.k]||BASE_VISUAL_META[u.k];if(!m)continue;const r=TYPES[u.k].radius||0,v=m.visual_insets||[m.anchor[0],m.anchor[1],m.cell[0]-m.anchor[0],m.cell[1]-m.anchor[1]],hover=m.hover_gap||0;cameraFitBounds.left=Math.min(cameraFitBounds.left,r-Math.max(v[0],v[2])-4);cameraFitBounds.right=Math.max(cameraFitBounds.right,480-r+Math.max(v[0],v[2])+4);cameraFitBounds.top=Math.min(cameraFitBounds.top,r-v[1]-5-hover-4);cameraFitBounds.bottom=Math.max(cameraFitBounds.bottom,538-r+v[3]-hover+4);}
  cameraFitScale=Math.min(1,480/(cameraFitBounds.right-cameraFitBounds.left),538/(cameraFitBounds.bottom-cameraFitBounds.top));cameraZoom=1;centerFixedCamera();cameraDrag=null;
 }
 function clampCamera(){const scale=cameraFitScale*cameraZoom,hx=240/scale,hy=269/scale,b=cameraFitBounds;cameraX=b.right-b.left<=2*hx?(b.left+b.right)/2:Math.max(b.left+hx,Math.min(b.right-hx,cameraX));cameraY=b.bottom-b.top<=2*hy?(b.top+b.bottom)/2:Math.max(b.top+hy,Math.min(b.bottom-hy,cameraY));}
 const flowDraw=draw;
 draw=function(){
- clampCamera();ctx.save();ctx.clearRect(0,0,480,538);ctx.fillStyle="#35463d";ctx.fillRect(0,0,480,538);
+ if(multiRecording)return;clampCamera();ctx.save();ctx.clearRect(0,0,480,538);ctx.fillStyle="#35463d";ctx.fillRect(0,0,480,538);
  ctx.translate(240,269);ctx.scale(cameraFitScale*cameraZoom,cameraFitScale*cameraZoom);ctx.translate(-cameraX,-cameraY);flowDraw();ctx.restore();
 };
 function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'none':'auto';el.style.cursor=cameraZoom>1?(cameraDrag?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraZoom>1?'。拡大中はドラッグで移動、全体ボタンで戻る':''));}
@@ -3177,7 +3474,7 @@ cameraCanvas.onpointerdown=e=>{if(cameraZoom<=1||e.isPrimary===false||(e.button!
 cameraCanvas.onpointermove=e=>{if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraX=cameraDrag.cx-(e.clientX-cameraDrag.x)/(cameraDrag.scale*cameraFitScale*cameraZoom);cameraY=cameraDrag.cy-(e.clientY-cameraDrag.y)/(cameraDrag.scale*cameraFitScale*cameraZoom);clampCamera();e.preventDefault?.();draw();};
 function endCameraDrag(e){if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraDrag=null;if(cameraCanvas.hasPointerCapture?.(e.pointerId))cameraCanvas.releasePointerCapture(e.pointerId);syncCameraInput();}
 cameraCanvas.onpointerup=endCameraDrag;cameraCanvas.onpointercancel=endCameraDrag;cameraCanvas.onlostpointercapture=()=>{cameraDrag=null;syncCameraInput();};
-const cameraSetup=setup;setup=function(seedValue){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue);configureFixedCamera();syncCameraInput();draw();};
+const cameraSetup=setup;setup=function(seedValue,prepared){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue,prepared);configureFixedCamera();syncCameraInput();draw();};
 const cameraResetMultiRound=resetMultiRound;resetMultiRound=function(){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraResetMultiRound();syncCameraInput();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',()=>{cameraDrag=null;clampCamera();syncCameraInput();draw();});
 // Copy-only override for fillUnitStats; append after screen-ui.js and flow-ui.js.
@@ -3222,7 +3519,7 @@ function toggleUnits(open){
 function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
  q('#gameScreen')?.setAttribute('data-phase',state);if(pausePanelOpen&&state!=='fight')closePausePanel();
- const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<TOTAL_ROUNDS;
+ const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<sessionRoundLimit();
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',cameraZoom===1]])if(q(id))q(id).disabled=disabled;
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }
@@ -3525,7 +3822,7 @@ function syncReactions(){
  document.querySelector('#reaction-feedback').hidden=!enabled;
  const room=multiSession?multiAdapter?.getRoomId():'solo',session=multiSession?multiSnapshot?.sessionId:walletState?.sessionId,user=multiSession?multiUser:'local';
  const key=room&&session&&user?room+':'+session+':'+user:null;
- if(key!==reactionSessionKey){reactionChannel?.close();reactionChannel=null;reactionSessionKey=key;if(key)reactionChannel=ReactionLane.createReactionChannel({roomId:room,sessionId:session,userId:user,send:wire=>multiSession?multiAdapter.sendReaction(wire):true,getMembers:()=>multiSession?[...(multiSnapshot?.participants||[]),...(multiSnapshot?.spectators||[])]:['local']});}
+ if(key!==reactionSessionKey){reactionChannel?.close();reactionChannel=null;reactionSessionKey=key;if(key)reactionChannel=ReactionLane.createReactionChannel({localOnly:!multiSession,roomId:room,sessionId:session,userId:user,send:wire=>multiSession?multiAdapter.sendReaction(wire):true,getMembers:()=>multiSession?[...(multiSnapshot?.participants||[]),...(multiSnapshot?.spectators||[])]:['local']});}
  reactionChannel?.setRound(enabled?round:null);reactionRender();
 }
 function receiveReaction(sender,wire){syncReactions();if(!reactionLive()||!reactionChannel)return false;const accepted=reactionChannel.receive(sender,wire);reactionRender();return accepted;}
@@ -3558,9 +3855,9 @@ function syncPersonalResult(now){
  const label=entry?.correct===true?'的中！':entry?.correct===false?'はずれ':outcome==='draw'?'引き分け':outcome==='invalid'?'無効':'予想なし';
  q('#message').textContent=label;q('#breakdown').textContent=Number.isSafeInteger(entry?.delta)?credits(entry.delta):'—';
  if(q('#resultWinner'))q('#resultWinner').textContent=outcome==='A'?'左の勝利':outcome==='B'?'右の勝利':'';
- if(q('#resultRanking')){q('#resultRanking').hidden=!multiSession||round<TOTAL_ROUNDS;q('#resultRanking').textContent=multiSession&&round>=TOTAL_ROUNDS?(multiSnapshot.wallets||[]).slice().sort((a,b)=>b.score-a.score).map(p=>(p.playerId===multiUser?'あなた':p.playerId)+' '+credits(p.score)).join(' · '):'';}
+ if(q('#resultRanking')){q('#resultRanking').hidden=!multiSession||round<sessionRoundLimit();q('#resultRanking').textContent=multiSession&&round>=sessionRoundLimit()?(multiSnapshot.wallets||[]).slice().sort((a,b)=>b.score-a.score).map(p=>(p.playerId===multiUser?'あなた':p.playerId)+' '+credits(p.score)).join(' · '):'';}
  q('#gameScreen')?.setAttribute('data-personal-result','true');q('#gameScreen')?.setAttribute('data-field-view','true');
- q('#resultPanel')?.setAttribute('data-final',String(round>=TOTAL_ROUNDS));
+ q('#resultPanel')?.setAttribute('data-final',String(round>=sessionRoundLimit()));
  q('#resultPanel')?.setAttribute('data-outcome',entry?.correct===true?'hit':entry?.correct===false?'miss':'neutral');
  // Keep the final canonical field visible; never fabricate a missing guest replay.
  q('#battle').hidden=!!multiSession&&!multiReplay;q('#battleControls').hidden=true;
@@ -3577,6 +3874,18 @@ const personalDisplay=displayMultiState;displayMultiState=function(){personalDis
 const personalLoop=loop;loop=function(t){personalLoop(t);syncPersonalResult(t);};
 const personalScreen=showScreen;showScreen=function(next){if(next!=='game')cancelPersonalResult();personalScreen(next);syncPersonalResult();};
 if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelPersonalResult();});
+
+// Explicit solo-only extension boundary. Multiplayer stays its existing ten-round protocol.
+function syncExtensionControls(){const atBoundary=!multiSession&&state==='result'&&walletState?.completedRounds===walletState?.maxRounds&&!soloRunEnded;document.querySelector('#extensionChoices').hidden=!atBoundary;const net=document.querySelector('#checkpointNet');net.hidden=!atBoundary;if(atBoundary)net.textContent='開始時より '+credits(currentWallet().score);if(atBoundary){const next=document.querySelector('#next');next.hidden=false;next.disabled=false;next.textContent='終了';}}
+function extendSoloRun(additionalRounds){if(multiSession||state!=='result'||soloRunEnded||walletState.completedRounds!==walletState.maxRounds)return false;const before=walletState;walletState=SoloWallet.extendSession(before,{sessionId:before.sessionId,requestId:'extend:'+round,roundId:round,additionalRounds});try{nextPrediction();}catch(error){walletState=before;throw error;}syncExtensionControls();return true;}
+function finishSoloRun(){if(multiSession||state!=='result'||walletState.completedRounds!==walletState.maxRounds||soloRunEnded)return false;soloRunEnded=true;void submitFinalScore('finish');showScreen('home');document.querySelector('#soloStart').textContent='もう一度';syncExtensionControls();return true;}
+for(const n of [5,10])document.querySelector('#extend'+n).onclick=()=>extendSoloRun(n);
+const extensionNext=document.querySelector('#next').onclick;document.querySelector('#next').onclick=e=>{if(!multiSession&&state==='result'&&round>=sessionRoundLimit())finishSoloRun();else extensionNext(e);};
+const extensionStart=document.querySelector('#soloStart').onclick;document.querySelector('#soloStart').onclick=e=>{if(soloRunEnded&&!multiSession){round=1;freshWallet();openPrediction((Math.random()*4294967296)>>>0);}extensionStart(e);};
+const extensionUpdate=update;update=function(){extensionUpdate();syncExtensionControls();};
+const extensionDisplay=displayMultiState;displayMultiState=function(){extensionDisplay();syncExtensionControls();};
+const extensionLoop=loop;loop=function(t){extensionLoop(t);syncExtensionControls();};
+syncExtensionControls();
 
 requestAnimationFrame(loop);
 if(typeof window!=='undefined'&&window.__gameBootComplete)window.__gameBootComplete();

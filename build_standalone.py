@@ -10,6 +10,7 @@ early_end=s.index('let previousArmyKinds',early_start)
 s=s[:early_start]+(root/'physics/early-generator.js').read_text().split("if(typeof module")[0]+'\n'+s[early_end:]
 contract=json.loads((root/'physics/monster-contract.json').read_text())
 monster_types={k:{field:value for field,value in meta.items() if field!='cost'} for k,meta in contract['types'].items()}
+assert all(isinstance(v.get('name'),str) and v['name'].strip() for v in monster_types.values()), 'Every unit needs a display name'
 s=s.replace('const keys=Object.keys(TYPES)',"Object.assign(TYPES,"+json.dumps(monster_types)+");for(const k of Object.keys(TYPES)){TYPES[k].collisionLayer??='ground';TYPES[k].attackTargetMask??=(['archer','cannon'].includes(k)?['ground','air']:['ground']);}let pendingSummons=[],combatEvents=[];\nconst keys=Object.keys(TYPES)")
 s=s.replace("function setup(s){seed=", "function setup(s){pendingSummons=[];combatEvents=[];seed=")
 s=s.replace("const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};", "const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};Object.assign(COST,"+json.dumps({k:meta['cost'] for k,meta in contract['types'].items()})+");")
@@ -32,9 +33,9 @@ def bundle(name,path,dep=''):
   if m:
    # multiple declaration names before '='
    exports.extend(re.findall(r'(?:^|,)\s*(\w+)\s*=',m[1]))
- src=re.sub(r'^import .*?;\n','',src,flags=re.M)
+ src=re.sub(r'^import\s*.*?;\n','',src,flags=re.M)
  return 'const '+name+'=(()=>{'+dep+'\n'+src.replace('export ','')+'\nreturn {'+','.join(exports)+'};})();\n'
-s=s.replace('/* WALLET_MODULE */',bundle('Wallet','wallet/wallet.mjs')+'const RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;\n')
+s=s.replace('/* WALLET_MODULE */',bundle('Wallet','wallet/wallet.mjs')+bundle('SoloWallet','wallet/extension-wallet.mjs')+bundle('GrowthGenerator','growth/candidate-generator.mjs')+bundle('CompositionFeatures','growth/features.mjs')+bundle('TypedGrowthGenerator','growth/typed-generator.mjs','const {createGenerator}=GrowthGenerator;')+bundle('OpeningUnits','growth/initial-units.mjs')+bundle('FixedTickJob','jobs/fixedtick-job.mjs')+'const compositionModel='+json.dumps(json.loads((root/'growth/model.json').read_text()))+';const compositionEstimator=CompositionFeatures.createEstimator(compositionModel);compositionEstimator.modelId=\"4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0\";const growthGenerator=TypedGrowthGenerator.createTypedGenerator('+json.dumps(json.loads((root/'growth/catalog.json').read_text()))+',{growthPerRound:14,rightMultiplier:1.06,estimator:compositionEstimator});\nconst RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;\n')
 b=bundle('ReactionLane','reactions/reaction-channel.mjs')
 b+=bundle('ScoreBridge','ranking/score-bridge.mjs')
 b+=bundle('ReplayTransfer','multiplayer/replay-transfer.mjs')
@@ -47,7 +48,7 @@ b+=bundle('CompactReplay','replay/compact-replay.mjs')
 s=s.replace('const TYPES=',(root/'audio/special-sfx-bank.js').read_text()+'\n'+(root/'audio/battle-audio.js').read_text()+'\n'+b+'\nconst TYPES=',1)
 s=s.replace('function loop(t)',(root/'source/effects-adapter.js').read_text()+'\nfunction loop(t)',1)
 code=(root/'source/multi-ui.js').read_text()
-s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\n'+(root/'source/flow-ui.js').read_text()+'\n'+(root/'source/audio-ui.js').read_text()+'\n'+(root/'motion/motion-ui.js').read_text()+'\n'+(root/'source/motion-adapter.js').read_text()+'\n'+(root/'source/reactions-ui.js').read_text()+'\n'+(root/'source/personal-result-ui.js').read_text()+'\nrequestAnimationFrame(loop);')
+s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\n'+(root/'source/flow-ui.js').read_text()+'\n'+(root/'source/audio-ui.js').read_text()+'\n'+(root/'motion/motion-ui.js').read_text()+'\n'+(root/'source/motion-adapter.js').read_text()+'\n'+(root/'source/reactions-ui.js').read_text()+'\n'+(root/'source/personal-result-ui.js').read_text()+'\n'+(root/'source/extension-ui.js').read_text()+'\nrequestAnimationFrame(loop);')
 s=re.sub(r'<style>[\s\S]*?</style>', lambda m:'<style>'+(root/'source/ui.css').read_text()+'</style>',s,count=1)
 s=re.sub(r'<main>[\s\S]*?</main>', lambda m:(root/'source/ui-shell.html').read_text(),s,count=1)
 s=s.replace("canvas=document.querySelector('canvas')","canvas=document.querySelector('#field')")

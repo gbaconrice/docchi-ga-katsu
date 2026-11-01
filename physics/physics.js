@@ -2,7 +2,7 @@
 const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7,screech_cricket:8,reaper_mantis:13,spore_toad:17,rootwarden_treant:27,sky_harpooner:11,bounty_hound:11,siege_crab:28};
 const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3,screech_cricket:58,reaper_mantis:9,spore_toad:65,rootwarden_treant:5,sky_harpooner:145,bounty_hound:5,siege_crab:150};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
-const TEAM_CAP=32,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
+const TEAM_CAP=64,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
 function stableOrder(a,b){const p=(a.priority??0)-(b.priority??0),k=(a.k??'').localeCompare(b.k??'');if(p||k)return p||k;const ai=Number(a.id??0),bi=Number(b.id??0);if(Number.isFinite(ai)&&Number.isFinite(bi)&&ai!==bi)return ai-bi;return String(a.token??a.id??'').localeCompare(String(b.token??b.id??''))}
 function tokenOf(u){if(u.token===undefined)u.token=String(u.id??`${u.side}:${u.k}:${u.priority??0}`);return String(u.token)}
 function layerOf(u){return u.burrowStage==='underground'?'underground':TYPES[u.k].collisionLayer||'ground'}
@@ -11,20 +11,24 @@ function canTarget(attacker,target){const mask=TYPES[attacker.k].attackTargetMas
 function radiusOf(u){return TYPES[u.k].radius}
 function massOf(u){const m=TYPES[u.k].mass;return Number.isFinite(m)&&m>0?m:radiusOf(u)**2}
 function nearbyGrid(list,positions=null){
+ // Numeric keys cover the bounded battlefield plus off-field movement intents.
+ // Rare unbounded test coordinates use string keys without numeric aliasing.
+ const keyOf=(cx,cy)=>cx>=-32&&cx<32&&cy>=-32&&cy<32?(cx+32)*64+cy+32:cx+','+cy;
  const cells=new Map();
- for(const u of list){const p=positions?positions.get(u):u,key=Math.floor(p.x/GRID_SIZE)+','+Math.floor(p.y/GRID_SIZE);if(!cells.has(key))cells.set(key,[]);cells.get(key).push(u)}
- return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++)for(const u of cells.get((cx+dx)+','+(cy+dy))||[])found.push(u);return found.sort(stableOrder)};
+ for(const u of list){const p=positions?positions.get(u):u,key=keyOf(Math.floor(p.x/GRID_SIZE),Math.floor(p.y/GRID_SIZE));let cell=cells.get(key);if(!cell){cell=[];cells.set(key,cell)}cell.push(u)}
+ return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++){const cell=cells.get(keyOf(cx+dx,cy+dy));if(cell)for(const u of cell)found.push(u)}return found.sort(stableOrder)};
 }
 function snapPosition(v){return Math.round(v*4096)/4096}
 // X reflection needs an odd tie rule about the field center, not absolute Math.round.
 // Epsilon is in quantized units (under 3e-11 world px), only resolving float ties.
 function snapXPosition(v){const q=(v-FIELD.w/2)*4096;return FIELD.w/2+(q<0?-1:1)*Math.floor(Math.abs(q)+.5+1e-7)/4096}
 function resolveBodies(alive,positions){
- // Jacobi: unordered same-layer pairs, simultaneous corrections, inverse explicit mass.
+ // Same Jacobi pair/update order and arithmetic; reusable index-based scratch arrays.
+ const count=alive.length,index=new Map(alive.map((u,i)=>[u,i])),points=alive.map(u=>positions.get(u)),radii=alive.map(radiusOf),inverseMass=alive.map(u=>1/massOf(u)),dxs=new Float64Array(count),dys=new Float64Array(count);
  for(let pass=0;pass<8;pass++){
-  const near=nearbyGrid(alive,positions),index=new Map(alive.map((u,i)=>[u,i])),delta=new Map(alive.map(u=>[u,{x:0,y:0}]));let maximum=0;
-  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
-  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
+  const near=nearbyGrid(alive,positions);dxs.fill(0);dys.fill(0);let maximum=0;
+  for(let i=0;i<count;i++){const u=alive[i],p=points[i],ru=radii[i];for(const v of near(p.x,p.y,ru+MAX_RADIUS)){const j=index.get(v);if(j<=i||!canCollide(u,v))continue;const q=points[j],rv=radii[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=inverseMass[i],iv=inverseMass[j],correction=penetration+.005;dxs[i]-=nx*correction*iu/(iu+iv);dys[i]-=ny*correction*iu/(iu+iv);dxs[j]+=nx*correction*iv/(iu+iv);dys[j]+=ny*correction*iv/(iu+iv)}}
+  for(let i=0;i<count;i++){const p=points[i],r=radii[i],length=Math.hypot(dxs[i],dys[i]),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+dxs[i]*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+dys[i]*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
   if(maximum<.04)break;
  }
 }
@@ -60,6 +64,8 @@ function step(dt){
  // Targetability is a shared tick-start snapshot, not actor iteration order.
  const targetLayers=new Map(alive.map(u=>[u,layerOf(u)]));
  const canTargetSnapshot=(a,b)=>(TYPES[a.k].attackTargetMask||['ground']).includes(targetLayers.get(b));
+ const targetCache=new Map();
+ const enemiesFor=u=>{const mask=TYPES[u.k].attackTargetMask||['ground'],key=u.side+':'+mask.join(',');let list=targetCache.get(key);if(!list){list=alive.filter(v=>v.side!==u.side&&mask.includes(targetLayers.get(v)));targetCache.set(key,list)}return list};
  const snapshotBodies=alive.map(v=>({k:v.k,x:v.x,y:v.y,burrowStage:targetLayers.get(v)==='underground'?'underground':undefined}));
  const forcedDeaths=new Set(),knockbacks=new Map(),slowIntents=[],cadenceIntents=[],poisonIntents=[];
  const wardProviders=alive.filter(u=>TYPES[u.k].wardRadius).map(u=>({u,x:u.x,y:u.y}));
@@ -81,7 +87,7 @@ function step(dt){
  for(const u of alive){
   tokenOf(u);if(u.originForward===undefined)u.originForward=u.side===0?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
-  const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
+  const enemies=enemiesFor(u);moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
@@ -122,7 +128,7 @@ function step(dt){
   const gap=v=>Math.hypot(v.x-u.x,v.y-u.y)-radiusOf(u)-radiusOf(v);
   const preferred=t.targetPriority==='air'?enemies.filter(v=>targetLayers.get(v)==='air'):t.targetPriority==='child'?enemies.filter(v=>v.ownerToken!==undefined&&v.ownerToken!==null&&String(v.ownerToken).length>0):[];
   const targetPool=preferred.length?preferred:enemies;
-  let dist=Math.min(...targetPool.map(gap));const target=targetPool.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
+  let dist=Infinity;const gaps=new Array(targetPool.length);for(let i=0;i<targetPool.length;i++){const d=gap(targetPool[i]);gaps[i]=d;if(d<dist)dist=d}let target;for(let i=0;i<targetPool.length;i++)if(Math.abs(gaps[i]-dist)<1e-7){target=targetPool[i];break}
   if(dist>t.reach+1/2048){
    let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.

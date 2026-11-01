@@ -459,11 +459,13 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 .result-winner { margin:0 0 4px; font-size:12px; color:#c5c3ad; }
 #breakdown { font-variant-numeric:tabular-nums; }
 .result-ranking { font-size:12px; margin:6px 0; }
+.checkpoint-net { margin:2px 0 0; color:var(--muted); font-size:12px; line-height:1.2; font-variant-numeric:tabular-nums; }
 
 #gameScreen[data-personal-result="true"] #resultPanel { width:min(calc(100% - 24px),430px); left:0; right:0; margin-inline:auto; padding:8px 12px; }
 #gameScreen[data-personal-result="true"] #message { font-size:20px; line-height:1.15; margin:3px 0; }
 #gameScreen[data-personal-result="true"] #breakdown { font-size:22px; line-height:1.2; margin:4px 0; }
-#gameScreen[data-personal-result="true"] #resultPanel[data-final="false"] .score-line { display:none; }
 #gameScreen[data-personal-result="true"] .result-progress { margin-top:4px; }
 
 #gameScreen[data-personal-result="true"] #resultPanel { max-height:calc(100% - 16px); }
+
+.extension-choices {display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.extension-choices small {grid-column:1/-1;font-size:11px;color:#c5c3ad;text-align:center}

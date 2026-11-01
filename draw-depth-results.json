@@ -1,0 +1,20 @@
+{
+  "scope": "headless order and sort cost only; no pixel rendering",
+  "results": [
+    {
+      "entities": 64,
+      "medianMs": 0.11266000000000531,
+      "p95Ms": 0.18676199999998744
+    },
+    {
+      "entities": 128,
+      "medianMs": 0.26842499999997926,
+      "p95Ms": 0.4138550000000123
+    },
+    {
+      "entities": 512,
+      "medianMs": 1.5109410000000025,
+      "p95Ms": 2.3669239999999263
+    }
+  ]
+}

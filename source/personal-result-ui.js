@@ -16,9 +16,9 @@ function syncPersonalResult(now){
  const label=entry?.correct===true?'的中！':entry?.correct===false?'はずれ':outcome==='draw'?'引き分け':outcome==='invalid'?'無効':'予想なし';
  q('#message').textContent=label;q('#breakdown').textContent=Number.isSafeInteger(entry?.delta)?credits(entry.delta):'—';
  if(q('#resultWinner'))q('#resultWinner').textContent=outcome==='A'?'左の勝利':outcome==='B'?'右の勝利':'';
- if(q('#resultRanking')){q('#resultRanking').hidden=!multiSession||round<TOTAL_ROUNDS;q('#resultRanking').textContent=multiSession&&round>=TOTAL_ROUNDS?(multiSnapshot.wallets||[]).slice().sort((a,b)=>b.score-a.score).map(p=>(p.playerId===multiUser?'あなた':p.playerId)+' '+credits(p.score)).join(' · '):'';}
+ if(q('#resultRanking')){q('#resultRanking').hidden=!multiSession||round<sessionRoundLimit();q('#resultRanking').textContent=multiSession&&round>=sessionRoundLimit()?(multiSnapshot.wallets||[]).slice().sort((a,b)=>b.score-a.score).map(p=>(p.playerId===multiUser?'あなた':p.playerId)+' '+credits(p.score)).join(' · '):'';}
  q('#gameScreen')?.setAttribute('data-personal-result','true');q('#gameScreen')?.setAttribute('data-field-view','true');
- q('#resultPanel')?.setAttribute('data-final',String(round>=TOTAL_ROUNDS));
+ q('#resultPanel')?.setAttribute('data-final',String(round>=sessionRoundLimit()));
  q('#resultPanel')?.setAttribute('data-outcome',entry?.correct===true?'hit':entry?.correct===false?'miss':'neutral');
  // Keep the final canonical field visible; never fabricate a missing guest replay.
  q('#battle').hidden=!!multiSession&&!multiReplay;q('#battleControls').hidden=true;

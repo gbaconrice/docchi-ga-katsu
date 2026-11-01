@@ -581,7 +581,7 @@
       if (stage === 'delta') {
         if (!Number.isSafeInteger(detail?.delta)) return false;
         const delta = detail.delta;
-        if (result.won === true && delta <= 0 || result.won === false && delta > 0 ||
+        if (result.won === true && delta < 0 || result.won === false && delta > 0 ||
             result.won === false && result.stake === 0 && delta < 0 || result.won === null && delta !== 0) return false;
       }
       if (!rememberResultStage(key, stage)) return false;

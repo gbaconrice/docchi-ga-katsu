@@ -81,7 +81,7 @@ export function parseReactionWire(wire) {
  * At most four short-lived stamps are kept; no reaction history is persisted.
  */
 export function createReactionChannel({
-  roomId, sessionId, userId, send,
+  roomId, sessionId, userId, send, localOnly=false,
   getMembers = () => [],
   now = Date.now,
   onChange = () => {},
@@ -141,7 +141,7 @@ export function createReactionChannel({
   }
 
   function setRound(id) {
-    if (id !== null && !validRound(id)) throw new TypeError('roundId must be null or 1..10');
+    if (id !== null && !(localOnly?Number.isSafeInteger(id)&&id>=1:validRound(id))) throw new TypeError('roundId must be null or 1..10');
     if (roundId === id) return false;
     roundId = id;
     feed = [];
@@ -150,12 +150,13 @@ export function createReactionChannel({
   }
 
   function react(emoji) {
-    if (closed || roundId === null || !reactionIds.has(emoji)) return false;
+    if (closed || roundId === null || !reactionIds.has(emoji)||!validSeq(seq+1)) return false;
     const timestamp = currentTime();
     if (timestamp === null || timestamp - lastSentAt < caps.sendCooldownMs) return false;
     while (sentTimes.length && timestamp - sentTimes[0] >= caps.sendWindowMs) sentTimes.shift();
     if (sentTimes.length >= caps.sendWindowMax) return false;
     const event = {roomId, sessionId, roundId, emoji, seq: seq + 1};
+    if(!localOnly){
     let wire;
     try { wire = encodeEvent(event, caps.maxWireBytes); } catch { return false; }
     try {
@@ -163,6 +164,7 @@ export function createReactionChannel({
       if (result === false) return false;
       if (result?.then) result.catch(() => {});
     } catch { return false; }
+    }
     seq = event.seq;
     lastSentAt = timestamp;
     sentTimes.push(timestamp);
@@ -172,7 +174,7 @@ export function createReactionChannel({
   }
 
   function receive(sender, wire) {
-    if (closed || roundId === null || !validId(sender) || sender === userId || !isAllowedMember(sender)) return false;
+    if (localOnly || closed || roundId === null || !validId(sender) || sender === userId || !isAllowedMember(sender)) return false;
     const event = decodeEvent(wire, caps.maxWireBytes);
     if (!event || event.roomId !== roomId || event.sessionId !== sessionId || event.roundId !== roundId) return false;
     // SDK callback identity is authoritative; fields in event are never treated as actor IDs.

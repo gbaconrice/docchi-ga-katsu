@@ -1,0 +1,13 @@
+# Bounded admission-only tail patch — frozen
+
+Apply only candidate-generator.mjs from this folder over the shape-first runtime set. Other four runtime files are byte-identical to the validated frozen handoff. No main source or original 300-battle source/results changed.
+
+The original generator failed 12/252 generation-only tail cases: full64 rider and full64 wraith, seeds1/12, each round11/50/1000. Other fixtures:64 stormmage,64 drake,64 goblin,22rider+21wraith+21stormmage,24 siege_crab. These are legal-fit initial rosters, not claimed natural frequency.
+
+After all32 normal candidate pools fail, try at most31 deterministic small replacements of the left starting roster, preserving its length; add a final optional fixed high-density 31rider+32wraith+1stormmage roster. Left army itself is NEVER modified. Replacements prioritize the existing composition, not the preset. Every proposal must satisfy exact required kind count, unlock/pool eligibility, band, fit, air capability if needed, support ceiling, and differ from left composition (order-insensitive). The first legal proposal is admitted; no RNG, solver, prediction, wager, known outcome or retry loop. New metadata only for fallback: admissionFallback={version,attempts,maxAttempts:32,reason}. Model evaluates the one admitted fallback; normal model selection unchanged.
+
+Worst extra construction:31 copied rosters of≤64 plus optional64-unit preset, at most32 admission validations; no extra normal sample pool. If none valid, still throws NO_FEASIBLE_CHALLENGER. This is not a theorem of feasibility for every valid carry. Caller must retain atomic admission: no round/wallet/state mutation until generation succeeds. Do not delete carry, silently mirror, widen budget, or retry seeds on refusal.
+
+Tests after final copy-first ordering: 252/252 tail generations pass (previously240/252). All240 formerly successful tail admissions retain exact counts/costs/shape fields (CPU excluded), plus100 normal-case full output goldens identical. Focused full64 expensive carry at rounds11/100/1000 seeds1/12/13/18 checks preservation, fit, band,3kinds, bounded attempts and wager/choice independence. Two node:test suites pass. No combat rerun was needed for unchanged existing successful matchups; newly admitted tail battles are NOT balance-validated.
+
+Source original holdout still VALIDATION601-610.md under battle_composition_estimator_candidate. New patch only affects formerly rejected admissions, so do not rewrite that source manifest or claim it tested these new fallback battles. Runtime metadata passthrough should preserve admissionFallback for diagnostics.

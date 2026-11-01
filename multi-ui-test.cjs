@@ -7,7 +7,7 @@ const c={TextEncoder,TextDecoder,btoa,atob,Date:Clock,document:{querySelector:q,
 const run=s=>vm.runInContext(s,c);
 assert.equal(scriptLoads,0);assert.equal(run('multiSession'),null);
 run('beginMock()');assert.equal(run('multiSnapshot.phase'),'lobby');assert.equal(run('multiSnapshot.participants.length'),2);
-run('openMultiRound()');assert.equal(run('multiSnapshot.phase'),'predict');assert(!q('#comparison').hidden);assert.equal(run('multiSnapshot.matchup.maxInitialUnits'),64);
+run('openMultiRound()');assert.equal(run('multiSnapshot.phase'),'predict');assert(!q('#comparison').hidden);assert.equal(run('multiSnapshot.matchup.maxInitialUnits'),128);
 run('selectSide(0);selectStake(25);startPrediction()');
 now+=100;run('pumpMulti(Date.now())');assert.equal(run('multiSession.getLedger().completedRounds'),1);assert.equal(q('#balance').textContent,'100 G');
 for(let i=0;i<1000&&run('multiSession.getState().phase')!=='result';i++){now+=100;run('pumpMulti(Date.now())')}

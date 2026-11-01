@@ -26,22 +26,22 @@ test('endpoint defaults and aliases are deterministic',()=>{
 test('same-tick parent death and two finite slime children preserve ownership',()=>{
  const parent=unit('p',0,'slime'),enemy=unit('e',1),r=createCompactRecorder();r.capture(0,{units:[parent,enemy],shots:[]});parent.dead=true;parent.hp=0;const children=[0,1].map(i=>unit('p/split:'+i,0,'slimelet',{ownerToken:'p'}));r.capture(1,{units:[parent,enemy,...children],shots:[],effects:[{kind:'slime_split',x:100,y:120,tick:1}]});r.capture(37,{units:[parent,enemy,...children],shots:[]},true);const p=createPlayback(r.finish({ticks:37,winner:'A'}));assert.equal(p.at(1).units.filter(u=>u.k==='slimelet').length,2);assert(p.at(1).units.filter(u=>u.k==='slimelet').every(u=>u.ownerToken==='p'));assert(!p.at(37).units.some(u=>u.id==='p'));
 });
-test('both red and blue active caps reject 33 live units',()=>{
- for(const side of [0,1]){const r=createCompactRecorder();assert.throws(()=>r.capture(0,{units:Array.from({length:33},(_,i)=>unit(i,side)),shots:[]}),/active-team-cap/);const x=simple();x.initial=Array.from({length:33},(_,i)=>[i,side,0,100,100,100,0,0,1,String(i),null,0]);x.maxEntities=256;assert.throws(()=>createPlayback(x),/active-team-cap/)}
+test('both red and blue active caps reject 65 live units',()=>{
+ for(const side of [0,1]){const r=createCompactRecorder();assert.throws(()=>r.capture(0,{units:Array.from({length:65},(_,i)=>unit(i,side)),shots:[]}),/active-team-cap/);const x=simple();x.initial=Array.from({length:65},(_,i)=>[i,side,0,100,100,100,0,0,1,String(i),null,0]);x.maxEntities=512;assert.throws(()=>createPlayback(x),/initial-cap|active-team-cap/)}
 });
 test('invalid flags, endpoints, caps, duplicate and immutable IDs reject',()=>{
  for(const flags of [-1,64,NaN,1.5])assert.throws(()=>createCompactRecorder().capture(0,{units:[unit(0,0,'sword',{presentationFlags:flags})],shots:[]}));
  for(const patch of [{targetX:Infinity},{targetY:10001},{tick:1},{face:0}])assert.throws(()=>createCompactRecorder().capture(0,{units:[],shots:[],effects:[{kind:'chain_arc',x:0,y:0,...patch}]}));
- assert.throws(()=>createCompactRecorder({maxUnits:257}));assert.throws(()=>createCompactRecorder({positionEvery:0}));assert.throws(()=>createCompactRecorder().capture(0,{units:[unit(0),unit(0)],shots:[]}));
+ assert.throws(()=>createCompactRecorder({maxUnits:513}));assert.throws(()=>createCompactRecorder({positionEvery:0}));assert.throws(()=>createCompactRecorder().capture(0,{units:[unit(0),unit(0)],shots:[]}));
  const u=unit(0),r=createCompactRecorder();r.capture(0,{units:[u],shots:[]});u.k='boar';assert.throws(()=>r.capture(1,{units:[u],shots:[]}),/immutable-unit-metadata/);
 });
 test('malformed v7 replay data rejects',()=>{
- const mutations=[r=>r.engineVersion='v6-monsters-dynamic10fps-v1',r=>r.initial[0].pop(),r=>r.initial[0][11]=64,r=>r.winner='X',r=>r.events[1][1]=[[0,64,64]],r=>r.events[1][1]=[[0,128,1]],r=>r.events[1][5]=[[7,0,0,1,1,Infinity,0]],r=>r.events[1][5]=[[7,0,0,1,2,0,0]],r=>r.events[1][5]=[[7,0,0,1,1]],r=>r.maxEntities=257,r=>r.positionEvery=0];for(const mutate of mutations){const r=clone(simple());mutate(r);assert.throws(()=>createPlayback(r));}
+ const mutations=[r=>r.engineVersion='v6-monsters-dynamic10fps-v1',r=>r.initial[0].pop(),r=>r.initial[0][11]=64,r=>r.winner='X',r=>r.events[1][1]=[[0,64,64]],r=>r.events[1][1]=[[0,128,1]],r=>r.events[1][5]=[[7,0,0,1,1,Infinity,0]],r=>r.events[1][5]=[[7,0,0,1,2,0,0]],r=>r.events[1][5]=[[7,0,0,1,1]],r=>r.maxEntities=513,r=>r.positionEvery=0];for(const mutate of mutations){const r=clone(simple());mutate(r);assert.throws(()=>createPlayback(r));}
 });
 test('retired record cannot be reused as living entity',()=>{
  const u=unit('retired'),r=createCompactRecorder();r.capture(0,{units:[u],shots:[]});u.dead=true;u.hp=0;r.capture(1,{units:[u],shots:[]});r.capture(37,{units:[u],shots:[]});assert.throws(()=>r.capture(38,{units:[unit('retired')],shots:[]}),/reused-id/);
 });
 test('spawn transition checks resulting active cap, including blue',()=>{
- const r=createCompactRecorder(),us=Array.from({length:32},(_,i)=>unit(i,1));r.capture(0,{units:us,shots:[]});us[0].dead=true;us[0].hp=0;us.push(unit('replacement',1,'slimelet',{ownerToken:'0'}));r.capture(1,{units:us,shots:[]});const replay=r.finish({ticks:1,winner:'draw'});assert.equal(createPlayback(replay).at(1).units.filter(u=>!u.dead).length,32);const bad=clone(replay);bad.events[1][1]=[];assert.throws(()=>createPlayback(bad),/active-team-cap/);
+ const r=createCompactRecorder(),us=Array.from({length:64},(_,i)=>unit(i,1));r.capture(0,{units:us,shots:[]});us[0].dead=true;us[0].hp=0;us.push(unit('replacement',1,'slimelet',{ownerToken:'0'}));r.capture(1,{units:us,shots:[]});const replay=r.finish({ticks:1,winner:'draw'});assert.equal(createPlayback(replay).at(1).units.filter(u=>!u.dead).length,64);const bad=clone(replay);bad.events[1][1]=[];assert.throws(()=>createPlayback(bad),/active-team-cap/);
 });
 console.log(JSON.stringify({pass:true,tests:passed,version:COMPACT_VERSION,roles:ROLES.length,fxKinds:FX_KINDS.length}));

@@ -205,7 +205,8 @@
       "collisionLayer": "ground",
       "attackTargetMask": [
         "ground"
-      ]
+      ],
+      "name": "コオロギ"
     },
     "reaper_mantis": {
       "hp": 125,
@@ -219,7 +220,8 @@
       "collisionLayer": "ground",
       "attackTargetMask": [
         "ground"
-      ]
+      ],
+      "name": "カマキリ"
     },
     "spore_toad": {
       "hp": 145,
@@ -236,7 +238,8 @@
       "collisionLayer": "ground",
       "attackTargetMask": [
         "ground"
-      ]
+      ],
+      "name": "胞子ガエル"
     },
     "rootwarden_treant": {
       "hp": 350,
@@ -251,7 +254,8 @@
       "collisionLayer": "ground",
       "attackTargetMask": [
         "ground"
-      ]
+      ],
+      "name": "樹人"
     },
     "sky_harpooner": {
       "hp": 95,

@@ -15,7 +15,7 @@ function syncReactions(){
  document.querySelector('#reaction-feedback').hidden=!enabled;
  const room=multiSession?multiAdapter?.getRoomId():'solo',session=multiSession?multiSnapshot?.sessionId:walletState?.sessionId,user=multiSession?multiUser:'local';
  const key=room&&session&&user?room+':'+session+':'+user:null;
- if(key!==reactionSessionKey){reactionChannel?.close();reactionChannel=null;reactionSessionKey=key;if(key)reactionChannel=ReactionLane.createReactionChannel({roomId:room,sessionId:session,userId:user,send:wire=>multiSession?multiAdapter.sendReaction(wire):true,getMembers:()=>multiSession?[...(multiSnapshot?.participants||[]),...(multiSnapshot?.spectators||[])]:['local']});}
+ if(key!==reactionSessionKey){reactionChannel?.close();reactionChannel=null;reactionSessionKey=key;if(key)reactionChannel=ReactionLane.createReactionChannel({localOnly:!multiSession,roomId:room,sessionId:session,userId:user,send:wire=>multiSession?multiAdapter.sendReaction(wire):true,getMembers:()=>multiSession?[...(multiSnapshot?.participants||[]),...(multiSnapshot?.spectators||[])]:['local']});}
  reactionChannel?.setRound(enabled?round:null);reactionRender();
 }
 function receiveReaction(sender,wire){syncReactions();if(!reactionLive()||!reactionChannel)return false;const accepted=reactionChannel.receive(sender,wire);reactionRender();return accepted;}

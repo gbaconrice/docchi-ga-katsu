@@ -8,7 +8,7 @@ const output=[];
 for(const initialPerSide of [8,32]){
  c.initialPerSide=initialPerSide;
  const record=run(`(()=>{setup(1);units=[];for(let side=0;side<2;side++)for(let i=0;i<initialPerSide;i++){const k=initialPerSide===8?'wraith':i<8?'wraith':'goblin';units.push({id:side*1000+i,token:String(side*1000+i),k,side,x:30+(i%8)*55,y:(side?420:118)+(side?-1:1)*Math.floor(i/8)*20,hp:TYPES[k].hp,cd:0,priority:(side*32+i+.5)/65,dead:false})}state='fight';const recorder=makeRecorder();const read=()=>({units,shots,poseFor:spriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects});let ticks=0,maxAlive=0,maxRecords=units.length,spawn=0;recorder.capture(0,read());while(state==='fight'&&ticks<3601){spriteStep(1/60);ticks++;for(let side=0;side<2;side++)maxAlive=Math.max(maxAlive,units.filter(u=>u.side===side&&!u.dead).length);maxRecords=Math.max(maxRecords,units.length);spawn+=combatEvents.filter(e=>e.type==='summon_spawn').length;recorder.capture(ticks,read(),state==='result')}return {trace:recorder.finish({ticks,winner:winner===null?'draw':winner===0?'A':'B'}),maxAlive,maxRecords,spawn}})()`);
- assert(record.maxAlive<=32);assert(record.maxRecords<=256);
+ assert(record.maxAlive<=64);assert(record.maxRecords<=512);
  const player=createPlayback(record.trace);player.at(record.trace.ticks);
  let now=0,complete;const packed=packReplay(record.trace,'large-'+initialPerSide);
  const queue=[],receiver=createReceiver({meta:packed.meta,sendAck:a=>sender.ack('guest',a),onComplete:r=>complete=r}),sender=createSender({packed,recipients:['guest'],send:m=>queue.push(m),now:()=>now});

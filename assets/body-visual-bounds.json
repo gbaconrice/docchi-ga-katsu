@@ -1,0 +1,121 @@
+{
+  "sword": {
+    "cell": [
+      48,
+      48
+    ],
+    "anchor": [
+      21,
+      41
+    ],
+    "visual_insets": [
+      18,
+      40,
+      24,
+      0
+    ],
+    "hover_gap": 0
+  },
+  "shield": {
+    "cell": [
+      48,
+      48
+    ],
+    "anchor": [
+      21,
+      41
+    ],
+    "visual_insets": [
+      16,
+      38,
+      22,
+      0
+    ],
+    "hover_gap": 0
+  },
+  "archer": {
+    "cell": [
+      48,
+      48
+    ],
+    "anchor": [
+      21,
+      41
+    ],
+    "visual_insets": [
+      15,
+      36,
+      24,
+      0
+    ],
+    "hover_gap": 0
+  },
+  "spear": {
+    "cell": [
+      64,
+      64
+    ],
+    "anchor": [
+      29,
+      53
+    ],
+    "visual_insets": [
+      20,
+      49,
+      33,
+      0
+    ],
+    "hover_gap": 0
+  },
+  "cannon": {
+    "cell": [
+      64,
+      64
+    ],
+    "anchor": [
+      29,
+      53
+    ],
+    "visual_insets": [
+      22,
+      39,
+      29,
+      1
+    ],
+    "hover_gap": 0
+  },
+  "rider": {
+    "cell": [
+      64,
+      64
+    ],
+    "anchor": [
+      29,
+      53
+    ],
+    "visual_insets": [
+      24,
+      51,
+      31,
+      1
+    ],
+    "hover_gap": 0
+  },
+  "healer": {
+    "cell": [
+      64,
+      64
+    ],
+    "anchor": [
+      29,
+      53
+    ],
+    "visual_insets": [
+      17,
+      49,
+      22,
+      0
+    ],
+    "hover_gap": 0
+  }
+}

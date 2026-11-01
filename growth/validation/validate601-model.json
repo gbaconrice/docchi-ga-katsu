@@ -1,0 +1,4505 @@
+{
+  "complete": true,
+  "select": "model",
+  "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+  "provenance": {
+    "html": "43554387fab7f4653b65f6f5d3d17bdeeec92c753ff5888502300a41e50781e3",
+    "typesExtract": "1d55b55e35d17e150ca4e839c9ccac949c693e0bb466e07a1ff3eb2e2e636a3e",
+    "physics": "de207d32d82568877d44383dc65cfbfb35c5b224e89f9cfc1d8a2af433bc6185",
+    "initialUnits": "56f7d28cff77729e6b25421f868bf7dd4c07c859a391205cdaa9d5b66fc481c0",
+    "initializer": "production instantiateOpening direct import; no copied RNG"
+  },
+  "growth": 14,
+  "rightMultiplier": 1.06,
+  "seedStart": 601,
+  "sessions": 10,
+  "method": "physics-only actual winner starting roster carry; stats unchanged; no solver in generator; draw/invalid resets both armies at next round, explicit previousOutcome",
+  "records": [
+    {
+      "run": 601,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.13468651724568903,
+        "candidateCount": 26,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        6
+      ],
+      "costs": [
+        18,
+        18
+      ],
+      "estimated": [
+        18,
+        18
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 14.883333333333653,
+      "wallMs": 48.657835000000006,
+      "minInitialGap": 2,
+      "created": 12,
+      "hpRatio": 0.26666666666666666,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 601,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.05010203056277521,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        11
+      ],
+      "costs": [
+        30,
+        33
+      ],
+      "estimated": [
+        30,
+        33
+      ],
+      "composition": [
+        {
+          "spear": 10
+        },
+        {
+          "sword": 11
+        }
+      ],
+      "simSeconds": 14.5000000000003,
+      "wallMs": 131.22071799999998,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.36,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 601,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0766357356376164,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        16
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "spear": 15
+        },
+        {
+          "sword": 16
+        }
+      ],
+      "simSeconds": 16.466666666667013,
+      "wallMs": 248.13606999999996,
+      "minInitialGap": 2,
+      "created": 31,
+      "hpRatio": 0.37333333333333335,
+      "survivingCostRatio": 0.5333333333333333
+    },
+    {
+      "run": 601,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0016504009840720806,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        32
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "spear": 20
+        },
+        {
+          "goblin": 17,
+          "screech_cricket": 15
+        }
+      ],
+      "simSeconds": 18.4666666666669,
+      "wallMs": 627.05001,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.3770588235294118,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 601,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.03272544025646583,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        25
+      ],
+      "costs": [
+        72,
+        75
+      ],
+      "estimated": [
+        72,
+        75
+      ],
+      "composition": [
+        {
+          "spear": 24
+        },
+        {
+          "archer": 12,
+          "sword": 13
+        }
+      ],
+      "simSeconds": 18.216666666666914,
+      "wallMs": 459.0612550000001,
+      "minInitialGap": 2,
+      "created": 49,
+      "hpRatio": 0.3178217821782178,
+      "survivingCostRatio": 0.44
+    },
+    {
+      "run": 601,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.014801836321799954,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        29,
+        36
+      ],
+      "costs": [
+        87,
+        91
+      ],
+      "estimated": [
+        87,
+        91
+      ],
+      "composition": [
+        {
+          "archer": 15,
+          "sword": 14
+        },
+        {
+          "screech_cricket": 17,
+          "sword": 19
+        }
+      ],
+      "simSeconds": 26.6833333333331,
+      "wallMs": 1016.0977759999998,
+      "minInitialGap": 2,
+      "created": 65,
+      "hpRatio": 0.16472545757071547,
+      "survivingCostRatio": 0.1978021978021978
+    },
+    {
+      "run": 601,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.045869144296339814,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        40,
+        32
+      ],
+      "costs": [
+        101,
+        105
+      ],
+      "estimated": [
+        101,
+        105
+      ],
+      "composition": [
+        {
+          "screech_cricket": 19,
+          "sword": 21
+        },
+        {
+          "sword": 11,
+          "archer": 12,
+          "frostmage": 9
+        }
+      ],
+      "simSeconds": 25.69999999999982,
+      "wallMs": 1423.722925,
+      "minInitialGap": 2,
+      "created": 72,
+      "hpRatio": 0.24990328820116053,
+      "survivingCostRatio": 0.34285714285714286
+    },
+    {
+      "run": 601,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.01046950656046497,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        36,
+        35
+      ],
+      "costs": [
+        118,
+        127
+      ],
+      "estimated": [
+        118,
+        127
+      ],
+      "composition": [
+        {
+          "sword": 13,
+          "archer": 13,
+          "frostmage": 10
+        },
+        {
+          "boar": 9,
+          "spore_toad": 15,
+          "screech_cricket": 11
+        }
+      ],
+      "simSeconds": 27.233333333333068,
+      "wallMs": 2282.6284319999995,
+      "minInitialGap": 2,
+      "created": 71,
+      "hpRatio": 0.3583617747440273,
+      "survivingCostRatio": 0.6101694915254238
+    },
+    {
+      "run": 601,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.056848394558811174,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        40,
+        41
+      ],
+      "costs": [
+        132,
+        139
+      ],
+      "estimated": [
+        132,
+        139
+      ],
+      "composition": [
+        {
+          "sword": 14,
+          "archer": 14,
+          "frostmage": 12
+        },
+        {
+          "goblin": 16,
+          "archer": 17,
+          "drake": 8
+        }
+      ],
+      "simSeconds": 36.683333333332534,
+      "wallMs": 2568.2871300000006,
+      "minInitialGap": 2,
+      "created": 81,
+      "hpRatio": 0.02214765100671141,
+      "survivingCostRatio": 0.06474820143884892
+    },
+    {
+      "run": 601,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.050178375952645224,
+        "candidateCount": 22,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        48,
+        41
+      ],
+      "costs": [
+        155,
+        162
+      ],
+      "estimated": [
+        155,
+        162
+      ],
+      "composition": [
+        {
+          "goblin": 21,
+          "archer": 19,
+          "drake": 8
+        },
+        {
+          "boar": 14,
+          "sword": 16,
+          "frostmage": 11
+        }
+      ],
+      "simSeconds": 24.666666666666547,
+      "wallMs": 2150.311415,
+      "minInitialGap": 2,
+      "created": 89,
+      "hpRatio": 0.17940298507462688,
+      "survivingCostRatio": 0.2709677419354839
+    },
+    {
+      "run": 602,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.13468651724568903,
+        "candidateCount": 25,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        6
+      ],
+      "costs": [
+        18,
+        18
+      ],
+      "estimated": [
+        18,
+        18
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 13.850000000000268,
+      "wallMs": 48.70030100000076,
+      "minInitialGap": 2,
+      "created": 12,
+      "hpRatio": 0.4,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 602,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.05010203056277521,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        11
+      ],
+      "costs": [
+        30,
+        33
+      ],
+      "estimated": [
+        30,
+        33
+      ],
+      "composition": [
+        {
+          "spear": 10
+        },
+        {
+          "sword": 11
+        }
+      ],
+      "simSeconds": 17.666666666666945,
+      "wallMs": 198.8657949999997,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.11636363636363636,
+      "survivingCostRatio": 0.18181818181818182
+    },
+    {
+      "run": 602,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 19.13333333333353,
+      "wallMs": 218.3789230000002,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.14855072463768115,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 602,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.005918450135803348,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        12
+      ],
+      "costs": [
+        56,
+        60
+      ],
+      "estimated": [
+        56,
+        60
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "boar": 7,
+          "reaper_mantis": 5
+        }
+      ],
+      "simSeconds": 16.966666666666985,
+      "wallMs": 202.85484800000086,
+      "minInitialGap": 2,
+      "created": 19,
+      "hpRatio": 0.22236024844720498,
+      "survivingCostRatio": 0.5714285714285714
+    },
+    {
+      "run": 602,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.00509846722747268,
+        "candidateCount": 26,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        9,
+        17
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "rider": 9
+        },
+        {
+          "frostmage": 9,
+          "reaper_mantis": 8
+        }
+      ],
+      "simSeconds": 18.083333333333588,
+      "wallMs": 303.8218219999999,
+      "minInitialGap": 2,
+      "created": 26,
+      "hpRatio": 0.31535410764872523,
+      "survivingCostRatio": 0.4342105263157895
+    },
+    {
+      "run": 602,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.010552005039066371,
+        "candidateCount": 26,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        19,
+        14
+      ],
+      "costs": [
+        86,
+        92
+      ],
+      "estimated": [
+        86,
+        92
+      ],
+      "composition": [
+        {
+          "frostmage": 9,
+          "reaper_mantis": 10
+        },
+        {
+          "rider": 9,
+          "shield": 5
+        }
+      ],
+      "simSeconds": 20.200000000000134,
+      "wallMs": 625.897551,
+      "minInitialGap": 2,
+      "created": 33,
+      "hpRatio": 0.3169230769230769,
+      "survivingCostRatio": 0.4418604651162791
+    },
+    {
+      "run": 602,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.029685053127268,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        22,
+        18
+      ],
+      "costs": [
+        101,
+        105
+      ],
+      "estimated": [
+        101,
+        105
+      ],
+      "composition": [
+        {
+          "frostmage": 9,
+          "reaper_mantis": 13
+        },
+        {
+          "rider": 6,
+          "frostmage": 3,
+          "reaper_mantis": 9
+        }
+      ],
+      "simSeconds": 26.56666666666644,
+      "wallMs": 739.3165749999989,
+      "minInitialGap": 2,
+      "created": 40,
+      "hpRatio": 0.23430962343096234,
+      "survivingCostRatio": 0.2871287128712871
+    },
+    {
+      "run": 602,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.003526501098440738,
+        "candidateCount": 20,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        24,
+        16
+      ],
+      "costs": [
+        113,
+        122
+      ],
+      "estimated": [
+        113,
+        122
+      ],
+      "composition": [
+        {
+          "frostmage": 9,
+          "reaper_mantis": 14,
+          "drake": 1
+        },
+        {
+          "rootwarden_treant": 6,
+          "rider": 4,
+          "cannon": 6
+        }
+      ],
+      "simSeconds": 29.849999999999586,
+      "wallMs": 706.4746899999991,
+      "minInitialGap": 2,
+      "created": 40,
+      "hpRatio": 0.19184530706836617,
+      "survivingCostRatio": 0.36885245901639346
+    },
+    {
+      "run": 602,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012837490996483483,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        18,
+        33
+      ],
+      "costs": [
+        134,
+        142
+      ],
+      "estimated": [
+        134,
+        142
+      ],
+      "composition": [
+        {
+          "rootwarden_treant": 6,
+          "rider": 4,
+          "cannon": 8
+        },
+        {
+          "cannon": 13,
+          "shield": 12,
+          "goblin": 8
+        }
+      ],
+      "simSeconds": 34.19999999999934,
+      "wallMs": 1351.211417999999,
+      "minInitialGap": 2,
+      "created": 51,
+      "hpRatio": 0.23936318131256953,
+      "survivingCostRatio": 0.44776119402985076
+    },
+    {
+      "run": 602,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0009087915748804496,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        20,
+        37
+      ],
+      "costs": [
+        148,
+        158
+      ],
+      "estimated": [
+        148,
+        158
+      ],
+      "composition": [
+        {
+          "rootwarden_treant": 6,
+          "rider": 5,
+          "cannon": 9
+        },
+        {
+          "sky_harpooner": 11,
+          "boar": 17,
+          "goblin": 9
+        }
+      ],
+      "simSeconds": 44.98333333333206,
+      "wallMs": 1131.567380999999,
+      "minInitialGap": 2,
+      "created": 57,
+      "hpRatio": 0.17060030785017957,
+      "survivingCostRatio": 0.30405405405405406
+    },
+    {
+      "run": 603,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.4345672606800678,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 14.30000000000029,
+      "wallMs": 43.59052700000029,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.7333333333333333,
+      "survivingCostRatio": 1
+    },
+    {
+      "run": 603,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 15.450000000000347,
+      "wallMs": 98.7505600000004,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.208,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 603,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 16.850000000000325,
+      "wallMs": 245.5365550000024,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.24782608695652175,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 603,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.017451620525269065,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        15
+      ],
+      "costs": [
+        56,
+        60
+      ],
+      "estimated": [
+        56,
+        60
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "frostmage": 10,
+          "healer": 5
+        }
+      ],
+      "simSeconds": 25.58333333333316,
+      "wallMs": 314.76276900000084,
+      "minInitialGap": 2,
+      "created": 22,
+      "hpRatio": 0.07763975155279502,
+      "survivingCostRatio": 0.14285714285714285
+    },
+    {
+      "run": 603,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.040054842438839146,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        9,
+        11
+      ],
+      "costs": [
+        72,
+        72
+      ],
+      "estimated": [
+        72,
+        72
+      ],
+      "composition": [
+        {
+          "rider": 9
+        },
+        {
+          "rider": 3,
+          "cannon": 8
+        }
+      ],
+      "simSeconds": 15.850000000000367,
+      "wallMs": 100.66634200000044,
+      "minInitialGap": 2,
+      "created": 20,
+      "hpRatio": 0.001579778830963665,
+      "survivingCostRatio": 0.1111111111111111
+    },
+    {
+      "run": 603,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.028423457146408815,
+        "candidateCount": 26,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        13,
+        20
+      ],
+      "costs": [
+        86,
+        90
+      ],
+      "estimated": [
+        86,
+        90
+      ],
+      "composition": [
+        {
+          "rider": 4,
+          "cannon": 9
+        },
+        {
+          "frostmage": 10,
+          "boar": 10
+        }
+      ],
+      "simSeconds": 15.783333333333697,
+      "wallMs": 322.71541400000206,
+      "minInitialGap": 2,
+      "created": 33,
+      "hpRatio": 0.08035714285714286,
+      "survivingCostRatio": 0.20930232558139536
+    },
+    {
+      "run": 603,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.02964830810890099,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        15
+      ],
+      "costs": [
+        98,
+        104
+      ],
+      "estimated": [
+        98,
+        104
+      ],
+      "composition": [
+        {
+          "rider": 4,
+          "cannon": 11
+        },
+        {
+          "reaper_mantis": 6,
+          "siege_crab": 2,
+          "rider": 7
+        }
+      ],
+      "simSeconds": 33.29999999999939,
+      "wallMs": 344.8370649999997,
+      "minInitialGap": 2,
+      "created": 30,
+      "hpRatio": 0.10397196261682243,
+      "survivingCostRatio": 0.24489795918367346
+    },
+    {
+      "run": 603,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.008520302119584697,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        17,
+        20
+      ],
+      "costs": [
+        114,
+        109
+      ],
+      "estimated": [
+        114,
+        119
+      ],
+      "composition": [
+        {
+          "rider": 6,
+          "cannon": 11
+        },
+        {
+          "stormmage": 5,
+          "rider": 6,
+          "slime": 9
+        }
+      ],
+      "simSeconds": 13.483333333333583,
+      "wallMs": 431.4028939999989,
+      "minInitialGap": 2,
+      "created": 41,
+      "hpRatio": 0.4,
+      "survivingCostRatio": 0.6330275229357798
+    },
+    {
+      "run": 603,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.00645191335636966,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        23
+      ],
+      "costs": [
+        122,
+        143
+      ],
+      "estimated": [
+        134,
+        143
+      ],
+      "composition": [
+        {
+          "stormmage": 6,
+          "rider": 6,
+          "slime": 11
+        },
+        {
+          "siege_crab": 7,
+          "cannon": 8,
+          "spore_toad": 8
+        }
+      ],
+      "simSeconds": 42.23333333333222,
+      "wallMs": 534.5330809999978,
+      "minInitialGap": 2,
+      "created": 66,
+      "hpRatio": 0.04026143790849673,
+      "survivingCostRatio": 0.08196721311475409
+    },
+    {
+      "run": 603,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.011808320566550096,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        26,
+        38
+      ],
+      "costs": [
+        138,
+        160
+      ],
+      "estimated": [
+        150,
+        160
+      ],
+      "composition": [
+        {
+          "stormmage": 6,
+          "rider": 7,
+          "slime": 13
+        },
+        {
+          "archer": 14,
+          "screech_cricket": 14,
+          "golem": 10
+        }
+      ],
+      "simSeconds": 34.966666666665965,
+      "wallMs": 2009.1398630000003,
+      "minInitialGap": 2,
+      "created": 79,
+      "hpRatio": 0.21119221411192213,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 604,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.4345672606800678,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 15.70000000000036,
+      "wallMs": 81.29381600000124,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.6833333333333333,
+      "survivingCostRatio": 0.8333333333333334
+    },
+    {
+      "run": 604,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 14.63333333333364,
+      "wallMs": 149.10015999999814,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.24,
+      "survivingCostRatio": 0.3
+    },
+    {
+      "run": 604,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 22.416666666666675,
+      "wallMs": 176.56250799999907,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.05579710144927536,
+      "survivingCostRatio": 0.16666666666666666
+    },
+    {
+      "run": 604,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.005918450135803348,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        12
+      ],
+      "costs": [
+        56,
+        60
+      ],
+      "estimated": [
+        56,
+        60
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "reaper_mantis": 5,
+          "boar": 7
+        }
+      ],
+      "simSeconds": 17.8833333333336,
+      "wallMs": 214.32174700000178,
+      "minInitialGap": 2,
+      "created": 19,
+      "hpRatio": 0.19391812865497077,
+      "survivingCostRatio": 0.4166666666666667
+    },
+    {
+      "run": 604,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.0295322594505204,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        14,
+        22
+      ],
+      "costs": [
+        70,
+        72
+      ],
+      "estimated": [
+        70,
+        72
+      ],
+      "composition": [
+        {
+          "reaper_mantis": 6,
+          "boar": 8
+        },
+        {
+          "screech_cricket": 8,
+          "slime": 14
+        }
+      ],
+      "simSeconds": 31.449999999999495,
+      "wallMs": 962.0837250000004,
+      "minInitialGap": 2,
+      "created": 62,
+      "hpRatio": 0.1542713567839196,
+      "survivingCostRatio": 0.42857142857142855
+    },
+    {
+      "run": 604,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.004544646117982668,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        17,
+        18
+      ],
+      "costs": [
+        85,
+        90
+      ],
+      "estimated": [
+        85,
+        90
+      ],
+      "composition": [
+        {
+          "reaper_mantis": 8,
+          "boar": 9
+        },
+        {
+          "sky_harpooner": 13,
+          "reaper_mantis": 5
+        }
+      ],
+      "simSeconds": 20.48333333333345,
+      "wallMs": 684.0487080000021,
+      "minInitialGap": 2,
+      "created": 35,
+      "hpRatio": 0.38146137787056367,
+      "survivingCostRatio": 0.7058823529411765
+    },
+    {
+      "run": 604,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0004561629992625247,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        17
+      ],
+      "costs": [
+        100,
+        107
+      ],
+      "estimated": [
+        100,
+        107
+      ],
+      "composition": [
+        {
+          "reaper_mantis": 9,
+          "boar": 11
+        },
+        {
+          "rootwarden_treant": 1,
+          "burrower": 10,
+          "wraith": 6
+        }
+      ],
+      "simSeconds": 22.116666666666692,
+      "wallMs": 916.3255500000014,
+      "minInitialGap": 2,
+      "created": 55,
+      "hpRatio": 0.22742474916387959,
+      "survivingCostRatio": 0.45794392523364486
+    },
+    {
+      "run": 604,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.015463368335921907,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        19,
+        32
+      ],
+      "costs": [
+        117,
+        123
+      ],
+      "estimated": [
+        117,
+        123
+      ],
+      "composition": [
+        {
+          "rootwarden_treant": 1,
+          "burrower": 12,
+          "wraith": 6
+        },
+        {
+          "screech_cricket": 9,
+          "healer": 10,
+          "sky_harpooner": 13
+        }
+      ],
+      "simSeconds": 13.516666666666918,
+      "wallMs": 1817.4027000000024,
+      "minInitialGap": 2,
+      "created": 69,
+      "hpRatio": 0.6758513931888545,
+      "survivingCostRatio": 0.8717948717948718
+    },
+    {
+      "run": 604,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.001672885945992829,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        21,
+        23
+      ],
+      "costs": [
+        130,
+        138
+      ],
+      "estimated": [
+        130,
+        138
+      ],
+      "composition": [
+        {
+          "rootwarden_treant": 1,
+          "burrower": 13,
+          "wraith": 7
+        },
+        {
+          "reaper_mantis": 6,
+          "rider": 10,
+          "shield": 7
+        }
+      ],
+      "simSeconds": 27.366666666666394,
+      "wallMs": 1102.4951079999992,
+      "minInitialGap": 2,
+      "created": 65,
+      "hpRatio": 0.05148584905660378,
+      "survivingCostRatio": 0.15217391304347827
+    },
+    {
+      "run": 604,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.012757103730031853,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        27,
+        41
+      ],
+      "costs": [
+        155,
+        164
+      ],
+      "estimated": [
+        155,
+        164
+      ],
+      "composition": [
+        {
+          "reaper_mantis": 7,
+          "rider": 10,
+          "shield": 10
+        },
+        {
+          "cannon": 16,
+          "spore_toad": 9,
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 17.433333333333625,
+      "wallMs": 1726.0277080000014,
+      "minInitialGap": 2,
+      "created": 68,
+      "hpRatio": 0.5480503530856616,
+      "survivingCostRatio": 0.6219512195121951
+    },
+    {
+      "run": 605,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.13468651724568903,
+        "candidateCount": 22,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        6
+      ],
+      "costs": [
+        18,
+        18
+      ],
+      "estimated": [
+        18,
+        18
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 15.450000000000347,
+      "wallMs": 99.8945100000019,
+      "minInitialGap": 2,
+      "created": 12,
+      "hpRatio": 0.26,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 605,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 16.700000000000333,
+      "wallMs": 104.75360900000305,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.108,
+      "survivingCostRatio": 0.2
+    },
+    {
+      "run": 605,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 19.36666666666685,
+      "wallMs": 300.4054049999977,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.05733333333333333,
+      "survivingCostRatio": 0.13333333333333333
+    },
+    {
+      "run": 605,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.009935045144968879,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        20
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "sword": 20
+        },
+        {
+          "boar": 8,
+          "goblin": 12
+        }
+      ],
+      "simSeconds": 23.283333333333292,
+      "wallMs": 866.7731209999984,
+      "minInitialGap": 2,
+      "created": 40,
+      "hpRatio": 0.09,
+      "survivingCostRatio": 0.15
+    },
+    {
+      "run": 605,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.004789295333379424,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        22
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "sword": 24
+        },
+        {
+          "shield": 10,
+          "archer": 12
+        }
+      ],
+      "simSeconds": 20.91666666666676,
+      "wallMs": 1013.3811150000001,
+      "minInitialGap": 2,
+      "created": 46,
+      "hpRatio": 0.2545454545454545,
+      "survivingCostRatio": 0.47368421052631576
+    },
+    {
+      "run": 605,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.011825485857346064,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        25,
+        20
+      ],
+      "costs": [
+        87,
+        94
+      ],
+      "estimated": [
+        87,
+        94
+      ],
+      "composition": [
+        {
+          "shield": 12,
+          "archer": 13
+        },
+        {
+          "sky_harpooner": 14,
+          "slime": 6
+        }
+      ],
+      "simSeconds": 30.583333333332877,
+      "wallMs": 1408.1156989999981,
+      "minInitialGap": 2,
+      "created": 57,
+      "hpRatio": 0.5629432624113475,
+      "survivingCostRatio": 0.7816091954022989
+    },
+    {
+      "run": 605,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.023625978079049037,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        29,
+        22
+      ],
+      "costs": [
+        100,
+        104
+      ],
+      "estimated": [
+        100,
+        104
+      ],
+      "composition": [
+        {
+          "shield": 13,
+          "archer": 16
+        },
+        {
+          "archer": 8,
+          "rider": 6,
+          "spore_toad": 8
+        }
+      ],
+      "simSeconds": 31.449999999999495,
+      "wallMs": 1600.3697710000051,
+      "minInitialGap": 2,
+      "created": 51,
+      "hpRatio": 0.30662460567823346,
+      "survivingCostRatio": 0.48
+    },
+    {
+      "run": 605,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.00005028345774019116,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        33,
+        31
+      ],
+      "costs": [
+        114,
+        122
+      ],
+      "estimated": [
+        114,
+        122
+      ],
+      "composition": [
+        {
+          "shield": 15,
+          "archer": 18
+        },
+        {
+          "spore_toad": 13,
+          "boar": 8,
+          "spear": 10
+        }
+      ],
+      "simSeconds": 37.79999999999914,
+      "wallMs": 2203.9096809999974,
+      "minInitialGap": 2,
+      "created": 64,
+      "hpRatio": 0.3184573002754821,
+      "survivingCostRatio": 0.5964912280701754
+    },
+    {
+      "run": 605,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.0025326331951758523,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        37,
+        32
+      ],
+      "costs": [
+        128,
+        135
+      ],
+      "estimated": [
+        128,
+        135
+      ],
+      "composition": [
+        {
+          "shield": 17,
+          "archer": 20
+        },
+        {
+          "spear": 7,
+          "slime": 11,
+          "burrower": 14
+        }
+      ],
+      "simSeconds": 33.84999999999936,
+      "wallMs": 2110.559061,
+      "minInitialGap": 2,
+      "created": 79,
+      "hpRatio": 0.2776349614395887,
+      "survivingCostRatio": 0.26666666666666666
+    },
+    {
+      "run": 605,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.001087527930994237,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        36,
+        43
+      ],
+      "costs": [
+        150,
+        157
+      ],
+      "estimated": [
+        150,
+        157
+      ],
+      "composition": [
+        {
+          "spear": 8,
+          "slime": 14,
+          "burrower": 14
+        },
+        {
+          "shield": 15,
+          "archer": 15,
+          "slime": 13
+        }
+      ],
+      "simSeconds": 39.166666666665726,
+      "wallMs": 2706.4069670000026,
+      "minInitialGap": 2,
+      "created": 117,
+      "hpRatio": 0.28004484304932736,
+      "survivingCostRatio": 0.26666666666666666
+    },
+    {
+      "run": 606,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.4345672606800678,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 16.966666666666985,
+      "wallMs": 72.00429499999882,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.6333333333333333,
+      "survivingCostRatio": 0.8333333333333334
+    },
+    {
+      "run": 606,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 18.166666666666917,
+      "wallMs": 103.75676299999759,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.06,
+      "survivingCostRatio": 0.1
+    },
+    {
+      "run": 606,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 20.65000000000011,
+      "wallMs": 145.56165299999702,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.04133333333333333,
+      "survivingCostRatio": 0.06666666666666667
+    },
+    {
+      "run": 606,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.002623892122849761,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        24
+      ],
+      "costs": [
+        60,
+        63
+      ],
+      "estimated": [
+        60,
+        63
+      ],
+      "composition": [
+        {
+          "sword": 20
+        },
+        {
+          "sword": 15,
+          "goblin": 9
+        }
+      ],
+      "simSeconds": 19.000000000000203,
+      "wallMs": 979.4611409999998,
+      "minInitialGap": 2,
+      "created": 44,
+      "hpRatio": 0.2915,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 606,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.002309584049030866,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        21
+      ],
+      "costs": [
+        72,
+        77
+      ],
+      "estimated": [
+        72,
+        77
+      ],
+      "composition": [
+        {
+          "sword": 24
+        },
+        {
+          "spore_toad": 14,
+          "archer": 7
+        }
+      ],
+      "simSeconds": 24.26666666666657,
+      "wallMs": 1101.0354850000003,
+      "minInitialGap": 2,
+      "created": 45,
+      "hpRatio": 0.17166666666666666,
+      "survivingCostRatio": 0.375
+    },
+    {
+      "run": 606,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0004914023596979816,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 5,
+      "counts": [
+        29,
+        23
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "sword": 29
+        },
+        {
+          "slime": 10,
+          "frostmage": 13
+        }
+      ],
+      "simSeconds": 25.033333333333193,
+      "wallMs": 1453.0334040000016,
+      "minInitialGap": 2,
+      "created": 72,
+      "hpRatio": 0.23756345177664975,
+      "survivingCostRatio": 0.30434782608695654
+    },
+    {
+      "run": 606,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.002212859122829064,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        26,
+        18
+      ],
+      "costs": [
+        104,
+        112
+      ],
+      "estimated": [
+        104,
+        112
+      ],
+      "composition": [
+        {
+          "slime": 12,
+          "frostmage": 14
+        },
+        {
+          "sword": 6,
+          "golem": 5,
+          "drake": 7
+        }
+      ],
+      "simSeconds": 31.966666666666132,
+      "wallMs": 1128.9923950000011,
+      "minInitialGap": 2,
+      "created": 68,
+      "hpRatio": 0.23460410557184752,
+      "survivingCostRatio": 0.38461538461538464
+    },
+    {
+      "run": 606,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.010056832509158418,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        29,
+        26
+      ],
+      "costs": [
+        116,
+        123
+      ],
+      "estimated": [
+        116,
+        123
+      ],
+      "composition": [
+        {
+          "slime": 13,
+          "frostmage": 16
+        },
+        {
+          "slime": 10,
+          "rider": 7,
+          "sword": 9
+        }
+      ],
+      "simSeconds": 37.383333333332494,
+      "wallMs": 1997.8023729999986,
+      "minInitialGap": 2,
+      "created": 95,
+      "hpRatio": 0.20506329113924052,
+      "survivingCostRatio": 0.3103448275862069
+    },
+    {
+      "run": 606,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.010024530646651817,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        32,
+        22
+      ],
+      "costs": [
+        128,
+        134
+      ],
+      "estimated": [
+        128,
+        134
+      ],
+      "composition": [
+        {
+          "slime": 13,
+          "frostmage": 19
+        },
+        {
+          "boar": 6,
+          "slime": 6,
+          "rider": 10
+        }
+      ],
+      "simSeconds": 29.766666666666257,
+      "wallMs": 1859.4315840000054,
+      "minInitialGap": 2,
+      "created": 84,
+      "hpRatio": 0.34172185430463575,
+      "survivingCostRatio": 0.46875
+    },
+    {
+      "run": 606,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.006451664903934416,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        36,
+        36
+      ],
+      "costs": [
+        144,
+        153
+      ],
+      "estimated": [
+        144,
+        153
+      ],
+      "composition": [
+        {
+          "slime": 14,
+          "frostmage": 22
+        },
+        {
+          "frostmage": 11,
+          "sky_harpooner": 9,
+          "bounty_hound": 16
+        }
+      ],
+      "simSeconds": 31.733333333332812,
+      "wallMs": 2773.0989310000004,
+      "minInitialGap": 2,
+      "created": 94,
+      "hpRatio": 0.40352941176470586,
+      "survivingCostRatio": 0.5555555555555556
+    },
+    {
+      "run": 607,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.17202025255242742,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 12.000000000000176,
+      "wallMs": 29.912317000002076,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.37333333333333335,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 607,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 21.750000000000046,
+      "wallMs": 109.80602600000566,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.02,
+      "survivingCostRatio": 0.1
+    },
+    {
+      "run": 607,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 14.116666666666948,
+      "wallMs": 142.74103999999352,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.30289855072463767,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 607,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.009382598794402789,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        20
+      ],
+      "costs": [
+        56,
+        58
+      ],
+      "estimated": [
+        56,
+        58
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "screech_cricket": 11,
+          "shield": 9
+        }
+      ],
+      "simSeconds": 19.28333333333352,
+      "wallMs": 351.3666890000022,
+      "minInitialGap": 2,
+      "created": 27,
+      "hpRatio": 0.37142857142857144,
+      "survivingCostRatio": 0.8571428571428571
+    },
+    {
+      "run": 607,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.009691371834309551,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        9,
+        14
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "rider": 9
+        },
+        {
+          "goblin": 6,
+          "rider": 8
+        }
+      ],
+      "simSeconds": 18.450000000000234,
+      "wallMs": 214.64391299999988,
+      "minInitialGap": 2,
+      "created": 23,
+      "hpRatio": 0.29813084112149535,
+      "survivingCostRatio": 0.3684210526315789
+    },
+    {
+      "run": 607,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.005134334292343212,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        17,
+        15
+      ],
+      "costs": [
+        88,
+        95
+      ],
+      "estimated": [
+        88,
+        95
+      ],
+      "composition": [
+        {
+          "goblin": 8,
+          "rider": 9
+        },
+        {
+          "golem": 7,
+          "frostmage": 8
+        }
+      ],
+      "simSeconds": 28.63333333333299,
+      "wallMs": 678.2159699999975,
+      "minInitialGap": 2,
+      "created": 32,
+      "hpRatio": 0.2165991902834008,
+      "survivingCostRatio": 0.3181818181818182
+    },
+    {
+      "run": 607,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.022177092237712515,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        21,
+        32
+      ],
+      "costs": [
+        102,
+        109
+      ],
+      "estimated": [
+        102,
+        109
+      ],
+      "composition": [
+        {
+          "goblin": 11,
+          "rider": 10
+        },
+        {
+          "archer": 7,
+          "sword": 12,
+          "shield": 13
+        }
+      ],
+      "simSeconds": 23.01666666666664,
+      "wallMs": 1370.4786460000032,
+      "minInitialGap": 2,
+      "created": 53,
+      "hpRatio": 0.23759791122715404,
+      "survivingCostRatio": 0.3486238532110092
+    },
+    {
+      "run": 607,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.0015626565179277796,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        36,
+        23
+      ],
+      "costs": [
+        122,
+        129
+      ],
+      "estimated": [
+        122,
+        129
+      ],
+      "composition": [
+        {
+          "archer": 7,
+          "sword": 15,
+          "shield": 14
+        },
+        {
+          "spear": 8,
+          "spore_toad": 6,
+          "golem": 9
+        }
+      ],
+      "simSeconds": 40.16666666666567,
+      "wallMs": 2874.910404999995,
+      "minInitialGap": 2,
+      "created": 59,
+      "hpRatio": 0.36186046511627906,
+      "survivingCostRatio": 0.48360655737704916
+    },
+    {
+      "run": 607,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.005575446781124923,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        40,
+        18
+      ],
+      "costs": [
+        135,
+        142
+      ],
+      "estimated": [
+        135,
+        142
+      ],
+      "composition": [
+        {
+          "archer": 7,
+          "sword": 18,
+          "shield": 15
+        },
+        {
+          "golem": 7,
+          "boar": 3,
+          "rider": 8
+        }
+      ],
+      "simSeconds": 46.449999999998646,
+      "wallMs": 2597.645801999999,
+      "minInitialGap": 2,
+      "created": 58,
+      "hpRatio": 0.18658280922431866,
+      "survivingCostRatio": 0.34074074074074073
+    },
+    {
+      "run": 607,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.004377195970498816,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        45,
+        24
+      ],
+      "costs": [
+        152,
+        164
+      ],
+      "estimated": [
+        152,
+        164
+      ],
+      "composition": [
+        {
+          "archer": 9,
+          "sword": 19,
+          "shield": 17
+        },
+        {
+          "rider": 9,
+          "wraith": 8,
+          "healer": 7
+        }
+      ],
+      "simSeconds": 31.69999999999948,
+      "wallMs": 4004.2834250000014,
+      "minInitialGap": 2,
+      "created": 92,
+      "hpRatio": 0.5048919226393629,
+      "survivingCostRatio": 0.7560975609756098
+    },
+    {
+      "run": 608,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.17202025255242742,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 12.983333333333558,
+      "wallMs": 19.609000000011292,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.16666666666666666,
+      "survivingCostRatio": 0.16666666666666666
+    },
+    {
+      "run": 608,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 14.5000000000003,
+      "wallMs": 136.64574799999536,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.2,
+      "survivingCostRatio": 0.3
+    },
+    {
+      "run": 608,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 21.81666666666671,
+      "wallMs": 238.2104529999924,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.09927536231884058,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 608,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.0090929019481508,
+        "candidateCount": 27,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        18
+      ],
+      "costs": [
+        56,
+        57
+      ],
+      "estimated": [
+        56,
+        57
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "goblin": 11,
+          "boar": 7
+        }
+      ],
+      "simSeconds": 15.90000000000037,
+      "wallMs": 289.0541969999904,
+      "minInitialGap": 2,
+      "created": 25,
+      "hpRatio": 0.1584097859327217,
+      "survivingCostRatio": 0.43859649122807015
+    },
+    {
+      "run": 608,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.001697627982313267,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        22,
+        13
+      ],
+      "costs": [
+        74,
+        81
+      ],
+      "estimated": [
+        74,
+        81
+      ],
+      "composition": [
+        {
+          "goblin": 12,
+          "boar": 10
+        },
+        {
+          "golem": 7,
+          "archer": 6
+        }
+      ],
+      "simSeconds": 27.699999999999708,
+      "wallMs": 838.8267579999956,
+      "minInitialGap": 2,
+      "created": 35,
+      "hpRatio": 0.14271844660194175,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 608,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.012566735610558714,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        16,
+        28
+      ],
+      "costs": [
+        90,
+        96
+      ],
+      "estimated": [
+        90,
+        96
+      ],
+      "composition": [
+        {
+          "golem": 7,
+          "archer": 9
+        },
+        {
+          "slime": 12,
+          "sword": 16
+        }
+      ],
+      "simSeconds": 38.63333333333242,
+      "wallMs": 1353.877038000006,
+      "minInitialGap": 2,
+      "created": 65,
+      "hpRatio": 0.3730886850152905,
+      "survivingCostRatio": 0.5666666666666667
+    },
+    {
+      "run": 608,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.008709438775738165,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        18,
+        22
+      ],
+      "costs": [
+        102,
+        108
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "golem": 8,
+          "archer": 10
+        },
+        {
+          "goblin": 8,
+          "frostmage": 5,
+          "wraith": 9
+        }
+      ],
+      "simSeconds": 27.049999999999745,
+      "wallMs": 1627.2011420000053,
+      "minInitialGap": 2,
+      "created": 67,
+      "hpRatio": 0.24824120603015076,
+      "survivingCostRatio": 0.6296296296296297
+    },
+    {
+      "run": 608,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.005428478643993123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        24,
+        34
+      ],
+      "costs": [
+        120,
+        127
+      ],
+      "estimated": [
+        120,
+        127
+      ],
+      "composition": [
+        {
+          "goblin": 8,
+          "frostmage": 6,
+          "wraith": 10
+        },
+        {
+          "archer": 9,
+          "spore_toad": 12,
+          "bounty_hound": 13
+        }
+      ],
+      "simSeconds": 22.416666666666675,
+      "wallMs": 2913.4605369999917,
+      "minInitialGap": 2,
+      "created": 88,
+      "hpRatio": 0.3093655589123867,
+      "survivingCostRatio": 0.7666666666666667
+    },
+    {
+      "run": 608,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.010260983937043907,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        28,
+        39
+      ],
+      "costs": [
+        134,
+        144
+      ],
+      "estimated": [
+        134,
+        144
+      ],
+      "composition": [
+        {
+          "goblin": 9,
+          "frostmage": 9,
+          "wraith": 10
+        },
+        {
+          "goblin": 17,
+          "burrower": 12,
+          "sky_harpooner": 10
+        }
+      ],
+      "simSeconds": 19.48333333333351,
+      "wallMs": 2985.282542000001,
+      "minInitialGap": 2,
+      "created": 97,
+      "hpRatio": 0.4475795297372061,
+      "survivingCostRatio": 0.7761194029850746
+    },
+    {
+      "run": 608,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0032080524033264186,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        33,
+        40
+      ],
+      "costs": [
+        150,
+        160
+      ],
+      "estimated": [
+        150,
+        160
+      ],
+      "composition": [
+        {
+          "goblin": 13,
+          "frostmage": 9,
+          "wraith": 11
+        },
+        {
+          "archer": 15,
+          "shield": 10,
+          "reaper_mantis": 15
+        }
+      ],
+      "simSeconds": 36.949999999999186,
+      "wallMs": 4620.982815999989,
+      "minInitialGap": 2,
+      "created": 106,
+      "hpRatio": 0.08754623921085081,
+      "survivingCostRatio": 0.13333333333333333
+    },
+    {
+      "run": 609,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.17202025255242742,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 13.8333333333336,
+      "wallMs": 70.56453599999077,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.2866666666666667,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 609,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 14.950000000000323,
+      "wallMs": 128.78880599999684,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.12,
+      "survivingCostRatio": 0.2
+    },
+    {
+      "run": 609,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 14.216666666666953,
+      "wallMs": 158.4991480000026,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.2971014492753623,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 609,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.007242636418212194,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        13
+      ],
+      "costs": [
+        56,
+        59
+      ],
+      "estimated": [
+        56,
+        59
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "slime": 6,
+          "boar": 7
+        }
+      ],
+      "simSeconds": 22.599999999999998,
+      "wallMs": 179.94354999999632,
+      "minInitialGap": 2,
+      "created": 31,
+      "hpRatio": 0.21180124223602484,
+      "survivingCostRatio": 0.5714285714285714
+    },
+    {
+      "run": 609,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.004275906776211641,
+        "candidateCount": 30,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        9,
+        16
+      ],
+      "costs": [
+        72,
+        74
+      ],
+      "estimated": [
+        72,
+        74
+      ],
+      "composition": [
+        {
+          "rider": 9
+        },
+        {
+          "slime": 6,
+          "boar": 10
+        }
+      ],
+      "simSeconds": 19.08333333333353,
+      "wallMs": 245.89458600000944,
+      "minInitialGap": 2,
+      "created": 37,
+      "hpRatio": 0.2608695652173913,
+      "survivingCostRatio": 0.5555555555555556
+    },
+    {
+      "run": 609,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.03501027873413893,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        11,
+        17
+      ],
+      "costs": [
+        88,
+        92
+      ],
+      "estimated": [
+        88,
+        92
+      ],
+      "composition": [
+        {
+          "rider": 11
+        },
+        {
+          "cannon": 12,
+          "shield": 5
+        }
+      ],
+      "simSeconds": 11.800000000000166,
+      "wallMs": 192.61916299999575,
+      "minInitialGap": 2,
+      "created": 28,
+      "hpRatio": 0.4329054842473746,
+      "survivingCostRatio": 0.6304347826086957
+    },
+    {
+      "run": 609,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.011507707093417613,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        19,
+        17
+      ],
+      "costs": [
+        104,
+        112
+      ],
+      "estimated": [
+        104,
+        112
+      ],
+      "composition": [
+        {
+          "cannon": 14,
+          "shield": 5
+        },
+        {
+          "siege_crab": 6,
+          "wraith": 6,
+          "goblin": 5
+        }
+      ],
+      "simSeconds": 45.96666666666534,
+      "wallMs": 808.180429,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.11884955752212388,
+      "survivingCostRatio": 0.16071428571428573
+    },
+    {
+      "run": 609,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012688265993783986,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        21,
+        40
+      ],
+      "costs": [
+        126,
+        135
+      ],
+      "estimated": [
+        126,
+        135
+      ],
+      "composition": [
+        {
+          "siege_crab": 6,
+          "wraith": 7,
+          "goblin": 8
+        },
+        {
+          "archer": 11,
+          "sword": 14,
+          "shield": 15
+        }
+      ],
+      "simSeconds": 40.58333333333231,
+      "wallMs": 2464.076239000002,
+      "minInitialGap": 2,
+      "created": 82,
+      "hpRatio": 0.23405639913232104,
+      "survivingCostRatio": 0.32592592592592595
+    },
+    {
+      "run": 609,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.01119067735466625,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        45,
+        31
+      ],
+      "costs": [
+        150,
+        160
+      ],
+      "estimated": [
+        150,
+        160
+      ],
+      "composition": [
+        {
+          "archer": 14,
+          "sword": 16,
+          "shield": 15
+        },
+        {
+          "slime": 12,
+          "spore_toad": 10,
+          "wraith": 9
+        }
+      ],
+      "simSeconds": 45.949999999998674,
+      "wallMs": 5061.225013000003,
+      "minInitialGap": 2,
+      "created": 123,
+      "hpRatio": 0.18857715430861724,
+      "survivingCostRatio": 0.32
+    },
+    {
+      "run": 609,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.005283602098324789,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        49,
+        24
+      ],
+      "costs": [
+        166,
+        176
+      ],
+      "estimated": [
+        166,
+        176
+      ],
+      "composition": [
+        {
+          "archer": 14,
+          "sword": 16,
+          "shield": 19
+        },
+        {
+          "rider": 12,
+          "screech_cricket": 4,
+          "golem": 8
+        }
+      ],
+      "simSeconds": 38.01666666666579,
+      "wallMs": 3298.4153890000016,
+      "minInitialGap": 2,
+      "created": 73,
+      "hpRatio": 0.3252204585537919,
+      "survivingCostRatio": 0.4397590361445783
+    },
+    {
+      "run": 610,
+      "round": 1,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.17202025255242742,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 15.866666666667035,
+      "wallMs": 30.439719000001787,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.20666666666666667,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 610,
+      "round": 2,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.012991034206484123,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        6
+      ],
+      "costs": [
+        30,
+        30
+      ],
+      "estimated": [
+        30,
+        30
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "simSeconds": 15.383333333333677,
+      "wallMs": 118.43524099999922,
+      "minInitialGap": 2,
+      "created": 16,
+      "hpRatio": 0.248,
+      "survivingCostRatio": 0.4
+    },
+    {
+      "run": 610,
+      "round": 3,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.04102124423340957,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 16.350000000000353,
+      "wallMs": 194.0735260000074,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.1427536231884058,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 610,
+      "round": 4,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.007242636418212194,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        13
+      ],
+      "costs": [
+        56,
+        59
+      ],
+      "estimated": [
+        56,
+        59
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "boar": 7,
+          "slime": 6
+        }
+      ],
+      "simSeconds": 21.750000000000046,
+      "wallMs": 209.45694099999673,
+      "minInitialGap": 2,
+      "created": 30,
+      "hpRatio": 0.034823529411764705,
+      "survivingCostRatio": 0.15254237288135594
+    },
+    {
+      "run": 610,
+      "round": 5,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.005780995537889073,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        16,
+        17
+      ],
+      "costs": [
+        72,
+        75
+      ],
+      "estimated": [
+        72,
+        75
+      ],
+      "composition": [
+        {
+          "boar": 8,
+          "slime": 8
+        },
+        {
+          "boar": 7,
+          "slime": 10
+        }
+      ],
+      "simSeconds": 46.46666666666531,
+      "wallMs": 928.1553240000067,
+      "minInitialGap": 2,
+      "created": 66,
+      "hpRatio": 0.027923211169284468,
+      "survivingCostRatio": 0.05333333333333334
+    },
+    {
+      "run": 610,
+      "round": 6,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.000501534704097438,
+        "candidateCount": 28,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        20,
+        20
+      ],
+      "costs": [
+        88,
+        91
+      ],
+      "estimated": [
+        88,
+        91
+      ],
+      "composition": [
+        {
+          "boar": 8,
+          "slime": 12
+        },
+        {
+          "boar": 11,
+          "shield": 9
+        }
+      ],
+      "simSeconds": 35.36666666666594,
+      "wallMs": 1168.7357760000014,
+      "minInitialGap": 2,
+      "created": 62,
+      "hpRatio": 0.18887171561051005,
+      "survivingCostRatio": 0.3956043956043956
+    },
+    {
+      "run": 610,
+      "round": 7,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.019632254964386003,
+        "candidateCount": 31,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        22,
+        15
+      ],
+      "costs": [
+        100,
+        108
+      ],
+      "estimated": [
+        100,
+        108
+      ],
+      "composition": [
+        {
+          "boar": 12,
+          "shield": 10
+        },
+        {
+          "archer": 2,
+          "frostmage": 3,
+          "golem": 10
+        }
+      ],
+      "simSeconds": 40.8333333333323,
+      "wallMs": 1191.0604460000031,
+      "minInitialGap": 2,
+      "created": 37,
+      "hpRatio": 0.09824561403508772,
+      "survivingCostRatio": 0.3611111111111111
+    },
+    {
+      "run": 610,
+      "round": 8,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.016991777454904548,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        18,
+        32
+      ],
+      "costs": [
+        119,
+        124
+      ],
+      "estimated": [
+        119,
+        124
+      ],
+      "composition": [
+        {
+          "archer": 3,
+          "frostmage": 5,
+          "golem": 10
+        },
+        {
+          "goblin": 12,
+          "reaper_mantis": 8,
+          "burrower": 12
+        }
+      ],
+      "simSeconds": 21.016666666666755,
+      "wallMs": 986.337652000002,
+      "minInitialGap": 2,
+      "created": 50,
+      "hpRatio": 0.30098684210526316,
+      "survivingCostRatio": 0.45161290322580644
+    },
+    {
+      "run": 610,
+      "round": 9,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": 0.0011184298931340084,
+        "candidateCount": 32,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        36,
+        39
+      ],
+      "costs": [
+        138,
+        148
+      ],
+      "estimated": [
+        138,
+        148
+      ],
+      "composition": [
+        {
+          "goblin": 14,
+          "reaper_mantis": 8,
+          "burrower": 14
+        },
+        {
+          "shield": 11,
+          "goblin": 12,
+          "burrower": 16
+        }
+      ],
+      "simSeconds": 20.283333333333463,
+      "wallMs": 1015.3750469999941,
+      "minInitialGap": 2,
+      "created": 75,
+      "hpRatio": 0.08106508875739644,
+      "survivingCostRatio": 0.18115942028985507
+    },
+    {
+      "run": 610,
+      "round": 10,
+      "modelDecision": {
+        "modelId": "4a882110979820ab542e9a2e085f565c7e2a0f0c8ac56b42cfce6da57c535ff0",
+        "predictedMargin": -0.001659578327118827,
+        "candidateCount": 29,
+        "selection": "absolute predicted margin only; no solver"
+      },
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        40,
+        41
+      ],
+      "costs": [
+        155,
+        164
+      ],
+      "estimated": [
+        155,
+        164
+      ],
+      "composition": [
+        {
+          "goblin": 15,
+          "reaper_mantis": 11,
+          "burrower": 14
+        },
+        {
+          "bounty_hound": 19,
+          "spore_toad": 15,
+          "shield": 7
+        }
+      ],
+      "simSeconds": 35.33333333333261,
+      "wallMs": 1940.273588000011,
+      "minInitialGap": 2,
+      "created": 81,
+      "hpRatio": 0.06097240473061761,
+      "survivingCostRatio": 0.12903225806451613
+    }
+  ],
+  "stopped": []
+}

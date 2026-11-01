@@ -34,7 +34,7 @@ function generateEarlyArmies(seed){
 }
 
 let previousArmyKinds=[],pendingCarryKinds=null,initialKinds=[[],[]],initialUnits=[],carryStreak=0,leftArmyCost=0;
-function progressRound(n=round){return 1+Math.floor((Math.max(1,Math.min(TOTAL_ROUNDS,n))-1)*19/(TOTAL_ROUNDS-1));}
+function progressRound(n=round){return n>10?20+2*(n-10):1+Math.floor((Math.max(1,n)-1)*19/9);}
 const BALANCE_COST=Object.fromEntries(Object.entries(COST).map(([k,v])=>[k,Math.max(1,Math.round(v*({"stormmage":1.4}[k]||1)))]));let leftArmyCount=0;
 function makeArmy(r,side){
  const stage=progressRound(),advance=round<=1?1:stage-progressRound(round-1);
@@ -79,7 +79,12 @@ function layoutOpeningArmy(army,side){
  large.forEach((u,i)=>place(u,preferred[i]));
  for(const u of army)if(!large.includes(u))place(u,slots.find(p=>!p.used));
 }
-function setup(s){seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1])layoutOpeningArmy(units.filter(u=>u.side===side),side);initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
+let openingPlan=null;
+function prepareOpening(s){const nextSeed=s>>>0,base=pendingCarryKinds?[...pendingCarryKinds]:[],plan=growthGenerator.generate({round,streak:base.length?carryStreak:0,carryKinds:base,seed:nextSeed,previousOutcome:round>1&&!base.length?'draw':null});return {nextSeed,base,plan,opening:OpeningUnits.instantiateOpening(plan,TYPES)};}
+function setup(s,prepared=null){
+ const {nextSeed,base,plan,opening}=prepared||prepareOpening(s),armies=[opening.filter(u=>u.side===0),opening.filter(u=>u.side===1)];
+ pendingSummons=[];combatEvents=[];seed=nextSeed;carryStreak=base.length?carryStreak:0;openingPlan=plan;pendingCarryKinds=null;previousArmyKinds=[...new Set(plan.leftKinds)];leftArmyCount=armies[0].length;leftArmyCost=plan.estimatedCosts[0];budgets=[{planned:Math.max(plan.targetCost,plan.estimatedCosts[0]),spent:plan.estimatedCosts[0]},{planned:plan.band[1],spent:plan.estimatedCosts[1]}];units=armies.flat();initialKinds=[plan.leftKinds.slice(),plan.rightKinds.slice()];initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw();
+}
 function update(){}
 
 // Independent collision candidate. Circle footprints are gameplay geometry.
@@ -130,7 +135,12 @@ function step(dt){
 }
 
 function damage(u,n,ranged){u.hp-=n*(ranged?(TYPES[u.k].armor||1):1);if(u.hp<=0)u.dead=true}
-function draw(){ctx.clearRect(0,0,480,538);drawArenaFloor();drawCombatEffects('ground');for(let u of units){if(drawSprite(u))continue;if(u.dead)continue;let color=u.side?'#86bde0':'#df8e78';ctx.save();ctx.translate(u.x,u.y);ctx.fillStyle='#0c1716aa';ctx.beginPath();ctx.ellipse(1,8,15,8,0,0,7);ctx.fill();ctx.fillStyle=color;ctx.strokeStyle='#f4dfb5';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,13,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#17252a';ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText({sword:'剣',shield:'盾',spear:'槍',archer:'弓',cannon:'砲',rider:'騎',healer:'癒',goblin:'鬼',golem:'岩',drake:'翼',wraith:'霊'}[u.k],0,0);ctx.fillStyle='#121b19';ctx.fillRect(-14,-21,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(-14,-21,28*Math.max(0,u.hp/TYPES[u.k].hp),4);ctx.restore()}drawCombatEffects('above');ctx.fillStyle='#f4dda1';for(const s of shots){if(drawProjectile(s))continue;ctx.beginPath();ctx.arc(s.x,s.y-(s.k==='wraith'?25:16),3,0,7);ctx.fill()}}
+// Reused presentation-only pointer list; never reorder the simulation roster.
+const drawOrderCache=[];
+function presentationLayer(u){return u.dead?0:(TYPES[u.k]?.collisionLayer==='air'?2:1);}
+function presentationOrder(a,b){const layer=presentationLayer(a)-presentationLayer(b);if(layer)return layer;const dy=a.y-b.y;if(dy)return dy;const ak=a.token??a.id??'',bk=b.token??b.id??'';if(typeof ak!==typeof bk)return typeof ak==='number'?-1:1;return ak<bk?-1:ak>bk?1:0;}
+function orderedDrawUnits(){drawOrderCache.length=units.length;for(let i=0;i<units.length;i++)drawOrderCache[i]=units[i];drawOrderCache.sort(presentationOrder);return drawOrderCache;}
+function draw(){ctx.clearRect(0,0,480,538);drawArenaFloor();drawCombatEffects('ground');for(let u of orderedDrawUnits()){if(drawSprite(u))continue;if(u.dead)continue;let color=u.side?'#86bde0':'#df8e78';ctx.save();ctx.translate(u.x,u.y);ctx.fillStyle='#0c1716aa';ctx.beginPath();ctx.ellipse(1,8,15,8,0,0,7);ctx.fill();ctx.fillStyle=color;ctx.strokeStyle='#f4dfb5';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,13,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#17252a';ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText({sword:'剣',shield:'盾',spear:'槍',archer:'弓',cannon:'砲',rider:'騎',healer:'癒',goblin:'鬼',golem:'岩',drake:'翼',wraith:'霊'}[u.k],0,0);ctx.fillStyle='#121b19';ctx.fillRect(-14,-21,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(-14,-21,28*Math.max(0,u.hp/TYPES[u.k].hp),4);ctx.restore()}drawCombatEffects('above');ctx.fillStyle='#f4dda1';for(const s of shots){if(drawProjectile(s))continue;ctx.beginPath();ctx.arc(s.x,s.y-(s.k==='wraith'?25:16),3,0,7);ctx.fill()}}
 
 // Presentation-only sprite adapter. No changes to combat rules or random stream.
 const SPRITE_ROWS={sword:0,shield:1,archer:2,spear:0,cannon:1,rider:2,healer:3};
@@ -161,7 +171,7 @@ step=function(dt){
   consumeCombatEvents(typeof combatEvents==='undefined'?[]:combatEvents);
 };
 const combatSetup=setup;
-setup=function(s){visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;combatSetup(s)};
+setup=function(s,prepared){visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;combatSetup(s,prepared)};
 function spriteFrame(u){
   const v=visualFor(u),age=visualTime-v.attack;
   if(!u.dead&&u.burrowStage==='warning')return 3;
@@ -188,7 +198,7 @@ function drawSprite(u){
   ctx.save();ctx.translate(Math.round(u.x),Math.round(u.y)-hover);ctx.scale(visualFor(u).face,1);
   ctx.imageSmoothingEnabled=false;ctx.drawImage(image,spriteFrame(u)*cell,(monster?0:SPRITE_ROWS[u.k])*cell,cell,cellH,-anchor[0],-anchor[1],cell,cellH);
   ctx.restore();
-  if(!u.dead){ctx.fillStyle='#121b19';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-anchor[1]-5,28*Math.max(0,u.hp/TYPES[u.k].hp),4)}
+  if(!u.dead){ctx.fillStyle='#121b19';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-(monster?.visual_insets?.[1]??BASE_VISUAL_META[u.k]?.visual_insets?.[1]??anchor[1])-5,28,4);ctx.fillStyle='#dfe4b3';ctx.fillRect(Math.round(u.x)-14,Math.round(u.y)-hover-(monster?.visual_insets?.[1]??BASE_VISUAL_META[u.k]?.visual_insets?.[1]??anchor[1])-5,28*Math.max(0,u.hp/TYPES[u.k].hp),4)}
   if(monster){ctx.fillStyle=u.side?'#79b1ce':'#e49a78';ctx.fillRect(Math.round(u.x)-6,Math.round(u.y)+3,12,3);}
   return true;
 }
@@ -215,28 +225,29 @@ if(typeof document.addEventListener==='function')document.addEventListener('visi
 function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
+let soloRunEnded=false;function sessionRoundLimit(){return multiSession?TOTAL_ROUNDS:(walletState?.maxRounds||TOTAL_ROUNDS);}
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
-function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'quick10-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
+function freshWallet(){soloRunEnded=false;pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=SoloWallet.createSession({sessionId:'extend-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
 function credits(n){return (n>0?'+':'')+n+' G'}
-function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
+function currentWallet(){return SoloWallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s);};
+setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s,prepared);};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
-  q('#status').textContent='第 '+round+' / 10 戦';
+  q('#status').textContent='第 '+round+' / '+sessionRoundLimit()+' 戦';
   q('#balance').textContent=w.balance+' G';q('#profit').textContent=credits(w.score);q('#hits').textContent=w.correctCount+' / '+walletState.completedRounds;
-  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=TOTAL_ROUNDS?'10戦の最終結果':'今回の結果';
+  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=sessionRoundLimit()?'区切りの結果':'今回の結果';
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
   for(const n of [0,10,25,50]){const b=q('#stake'+n);b.disabled=n>w.maxStake;if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedStake===n));}
   q('#confirm').disabled=selectedSide===null;
-  q('#stakeHint').textContent=selectedStake?'正解 '+credits(10+selectedStake)+' · 外れ −'+selectedStake+' G':'正解 +10 G';
+  q('#stakeHint').textContent=selectedStake?'正解 '+credits((round<=10?10:0)+selectedStake)+' · 外れ −'+selectedStake+' G':round<=10?'正解 +10 G':'BET 0 G · 増減なし';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
-  q('#next').textContent=round>=TOTAL_ROUNDS?'もう一度':'次の戦いへ';
+  q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
-    const entry=walletState.ledger[round-1].entries[0];
+    const entry=walletState.ledger.find(r=>r.roundId===round).entries[0];
     q('#message').textContent=winner===null?'引き分け':(winner===0?'左':'右')+'の勝利';
     const label=entry.side===null?'見るだけ':entry.correct?'的中':'はずれ';
     q('#breakdown').textContent=label+' '+credits(entry.delta);
@@ -246,20 +257,22 @@ function selectSide(side){if(state!=='choose')return;selectedSide=side;update()}
 function selectStake(n){if(state!=='choose'||![0,10,25,50].includes(n)||n>currentWallet().maxStake)return;selectedStake=n;update()}
 function startPrediction(skip=false){
   if(state!=='choose'||skip||selectedSide===null)return;
-  walletState=Wallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
+  walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
   choice=skip?null:selectedSide;state='fight';paused=false;resetSoloClock();update();
 }
 const spriteStep=step;
 step=function(dt){spriteStep(dt);if(state==='result'&&walletState&&walletState.completedRounds<round&&walletState.currentRound?.commits.length===walletState.players.length){
-  walletState=Wallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome:winner===null?'draw':winner===0?'A':'B',now:0});update();
+  walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome:winner===null?'draw':winner===0?'A':'B',now:0});update();
 }};
 function openPrediction(seedValue){
-  walletState=Wallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER});setup(seedValue);
+  const prepared=prepareOpening(seedValue),nextWallet=SoloWallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER});walletState=nextWallet;setup(seedValue,prepared);
 }
 function nextPrediction(){
   if(state!=='result')return;
-  if(round>=TOTAL_ROUNDS){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
+  const before={round,mistakes,correct,speed,walletState,soloRunEnded,pendingCarryKinds,carryStreak,initialKinds,initialUnits,walletSessionCounter};
+  try{if(round>=sessionRoundLimit()){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
   openPrediction((Math.random()*4294967296)>>>0);
+  }catch(error){({round,mistakes,correct,speed,walletState,soloRunEnded,pendingCarryKinds,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);throw error;}
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
 for(const n of [0,10,25,50])document.querySelector('#stake'+n).onclick=()=>selectStake(n);

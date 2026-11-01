@@ -1,0 +1,4004 @@
+{
+  "complete": true,
+  "select": "cost",
+  "modelId": null,
+  "provenance": {
+    "html": "d0dfb4ad87183c8c0dc565df17f952d563af318fc783a6e17447487f3b2d0f3f",
+    "typesExtract": "1d55b55e35d17e150ca4e839c9ccac949c693e0bb466e07a1ff3eb2e2e636a3e",
+    "physics": "de207d32d82568877d44383dc65cfbfb35c5b224e89f9cfc1d8a2af433bc6185",
+    "initialUnits": "56f7d28cff77729e6b25421f868bf7dd4c07c859a391205cdaa9d5b66fc481c0",
+    "initializer": "production instantiateOpening direct import; no copied RNG"
+  },
+  "growth": 14,
+  "rightMultiplier": 1.06,
+  "seedStart": 601,
+  "sessions": 10,
+  "method": "physics-only actual winner starting roster carry; stats unchanged; no solver in generator; draw/invalid resets both armies at next round, explicit previousOutcome",
+  "records": [
+    {
+      "run": 601,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        6
+      ],
+      "costs": [
+        18,
+        18
+      ],
+      "estimated": [
+        18,
+        18
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 14.883333333333653,
+      "wallMs": 55.32292800000002,
+      "minInitialGap": 2,
+      "created": 12,
+      "hpRatio": 0.26666666666666666,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 601,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        8
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "spear": 10
+        },
+        {
+          "shield": 8
+        }
+      ],
+      "simSeconds": 14.816666666666983,
+      "wallMs": 154.95311399999997,
+      "minInitialGap": 2,
+      "created": 18,
+      "hpRatio": 0.7764705882352941,
+      "survivingCostRatio": 1
+    },
+    {
+      "run": 601,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "spear": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 13.283333333333573,
+      "wallMs": 119.98231199999998,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.5105882352941177,
+      "survivingCostRatio": 0.6
+    },
+    {
+      "run": 601,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        14
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "spear": 20
+        },
+        {
+          "reaper_mantis": 8,
+          "frostmage": 6
+        }
+      ],
+      "simSeconds": 21.416666666666732,
+      "wallMs": 316.849952,
+      "minInitialGap": 2,
+      "created": 34,
+      "hpRatio": 0.23529411764705882,
+      "survivingCostRatio": 0.35
+    },
+    {
+      "run": 601,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        22
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "spear": 24
+        },
+        {
+          "frostmage": 10,
+          "sword": 12
+        }
+      ],
+      "simSeconds": 27.466666666666388,
+      "wallMs": 405.4492160000001,
+      "minInitialGap": 2,
+      "created": 46,
+      "hpRatio": 0.04411764705882353,
+      "survivingCostRatio": 0.125
+    },
+    {
+      "run": 601,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 5,
+      "counts": [
+        29,
+        23
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "spear": 29
+        },
+        {
+          "shield": 10,
+          "bounty_hound": 13
+        }
+      ],
+      "simSeconds": 19.850000000000154,
+      "wallMs": 838.173403,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.5371196754563895,
+      "survivingCostRatio": 0.6206896551724138
+    },
+    {
+      "run": 601,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 6,
+      "counts": [
+        33,
+        25
+      ],
+      "costs": [
+        100,
+        106
+      ],
+      "estimated": [
+        100,
+        106
+      ],
+      "composition": [
+        {
+          "spear": 32,
+          "slime": 1
+        },
+        {
+          "healer": 8,
+          "cannon": 10,
+          "goblin": 7
+        }
+      ],
+      "simSeconds": 14.5000000000003,
+      "wallMs": 669.496875,
+      "minInitialGap": 2,
+      "created": 60,
+      "hpRatio": 0.7930817610062894,
+      "survivingCostRatio": 0.8490566037735849
+    },
+    {
+      "run": 601,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        28,
+        19
+      ],
+      "costs": [
+        118,
+        125
+      ],
+      "estimated": [
+        118,
+        125
+      ],
+      "composition": [
+        {
+          "healer": 9,
+          "cannon": 11,
+          "goblin": 8
+        },
+        {
+          "siege_crab": 9,
+          "wraith": 4,
+          "goblin": 6
+        }
+      ],
+      "simSeconds": 31.31666666666617,
+      "wallMs": 913.2030380000001,
+      "minInitialGap": 2,
+      "created": 59,
+      "hpRatio": 0.450050505050505,
+      "survivingCostRatio": 0.504
+    },
+    {
+      "run": 601,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        27
+      ],
+      "costs": [
+        139,
+        147
+      ],
+      "estimated": [
+        139,
+        147
+      ],
+      "composition": [
+        {
+          "siege_crab": 9,
+          "wraith": 5,
+          "goblin": 9
+        },
+        {
+          "drake": 13,
+          "bounty_hound": 8,
+          "shield": 6
+        }
+      ],
+      "simSeconds": 23.966666666666587,
+      "wallMs": 1569.6846999999998,
+      "minInitialGap": 2,
+      "created": 65,
+      "hpRatio": 0.39134742404227213,
+      "survivingCostRatio": 0.6258503401360545
+    },
+    {
+      "run": 601,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        30,
+        43
+      ],
+      "costs": [
+        162,
+        172
+      ],
+      "estimated": [
+        162,
+        172
+      ],
+      "composition": [
+        {
+          "drake": 14,
+          "bounty_hound": 10,
+          "shield": 6
+        },
+        {
+          "frostmage": 9,
+          "shield": 23,
+          "slime": 11
+        }
+      ],
+      "simSeconds": 46.46666666666531,
+      "wallMs": 3167.223683,
+      "minInitialGap": 2,
+      "created": 95,
+      "hpRatio": 0.018628912071535022,
+      "survivingCostRatio": 0.09302325581395349
+    },
+    {
+      "run": 602,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        5
+      ],
+      "costs": [
+        18,
+        20
+      ],
+      "estimated": [
+        18,
+        20
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "shield": 5
+        }
+      ],
+      "simSeconds": 17.33333333333363,
+      "wallMs": 119.12115900000026,
+      "minInitialGap": 2,
+      "created": 11,
+      "hpRatio": 0.5166666666666667,
+      "survivingCostRatio": 0.8333333333333334
+    },
+    {
+      "run": 602,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        4
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "rider": 4
+        }
+      ],
+      "simSeconds": 15.800000000000365,
+      "wallMs": 73.52174399999967,
+      "minInitialGap": 2,
+      "created": 14,
+      "hpRatio": 0.12065217391304348,
+      "survivingCostRatio": 0.25
+    },
+    {
+      "run": 602,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        5,
+        14
+      ],
+      "costs": [
+        40,
+        42
+      ],
+      "estimated": [
+        40,
+        42
+      ],
+      "composition": [
+        {
+          "rider": 5
+        },
+        {
+          "archer": 14
+        }
+      ],
+      "simSeconds": 11.250000000000139,
+      "wallMs": 51.94393200000013,
+      "minInitialGap": 2,
+      "created": 19,
+      "hpRatio": 0.5976190476190476,
+      "survivingCostRatio": 0.6428571428571429
+    },
+    {
+      "run": 602,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        20,
+        16
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "archer": 20
+        },
+        {
+          "shield": 7,
+          "slime": 9
+        }
+      ],
+      "simSeconds": 29.149999999999626,
+      "wallMs": 854.8910500000002,
+      "minInitialGap": 2,
+      "created": 54,
+      "hpRatio": 0.49916666666666665,
+      "survivingCostRatio": 0.6
+    },
+    {
+      "run": 602,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        24,
+        29
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "archer": 24
+        },
+        {
+          "screech_cricket": 11,
+          "sword": 18
+        }
+      ],
+      "simSeconds": 22.55,
+      "wallMs": 1281.7413209999995,
+      "minInitialGap": 2,
+      "created": 53,
+      "hpRatio": 0.23618290258449304,
+      "survivingCostRatio": 0.2894736842105263
+    },
+    {
+      "run": 602,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        33,
+        13
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "screech_cricket": 12,
+          "sword": 21
+        },
+        {
+          "rider": 9,
+          "reaper_mantis": 4
+        }
+      ],
+      "simSeconds": 23.549999999999944,
+      "wallMs": 1424.2277459999987,
+      "minInitialGap": 2,
+      "created": 46,
+      "hpRatio": 0.3142361111111111,
+      "survivingCostRatio": 0.42528735632183906
+    },
+    {
+      "run": 602,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        38,
+        15
+      ],
+      "costs": [
+        101,
+        103
+      ],
+      "estimated": [
+        101,
+        107
+      ],
+      "composition": [
+        {
+          "screech_cricket": 13,
+          "sword": 25
+        },
+        {
+          "stormmage": 2,
+          "rootwarden_treant": 9,
+          "archer": 4
+        }
+      ],
+      "simSeconds": 34.98333333333263,
+      "wallMs": 2013.0875049999995,
+      "minInitialGap": 2,
+      "created": 53,
+      "hpRatio": 0.2693153961136024,
+      "survivingCostRatio": 0.33663366336633666
+    },
+    {
+      "run": 602,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        42,
+        27
+      ],
+      "costs": [
+        115,
+        122
+      ],
+      "estimated": [
+        115,
+        122
+      ],
+      "composition": [
+        {
+          "screech_cricket": 15,
+          "sword": 26,
+          "drake": 1
+        },
+        {
+          "frostmage": 13,
+          "screech_cricket": 8,
+          "rootwarden_treant": 6
+        }
+      ],
+      "simSeconds": 26.316666666666453,
+      "wallMs": 2681.4619509999993,
+      "minInitialGap": 2,
+      "created": 69,
+      "hpRatio": 0.3239247311827957,
+      "survivingCostRatio": 0.45217391304347826
+    },
+    {
+      "run": 602,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        44,
+        20
+      ],
+      "costs": [
+        129,
+        137
+      ],
+      "estimated": [
+        129,
+        137
+      ],
+      "composition": [
+        {
+          "screech_cricket": 15,
+          "sword": 26,
+          "drake": 3
+        },
+        {
+          "shield": 5,
+          "siege_crab": 6,
+          "drake": 9
+        }
+      ],
+      "simSeconds": 22.66666666666666,
+      "wallMs": 1350.2551860000021,
+      "minInitialGap": 2,
+      "created": 64,
+      "hpRatio": 0.3398230088495575,
+      "survivingCostRatio": 0.46715328467153283
+    },
+    {
+      "run": 602,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        22,
+        29
+      ],
+      "costs": [
+        153,
+        162
+      ],
+      "estimated": [
+        153,
+        162
+      ],
+      "composition": [
+        {
+          "shield": 5,
+          "siege_crab": 7,
+          "drake": 10
+        },
+        {
+          "goblin": 9,
+          "cannon": 12,
+          "siege_crab": 8
+        }
+      ],
+      "simSeconds": 44.88333333333207,
+      "wallMs": 779.3875249999983,
+      "minInitialGap": 2,
+      "created": 51,
+      "hpRatio": 0.33898761443187936,
+      "survivingCostRatio": 0.35185185185185186
+    },
+    {
+      "run": 603,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 14.30000000000029,
+      "wallMs": 49.480107999999746,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.7333333333333333,
+      "survivingCostRatio": 1
+    },
+    {
+      "run": 603,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        8
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "shield": 8
+        }
+      ],
+      "simSeconds": 15.750000000000362,
+      "wallMs": 218.79069399999935,
+      "minInitialGap": 2,
+      "created": 18,
+      "hpRatio": 0.55,
+      "survivingCostRatio": 0.8
+    },
+    {
+      "run": 603,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        12
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "shield": 12
+        }
+      ],
+      "simSeconds": 21.283333333333406,
+      "wallMs": 535.5723020000005,
+      "minInitialGap": 2,
+      "created": 27,
+      "hpRatio": 0.58,
+      "survivingCostRatio": 0.9333333333333333
+    },
+    {
+      "run": 603,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        21
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "sword": 20
+        },
+        {
+          "goblin": 10,
+          "frostmage": 11
+        }
+      ],
+      "simSeconds": 19.266666666666854,
+      "wallMs": 695.1644059999999,
+      "minInitialGap": 2,
+      "created": 41,
+      "hpRatio": 0.1835,
+      "survivingCostRatio": 0.35
+    },
+    {
+      "run": 603,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        15
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "sword": 24
+        },
+        {
+          "bounty_hound": 7,
+          "cannon": 8
+        }
+      ],
+      "simSeconds": 13.03333333333356,
+      "wallMs": 371.4206789999989,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.4398216939078752,
+      "survivingCostRatio": 0.631578947368421
+    },
+    {
+      "run": 603,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        17,
+        20
+      ],
+      "costs": [
+        86,
+        91
+      ],
+      "estimated": [
+        86,
+        91
+      ],
+      "composition": [
+        {
+          "bounty_hound": 8,
+          "cannon": 9
+        },
+        {
+          "spore_toad": 9,
+          "boar": 11
+        }
+      ],
+      "simSeconds": 18.833333333333545,
+      "wallMs": 453.32788900000014,
+      "minInitialGap": 2,
+      "created": 37,
+      "hpRatio": 0.39397905759162305,
+      "survivingCostRatio": 0.6511627906976745
+    },
+    {
+      "run": 603,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        20,
+        31
+      ],
+      "costs": [
+        102,
+        94
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "bounty_hound": 9,
+          "cannon": 11
+        },
+        {
+          "stormmage": 7,
+          "screech_cricket": 13,
+          "sword": 11
+        }
+      ],
+      "simSeconds": 13.416666666666913,
+      "wallMs": 622.9764099999993,
+      "minInitialGap": 2,
+      "created": 51,
+      "hpRatio": 0.26187624750499,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 603,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        34,
+        40
+      ],
+      "costs": [
+        105,
+        128
+      ],
+      "estimated": [
+        121,
+        128
+      ],
+      "composition": [
+        {
+          "stormmage": 8,
+          "screech_cricket": 13,
+          "sword": 13
+        },
+        {
+          "shield": 9,
+          "slime": 15,
+          "screech_cricket": 16
+        }
+      ],
+      "simSeconds": 21.3833333333334,
+      "wallMs": 2569.6407119999967,
+      "minInitialGap": 2,
+      "created": 103,
+      "hpRatio": 0.6384201077199282,
+      "survivingCostRatio": 0.8
+    },
+    {
+      "run": 603,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        38,
+        42
+      ],
+      "costs": [
+        118,
+        144
+      ],
+      "estimated": [
+        136,
+        144
+      ],
+      "composition": [
+        {
+          "stormmage": 9,
+          "screech_cricket": 14,
+          "sword": 15
+        },
+        {
+          "boar": 15,
+          "screech_cricket": 12,
+          "spear": 15
+        }
+      ],
+      "simSeconds": 13.750000000000263,
+      "wallMs": 2018.4373140000025,
+      "minInitialGap": 2,
+      "created": 80,
+      "hpRatio": 0.5015974440894568,
+      "survivingCostRatio": 0.6610169491525424
+    },
+    {
+      "run": 603,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        44,
+        54
+      ],
+      "costs": [
+        134,
+        161
+      ],
+      "estimated": [
+        152,
+        161
+      ],
+      "composition": [
+        {
+          "stormmage": 9,
+          "screech_cricket": 16,
+          "sword": 19
+        },
+        {
+          "bounty_hound": 16,
+          "screech_cricket": 17,
+          "sword": 21
+        }
+      ],
+      "simSeconds": 18.4666666666669,
+      "wallMs": 3853.8914479999985,
+      "minInitialGap": 2,
+      "created": 98,
+      "hpRatio": 0.6218579234972678,
+      "survivingCostRatio": 0.7313432835820896
+    },
+    {
+      "run": 604,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 15.70000000000036,
+      "wallMs": 71.80019200000243,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.6833333333333333,
+      "survivingCostRatio": 0.8333333333333334
+    },
+    {
+      "run": 604,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        8
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "slime": 8
+        }
+      ],
+      "simSeconds": 22.883333333333315,
+      "wallMs": 321.7134019999976,
+      "minInitialGap": 2,
+      "created": 34,
+      "hpRatio": 0.38,
+      "survivingCostRatio": 0.7
+    },
+    {
+      "run": 604,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 22.416666666666675,
+      "wallMs": 173.44788499999777,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.05579710144927536,
+      "survivingCostRatio": 0.16666666666666666
+    },
+    {
+      "run": 604,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        7,
+        13
+      ],
+      "costs": [
+        56,
+        59
+      ],
+      "estimated": [
+        56,
+        59
+      ],
+      "composition": [
+        {
+          "rider": 7
+        },
+        {
+          "boar": 7,
+          "frostmage": 6
+        }
+      ],
+      "simSeconds": 18.35000000000024,
+      "wallMs": 150.2412039999981,
+      "minInitialGap": 2,
+      "created": 20,
+      "hpRatio": 0.29592476489028213,
+      "survivingCostRatio": 0.4067796610169492
+    },
+    {
+      "run": 604,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        16,
+        13
+      ],
+      "costs": [
+        73,
+        77
+      ],
+      "estimated": [
+        73,
+        77
+      ],
+      "composition": [
+        {
+          "boar": 9,
+          "frostmage": 7
+        },
+        {
+          "shield": 8,
+          "golem": 5
+        }
+      ],
+      "simSeconds": 27.933333333333028,
+      "wallMs": 467.7348129999991,
+      "minInitialGap": 2,
+      "created": 29,
+      "hpRatio": 0.3542713567839196,
+      "survivingCostRatio": 0.6575342465753424
+    },
+    {
+      "run": 604,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        19,
+        23
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "boar": 11,
+          "frostmage": 8
+        },
+        {
+          "frostmage": 14,
+          "spore_toad": 9
+        }
+      ],
+      "simSeconds": 37.733333333332475,
+      "wallMs": 827.435719000001,
+      "minInitialGap": 2,
+      "created": 42,
+      "hpRatio": 0.004008016032064128,
+      "survivingCostRatio": 0.043478260869565216
+    },
+    {
+      "run": 604,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        26,
+        37
+      ],
+      "costs": [
+        104,
+        110
+      ],
+      "estimated": [
+        104,
+        110
+      ],
+      "composition": [
+        {
+          "frostmage": 15,
+          "spore_toad": 11
+        },
+        {
+          "reaper_mantis": 12,
+          "screech_cricket": 9,
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 30.21666666666623,
+      "wallMs": 1790.8150859999987,
+      "minInitialGap": 2,
+      "created": 63,
+      "hpRatio": 0.06204506065857886,
+      "survivingCostRatio": 0.1
+    },
+    {
+      "run": 604,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        41,
+        24
+      ],
+      "costs": [
+        124,
+        131
+      ],
+      "estimated": [
+        124,
+        131
+      ],
+      "composition": [
+        {
+          "reaper_mantis": 14,
+          "screech_cricket": 10,
+          "goblin": 17
+        },
+        {
+          "spear": 5,
+          "siege_crab": 8,
+          "slime": 11
+        }
+      ],
+      "simSeconds": 34.28333333333267,
+      "wallMs": 1607.5535610000006,
+      "minInitialGap": 2,
+      "created": 83,
+      "hpRatio": 0.26546610169491525,
+      "survivingCostRatio": 0.40458015267175573
+    },
+    {
+      "run": 604,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        28,
+        36
+      ],
+      "costs": [
+        146,
+        155
+      ],
+      "estimated": [
+        146,
+        155
+      ],
+      "composition": [
+        {
+          "spear": 6,
+          "siege_crab": 8,
+          "slime": 14
+        },
+        {
+          "shield": 15,
+          "boar": 11,
+          "spore_toad": 10
+        }
+      ],
+      "simSeconds": 43.216666666665496,
+      "wallMs": 1697.509898999997,
+      "minInitialGap": 2,
+      "created": 92,
+      "hpRatio": 0.29454545454545455,
+      "survivingCostRatio": 0.4315068493150685
+    },
+    {
+      "run": 604,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        33,
+        59
+      ],
+      "costs": [
+        164,
+        174
+      ],
+      "estimated": [
+        164,
+        174
+      ],
+      "composition": [
+        {
+          "spear": 8,
+          "siege_crab": 8,
+          "slime": 17
+        },
+        {
+          "goblin": 22,
+          "sword": 18,
+          "frostmage": 19
+        }
+      ],
+      "simSeconds": 54.69999999999818,
+      "wallMs": 3249.238400000002,
+      "minInitialGap": 2,
+      "created": 126,
+      "hpRatio": 0.01838316722037652,
+      "survivingCostRatio": 0.06896551724137931
+    },
+    {
+      "run": 605,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 0,
+      "counts": [
+        6,
+        6
+      ],
+      "costs": [
+        18,
+        18
+      ],
+      "estimated": [
+        18,
+        18
+      ],
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 15.450000000000347,
+      "wallMs": 62.4534879999992,
+      "minInitialGap": 2,
+      "created": 12,
+      "hpRatio": 0.26,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 605,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        8
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "slime": 8
+        }
+      ],
+      "simSeconds": 19.766666666666826,
+      "wallMs": 206.50290099999984,
+      "minInitialGap": 2,
+      "created": 34,
+      "hpRatio": 0.474,
+      "survivingCostRatio": 0.8
+    },
+    {
+      "run": 605,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        6
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "rider": 6
+        }
+      ],
+      "simSeconds": 19.36666666666685,
+      "wallMs": 218.99799699999858,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.05733333333333333,
+      "survivingCostRatio": 0.13333333333333333
+    },
+    {
+      "run": 605,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        19
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "sword": 20
+        },
+        {
+          "archer": 12,
+          "shield": 7
+        }
+      ],
+      "simSeconds": 18.85000000000021,
+      "wallMs": 683.1016799999998,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.4031413612565445,
+      "survivingCostRatio": 0.65625
+    },
+    {
+      "run": 605,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        22,
+        16
+      ],
+      "costs": [
+        74,
+        78
+      ],
+      "estimated": [
+        74,
+        78
+      ],
+      "composition": [
+        {
+          "archer": 14,
+          "shield": 8
+        },
+        {
+          "spear": 10,
+          "rider": 6
+        }
+      ],
+      "simSeconds": 21.666666666666718,
+      "wallMs": 581.6709510000001,
+      "minInitialGap": 2,
+      "created": 38,
+      "hpRatio": 0.2736363636363636,
+      "survivingCostRatio": 0.4189189189189189
+    },
+    {
+      "run": 605,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        26,
+        25
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "archer": 17,
+          "shield": 9
+        },
+        {
+          "slime": 17,
+          "bombbug": 8
+        }
+      ],
+      "simSeconds": 24.916666666666533,
+      "wallMs": 1015.5357629999999,
+      "minInitialGap": 2,
+      "created": 71,
+      "hpRatio": 0.2823909531502423,
+      "survivingCostRatio": 0.33695652173913043
+    },
+    {
+      "run": 605,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        28,
+        21
+      ],
+      "costs": [
+        102,
+        108
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "slime": 18,
+          "bombbug": 10
+        },
+        {
+          "wraith": 8,
+          "screech_cricket": 4,
+          "slime": 9
+        }
+      ],
+      "simSeconds": 27.933333333333028,
+      "wallMs": 1726.0846680000031,
+      "minInitialGap": 2,
+      "created": 108,
+      "hpRatio": 0.27690014903129656,
+      "survivingCostRatio": 0.30392156862745096
+    },
+    {
+      "run": 605,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        32,
+        21
+      ],
+      "costs": [
+        116,
+        123
+      ],
+      "estimated": [
+        116,
+        123
+      ],
+      "composition": [
+        {
+          "slime": 20,
+          "bombbug": 12
+        },
+        {
+          "sky_harpooner": 6,
+          "rootwarden_treant": 8,
+          "sword": 7
+        }
+      ],
+      "simSeconds": 42.049999999998896,
+      "wallMs": 1546.6564010000002,
+      "minInitialGap": 2,
+      "created": 67,
+      "hpRatio": 0.3466666666666667,
+      "survivingCostRatio": 0.41379310344827586
+    },
+    {
+      "run": 605,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        36,
+        26
+      ],
+      "costs": [
+        130,
+        138
+      ],
+      "estimated": [
+        130,
+        138
+      ],
+      "composition": [
+        {
+          "slime": 22,
+          "bombbug": 14
+        },
+        {
+          "golem": 8,
+          "reaper_mantis": 10,
+          "screech_cricket": 8
+        }
+      ],
+      "simSeconds": 33.133333333332736,
+      "wallMs": 1425.504006999996,
+      "minInitialGap": 2,
+      "created": 86,
+      "hpRatio": 0.3079710144927536,
+      "survivingCostRatio": 0.3076923076923077
+    },
+    {
+      "run": 605,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        40,
+        44
+      ],
+      "costs": [
+        145,
+        154
+      ],
+      "estimated": [
+        145,
+        154
+      ],
+      "composition": [
+        {
+          "slime": 25,
+          "bombbug": 15
+        },
+        {
+          "screech_cricket": 19,
+          "sky_harpooner": 16,
+          "slime": 9
+        }
+      ],
+      "simSeconds": 27.349999999999728,
+      "wallMs": 2256.439127999998,
+      "minInitialGap": 2,
+      "created": 113,
+      "hpRatio": 0.5681762545899632,
+      "survivingCostRatio": 0.6482758620689655
+    },
+    {
+      "run": 606,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        4,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "shield": 4
+        },
+        {
+          "archer": 6
+        }
+      ],
+      "simSeconds": 24.666666666666547,
+      "wallMs": 78.7913950000002,
+      "minInitialGap": 2,
+      "created": 10,
+      "hpRatio": 0.5555555555555556,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 606,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        16
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 14.416666666666963,
+      "wallMs": 163.76159100000223,
+      "minInitialGap": 2,
+      "created": 26,
+      "hpRatio": 0.1975,
+      "survivingCostRatio": 0.25
+    },
+    {
+      "run": 606,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        16
+      ],
+      "costs": [
+        46,
+        48
+      ],
+      "estimated": [
+        46,
+        48
+      ],
+      "composition": [
+        {
+          "goblin": 23
+        },
+        {
+          "archer": 16
+        }
+      ],
+      "simSeconds": 15.800000000000365,
+      "wallMs": 455.9196680000023,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.04,
+      "survivingCostRatio": 0.17391304347826086
+    },
+    {
+      "run": 606,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        30,
+        22
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "goblin": 30
+        },
+        {
+          "shield": 10,
+          "goblin": 12
+        }
+      ],
+      "simSeconds": 15.883333333333702,
+      "wallMs": 1481.0019459999967,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.336,
+      "survivingCostRatio": 0.5333333333333333
+    },
+    {
+      "run": 606,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        37,
+        26
+      ],
+      "costs": [
+        74,
+        78
+      ],
+      "estimated": [
+        74,
+        78
+      ],
+      "composition": [
+        {
+          "goblin": 37
+        },
+        {
+          "spear": 11,
+          "archer": 15
+        }
+      ],
+      "simSeconds": 11.950000000000173,
+      "wallMs": 1319.7286339999991,
+      "minInitialGap": 2,
+      "created": 63,
+      "hpRatio": 0.37275204359673025,
+      "survivingCostRatio": 0.5384615384615384
+    },
+    {
+      "run": 606,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        29,
+        23
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "spear": 12,
+          "archer": 17
+        },
+        {
+          "shield": 10,
+          "spore_toad": 13
+        }
+      ],
+      "simSeconds": 26.6833333333331,
+      "wallMs": 1406.1246610000017,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.5607843137254902,
+      "survivingCostRatio": 0.8620689655172413
+    },
+    {
+      "run": 606,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        34,
+        21
+      ],
+      "costs": [
+        102,
+        108
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "spear": 16,
+          "archer": 18
+        },
+        {
+          "bounty_hound": 9,
+          "golem": 3,
+          "sky_harpooner": 9
+        }
+      ],
+      "simSeconds": 20.68333333333344,
+      "wallMs": 1247.5325969999976,
+      "minInitialGap": 2,
+      "created": 55,
+      "hpRatio": 0.6061475409836066,
+      "survivingCostRatio": 0.7352941176470589
+    },
+    {
+      "run": 606,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        38,
+        28
+      ],
+      "costs": [
+        114,
+        121
+      ],
+      "estimated": [
+        114,
+        121
+      ],
+      "composition": [
+        {
+          "spear": 18,
+          "archer": 20
+        },
+        {
+          "boar": 9,
+          "frostmage": 11,
+          "shield": 8
+        }
+      ],
+      "simSeconds": 26.066666666666467,
+      "wallMs": 1603.1195799999987,
+      "minInitialGap": 2,
+      "created": 66,
+      "hpRatio": 0.1978021978021978,
+      "survivingCostRatio": 0.2631578947368421
+    },
+    {
+      "run": 606,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        43,
+        37
+      ],
+      "costs": [
+        129,
+        137
+      ],
+      "estimated": [
+        129,
+        137
+      ],
+      "composition": [
+        {
+          "spear": 18,
+          "archer": 25
+        },
+        {
+          "slime": 9,
+          "burrower": 15,
+          "goblin": 13
+        }
+      ],
+      "simSeconds": 20.550000000000114,
+      "wallMs": 2088.232609999999,
+      "minInitialGap": 2,
+      "created": 98,
+      "hpRatio": 0.4392739273927393,
+      "survivingCostRatio": 0.5116279069767442
+    },
+    {
+      "run": 606,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 5,
+      "counts": [
+        48,
+        27
+      ],
+      "costs": [
+        144,
+        129
+      ],
+      "estimated": [
+        144,
+        153
+      ],
+      "composition": [
+        {
+          "spear": 19,
+          "archer": 29
+        },
+        {
+          "sky_harpooner": 9,
+          "slime": 6,
+          "stormmage": 12
+        }
+      ],
+      "simSeconds": 19.13333333333353,
+      "wallMs": 1744.7274499999985,
+      "minInitialGap": 2,
+      "created": 85,
+      "hpRatio": 0.363922942206655,
+      "survivingCostRatio": 0.49612403100775193
+    },
+    {
+      "run": 607,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "spear": 6
+        }
+      ],
+      "simSeconds": 10.683333333333444,
+      "wallMs": 19.724319999993895,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.592156862745098,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 607,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        16
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "spear": 10
+        },
+        {
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 9.650000000000059,
+      "wallMs": 182.4142739999952,
+      "minInitialGap": 2,
+      "created": 26,
+      "hpRatio": 0.5411764705882353,
+      "survivingCostRatio": 0.7
+    },
+    {
+      "run": 607,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        24
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "spear": 15
+        },
+        {
+          "goblin": 24
+        }
+      ],
+      "simSeconds": 11.633333333333491,
+      "wallMs": 538.0933999999979,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.40941176470588236,
+      "survivingCostRatio": 0.6
+    },
+    {
+      "run": 607,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        32
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "spear": 20
+        },
+        {
+          "screech_cricket": 16,
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 21.35000000000007,
+      "wallMs": 962.5337800000052,
+      "minInitialGap": 2,
+      "created": 52,
+      "hpRatio": 0.21058823529411766,
+      "survivingCostRatio": 0.3
+    },
+    {
+      "run": 607,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        19
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "spear": 24
+        },
+        {
+          "slime": 6,
+          "frostmage": 13
+        }
+      ],
+      "simSeconds": 26.516666666666442,
+      "wallMs": 813.690168000001,
+      "minInitialGap": 2,
+      "created": 55,
+      "hpRatio": 0.1525959367945824,
+      "survivingCostRatio": 0.21052631578947367
+    },
+    {
+      "run": 607,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        22,
+        27
+      ],
+      "costs": [
+        88,
+        93
+      ],
+      "estimated": [
+        88,
+        93
+      ],
+      "composition": [
+        {
+          "slime": 7,
+          "frostmage": 15
+        },
+        {
+          "spore_toad": 12,
+          "archer": 15
+        }
+      ],
+      "simSeconds": 33.58333333333271,
+      "wallMs": 967.9366939999964,
+      "minInitialGap": 2,
+      "created": 63,
+      "hpRatio": 0.10155642023346304,
+      "survivingCostRatio": 0.22727272727272727
+    },
+    {
+      "run": 607,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        25,
+        41
+      ],
+      "costs": [
+        100,
+        106
+      ],
+      "estimated": [
+        100,
+        106
+      ],
+      "composition": [
+        {
+          "slime": 7,
+          "frostmage": 18
+        },
+        {
+          "goblin": 17,
+          "archer": 8,
+          "sword": 16
+        }
+      ],
+      "simSeconds": 25.19999999999985,
+      "wallMs": 2164.114368999988,
+      "minInitialGap": 2,
+      "created": 80,
+      "hpRatio": 0.1430034129692833,
+      "survivingCostRatio": 0.22641509433962265
+    },
+    {
+      "run": 607,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        45,
+        23
+      ],
+      "costs": [
+        118,
+        125
+      ],
+      "estimated": [
+        118,
+        125
+      ],
+      "composition": [
+        {
+          "goblin": 17,
+          "archer": 11,
+          "sword": 17
+        },
+        {
+          "healer": 8,
+          "sword": 7,
+          "golem": 8
+        }
+      ],
+      "simSeconds": 27.949999999999694,
+      "wallMs": 2764.941430000006,
+      "minInitialGap": 2,
+      "created": 68,
+      "hpRatio": 0.45950155763239875,
+      "survivingCostRatio": 0.5677966101694916
+    },
+    {
+      "run": 607,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        50,
+        27
+      ],
+      "costs": [
+        132,
+        140
+      ],
+      "estimated": [
+        132,
+        140
+      ],
+      "composition": [
+        {
+          "goblin": 18,
+          "archer": 14,
+          "sword": 18
+        },
+        {
+          "drake": 8,
+          "cannon": 9,
+          "spear": 10
+        }
+      ],
+      "simSeconds": 19.183333333333525,
+      "wallMs": 1384.5273400000005,
+      "minInitialGap": 2,
+      "created": 77,
+      "hpRatio": 0.254326561324304,
+      "survivingCostRatio": 0.38571428571428573
+    },
+    {
+      "run": 607,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        31,
+        32
+      ],
+      "costs": [
+        155,
+        164
+      ],
+      "estimated": [
+        155,
+        164
+      ],
+      "composition": [
+        {
+          "drake": 8,
+          "cannon": 10,
+          "spear": 13
+        },
+        {
+          "spear": 10,
+          "sky_harpooner": 14,
+          "wraith": 8
+        }
+      ],
+      "simSeconds": 19.616666666666834,
+      "wallMs": 1326.7641079999885,
+      "minInitialGap": 2,
+      "created": 85,
+      "hpRatio": 0.3152428810720268,
+      "survivingCostRatio": 0.5032258064516129
+    },
+    {
+      "run": 608,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        4
+      ],
+      "costs": [
+        16,
+        16
+      ],
+      "estimated": [
+        16,
+        16
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "shield": 4
+        }
+      ],
+      "simSeconds": 15.883333333333702,
+      "wallMs": 17.220096999997622,
+      "minInitialGap": 2,
+      "created": 6,
+      "hpRatio": 0.6521739130434783,
+      "survivingCostRatio": 1
+    },
+    {
+      "run": 608,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        4,
+        17
+      ],
+      "costs": [
+        32,
+        34
+      ],
+      "estimated": [
+        32,
+        34
+      ],
+      "composition": [
+        {
+          "rider": 4
+        },
+        {
+          "goblin": 17
+        }
+      ],
+      "simSeconds": 11.116666666666799,
+      "wallMs": 151.61680600000545,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.23294117647058823,
+      "survivingCostRatio": 0.4117647058823529
+    },
+    {
+      "run": 608,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        16
+      ],
+      "costs": [
+        46,
+        48
+      ],
+      "estimated": [
+        46,
+        48
+      ],
+      "composition": [
+        {
+          "goblin": 23
+        },
+        {
+          "archer": 16
+        }
+      ],
+      "simSeconds": 15.400000000000345,
+      "wallMs": 443.4072460000025,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.228125,
+      "survivingCostRatio": 0.3125
+    },
+    {
+      "run": 608,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        20,
+        16
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "archer": 20
+        },
+        {
+          "slime": 12,
+          "shield": 4
+        }
+      ],
+      "simSeconds": 30.316666666666226,
+      "wallMs": 785.3583280000021,
+      "minInitialGap": 2,
+      "created": 60,
+      "hpRatio": 0.7441666666666666,
+      "survivingCostRatio": 0.75
+    },
+    {
+      "run": 608,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        24,
+        25
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "archer": 24
+        },
+        {
+          "screech_cricket": 12,
+          "frostmage": 13
+        }
+      ],
+      "simSeconds": 23.383333333333287,
+      "wallMs": 740.742001000006,
+      "minInitialGap": 2,
+      "created": 49,
+      "hpRatio": 0.28125,
+      "survivingCostRatio": 0.3333333333333333
+    },
+    {
+      "run": 608,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        29,
+        25
+      ],
+      "costs": [
+        87,
+        92
+      ],
+      "estimated": [
+        87,
+        92
+      ],
+      "composition": [
+        {
+          "archer": 29
+        },
+        {
+          "goblin": 11,
+          "boar": 14
+        }
+      ],
+      "simSeconds": 21.3833333333334,
+      "wallMs": 1214.3940560000046,
+      "minInitialGap": 2,
+      "created": 54,
+      "hpRatio": 0.0764367816091954,
+      "survivingCostRatio": 0.10344827586206896
+    },
+    {
+      "run": 608,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 4,
+      "counts": [
+        33,
+        29
+      ],
+      "costs": [
+        100,
+        106
+      ],
+      "estimated": [
+        100,
+        106
+      ],
+      "composition": [
+        {
+          "archer": 32,
+          "frostmage": 1
+        },
+        {
+          "bombbug": 10,
+          "healer": 8,
+          "spore_toad": 11
+        }
+      ],
+      "simSeconds": 24.516666666666556,
+      "wallMs": 1691.2061580000009,
+      "minInitialGap": 2,
+      "created": 62,
+      "hpRatio": 0.5117206982543641,
+      "survivingCostRatio": 0.73
+    },
+    {
+      "run": 608,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 5,
+      "counts": [
+        37,
+        33
+      ],
+      "costs": [
+        114,
+        121
+      ],
+      "estimated": [
+        114,
+        121
+      ],
+      "composition": [
+        {
+          "archer": 34,
+          "frostmage": 3
+        },
+        {
+          "burrower": 11,
+          "archer": 13,
+          "bombbug": 9
+        }
+      ],
+      "simSeconds": 7.666666666666645,
+      "wallMs": 472.05856700000004,
+      "minInitialGap": 2,
+      "created": 70,
+      "hpRatio": 0.353757225433526,
+      "survivingCostRatio": 0.45454545454545453
+    },
+    {
+      "run": 608,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        37,
+        41
+      ],
+      "costs": [
+        135,
+        143
+      ],
+      "estimated": [
+        135,
+        143
+      ],
+      "composition": [
+        {
+          "burrower": 12,
+          "archer": 15,
+          "bombbug": 10
+        },
+        {
+          "bombbug": 16,
+          "burrower": 10,
+          "archer": 15
+        }
+      ],
+      "simSeconds": 16.55000000000034,
+      "wallMs": 467.4136109999963,
+      "minInitialGap": 2,
+      "created": 78,
+      "hpRatio": 0.06308724832214765,
+      "survivingCostRatio": 0.14685314685314685
+    },
+    {
+      "run": 608,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        47,
+        37
+      ],
+      "costs": [
+        161,
+        147
+      ],
+      "estimated": [
+        161,
+        171
+      ],
+      "composition": [
+        {
+          "bombbug": 20,
+          "burrower": 10,
+          "archer": 17
+        },
+        {
+          "stormmage": 12,
+          "slime": 12,
+          "bombbug": 13
+        }
+      ],
+      "simSeconds": 15.683333333333692,
+      "wallMs": 785.2252969999972,
+      "minInitialGap": 2,
+      "created": 102,
+      "hpRatio": 0.1649932157394844,
+      "survivingCostRatio": 0.21768707482993196
+    },
+    {
+      "run": 609,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        6
+      ],
+      "costs": [
+        16,
+        18
+      ],
+      "estimated": [
+        16,
+        18
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "simSeconds": 13.8333333333336,
+      "wallMs": 44.25179500000377,
+      "minInitialGap": 2,
+      "created": 8,
+      "hpRatio": 0.2866666666666667,
+      "survivingCostRatio": 0.6666666666666666
+    },
+    {
+      "run": 609,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        10,
+        16
+      ],
+      "costs": [
+        30,
+        32
+      ],
+      "estimated": [
+        30,
+        32
+      ],
+      "composition": [
+        {
+          "sword": 10
+        },
+        {
+          "goblin": 16
+        }
+      ],
+      "simSeconds": 10.616666666666774,
+      "wallMs": 210.3458030000038,
+      "minInitialGap": 2,
+      "created": 26,
+      "hpRatio": 0.366,
+      "survivingCostRatio": 0.6
+    },
+    {
+      "run": 609,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        15,
+        12
+      ],
+      "costs": [
+        45,
+        48
+      ],
+      "estimated": [
+        45,
+        48
+      ],
+      "composition": [
+        {
+          "sword": 15
+        },
+        {
+          "shield": 12
+        }
+      ],
+      "simSeconds": 21.23333333333341,
+      "wallMs": 572.2707449999871,
+      "minInitialGap": 2,
+      "created": 27,
+      "hpRatio": 0.5533333333333333,
+      "survivingCostRatio": 0.8
+    },
+    {
+      "run": 609,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        20,
+        16
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "sword": 20
+        },
+        {
+          "frostmage": 9,
+          "shield": 7
+        }
+      ],
+      "simSeconds": 23.783333333333264,
+      "wallMs": 607.5845490000065,
+      "minInitialGap": 2,
+      "created": 36,
+      "hpRatio": 0.1425,
+      "survivingCostRatio": 0.3
+    },
+    {
+      "run": 609,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 4,
+      "counts": [
+        24,
+        22
+      ],
+      "costs": [
+        72,
+        76
+      ],
+      "estimated": [
+        72,
+        76
+      ],
+      "composition": [
+        {
+          "sword": 24
+        },
+        {
+          "spear": 12,
+          "frostmage": 10
+        }
+      ],
+      "simSeconds": 17.76666666666694,
+      "wallMs": 902.5326840000052,
+      "minInitialGap": 2,
+      "created": 46,
+      "hpRatio": 0.44545454545454544,
+      "survivingCostRatio": 0.5394736842105263
+    },
+    {
+      "run": 609,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        25,
+        13
+      ],
+      "costs": [
+        88,
+        93
+      ],
+      "estimated": [
+        88,
+        93
+      ],
+      "composition": [
+        {
+          "spear": 12,
+          "frostmage": 13
+        },
+        {
+          "golem": 9,
+          "sword": 4
+        }
+      ],
+      "simSeconds": 21.083333333333417,
+      "wallMs": 747.3375419999938,
+      "minInitialGap": 2,
+      "created": 38,
+      "hpRatio": 0.7204705882352941,
+      "survivingCostRatio": 0.7840909090909091
+    },
+    {
+      "run": 609,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 2,
+      "counts": [
+        29,
+        29
+      ],
+      "costs": [
+        102,
+        108
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "spear": 14,
+          "frostmage": 15
+        },
+        {
+          "wraith": 7,
+          "screech_cricket": 14,
+          "bombbug": 8
+        }
+      ],
+      "simSeconds": 9.866666666666736,
+      "wallMs": 1626.8552159999963,
+      "minInitialGap": 2,
+      "created": 79,
+      "hpRatio": 0.6118811881188119,
+      "survivingCostRatio": 0.7870370370370371
+    },
+    {
+      "run": 609,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        32,
+        21
+      ],
+      "costs": [
+        120,
+        127
+      ],
+      "estimated": [
+        120,
+        127
+      ],
+      "composition": [
+        {
+          "wraith": 8,
+          "screech_cricket": 16,
+          "bombbug": 8
+        },
+        {
+          "bounty_hound": 6,
+          "golem": 7,
+          "reaper_mantis": 8
+        }
+      ],
+      "simSeconds": 17.06666666666698,
+      "wallMs": 2754.2749890000123,
+      "minInitialGap": 2,
+      "created": 77,
+      "hpRatio": 0.6352941176470588,
+      "survivingCostRatio": 0.7583333333333333
+    },
+    {
+      "run": 609,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        36,
+        25
+      ],
+      "costs": [
+        135,
+        143
+      ],
+      "estimated": [
+        135,
+        143
+      ],
+      "composition": [
+        {
+          "wraith": 9,
+          "screech_cricket": 18,
+          "bombbug": 9
+        },
+        {
+          "bounty_hound": 8,
+          "bombbug": 7,
+          "rootwarden_treant": 10
+        }
+      ],
+      "simSeconds": 49.999999999998444,
+      "wallMs": 1417.0662479999883,
+      "minInitialGap": 2,
+      "created": 88,
+      "hpRatio": 0.05150326797385621,
+      "survivingCostRatio": 0.13333333333333333
+    },
+    {
+      "run": 609,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        42,
+        29
+      ],
+      "costs": [
+        151,
+        160
+      ],
+      "estimated": [
+        151,
+        160
+      ],
+      "composition": [
+        {
+          "wraith": 9,
+          "screech_cricket": 20,
+          "bombbug": 13
+        },
+        {
+          "wraith": 14,
+          "sky_harpooner": 6,
+          "screech_cricket": 9
+        }
+      ],
+      "simSeconds": 11.416666666666814,
+      "wallMs": 3095.3797230000055,
+      "minInitialGap": 2,
+      "created": 132,
+      "hpRatio": 0.6261077844311377,
+      "survivingCostRatio": 0.7748344370860927
+    },
+    {
+      "run": 610,
+      "round": 1,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 0,
+      "counts": [
+        2,
+        4
+      ],
+      "costs": [
+        16,
+        16
+      ],
+      "estimated": [
+        16,
+        16
+      ],
+      "composition": [
+        {
+          "rider": 2
+        },
+        {
+          "shield": 4
+        }
+      ],
+      "simSeconds": 15.883333333333702,
+      "wallMs": 18.136965999990935,
+      "minInitialGap": 2,
+      "created": 6,
+      "hpRatio": 0.6304347826086957,
+      "survivingCostRatio": 1
+    },
+    {
+      "run": 610,
+      "round": 2,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        4,
+        17
+      ],
+      "costs": [
+        32,
+        34
+      ],
+      "estimated": [
+        32,
+        34
+      ],
+      "composition": [
+        {
+          "rider": 4
+        },
+        {
+          "goblin": 17
+        }
+      ],
+      "simSeconds": 11.750000000000163,
+      "wallMs": 193.30675699999847,
+      "minInitialGap": 2,
+      "created": 21,
+      "hpRatio": 0.3788235294117647,
+      "survivingCostRatio": 0.6470588235294118
+    },
+    {
+      "run": 610,
+      "round": 3,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        16
+      ],
+      "costs": [
+        46,
+        48
+      ],
+      "estimated": [
+        46,
+        48
+      ],
+      "composition": [
+        {
+          "goblin": 23
+        },
+        {
+          "spear": 16
+        }
+      ],
+      "simSeconds": 11.850000000000168,
+      "wallMs": 484.9829829999944,
+      "minInitialGap": 2,
+      "created": 39,
+      "hpRatio": 0.42058823529411765,
+      "survivingCostRatio": 0.5
+    },
+    {
+      "run": 610,
+      "round": 4,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 1,
+      "counts": [
+        20,
+        25
+      ],
+      "costs": [
+        60,
+        64
+      ],
+      "estimated": [
+        60,
+        64
+      ],
+      "composition": [
+        {
+          "spear": 20
+        },
+        {
+          "bombbug": 14,
+          "screech_cricket": 11
+        }
+      ],
+      "simSeconds": 6.633333333333315,
+      "wallMs": 178.27577900000324,
+      "minInitialGap": 2,
+      "created": 45,
+      "hpRatio": 0.7656565656565657,
+      "survivingCostRatio": 0.71875
+    },
+    {
+      "run": 610,
+      "round": 5,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        29,
+        30
+      ],
+      "costs": [
+        73,
+        77
+      ],
+      "estimated": [
+        73,
+        77
+      ],
+      "composition": [
+        {
+          "bombbug": 15,
+          "screech_cricket": 14
+        },
+        {
+          "goblin": 13,
+          "sword": 17
+        }
+      ],
+      "simSeconds": 6.683333333333315,
+      "wallMs": 417.2579390000028,
+      "minInitialGap": 2,
+      "created": 59,
+      "hpRatio": 0.6789625360230548,
+      "survivingCostRatio": 0.6301369863013698
+    },
+    {
+      "run": 610,
+      "round": 6,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        35,
+        28
+      ],
+      "costs": [
+        88,
+        93
+      ],
+      "estimated": [
+        88,
+        93
+      ],
+      "composition": [
+        {
+          "bombbug": 18,
+          "screech_cricket": 17
+        },
+        {
+          "spear": 19,
+          "bounty_hound": 9
+        }
+      ],
+      "simSeconds": 5.816666666666651,
+      "wallMs": 535.6027779999858,
+      "minInitialGap": 2,
+      "created": 63,
+      "hpRatio": 0.7727923627684964,
+      "survivingCostRatio": 0.7272727272727273
+    },
+    {
+      "run": 610,
+      "round": 7,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "B",
+      "streakBefore": 3,
+      "counts": [
+        41,
+        19
+      ],
+      "costs": [
+        102,
+        94
+      ],
+      "estimated": [
+        102,
+        108
+      ],
+      "composition": [
+        {
+          "bombbug": 20,
+          "screech_cricket": 21
+        },
+        {
+          "golem": 5,
+          "stormmage": 7,
+          "screech_cricket": 7
+        }
+      ],
+      "simSeconds": 15.450000000000347,
+      "wallMs": 712.6519289999997,
+      "minInitialGap": 2,
+      "created": 60,
+      "hpRatio": 0.2205733558178752,
+      "survivingCostRatio": 0.3617021276595745
+    },
+    {
+      "run": 610,
+      "round": 8,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 1,
+      "counts": [
+        23,
+        42
+      ],
+      "costs": [
+        105,
+        128
+      ],
+      "estimated": [
+        121,
+        128
+      ],
+      "composition": [
+        {
+          "golem": 5,
+          "stormmage": 8,
+          "screech_cricket": 10
+        },
+        {
+          "slime": 16,
+          "archer": 12,
+          "screech_cricket": 14
+        }
+      ],
+      "simSeconds": 23.533333333333278,
+      "wallMs": 1556.7382329999964,
+      "minInitialGap": 2,
+      "created": 96,
+      "hpRatio": 0.4759259259259259,
+      "survivingCostRatio": 0.6761904761904762
+    },
+    {
+      "run": 610,
+      "round": 9,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 2,
+      "counts": [
+        27,
+        23
+      ],
+      "costs": [
+        120,
+        144
+      ],
+      "estimated": [
+        136,
+        144
+      ],
+      "composition": [
+        {
+          "golem": 6,
+          "stormmage": 8,
+          "screech_cricket": 13
+        },
+        {
+          "bombbug": 4,
+          "rider": 14,
+          "bounty_hound": 5
+        }
+      ],
+      "simSeconds": 18.883333333333542,
+      "wallMs": 913.8940419999999,
+      "minInitialGap": 2,
+      "created": 50,
+      "hpRatio": 0.3835294117647059,
+      "survivingCostRatio": 0.44166666666666665
+    },
+    {
+      "run": 610,
+      "round": 10,
+      "modelDecision": null,
+      "archetypeDecision": {
+        "requested": "normal",
+        "realized": "normal",
+        "fallbackReason": null
+      },
+      "winner": "A",
+      "streakBefore": 3,
+      "counts": [
+        30,
+        49
+      ],
+      "costs": [
+        132,
+        161
+      ],
+      "estimated": [
+        152,
+        161
+      ],
+      "composition": [
+        {
+          "golem": 6,
+          "stormmage": 10,
+          "screech_cricket": 14
+        },
+        {
+          "archer": 16,
+          "sword": 19,
+          "shield": 14
+        }
+      ],
+      "simSeconds": 29.5999999999996,
+      "wallMs": 2514.3743800000084,
+      "minInitialGap": 2,
+      "created": 79,
+      "hpRatio": 0.16617283950617284,
+      "survivingCostRatio": 0.3106060606060606
+    }
+  ],
+  "stopped": []
+}

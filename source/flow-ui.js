@@ -4,7 +4,7 @@ const RESULT_READ_SECONDS=3;
 let pausePanelOpen=false,pausePanelWasPaused=false;
 let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
 function resetResultRead(){resultReadSeconds=0;resultReadLast=null;syncResultProgress();}
-function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=TOTAL_ROUNDS||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
+function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=sessionRoundLimit()||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
 function commitArmy(side){
  if(screenMode!=='game'||state!=='choose')return;
  if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
@@ -16,7 +16,7 @@ document.querySelector('#blue').onclick=()=>commitArmy(1);
 document.querySelector('#confirm').hidden=false;
 document.querySelector('#confirm').onclick=()=>{if(!predictionPreview)startPrediction(false);};
 function advanceResultRead(t){
- if(multiSession||state!=='result'||round>=TOTAL_ROUNDS||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
+ if(multiSession||state!=='result'||round>=sessionRoundLimit()||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
  if(resultReadRound!==round){resetResultRead();resultReadRound=round;}
  if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
  resultReadLast=t;
@@ -35,15 +35,16 @@ showScreen=function(next){if(next!==screenMode)resetResultRead();flowScreen(next
 let cameraZoom=1,unitsOpen=false,unitsPausedSolo=false,unitsReturnFocus=null;
 let cameraX=240,cameraY=269,cameraDrag=null,cameraFitScale=1,cameraFitBounds={left:0,top:0,right:480,bottom:538};
 function centerFixedCamera(){cameraX=(cameraFitBounds.left+cameraFitBounds.right)/2;cameraY=(cameraFitBounds.top+cameraFitBounds.bottom)/2;}
+const BASE_VISUAL_META={"sword": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [18, 40, 24, 0], "hover_gap": 0}, "shield": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [16, 38, 22, 0], "hover_gap": 0}, "archer": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [15, 36, 24, 0], "hover_gap": 0}, "spear": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [20, 49, 33, 0], "hover_gap": 0}, "cannon": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [22, 39, 29, 1], "hover_gap": 0}, "rider": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [24, 51, 31, 1], "hover_gap": 0}, "healer": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [17, 49, 22, 0], "hover_gap": 0}};
 function configureFixedCamera(){
  cameraFitBounds={left:0,top:0,right:480,bottom:538};cameraFitScale=1;
- if(initialUnits.some(u=>(TYPES[u.k].radius||0)>25))for(const u of initialUnits){const m=MONSTER_META[u.k];if(!m)continue;const r=TYPES[u.k].radius||0,v=m.visual_insets||[m.anchor[0],m.anchor[1],m.cell[0]-m.anchor[0],m.cell[1]-m.anchor[1]],hover=m.hover_gap||0;cameraFitBounds.left=Math.min(cameraFitBounds.left,r-v[0]-4);cameraFitBounds.right=Math.max(cameraFitBounds.right,480-r+v[2]+4);cameraFitBounds.top=Math.min(cameraFitBounds.top,r-Math.max(v[1],m.anchor[1]+5)-hover-4);cameraFitBounds.bottom=Math.max(cameraFitBounds.bottom,538-r+v[3]-hover+4);}
+ for(const u of initialUnits){const m=MONSTER_META[u.k]||BASE_VISUAL_META[u.k];if(!m)continue;const r=TYPES[u.k].radius||0,v=m.visual_insets||[m.anchor[0],m.anchor[1],m.cell[0]-m.anchor[0],m.cell[1]-m.anchor[1]],hover=m.hover_gap||0;cameraFitBounds.left=Math.min(cameraFitBounds.left,r-Math.max(v[0],v[2])-4);cameraFitBounds.right=Math.max(cameraFitBounds.right,480-r+Math.max(v[0],v[2])+4);cameraFitBounds.top=Math.min(cameraFitBounds.top,r-v[1]-5-hover-4);cameraFitBounds.bottom=Math.max(cameraFitBounds.bottom,538-r+v[3]-hover+4);}
  cameraFitScale=Math.min(1,480/(cameraFitBounds.right-cameraFitBounds.left),538/(cameraFitBounds.bottom-cameraFitBounds.top));cameraZoom=1;centerFixedCamera();cameraDrag=null;
 }
 function clampCamera(){const scale=cameraFitScale*cameraZoom,hx=240/scale,hy=269/scale,b=cameraFitBounds;cameraX=b.right-b.left<=2*hx?(b.left+b.right)/2:Math.max(b.left+hx,Math.min(b.right-hx,cameraX));cameraY=b.bottom-b.top<=2*hy?(b.top+b.bottom)/2:Math.max(b.top+hy,Math.min(b.bottom-hy,cameraY));}
 const flowDraw=draw;
 draw=function(){
- clampCamera();ctx.save();ctx.clearRect(0,0,480,538);ctx.fillStyle="#35463d";ctx.fillRect(0,0,480,538);
+ if(multiRecording)return;clampCamera();ctx.save();ctx.clearRect(0,0,480,538);ctx.fillStyle="#35463d";ctx.fillRect(0,0,480,538);
  ctx.translate(240,269);ctx.scale(cameraFitScale*cameraZoom,cameraFitScale*cameraZoom);ctx.translate(-cameraX,-cameraY);flowDraw();ctx.restore();
 };
 function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'none':'auto';el.style.cursor=cameraZoom>1?(cameraDrag?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraZoom>1?'。拡大中はドラッグで移動、全体ボタンで戻る':''));}
@@ -54,7 +55,7 @@ cameraCanvas.onpointerdown=e=>{if(cameraZoom<=1||e.isPrimary===false||(e.button!
 cameraCanvas.onpointermove=e=>{if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraX=cameraDrag.cx-(e.clientX-cameraDrag.x)/(cameraDrag.scale*cameraFitScale*cameraZoom);cameraY=cameraDrag.cy-(e.clientY-cameraDrag.y)/(cameraDrag.scale*cameraFitScale*cameraZoom);clampCamera();e.preventDefault?.();draw();};
 function endCameraDrag(e){if(!cameraDrag||cameraDrag.id!==e.pointerId)return;cameraDrag=null;if(cameraCanvas.hasPointerCapture?.(e.pointerId))cameraCanvas.releasePointerCapture(e.pointerId);syncCameraInput();}
 cameraCanvas.onpointerup=endCameraDrag;cameraCanvas.onpointercancel=endCameraDrag;cameraCanvas.onlostpointercapture=()=>{cameraDrag=null;syncCameraInput();};
-const cameraSetup=setup;setup=function(seedValue){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue);configureFixedCamera();syncCameraInput();draw();};
+const cameraSetup=setup;setup=function(seedValue,prepared){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue,prepared);configureFixedCamera();syncCameraInput();draw();};
 const cameraResetMultiRound=resetMultiRound;resetMultiRound=function(){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraResetMultiRound();syncCameraInput();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',()=>{cameraDrag=null;clampCamera();syncCameraInput();draw();});
 // Copy-only override for fillUnitStats; append after screen-ui.js and flow-ui.js.
@@ -99,7 +100,7 @@ function toggleUnits(open){
 function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
  q('#gameScreen')?.setAttribute('data-phase',state);if(pausePanelOpen&&state!=='fight')closePausePanel();
- const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<TOTAL_ROUNDS;
+ const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<sessionRoundLimit();
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',cameraZoom===1]])if(q(id))q(id).disabled=disabled;
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }

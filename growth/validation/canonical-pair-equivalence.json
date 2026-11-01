@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "battles": 102,
+  "manualLCGAndSharedProductionModuleSameResults": true,
+  "mechanicalTypesExact": true,
+  "provenance": {
+    "html": "c0ab6e16626645a7b82ff81a71e5255aa71d8bd9b8eebc8e53bc4df36ff07a01",
+    "typesExtract": "1d55b55e35d17e150ca4e839c9ccac949c693e0bb466e07a1ff3eb2e2e636a3e",
+    "physics": "de207d32d82568877d44383dc65cfbfb35c5b224e89f9cfc1d8a2af433bc6185",
+    "initialUnits": "56f7d28cff77729e6b25421f868bf7dd4c07c859a391205cdaa9d5b66fc481c0",
+    "initializer": "production instantiateOpening direct import; no copied RNG"
+  }
+}

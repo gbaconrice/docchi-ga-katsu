@@ -1,0 +1,86 @@
+[
+  {
+    "k": "sword",
+    "scale": 0.9266409266409267,
+    "areaRatio": 0.8586634069259552,
+    "physicalWidthAt296Css": 274.2857142857143,
+    "bounds": {
+      "left": -19,
+      "top": -40,
+      "right": 499,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "goblin",
+    "scale": 0.9195402298850575,
+    "areaRatio": 0.8455542343770643,
+    "physicalWidthAt296Css": 272.18390804597703,
+    "bounds": {
+      "left": -21,
+      "top": -41,
+      "right": 501,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "slime",
+    "scale": 0.9471830985915493,
+    "areaRatio": 0.8971558222574885,
+    "physicalWidthAt296Css": 280.36619718309856,
+    "bounds": {
+      "left": -13,
+      "top": -30,
+      "right": 493,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "boar",
+    "scale": 0.9056603773584906,
+    "areaRatio": 0.8202207191171236,
+    "physicalWidthAt296Css": 268.07547169811323,
+    "bounds": {
+      "left": -25,
+      "top": -37,
+      "right": 505,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "golem",
+    "scale": 0.890728476821192,
+    "areaRatio": 0.7933972194202009,
+    "physicalWidthAt296Css": 263.65562913907286,
+    "bounds": {
+      "left": -26,
+      "top": -66,
+      "right": 506,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "rootwarden_treant",
+    "scale": 0.8078078078078078,
+    "areaRatio": 0.6525534543552561,
+    "physicalWidthAt296Css": 239.11111111111111,
+    "bounds": {
+      "left": -55,
+      "top": -128,
+      "right": 535,
+      "bottom": 538
+    }
+  },
+  {
+    "k": "siege_crab",
+    "scale": 0.8191126279863481,
+    "areaRatio": 0.6709454973267015,
+    "physicalWidthAt296Css": 242.45733788395904,
+    "bounds": {
+      "left": -53,
+      "top": -98,
+      "right": 533,
+      "bottom": 538
+    }
+  }
+]

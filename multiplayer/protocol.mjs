@@ -156,7 +156,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
       // Canonical fixed-tick events/outcome, produced by a separate deterministic core.
       if(!replay||!sid(replay.engineVersion)||!integer(replay.ticks)||!['A','B','draw'].includes(replay.winner)||!Array.isArray(replay.events))throw new Error('invalid-replay');
       let packed=null,replayError=null;
-      try{packed=packReplay(replay,`${sessionId}:${state.roundId}`);}catch(error){if(error.message!=='replay-buffer-cap')throw error;replayError='replay-buffer-cap';}
+      try{if(replay.unavailable==='replay-byte-cap')throw Error('replay-buffer-cap');if(replay.unavailable!==undefined)throw Error('invalid-replay-unavailable');packed=packReplay(replay,`${sessionId}:${state.roundId}`);}catch(error){if(error.message!=='replay-buffer-cap')throw error;replayError='replay-buffer-cap';}
       const replayStartAt=now()+2000;if(!integer(replayStartAt))throw new Error('invalid-clock');
       const prepared=settle({sessionId,roundId:state.roundId,winner:replay.winner,bets:clone(state.bets),now:now()});
       if(prepared?.then)throw new Error('synchronous-settlement-required');

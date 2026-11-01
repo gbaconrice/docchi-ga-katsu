@@ -1,0 +1,146 @@
+{
+  "sword": {
+    "cost": 3,
+    "estimateCost": 3,
+    "radius": 9,
+    "air": false
+  },
+  "shield": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 12,
+    "air": false
+  },
+  "spear": {
+    "cost": 3,
+    "estimateCost": 3,
+    "radius": 9,
+    "air": false
+  },
+  "archer": {
+    "cost": 3,
+    "estimateCost": 3,
+    "radius": 8,
+    "air": true
+  },
+  "cannon": {
+    "cost": 6,
+    "estimateCost": 6,
+    "radius": 14,
+    "air": true
+  },
+  "rider": {
+    "cost": 8,
+    "estimateCost": 8,
+    "radius": 15,
+    "air": false
+  },
+  "healer": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 8,
+    "air": false
+  },
+  "goblin": {
+    "cost": 2,
+    "estimateCost": 2,
+    "radius": 7,
+    "air": false
+  },
+  "golem": {
+    "cost": 9,
+    "estimateCost": 9,
+    "radius": 25,
+    "air": false
+  },
+  "drake": {
+    "cost": 7,
+    "estimateCost": 7,
+    "radius": 13,
+    "air": true
+  },
+  "wraith": {
+    "cost": 8,
+    "estimateCost": 8,
+    "radius": 9,
+    "air": true
+  },
+  "boar": {
+    "cost": 5,
+    "estimateCost": 5,
+    "radius": 14,
+    "air": false
+  },
+  "bombbug": {
+    "cost": 3,
+    "estimateCost": 3,
+    "radius": 9,
+    "air": false
+  },
+  "frostmage": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 8,
+    "air": true
+  },
+  "stormmage": {
+    "cost": 5,
+    "estimateCost": 7,
+    "radius": 8,
+    "air": true
+  },
+  "burrower": {
+    "cost": 5,
+    "estimateCost": 5,
+    "radius": 11,
+    "air": false
+  },
+  "slime": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 16,
+    "air": false
+  },
+  "screech_cricket": {
+    "cost": 2,
+    "estimateCost": 2,
+    "radius": 8,
+    "air": false
+  },
+  "reaper_mantis": {
+    "cost": 5,
+    "estimateCost": 5,
+    "radius": 13,
+    "air": false
+  },
+  "spore_toad": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 17,
+    "air": false
+  },
+  "rootwarden_treant": {
+    "cost": 9,
+    "estimateCost": 9,
+    "radius": 27,
+    "air": false
+  },
+  "sky_harpooner": {
+    "cost": 5,
+    "estimateCost": 5,
+    "radius": 11,
+    "air": true
+  },
+  "bounty_hound": {
+    "cost": 4,
+    "estimateCost": 4,
+    "radius": 11,
+    "air": false
+  },
+  "siege_crab": {
+    "cost": 9,
+    "estimateCost": 9,
+    "radius": 28,
+    "air": false
+  }
+}

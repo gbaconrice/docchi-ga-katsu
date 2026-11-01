@@ -175,3 +175,5 @@ test('clock moving backwards cannot reopen the rate-limit window', () => {
   assert.equal(channel.react('cheer'), true);
   assert.equal(sent.length, 2);
 });
+
+test('explicit local-only extension channel allows safe later rounds but never sends or receives wire',()=>{let sent=0;const c=createReactionChannel({roomId:'solo',sessionId:'extension',userId:'local',localOnly:true,send:()=>{sent++},getMembers:()=>['local']});c.setRound(1000);assert.equal(c.react('wow'),true);assert.equal(c.getFeed()[0].roundId,1000);assert.equal(sent,0);assert.equal(c.receive('other','{}'),false);assert.throws(()=>c.setRound(Number.MAX_SAFE_INTEGER+1));});

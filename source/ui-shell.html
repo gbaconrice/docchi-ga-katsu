@@ -114,8 +114,12 @@
       <h3 id="message" class="result-title"></h3>
       <p id="breakdown" class="result-summary"></p>
       <p id="resultRanking" class="result-ranking" hidden></p>
-      <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
+      <p id="checkpointNet" class="checkpoint-net" hidden></p>
+      <div class="compatibility-hooks" hidden aria-hidden="true">
+        <span id="profit"></span><span id="hits"></span>
+      </div>
       <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <div id="extensionChoices" class="extension-choices" hidden><button id="extend5" type="button">+5 戦</button><button id="extend10" type="button">+10 戦</button><small>延長後は BET 損益のみ</small></div>
       <div id="resultProgress" class="result-progress" hidden aria-label="次の対戦まで"><span id="resultProgressFill"></span></div>
       <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
