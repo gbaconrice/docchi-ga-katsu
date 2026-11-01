@@ -1,0 +1,149 @@
+{
+  "provenance": "SpritePilot original PNG files, unmodified",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "review_date": "2026-11-01",
+  "filter": "nearest",
+  "pixel_scale": "same as unit sprites; never normalize to unit bounding box",
+  "effects": {
+    "hit_spark": {
+      "file": "assets/hit-spark-32px_strip6.png",
+      "size": [
+        192,
+        32
+      ],
+      "cell": [
+        32,
+        32
+      ],
+      "frames": 6,
+      "fps": 15,
+      "source_loop": false,
+      "anchor": [
+        16,
+        16
+      ],
+      "url": "https://spritepilot.com/free-assets/effects/hit-spark-32px_strip6.png",
+      "source_page": "https://spritepilot.com/free-game-assets/effects",
+      "sha256": "42cfa3bca751e9a96fb5b4ac436f36867a9a8a70d3b588fcf16a933a2f384ebd",
+      "modified": false,
+      "usage": "A short contact cue. Spawn at resolved impact point, not target feet."
+    },
+    "arrow": {
+      "file": "assets/arrow-32px_strip4.png",
+      "size": [
+        128,
+        32
+      ],
+      "cell": [
+        32,
+        32
+      ],
+      "frames": 4,
+      "fps": 12,
+      "source_loop": true,
+      "anchor": [
+        16,
+        16
+      ],
+      "url": "https://spritepilot.com/free-assets/combat/arrow-32px_strip4.png",
+      "source_page": "https://spritepilot.com/free-game-assets/combat",
+      "sha256": "852c16f854d43dfe5977de58ebf1d6871cb541e23c07c63e5dc5a38e9c6fa4ad",
+      "modified": false,
+      "usage": "Projectile visual only; runtime flight owns position, facing and collision."
+    },
+    "ground_slam": {
+      "file": "assets/ground-slam-32px_strip9.png",
+      "size": [
+        288,
+        32
+      ],
+      "cell": [
+        32,
+        32
+      ],
+      "frames": 9,
+      "fps": 14,
+      "source_loop": false,
+      "anchor": [
+        16,
+        27
+      ],
+      "url": "https://spritepilot.com/free-assets/combat/ground-slam-32px_strip9.png",
+      "source_page": "https://spritepilot.com/free-game-assets/combat",
+      "sha256": "3b68b56715b3483a3394b0be03d67450bde3e3986f54629225d98f3695c54206",
+      "modified": false,
+      "usage": "Golem landing/heavy ground-contact visual only when that contact event actually occurs; never infer AoE damage from this sprite."
+    },
+    "magic_sparkle": {
+      "file": "assets/magic-sparkle-32px_strip8.png",
+      "size": [
+        256,
+        32
+      ],
+      "cell": [
+        32,
+        32
+      ],
+      "frames": 8,
+      "fps": 10,
+      "source_loop": true,
+      "anchor": [
+        16,
+        16
+      ],
+      "url": "https://spritepilot.com/free-assets/effects/magic-sparkle-32px_strip8.png",
+      "source_page": "https://spritepilot.com/free-game-assets/effects",
+      "sha256": "c3f8e0b9c042bf51d3aefea757a232aa08722a76ffaac04d9a938bc27a6eb622",
+      "modified": false,
+      "usage": "Healer successful heal or wraith successful summon only, capped at 0.8s; not a generic attack effect."
+    },
+    "muzzle_flash": {
+      "file": "assets/muzzle-flash-32px_strip5.png",
+      "size": [
+        160,
+        32
+      ],
+      "cell": [
+        32,
+        32
+      ],
+      "frames": 5,
+      "fps": 20,
+      "source_loop": false,
+      "anchor": [
+        2,
+        16
+      ],
+      "url": "https://spritepilot.com/free-assets/combat/muzzle-flash-32px_strip5.png",
+      "source_page": "https://spritepilot.com/free-game-assets/combat",
+      "sha256": "9e9cac6f8e0253933ec900f831ee32ab167ea09629b07e3ec8368b276535bc61",
+      "modified": false,
+      "usage": "Attach to cannon muzzle, then remove after 250ms; facing right, flip when needed."
+    }
+  },
+  "event_mapping": {
+    "hit_spark": "resolved_hit",
+    "arrow": "arrow_projectile_flight",
+    "ground_slam": "golem_ground_contact",
+    "magic_sparkle": [
+      "healer_successful_heal",
+      "wraith_successful_summon"
+    ],
+    "muzzle_flash": "cannon_projectile_release"
+  },
+  "budget": {
+    "source_png_bytes": 3501,
+    "source_png_byte_cap": 16384,
+    "max_active_transient_effects": 24,
+    "low_spec_max_active_transient_effects": 12,
+    "max_active_ground_slam": 4,
+    "max_active_magic_sparkle": 4,
+    "max_active_muzzle_flash": 6,
+    "visual_hit_coalesce_radius_px": 12,
+    "visual_hit_coalesce_window_ms": 80,
+    "projectile_note": "Do not delete simulation projectiles. Simplify arrow animation to frame 0 under presentation load.",
+    "particle_system": "none; baked PNG sprite pixels only",
+    "layer_note": "ground_slam behind actors; muzzle/hit/cast accents above; no full-screen flash"
+  }
+}

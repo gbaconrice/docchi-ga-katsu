@@ -1,0 +1,12 @@
+<div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
+<noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
+<script>
+(function () {
+  var box = document.getElementById('bootStatus');
+  window.addEventListener('error', function (event) {
+    box.hidden = false;
+    box.textContent = 'ゲームを開始できませんでした: ' + (event.message || '実行エラー') + '（行 ' + (event.lineno || '?') + '）。この表示をお知らせください。';
+  });
+  window.__gameBootComplete = function () { box.hidden = true; };
+}());
+</script>

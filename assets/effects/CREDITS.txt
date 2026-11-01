@@ -1,0 +1,14 @@
+Selected VFX PNG artwork: SpritePilot — CC0 1.0 Universal.
+https://spritepilot.com/free-game-assets/combat
+https://spritepilot.com/free-game-assets/effects
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Files: hit-spark-32px_strip6.png, arrow-32px_strip4.png,
+ground-slam-32px_strip9.png, magic-sparkle-32px_strip8.png,
+muzzle-flash-32px_strip5.png.
+All included PNG asset bytes are unmodified from official downloads.
+Credit is retained voluntarily as provenance; endorsement is not claimed.
+
+Original GRAVITY characters/monsters are separate original artwork, not part
+of these third-party assets. They are not included in this effects package.
+

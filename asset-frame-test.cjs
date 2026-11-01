@@ -1,31 +1,17 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script>([\s\S]*)<\/script>/)[1];
-const calls=[];const ctx=new Proxy({drawImage:(...a)=>calls.push(a),createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
-const dummy={getContext:()=>ctx};const c={TextEncoder,TextDecoder,btoa,atob,document:{querySelector:()=>dummy},Math,requestAnimationFrame:()=>{},Image:class {complete=true;naturalWidth=432}};
-vm.createContext(c);vm.runInContext(script,c);
-const assets=vm.runInContext('SPRITE_ASSETS',c);
-for(const side of ['red','blue','redExpansion','blueExpansion']){const b=Buffer.from(assets[side].split(',')[1],'base64');const expansion=side.includes('Expansion');assert.equal(b.readUInt32BE(16),expansion?576:432);assert.equal(b.readUInt32BE(20),expansion?256:144);assert.equal(Buffer.compare(b,fs.readFileSync((expansion?'assets/expansion/gravity_expansion_atlas':'assets/gravity_units_atlas')+(side.startsWith('red')?'_red':'')+'.png')),0)}
-vm.runInContext(`(()=>{
-  function check(v,msg){if(!v)throw Error(msg)}
-  setup(7);state='fight';units=[{id:0,side:0,k:'sword',x:100,y:100,hp:100,cd:.1,dead:false},{id:100,side:1,k:'shield',x:120,y:100,hp:170,cd:10,dead:false}];
-  let u=units[0];check(spriteFrame(u)===3,'windup');u.cd=0;step(1/60);
-  check(spriteFrame(u)===4,'strike same tick as damage');check(units[1].hp===153,'melee applied');
-  visualTime+=.09;check(spriteFrame(u)===5,'recover');visualTime+=.2;u.cd=1;check(spriteFrame(u)===0,'idle');
-  visualFor(u).moving=true;visualTime=.05;visualFor(u).attack=-Infinity;check(spriteFrame(u)===1,'walk_a');visualTime=.2;check(spriteFrame(u)===2,'walk_b');
-  visualFor(u).hit=visualTime;check(spriteFrame(u)===6,'hit');u.dead=true;visualFor(u).death=visualTime;check(spriteFrame(u)===7,'fall');visualTime+=.17;check(spriteFrame(u)===8,'down');
-  setup(8);state='fight';units=[{id:0,side:0,k:'archer',x:100,y:100,hp:60,cd:0,dead:false},{id:100,side:1,k:'shield',x:200,y:100,hp:170,cd:10,dead:false}];
-  step(1/60);check(spriteFrame(units[0])===4&&shots.length===1,'arrow spawn same strike tick');
-  for(let k of ['spear','rider','cannon','healer']){
-    setup(8);state='fight';units=[{id:0,side:0,k,x:100,y:100,hp:TYPES[k].hp,cd:0,dead:false},{id:100,side:1,k:'shield',x:120,y:100,hp:170,cd:10,dead:false}];
-    if(k==='healer')units.push({id:1,side:0,k:'sword',x:105,y:100,hp:50,cd:10,dead:false});
-    step(1/60);check(spriteFrame(units[0])===4,k+' strike event');
-    if(k==='healer')check(units[2].hp===63,'heal cast same tick');
-    if(k==='cannon')check(shots.length===1,'cannon projectile same tick');
-    if(k==='spear'||k==='rider')check(units[1].hp===170-TYPES[k].dmg,'melee expanded same tick');
-  }
-  for(let k of ['sword','shield','archer','spear','cannon','rider','healer'])for(let side of [0,1]){let u={k,side,x:100,y:100,hp:TYPES[k].hp,cd:1,dead:false};check(drawSprite(u),'atlas role');}
-  check(!drawSprite({k:'unknown'}),'unknown type fallback');
-})()`,c);
-for(const a of calls){const expanded=a[3]===64;assert(a[1]>=0&&a[1]+a[3]<=(expanded?576:432));assert(a[2]>=0&&a[2]+a[4]<=(expanded?256:144));assert.deepEqual(a.slice(5),expanded?[-29,-53,64,64]:[-21,-41,48,48]);}
+const fs=require('fs'),vm=require('vm'),assert=require('assert'),crypto=require('crypto');
+const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1],calls=[];
+const ctx=new Proxy({drawImage:(...a)=>calls.push(a),createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),dummy={getContext:()=>ctx,setAttribute(){}};
+const c={TextEncoder,TextDecoder,btoa,atob,document:{querySelector:()=>dummy},Math,requestAnimationFrame:()=>{},Image:class{complete=true;naturalWidth=1}};
+vm.createContext(c);vm.runInContext(script,c);vm.runInContext("openSoloScreen()",c);const run=s=>vm.runInContext(s,c);
+const assets=run('SPRITE_ASSETS'),effects=run('EFFECT_ASSETS'),meta=run('MONSTER_META'),fxMeta=run('EFFECT_META');
+function bytes(data){return Buffer.from(data.split(',')[1],'base64')}
+for(const [side,file] of [['red','gravity_units_atlas_red.png'],['blue','gravity_units_atlas.png'],['redExpansion','expansion/gravity_expansion_atlas_red.png'],['blueExpansion','expansion/gravity_expansion_atlas.png']])assert.equal(Buffer.compare(bytes(assets[side]),fs.readFileSync('assets/'+file)),0);
+for(const [k,m] of Object.entries(meta))for(const side of ['red','blue'])assert.equal(Buffer.compare(bytes(assets[k+'_'+side]),fs.readFileSync('assets/monsters/'+(side==='red'?m.red_atlas:m.atlas))),0);
+for(const [k,uri] of Object.entries(effects)){const b=bytes(uri),m=fxMeta[k];assert.equal(crypto.createHash('sha256').update(b).digest('hex'),m.sha256);assert.equal(Buffer.compare(b,fs.readFileSync('assets/effects/'+m.file.split('/').pop())),0)}
+calls.length=0;
+run(`(()=>{const prior=spriteFrame;for(const k of keys)for(const side of [0,1])for(let frame=0;frame<9;frame++){spriteFrame=()=>frame;const u={k,side,x:200,y:250,hp:TYPES[k].hp,dead:frame>=7};if(!drawSprite(u))throw Error(k+' absent')}spriteFrame=prior;
+for(const [kind,m] of Object.entries(EFFECT_META))for(let frame=0;frame<m.frames;frame++)if(!drawEffect(kind,100,100,(frame+.1)*60/m.fps))throw Error('effect absent');
+})()`);
+for(const a of calls){const b=bytes(a[0].src),width=b.readUInt32BE(16),height=b.readUInt32BE(20);assert(a[1]>=0&&a[2]>=0&&a[1]+a[3]<=width&&a[2]+a[4]<=height);assert.equal(a[3],a[7]);assert.equal(a[4],a[8]);}
 assert.equal(ctx.imageSmoothingEnabled,false);
-console.log('PASS: embedded PNG bytes, dimensions, 7 roles x 2 teams, frame bounds, anchor, nearest filter, attack/hit/death/walk frames, melee/arrow event sync');
+console.log('PASS: 11 kinds x 2 teams x 9 frames; geometry bounds/native scale/nearest; 5 effects source SHA/bytes/frame bounds; no image modifications');

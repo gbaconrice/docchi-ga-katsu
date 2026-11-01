@@ -1,0 +1,18 @@
+Reviewed 2026-11-01 UTC via official source pages and exact downloaded files.
+
+SpritePilot Combat source:
+https://spritepilot.com/free-game-assets/combat
+SpritePilot Effects source:
+https://spritepilot.com/free-game-assets/effects
+Both pages contain a 'Free for any use (CC0)' section and link CC0 1.0.
+Short source wording: "Everything here is released under CC0 1.0".
+Their stated permission includes commercial projects, modification and sharing.
+Each selected file is linked directly from its respective official pack page.
+Exact binary SHA-256 records and direct image URLs: effects_manifest.json.
+
+Official CC0 deed:
+https://creativecommons.org/publicdomain/zero/1.0/
+Official CC0 legal code (included verbatim):
+https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt
+The license text itself is dedicated to the public domain by Creative Commons.
+

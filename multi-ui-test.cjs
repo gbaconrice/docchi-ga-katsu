@@ -1,13 +1,13 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script>([\s\S]*)<\/script>/)[1],nodes={},scheduled=[];let now=100000,scriptLoads=0;
+const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1],nodes={},scheduled=[];let now=100000,scriptLoads=0;
 const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
-const q=s=>nodes[s]??=(s==='canvas'?{getContext:()=>ctx}:{hidden:false,disabled:false,attrs:{},setAttribute(k,v){this.attrs[k]=v}});
+const q=s=>nodes[s]??=((s==='canvas'||s==='#field')?{getContext:()=>ctx}:{hidden:false,disabled:false,attrs:{},setAttribute(k,v){this.attrs[k]=v}});
 const Clock=class extends Date{static now(){return now}};
-const c={TextEncoder,TextDecoder,btoa,atob,Date:Clock,document:{querySelector:q,createElement(){scriptLoads++;return{}},head:{appendChild(){}}},Math,requestAnimationFrame:fn=>scheduled.push(fn)};vm.createContext(c);vm.runInContext(script,c);
+const c={TextEncoder,TextDecoder,btoa,atob,Date:Clock,document:{querySelector:q,createElement(){scriptLoads++;return{}},head:{appendChild(){}}},Math,requestAnimationFrame:fn=>scheduled.push(fn)};vm.createContext(c);vm.runInContext(script,c);vm.runInContext("openSoloScreen()",c);
 const run=s=>vm.runInContext(s,c);
 assert.equal(scriptLoads,0);assert.equal(run('multiSession'),null);
 run('beginMock()');assert.equal(run('multiSnapshot.phase'),'lobby');assert.equal(run('multiSnapshot.participants.length'),2);
-run('openMultiRound()');assert.equal(run('multiSnapshot.phase'),'predict');assert(!q('#comparison').hidden);assert.equal(run('multiSnapshot.matchup.maxUnits'),16);
+run('openMultiRound()');assert.equal(run('multiSnapshot.phase'),'predict');assert(!q('#comparison').hidden);assert.equal(run('multiSnapshot.matchup.maxInitialUnits'),16);
 run('selectSide(0);selectStake(25);startPrediction()');
 now+=100;run('pumpMulti(Date.now())');assert.equal(run('multiSession.getLedger().completedRounds'),1);assert.equal(q('#balance').textContent,'100 G');
 for(let i=0;i<1000&&run('multiSession.getState().phase')!=='result';i++){now+=100;run('pumpMulti(Date.now())')}

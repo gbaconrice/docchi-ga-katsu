@@ -1,3 +1,4 @@
+import {createClockEstimator} from './clock-sync.mjs';
 import {packReplay,validMeta,createSender,createReceiver} from './replay-transfer.mjs';
 /** Client-host coordination, NOT a trusted server or private transport. */
 export const PROTOCOL = 'gravity-prediction-battle';
@@ -32,6 +33,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     try {const result=send(wire);if(result?.then)result.catch(()=>stop('transport-error'));return result;}
     catch {stop('transport-error');return null;}
   };
+  const clockEstimator=host?null:createClockEstimator({now,send:emit});
   function notify(){onChange(clone(state));}
   function requireHost(){if(!host||state.phase==='stopped')throw new Error('host-only-or-stopped');}
   function broadcast(){emit({type:'snapshot',state});}
@@ -47,6 +49,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     if(state.phase==='stopped')return;
     if(host){if(state.phase==='predict'&&now()>=state.deadline)closePrediction();if(['battle','settle','result'].includes(state.phase)&&outgoing){if(outgoing.expired()&&!outgoing.ready(state.participants.filter(id=>id!==hostId))){if(state.replayError!=='delivery-timeout')commit({replayError:'delivery-timeout'});}else outgoing.pump();}}
     else if(now()-lastHostSeen>=hostTimeoutMs)stop('host-timeout');
+    else clockEstimator.probe();
   }
   function receive(sender,wire){
     if(!sid(sender)||state.phase==='stopped')return false;
@@ -54,6 +57,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     if(!m||m.roomId!==roomId||m.sessionId!==sessionId)return false;
     if(!host){
       if(sender!==hostId)return false;
+      if(m.type==='clock-reply'){if(m.targetId!==userId||!clockEstimator.accept(m))return false;lastHostSeen=now();notify();return true;}
       if(m.type==='replay-chunk')return incoming?.receive(m)??false;
       if(m.type!=='snapshot')return false;
       const s=m.state;
@@ -64,11 +68,17 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
         (s.phase==='predict'&&(!integer(s.deadline)||!integer(s.roundId))))return false;
       lastHostSeen=now(); // duplicate heartbeat is live, but never rewinds state
       if(s.revision<=state.revision)return true;
-      if(s.replay&&!validMeta(s.replay))return false;
+      if(s.replay&&(!validMeta(s.replay)||!integer(s.replayStartAt)))return false;
+      if(s.roundId!==state.roundId){canonicalReplay=null;incoming=null;}
       if(s.replay&&s.replay.battleId!==state.replay?.battleId){canonicalReplay=null;incoming=createReceiver({meta:s.replay,sendAck:ack=>emit({type:'replay-ack',...ack}),onComplete:replay=>{canonicalReplay=replay;notify();}});}
       state=clone(s);notify();return true;
     }
     tick();
+    if(m.type==='clock-probe'){
+      if(!state.participants.includes(sender)&&!state.spectators.includes(sender))return false;
+      if(!sid(m.token)||!integer(m.clientTime))return false;
+      emit({type:'clock-reply',targetId:sender,token:m.token,clientTime:m.clientTime,hostTime:now()});return true;
+    }
     if(m.type==='replay-ack')return outgoing?.ack(sender,m)??false;
     if(m.type==='hello'){
       if(!state.participants.includes(sender)&&!state.spectators.includes(sender)){
@@ -97,11 +107,20 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     if(privateBets.size===state.participants.length)closePrediction();
     return true;
   }
+  function getPlaybackClock(){
+    const estimate=host?{known:true,estimatedHostNow:now(),uncertaintyMs:0,sampleAgeMs:0,status:'host-clock'}:clockEstimator.estimate();
+    const startAt=integer(state.replayStartAt)?state.replayStartAt:null;
+    const ready=estimate.known&&startAt!==null&&!!canonicalReplay&&state.phase!=='stopped';
+    const sceneTick=ready?Math.min(canonicalReplay.ticks,Math.max(0,Math.floor((estimate.estimatedHostNow-startAt)*60/1000))):null;
+    const status=state.phase==='stopped'?'stopped':!estimate.known?estimate.status:!canonicalReplay||startAt===null?'waiting-replay':estimate.estimatedHostNow<startAt?'waiting-start':sceneTick>=canonicalReplay.ticks?'finished':'playing';
+    return {...estimate,startAt,ready,sceneTick,status};
+  }
   return Object.freeze({
+    getPlaybackClock,requestClockSync(){return host?false:clockEstimator.probe(true);},
     receive,tick,getState:()=>clone(state),getReplay:()=>canonicalReplay?clone(canonicalReplay):null,
     isReplayDelivered:()=>host?!!outgoing?.ready(state.participants.filter(id=>id!==hostId)):!!canonicalReplay,
     getTransferStatus:()=>({ready:host?!!outgoing?.ready(state.participants.filter(id=>id!==hostId)):!!canonicalReplay,error:state.replayError||null,resultConfirmed:!!state.confirmedResult}),
-    hello(){if(!host)emit({type:'hello'});else broadcast();},
+    hello(){if(!host){emit({type:'hello'});clockEstimator.probe(true);}else broadcast();},
     heartbeat(){if(host&&state.phase!=='stopped'){tick();broadcast();}},
     openRound({roundId,durationMs,matchup}){
       requireHost();if(!['lobby','result'].includes(state.phase)||!integer(roundId)||roundId<1||settled.has(roundId)||!integer(durationMs)||durationMs<1)throw new Error('invalid-round');
@@ -109,7 +128,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
       // Matchup must contain public army configuration only; do not send future seed.
       encode(envelope({type:'snapshot',state:{...state,matchup}}));
       const prepared=onOpenRound({sessionId,roundId,deadline});
-      commit({phase:'predict',roundId,deadline,matchup:clone(matchup),readyIds:[],bets:[],winner:null,replay:null,replayError:null,confirmedResult:null,...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
+      commit({phase:'predict',roundId,deadline,matchup:clone(matchup),readyIds:[],bets:[],winner:null,replay:null,replayStartAt:null,replayError:null,confirmedResult:null,...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
     },
     predict(side,stake){
       tick();if(state.phase!=='predict')return false;
@@ -122,11 +141,12 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
       if(!replay||!sid(replay.engineVersion)||!integer(replay.ticks)||!['A','B','draw'].includes(replay.winner)||!Array.isArray(replay.events))throw new Error('invalid-replay');
       let packed=null,replayError=null;
       try{packed=packReplay(replay,`${sessionId}:${state.roundId}`);}catch(error){if(error.message!=='replay-buffer-cap')throw error;replayError='replay-buffer-cap';}
+      const replayStartAt=now()+2000;if(!integer(replayStartAt))throw new Error('invalid-clock');
       const prepared=settle({sessionId,roundId:state.roundId,winner:replay.winner,bets:clone(state.bets),now:now()});
       if(prepared?.then)throw new Error('synchronous-settlement-required');
       const transfer=packed?createSender({packed,recipients:[...state.participants,...state.spectators].filter(id=>id!==hostId),send:emit,now}):null;
       commit({phase:'battle',replay:packed?{...packed.meta,engineVersion:replay.engineVersion,ticks:replay.ticks}:null,
-        replayError,confirmedResult:{roundId:state.roundId,winner:replay.winner},wallets:clone(prepared?.wallets??null)},()=>{
+        replayStartAt,replayError,confirmedResult:{roundId:state.roundId,winner:replay.winner},wallets:clone(prepared?.wallets??null)},()=>{
           prepared?.commit?.();settled.add(state.roundId);canonicalReplay=packed?clone(replay):null;outgoing=transfer;
         });
       outgoing?.pump();

@@ -1,8 +1,8 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script>([\s\S]*)<\/script>/)[1],nodes={};
+const html=fs.readFileSync('index.html','utf8'),script=html.match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1],nodes={};
 const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
-const q=s=>nodes[s]??=(s==='canvas'?{getContext:()=>ctx}:{hidden:false,disabled:false,attrs:{},setAttribute(k,v){this.attrs[k]=v}});
-const c={TextEncoder,TextDecoder,btoa,atob,document:{querySelector:q},Math,requestAnimationFrame:()=>{}};vm.createContext(c);vm.runInContext(script,c);
+const q=s=>nodes[s]??=((s==='canvas'||s==='#field')?{getContext:()=>ctx}:{hidden:false,disabled:false,attrs:{},setAttribute(k,v){this.attrs[k]=v}});
+const c={TextEncoder,TextDecoder,btoa,atob,document:{querySelector:q},Math,requestAnimationFrame:()=>{}};vm.createContext(c);vm.runInContext(script,c);vm.runInContext("openSoloScreen()",c);
 function run(s){return vm.runInContext(s,c)}
 assert(q('#confirm').disabled);assert(q('#battle').hidden);assert(!q('#comparison').hidden);
 run('startPrediction()');assert.equal(run('state'),'choose');assert.equal(run('walletState.currentRound.commits.length'),0);
@@ -27,6 +27,6 @@ run('selectStake(50)');assert.equal(run('selectedStake'),0);
 run("selectSide(0);startPrediction();walletState=Wallet.settleRound(walletState,{sessionId:'zero',roundId:round,outcome:'A',now:0});state='result';update()");
 assert.equal(run('currentWallet().balance'),10);assert.equal(run('currentWallet().score'),-90);
 assert(!/残機|3回外れ/.test(html.slice(0,html.indexOf('<script>'))));
-assert.equal((html.match(/data:image\/png;base64,/g)||[]).length,4);
+assert.equal((html.match(/data:image\/png;base64,/g)||[]).length,17);
 assert(!/(?:src|href)=["']https?:\/\//.test(html.slice(0,html.indexOf('<script>'))));
 console.log('PASS: explicit side+stake, no implicit wager, duplicate lock, reserve, settlement once, skip, 20-round continuation, new-session reset, zero-balance recovery, signed score, phase DOM, standalone assets');

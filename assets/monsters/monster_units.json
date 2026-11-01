@@ -1,0 +1,187 @@
+{
+  "frame_columns": [
+    "idle",
+    "walk_a",
+    "walk_b",
+    "windup",
+    "strike",
+    "recover",
+    "hit",
+    "fall",
+    "down"
+  ],
+  "filter": "nearest",
+  "animations": {
+    "idle": {
+      "frames": [
+        0
+      ],
+      "ms": [
+        400
+      ]
+    },
+    "walk": {
+      "frames": [
+        1,
+        0,
+        2,
+        0
+      ],
+      "ms": [
+        110,
+        65,
+        110,
+        65
+      ]
+    },
+    "attack": {
+      "frames": [
+        3,
+        4,
+        5,
+        0
+      ],
+      "ms": [
+        140,
+        85,
+        160,
+        100
+      ]
+    },
+    "hit": {
+      "frames": [
+        6,
+        0
+      ],
+      "ms": [
+        100,
+        100
+      ]
+    },
+    "death": {
+      "frames": [
+        7,
+        8
+      ],
+      "ms": [
+        160,
+        999999
+      ],
+      "loop": false
+    }
+  },
+  "roles": {
+    "goblin": {
+      "atlas": "monster_goblin_atlas.png",
+      "cell": [
+        64,
+        64
+      ],
+      "atlas_size": [
+        576,
+        64
+      ],
+      "anchor": [
+        29,
+        53
+      ],
+      "hover_gap": 0,
+      "red_atlas": "monster_goblin_atlas_red.png",
+      "atlas_sha256": "486bbb241df2eb542f98253ea077b2f4f882b93e8b8a3eec95d99958be79e42a"
+    },
+    "golem": {
+      "atlas": "monster_golem_atlas.png",
+      "cell": [
+        96,
+        96
+      ],
+      "atlas_size": [
+        864,
+        96
+      ],
+      "anchor": [
+        48,
+        86
+      ],
+      "hover_gap": 0,
+      "red_atlas": "monster_golem_atlas.png",
+      "team_note": "Natural material color remains fixed; use runtime army marker, not whole-body tint.",
+      "atlas_sha256": "5e4a3a609dceb1cef8271dc40ea97131f88b6c1f5703b3a080d62acb8e1ae80b"
+    },
+    "drake": {
+      "atlas": "monster_drake_atlas.png",
+      "cell": [
+        80,
+        80
+      ],
+      "atlas_size": [
+        720,
+        80
+      ],
+      "anchor": [
+        40,
+        66
+      ],
+      "hover_gap": 12,
+      "red_atlas": "monster_drake_atlas.png",
+      "team_note": "Natural material color remains fixed; use runtime army marker, not whole-body tint.",
+      "atlas_sha256": "50da06d7da8a338a639d0fa17fdc6eeb2fec71e7c934b1a521a227768cffc5eb"
+    },
+    "wraith": {
+      "atlas": "monster_wraith_atlas.png",
+      "cell": [
+        64,
+        64
+      ],
+      "atlas_size": [
+        576,
+        64
+      ],
+      "anchor": [
+        31,
+        63
+      ],
+      "hover_gap": 10,
+      "red_atlas": "monster_wraith_atlas_red.png",
+      "atlas_sha256": "7cfd02b9c10b771959649f1f817a9bc1a7d06a5388e1cbdb09a04cfcc9fdca01"
+    }
+  },
+  "palette": {
+    "ink": "#192331",
+    "shadow": "#303c4b",
+    "stone": "#727781",
+    "stonedark": "#4a5362",
+    "stonehi": "#a0a7aa",
+    "stoneedge": "#c6cec3",
+    "moss": "#596f4b",
+    "mosshi": "#89965f",
+    "rune": "#e2b66b",
+    "runelit": "#ffdfa0",
+    "green": "#63845b",
+    "greenhi": "#a3b576",
+    "greendark": "#3d5f4d",
+    "bone": "#e2d6a7",
+    "mouth": "#433536",
+    "cloth": "#467eab",
+    "clothlight": "#79b1ce",
+    "clothdark": "#2b4d74",
+    "leather": "#624738",
+    "gold": "#dfbc68",
+    "wing": "#825b8c",
+    "winghi": "#b99fc3",
+    "wingdark": "#513e62",
+    "scale": "#c9b88b",
+    "scalehi": "#eee5c6",
+    "scaledark": "#938266",
+    "robe": "#57536f",
+    "robehi": "#8480a2",
+    "robedark": "#36384f",
+    "spirit": "#a3d3cf",
+    "spiritdark": "#5f939f",
+    "page": "#e2d2a8"
+  },
+  "note": "Names provisional. Draw at same pixel scale as existing seven units. Flight/summoning rules belong to simulation.",
+  "design_revision": "2026-11-01 drake ivory-grape rounded-membrane revision",
+  "original_art": true,
+  "license_note": "Original code-authored pixel art; no third-party sprite or generated-image pixels."
+}

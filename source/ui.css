@@ -1,0 +1,146 @@
+:root {
+  color-scheme: dark;
+  --page: #111a20;
+  --panel: #212d30;
+  --panel-raised: #2b3b3d;
+  --line: #65756e;
+  --text: #efe7d3;
+  --muted: #c3beac;
+  --gold: #f1cf82;
+  --red: #e18a76;
+  --blue: #90c5e9;
+  --tap: 48px;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--page); }
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  color: var(--text);
+  background: var(--page);
+  font-family: system-ui, sans-serif;
+}
+button, input { font: inherit; }
+button {
+  min-height: var(--tap);
+  border: 1px solid #a69c7c;
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--panel-raised);
+  font-weight: 700;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+button:disabled { opacity: .48; cursor: default; }
+[hidden] { display: none !important; }
+
+/* Add modest CSS safe-area insets; do not hard-code host-specific 88/98 px gutters. */
+#app {
+  width: min(100%, 480px);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-inline: auto;
+  padding-block-start: calc(env(safe-area-inset-top, 0px) + 12px);
+  padding-block-end: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  padding-inline: 14px;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
+.wallet-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  min-height: 36px;
+  padding: 5px 10px;
+  border: 1px solid #8c7951;
+  border-radius: 999px;
+  color: var(--gold);
+  background: #302b21;
+  font-variant-numeric: tabular-nums;
+}
+.wallet-pill strong { font-size: 17px; }
+.screen { display: block; }
+.home-screen { display: grid; gap: 14px; padding-top: clamp(28px, 9vh, 72px); }
+.lead { margin: 0 0 8px; text-align: center; font-size: 18px; line-height: 1.55; }
+.cta { width: 100%; min-height: 56px; padding: 12px 16px; font-size: 17px; }
+.cta-primary { border-color: #ffe1a1; color: #251f13; background: linear-gradient(#f5d58b, #d4aa54); }
+.cta-secondary { background: #344a4d; }
+.home-note, .status-line { margin: 2px 0; color: var(--muted); font-size: 13px; text-align: center; }
+.multi-status-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.status-line:empty { display: none; }
+.room-screen h2 { margin: 4px 0 18px; font-size: 21px; }
+.room-code-label { display: block; margin: 20px 0 7px; color: var(--muted); font-size: 14px; }
+.room-join-row { display: grid; grid-template-columns: minmax(0, 1fr) 88px; gap: 8px; }
+.room-join-row input { min-width: 0; min-height: var(--tap); padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); background: var(--panel); }
+.text-button { min-height: 44px; padding: 7px 10px; border: 0; color: var(--muted); background: transparent; text-decoration: underline; text-underline-offset: 3px; }
+.room-screen > .text-button { display: block; margin: 14px auto; }
+.game-topline { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.round-status { margin: 0; color: var(--gold); font-size: 14px; font-weight: 650; }
+.phase-title { margin: 4px 0 12px; font-size: 20px; text-align: center; }
+.army-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.army-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: var(--panel); }
+.army-card h3 { margin: 0 0 5px; text-align: center; font-size: 16px; }
+.army-red h3 { color: var(--red); }
+.army-blue h3 { color: var(--blue); }
+.army-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 3;
+  border-radius: 6px;
+  background: #35463d;
+  image-rendering: pixelated;
+}
+.army-summary { min-height: 2.6em; margin: 6px 0; color: var(--muted); font-size: 12px; line-height: 1.35; text-align: center; }
+.team-button { width: 100%; min-height: 50px; padding-inline: 5px; font-size: 14px; }
+.red-button { border-color: #d49383; background: #693a34; }
+.blue-button { border-color: #8db8d1; background: #294d62; }
+.team-button[aria-pressed="true"], .stake-option[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 1px; }
+.stake-card { margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--panel); }
+.stake-card h3 { margin: 0 0 9px; font-size: 14px; }
+.stake-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.stake-option { min-width: 0; min-height: 46px; padding-inline: 2px; font-size: 13px; }
+.stake-hint { min-height: 1.5em; margin: 8px 0 6px; color: var(--muted); font-size: 12px; line-height: 1.4; text-align: center; }
+.confirm-button { min-height: 56px; margin-top: 3px; }
+.skip-button { display: block; margin: 4px auto -4px; font-size: 13px; }
+.battle #field {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  aspect-ratio: 480 / 538;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #35463d;
+  image-rendering: pixelated;
+}
+.battle-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+.control-button { min-width: 0; min-height: 48px; padding-inline: 3px; font-size: 13px; }
+.result-panel { margin-top: 16px; border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--panel); text-align: center; }
+.result-title { margin: 0 0 7px; font-size: 22px; }
+.result-summary { margin: 0 0 8px; font-size: 15px; line-height: 1.5; }
+.result-panel .cta { margin-top: 10px; }
+.score-details { margin-top: 7px; color: var(--muted); text-align: left; }
+.help-details { margin-top: 22px; color: var(--muted); font-size: 13px; }
+.help-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.help-details p { margin: 4px 0 0; line-height: 1.5; }
+@media (max-width: 340px) {
+  #app { padding-inline: 10px; }
+  .army-card { padding: 6px; }
+  .team-button { font-size: 13px; }
+  .stake-card { padding: 10px; }
+}
