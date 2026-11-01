@@ -22,6 +22,15 @@ export function decode(wire) {
   if (typeof wire !== 'string' || bytes(wire) > MAX_WIRE_BYTES) return null;
   try { const m=JSON.parse(wire); return m && m.protocol===PROTOCOL && m.version===1 && m.mode===GAME_MODE ? m : null; } catch { return null; }
 }
+function validRoundResults(s){
+ if(s.roundResults==null)return true;
+ if(!s.confirmedResult||!Array.isArray(s.roundResults)||s.roundResults.length>8||!Array.isArray(s.wallets))return false;
+ const seen=new Set(),winner=s.confirmedResult.winner;
+ for(const e of s.roundResults){if(!e||!sid(e.playerId)||seen.has(e.playerId)||!['A','B',null].includes(e.side)||typeof e.submitted!=='boolean'||![true,false,null].includes(e.correct)||!Number.isSafeInteger(e.stake)||e.stake<0||!Number.isSafeInteger(e.delta)||!Number.isSafeInteger(e.balanceBefore)||e.balanceBefore<0||!Number.isSafeInteger(e.balanceAfter)||e.balanceAfter<0||!Number.isSafeInteger(e.scoreAfter)||e.balanceAfter-e.balanceBefore!==e.delta)return false;
+  const p=s.wallets.find(p=>p.playerId===e.playerId);if(!p||p.balance!==e.balanceAfter||p.score!==e.scoreAfter)return false;
+  const expected=(winner==='A'||winner==='B')&&e.side!==null?winner===e.side:null;if(e.correct!==expected||(e.correct===null&&e.delta!==0)||(e.correct===false&&e.delta>0)||(e.correct===true&&e.delta<0))return false;seen.add(e.playerId);
+ }return true;
+}
 export function createSession({roomId, sessionId, userId, hostId, members=[], send, mode=GAME_MODE,
   now=Date.now, validateBet=()=>true, settle=()=>null, onOpenRound=()=>{}, onAcceptBet=()=>{}, onChange=()=>{}, hostTimeoutMs=30000}) {
   if(mode!==GAME_MODE)throw new Error('incompatible-game-mode');
@@ -30,7 +39,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
   const seats=[...new Set([hostId,...members])];
   if (seats.length>8 || !seats.every(sid)) throw new RangeError('maximum eight application seats');
   let state={sessionId,mode:GAME_MODE,totalRounds:TOTAL_ROUNDS,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
-    spectators:[],readyIds:[],bets:[],winner:null,replay:null,wallets:null,stoppedReason:null};
+    spectators:[],readyIds:[],bets:[],winner:null,replay:null,wallets:null,roundResults:null,stoppedReason:null};
   let localSeq=0,lastHostSeen=now(),outgoing=null,incoming=null,canonicalReplay=null;
   const sequences=new Map(), privateBets=new Map(), settled=new Set();
   const envelope = body => ({protocol:PROTOCOL,version:1,mode:GAME_MODE,roomId,sessionId,...body});
@@ -73,6 +82,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
         !Array.isArray(s.spectators)||!s.spectators.every(sid)||!Array.isArray(s.bets)||
         (s.phase==='predict'&&(!integer(s.deadline)||!integer(s.roundId))))return false;
       lastHostSeen=now(); // duplicate heartbeat is live, but never rewinds state
+      if(!validRoundResults(s))return false;
       if(s.revision<=state.revision)return true;
       if(s.replay&&(!validMeta(s.replay)||!integer(s.replayStartAt)))return false;
       if(s.roundId!==state.roundId){canonicalReplay=null;incoming=null;}
@@ -134,7 +144,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
       // Matchup must contain public army configuration only; do not send future seed.
       encode(envelope({type:'snapshot',state:{...state,matchup}}));
       const prepared=onOpenRound({sessionId,roundId,deadline});
-      commit({phase:'predict',roundId,deadline,matchup:clone(matchup),readyIds:[],bets:[],winner:null,replay:null,replayStartAt:null,replayError:null,confirmedResult:null,...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
+      commit({phase:'predict',roundId,deadline,matchup:clone(matchup),readyIds:[],bets:[],winner:null,replay:null,replayStartAt:null,replayError:null,confirmedResult:null,roundResults:null,...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
     },
     predict(side,stake){
       tick();if(state.phase!=='predict')return false;
@@ -152,7 +162,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
       if(prepared?.then)throw new Error('synchronous-settlement-required');
       const transfer=packed?createSender({packed,recipients:[...state.participants,...state.spectators].filter(id=>id!==hostId),send:emit,now}):null;
       commit({phase:'battle',replay:packed?{...packed.meta,engineVersion:replay.engineVersion,ticks:replay.ticks}:null,
-        replayStartAt,replayError,confirmedResult:{roundId:state.roundId,winner:replay.winner},wallets:clone(prepared?.wallets??null)},()=>{
+        replayStartAt,replayError,confirmedResult:{roundId:state.roundId,winner:replay.winner},wallets:clone(prepared?.wallets??null),roundResults:clone(prepared?.roundResults??null)},()=>{
           prepared?.commit?.();settled.add(state.roundId);canonicalReplay=packed?clone(replay):null;outgoing=transfer;
         });
       outgoing?.pump();

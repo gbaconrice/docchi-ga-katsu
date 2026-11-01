@@ -211,6 +211,119 @@ async function main() {
   assert.equal(audio.phase, 'result', 'repeated start snapshot cannot restart a finished round');
   assert.equal(audio.finishBattleForChoice('room-abc:round-2', false), false);
 
+  // Personalized settlement SFX: a reward chord gets two restrained coin
+  // glints; a staked loss falls, but a 0G miss never plays a deduction cue.
+  assert.equal(audio.beginBattle('room-abc:round-2', gesture), true);
+  finishVoices(ctx);
+  assert.equal(audio.finishBattleForChoice('room-abc:round-2', true, { stake: 0 }), true);
+  // The cue fired once; replay of the same settlement is silent.
+  assert.equal(audio.finishBattleForChoice('room-abc:round-2', true, { stake: 0 }), false);
+  assert.ok(ctx.nodes.filter(n => n.kind === 'oscillator').some(n => Math.abs(n.frequency.events[0]?.[1] - 1318.5) < 0.1),
+    'correct prediction has a small high, metallic reward glint over the chord');
+  finishVoices(ctx);
+
+  assert.equal(audio.beginBattle('room-abc:round-3', gesture), true);
+  finishVoices(ctx);
+  const missStart = ctx.nodes.length;
+  assert.equal(audio.finishBattleForChoice('room-abc:round-3', false, { stake: 0 }), true);
+  const noStakeResultTones = ctx.nodes.slice(missStart).filter(n => n.kind === 'oscillator')
+    .map(n => n.frequency.events.find(e => e[0] === 'set')?.[1]);
+  assert.deepEqual(noStakeResultTones, [440], 'wrong 0G guess is a single soft neutral tick, not a loss cadence');
+  finishVoices(ctx);
+
+  assert.equal(audio.beginBattle('room-abc:round-4', gesture), true);
+  finishVoices(ctx);
+  const stakedStart = ctx.nodes.length;
+  assert.equal(audio.finishBattleForChoice('room-abc:round-4', false, { stake: 25 }), true);
+  const stakedResultTones = ctx.nodes.slice(stakedStart).filter(n => n.kind === 'oscillator')
+    .map(n => n.frequency.events.find(e => e[0] === 'set')?.[1]);
+  assert.deepEqual(stakedResultTones, [392, 293.66, 1174.7, 1760], 'staked miss gets a concise downward loss motif');
+  finishVoices(ctx);
+
+  assert.equal(audio.beginBattle('room-abc:round-5', gesture), true);
+  finishVoices(ctx);
+  const neutralStart = ctx.nodes.length;
+  assert.equal(audio.finishBattleForChoice('room-abc:round-5', null, { stake: 50 }), true);
+  const neutralResultTones = ctx.nodes.slice(neutralStart).filter(n => n.kind === 'oscillator')
+    .map(n => n.frequency.events.find(e => e[0] === 'set')?.[1]);
+  assert.deepEqual(neutralResultTones, [392, 392], 'draw/no-prediction stays neutral despite a supplied stake field');
+  finishVoices(ctx);
+
+  // Renderer-driven timeline: the engine arms once, then the actual stamp and
+  // authoritative delta trigger one-shot sound stages in order. No timers run
+  // in the audio module, so stage SFX stay aligned to the UI number animation.
+  assert.equal(audio.beginBattle('room-abc:round-6', gesture), true);
+  finishVoices(ctx);
+  const timelineStart = ctx.nodes.length;
+  assert.equal(audio.finishBattleForChoice('room-abc:round-6', true, {stake:0,deferStages:true}), true);
+  assert.equal(ctx.nodes.slice(timelineStart).filter(n=>n.kind==='oscillator').length, 0,
+    'deferred result cue waits for the renderer');
+  assert.equal(audio.playResultStage('room-abc:round-6','delta',{delta:10,stake:0}), false,
+    'actual delta cannot play before the correctness stamp');
+  const stampStart = ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-6','stamp'), true);
+  assert.ok(ctx.nodes.slice(stampStart).some(n=>n.kind==='oscillator'), 'correctness stamp has a compact cue');
+  finishVoices(ctx);
+  assert.equal(audio.playResultStage('room-abc:round-6','stamp'), false, 'each UI stage is one-shot per round');
+  assert.equal(audio.playResultStage('room-abc:round-6','delta',{delta:-10,stake:0}), false,
+    'sign-inconsistent delta is rejected without consuming the valid stage');
+  const coinStart = ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-6','delta',{delta:10,stake:0}), true,
+    'free hit uses the real positive game-credit delta at lighter intensity');
+  const freeCoinTones=ctx.nodes.slice(coinStart).filter(n=>n.kind==='oscillator');
+  assert.ok(freeCoinTones.some(n=>Math.abs(n.frequency.events[0]?.[1]-1318.5)<.1),
+    'positive delta gets the short coin-material cue');
+  const freeCoinGain=freeCoinTones[0]?.connections[0]?.gain?.value;
+  finishVoices(ctx);
+  assert.equal(audio.playResultStage('room-abc:round-6','balance'), true, 'balance settle stage is accepted but deliberately silent');
+  assert.equal(audio.playResultStage('room-abc:round-6','balance'), false);
+
+  assert.equal(audio.beginBattle('room-abc:round-7', gesture), true);
+  finishVoices(ctx);
+  assert.equal(audio.finishBattleForChoice('room-abc:round-7', false, {stake:25,deferStages:true}), true);
+  assert.equal(audio.playResultStage('room-abc:round-7','stamp'), true);
+  finishVoices(ctx);
+  const debitStart = ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-7','delta',{delta:-25,stake:25}), true,
+    'debit sound is driven by the actual negative settlement delta');
+  assert.deepEqual(ctx.nodes.slice(debitStart).filter(n=>n.kind==='oscillator').map(n=>n.frequency.events[0]?.[1]),
+    [392,293.66,1174.7,1760]);
+  finishVoices(ctx);
+  assert.equal(audio.playResultStage('room-abc:round-7','balance'), true);
+
+  assert.equal(audio.beginBattle('room-abc:round-8', gesture), true);
+  finishVoices(ctx);
+  assert.equal(audio.finishBattleForChoice('room-abc:round-8', false, {stake:0,deferStages:true}), true);
+  assert.equal(audio.playResultStage('room-abc:round-8','stamp'), true);
+  finishVoices(ctx);
+  assert.equal(audio.playResultStage('room-abc:round-8','balance'), false, 'balance marker cannot leap over the actual-delta stage');
+  const zeroLossStart = ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-8','delta',{delta:0,stake:0}), true);
+  assert.equal(ctx.nodes.length, zeroLossStart, 'zero-G miss has no loss/coin sound because no credits moved');
+  assert.equal(audio.playResultStage('room-abc:round-8','balance'), true);
+
+  assert.equal(audio.beginBattle('room-abc:round-9', gesture), true);
+  finishVoices(ctx);
+  assert.equal(audio.finishBattleForChoice('room-abc:round-9', null, {stake:50,deferStages:true}), true);
+  assert.equal(audio.playResultStage('room-abc:round-9','stamp'), true);
+  finishVoices(ctx);
+  const drawDeltaStart=ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-9','delta',{delta:0,stake:50}), true);
+  assert.equal(ctx.nodes.length, drawDeltaStart, 'draw/spectator delta remains neutral despite any stake metadata');
+  assert.equal(audio.playResultStage('room-abc:round-9','balance'), true);
+
+  assert.equal(audio.beginBattle('room-abc:round-10', gesture), true);
+  finishVoices(ctx);
+  assert.equal(audio.finishBattleForChoice('room-abc:round-10', true, {stake:50,deferStages:true}), true);
+  assert.equal(audio.playResultStage('room-abc:round-10','stamp'), true);
+  finishVoices(ctx);
+  const bigBetStart=ctx.nodes.length;
+  assert.equal(audio.playResultStage('room-abc:round-10','delta',{delta:60,stake:50}), true);
+  const bigBetCoinGain=ctx.nodes.slice(bigBetStart).find(n=>n.kind==='oscillator')?.connections[0]?.gain?.value;
+  assert.ok(bigBetCoinGain>freeCoinGain, 'large real positive delta has a thicker but capped coin cue than a free hit');
+  finishVoices(ctx);
+  assert.equal(audio.playResultStage('room-abc:round-10','balance'), true);
+
   // Voice and all explicitly tracked nodes remain capped under dense event input.
   assert.ok(audio.activeVoiceCount <= MAX_VOICES);
   assert.ok(audio.activeNodeCount <= MAX_NODES,
@@ -226,6 +339,10 @@ async function main() {
   assert.equal(unavailable.unlockFromGesture(gesture), false);
   assert.equal(unavailable.beginBattle('offline:1', gesture), true);
   assert.equal(unavailable.ingestCombatEvents([{ type: 'resolved_hit', amount: 1 }], { tick: 1 }), 0);
+  assert.equal(unavailable.finishBattleForChoice('offline:1', true, {stake:50,deferStages:true}), true);
+  assert.equal(unavailable.playResultStage('offline:1','stamp'), false);
+  assert.equal(unavailable.playResultStage('offline:1','delta',{delta:60,stake:50}), false,
+    'staged result audio is a no-op without WebAudio');
   unavailable.destroy();
 
   // Some mobile browsers resolve `resume()` asynchronously on the first tap.

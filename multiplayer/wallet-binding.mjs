@@ -13,7 +13,7 @@ export function createWalletSession(options){
       try{wallet.commitPrediction(ledger,{sessionId:options.sessionId,roundId,playerId,stake,side,now:(options.now||Date.now)()});return true;}catch{return false;}
     },
     onAcceptBet(input){const next=wallet.commitPrediction(ledger,{...input,sessionId:options.sessionId});return {commit:()=>{ledger=next;}};},
-    settle(input){const next=wallet.settleRound(ledger,{sessionId:input.sessionId,roundId:input.roundId,outcome:input.winner,now:input.now});return {wallets:next.players,commit:()=>{ledger=next;}};}
+    settle(input){const next=wallet.settleRound(ledger,{sessionId:input.sessionId,roundId:input.roundId,outcome:input.winner,now:input.now});return {wallets:next.players,roundResults:next.ledger[next.ledger.length-1].entries,commit:()=>{ledger=next;}};}
   });
   return Object.freeze({...session,getLedger:()=>ledger});
 }

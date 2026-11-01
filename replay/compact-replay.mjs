@@ -1,7 +1,7 @@
 /** Bounded canonical presentation trace. Spawns carry metadata; guests never simulate. */
-export const COMPACT_VERSION='v12-four-species-statusfx-v1';
+export const COMPACT_VERSION='v13-personal-result-herofx-v1';
 export const ROLES=['sword','shield','spear','archer','cannon','rider','healer','goblin','golem','drake','wraith','boar','bombbug','frostmage','stormmage','burrower','slime','slimelet','screech_cricket','reaper_mantis','spore_toad','rootwarden_treant'];
-export const FX_KINDS=['hit_spark','ground_slam','magic_sparkle','muzzle_flash','charge_trail','bomb_explosion','frost_hit','chain_arc','burrow_warning','burrow_emerge','slime_split','cadence_delayed','parry_block','poison_cloud','poison_applied','ward_block'];
+export const FX_KINDS=['hit_spark','ground_slam','magic_sparkle','muzzle_flash','charge_trail','bomb_explosion','frost_hit','chain_arc','burrow_warning','burrow_emerge','slime_split','cadence_delayed','parry_block','poison_cloud','poison_applied','ward_block','drake_claw'];
 const finite=Number.isFinite;
 const DELTA_COLUMNS=[3,4,5,6,7,8,11];
 const withinActiveCap=rows=>{const list=[...rows];return [0,1].every(side=>list.filter(u=>u[1]===side&&!u[6]).length<=32)};

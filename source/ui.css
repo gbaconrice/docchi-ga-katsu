@@ -450,3 +450,20 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 }
 
 @supports (height: 100dvh) { :root { --app-viewport-default: 100dvh; } }
+
+/* Personal result stays above the final field; no blank transition or extra tap. */
+#gameScreen[data-personal-result="true"] { position:relative; }
+#gameScreen[data-personal-result="true"] #resultPanel { position:absolute; z-index:5; bottom:8px; left:12px; right:12px; width:auto; margin:0; padding:12px 16px; background:rgba(26,35,32,.96); border:2px solid #85775b; }
+#resultPanel[data-outcome="hit"] { border-color:#e7c777!important; }
+#resultPanel[data-outcome="hit"] #message { color:#ffe3a0; }
+.result-winner { margin:0 0 4px; font-size:12px; color:#c5c3ad; }
+#breakdown { font-variant-numeric:tabular-nums; }
+.result-ranking { font-size:12px; margin:6px 0; }
+
+#gameScreen[data-personal-result="true"] #resultPanel { width:min(calc(100% - 24px),430px); left:0; right:0; margin-inline:auto; padding:8px 12px; }
+#gameScreen[data-personal-result="true"] #message { font-size:20px; line-height:1.15; margin:3px 0; }
+#gameScreen[data-personal-result="true"] #breakdown { font-size:22px; line-height:1.2; margin:4px 0; }
+#gameScreen[data-personal-result="true"] #resultPanel[data-final="false"] .score-line { display:none; }
+#gameScreen[data-personal-result="true"] .result-progress { margin-top:4px; }
+
+#gameScreen[data-personal-result="true"] #resultPanel { max-height:calc(100% - 16px); }

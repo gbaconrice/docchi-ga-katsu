@@ -9,10 +9,7 @@ function syncBattleMotion(){
  motionSuspended=false;const key=motionBattleKey();
  if(state==='choose')motionCall(()=>battleMotion.enterPrediction(key));
  else if(state==='fight'&&(!multiSession||multiPlayback))motionCall(()=>battleMotion.startBattle(key));
- else if(state==='result'&&(multiSession||walletState?.completedRounds===round)){
-  const delta=multiSession?null:walletState.ledger[round-1]?.entries[0]?.delta;
-  motionCall(()=>battleMotion.showResult(key,{delta}));
- }
+
 }
 const motionSelect=selectSide;selectSide=function(side){const before=selectedSide;motionSelect(side);if(state==='choose'&&selectedSide===side&&before!==side&&!predictionPreview)motionCall(()=>battleMotion.selectSide(side));};
 const motionLoop=loop;loop=function(t){motionLoop(t);syncBattleMotion();};

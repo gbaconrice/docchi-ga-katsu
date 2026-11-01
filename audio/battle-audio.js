@@ -63,6 +63,10 @@
     const batchOrder = [];
     const startedOrder = [];
     const finishedOrder = [];
+    const resultMeta = new Map();
+    const resultMetaOrder = [];
+    const resultStageKeys = new Set();
+    const resultStageOrder = [];
 
     function remember(set, order, value, cap) {
       if (set.has(value)) return false;
@@ -435,7 +439,27 @@
         emerge: { duration: 0.12, tones: [[82, 0.11, 0.018, 'triangle', 0, 115]], noise: [0.06, 0.13, 520] },
         win:    { duration: 0.48, tones: [[392, 0.40, 0.012, 'sine'], [493.88, 0.38, 0.010, 'sine', 0.045], [587.33, 0.34, 0.009, 'sine', 0.09]] },
         loss:   { duration: 0.38, tones: [[392, 0.18, 0.010, 'sine', 0, 329.63], [293.66, 0.24, 0.009, 'sine', 0.12, 246.94]] },
-        draw:   { duration: 0.25, tones: [[392, 0.20, 0.008, 'sine'], [392, 0.20, 0.006, 'sine', 0.07]] }
+        draw:   { duration: 0.25, tones: [[392, 0.20, 0.008, 'sine'], [392, 0.20, 0.006, 'sine', 0.07]] },
+        // Reward cadence: a compact warm triad, then two tiny inharmonic
+        // glints. It reads as credited game coins without a cash-register cue.
+        predictionWin: { duration: 0.34, tones: [
+          [587.33, 0.23, 0.14, 'sine'], [739.99, 0.22, 0.13, 'sine', 0.035], [880, 0.20, 0.12, 'sine', 0.070],
+          [1318.5, 0.085, 0.10, 'sine', 0.115, 1175], [1975.5, 0.075, 0.06, 'sine', 0.115, 1760],
+          [1480, 0.070, 0.075, 'sine', 0.195, 1318.5], [2220, 0.060, 0.045, 'sine', 0.195, 1975.5]
+        ] },
+        // Staked miss: a short falling cadence with a soft, non-percussive
+        // metallic drop. A no-stake miss uses a neutral tick, never this cue.
+        predictionLoss: { duration: 0.29, tones: [
+          [392, 0.15, 0.060, 'sine', 0, 329.63], [293.66, 0.15, 0.050, 'sine', 0.055, 246.94],
+          [1174.7, 0.070, 0.040, 'sine', 0.115, 784], [1760, 0.060, 0.025, 'sine', 0.115, 1175]
+        ] },
+        // Correctly signals a miss without implying a deduction when stake=0.
+        noStakeMiss: { duration: 0.12, tones: [[440, 0.09, 0.028, 'triangle', 0, 392]] },
+        resultStampWin: { duration: 0.12, tones: [[330, 0.085, 0.055, 'triangle', 0, 392], [659.25, 0.075, 0.035, 'sine', 0.014]], noise: [0.028, 0.075, 1300] },
+        resultStampLoss: { duration: 0.10, tones: [[247, 0.070, 0.038, 'triangle', 0, 220]], noise: [0.024, 0.055, 850] },
+        resultStampNeutral: { duration: 0.08, tones: [[392, 0.055, 0.026, 'sine']] },
+        resultCoin: { duration: 0.22, tones: [[1318.5, 0.095, 0.10, 'sine', 0, 1175], [1975.5, 0.085, 0.055, 'sine', 0, 1760], [1480, 0.080, 0.072, 'sine', 0.072, 1318.5], [2220, 0.070, 0.040, 'sine', 0.072, 1975.5]] },
+        resultDebit: { duration: 0.20, tones: [[392, 0.13, 0.060, 'sine', 0, 329.63], [293.66, 0.13, 0.050, 'sine', 0.060, 246.94], [1174.7, 0.075, 0.036, 'sine', 0.105, 784], [1760, 0.065, 0.020, 'sine', 0.105, 1175]] }
       };
       const spec = specs[kind];
       if (!spec || !mayPlayOrQueue()) return false;
@@ -518,13 +542,65 @@
       return true;
     }
 
-    function finishBattleForChoice(battleId, won) {
+    function rememberResultMeta(key, meta) {
+      resultMeta.set(key, meta);
+      resultMetaOrder.push(key);
+      while (resultMetaOrder.length > MAX_BATTLE_KEYS) resultMeta.delete(resultMetaOrder.shift());
+    }
+
+    function rememberResultStage(key, stage) {
+      const stageKey = key + ':' + stage;
+      if (!remember(resultStageKeys, resultStageOrder, stageKey, MAX_BATTLE_KEYS * 3)) return false;
+      return true;
+    }
+
+    function finishBattleForChoice(battleId, won, meta = {}) {
       const key = keyOf(battleId);
       if (!key || key !== currentBattle || finished.has(key)) return false;
       remember(finished, finishedOrder, key, MAX_BATTLE_KEYS);
       phase = 'result';
       syncAmbient();
-      playCue(won === null || won === undefined ? 'draw' : (won ? 'win' : 'loss'), 1, { battleId: key, phase: 'result' });
+      // The caller supplies only this player's accepted settlement context.
+      // Missing/invalid stake preserves the prior API's result cadences.
+      const stake = Number.isSafeInteger(meta?.stake) && meta.stake >= 0 ? meta.stake : null;
+      const result = { won: won === true || won === false ? won : null, stake, deferred: meta?.deferStages === true };
+      rememberResultMeta(key, result);
+      if (result.deferred) return true;
+      const cue = result.won === null ? 'draw' : result.won ? 'predictionWin' :
+        (stake === 0 ? 'noStakeMiss' : stake > 0 ? 'predictionLoss' : 'loss');
+      playCue(cue, 1, { battleId: key, phase: 'result' });
+      return true;
+    }
+
+    function playResultStage(battleId, stage, detail = {}) {
+      const key = keyOf(battleId), result = resultMeta.get(key);
+      if (!key || key !== currentBattle || phase !== 'result' || !result?.deferred) return false;
+      if (!['stamp', 'delta', 'balance'].includes(stage) || resultStageKeys.has(key + ':' + stage)) return false;
+      if (stage === 'delta' && !resultStageKeys.has(key + ':stamp')) return false;
+      if (stage === 'balance' && !resultStageKeys.has(key + ':delta')) return false;
+      if (stage === 'delta') {
+        if (!Number.isSafeInteger(detail?.delta)) return false;
+        const delta = detail.delta;
+        if (result.won === true && delta <= 0 || result.won === false && delta > 0 ||
+            result.won === false && result.stake === 0 && delta < 0 || result.won === null && delta !== 0) return false;
+      }
+      if (!rememberResultStage(key, stage)) return false;
+
+      if (stage === 'stamp') {
+        const cue = result.won === true ? 'resultStampWin' : result.won === false && result.stake > 0 ? 'resultStampLoss' : 'resultStampNeutral';
+        return playCue(cue, result.won === true && result.stake > 0 ? 0.88 : 0.65, { battleId: key, phase: 'result' });
+      }
+      if (stage === 'delta') {
+        const delta = detail.delta;
+        if (delta === 0) return true; // no actual account movement (e.g. wrong guess at 0G)
+        const stake = Number.isSafeInteger(detail.stake) && detail.stake >= 0 ? detail.stake : result.stake;
+        const intensity = delta > 0
+          ? (stake > 0 ? clamp(0.68 + Math.min(stake, 50) * 0.005, 0.68, 0.93) : 0.52)
+          : clamp(0.58 + Math.min(Math.abs(delta), 50) * 0.004, 0.58, 0.80);
+        return playCue(delta > 0 ? 'resultCoin' : 'resultDebit', intensity, { battleId: key, phase: 'result' });
+      }
+      // The UI has reached the final balance settle; intentionally silent to
+      // avoid a third reward sound over the actual delta and its number roll.
       return true;
     }
 
@@ -598,6 +674,7 @@
           case 'hit_spark': mapped.push({ type: 'resolved_hit', sourceKind: effect.sourceKind || effect.k || 'goblin', amount: 1 }); break;
           case 'charge_trail': mapped.push({ type: 'charge_impact' }); break;
           case 'bomb_explosion': mapped.push({ type: 'bomb_explode' }); break;
+          case 'drake_claw': mapped.push({ type: 'resolved_hit', sourceKind: 'drake', delivery: 'melee', amount: 1 }); break;
           case 'ground_slam': mapped.push({ type: 'golem_ground_contact' }); break;
           case 'chain_arc': mapped.push({ type: 'chain_link', index: 0 }); break;
           case 'frost_hit': mapped.push({ type: 'slow_applied' }); break;
@@ -676,6 +753,7 @@
       beginBattle,
       finishBattle,
       finishBattleForChoice,
+      playResultStage,
       ingestCombatEvents,
       ingestReplayEffects,
       setPaused,

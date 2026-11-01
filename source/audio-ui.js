@@ -2,14 +2,25 @@
 const battleAudio=createBattleAudio({document,muteButton:document.querySelector('#soundToggle')});
 function audioCall(fn){try{return fn();}catch(_){/* Audio failure never interrupts play. */}}
 function audioBattleKey(){return (multiSession?multiSnapshot?.sessionId:walletState?.sessionId)+':'+round;}
+function resolvePersonalResultFeedback({multiSession,multiSnapshot,multiUser,choice,winner,selectedStake,soloSettlement}){
+ if(multiSession&&Array.isArray(multiSnapshot?.roundResults)){
+  const entry=multiSnapshot.roundResults.find(p=>p.playerId===multiUser);
+  return entry?{won:entry.correct,stake:entry.stake,delta:entry.delta,authoritative:true}:{won:null,stake:null,delta:null,authoritative:true};
+ }
+ if(!multiSession&&soloSettlement)return {won:soloSettlement.correct,stake:soloSettlement.stake,delta:soloSettlement.delta,authoritative:true};
+ const outcome=multiSession?multiSnapshot?.winner:winner===null?'draw':winner===0?'A':'B';
+ const bet=multiSession?multiSnapshot?.bets?.find(p=>p.userId===multiUser):null;
+ const side=multiSession?bet?.side:choice===null?null:choice===0?'A':'B';
+ return {won:outcome==='draw'||outcome==='invalid'||side==null?null:side===outcome,stake:multiSession?bet?.stake:selectedStake,delta:null,authoritative:false};
+}
 function syncBattleAudio(){audioCall(()=>{
  const live=screenMode==='game'&&state==='fight'&&!multiRecording&&(!multiSession||!!multiPlayback);
  battleAudio.setPaused(!!paused&&!multiSession);
  if(live)battleAudio.beginBattle(audioBattleKey());
  else if(state==='result'&&screenMode==='game'){
-  const outcome=multiSession?multiSnapshot?.winner:winner===null?'draw':winner===0?'A':'B';
-  const side=multiSession?multiSnapshot?.bets?.find(p=>p.userId===multiUser)?.side:choice===null?null:choice===0?'A':'B';
-  battleAudio.finishBattleForChoice(audioBattleKey(),outcome==='draw'||outcome==='invalid'||side==null?null:side===outcome);
+  const soloSettlement=!multiSession?walletState?.ledger?.find(r=>r.roundId===round)?.entries?.find(e=>e.playerId===PLAYER):null;
+  const feedback=resolvePersonalResultFeedback({multiSession,multiSnapshot,multiUser,choice,winner,selectedStake,soloSettlement});
+  battleAudio.finishBattleForChoice(audioBattleKey(),feedback.won,{stake:feedback.stake,deferStages:feedback.authoritative});
  }else battleAudio.setPhase('idle');
 });}
 const audioCommit=commitArmy;commitArmy=function(side,event){
