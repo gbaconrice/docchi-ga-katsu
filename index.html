@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト試作 v6.1</title><style>:root {
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト試作 v6.2</title><style>:root {
   color-scheme: dark;
   --page: #111a20;
   --panel: #212d30;
@@ -145,6 +145,8 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
   .team-button { font-size: 13px; }
   .stake-card { padding: 10px; }
 }
+
+#unitKind{min-height:44px;max-width:100%;font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px}#unitTrait{min-height:2.8em;margin:6px 0}
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -177,6 +179,7 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
 
 <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
   <h2 id="roomTitle">みんなで遊ぶ</h2>
+  <p class="status-line">部屋は GRAVITY 連携用です（接続は未検証）。接続できないときも、ひとりで遊べます。</p>
   <button id="createRoom" class="cta cta-primary">部屋をつくる</button>
   <button id="beginRound" class="cta cta-primary" hidden>第1戦をはじめる</button>
   <label class="room-code-label" for="roomId">部屋コードで参加</label>
@@ -209,6 +212,8 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
       </article>
     </div>
 
+    <label for="unitKind">兵種の特徴</label> <select id="unitKind" aria-describedby="unitTrait"></select>
+    <p id="unitTrait" class="status-line" aria-live="polite"></p>
     <button id="formationToggle" class="text-button">両軍の配置を見る</button>
     <section class="stake-card" aria-labelledby="stakeTitle">
       <h3 id="stakeTitle">予想を選んだら、Gを上乗せ（任意）</h3>
@@ -226,6 +231,7 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
 
   <section id="battle" class="battle" hidden aria-label="バトルを観戦">
     <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
+    <p id="battleClock" class="status-line" aria-live="off"></p>
     <div id="battleControls" class="battle-controls">
       <button id="pause" class="control-button">一時停止</button>
       <button id="speed" class="control-button">速度 1×</button>
@@ -248,9 +254,11 @@ h1 { margin: 0; font-size: 22px; letter-spacing: .08em; }
 </section>
 
 <details id="help" class="help-details">
-  <summary>遊び方</summary>
-  <p>G は購入・換金できないゲーム内ポイントです。勝つ軍を選んでバトルを観戦。無料予想は的中で +10 G、はずれても減りません。上乗せは任意（最大50 G）で、はずれると上乗せ分だけ失います。残高が0 Gでも無料予想できます。1回のゲームは20戦、60秒で決着しない戦いは引き分けです。</p>
-  <p>兵種：剣士は標準、盾兵は丈夫、槍兵は近接射程が長い、弓兵は遠距離、砲兵は範囲攻撃、騎兵は速い、治療兵は味方を回復。小鬼は小型で速く、岩巨人は大きく重く、羽トカゲは飛行、亡霊術師は小鬼を召喚します。</p>
+  <summary>遊び方・11兵種の特徴</summary>
+  <p>G は購入・換金できないゲーム内ポイントです。開始は100 G、全20戦。勝つ軍を選び、任意で0 / 10 / 25 / 50 Gを上乗せします（残高以内）。無料予想は的中 +10 G、はずれても減りません。</p>
+  <p>上乗せして的中すると +10 G に上乗せ額と同額の利益が加わり、はずれると上乗せ分だけ失います。例：25 Gを上乗せすると的中 +35 G、はずれ −25 G。見るだけ・引き分けは増減なし。残高0 Gでも無料予想は続けられます。純益スコアは残高−開始100 Gです。</p>
+  <p>左右のカードは兵種の代表姿と人数です。「両軍の配置を見る」で実際の布陣も確認できます。同じ兵数でも、射程・丈夫さ・位置・相性で結果は変わります。60秒で決着しなければ引き分けです。</p>
+  <p>飛行に届くのは弓・砲・亡霊術師・羽トカゲ。兵種ごとの特徴は予想画面で選んで確認できます。戦いごとに新しい両軍になります。後半ほど兵種が増え、最大3兵種の混成です。</p>
 </details>
 
 </main>
@@ -978,6 +986,9 @@ function drawSprite(u){
   return true;
 }
 
+// Preserve visible elapsed time; bounded work per RAF, no variable physics dt.
+const SOLO_MAX_STEPS_PER_FRAME=120,SOLO_FRAME_BUDGET_MS=8;
+function resetSoloClock(){last=null;acc=0;}
 const EFFECT_META={"hit_spark": {"file": "assets/hit-spark-32px_strip6.png", "size": [192, 32], "cell": [32, 32], "frames": 6, "fps": 15, "source_loop": false, "anchor": [16, 16], "url": "https://spritepilot.com/free-assets/effects/hit-spark-32px_strip6.png", "source_page": "https://spritepilot.com/free-game-assets/effects", "sha256": "42cfa3bca751e9a96fb5b4ac436f36867a9a8a70d3b588fcf16a933a2f384ebd", "modified": false, "usage": "A short contact cue. Spawn at resolved impact point, not target feet."}, "arrow": {"file": "assets/arrow-32px_strip4.png", "size": [128, 32], "cell": [32, 32], "frames": 4, "fps": 12, "source_loop": true, "anchor": [16, 16], "url": "https://spritepilot.com/free-assets/combat/arrow-32px_strip4.png", "source_page": "https://spritepilot.com/free-game-assets/combat", "sha256": "852c16f854d43dfe5977de58ebf1d6871cb541e23c07c63e5dc5a38e9c6fa4ad", "modified": false, "usage": "Projectile visual only; runtime flight owns position, facing and collision."}, "ground_slam": {"file": "assets/ground-slam-32px_strip9.png", "size": [288, 32], "cell": [32, 32], "frames": 9, "fps": 14, "source_loop": false, "anchor": [16, 27], "url": "https://spritepilot.com/free-assets/combat/ground-slam-32px_strip9.png", "source_page": "https://spritepilot.com/free-game-assets/combat", "sha256": "3b68b56715b3483a3394b0be03d67450bde3e3986f54629225d98f3695c54206", "modified": false, "usage": "Golem landing/heavy ground-contact visual only when that contact event actually occurs; never infer AoE damage from this sprite."}, "magic_sparkle": {"file": "assets/magic-sparkle-32px_strip8.png", "size": [256, 32], "cell": [32, 32], "frames": 8, "fps": 10, "source_loop": true, "anchor": [16, 16], "url": "https://spritepilot.com/free-assets/effects/magic-sparkle-32px_strip8.png", "source_page": "https://spritepilot.com/free-game-assets/effects", "sha256": "c3f8e0b9c042bf51d3aefea757a232aa08722a76ffaac04d9a938bc27a6eb622", "modified": false, "usage": "Healer successful heal or wraith successful summon only, capped at 0.8s; not a generic attack effect."}, "muzzle_flash": {"file": "assets/muzzle-flash-32px_strip5.png", "size": [160, 32], "cell": [32, 32], "frames": 5, "fps": 20, "source_loop": false, "anchor": [2, 16], "url": "https://spritepilot.com/free-assets/combat/muzzle-flash-32px_strip5.png", "source_page": "https://spritepilot.com/free-game-assets/combat", "sha256": "9e9cac6f8e0253933ec900f831ee32ab167ea09629b07e3ec8368b276535bc61", "modified": false, "usage": "Attach to cannon muzzle, then remove after 250ms; facing right, flip when needed."}};
 const EFFECT_ASSETS={"hit_spark": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAAgCAYAAABEmHeFAAACMUlEQVR42u2c0W3EIAyG770rdJeu0sW6TEe4ty7S11REIeJcCBCMDfi3hHTSSTjA/4Ht4/J4TGrb1/vmmpb/n8+3zTXN8WvOv+bYYQBAHYCRANR+FpMAqPt/fugCEPjXfhacAADAnH8AYByA/Rl+vzfXVl5jKB0AXAKAnR4AmPC/8k4Pu3EMSgkwVemR8o8wAOKPisAdzbnjuVWkXvxR/wV9u+9bS6WtIQgAWiTUoQuZA4Brh977cb6o/wLxc4nvbviD+H2hTD0U1P75qIBQQOjn3ifRFbCqOcqAOcOSQEoC8E/8tLnvnHUQX01/o4UdSKA7ro9oJYSK3xuBAEsMEzvSREMgKnxqghCMEurANMXvTSC2qwLAtSNJpkLlEO6ZGAfjjyXJV03rMh2dF03/mpcJm3yfi+/FeAhOBICcSQFA7aJUOgIAq1+bEKvCnI1aRGy3+qXNCzm3+4cAVAjbC7EGklIAINTVQyAvyIbFrwaAOQcoASAa3mRCoOrxB+OUDgVC/9OFI+oQCE0akmDYsKGRaBiGMmiXjQyzMDAAL2FC7oewDs9T2y8gBADs/Yd+XsIPsvNzQ1B7raLLr9BIim0CUBJj0zyE6x4QTYxL54DzHtLdpBjAGIIrloinbnD2qE6kqkQcEDRV1xDX24EkVavX9q9d3vMhIlRiEAAr/mEAwPbrUbDDAwDLf46fBQDkJABgWXFB3AAAAEyiFQDAbNovyZVc2JTQ8aZqAIA3NU9qf7Bq29hmXdrnAAAAAElFTkSuQmCC", "arrow": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAgCAYAAADaInAlAAABN0lEQVR42u2YPQ4BQRSAHUDNAdA4gai2FhKNKyglOnEBjVJD6wxql9DqFVr1yGwyITKzY8b8CN+XvMg2vvfmze781GoAAAAAAAAAAAAAWRnVu8IUjE7GwXdpwHCyEDJ8cxCbqTbezcHX/y31R/fv9gchY75clxG6AbYkdN53cojVBDUeqeo39aHKHbN+bQOuRU8bLm/h6XzzfhP/1V/ljupfjR9/bPsU+iRhSwR/Xn/JoN0Ql8MsWKgEVKy3R4H/C/1qLZIJyJkYKlqdopSqkM9Va2Aqv2kPlMpv2gOlHv/onyCVgPytlOPP7g++CXqW59gE+fpz15/dLwX7Zl8bLscQ51lncafw567flkMwv2kNCnUR4lr86zk8lV93Dk/ht93DfDoBP5l8wFU4AAAAAAAAAAAA/AR3pBUp6msltVkAAAAASUVORK5CYII=", "ground_slam": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAAgCAYAAACy9KU0AAAErUlEQVR42u2brXIUQRSFV2EQCCxVeFQECotB8QBA8QDIyLwCLwAahUVFwhNgg6XAg0YsdbdyUmfv3p7umenpnmTOqepKMrvTp+fnfn37zmS3kyRJkiRJkiRJkiRJkiRJkiRJ8rr6+nH/+f35XmdCkqTmunj7av/y2YtuABIAJUnaLAAlSVqRDAYCgiRtSGtZhhh4MBaBSJI2tgxpEfRD/dtnBh8ASFdGkjay7OHMY8ml1ZAHQ7AngFqOQ0VwaXOw8cHFcFiqKBt5rvkctcrEVASXNgcgDq4IRC0AaDP/Gus8PlMTHCRpwSBrXW/h5V4r7ykgEXgkqUEW1GOmbwm/XN1JkgSEDsHByy8foEsXRlN1KP+9GuNYQ1Fbkla9FOpRD+HA9wBqXRhNZSlLjENAklahNw/v7a1dPr1/aPi7dS2kxSPwXGbRMhhfPz/bo+06vPvT43wLltIReAw4+y+PwwYYtby5+EXAFsHf69Gvef/99f3QGEAtgyyqf60ZQKpf3TH4HAHn97vjRp/VgpCf8fG7fxK1RN2Fva39+PbpEPz20xrG1AJ6OD77/fLDRRPvoaC+De/fCEB3TDeZjwdPACL7bs0ZH7O+BR8gwMuBJQKC/QEdtFIIeIBO9cfxjQWQh+iUMaSyzzF91JogxnjXzg59X3oLu0f2A8j8+xk3gtDcLMgDCIGPetOf8wc3gWm/+zrUnOCL4GPeCP5S+HAfU8bA0OMscOr5mzKGuWDgZesYf98nJhzU/vx3l5oIUt6lk14NENYC6dwxrCf7KQDQnCwoCh4GkAHH158AoVrB7zOfsUufmgBi+M2B6BJLt9xSh49jLID4PavUC5glT0LHACjqJ1fsH/r/t7lLwdLCfw5St7Ygf1T7GYIPQyioBQFOQ14MFJ8BnMAnWPoBQj547W9fp0Jjf9vfWhT8DABczCePzg4turjRGNA/N97HZlVuqSyuxD81Bjy5hEfqWvix8ITC/qUAgj/3WQIffDf6Nxj2zwVoznMINJG3bTf/HGTGACi1rEtdX/jXBFBqWZnbd+7nN5mObycBXwIgAkLUJ9/MKSCwPxo//veBzK8D+O3+yV0EHQ8E1FsYPrYvlnxRs89w7NH+Oej4rNEfAzwAHt8O/tfnHSD1Y0gFoQ9Qrq+hfxuD9/ezv7/ODNAcADgAGT7ea8jfg5NbFODRaxX+vS7vE533lD8/qc3BJres4/6wP0NwCO41sx+ckxQMc9c5K85WUgGfawCCz1Sy3pRt+QzAtvFjYHjxNvj4/QAG9oj8OXiP+rjep8ifsjjeH/CJQBSBNwIxe0WNAeSPA4AbygZ88DB8rOX8PYA4m8vdmBxg+C78sS3nPwSgKMBzQe/9MQb8RNbA23Oeu4kvinp/7J/yX2JFhH59/357NX8Er7+xsG0oe/LZTuny66RV9E9lXEMwRU2rhn8q44qWPAyfE39XZyv1ZyiUQAhj8bM+tvlAjdrYpVAUxL5PPwuX+k8JuJ7+EQyjfpf07f74PYJIjUftc/xTGUwr/1QGc9fOf+pmXmqGLfVvFWC9/aWBwOjhy29d9/DnJWbPCaGXP2cEPe+/rftLkiRJkiRJt1X/AWYVAMmT7b4iAAAAAElFTkSuQmCC", "magic_sparkle": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAAgCAYAAAD9qabkAAACgUlEQVR42u2b623DMAyEvUlH6GDdoB2nOxRdoQt0gS7QDVwwAAFBkB0nNR8KvwPyJwFCmybvjpK8LAAAAAAAAAAAruHt+XslCwAUxc/HCgEAUFWBowkAB0JOwvD0/hWe6OgGrB4f5O0Nc7z+rhBAkvglCg43k4tkPAlglAhJQHQDrisOAPtdQID7ByvNJ/BioVGhSwIEUU0gcSvHx4LH3p9n/12KTYJJ02njKfQ7y4uR+EJC7XVobHUC+jlbheT/NLZ+Rmh/t7qOrWuwjIsFz+P+2tpv+8+UCCQJgjYZngw0iu/tAEYxPBV4VIij+DR/HYdj3n+qOL3SaJFZziCt2o2UTn73WANoczBSVy8V2LpPy/tvi+tWYmFR8oHWAPYUODL+4rgKvtUAXvN3BAG0zzdinUGeKY4mCcmOCsDzAiIa4N74ZxWt5vcIAVoSwF78h1C4WZow62JIZANaX9e1EcCqAY+MQIvhPrGq794IOP2MS1/Ow4a33ujny7mN6elA+l0OLwXe2uXxdAD3rHJbOYXoMx7TE0IFpr2W8P8UZ+QM3itwdPzMaMWm+rspwMhRRTzYloAiCnuGNYBsDZiKAM624TiQvA1o0awzzv/lCSDbDDKjimR0IDPZ8MiaLE8AjzyD4GjmdEqeNTlaOPQkoNCFy6j9YpDb6UQrsOdZkdHR8Kj4boK1t1+MBa+BvWLzeldidF7DSpSOvhxmEb+PHfVymqsDwH7Pacf3DlFZqeDRQ1SWChxxiGrLgbiOBRX3IXE5eWqibzDvsVSbTQUrKn6JeQ/M4Y4qHY6JXIPoY50mTNhvMLMTiiaAStuQAJR2IJwEBACygQAAAPUICAAwIf4AWa11u0Is/kYAAAAASUVORK5CYII=", "muzzle_flash": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAAgCAYAAACVf3P1AAAB+klEQVR42u2cPU7DQBBGU9FQUHCAHICChoor0FHT0aWDkjNwAlpuEAmJE1BxAOpI7ulTDBrDmPGysR2ymVmY70kj4ojsrrzPM+vNz2wGwvB+e0T8l5ZzwtkIADULTDRwkg9ZBgBgk23WK2QbgFIHAACgNBeX1yQReQzAcKL18cvrGz08PtHN3b2bANUIeHV8QBGlsOpHiybHEtYCuAiXCsbHHM9nh+Qhn2WfuewjEux7IrR8HCKdHHtkIO7LNOvyZPNdpZaOj+U5S+kkLE+2lDotHj+nJbC4AGQcOhuenJ638W8FbGVrFp/B0qnHFiJo6ayF1xkoXXNpAayyYCqfVf9u675OvvXqO0TE5Zz4TWwtyD7k6LJts+j6sy71ErnsY7kOTMuuh3ym8IT35NMS6qyoIhVyFzF72TfJvL9pe9vXSdbl8yBr3ZLybTN2XfZCyJfNfmORyqKk4fZkEqdK0I5hqP0v6dO203ba/8tcOEOv6WXfzAVWQr4pY5BxSJ96zQcBJ8q3k4B6DANtj7X5I5tWJCCPZ4qAblsgVZfgpAznJCtWgjeUecsSXHLyI+6dFrsJ4UmxuAkRCTy2fby2fsCGu9CI2zARkY/oV0PkjWhQUSbMyRDhrTjwB4AQAAAAAADAG/lSEr4ZBwAAAAAAalmbAuAnIX4da5QPYm0qk/wfDGoAAAAASUVORK5CYII="};
 const effectImages={};if(typeof Image!=='undefined')for(const k of Object.keys(EFFECT_ASSETS)){const img=new Image();effectImages[k]=img;img.src=EFFECT_ASSETS[k];}
@@ -1025,7 +1036,23 @@ function drawProjectile(s){
 
 document.querySelector('#effects').onclick=()=>{lowEffects=!lowEffects;document.querySelector('#effects').textContent=lowEffects?'演出:軽量':'演出:標準'};
 
-function loop(t){if(!last)last=t;let delta=Math.min((t-last)/1000,.1);last=t;if(state==='fight'&&!paused){acc+=delta*speed;while(acc>=1/60&&state==='fight'){step(1/60);acc-=1/60}draw()}else if(state==='result'){visualTime+=delta;if(visualTime-elapsed<.8)draw()}requestAnimationFrame(loop)}function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;acc=0;update()}
+function loop(t){
+ const delta=last===null?0:Math.max(0,(t-last)/1000);last=t;
+ if(document.hidden===true){resetSoloClock();requestAnimationFrame(loop);return;}
+ if(state==='fight'&&!paused){
+  acc=Math.min(Math.max(0,60-elapsed)+1/60,acc+delta*speed);
+  const hasClock=typeof performance!=='undefined'&&typeof performance.now==='function',started=hasClock?performance.now():0;let steps=0;
+  while(acc+1e-12>=1/60&&state==='fight'&&steps<SOLO_MAX_STEPS_PER_FRAME){
+   if(steps>0&&hasClock&&performance.now()-started>=SOLO_FRAME_BUDGET_MS)break;
+   step(1/60);acc=Math.max(0,acc-1/60);steps++;
+  }
+  if(state!=='fight')acc=0;
+  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent='戦闘時間 '+Math.min(60,elapsed).toFixed(1)+' / 60 秒';
+ }else {acc=0;if(state==='result'){visualTime+=Math.min(delta,.1);if(visualTime-elapsed<.8)draw();}}
+ requestAnimationFrame(loop);
+}
+if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',resetSoloClock);
+function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚'};
@@ -1033,7 +1060,7 @@ function freshWallet(){walletState=Wallet.createSession({sessionId:'solo-'+(++wa
 function credits(n){return (n>0?'+':'')+n+' G'}
 function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s){selectedSide=null;selectedStake=0;spriteSetup(s);};
+setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s);};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
@@ -1060,7 +1087,7 @@ function selectStake(n){if(state!=='choose'||![0,10,25,50].includes(n)||n>curren
 function startPrediction(skip=false){
   if(state!=='choose'||(!skip&&selectedSide===null))return;
   walletState=Wallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
-  choice=skip?null:selectedSide;state='fight';paused=false;acc=0;update();
+  choice=skip?null:selectedSide;state='fight';paused=false;resetSoloClock();update();
 }
 const spriteStep=step;
 step=function(dt){spriteStep(dt);if(state==='result'&&walletState&&walletState.completedRounds<round&&walletState.currentRound?.commits.length===walletState.players.length){
@@ -1235,11 +1262,11 @@ function showScreen(next){
 function ensureSoloWallet(){if(!walletState)freshWallet();if(!walletState.currentRound&&walletState.completedRounds===0&&!units.length)openPrediction((Math.random()*4294967296)>>>0);}
 function openSoloScreen(){
  if(multiSession){showScreen('room');document.querySelector('#roomStatus').textContent='ひとり用へ移るには、先に部屋から退出してください。';return;}
- ensureSoloWallet();if(homePausedSolo){paused=false;homePausedSolo=false;}update();showScreen('game');
+ ensureSoloWallet();if(homePausedSolo){setPaused(false);homePausedSolo=false;}update();showScreen('game');
 }
 function returnHome(){
  if(multiSession){showScreen('room');return;}
- if(state==='fight'&&!paused){paused=true;homePausedSolo=true;}showScreen('home');
+ if(state==='fight'&&!paused){setPaused(true);homePausedSolo=true;}showScreen('home');
 }
 function drawArmyPreviews(){
  for(const side of [0,1]){
@@ -1258,13 +1285,23 @@ function drawArmyPreviews(){
   if(el.setAttribute)el.setAttribute('aria-label',(side?'蒼軍':'朱軍')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
  }
 }
+const UNIT_DETAILS={
+ sword:'標準的な地上近接兵。',shield:'丈夫で射撃に強い。地上の進路を塞ぐ。味方への矢を遮る効果はない。',spear:'地上の相手を長い近接射程で攻撃。',archer:'遠くから射撃。飛行にも届く。',cannon:'周囲を巻き込む範囲射撃。飛行にも届く。',rider:'移動が速い地上近接兵。',healer:'傷ついた味方を治療。攻撃役ではない。',goblin:'小型で速い。打たれ弱いが数で迫る。',golem:'大型で丈夫、重く遅い。強い一撃だが範囲攻撃ではない。',drake:'飛行し、地上近接の攻撃を受けない。地上・飛行の両方を攻撃。',wraith:'飛行にも届く射撃。仲間の小鬼を最大3体、時間差で呼ぶ。'
+};
+let lastTraitKinds='';
+function updateUnitTraits(){
+ const roles=[...new Set(units.filter(u=>!u.dead).map(u=>u.k))],select=document.querySelector('#unitKind'),key=roles.join(',');
+ if(key!==lastTraitKinds){const selected=select.value;select.innerHTML=roles.map(k=>'<option value="'+k+'">'+TYPES[k].name+'</option>').join('');select.value=roles.includes(selected)?selected:roles[0]||'';lastTraitKinds=key;}
+ const k=select.value;document.querySelector('#unitTrait').textContent=k&&UNIT_DETAILS[k]?TYPES[k].name+'：'+UNIT_DETAILS[k]:'';
+}
+document.querySelector('#unitKind').onchange=updateUnitTraits;
 let formationVisible=false;
-function syncFormation(){if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=!formationVisible;document.querySelector('#battleControls').hidden=true;}else document.querySelector('#battleControls').hidden=false;}
+function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=!formationVisible;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
-update=function(){screenUpdate();syncFormation();if(state==='choose')drawArmyPreviews();};
+update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
 let lastScreenPhase=null;
 const screenMultiDisplay=displayMultiState;
-displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();};
+displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();};
 for(const img of Object.values(spriteImages)){const prior=img.onload;img.onload=()=>{if(prior)prior();drawArmyPreviews();};}
 document.querySelector('#soloStart').onclick=openSoloScreen;
 document.querySelector('#showMultiplayer').onclick=()=>{if(!walletState)freshWallet();showScreen('room');};

@@ -18,6 +18,7 @@
 
 <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
   <h2 id="roomTitle">みんなで遊ぶ</h2>
+  <p class="status-line">部屋は GRAVITY 連携用です（接続は未検証）。接続できないときも、ひとりで遊べます。</p>
   <button id="createRoom" class="cta cta-primary">部屋をつくる</button>
   <button id="beginRound" class="cta cta-primary" hidden>第1戦をはじめる</button>
   <label class="room-code-label" for="roomId">部屋コードで参加</label>
@@ -50,6 +51,8 @@
       </article>
     </div>
 
+    <label for="unitKind">兵種の特徴</label> <select id="unitKind" aria-describedby="unitTrait"></select>
+    <p id="unitTrait" class="status-line" aria-live="polite"></p>
     <button id="formationToggle" class="text-button">両軍の配置を見る</button>
     <section class="stake-card" aria-labelledby="stakeTitle">
       <h3 id="stakeTitle">予想を選んだら、Gを上乗せ（任意）</h3>
@@ -67,6 +70,7 @@
 
   <section id="battle" class="battle" hidden aria-label="バトルを観戦">
     <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
+    <p id="battleClock" class="status-line" aria-live="off"></p>
     <div id="battleControls" class="battle-controls">
       <button id="pause" class="control-button">一時停止</button>
       <button id="speed" class="control-button">速度 1×</button>
@@ -89,9 +93,11 @@
 </section>
 
 <details id="help" class="help-details">
-  <summary>遊び方</summary>
-  <p>G は購入・換金できないゲーム内ポイントです。勝つ軍を選んでバトルを観戦。無料予想は的中で +10 G、はずれても減りません。上乗せは任意（最大50 G）で、はずれると上乗せ分だけ失います。残高が0 Gでも無料予想できます。1回のゲームは20戦、60秒で決着しない戦いは引き分けです。</p>
-  <p>兵種：剣士は標準、盾兵は丈夫、槍兵は近接射程が長い、弓兵は遠距離、砲兵は範囲攻撃、騎兵は速い、治療兵は味方を回復。小鬼は小型で速く、岩巨人は大きく重く、羽トカゲは飛行、亡霊術師は小鬼を召喚します。</p>
+  <summary>遊び方・11兵種の特徴</summary>
+  <p>G は購入・換金できないゲーム内ポイントです。開始は100 G、全20戦。勝つ軍を選び、任意で0 / 10 / 25 / 50 Gを上乗せします（残高以内）。無料予想は的中 +10 G、はずれても減りません。</p>
+  <p>上乗せして的中すると +10 G に上乗せ額と同額の利益が加わり、はずれると上乗せ分だけ失います。例：25 Gを上乗せすると的中 +35 G、はずれ −25 G。見るだけ・引き分けは増減なし。残高0 Gでも無料予想は続けられます。純益スコアは残高−開始100 Gです。</p>
+  <p>左右のカードは兵種の代表姿と人数です。「両軍の配置を見る」で実際の布陣も確認できます。同じ兵数でも、射程・丈夫さ・位置・相性で結果は変わります。60秒で決着しなければ引き分けです。</p>
+  <p>飛行に届くのは弓・砲・亡霊術師・羽トカゲ。兵種ごとの特徴は予想画面で選んで確認できます。戦いごとに新しい両軍になります。後半ほど兵種が増え、最大3兵種の混成です。</p>
 </details>
 
 </main>

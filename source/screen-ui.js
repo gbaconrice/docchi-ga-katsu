@@ -12,11 +12,11 @@ function showScreen(next){
 function ensureSoloWallet(){if(!walletState)freshWallet();if(!walletState.currentRound&&walletState.completedRounds===0&&!units.length)openPrediction((Math.random()*4294967296)>>>0);}
 function openSoloScreen(){
  if(multiSession){showScreen('room');document.querySelector('#roomStatus').textContent='ひとり用へ移るには、先に部屋から退出してください。';return;}
- ensureSoloWallet();if(homePausedSolo){paused=false;homePausedSolo=false;}update();showScreen('game');
+ ensureSoloWallet();if(homePausedSolo){setPaused(false);homePausedSolo=false;}update();showScreen('game');
 }
 function returnHome(){
  if(multiSession){showScreen('room');return;}
- if(state==='fight'&&!paused){paused=true;homePausedSolo=true;}showScreen('home');
+ if(state==='fight'&&!paused){setPaused(true);homePausedSolo=true;}showScreen('home');
 }
 function drawArmyPreviews(){
  for(const side of [0,1]){
@@ -35,13 +35,23 @@ function drawArmyPreviews(){
   if(el.setAttribute)el.setAttribute('aria-label',(side?'蒼軍':'朱軍')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
  }
 }
+const UNIT_DETAILS={
+ sword:'標準的な地上近接兵。',shield:'丈夫で射撃に強い。地上の進路を塞ぐ。味方への矢を遮る効果はない。',spear:'地上の相手を長い近接射程で攻撃。',archer:'遠くから射撃。飛行にも届く。',cannon:'周囲を巻き込む範囲射撃。飛行にも届く。',rider:'移動が速い地上近接兵。',healer:'傷ついた味方を治療。攻撃役ではない。',goblin:'小型で速い。打たれ弱いが数で迫る。',golem:'大型で丈夫、重く遅い。強い一撃だが範囲攻撃ではない。',drake:'飛行し、地上近接の攻撃を受けない。地上・飛行の両方を攻撃。',wraith:'飛行にも届く射撃。仲間の小鬼を最大3体、時間差で呼ぶ。'
+};
+let lastTraitKinds='';
+function updateUnitTraits(){
+ const roles=[...new Set(units.filter(u=>!u.dead).map(u=>u.k))],select=document.querySelector('#unitKind'),key=roles.join(',');
+ if(key!==lastTraitKinds){const selected=select.value;select.innerHTML=roles.map(k=>'<option value="'+k+'">'+TYPES[k].name+'</option>').join('');select.value=roles.includes(selected)?selected:roles[0]||'';lastTraitKinds=key;}
+ const k=select.value;document.querySelector('#unitTrait').textContent=k&&UNIT_DETAILS[k]?TYPES[k].name+'：'+UNIT_DETAILS[k]:'';
+}
+document.querySelector('#unitKind').onchange=updateUnitTraits;
 let formationVisible=false;
-function syncFormation(){if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=!formationVisible;document.querySelector('#battleControls').hidden=true;}else document.querySelector('#battleControls').hidden=false;}
+function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=!formationVisible;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
-update=function(){screenUpdate();syncFormation();if(state==='choose')drawArmyPreviews();};
+update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
 let lastScreenPhase=null;
 const screenMultiDisplay=displayMultiState;
-displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();};
+displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();};
 for(const img of Object.values(spriteImages)){const prior=img.onload;img.onload=()=>{if(prior)prior();drawArmyPreviews();};}
 document.querySelector('#soloStart').onclick=openSoloScreen;
 document.querySelector('#showMultiplayer').onclick=()=>{if(!walletState)freshWallet();showScreen('room');};

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト試作 v6.1</title><style>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？ — モンスター・エフェクト試作 v6.2</title><style>
 *{box-sizing:border-box}body{margin:0;background:#111a20;color:#efe7d3;font-family:system-ui,sans-serif}main{max-width:480px;margin:auto;padding: max(12px,env(safe-area-inset-top)) 14px max(16px,env(safe-area-inset-bottom))}header{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #827457;padding-bottom:8px}h1{font-size:20px;margin:0;letter-spacing:.15em}small,.sub{color:#b8b29e} .sub{font-size:12px;margin:7px 0 12px}#status{font-size:14px;color:#e9c97f}canvas{display:block;width:100%;aspect-ratio: 1 / 1.12;border:1px solid #766747;border-radius:5px;background:#35463d} .teams{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.team{background:#212d30;border:1px solid #52605a;padding:9px;border-radius:4px;min-height:86px}.team b{font-size:14px}.team p{font-size:12px;line-height:1.5;margin:5px 0 0;color:#dedacb}.red b{color:#ffad91}.blue b{color:#9fcef1}#message{text-align:center;min-height:46px;font-size:14px;line-height:1.5;margin:10px 0}.actions{display:flex;gap:8px}button{flex:1;min-height:48px;background:#344a4d;color:#fff5dc;border:1px solid #9c9b7c;border-radius:5px;font-size:15px;font-weight:bold;cursor:pointer}button:disabled{opacity:.4}button.redbtn{background:#773f36}button.bluebtn{background:#315672}button:focus-visible{outline:3px solid #f7d994}details{font-size:12px;color:#c3beac;margin-top:14px}details p{line-height:1.6} .foot{font-size:11px;color:#939c8d;margin-top:12px}
 
 [hidden]{display:none!important}.wallet{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:12px 0}.wallet div{background:#212d30;padding:8px;text-align:center}.wallet span{display:block;font-size:11px;color:#b8b29e}.wallet strong{font-size:18px}h2{font-size:16px;margin:12px 0 8px}.stakes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}button[aria-pressed=true]{outline:3px solid #f7d994;outline-offset:-3px}.panel{margin:12px 0;padding:12px;border:1px solid #52605a;border-radius:5px}.hint{font-size:12px;line-height:1.6;color:#c3beac}.breakdown{white-space:pre-line;line-height:1.8;font-size:14px}#confirm{width:100%;margin:8px 0}#skip{font-size:13px;background:#212d30}#phaseTitle{color:#e9c97f}canvas{max-height:54vh;width:auto;max-width:100%;margin:auto}
@@ -227,7 +227,26 @@ function drawSprite(u){
   return true;
 }
 
-function loop(t){if(!last)last=t;let delta=Math.min((t-last)/1000,.1);last=t;if(state==='fight'&&!paused){acc+=delta*speed;while(acc>=1/60&&state==='fight'){step(1/60);acc-=1/60}draw()}else if(state==='result'){visualTime+=delta;if(visualTime-elapsed<.8)draw()}requestAnimationFrame(loop)}function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;acc=0;update()}
+// Preserve visible elapsed time; bounded work per RAF, no variable physics dt.
+const SOLO_MAX_STEPS_PER_FRAME=120,SOLO_FRAME_BUDGET_MS=8;
+function resetSoloClock(){last=null;acc=0;}
+function loop(t){
+ const delta=last===null?0:Math.max(0,(t-last)/1000);last=t;
+ if(document.hidden===true){resetSoloClock();requestAnimationFrame(loop);return;}
+ if(state==='fight'&&!paused){
+  acc=Math.min(Math.max(0,60-elapsed)+1/60,acc+delta*speed);
+  const hasClock=typeof performance!=='undefined'&&typeof performance.now==='function',started=hasClock?performance.now():0;let steps=0;
+  while(acc+1e-12>=1/60&&state==='fight'&&steps<SOLO_MAX_STEPS_PER_FRAME){
+   if(steps>0&&hasClock&&performance.now()-started>=SOLO_FRAME_BUDGET_MS)break;
+   step(1/60);acc=Math.max(0,acc-1/60);steps++;
+  }
+  if(state!=='fight')acc=0;
+  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent='戦闘時間 '+Math.min(60,elapsed).toFixed(1)+' / 60 秒';
+ }else {acc=0;if(state==='result'){visualTime+=Math.min(delta,.1);if(visualTime-elapsed<.8)draw();}}
+ requestAnimationFrame(loop);
+}
+if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',resetSoloClock);
+function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚'};
@@ -235,7 +254,7 @@ function freshWallet(){walletState=Wallet.createSession({sessionId:'solo-'+(++wa
 function credits(n){return (n>0?'+':'')+n+' G'}
 function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s){selectedSide=null;selectedStake=0;spriteSetup(s);};
+setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup(s);};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
@@ -262,7 +281,7 @@ function selectStake(n){if(state!=='choose'||![0,10,25,50].includes(n)||n>curren
 function startPrediction(skip=false){
   if(state!=='choose'||(!skip&&selectedSide===null))return;
   walletState=Wallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
-  choice=skip?null:selectedSide;state='fight';paused=false;acc=0;update();
+  choice=skip?null:selectedSide;state='fight';paused=false;resetSoloClock();update();
 }
 const spriteStep=step;
 step=function(dt){spriteStep(dt);if(state==='result'&&walletState&&walletState.completedRounds<round&&walletState.currentRound?.commits.length===walletState.players.length){
