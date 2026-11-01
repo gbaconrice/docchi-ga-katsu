@@ -37,7 +37,7 @@ function displayMultiState(){
  q('#phaseTitle').textContent=s.phase==='lobby'?'参加者待ち':s.phase==='predict'?'みんなで予想':s.phase==='locked'?'予想締切・戦闘記録を準備':s.phase==='battle'?(multiPlayback?'同じ戦闘記録を観戦':'戦闘記録を受信中'):s.phase==='stopped'?'通信を停止しました':'今回の結果';
  q('#hits').textContent=currentWallet().correctCount+' / '+(s.phase==='result'||s.phase==='settle'?round:round-1);if(!player){q('#balance').textContent='—';q('#profit').textContent='—';q('#hits').textContent='観戦';}
  if(s.phase==='result'||s.phase==='settle'){
-  q('#message').textContent=s.winner==='invalid'?'戦闘が無効（ホスト確定通知）':s.winner==='draw'?'引き分け':(s.winner==='A'?'朱軍':'蒼軍')+'の勝利';
+  q('#message').textContent=s.winner==='invalid'?'戦闘が無効（ホスト確定通知）':s.winner==='draw'?'引き分け':(s.winner==='A'?'左':'右')+'の勝利';
   const ranks=(s.wallets||[]).slice().sort((a,b)=>b.score-a.score);
   let prior=null,rankNo=0;
   q('#breakdown').textContent=ranks.map((p,i)=>{if(p.score!==prior)rankNo=i+1;prior=p.score;return rankNo+'位 '+(p.playerId===multiUser?'あなた':p.playerId)+'：純益 '+credits(p.score)+' / 残高 '+p.balance+' G / 正解 '+p.correctCount;}).join('\n');

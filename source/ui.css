@@ -228,7 +228,7 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 .army-blue .team-action { background: #294d62; }
 .army-card[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 1px; }
 .army-card[aria-pressed="true"] .team-action { color: #251f13; background: var(--gold); }
-.secondary-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin-top: 4px; }
+.secondary-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; width: min(100%, 280px); margin: 4px auto 0; }
 .secondary-actions .text-button { min-width: 0; font-size: 12px; }
 .compatibility-hooks { display: none !important; }
 
@@ -255,16 +255,17 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   image-rendering: pixelated;
   object-fit: contain;
 }
-.battle-controls { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
-.control-button { min-width: 0; min-height: 44px; padding: 4px 1px; font-size: 10px; line-height: 1.1; white-space: normal; }
+.battle-controls { display: grid; grid-template-columns: repeat(7, minmax(44px, 1fr)); gap: 4px; }
+.control-button { min-width: 44px; min-height: 44px; padding: 4px 2px; font-size: 10px; line-height: 1.1; white-space: normal; }
 
 /* Result feedback is readable, brief, and normally advances without a tap. */
 .result-panel {
-  flex: 1;
-  min-height: 0;
+  flex: 0 1 auto;
+  min-height: max-content;
+  max-height: 100%;
   overflow-y: auto;
   width: min(100%, 430px);
-  margin: auto;
+  margin: clamp(10px, 2vh, 20px) auto 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 14px;
@@ -314,7 +315,7 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   .army-card { padding: 6px; }
   .unit-stats { font-size: 11px; }
   .team-action { font-size: 13px; }
-  .control-button { font-size: 9px; }
+  .control-button { font-size: 10px; }
 }
 @media (max-height: 640px) {
   .app-header { margin-bottom: 5px; }
@@ -323,3 +324,59 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   .army-card { gap: 4px; }
   .battle-toolbar { min-height: 36px; }
 }
+
+/* On wider desktop screens, use the extra horizontal room for a larger field and put
+   controls in a side rail instead of shrinking seven 44px targets into one row. */
+@media (min-width: 900px) and (min-height: 640px) {
+  #app { width: min(100%, 980px); padding-inline: 24px; }
+  .app-header { min-height: 38px; margin-bottom: 4px; padding-bottom: 4px; }
+  #gameScreen[data-phase="fight"] { position: relative; }
+  #gameScreen[data-phase="fight"] > .game-topline {
+    position: absolute;
+    z-index: 4;
+    inset: 0 0 auto;
+    min-height: 36px;
+    pointer-events: none;
+  }
+  #gameScreen[data-phase="fight"] > .game-topline > * { pointer-events: auto; }
+  #gameScreen[data-phase="fight"] > .phase-title { display: none; }
+  #gameScreen[data-phase="fight"] #battle:not([hidden]) { position: relative; gap: 0; }
+  #gameScreen[data-phase="fight"] .battle-toolbar {
+    position: absolute;
+    z-index: 3;
+    inset: 38px auto auto 50%;
+    transform: translateX(-50%);
+    width: min(100%, 600px);
+    min-height: 36px;
+    pointer-events: none;
+  }
+  #gameScreen[data-phase="fight"] .battle-toolbar > * { pointer-events: auto; }
+  #gameScreen[data-phase="fight"] .field-stage {
+    position: absolute;
+    inset: 0;
+    width: min(100%, 600px);
+    height: 100%;
+    margin-inline: auto;
+  }
+  #gameScreen[data-phase="fight"] .battle-controls {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    right: max(0px, calc((100% - 800px) / 2));
+    bottom: auto;
+    transform: translateY(-50%);
+    grid-template-columns: minmax(64px, 1fr);
+    gap: 6px;
+    width: 76px;
+    padding: 4px;
+    border: 1px solid rgb(195 190 172 / 35%);
+    border-radius: 10px;
+    background: rgb(17 26 32 / 78%);
+  }
+  #gameScreen[data-phase="fight"] .control-button { width: 100%; font-size: 11px; }
+}
+@media (max-width: 347px) {
+  .battle-controls { grid-template-columns: repeat(4, minmax(44px, 1fr)); }
+}
+
+@media (max-width: 355px) { #app { padding-inline: 8px; } }

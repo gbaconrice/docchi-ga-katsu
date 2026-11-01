@@ -32,7 +32,7 @@ function drawArmyPreviews(){
    if(img&&img.complete&&img.naturalWidth){p.save();p.translate(x,y);p.scale((side?-1:1)*scale,scale);p.drawImage(img,0,(monster?0:SPRITE_ROWS[g.k])*cell,cell,cell,-anchor[0],-anchor[1],cell,cell);p.restore();}
    p.fillStyle=side?'#bdddf5':'#ffbaa5';p.font='bold 13px sans-serif';p.textAlign='center';p.fillText('×'+g.count,x,height-4);
   });
-  if(el.setAttribute)el.setAttribute('aria-label',(side?'蒼軍':'朱軍')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
+  if(el.setAttribute)el.setAttribute('aria-label',(side?'右':'左')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
  }
 }
 const UNIT_DETAILS={
@@ -46,7 +46,7 @@ function updateUnitTraits(){
 }
 document.querySelector('#unitKind').onchange=updateUnitTraits;
 let formationVisible=false;
-function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=!formationVisible;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
+function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
 update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
 let lastScreenPhase=null;
@@ -60,6 +60,6 @@ document.querySelector('#gameHome').onclick=returnHome;
 const exitScreen=leaveMulti;
 leaveMulti=async function(){await exitScreen();if(!multiSession)showScreen('game');};
 document.querySelector('#exitRoom').onclick=()=>leaveMulti();
-document.querySelector('#formationToggle').onclick=()=>{formationVisible=!formationVisible;document.querySelector('#formationToggle').textContent=formationVisible?'配置を閉じる':'両軍の配置を見る';syncFormation();if(formationVisible)draw();};
+document.querySelector('#formationToggle').onclick=()=>{};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',drawArmyPreviews);
 showScreen('home');

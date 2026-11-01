@@ -55,29 +55,29 @@
       </section>
 
       <div class="army-grid" role="group" aria-label="勝つと思う軍を選ぶ">
-        <button id="red" class="army-card army-red" type="button" aria-pressed="false">
-          <span class="army-title" id="redTitle">朱軍</span>
-          <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="朱軍の兵士"></canvas>
+        <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍を選ぶ">
+          <span class="army-title sr-only" id="redTitle">左</span>
+          <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左の軍の兵士"></canvas>
           <span id="redList" class="army-summary sr-only" aria-live="off"></span>
           <span id="redStats" class="unit-stats" aria-live="off">兵情報</span>
-          <span class="team-action">朱軍が勝つ</span>
+          <span class="team-action">左を選ぶ</span>
         </button>
-        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false">
-          <span class="army-title" id="blueTitle">蒼軍</span>
-          <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="蒼軍の兵士"></canvas>
+        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍を選ぶ">
+          <span class="army-title sr-only" id="blueTitle">右</span>
+          <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右の軍の兵士"></canvas>
           <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
           <span id="blueStats" class="unit-stats" aria-live="off">兵情報</span>
-          <span class="team-action">蒼軍が勝つ</span>
+          <span class="team-action">右を選ぶ</span>
         </button>
       </div>
 
       <div class="secondary-actions">
         <button id="skip" class="text-button" type="button">予想せず観戦</button>
-        <button id="formationToggle" class="text-button" type="button">実際の配置を見る</button>
       </div>
 
       <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
       <div class="compatibility-hooks" hidden aria-hidden="true">
+        <button id="formationToggle" type="button" tabindex="-1">配置を見る</button>
         <label for="unitKind">兵種の特徴</label><select id="unitKind"></select>
         <p id="unitTrait"></p>
       </div>
@@ -90,7 +90,7 @@
         <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵情報</button>
       </div>
       <div class="field-stage">
-        <canvas id="field" width="480" height="538" aria-label="朱軍と蒼軍の戦闘"></canvas>
+      <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
       </div>
       <div id="battleControls" class="battle-controls" aria-label="戦場の操作">
         <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
@@ -98,6 +98,7 @@
         <button id="speedUp" class="control-button" type="button" aria-label="戦闘速度を上げる">速度 ＋</button>
         <button id="zoomOut" class="control-button" type="button" aria-label="戦場を縮小">縮小</button>
         <button id="zoomIn" class="control-button" type="button" aria-label="戦場を拡大">拡大</button>
+        <button id="zoomReset" class="control-button" type="button" aria-label="戦場全体を表示">全体</button>
         <button id="effects" class="control-button" type="button" aria-label="演出を切り替える">演出</button>
         <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
       </div>
@@ -123,11 +124,11 @@
       </div>
       <div class="units-grid">
         <section class="units-side units-side-red" aria-labelledby="unitsRedTitle">
-          <h3 id="unitsRedTitle">朱軍</h3>
+          <h3 id="unitsRedTitle">左</h3>
           <div id="unitsRedStats" class="unit-stats units-stat-list"></div>
         </section>
         <section class="units-side units-side-blue" aria-labelledby="unitsBlueTitle">
-          <h3 id="unitsBlueTitle">蒼軍</h3>
+          <h3 id="unitsBlueTitle">右</h3>
           <div id="unitsBlueStats" class="unit-stats units-stat-list"></div>
         </section>
       </div>

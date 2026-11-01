@@ -14,8 +14,10 @@ Verification: full emitted inline HTML run in VM with actual DOM IDs and registe
 ## Additional presentation behavior
 - UNITS pauses solo only if it was running; closing restores the original pause state. In multiplayer, simulation/replay timing remains authoritative and is not paused by a local overlay.
 - Comparison and UNITS show counts, total current/max HP, damage and cooldown seconds, plus existing short role notes (not long species prose).
-- Zoom is a read-only canvas camera at 1/1.25/1.5/2x following the current living-unit centroid; it never changes world positions. Speed controls remain the existing 1x/2x; multiplayer speed changes remain disabled.
+- Zoom is a read-only canvas camera at 1/1.25/1.5/2x with manual field-only pointer dragging, world bounds clamping and an explicit full-field reset. It never automatically follows units or changes world positions. Speed controls remain the existing 1x/2x; multiplayer speed changes remain disabled.
 - `flow-interaction-test.cjs` replaces old confirmation/manual-next UI assumptions for v8. Older UI scripts asserting a required confirm or stopping indefinitely at round-one result are obsolete expectations, not evidence of current flow regressions.
 - Existing local two-client and delayed/skewed-clock replay UI tests pass (1,222 same-scene comparisons; simulated 3.2s transfer delay and 7s clock skew).
 
 New shell/CSS and new control bindings are integrated. Full inline 20-round flow, no-TextEncoder solo, local multi and delayed clock tests pass. Physics snapshot audit passes; 30 replay battles / 25,854 ticks match. Actual screen and mobile visual QA is planned after publication; it has not been completed at package preparation time.
+
+Post-publication QA fixes: compact natural-height result panel, no inline formation expansion, position-only left/right labels, no prototype version in the page title, bounded manual camera. Combat/economy/art unchanged. Revised visual behavior still requires post-publication review.
