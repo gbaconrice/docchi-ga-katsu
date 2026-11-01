@@ -43,7 +43,7 @@ function makeArmy(r,side){
  if(stage<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(stage>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,BALANCE_COST[k]])),round===2?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
  const unitCap=round===1?8:stage<=5?12:stage<=11?16:stage<=16?24:32;
  const planned=side===1?Math.min(160,Math.max(Math.round((12+2*(stage-1))*1),Math.ceil(leftArmyCost*Math.pow(1+Math.min(carryStreak,4)*0.005,advance))+Math.round(0.5*advance))):12+Math.min(12,Math.floor((stage-1)/2))+Math.floor(r()*5)-2;
- const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12,screech_cricket:7,reaper_mantis:7,spore_toad:9,rootwarden_treant:11};
+ const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12,screech_cricket:7,reaper_mantis:7,spore_toad:9,rootwarden_treant:11,sky_harpooner:7,bounty_hound:9,siege_crab:13};
  let pool=keys.filter(k=>stage>=(unlock[k]||1)&&(stage>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
  if(side===1&&previousArmyKinds.length===1)pool=pool.filter(k=>k!==previousArmyKinds[0]);
  if(side===1&&!previousArmyKinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))pool=pool.filter(k=>k!=='drake');
@@ -70,8 +70,8 @@ function makeArmy(r,side){
 function layoutOpeningArmy(army,side){
  const large=army.filter(u=>TYPES[u.k].radius>25);
  if(!large.length){army.forEach((u,i)=>{const depth=Math.floor(i/8),rows=Math.min(8,army.length-depth*8);u.x=army.length<=8?(side?360:120):(side?420-depth*50:60+depth*50);u.y=269-(rows-1)*25+(i%8)*50;u.originForward=side?-1:1;});return;}
- const columns=Math.min(4,Math.max(Math.ceil(army.length/8),Math.ceil(large.length/6))),start=columns===4?47:Math.max(80,120-(columns-1)*27),slots=[];
- for(let col=0;col<columns;col++)for(let row=0;row<8;row++)slots.push({x:start+col*54,y:80+row*54,used:false});
+ const spacing=Math.max(54,...large.map(u=>TYPES[u.k].radius*2)),columns=Math.min(4,Math.max(Math.ceil(army.length/8),Math.ceil(large.length/6))),start=columns===4?(spacing>54?240-spacing/2-spacing*3:47):Math.max(80,120-(columns-1)*spacing/2),slots=[];
+ for(let col=0;col<columns;col++)for(let row=0;row<8;row++)slots.push({x:start+col*spacing,y:80+row*spacing,used:false});
  // Large original art is kept inside the canvas without shrinking or changing body radius.
  const safe=slots.filter(p=>p.x>=80&&p.y>=154);
  const preferred=[...safe,...slots.filter(p=>!safe.includes(p))];

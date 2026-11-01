@@ -14,4 +14,4 @@ for(const kind of Object.keys(EFFECT_ASSETS))for(const m of [EFFECT_META[kind]])
 })()`);
 for(const a of calls){const b=bytes(a[0].src),width=b.readUInt32BE(16),height=b.readUInt32BE(20);assert(a[1]>=0&&a[2]>=0&&a[1]+a[3]<=width&&a[2]+a[4]<=height);assert.equal(a[3],a[7]);assert.equal(a[4],a[8]);}
 assert.equal(ctx.imageSmoothingEnabled,false);
-console.log('PASS: 22 internal kinds x 2 teams x 9 frames; geometry bounds/native scale/nearest; all embedded effects source SHA/bytes/frame bounds; no image modifications');
+console.log('PASS: 25 internal kinds x 2 teams x 9 frames; geometry bounds/native scale/nearest; all embedded effects source SHA/bytes/frame bounds; no image modifications');

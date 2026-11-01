@@ -1,0 +1,257 @@
+{
+  "types": {
+    "goblin": {
+      "cost": 2,
+      "name": "\u5c0f\u9b3c",
+      "hp": 50,
+      "dmg": 9,
+      "range": 16,
+      "rate": 0.62,
+      "speed": 54,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "collisionLayer": "ground",
+      "radius": 7,
+      "reach": 4
+    },
+    "golem": {
+      "cost": 9,
+      "name": "\u5ca9\u5de8\u4eba",
+      "hp": 390,
+      "dmg": 50,
+      "range": 27,
+      "rate": 2.5,
+      "speed": 15,
+      "reach": 2,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "collisionLayer": "ground",
+      "mass": 2600,
+      "radius": 25
+    },
+    "drake": {
+      "cost": 7,
+      "name": "\u7fbd\u30c8\u30ab\u30b2",
+      "hp": 145,
+      "dmg": 25,
+      "range": 28,
+      "rate": 1.15,
+      "speed": 38,
+      "reach": 12,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "collisionLayer": "air",
+      "flying": true,
+      "radius": 13
+    },
+    "wraith": {
+      "cost": 8,
+      "name": "\u4ea1\u970a\u8853\u5e2b",
+      "hp": 90,
+      "dmg": 15,
+      "range": 88,
+      "rate": 1.3,
+      "speed": 22,
+      "projectile": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "collisionLayer": "ground",
+      "summonCharges": 3,
+      "summonInitialDelay": 0.25,
+      "summonCooldown": 1.5,
+      "radius": 9,
+      "reach": 63
+    },
+    "boar": {
+      "cost": 5,
+      "name": "\u7a81\u9032\u732a",
+      "hp": 155,
+      "dmg": 20,
+      "rate": 1.2,
+      "speed": 30,
+      "radius": 14,
+      "reach": 4,
+      "range": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "chargeBonus": 32,
+      "chargeSpeed": 72,
+      "knockback": 22
+    },
+    "bombbug": {
+      "cost": 3,
+      "name": "\u7206\u5f3e\u7532\u866b",
+      "hp": 55,
+      "dmg": 0,
+      "rate": 60,
+      "speed": 48,
+      "radius": 9,
+      "reach": 5,
+      "range": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "explosionDamage": 115,
+      "explosionRadius": 50
+    },
+    "frostmage": {
+      "cost": 4,
+      "name": "\u6c37\u8853\u5e2b",
+      "hp": 85,
+      "dmg": 15,
+      "rate": 1.4,
+      "speed": 23,
+      "radius": 8,
+      "reach": 110,
+      "range": 118,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "slowFactor": 0.55,
+      "slowDuration": 1.5,
+      "slowImmunity": 0.75
+    },
+    "stormmage": {
+      "cost": 5,
+      "name": "\u96f7\u8853\u5e2b",
+      "hp": 80,
+      "dmg": 24,
+      "rate": 1.4,
+      "speed": 22,
+      "radius": 8,
+      "reach": 95,
+      "range": 103,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "chainCount": 3,
+      "chainRange": 60,
+      "chainFalloff": 0.65
+    },
+    "burrower": {
+      "cost": 5,
+      "name": "\u5730\u6f5c\u308a\u866b",
+      "hp": 120,
+      "dmg": 25,
+      "rate": 1.1,
+      "speed": 35,
+      "radius": 11,
+      "reach": 5,
+      "range": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burrowWarning": 0.5,
+      "burrowTravel": 0.3
+    },
+    "slime": {
+      "cost": 4,
+      "name": "\u5206\u88c2\u30b9\u30e9\u30a4\u30e0",
+      "hp": 115,
+      "dmg": 12,
+      "rate": 1.4,
+      "speed": 20,
+      "radius": 16,
+      "reach": 3,
+      "range": 19,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "splitCount": 2,
+      "splitKind": "slimelet"
+    },
+    "slimelet": {
+      "cost": 0,
+      "name": "\u5c0f\u30b9\u30e9\u30a4\u30e0",
+      "hp": 35,
+      "dmg": 7,
+      "rate": 0.9,
+      "speed": 34,
+      "radius": 7,
+      "reach": 3,
+      "range": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "spawnOnly": true
+    },
+    "screech_cricket": {
+      "hp": 65,
+      "dmg": 8,
+      "rate": 1.3,
+      "speed": 34,
+      "radius": 8,
+      "reach": 58,
+      "cost": 2,
+      "cadenceDelay": 0.35,
+      "cadenceImmunity": 3.5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "reaper_mantis": {
+      "hp": 125,
+      "dmg": 29,
+      "rate": 1.25,
+      "speed": 31,
+      "radius": 13,
+      "reach": 9,
+      "cost": 5,
+      "parryReduction": 0.7,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "spore_toad": {
+      "hp": 145,
+      "dmg": 6,
+      "rate": 3.5,
+      "speed": 18,
+      "radius": 17,
+      "reach": 65,
+      "cost": 4,
+      "poisonRadius": 42,
+      "poisonDuration": 3,
+      "poisonDps": 4,
+      "poisonImmunity": 1,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "rootwarden_treant": {
+      "hp": 350,
+      "dmg": 24,
+      "rate": 2,
+      "speed": 12,
+      "radius": 27,
+      "reach": 5,
+      "cost": 9,
+      "wardRadius": 80,
+      "wardReduction": 0.25,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    }
+  }
+}

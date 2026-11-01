@@ -1,0 +1,61 @@
+{
+  "audit": "v14-replay-readonly",
+  "results": [
+    {
+      "name": "64 initial mixed units, finite slime/wraith children, canonical <=2MiB and chunk restoration",
+      "status": "pass",
+      "initial": 64,
+      "kindsPerSide": 7,
+      "created": 114,
+      "children": 50,
+      "maxActivePerSide": 32,
+      "ticks": 3136,
+      "bytes": 259771,
+      "chunks": 44,
+      "mockPacedMs": 4400
+    },
+    {
+      "name": "room matchup wire cap and ledger/protocol atomic refusal",
+      "status": "pass",
+      "guest64InitialMatch": true,
+      "wireCap": 48000,
+      "max64UnitSnapshotBytes": 5427,
+      "oversizedOpenStateAndLedgerUnchanged": true
+    },
+    {
+      "name": "oversized replay cannot reverse confirmed wallets",
+      "status": "pass",
+      "confirmedLossRetained": 50,
+      "replayError": "replay-buffer-cap"
+    },
+    {
+      "name": "actual B winner carries fresh starting roster left; guest never simulates; settlement keeps original sides",
+      "status": "pass",
+      "fixtureSeed": 1,
+      "winner": "B",
+      "nextLeftKinds": [
+        "spear",
+        "spear",
+        "spear",
+        "spear",
+        "spear",
+        "spear",
+        "spear",
+        "spear"
+      ],
+      "hostBalance": 75,
+      "guestBalance": 135,
+      "guestCoreCalls": 0
+    },
+    {
+      "name": "UI openRound refusal world-state atomicity probe",
+      "status": "pass",
+      "localWorldAtomic": true,
+      "scope": "injected openRound admission failure, not reproduced with normal 64-unit payload"
+    }
+  ],
+  "findings": [],
+  "productionUnchanged": true,
+  "realSDK": false,
+  "browser": false
+}

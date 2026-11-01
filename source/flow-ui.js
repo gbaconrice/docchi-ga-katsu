@@ -65,7 +65,7 @@ function fillUnitStats() {
     cannon: '範囲攻撃', rider: '高速', healer: '回復', goblin: '小型',
     golem: '', drake: '飛行', wraith: '小鬼召喚', boar: '突進',
     bombbug: '自爆', frostmage: '鈍足', stormmage: '連鎖攻撃',
-    burrower: '潜行', slime: '2体分裂', slimelet: '',screech_cricket:'攻撃遅延',reaper_mantis:'一度受け流し',spore_toad:'毒',rootwarden_treant:'射撃防壁'
+    burrower: '潜行', slime: '2体分裂', slimelet: '',screech_cricket:'攻撃遅延',reaper_mantis:'一度受け流し',spore_toad:'毒',rootwarden_treant:'射撃防壁',sky_harpooner:'対空',bounty_hound:'子狩り',siege_crab:'単体砲撃'
   };
   if (typeof UNIT_DETAILS !== 'undefined') Object.assign(UNIT_DETAILS, traits);
   if (typeof ROLE_NOTES !== 'undefined') Object.assign(ROLE_NOTES, traits);

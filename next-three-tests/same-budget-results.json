@@ -1,0 +1,511 @@
+{
+  "status": "small deterministic probe, not global calibration",
+  "seeds": 5,
+  "battles": 180,
+  "rows": [
+    {
+      "k": "sky_harpooner",
+      "opponent": "sword",
+      "budget": 15,
+      "counts": [
+        3,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.7,
+      "meanSeconds": 10.516666666666769
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "shield",
+      "budget": 20,
+      "counts": [
+        4,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.7347058823529412,
+      "meanSeconds": 21.366666666666735
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "spear",
+      "budget": 15,
+      "counts": [
+        3,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.5764705882352941,
+      "meanSeconds": 11.466666666666816
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "archer",
+      "budget": 15,
+      "counts": [
+        3,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.6,
+      "meanSeconds": 9.533333333333387
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "cannon",
+      "budget": 30,
+      "counts": [
+        6,
+        5
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.30350877192982456,
+      "meanSeconds": 15.450000000000347
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "rider",
+      "budget": 40,
+      "counts": [
+        8,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.68,
+      "meanSeconds": 11.953333333333507
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "goblin",
+      "budget": 10,
+      "counts": [
+        2,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.68,
+      "meanSeconds": 7.90999999999998
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "golem",
+      "budget": 45,
+      "counts": [
+        9,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.48410256410256414,
+      "meanSeconds": 29.409999999999616
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "drake",
+      "budget": 35,
+      "counts": [
+        7,
+        5
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.42105263157894735,
+      "meanSeconds": 11.100000000000131
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "wraith",
+      "budget": 40,
+      "counts": [
+        8,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.6516666666666666,
+      "meanSeconds": 12.640000000000208
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "slime",
+      "budget": 20,
+      "counts": [
+        4,
+        5
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.32558139534883723,
+      "meanSeconds": 21.35000000000007
+    },
+    {
+      "k": "sky_harpooner",
+      "opponent": "rootwarden_treant",
+      "budget": 45,
+      "counts": [
+        9,
+        5
+      ],
+      "wins": 0,
+      "losses": 1,
+      "draws": 4,
+      "meanWinnerHp": 0.3385714285714286,
+      "meanSeconds": 56.95999999999805
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "sword",
+      "budget": 12,
+      "counts": [
+        3,
+        4
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.248,
+      "meanSeconds": 10.570000000000103
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "shield",
+      "budget": 16,
+      "counts": [
+        4,
+        4
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.36363636363636365,
+      "meanSeconds": 12.76666666666688
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "spear",
+      "budget": 12,
+      "counts": [
+        3,
+        4
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.03823529411764706,
+      "meanSeconds": 13.76666666666693
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "archer",
+      "budget": 12,
+      "counts": [
+        3,
+        4
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.35,
+      "meanSeconds": 11.533333333333486
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "cannon",
+      "budget": 12,
+      "counts": [
+        3,
+        2
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.5121212121212121,
+      "meanSeconds": 8.866666666666685
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "rider",
+      "budget": 16,
+      "counts": [
+        4,
+        2
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.4069565217391304,
+      "meanSeconds": 9.41333333333338
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "goblin",
+      "budget": 16,
+      "counts": [
+        4,
+        8
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.17909090909090905,
+      "meanSeconds": 9.846666666666735
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "golem",
+      "budget": 36,
+      "counts": [
+        9,
+        4
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.4727272727272728,
+      "meanSeconds": 18.513333333333563
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "drake",
+      "budget": 28,
+      "counts": [
+        7,
+        4
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 1,
+      "meanSeconds": 20.030000000000143
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "wraith",
+      "budget": 16,
+      "counts": [
+        4,
+        2
+      ],
+      "wins": 3,
+      "losses": 2,
+      "draws": 0,
+      "meanWinnerHp": 0.11318181818181819,
+      "meanSeconds": 14.28666666666694
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "slime",
+      "budget": 16,
+      "counts": [
+        4,
+        4
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.21363636363636362,
+      "meanSeconds": 13.816666666666933
+    },
+    {
+      "k": "bounty_hound",
+      "opponent": "rootwarden_treant",
+      "budget": 36,
+      "counts": [
+        9,
+        4
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.6113131313131313,
+      "meanSeconds": 17.50333333333362
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "sword",
+      "budget": 18,
+      "counts": [
+        2,
+        6
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.18966666666666668,
+      "meanSeconds": 18.333333333333574
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "shield",
+      "budget": 36,
+      "counts": [
+        4,
+        9
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.18196078431372548,
+      "meanSeconds": 42.24333333333222
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "spear",
+      "budget": 18,
+      "counts": [
+        2,
+        6
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.322,
+      "meanSeconds": 18.800000000000214
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "archer",
+      "budget": 18,
+      "counts": [
+        2,
+        6
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.15066666666666612,
+      "meanSeconds": 19.616666666666834
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "cannon",
+      "budget": 18,
+      "counts": [
+        2,
+        3
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.8926666666666666,
+      "meanSeconds": 10.923333333333456
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "rider",
+      "budget": 72,
+      "counts": [
+        8,
+        9
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.19033816425120773,
+      "meanSeconds": 17.590000000000266
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "goblin",
+      "budget": 18,
+      "counts": [
+        2,
+        9
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.269,
+      "meanSeconds": 14.826666666666956
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "golem",
+      "budget": 18,
+      "counts": [
+        2,
+        2
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.16666666666666666,
+      "meanSeconds": 25.733333333333157
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "drake",
+      "budget": 63,
+      "counts": [
+        7,
+        9
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 1,
+      "meanSeconds": 21.826666666666707
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "wraith",
+      "budget": 72,
+      "counts": [
+        8,
+        9
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.4335,
+      "meanSeconds": 23.243333333333293
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "slime",
+      "budget": 36,
+      "counts": [
+        4,
+        9
+      ],
+      "wins": 0,
+      "losses": 5,
+      "draws": 0,
+      "meanWinnerHp": 0.09692584408242973,
+      "meanSeconds": 39.163333333332396
+    },
+    {
+      "k": "siege_crab",
+      "opponent": "rootwarden_treant",
+      "budget": 18,
+      "counts": [
+        2,
+        2
+      ],
+      "wins": 5,
+      "losses": 0,
+      "draws": 0,
+      "meanWinnerHp": 0.44000000000000006,
+      "meanSeconds": 29.233333333332958
+    }
+  ]
+}

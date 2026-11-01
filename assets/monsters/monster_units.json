@@ -447,6 +447,84 @@
         76,
         5
       ]
+    },
+    "sky_harpooner": {
+      "atlas": "sky_harpooner_atlas.png",
+      "red_atlas": "sky_harpooner_atlas.png",
+      "cell": [
+        80,
+        80
+      ],
+      "atlas_size": [
+        720,
+        80
+      ],
+      "anchor": [
+        38,
+        70
+      ],
+      "hover_gap": 0,
+      "atlas_sha256": "de3bb4d1265ebf4605f9bfdbf8fb50b3abd9107d8c745554c30fe5118df7e846",
+      "preview_width": 66,
+      "visual_insets": [
+        29,
+        54,
+        36,
+        6
+      ],
+      "team_note": "Natural palette; runtime team foot marker."
+    },
+    "bounty_hound": {
+      "atlas": "bounty_hound_atlas.png",
+      "red_atlas": "bounty_hound_atlas.png",
+      "cell": [
+        96,
+        72
+      ],
+      "atlas_size": [
+        864,
+        72
+      ],
+      "anchor": [
+        44,
+        62
+      ],
+      "hover_gap": 0,
+      "atlas_sha256": "3384d823fa179c447c4f58bbc5405477c8fdefd5baff5c6aa1167fc899348171",
+      "preview_width": 85,
+      "visual_insets": [
+        37,
+        48,
+        47,
+        7
+      ],
+      "team_note": "Natural palette; runtime team foot marker."
+    },
+    "siege_crab": {
+      "atlas": "siege_crab_atlas.png",
+      "red_atlas": "siege_crab_atlas.png",
+      "cell": [
+        160,
+        144
+      ],
+      "atlas_size": [
+        1440,
+        144
+      ],
+      "anchor": [
+        80,
+        130
+      ],
+      "hover_gap": 0,
+      "atlas_sha256": "bdde7cf21fd05d8a21f25fc0893c437f1fdb6f89f1989474853940e8cc386a51",
+      "preview_width": 153,
+      "visual_insets": [
+        75,
+        117,
+        77,
+        11
+      ],
+      "team_note": "Natural palette; runtime team foot marker."
     }
   },
   "palette": {

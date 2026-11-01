@@ -2,33 +2,36 @@
   "complete": true,
   "pass": true,
   "hashes": {
-    "index": "3339012807283a0816558dace111d09da019bd1809d27d870388a17e00c153ab",
-    "physics": "e84f6d573f5f3571f2a2e1846b84d90e673e7766ded884a287be31186f78ad37",
-    "template": "6863234b1f90ea3616906553ff7f101cc4e56aa4e79bdfcaaf089bd050bc1606"
+    "index": "30179363cd82f4a9e16c9595c1e70561a074fbb8ec67e2e4f44775a48c933146",
+    "physics": "0f52679a498e66e4d47405a545e32df828c65f2a5eb58cf261bafe024b85e93b",
+    "template": "adbe7657451cfbc7869d91a164499c6bfb0c46b600bc9089831c1e3278c822ab"
   },
   "generationSamples": 600,
   "frequency": {
-    "sword": 65,
-    "shield": 85,
-    "spear": 78,
-    "archer": 95,
-    "cannon": 82,
-    "rider": 95,
-    "healer": 38,
-    "goblin": 114,
-    "golem": 48,
-    "drake": 28,
-    "wraith": 40,
-    "boar": 133,
+    "sword": 75,
+    "shield": 79,
+    "spear": 83,
+    "archer": 82,
+    "cannon": 60,
+    "rider": 86,
+    "healer": 32,
+    "goblin": 95,
+    "golem": 35,
+    "drake": 29,
+    "wraith": 41,
+    "boar": 132,
     "bombbug": 61,
-    "frostmage": 75,
-    "stormmage": 55,
-    "burrower": 48,
-    "slime": 91,
-    "screech_cricket": 83,
-    "reaper_mantis": 74,
-    "spore_toad": 59,
-    "rootwarden_treant": 41
+    "frostmage": 56,
+    "stormmage": 56,
+    "burrower": 41,
+    "slime": 83,
+    "screech_cricket": 72,
+    "reaper_mantis": 64,
+    "spore_toad": 42,
+    "rootwarden_treant": 28,
+    "sky_harpooner": 67,
+    "bounty_hound": 54,
+    "siege_crab": 35
   },
   "sessions": [
     {
@@ -66,72 +69,72 @@
         },
         {
           "round": 4,
-          "winner": 0,
-          "ticks": 1010,
+          "winner": 1,
+          "ticks": 960,
           "state": "result",
           "peak": 8,
-          "balance": 130,
-          "correct": 3,
+          "balance": 120,
+          "correct": 2,
           "completed": 4
         },
         {
           "round": 5,
           "winner": 0,
-          "ticks": 1042,
+          "ticks": 935,
           "state": "result",
-          "peak": 8,
-          "balance": 130,
-          "correct": 3,
+          "peak": 6,
+          "balance": 120,
+          "correct": 2,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 0,
-          "ticks": 1380,
+          "winner": 1,
+          "ticks": 647,
           "state": "result",
-          "peak": 9,
-          "balance": 140,
-          "correct": 4,
+          "peak": 6,
+          "balance": 120,
+          "correct": 2,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 533,
+          "ticks": 883,
           "state": "result",
-          "peak": 8,
-          "balance": 150,
-          "correct": 5,
+          "peak": 11,
+          "balance": 130,
+          "correct": 3,
           "completed": 7
         },
         {
           "round": 8,
           "winner": 1,
-          "ticks": 1041,
+          "ticks": 615,
           "state": "result",
-          "peak": 8,
-          "balance": 150,
-          "correct": 5,
+          "peak": 9,
+          "balance": 130,
+          "correct": 3,
           "completed": 8
         },
         {
           "round": 9,
-          "winner": 1,
-          "ticks": 845,
+          "winner": 0,
+          "ticks": 659,
           "state": "result",
           "peak": 9,
-          "balance": 160,
-          "correct": 6,
+          "balance": 130,
+          "correct": 3,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 0,
-          "ticks": 769,
+          "winner": 1,
+          "ticks": 538,
           "state": "result",
-          "peak": 11,
-          "balance": 170,
-          "correct": 7,
+          "peak": 10,
+          "balance": 130,
+          "correct": 3,
           "completed": 10
         }
       ]
@@ -172,9 +175,9 @@
         {
           "round": 4,
           "winner": 1,
-          "ticks": 406,
+          "ticks": 682,
           "state": "result",
-          "peak": 9,
+          "peak": 12,
           "balance": 120,
           "correct": 2,
           "completed": 4
@@ -182,9 +185,9 @@
         {
           "round": 5,
           "winner": 0,
-          "ticks": 645,
+          "ticks": 831,
           "state": "result",
-          "peak": 9,
+          "peak": 12,
           "balance": 120,
           "correct": 2,
           "completed": 5
@@ -192,9 +195,9 @@
         {
           "round": 6,
           "winner": 1,
-          "ticks": 332,
+          "ticks": 595,
           "state": "result",
-          "peak": 9,
+          "peak": 12,
           "balance": 120,
           "correct": 2,
           "completed": 6
@@ -202,9 +205,9 @@
         {
           "round": 7,
           "winner": 1,
-          "ticks": 996,
+          "ticks": 941,
           "state": "result",
-          "peak": 14,
+          "peak": 9,
           "balance": 130,
           "correct": 3,
           "completed": 7
@@ -212,29 +215,29 @@
         {
           "round": 8,
           "winner": 1,
-          "ticks": 883,
+          "ticks": 967,
           "state": "result",
-          "peak": 15,
+          "peak": 8,
           "balance": 130,
           "correct": 3,
           "completed": 8
         },
         {
           "round": 9,
-          "winner": 0,
-          "ticks": 1249,
+          "winner": 1,
+          "ticks": 1090,
           "state": "result",
-          "peak": 7,
-          "balance": 130,
-          "correct": 3,
+          "peak": 9,
+          "balance": 140,
+          "correct": 4,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 0,
-          "ticks": 1218,
+          "winner": 1,
+          "ticks": 932,
           "state": "result",
-          "peak": 11,
+          "peak": 22,
           "balance": 140,
           "correct": 4,
           "completed": 10
@@ -277,7 +280,7 @@
         {
           "round": 4,
           "winner": 1,
-          "ticks": 1533,
+          "ticks": 740,
           "state": "result",
           "peak": 9,
           "balance": 110,
@@ -287,7 +290,7 @@
         {
           "round": 5,
           "winner": 0,
-          "ticks": 1070,
+          "ticks": 779,
           "state": "result",
           "peak": 8,
           "balance": 110,
@@ -296,52 +299,52 @@
         },
         {
           "round": 6,
-          "winner": 0,
-          "ticks": 690,
+          "winner": 1,
+          "ticks": 1243,
           "state": "result",
           "peak": 8,
-          "balance": 120,
-          "correct": 2,
+          "balance": 110,
+          "correct": 1,
           "completed": 6
         },
         {
           "round": 7,
-          "winner": 1,
-          "ticks": 770,
+          "winner": 0,
+          "ticks": 655,
           "state": "result",
           "peak": 8,
-          "balance": 130,
-          "correct": 3,
+          "balance": 110,
+          "correct": 1,
           "completed": 7
         },
         {
           "round": 8,
           "winner": 1,
-          "ticks": 1122,
+          "ticks": 841,
           "state": "result",
-          "peak": 19,
-          "balance": 130,
-          "correct": 3,
+          "peak": 12,
+          "balance": 110,
+          "correct": 1,
           "completed": 8
         },
         {
           "round": 9,
           "winner": 1,
-          "ticks": 764,
+          "ticks": 1146,
           "state": "result",
-          "peak": 16,
-          "balance": 140,
-          "correct": 4,
+          "peak": 11,
+          "balance": 120,
+          "correct": 2,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 0,
-          "ticks": 1235,
+          "winner": 1,
+          "ticks": 1299,
           "state": "result",
-          "peak": 8,
-          "balance": 150,
-          "correct": 5,
+          "peak": 10,
+          "balance": 120,
+          "correct": 2,
           "completed": 10
         }
       ]
@@ -382,7 +385,7 @@
         {
           "round": 4,
           "winner": 1,
-          "ticks": 1127,
+          "ticks": 616,
           "state": "result",
           "peak": 9,
           "balance": 110,
@@ -392,39 +395,39 @@
         {
           "round": 5,
           "winner": 0,
-          "ticks": 812,
+          "ticks": 1231,
           "state": "result",
-          "peak": 8,
+          "peak": 11,
           "balance": 110,
           "correct": 1,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 1,
-          "ticks": 1013,
+          "winner": 0,
+          "ticks": 733,
           "state": "result",
-          "peak": 11,
-          "balance": 110,
-          "correct": 1,
+          "peak": 8,
+          "balance": 120,
+          "correct": 2,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 1262,
+          "ticks": 836,
           "state": "result",
-          "peak": 10,
-          "balance": 120,
-          "correct": 2,
+          "peak": 8,
+          "balance": 130,
+          "correct": 3,
           "completed": 7
         },
         {
           "round": 8,
-          "winner": 0,
-          "ticks": 722,
+          "winner": 1,
+          "ticks": 777,
           "state": "result",
-          "peak": 8,
+          "peak": 7,
           "balance": 130,
           "correct": 3,
           "completed": 8
@@ -432,21 +435,21 @@
         {
           "round": 9,
           "winner": 1,
-          "ticks": 842,
+          "ticks": 1375,
           "state": "result",
-          "peak": 9,
+          "peak": 7,
           "balance": 140,
           "correct": 4,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 0,
-          "ticks": 671,
+          "winner": 1,
+          "ticks": 762,
           "state": "result",
-          "peak": 10,
-          "balance": 150,
-          "correct": 5,
+          "peak": 8,
+          "balance": 140,
+          "correct": 4,
           "completed": 10
         }
       ]
@@ -487,7 +490,7 @@
         {
           "round": 4,
           "winner": 1,
-          "ticks": 552,
+          "ticks": 549,
           "state": "result",
           "peak": 10,
           "balance": 110,
@@ -496,62 +499,62 @@
         },
         {
           "round": 5,
-          "winner": 0,
-          "ticks": 542,
+          "winner": 1,
+          "ticks": 508,
           "state": "result",
           "peak": 6,
-          "balance": 110,
-          "correct": 1,
+          "balance": 120,
+          "correct": 2,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 1,
-          "ticks": 615,
+          "winner": 0,
+          "ticks": 562,
           "state": "result",
-          "peak": 8,
-          "balance": 110,
-          "correct": 1,
+          "peak": 6,
+          "balance": 130,
+          "correct": 3,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 1315,
+          "ticks": 598,
           "state": "result",
-          "peak": 8,
-          "balance": 120,
-          "correct": 2,
+          "peak": 10,
+          "balance": 140,
+          "correct": 4,
           "completed": 7
         },
         {
           "round": 8,
-          "winner": 1,
-          "ticks": 923,
+          "winner": 0,
+          "ticks": 1283,
           "state": "result",
-          "peak": 8,
-          "balance": 120,
-          "correct": 2,
+          "peak": 11,
+          "balance": 150,
+          "correct": 5,
           "completed": 8
         },
         {
           "round": 9,
-          "winner": 1,
-          "ticks": 768,
+          "winner": 0,
+          "ticks": 868,
           "state": "result",
-          "peak": 9,
-          "balance": 130,
-          "correct": 3,
+          "peak": 10,
+          "balance": 150,
+          "correct": 5,
           "completed": 9
         },
         {
           "round": 10,
           "winner": 1,
-          "ticks": 998,
+          "ticks": 622,
           "state": "result",
-          "peak": 24,
-          "balance": 130,
-          "correct": 3,
+          "peak": 10,
+          "balance": 150,
+          "correct": 5,
           "completed": 10
         }
       ]
@@ -591,28 +594,28 @@
         },
         {
           "round": 4,
-          "winner": 1,
-          "ticks": 500,
+          "winner": 0,
+          "ticks": 875,
           "state": "result",
           "peak": 9,
-          "balance": 120,
-          "correct": 2,
+          "balance": 130,
+          "correct": 3,
           "completed": 4
         },
         {
           "round": 5,
           "winner": 0,
-          "ticks": 736,
+          "ticks": 789,
           "state": "result",
-          "peak": 8,
-          "balance": 120,
-          "correct": 2,
+          "peak": 9,
+          "balance": 130,
+          "correct": 3,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 0,
-          "ticks": 1004,
+          "winner": 1,
+          "ticks": 745,
           "state": "result",
           "peak": 9,
           "balance": 130,
@@ -622,7 +625,7 @@
         {
           "round": 7,
           "winner": 1,
-          "ticks": 567,
+          "ticks": 1112,
           "state": "result",
           "peak": 8,
           "balance": 140,
@@ -631,10 +634,10 @@
         },
         {
           "round": 8,
-          "winner": 1,
-          "ticks": 1012,
+          "winner": null,
+          "ticks": 3600,
           "state": "result",
-          "peak": 11,
+          "peak": 8,
           "balance": 140,
           "correct": 4,
           "completed": 8
@@ -642,9 +645,9 @@
         {
           "round": 9,
           "winner": 1,
-          "ticks": 1256,
+          "ticks": 1040,
           "state": "result",
-          "peak": 15,
+          "peak": 8,
           "balance": 150,
           "correct": 5,
           "completed": 9
@@ -652,9 +655,9 @@
         {
           "round": 10,
           "winner": 1,
-          "ticks": 1057,
+          "ticks": 2398,
           "state": "result",
-          "peak": 15,
+          "peak": 8,
           "balance": 150,
           "correct": 5,
           "completed": 10
@@ -697,7 +700,7 @@
         {
           "round": 4,
           "winner": 0,
-          "ticks": 936,
+          "ticks": 782,
           "state": "result",
           "peak": 9,
           "balance": 130,
@@ -707,39 +710,39 @@
         {
           "round": 5,
           "winner": 1,
-          "ticks": 1113,
+          "ticks": 1137,
           "state": "result",
-          "peak": 9,
+          "peak": 10,
           "balance": 140,
           "correct": 4,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 0,
-          "ticks": 1029,
+          "winner": 1,
+          "ticks": 1258,
           "state": "result",
-          "peak": 8,
-          "balance": 150,
-          "correct": 5,
+          "peak": 10,
+          "balance": 140,
+          "correct": 4,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 2015,
+          "ticks": 1169,
           "state": "result",
-          "peak": 8,
-          "balance": 160,
-          "correct": 6,
+          "peak": 9,
+          "balance": 150,
+          "correct": 5,
           "completed": 7
         },
         {
           "round": 8,
-          "winner": 1,
-          "ticks": 944,
+          "winner": 0,
+          "ticks": 1390,
           "state": "result",
-          "peak": 13,
+          "peak": 10,
           "balance": 160,
           "correct": 6,
           "completed": 8
@@ -747,21 +750,21 @@
         {
           "round": 9,
           "winner": 1,
-          "ticks": 1000,
+          "ticks": 1081,
           "state": "result",
-          "peak": 13,
+          "peak": 10,
           "balance": 170,
           "correct": 7,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 1,
-          "ticks": 789,
+          "winner": 0,
+          "ticks": 1175,
           "state": "result",
-          "peak": 9,
-          "balance": 170,
-          "correct": 7,
+          "peak": 11,
+          "balance": 180,
+          "correct": 8,
           "completed": 10
         }
       ]
@@ -802,7 +805,7 @@
         {
           "round": 4,
           "winner": 1,
-          "ticks": 431,
+          "ticks": 684,
           "state": "result",
           "peak": 10,
           "balance": 130,
@@ -812,61 +815,61 @@
         {
           "round": 5,
           "winner": 1,
-          "ticks": 968,
+          "ticks": 1230,
           "state": "result",
-          "peak": 11,
+          "peak": 8,
           "balance": 140,
           "correct": 4,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 1,
-          "ticks": 1346,
+          "winner": 0,
+          "ticks": 793,
           "state": "result",
-          "peak": 10,
-          "balance": 140,
-          "correct": 4,
+          "peak": 8,
+          "balance": 150,
+          "correct": 5,
           "completed": 6
         },
         {
           "round": 7,
-          "winner": 0,
-          "ticks": 1358,
+          "winner": 1,
+          "ticks": 1507,
           "state": "result",
-          "peak": 9,
-          "balance": 140,
-          "correct": 4,
+          "peak": 8,
+          "balance": 160,
+          "correct": 6,
           "completed": 7
         },
         {
           "round": 8,
-          "winner": 0,
-          "ticks": 2310,
+          "winner": 1,
+          "ticks": 1102,
           "state": "result",
-          "peak": 9,
-          "balance": 150,
-          "correct": 5,
+          "peak": 10,
+          "balance": 160,
+          "correct": 6,
           "completed": 8
         },
         {
           "round": 9,
-          "winner": 0,
-          "ticks": 1544,
+          "winner": 1,
+          "ticks": 1116,
           "state": "result",
-          "peak": 9,
-          "balance": 150,
-          "correct": 5,
+          "peak": 11,
+          "balance": 170,
+          "correct": 7,
           "completed": 9
         },
         {
           "round": 10,
-          "winner": 1,
-          "ticks": 844,
+          "winner": 0,
+          "ticks": 1703,
           "state": "result",
-          "peak": 13,
-          "balance": 150,
-          "correct": 5,
+          "peak": 11,
+          "balance": 180,
+          "correct": 8,
           "completed": 10
         }
       ]
@@ -907,7 +910,7 @@
         {
           "round": 4,
           "winner": 0,
-          "ticks": 819,
+          "ticks": 803,
           "state": "result",
           "peak": 8,
           "balance": 130,
@@ -916,62 +919,62 @@
         },
         {
           "round": 5,
-          "winner": 0,
-          "ticks": 1094,
+          "winner": 1,
+          "ticks": 731,
           "state": "result",
           "peak": 8,
-          "balance": 130,
-          "correct": 3,
+          "balance": 140,
+          "correct": 4,
           "completed": 5
         },
         {
           "round": 6,
           "winner": 0,
-          "ticks": 1044,
+          "ticks": 509,
           "state": "result",
-          "peak": 9,
-          "balance": 140,
-          "correct": 4,
+          "peak": 6,
+          "balance": 150,
+          "correct": 5,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 789,
+          "ticks": 731,
           "state": "result",
-          "peak": 8,
-          "balance": 150,
-          "correct": 5,
+          "peak": 9,
+          "balance": 160,
+          "correct": 6,
           "completed": 7
         },
         {
           "round": 8,
           "winner": 1,
-          "ticks": 890,
+          "ticks": 821,
           "state": "result",
-          "peak": 12,
-          "balance": 150,
-          "correct": 5,
+          "peak": 9,
+          "balance": 160,
+          "correct": 6,
           "completed": 8
         },
         {
           "round": 9,
           "winner": 1,
-          "ticks": 1275,
+          "ticks": 1310,
           "state": "result",
-          "peak": 13,
-          "balance": 160,
-          "correct": 6,
+          "peak": 7,
+          "balance": 170,
+          "correct": 7,
           "completed": 9
         },
         {
           "round": 10,
           "winner": 0,
-          "ticks": 1225,
+          "ticks": 2109,
           "state": "result",
-          "peak": 12,
-          "balance": 170,
-          "correct": 7,
+          "peak": 8,
+          "balance": 180,
+          "correct": 8,
           "completed": 10
         }
       ]
@@ -1012,7 +1015,7 @@
         {
           "round": 4,
           "winner": 0,
-          "ticks": 504,
+          "ticks": 694,
           "state": "result",
           "peak": 8,
           "balance": 130,
@@ -1021,62 +1024,62 @@
         },
         {
           "round": 5,
-          "winner": 0,
-          "ticks": 734,
+          "winner": 1,
+          "ticks": 889,
           "state": "result",
           "peak": 8,
-          "balance": 130,
-          "correct": 3,
+          "balance": 140,
+          "correct": 4,
           "completed": 5
         },
         {
           "round": 6,
-          "winner": 1,
-          "ticks": 796,
+          "winner": 0,
+          "ticks": 557,
           "state": "result",
-          "peak": 11,
-          "balance": 130,
-          "correct": 3,
+          "peak": 6,
+          "balance": 150,
+          "correct": 5,
           "completed": 6
         },
         {
           "round": 7,
           "winner": 1,
-          "ticks": 809,
+          "ticks": 1171,
           "state": "result",
-          "peak": 11,
-          "balance": 140,
-          "correct": 4,
+          "peak": 5,
+          "balance": 160,
+          "correct": 6,
           "completed": 7
         },
         {
           "round": 8,
           "winner": 1,
-          "ticks": 651,
+          "ticks": 921,
           "state": "result",
-          "peak": 8,
-          "balance": 140,
-          "correct": 4,
+          "peak": 6,
+          "balance": 160,
+          "correct": 6,
           "completed": 8
         },
         {
           "round": 9,
           "winner": 1,
-          "ticks": 1088,
+          "ticks": 1268,
           "state": "result",
-          "peak": 6,
-          "balance": 150,
-          "correct": 5,
+          "peak": 8,
+          "balance": 170,
+          "correct": 7,
           "completed": 9
         },
         {
           "round": 10,
           "winner": 1,
-          "ticks": 1392,
+          "ticks": 1191,
           "state": "result",
-          "peak": 14,
-          "balance": 150,
-          "correct": 5,
+          "peak": 9,
+          "balance": 170,
+          "correct": 7,
           "completed": 10
         }
       ]
@@ -1084,86 +1087,61 @@
   ],
   "probes": [
     {
-      "kind": "screech_cricket",
+      "kind": "sky_harpooner",
       "opponent": "sword",
       "winner": 1,
-      "ticks": 693,
-      "events": [
-        "cadence_delayed",
-        "resolved_hit"
-      ]
-    },
-    {
-      "kind": "screech_cricket",
-      "opponent": "archer",
-      "winner": 1,
-      "ticks": 721,
-      "events": [
-        "projectile_release",
-        "resolved_hit",
-        "cadence_delayed"
-      ]
-    },
-    {
-      "kind": "reaper_mantis",
-      "opponent": "sword",
-      "winner": 0,
-      "ticks": 1024,
-      "events": [
-        "resolved_hit",
-        "parry_block"
-      ]
-    },
-    {
-      "kind": "reaper_mantis",
-      "opponent": "archer",
-      "winner": 1,
-      "ticks": 524,
+      "ticks": 745,
       "events": [
         "projectile_release",
         "resolved_hit"
       ]
     },
     {
-      "kind": "spore_toad",
+      "kind": "sky_harpooner",
+      "opponent": "archer",
+      "winner": 1,
+      "ticks": 611,
+      "events": [
+        "projectile_release",
+        "resolved_hit"
+      ]
+    },
+    {
+      "kind": "bounty_hound",
       "opponent": "sword",
       "winner": 1,
       "ticks": 728,
       "events": [
-        "poison_cloud",
-        "poison_applied",
         "resolved_hit"
       ]
     },
     {
-      "kind": "spore_toad",
+      "kind": "bounty_hound",
       "opponent": "archer",
       "winner": 1,
-      "ticks": 696,
+      "ticks": 512,
       "events": [
         "projectile_release",
-        "resolved_hit",
-        "poison_cloud",
-        "poison_applied"
+        "resolved_hit"
       ]
     },
     {
-      "kind": "rootwarden_treant",
+      "kind": "siege_crab",
       "opponent": "sword",
       "winner": 1,
-      "ticks": 872,
+      "ticks": 1437,
       "events": [
+        "projectile_release",
         "resolved_hit"
       ]
     },
     {
-      "kind": "rootwarden_treant",
+      "kind": "siege_crab",
       "opponent": "archer",
-      "winner": 1,
-      "ticks": 1024,
+      "winner": 0,
+      "ticks": 2062,
       "events": [
         "projectile_release",
-        "ward_block",
         "resolved_hit"
       ]
     }

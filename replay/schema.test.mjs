@@ -4,8 +4,8 @@ const unit=(id,side=0,k='sword',extra={})=>({id,side,k,token:String(id),x:100,y:
 const clone=x=>JSON.parse(JSON.stringify(x));
 let passed=0;const test=(name,fn)=>{fn();passed++;console.log('PASS '+name)};
 function simple(){const r=createCompactRecorder();r.capture(0,{units:[unit(0)],shots:[]});r.capture(1,{units:[unit(0)],shots:[]},true);return r.finish({ticks:1,winner:'A'})}
-test('22 role roundtrip + 12-field metadata rows',()=>{
- assert.equal(ROLES.length,22);assert.equal(ROLES[17],'slimelet');
+test('25 role roundtrip + 12-field metadata rows',()=>{
+ assert.equal(ROLES.length,25);assert.equal(ROLES[17],'slimelet');
  const us=ROLES.map((k,i)=>unit(i,i%2,k,{ownerToken:i===17?'parent-slime':null})),r=createCompactRecorder();r.capture(0,{units:us,shots:[]});const replay=r.finish({ticks:0,winner:'draw'});
  assert(replay.initial.every(u=>u.length===12));assert.deepEqual(createPlayback(replay).at(0).units.map(u=>u.k).sort(),[...ROLES].sort());assert.equal(createPlayback(replay).at(0).units.find(u=>u.k==='slimelet').ownerToken,'parent-slime');
 });

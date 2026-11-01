@@ -1,6 +1,6 @@
 // v10 horizontal combat: side 0 advances +x, side 1 advances -x; stats/caps unchanged.
-const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7,screech_cricket:8,reaper_mantis:13,spore_toad:17,rootwarden_treant:27};
-const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3,screech_cricket:58,reaper_mantis:9,spore_toad:65,rootwarden_treant:5};
+const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7,screech_cricket:8,reaper_mantis:13,spore_toad:17,rootwarden_treant:27,sky_harpooner:11,bounty_hound:11,siege_crab:28};
+const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3,screech_cricket:58,reaper_mantis:9,spore_toad:65,rootwarden_treant:5,sky_harpooner:145,bounty_hound:5,siege_crab:150};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
 const TEAM_CAP=32,GRID_SIZE=48,FIELD={w:480,h:538},MAX_RADIUS=Math.max(...Object.values(RADII));
 function stableOrder(a,b){const p=(a.priority??0)-(b.priority??0),k=(a.k??'').localeCompare(b.k??'');if(p||k)return p||k;const ai=Number(a.id??0),bi=Number(b.id??0);if(Number.isFinite(ai)&&Number.isFinite(bi)&&ai!==bi)return ai-bi;return String(a.token??a.id??'').localeCompare(String(b.token??b.id??''))}
@@ -120,7 +120,9 @@ function step(dt){
   }
   if(!enemies.length)continue;
   const gap=v=>Math.hypot(v.x-u.x,v.y-u.y)-radiusOf(u)-radiusOf(v);
-  let dist=Math.min(...enemies.map(gap));const target=enemies.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
+  const preferred=t.targetPriority==='air'?enemies.filter(v=>targetLayers.get(v)==='air'):t.targetPriority==='child'?enemies.filter(v=>v.ownerToken!==undefined&&v.ownerToken!==null&&String(v.ownerToken).length>0):[];
+  const targetPool=preferred.length?preferred:enemies;
+  let dist=Math.min(...targetPool.map(gap));const target=targetPool.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
   if(dist>t.reach+1/2048){
    let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
@@ -130,6 +132,9 @@ function step(dt){
   }else if(u.cd<=0){u.cd=t.rate;attacks.push([u,target,t])}
  }
  for(const [u,target,t]of attacks){
+  const preferredStrike=(t.targetPriority==='air'&&targetLayers.get(target)==='air')||(t.targetPriority==='child'&&target.ownerToken!==undefined&&target.ownerToken!==null&&String(target.ownerToken).length>0);
+  const attackDamage=t.dmg*(t.airDamageMultiplier&&targetLayers.get(target)==='air'?t.airDamageMultiplier:1);
+  if(collectEvents&&preferredStrike)publishCombatEvent({type:'priority_strike',sourceToken:tokenOf(u),targetToken:tokenOf(target),k:u.k,priorityKind:t.targetPriority,x:target.x,y:target.y,damage:attackDamage});
   if(t.poisonRadius){
    if(collectEvents)publishCombatEvent({type:'poison_cloud',sourceToken:tokenOf(u),x:target.x,y:target.y,radius:t.poisonRadius});
    for(const v of alive)if(v.side!==u.side&&canTargetSnapshot(u,v)&&Math.hypot(v.x-target.x,v.y-target.y)<=t.poisonRadius+radiusOf(v)+1e-7)poisonIntents.push({target:v,sourceToken:tokenOf(u),t});
@@ -149,7 +154,7 @@ function step(dt){
    }
   }else if(t.projectile){
    const sourceToken=tokenOf(u),targetToken=tokenOf(target);
-   shots.push({side:u.side,k:u.k,sourceToken,x:u.x,y:u.y,target,damage:t.dmg,splash:t.splash||0,mask:t.attackTargetMask||['ground'],...(t.slowDuration?{slowFactor:t.slowFactor,slowDuration:t.slowDuration,slowImmunity:t.slowImmunity}:{})});
+   shots.push({side:u.side,k:u.k,sourceToken,x:u.x,y:u.y,target,damage:attackDamage,splash:t.splash||0,mask:t.attackTargetMask||['ground'],...(t.slowDuration?{slowFactor:t.slowFactor,slowDuration:t.slowDuration,slowImmunity:t.slowImmunity}:{})});
    if(collectEvents)publishCombatEvent({type:'projectile_release',source:sourceToken,sourceToken,k:u.k,target:targetToken,targetToken,x:u.x,y:u.y});
   }else{
    hit(target,t.dmg+(u.chargeReady?t.chargeBonus:0),false,u.k,tokenOf(u),'melee');

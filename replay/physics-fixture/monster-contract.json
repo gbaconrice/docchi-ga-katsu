@@ -1,21 +1,4 @@
 {
-  "monsterIds": [
-    "goblin",
-    "golem",
-    "drake",
-    "wraith"
-  ],
-  "teamCapAlive": 32,
-  "summons": {
-    "parent": "wraith",
-    "child": "goblin",
-    "charges": 3,
-    "initialDelaySeconds": 0.25,
-    "cooldownSeconds": 1.5,
-    "spawnToken": "${parentToken}/summon:${spawnCount}",
-    "nextTick": true,
-    "parentDeath": "already-queued-summons-persist"
-  },
   "types": {
     "goblin": {
       "cost": 2,
@@ -216,7 +199,7 @@
       "speed": 34,
       "radius": 8,
       "reach": 58,
-      "cost": 3,
+      "cost": 2,
       "cadenceDelay": 0.35,
       "cadenceImmunity": 3.5,
       "collisionLayer": "ground",
@@ -245,7 +228,7 @@
       "speed": 18,
       "radius": 17,
       "reach": 65,
-      "cost": 5,
+      "cost": 4,
       "poisonRadius": 42,
       "poisonDuration": 3,
       "poisonDps": 4,
@@ -269,91 +252,52 @@
       "attackTargetMask": [
         "ground"
       ]
+    },
+    "sky_harpooner": {
+      "hp": 95,
+      "dmg": 10,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 11,
+      "reach": 145,
+      "cost": 5,
+      "projectile": true,
+      "airDamageMultiplier": 2.4,
+      "targetPriority": "air",
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ]
+    },
+    "bounty_hound": {
+      "hp": 110,
+      "dmg": 18,
+      "rate": 0.9,
+      "speed": 40,
+      "radius": 11,
+      "reach": 5,
+      "cost": 4,
+      "targetPriority": "child",
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "siege_crab": {
+      "hp": 300,
+      "dmg": 55,
+      "rate": 3,
+      "speed": 12,
+      "radius": 28,
+      "reach": 150,
+      "cost": 9,
+      "armor": 0.7,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
     }
-  },
-  "combatEventApi": {
-    "sinks": [
-      "global combatEvents array",
-      "global emitCombatEvent(record) callback"
-    ],
-    "noSink": "no event allocations; simulation parity tested",
-    "events": [
-      {
-        "type": "resolved_hit",
-        "fields": [
-          "targetToken",
-          "source",
-          "sourceToken",
-          "sourceKind",
-          "x",
-          "y",
-          "amount"
-        ],
-        "amount": "post-armor hit amount, not net HP delta"
-      },
-      {
-        "type": "heal",
-        "fields": [
-          "source",
-          "sourceToken",
-          "target",
-          "targetToken",
-          "x",
-          "y",
-          "actualAmount"
-        ],
-        "actualAmount": "capped restorative amount, accounting for same-tick damage"
-      },
-      {
-        "type": "projectile_release",
-        "fields": [
-          "source",
-          "sourceToken",
-          "k",
-          "target",
-          "targetToken",
-          "x",
-          "y"
-        ]
-      },
-      {
-        "type": "golem_ground_contact",
-        "fields": [
-          "source",
-          "sourceToken",
-          "target",
-          "targetToken",
-          "x",
-          "y"
-        ],
-        "semantics": "melee contact only; no AoE"
-      },
-      {
-        "type": "summon_spawn",
-        "fields": [
-          "parentToken",
-          "childToken",
-          "k",
-          "side",
-          "x",
-          "y"
-        ],
-        "semantics": "emitted on next-tick insertion"
-      }
-    ],
-    "payload": "frozen primitives; no entity object references",
-    "healingIndependentOfAttackTargetMask": true
-  },
-  "newSelectableIds": [
-    "boar",
-    "bombbug",
-    "frostmage",
-    "stormmage",
-    "burrower",
-    "slime"
-  ],
-  "spawnOnlyIds": [
-    "slimelet"
-  ],
-  "entityBoundPerTeam": 128
+  }
 }
