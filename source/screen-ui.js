@@ -4,7 +4,7 @@ function showScreen(next){
  screenMode=next;
  document.querySelector('#multiStatusRow').hidden=next==='home'||(next==='game'&&!multiSession);
  for(const [id,name] of [['#homeScreen','home'],['#roomScreen','room'],['#gameScreen','game']])document.querySelector(id).hidden=next!==name;
- document.querySelector('#soloStart').textContent=walletState?'ひとりの続きを遊ぶ':'ひとりで遊ぶ';
+ document.querySelector('#soloStart').textContent=walletState?'つづきから':'ひとりで遊ぶ';
  document.querySelector('#showMultiplayer').textContent=multiSession?'部屋に戻る':'みんなで遊ぶ';
  document.querySelector('#backHome').textContent=multiSession&&multiSnapshot?.phase!=='lobby'?'観戦に戻る':'ホームへ戻る';
  if(next==='game')drawArmyPreviews();
@@ -56,7 +56,7 @@ for(const img of Object.values(spriteImages)){const prior=img.onload;img.onload=
 document.querySelector('#soloStart').onclick=openSoloScreen;
 document.querySelector('#showMultiplayer').onclick=()=>{if(!walletState)freshWallet();showScreen('room');};
 document.querySelector('#backHome').onclick=()=>showScreen(multiSession&&multiSnapshot?.phase!=='lobby'?'game':'home');
-document.querySelector('#gameHome').onclick=returnHome;
+const legacyHome=document.querySelector('#gameHome');if(legacyHome)legacyHome.onclick=returnHome;
 const exitScreen=leaveMulti;
 leaveMulti=async function(){await exitScreen();if(!multiSession)showScreen('game');};
 document.querySelector('#exitRoom').onclick=()=>leaveMulti();

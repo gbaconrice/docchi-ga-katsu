@@ -17,6 +17,9 @@ monster_meta=json.loads((root/'assets/monsters/monster_units.json').read_text())
 monster_assets={k+'_'+side:'data:image/png;base64,'+base64.b64encode((root/'assets/monsters'/file).read_bytes()).decode() for k,m in monster_meta.items() for side,file in [('blue',m['atlas']),('red',m['red_atlas'])]}
 monster_block='const MONSTER_META='+json.dumps(monster_meta)+';\nObject.assign(SPRITE_ASSETS,'+json.dumps(monster_assets)+');\n'
 s=re.sub(r'const MONSTER_META=[^\n]*\nObject.assign\(SPRITE_ASSETS,[^\n]*\n',lambda m:monster_block,s)
+arena_data='data:image/png;base64,'+base64.b64encode((root/'assets/arena/arena_moss_court_480x538.png').read_bytes()).decode()
+arena_code='const ARENA_ASSET='+json.dumps(arena_data)+';const arenaImage=typeof Image!==\'undefined\'?new Image():null;if(arenaImage){arenaImage.onload=()=>draw();arenaImage.src=ARENA_ASSET;}function drawArenaFloor(){if(arenaImage&&arenaImage.complete&&arenaImage.naturalWidth){ctx.imageSmoothingEnabled=false;ctx.drawImage(arenaImage,0,0,480,538);}else{ctx.fillStyle=\'#35463d\';ctx.fillRect(0,0,480,538);}}\n'
+s=s.replace('function draw(){',arena_code+'function draw(){',1)
 def bundle(name,path,dep=''):
  src=(root/path).read_text()
  exports=[]
@@ -36,10 +39,10 @@ b+=bundle('MultiProtocol','multiplayer/protocol.mjs','const {packReplay,validMet
 b+=bundle('MultiBinding','multiplayer/wallet-binding.mjs','const wallet=Wallet;const {createSession}=MultiProtocol;')
 b+=bundle('SDKAdapter','multiplayer/sdk-adapter.mjs','const {PROTOCOL,encode,decode,createSession}=MultiProtocol;')
 b+=bundle('CompactReplay','replay/compact-replay.mjs')
-s=s.replace('const TYPES=',b+'\nconst TYPES=',1)
+s=s.replace('const TYPES=',(root/'audio/battle-audio.js').read_text()+'\n'+b+'\nconst TYPES=',1)
 s=s.replace('function loop(t)',(root/'source/effects-adapter.js').read_text()+'\nfunction loop(t)',1)
 code=(root/'source/multi-ui.js').read_text()
-s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\n'+(root/'source/flow-ui.js').read_text()+'\nrequestAnimationFrame(loop);')
+s=s.replace('freshWallet();openPrediction((Math.random()*4294967296)>>>0);requestAnimationFrame(loop);',code+'\n'+(root/'source/screen-ui.js').read_text()+'\n'+(root/'source/flow-ui.js').read_text()+'\n'+(root/'source/audio-ui.js').read_text()+'\n'+(root/'motion/motion-ui.js').read_text()+'\n'+(root/'source/motion-adapter.js').read_text()+'\nrequestAnimationFrame(loop);')
 s=re.sub(r'<style>[\s\S]*?</style>', lambda m:'<style>'+(root/'source/ui.css').read_text()+'</style>',s,count=1)
 s=re.sub(r'<main>[\s\S]*?</main>', lambda m:(root/'source/ui-shell.html').read_text(),s,count=1)
 s=s.replace("canvas=document.querySelector('canvas')","canvas=document.querySelector('#field')")

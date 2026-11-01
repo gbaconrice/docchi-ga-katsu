@@ -1,0 +1,109 @@
+{
+  "matchedSavedBattles": 400,
+  "all17Seen": true,
+  "counts": {
+    "sword": {
+      "leftArmies": 97,
+      "rightArmies": 75,
+      "leftUnits": 524,
+      "rightUnits": 285
+    },
+    "shield": {
+      "leftArmies": 52,
+      "rightArmies": 59,
+      "leftUnits": 254,
+      "rightUnits": 361
+    },
+    "spear": {
+      "leftArmies": 83,
+      "rightArmies": 67,
+      "leftUnits": 346,
+      "rightUnits": 229
+    },
+    "archer": {
+      "leftArmies": 47,
+      "rightArmies": 55,
+      "leftUnits": 137,
+      "rightUnits": 196
+    },
+    "cannon": {
+      "leftArmies": 18,
+      "rightArmies": 43,
+      "leftUnits": 96,
+      "rightUnits": 247
+    },
+    "rider": {
+      "leftArmies": 43,
+      "rightArmies": 45,
+      "leftUnits": 140,
+      "rightUnits": 172
+    },
+    "healer": {
+      "leftArmies": 15,
+      "rightArmies": 52,
+      "leftUnits": 32,
+      "rightUnits": 222
+    },
+    "goblin": {
+      "leftArmies": 33,
+      "rightArmies": 53,
+      "leftUnits": 128,
+      "rightUnits": 194
+    },
+    "golem": {
+      "leftArmies": 22,
+      "rightArmies": 44,
+      "leftUnits": 56,
+      "rightUnits": 164
+    },
+    "drake": {
+      "leftArmies": 19,
+      "rightArmies": 30,
+      "leftUnits": 94,
+      "rightUnits": 135
+    },
+    "wraith": {
+      "leftArmies": 17,
+      "rightArmies": 29,
+      "leftUnits": 84,
+      "rightUnits": 158
+    },
+    "boar": {
+      "leftArmies": 63,
+      "rightArmies": 78,
+      "leftUnits": 378,
+      "rightUnits": 407
+    },
+    "bombbug": {
+      "leftArmies": 65,
+      "rightArmies": 63,
+      "leftUnits": 170,
+      "rightUnits": 161
+    },
+    "frostmage": {
+      "leftArmies": 62,
+      "rightArmies": 48,
+      "leftUnits": 294,
+      "rightUnits": 217
+    },
+    "stormmage": {
+      "leftArmies": 96,
+      "rightArmies": 42,
+      "leftUnits": 609,
+      "rightUnits": 190
+    },
+    "burrower": {
+      "leftArmies": 24,
+      "rightArmies": 37,
+      "leftUnits": 44,
+      "rightUnits": 146
+    },
+    "slime": {
+      "leftArmies": 43,
+      "rightArmies": 60,
+      "leftUnits": 179,
+      "rightUnits": 295
+    }
+  },
+  "notes": "Generator-only reconstruction using saved actual outcomes and deterministic seed stream; no combat resimulation."
+}

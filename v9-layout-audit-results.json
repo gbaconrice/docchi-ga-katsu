@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "checked": 1200,
+  "indexSha256": "d18bb7e6ef1357e2b2898c45ab2a939cc3b46594d1e1c2dcf7fe540002f7e1b9",
+  "cases": [
+    5,
+    8,
+    9,
+    16,
+    24,
+    32
+  ],
+  "notes": "Initial same-layer geometry only; no full battle rerun."
+}

@@ -18,5 +18,5 @@ if(listeners.resize)listeners.resize();assert.equal(run('JSON.stringify([cameraX
 run('resetCamera()');assert.equal(run('cameraZoom'),1);assert.equal(run('cameraX'),240);assert.equal(run('cameraY'),269);assert.equal(el.style.touchAction,'auto');
 el.onpointerdown(e(120,134));assert.equal(run('cameraDrag'),null);
 assert.equal(run('JSON.stringify({units,seed,walletState})'),saved);
-assert.equal(nodes['#battle'].hidden,true);nodes['#formationToggle'].onclick();assert.equal(nodes['#battle'].hidden,true);
+assert.equal(nodes['#battle'].hidden,true);nodes['#formationToggle'].onclick();assert.equal(nodes['#battle'].hidden,false);nodes['#formationBack'].onclick();assert.equal(nodes['#battle'].hidden,true);
 console.log('PASS title/ARIA, fixed-camera no auto-follow, desktop/touch pointer drag clamp/cancel/reset/resize, camera noninterference, no inline formation');

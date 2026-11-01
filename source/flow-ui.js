@@ -1,23 +1,22 @@
-// Interaction contract: choose stake first, then one army tap commits once.
+// Draft a BET and army; only the Start button commits once.
 // No implicit predictions and no automatic restart after round 20.
 const RESULT_READ_SECONDS=3;
-let resultReadHeld=false;
+let pausePanelOpen=false,pausePanelWasPaused=false;
 let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
 function resetResultRead(){resultReadSeconds=0;resultReadLast=null;}
 function commitArmy(side){
  if(screenMode!=='game'||state!=='choose')return;
  if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
- selectSide(side);startPrediction(false);
+ selectSide(side);
 }
 document.querySelector('#red').onclick=()=>commitArmy(0);
 document.querySelector('#blue').onclick=()=>commitArmy(1);
-// Compatibility hook remains inert and hidden; there is no second confirmation.
-document.querySelector('#confirm').hidden=true;
-document.querySelector('#confirm').onclick=()=>{};
+// Explicit Start is the only prediction commit action.
+document.querySelector('#confirm').hidden=false;
+document.querySelector('#confirm').onclick=()=>{if(!predictionPreview)startPrediction(false);};
 function advanceResultRead(t){
  if(multiSession||state!=='result'||round>=20||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
- if(resultReadRound!==round){resetResultRead();resultReadRound=round;resultReadHeld=false;}
- if(resultReadHeld){resultReadLast=null;return;}
+ if(resultReadRound!==round){resetResultRead();resultReadRound=round;}
  if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
  resultReadLast=t;
  const next=document.querySelector('#next');
@@ -30,8 +29,6 @@ if(typeof document.addEventListener==='function')document.addEventListener('visi
 const flowScreen=showScreen;
 showScreen=function(next){if(next!==screenMode)resetResultRead();flowScreen(next);};
 
-function toggleResultHold(){if(multiSession||state!=='result'||round>=20)return;resultReadHeld=!resultReadHeld;resultReadLast=null;const b=document.querySelector('#resultHold');if(b)b.textContent=resultReadHeld?'自動で進むのを再開':'結果をゆっくり見る';}
-const holdButton=document.querySelector('#resultHold');if(holdButton)holdButton.onclick=toggleResultHold;
 // Read-only camera and units inspection. Never affects combat coordinates/RNG.
 let cameraZoom=1,unitsOpen=false,unitsPausedSolo=false,unitsReturnFocus=null;
 let cameraX=240,cameraY=269,cameraDrag=null;
@@ -52,8 +49,39 @@ cameraCanvas.onpointerup=endCameraDrag;cameraCanvas.onpointercancel=endCameraDra
 const cameraSetup=setup;setup=function(seedValue){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraSetup(seedValue);syncCameraInput();};
 const cameraResetMultiRound=resetMultiRound;resetMultiRound=function(){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;cameraResetMultiRound();syncCameraInput();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',()=>{cameraDrag=null;clampCamera();syncCameraInput();draw();});
-function fillUnitStats(){for(const side of [0,1]){const node=document.querySelector(side?'#unitsBlueStats':'#unitsRedStats');if(!node)continue;const groups={};for(const u of units.filter(u=>u.side===side)){const g=groups[u.k]||(groups[u.k]={count:0,alive:0,hp:0});g.count++;if(!u.dead){g.alive++;g.hp+=Math.max(0,u.hp);}}
- node.textContent=Object.entries(groups).map(([k,g])=>{const t=TYPES[k];return t.name+' ×'+g.count+'（生存 '+g.alive+'）\nHP '+Math.ceil(g.hp)+' / '+(t.hp*g.count)+' · 攻撃 '+t.dmg+' · 間隔 '+t.rate+' 秒\n'+UNIT_DETAILS[k];}).join('\n\n');const card=document.querySelector(side?'#blueStats':'#redStats');if(card)card.textContent=node.textContent;}}
+// Copy-only override for fillUnitStats; append after screen-ui.js and flow-ui.js.
+// It leaves the simulation untouched and reports the opening composition/basic stats.
+function fillUnitStats() {
+  const traits = {
+    sword: '', shield: '射撃耐性', spear: '長射程', archer: '遠距離',
+    cannon: '範囲攻撃', rider: '高速', healer: '回復', goblin: '小型',
+    golem: '', drake: '飛行', wraith: '小鬼召喚', boar: '突進',
+    bombbug: '自爆', frostmage: '鈍足', stormmage: '連鎖攻撃',
+    burrower: '潜行', slime: '2体分裂', slimelet: ''
+  };
+  if (typeof UNIT_DETAILS !== 'undefined') Object.assign(UNIT_DETAILS, traits);
+  if (typeof ROLE_NOTES !== 'undefined') Object.assign(ROLE_NOTES, traits);
+
+  const opening = typeof initialUnits !== 'undefined' && initialUnits?.length
+    ? initialUnits
+    : (typeof units !== 'undefined' ? units : []);
+  for (const side of [0, 1]) {
+    const node = document.querySelector(side ? '#unitsBlueStats' : '#unitsRedStats');
+    if (!node) continue;
+    const counts = {};
+    for (const unit of opening) {
+      if (unit.side === side) counts[unit.k] = (counts[unit.k] || 0) + 1;
+    }
+    const text = Object.entries(counts).map(([kind, count]) => {
+      const type = TYPES[kind], trait = traits[kind] || '';
+      return `${type.name} ×${count}\nHP ${type.hp} · 攻${type.dmg} · 間隔${type.rate}秒${trait ? ' · ' + trait : ''}`;
+    }).join('\n');
+    node.textContent = text;
+    const card = document.querySelector(side ? '#blueStats' : '#redStats');
+    if (card) card.textContent = text;
+  }
+}
+
 function toggleUnits(open){
  const panel=document.querySelector('#unitsPanel');if(!panel)return;
  if(open&&!unitsOpen){unitsReturnFocus=document.activeElement;unitsPausedSolo=!multiSession&&state==='fight'&&!paused;if(unitsPausedSolo)setPaused(true);}
@@ -62,17 +90,42 @@ function toggleUnits(open){
 }
 function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
- q('#gameScreen')?.setAttribute('data-phase',state);
+ q('#gameScreen')?.setAttribute('data-phase',state);if(pausePanelOpen&&state!=='fight')closePausePanel();
  const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<20;
- const hold=q('#resultHold');if(hold){hold.hidden=!!multiSession||round>=20;hold.textContent=resultReadHeld?'自動で進むのを再開':'結果をゆっくり見る';}
- const countdown=q('#resultCountdown');if(countdown)countdown.textContent=multiSession?'':round>=20?'20戦終了':state==='result'?(resultReadHeld?'自動進行を停止中':Math.max(0,Math.ceil(RESULT_READ_SECONDS-resultReadSeconds))+'秒後に次の予想へ'):'';
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',cameraZoom===1]])if(q(id))q(id).disabled=disabled;
- if(unitsOpen||state==='choose')fillUnitStats();
+ if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }
 for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}],['#zoomOut',()=>setCameraZoom(-1)],['#zoomIn',()=>setCameraZoom(1)],['#zoomReset',resetCamera]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
 const flowUpdate=update;update=function(){flowUpdate();syncFlowControls();};
 const flowDisplayMulti=displayMultiState;displayMultiState=function(){flowDisplayMulti();syncFlowControls();};
 const flowAdvance=advanceResultRead;advanceResultRead=function(t){if(unitsOpen){resultReadLast=null;syncFlowControls();return;}flowAdvance(t);syncFlowControls();};
-syncFlowControls();syncCameraInput();
+syncCameraInput();
 
 if(typeof document.addEventListener==='function')document.addEventListener('keydown',e=>{if(!unitsOpen)return;if(e.key==='Escape'){e.preventDefault();toggleUnits(false);}else if(e.key==='Tab'){e.preventDefault();document.querySelector('#unitsClose')?.focus?.();}});
+
+let predictionPreview=false,previewOpening=null;
+function syncPredictionPreview(){
+ const q=id=>document.querySelector(id),canPreview=state==='choose'&&screenMode==='game'&&(!multiSession||(multiSnapshot?.phase==='predict'&&!multiPredictionPending&&!multiSnapshot.readyIds.includes(multiUser)));
+ if(!canPreview||previewOpening!==initialUnits)predictionPreview=false;
+ if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){q('#comparison').hidden=predictionPreview;q('#battle').hidden=!predictionPreview;q('#battleControls').hidden=true;}
+ for(const id of ['#battleClock','#unitsToggle','#soundToggle'])if(q(id))q(id).hidden=predictionPreview||(id==='#battleClock'&&state!=='fight');
+ if(q('#formationBack'))q('#formationBack').hidden=!predictionPreview;
+}
+function setPredictionPreview(value){if(value&&state!=='choose')return;predictionPreview=!!value;previewOpening=initialUnits;if(value){cameraZoom=1;cameraX=240;cameraY=269;cameraDrag=null;syncCameraInput();}syncPredictionPreview();if(predictionPreview)draw();}
+document.querySelector('#formationToggle').onclick=()=>setPredictionPreview(true);
+const previewBack=document.querySelector('#formationBack');if(previewBack)previewBack.onclick=()=>setPredictionPreview(false);
+
+syncFlowControls();
+
+
+function openPausePanel(){
+ if(state!=='fight')return;pausePanelOpen=true;pausePanelWasPaused=paused;
+ if(!multiSession)setPaused(true);
+ const p=document.querySelector('#pausePanel');if(p)p.hidden=false;document.querySelector('#pauseResume')?.focus?.();
+}
+function closePausePanel(){if(!pausePanelOpen)return;pausePanelOpen=false;const p=document.querySelector('#pausePanel');if(p)p.hidden=true;document.querySelector('#pause')?.focus?.();if(!multiSession&&!pausePanelWasPaused)setPaused(false);}
+document.querySelector('#pause').onclick=openPausePanel;
+const pauseResume=document.querySelector('#pauseResume');if(pauseResume)pauseResume.onclick=closePausePanel;
+const pauseExit=document.querySelector('#pauseExit');if(pauseExit)pauseExit.onclick=()=>{closePausePanel();if(multiSession)void leaveMulti().then(()=>{if(!multiSession)showScreen('home');});else returnHome();};
+
+if(typeof document.addEventListener==='function')document.addEventListener('keydown',e=>{if(!pausePanelOpen)return;if(e.key==='Escape'){e.preventDefault();closePausePanel();}else if(e.key==='Tab'){e.preventDefault();const resume=document.querySelector('#pauseResume'),exit=document.querySelector('#pauseExit');(document.activeElement===resume?exit:resume)?.focus?.();}});

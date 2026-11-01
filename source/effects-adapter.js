@@ -64,4 +64,3 @@ function drawProjectile(s){
  return drawEffect('arrow',s.x,s.y-18,effectClockTick,1,angle);
 }
 
-document.querySelector('#effects').onclick=()=>{lowEffects=!lowEffects;document.querySelector('#effects').textContent=lowEffects?'演出:軽量':'演出:標準'};

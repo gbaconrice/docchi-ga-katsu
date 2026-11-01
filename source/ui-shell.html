@@ -8,86 +8,83 @@
   </header>
 
   <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
-    <p id="homeTitle" class="lead">2つの軍を見比べて、勝つ方を選ぼう。</p>
+    <p id="homeTitle" class="lead">勝つ方を選ぼう！</p>
     <button id="soloStart" class="home-choice cta-primary" type="button">ひとりで遊ぶ</button>
     <button id="showMultiplayer" class="home-choice cta-secondary" type="button">みんなで遊ぶ</button>
-    <p class="home-note">予想は無料。上乗せはいつでも任意です。</p>
+    <p class="home-note">予想無料</p>
   </section>
 
   <button id="mockRoom" type="button" hidden aria-hidden="true" tabindex="-1"></button>
 
   <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
     <h2 id="roomTitle">みんなで遊ぶ</h2>
-    <p class="room-hint">部屋をつくるか、部屋コードで合流できます。</p>
+    <p class="room-hint">部屋を作るか、コードで参加。</p>
     <button id="createRoom" class="cta cta-primary" type="button">部屋をつくる</button>
-    <button id="beginRound" class="cta cta-primary" type="button" hidden>第1戦をはじめる</button>
-    <label class="room-code-label" for="roomId">部屋コードで参加</label>
+    <button id="beginRound" class="cta cta-primary" type="button" hidden>第1戦へ</button>
+    <label class="room-code-label" for="roomId">コード入力</label>
     <div class="room-join-row">
       <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
       <button id="joinRoom" class="cta cta-secondary" type="button">参加</button>
     </div>
-    <button id="backHome" class="text-button" type="button">ホームへ戻る</button>
+    <button id="backHome" class="text-button" type="button">戻る</button>
   </section>
 
   <div id="multiStatusRow" class="multi-status-row" hidden>
     <p id="roomStatus" class="status-line" aria-live="polite"></p>
-    <button id="exitRoom" class="text-button" type="button" hidden>退出してひとりに戻る</button>
+    <button id="exitRoom" class="text-button" type="button" hidden>退出</button>
   </div>
 
-  <section id="gameScreen" class="screen game-screen" hidden aria-labelledby="phaseTitle">
+  <section id="gameScreen" class="screen game-screen" hidden aria-label="ゲーム">
     <div class="game-topline">
       <p id="status" class="round-status" aria-live="polite">第 1 / 20 戦</p>
-      <button id="gameHome" class="text-button menu-button" type="button">メニュー</button>
     </div>
-    <h2 id="phaseTitle" class="phase-title">勝つのはどっち？</h2>
+    <h2 id="phaseTitle" class="sr-only"></h2>
 
-    <section id="comparison" class="comparison" aria-label="軍を比べて勝つ方を予想">
+    <section id="comparison" class="comparison" aria-label="対戦予想">
       <section class="stake-card" aria-labelledby="stakeTitle">
-        <h3 id="stakeTitle">上乗せ額 <span class="optional-label">任意</span></h3>
-        <div class="stake-options" role="group" aria-label="上乗せ額を先に選ぶ">
+        <h3 id="stakeTitle">BET</h3>
+        <div class="stake-options" role="group" aria-label="BET額">
           <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
           <button id="stake10" class="stake-option" type="button" aria-pressed="false">10 G</button>
           <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
           <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
         </div>
-        <p id="stakeHint" class="stake-hint" aria-live="polite">無料予想：的中 +10 G / はずれても 0 G</p>
-        <p class="choice-hint">額を選んだら、勝つと思う軍カードをタップ。</p>
+        <p id="stakeHint" class="stake-hint" aria-live="polite">正解 +10 G</p>
       </section>
 
-      <div class="army-grid" role="group" aria-label="勝つと思う軍を選ぶ">
-        <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍を選ぶ">
+      <div class="army-grid" role="group" aria-label="勝つ方">
+        <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍">
           <span class="army-title sr-only" id="redTitle">左</span>
           <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左の軍の兵士"></canvas>
           <span id="redList" class="army-summary sr-only" aria-live="off"></span>
-          <span id="redStats" class="unit-stats" aria-live="off">兵情報</span>
-          <span class="team-action">左を選ぶ</span>
+          <span id="redStats" class="unit-stats" aria-live="off"></span>
         </button>
-        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍を選ぶ">
+        <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍">
           <span class="army-title sr-only" id="blueTitle">右</span>
           <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右の軍の兵士"></canvas>
           <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
-          <span id="blueStats" class="unit-stats" aria-live="off">兵情報</span>
-          <span class="team-action">右を選ぶ</span>
+          <span id="blueStats" class="unit-stats" aria-live="off"></span>
         </button>
       </div>
 
-      <div class="secondary-actions">
-        <button id="skip" class="text-button" type="button">予想せず観戦</button>
+      <div class="formation-actions">
+        <button id="formationToggle" class="text-button" type="button" aria-controls="battle" aria-expanded="false">配置を見る</button>
       </div>
+      <button id="confirm" class="cta cta-primary prediction-start" type="button" disabled>対戦開始</button>
 
       <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
       <div class="compatibility-hooks" hidden aria-hidden="true">
-        <button id="formationToggle" type="button" tabindex="-1">配置を見る</button>
         <label for="unitKind">兵種の特徴</label><select id="unitKind"></select>
         <p id="unitTrait"></p>
       </div>
-      <button id="confirm" type="button" hidden aria-hidden="true" tabindex="-1">確定</button>
     </section>
 
-    <section id="battle" class="battle" hidden aria-label="バトルを観戦">
+    <section id="battle" class="battle" hidden aria-label="戦闘">
       <div class="battle-toolbar">
         <p id="battleClock" class="battle-clock" aria-live="off"></p>
-        <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵情報</button>
+        <button id="formationBack" class="text-button" type="button" hidden aria-controls="comparison">戻る</button>
+        <button id="unitsToggle" class="units-toggle" type="button" aria-haspopup="dialog" aria-controls="unitsPanel">兵種</button>
+        <button id="soundToggle" class="sound-toggle" type="button" aria-label="音を切り替える">音</button>
       </div>
       <div class="field-stage">
       <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
@@ -99,7 +96,6 @@
         <button id="zoomOut" class="control-button" type="button" aria-label="戦場を縮小">縮小</button>
         <button id="zoomIn" class="control-button" type="button" aria-label="戦場を拡大">拡大</button>
         <button id="zoomReset" class="control-button" type="button" aria-label="戦場全体を表示">全体</button>
-        <button id="effects" class="control-button" type="button" aria-label="演出を切り替える">演出</button>
         <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
       </div>
     </section>
@@ -108,18 +104,24 @@
       <h3 id="message" class="result-title"></h3>
       <p id="breakdown" class="result-summary"></p>
       <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
-      <p id="resultCountdown" class="result-countdown" aria-live="off"></p>
-      <button id="resultHold" class="text-button result-hold" type="button">結果をゆっくり見る</button>
       <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
       <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
+  </section>
+
+  <section id="pausePanel" class="units-panel pause-panel" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" hidden>
+    <div class="units-dialog pause-dialog">
+      <h2 id="pauseTitle">一時停止</h2>
+      <button id="pauseResume" class="cta cta-primary" type="button">再開</button>
+      <button id="pauseExit" class="text-button" type="button">終了</button>
+    </div>
   </section>
 
   <!-- The original has one UNITS action. This read-only overlay never changes the simulation. -->
   <section id="unitsPanel" class="units-panel" role="dialog" aria-modal="true" aria-labelledby="unitsTitle" hidden>
     <div class="units-dialog">
       <div class="units-heading">
-        <h2 id="unitsTitle">両軍の兵情報</h2>
+        <h2 id="unitsTitle">兵種</h2>
         <button id="unitsClose" class="text-button" type="button">閉じる</button>
       </div>
       <div class="units-grid">
@@ -132,7 +134,7 @@
           <div id="unitsBlueStats" class="unit-stats units-stat-list"></div>
         </section>
       </div>
-      <p class="units-note">ソロでは表示中に一時停止。オンライン観戦中は戦闘が続きます。</p>
+      <p class="units-note">ソロ: 停止 / オンライン: 続行</p>
     </div>
   </section>
 </main>

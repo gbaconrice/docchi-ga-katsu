@@ -27,8 +27,8 @@ function displayMultiState(){
  if(s.phase==='predict')state='choose';else if(['locked','battle'].includes(s.phase))state='fight';else if(['settle','result'].includes(s.phase))state='result';else state='choose';
  soloUpdate();
  q('#comparison').hidden=s.phase!=='predict';q('#battle').hidden=s.phase!=='battle'||!multiPlayback;q('#resultPanel').hidden=!['settle','result'].includes(s.phase);
- q('#pause').hidden=true;q('#speed').hidden=true;
- q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';q('#skip').disabled=ready||multiPredictionPending||!player||s.phase!=='predict';
+ q('#pause').hidden=false;q('#speed').hidden=true;
+ q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';
  q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
  for(const n of [0,10,25,50])q('#stake'+n).disabled=ready||multiPredictionPending||!player||n>currentWallet().maxStake;
  q('#beginRound').hidden=!(multiHost&&s.phase==='lobby');q('#exitRoom').hidden=false;
@@ -47,13 +47,15 @@ function displayMultiState(){
  if(s.phase==='stopped'){q('#comparison').hidden=true;q('#battle').hidden=true;q('#resultPanel').hidden=true;q('#roomStatus').textContent='停止：'+s.stoppedReason+'。未精算の予約は差し引きません。退出して戻れます。';}
 }
 update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
-function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units)units=JSON.parse(JSON.stringify(s.matchup.units));}if(multiSession)displayMultiState();}
+function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));}}if(multiSession)displayMultiState();}
 function resetMultiRound(){multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
-function publicMatchup(){return {engineVersion:'v7-expansion',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:16,maxActiveUnits:64,maxCreatedEntities:256};}
+function publicMatchup(){return {engineVersion:'v9-roster-carry',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
 function openMultiRound(){
  if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=20)return;
- const nextRound=s.roundId===null?1:s.roundId+1;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
+ const nextRound=s.roundId===null?1:s.roundId+1;const priorWorld={round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,budgets:budgets.slice()};
+ try{carryStreak=s.phase==='result'?(s.winner==='A'?carryStreak+1:s.winner==='B'?1:0):0;pendingCarryKinds=s.phase==='result'&&(s.winner==='A'||s.winner==='B')?multiInitial.filter(u=>u.side===(s.winner==='A'?0:1)).map(u=>u.k):null;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
  multiSession.openRound({roundId:round,durationMs:30000,matchup:publicMatchup()});multiSnapshot=multiSession.getState();displayMultiState();
+ }catch(error){const current=multiSession.getState();if(current.roundId!==nextRound||current.phase!=='predict'){({round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,budgets}=priorWorld);}throw error;}
 }
 function buildCanonicalReplay(){
  multiRecording=true;
@@ -82,14 +84,14 @@ startPrediction=function(skip=false){
  multiSnapshot=multiSession.getState();displayMultiState();
 };
 nextPrediction=function(){if(!multiSession){if(round>=20)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=20){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
-document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#skip').onclick=()=>startPrediction(true);document.querySelector('#next').onclick=()=>nextPrediction();
+document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#next').onclick=()=>nextPrediction();
 function drainMock(){let n=0;while(mockQueue.length&&n++<10000){const [to,from,wire]=mockQueue.shift();to()?.receive(from,wire);}}
 function pumpMulti(now){
  if(!multiSession)return;
  if(now-multiLastPump>=100){multiLastPump=now;drainMock();if(mockGuest?.getState().phase==='predict'&&!mockGuest.getState().readyIds.includes('mock-guest'))mockGuest.predict('A',0);drainMock();multiSession.tick();mockGuest?.tick();drainMock();}
  if(multiHost&&now-multiHeartbeat>=5000){multiHeartbeat=now;multiSession.heartbeat();drainMock();}
  multiSnapshot=multiSession.getState();const s=multiSnapshot;
- if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units)units=JSON.parse(JSON.stringify(s.matchup.units));}
+ if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));}}
  if(multiHost&&s.phase==='locked'&&!multiBusy){multiBusy=true;try{multiSession.startBattle(buildCanonicalReplay());}catch(e){multiError=String(e.message);multiSession.close();}finally{multiBusy=false;}return;}
  if(s.phase==='battle'){
   const replay=multiSession.getReplay();
@@ -133,7 +135,7 @@ async function enterNative(kind){
 async function leaveMulti(){
  if(multiBusy)return;multiBusy=true;submitFinalScore('lobby');
  try{if(multiAdapter&&!mockGuest)await multiAdapter.exit();multiSession?.close();multiSession=null;mockGuest=null;mockQueue=[];multiSnapshot=null;multiPlayback=null;multiReplay=null;round=1;mistakes=0;correct=0;freshWallet();openPrediction((Math.random()*4294967296)>>>0);
- for(const id of ['#red','#blue','#skip','#next']){document.querySelector(id).disabled=false;document.querySelector(id).hidden=false;}
+ for(const id of ['#red','#blue','#next']){document.querySelector(id).disabled=false;document.querySelector(id).hidden=false;}
  document.querySelector('#pause').hidden=false;document.querySelector('#speed').hidden=false;document.querySelector('#exitRoom').hidden=true;document.querySelector('#beginRound').hidden=true;document.querySelector('#roomStatus').textContent='オフライン・ひとり用';update();
  }catch(e){document.querySelector('#roomStatus').textContent='退出失敗：'+e.message+'。もう一度退出してください。';}finally{multiBusy=false;}
 }
