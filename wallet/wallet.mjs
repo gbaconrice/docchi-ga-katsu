@@ -1,23 +1,27 @@
 /** Deterministic host-authoritative game-credit ledger. No money, SDK or networking. */
-export const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:20, precision:0});
+export const GAME_MODE = 'GRAVITY_QUICK10_V1';
+export const TOTAL_ROUNDS = 10;
+export const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:10, precision:0});
 const fail = code => { throw new Error(code); };
 const int = (value, code='INVALID_INTEGER') => { if (!Number.isSafeInteger(value) || value < 0) fail(code); return value; };
 const id = value => { if(typeof value !== 'string' || !value.trim()) fail('INVALID_ID'); return value; };
 const freeze = value => { if(value && typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);} return value; };
 const clone = state => JSON.parse(JSON.stringify(state));
-const session = (state, sessionId) => { if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
+const modeState = state => {if(state?.mode!==GAME_MODE||state?.schemaVersion!==2||state?.config?.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_GAME_MODE');};
+const session = (state, sessionId) => { modeState(state); if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
 const player = (state, playerId) => { const p=state.players.find(p=>p.playerId===playerId); if(!p) fail('UNKNOWN_PLAYER'); return p; };
 const active = (state, roundId) => { if(!state.currentRound || state.currentRound.roundId!==roundId) fail('ROUND_NOT_ACTIVE'); return state.currentRound; };
-export function createSession({sessionId,playerIds,config={}}){
+export function createSession({sessionId,playerIds,config={},mode=GAME_MODE}){
+  if(mode!==GAME_MODE)fail('INCOMPATIBLE_GAME_MODE');
   id(sessionId);
   if(!Array.isArray(playerIds)||!playerIds.length) fail('PLAYERS_REQUIRED');
   playerIds.forEach(id); if(new Set(playerIds).size!==playerIds.length) fail('DUPLICATE_PLAYER');
   if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k))) fail('UNKNOWN_CONFIG');
   const c={...DEFAULT_CONFIG,...config}; Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
   if(c.precision!==0) fail('INTEGER_CREDITS_ONLY');
-  if(!c.totalRounds) fail('INVALID_CONFIG');
+  if(c.totalRounds!==TOTAL_ROUNDS) fail('INCOMPATIBLE_ROUND_COUNT');
   if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
-  return freeze({schemaVersion:1,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
+  return freeze({schemaVersion:2,mode:GAME_MODE,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
 }
 export function openRound(state,{sessionId,roundId,deadline}){
   session(state,sessionId);int(roundId);int(deadline);
@@ -63,11 +67,13 @@ export function reconnectPlayer(state,{sessionId,playerId}){
   return freeze(p?{role:'player',...p}:{role:'spectator',playerId});
 }
 export function walletView(state,playerId){
+  modeState(state);
   const p=player(state,playerId),reserved=state.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
   return freeze({...p,reserved,available:p.balance-reserved,maxStake:Math.min(p.balance,state.config.stakeCap)});
 }
 /** Competition rank depends solely on signed profit; equal profits share rank. No SDK submission. */
 export function standings(state){
+  modeState(state);
   const rows=state.players.map(p=>({...p})).sort((a,b)=>b.score-a.score || (a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));
   let rank=0;return freeze(rows.map((p,i)=>{if(i===0||p.score!==rows[i-1].score)rank=i+1;return{rank,...p};}));
 }

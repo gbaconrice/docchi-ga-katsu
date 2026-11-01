@@ -100,6 +100,7 @@ function makeHarness({ animate = true, reduced = false, pseudoSupport = true } =
   assert.equal(e['#red'].animations.length, 2, 'unsupported pseudo animation falls back to card pop');
   assert.equal(e['#red'].animations[0].cancelled, true);
   assert.equal(e['#red'].animations[1].options.pseudoElement, undefined);
+  assert.deepEqual(e['#red'].animations[1].frames, [{ opacity: 0.82 }, { opacity: 1 }], 'fallback does not scale or move the card');
   m.enterPrediction('s:2');
   m.startBattle('s:2');
   const before = [...e['#red'].animations, ...e['#blue'].animations, ...e['#field'].animations].filter(a => !a.cancelled).length;

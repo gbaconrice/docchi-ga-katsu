@@ -13,84 +13,9 @@
 <button id="confirm" disabled>予想を確定して観戦</button><div class="actions"><button id="skip">予想せず見るだけ</button></div></div></section>
 <section id="battle" hidden><canvas id="field" width="480" height="538" aria-label="両軍の布陣と戦闘"></canvas><div class="actions"><button id="pause">一時停止</button><button id="speed">速度 1×</button><button id="effects">演出:標準</button></div></section>
 <section id="resultPanel" class="panel" hidden><div id="message" aria-live="polite"></div><div id="breakdown" class="breakdown"></div><button id="next">次の戦いへ</button></section>
-<details><summary>ルール・兵種を見る</summary><p>20戦すべてに参加できます。残高が0 Gでも無料予想は可能。的中は+10 Gと上乗せ額と同額の利益、不正解は上乗せ額のみ失います。見るだけ・引き分けは増減なし。開始100 G、1戦の上限50 G。純益＝現在残高−開始残高です。</p><p>剣：標準。盾：丈夫で射撃に強く、前衛で進路を塞ぐ。槍：長い近接射程。弓：遠距離。砲：範囲着弾。騎：速い近接。癒：味方を回復。矢は味方の盾で遮られません。60秒で決着しなければ引き分け。</p></details><p id="scoreStatus" class="hint" aria-live="polite"></p><div class="foot">独自Gモード / Gは購入・換金できないゲーム内通貨 / GRAVITY連携時は終了操作で本人の純益を送信（負値受理未確認） / 通信は部屋操作時のみ・保存なし・実機未検証</div></main><script>
+<details><summary>ルール・兵種を見る</summary><p>10戦すべてに参加できます。残高が0 Gでも無料予想は可能。的中は+10 Gと上乗せ額と同額の利益、不正解は上乗せ額のみ失います。見るだけ・引き分けは増減なし。開始100 G、1戦の上限50 G。純益＝現在残高−開始残高です。</p><p>剣：標準。盾：丈夫で射撃に強く、前衛で進路を塞ぐ。槍：長い近接射程。弓：遠距離。砲：範囲着弾。騎：速い近接。癒：味方を回復。矢は味方の盾で遮られません。60秒で決着しなければ引き分け。</p></details><p id="scoreStatus" class="hint" aria-live="polite"></p><div class="foot">独自Gモード / Gは購入・換金できないゲーム内通貨 / GRAVITY連携時は終了操作で本人の純益を送信（負値受理未確認） / 通信は部屋操作時のみ・保存なし・実機未検証</div></main><script>
 'use strict';
-const Wallet=(()=>{
-/** Deterministic host-authoritative game-credit ledger. No money, SDK or networking. */
-const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:20, precision:0});
-const fail = code => { throw new Error(code); };
-const int = (value, code='INVALID_INTEGER') => { if (!Number.isSafeInteger(value) || value < 0) fail(code); return value; };
-const id = value => { if(typeof value !== 'string' || !value.trim()) fail('INVALID_ID'); return value; };
-const freeze = value => { if(value && typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);} return value; };
-const clone = state => JSON.parse(JSON.stringify(state));
-const session = (state, sessionId) => { if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
-const player = (state, playerId) => { const p=state.players.find(p=>p.playerId===playerId); if(!p) fail('UNKNOWN_PLAYER'); return p; };
-const active = (state, roundId) => { if(!state.currentRound || state.currentRound.roundId!==roundId) fail('ROUND_NOT_ACTIVE'); return state.currentRound; };
-function createSession({sessionId,playerIds,config={}}){
-  id(sessionId);
-  if(!Array.isArray(playerIds)||!playerIds.length) fail('PLAYERS_REQUIRED');
-  playerIds.forEach(id); if(new Set(playerIds).size!==playerIds.length) fail('DUPLICATE_PLAYER');
-  if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k))) fail('UNKNOWN_CONFIG');
-  const c={...DEFAULT_CONFIG,...config}; Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
-  if(c.precision!==0) fail('INTEGER_CREDITS_ONLY');
-  if(!c.totalRounds) fail('INVALID_CONFIG');
-  if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
-  return freeze({schemaVersion:1,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
-}
-function openRound(state,{sessionId,roundId,deadline}){
-  session(state,sessionId);int(roundId);int(deadline);
-  if(state.currentRound?.roundId===roundId){if(state.currentRound.deadline!==deadline) fail('ROUND_CONFLICT'); return state;}
-  if(state.currentRound) fail('ROUND_STILL_OPEN');
-  if(roundId!==state.completedRounds+1 || roundId>state.config.totalRounds) fail('ROUND_OUT_OF_ORDER');
-  const next=clone(state); next.currentRound={roundId,deadline,commits:[]}; return freeze(next);
-}
-function commitPrediction(state,{sessionId,roundId,playerId,side,stake=0,now}){
-  session(state,sessionId);int(roundId);int(now); int(stake,'INVALID_STAKE');
-  const p=player(state,playerId), r=active(state,roundId);
-  if(!['A','B',null].includes(side)) fail('INVALID_SIDE');
-  if(side===null && stake!==0) fail('SKIP_CANNOT_STAKE');
-  const old=r.commits.find(c=>c.playerId===playerId);
-  if(old){if(old.side===side && old.stake===stake) return state; fail('COMMIT_LOCKED');}
-  if(now>=r.deadline) fail('COMMIT_DEADLINE');
-  if(stake>Math.min(p.balance,state.config.stakeCap)) fail('STAKE_EXCEEDS_LIMIT');
-  const next=clone(state);next.currentRound.commits.push({playerId,side,stake});return freeze(next);
-}
-function settleRound(state,{sessionId,roundId,outcome,now}){
-  session(state,sessionId);int(roundId);int(now);
-  if(!['A','B','draw','invalid'].includes(outcome)) fail('INVALID_OUTCOME');
-  const old=state.ledger.find(e=>e.roundId===roundId);
-  if(old){if(old.outcome!==outcome) fail('SETTLEMENT_CONFLICT');return state;}
-  const r=active(state,roundId); if(now<r.deadline && r.commits.length!==state.players.length) fail('ROUND_NOT_CLOSED');
-  const next=clone(state), entries=[];
-  for(const p of next.players){
-    const c=r.commits.find(c=>c.playerId===p.playerId), predicted=!!c?.side;
-    const valid=outcome==='A'||outcome==='B';
-    const correct=predicted && valid ? c.side===outcome : null;
-    const stake=c?.stake??0;
-    const delta=correct===true ? state.config.correctReward+stake*state.config.winMultiplier : correct===false ? -stake : 0;
-    const before=p.balance;p.balance+=delta;p.score=p.balance-state.config.initialBalance;
-    if(correct===true)p.correctCount++;
-    if(!Number.isSafeInteger(p.balance)||p.balance<0||!Number.isSafeInteger(p.score)) fail('BALANCE_INVARIANT');
-    entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake,correct,delta,balanceBefore:before,balanceAfter:p.balance,scoreAfter:p.score});
-  }
-  next.ledger.push({sessionId,roundId,outcome,entries});next.completedRounds=roundId;next.currentRound=null;return freeze(next);
-}
-/** Stable roster: known identity resumes; an unknown identity is spectator, never newly funded. */
-function reconnectPlayer(state,{sessionId,playerId}){
-  session(state,sessionId);id(playerId);const p=state.players.find(p=>p.playerId===playerId);
-  return freeze(p?{role:'player',...p}:{role:'spectator',playerId});
-}
-function walletView(state,playerId){
-  const p=player(state,playerId),reserved=state.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
-  return freeze({...p,reserved,available:p.balance-reserved,maxStake:Math.min(p.balance,state.config.stakeCap)});
-}
-/** Competition rank depends solely on signed profit; equal profits share rank. No SDK submission. */
-function standings(state){
-  const rows=state.players.map(p=>({...p})).sort((a,b)=>b.score-a.score || (a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));
-  let rank=0;return freeze(rows.map((p,i)=>{if(i===0||p.score!==rows[i-1].score)rank=i+1;return{rank,...p};}));
-}
-
-return {DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings};})();
+/* WALLET_MODULE */
 
 const TYPES={sword:{name:'剣士',hp:100,dmg:17,range:25,rate:1.0,speed:32},shield:{name:'盾兵',hp:170,dmg:10,range:23,rate:1.2,speed:23,armor:.55},spear:{name:'槍兵',hp:85,dmg:18,range:44,rate:1.25,speed:27},archer:{name:'弓兵',hp:60,dmg:14,range:150,rate:1.25,speed:24,projectile:true},cannon:{name:'砲兵',hp:72,dmg:23,range:125,rate:2.2,speed:19,projectile:true,splash:38},rider:{name:'騎兵',hp:230,dmg:38,range:27,rate:1.15,speed:45},healer:{name:'治療兵',hp:65,dmg:7,range:90,rate:1.35,speed:24,heal:13}};
 const keys=Object.keys(TYPES).filter(k=>k!=='slimelet'), canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');let speed=1,paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
@@ -109,36 +34,41 @@ function generateEarlyArmies(seed){
 }
 
 let previousArmyKinds=[],pendingCarryKinds=null,initialKinds=[[],[]],initialUnits=[],carryStreak=0,leftArmyCost=0;
+function progressRound(n=round){return 1+Math.floor((Math.max(1,Math.min(TOTAL_ROUNDS,n))-1)*19/(TOTAL_ROUNDS-1));}
+const BALANCE_COST=Object.fromEntries(Object.entries(COST).map(([k,v])=>[k,Math.max(1,Math.round(v*({"stormmage":1.4}[k]||1)))]));let leftArmyCount=0;
 function makeArmy(r,side){
+ const stage=progressRound(),advance=round<=1?1:stage-progressRound(round-1);
  const place=(k,i)=>({id:side*100+i,token:`r${round}:s${seed}:${side}:${i}`,side,k,x:90+(i%4)*90,y:(side===0?120:418)+(side===0?1:-1)*Math.floor(i/4)*36,hp:TYPES[k].hp,cd:r()*.5,priority:r(),dead:false});
- if(side===0&&pendingCarryKinds){const kinds=pendingCarryKinds;pendingCarryKinds=null;previousArmyKinds=[...new Set(kinds)];const spent=kinds.reduce((n,k)=>n+COST[k],0);budgets[0]={planned:spent,spent};return kinds.map(place);}
- if(round<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(round>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,COST[k]])),round===3?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
- const unitCap=round===1?8:round<=5?12:round<=11?16:round<=16?24:32;
- const planned=side===1?Math.min(160,Math.max(12+2*(round-1),Math.ceil(leftArmyCost*(1.04+Math.min(carryStreak,4)*.02))+2)):12+Math.min(12,Math.floor((round-1)/2))+Math.floor(r()*5)-2;
+ if(side===0&&pendingCarryKinds){const kinds=pendingCarryKinds;pendingCarryKinds=null;previousArmyKinds=[...new Set(kinds)];const spent=kinds.reduce((n,k)=>n+BALANCE_COST[k],0);budgets[0]={planned:spent,spent};return kinds.map(place);}
+ if(stage<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(stage>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,BALANCE_COST[k]])),round===2?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
+ const unitCap=round===1?8:stage<=5?12:stage<=11?16:stage<=16?24:32;
+ const planned=side===1?Math.min(160,Math.max(Math.round((12+2*(stage-1))*1),Math.ceil(leftArmyCost*Math.pow(1+Math.min(carryStreak,4)*0.005,advance))+Math.round(0.5*advance))):12+Math.min(12,Math.floor((stage-1)/2))+Math.floor(r()*5)-2;
  const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12};
- let pool=keys.filter(k=>round>=(unlock[k]||1)&&(round>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
+ let pool=keys.filter(k=>stage>=(unlock[k]||1)&&(stage>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
  if(side===1&&previousArmyKinds.length===1)pool=pool.filter(k=>k!==previousArmyKinds[0]);
  if(side===1&&!previousArmyKinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))pool=pool.filter(k=>k!=='drake');
- const count=round<=5?1:round<=11?2:3,needAir=side===1&&previousArmyKinds.includes('drake');
+ const count=round<=3?1:round<=6?2:3,needAir=side===1&&previousArmyKinds.includes('drake');
  const options=[];let bestSpent=-1;
  function consider(kinds){
   if(needAir&&!kinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))return;
-  const base=kinds.reduce((n,k)=>n+COST[k],0),limit=planned-base;if(limit<0)return;
-  // Bounded coin packing chooses composition from cost only, never battle outcomes.
+  // Static cost and known-roster interaction surcharge only; no battle outcome or prediction input.
+  const costFor=k=>BALANCE_COST[k]+(false&&previousArmyKinds.includes('drake')&&TYPES[k].attackTargetMask?.includes('air')?1:0)+(false&&leftArmyCount>=12&&['stormmage','cannon','bombbug'].includes(k)?1:0)+(false&&k==='healer'&&kinds.some(x=>['golem','shield'].includes(x))?1:0)+(false&&k==='stormmage'&&kinds.some(x=>['healer','shield','frostmage'].includes(x))?1:0);
+  const base=kinds.reduce((n,k)=>n+costFor(k),0),limit=planned-base;if(limit<0)return;
   const dp=Array(limit+1).fill(Infinity),prev=Array(limit+1);dp[0]=0;
-  for(let v=1;v<=limit;v++)for(const k of kinds){const cost=COST[k];if(v>=cost&&dp[v-cost]+1<dp[v]){dp[v]=dp[v-cost]+1;prev[v]=k;}}
+  for(let v=1;v<=limit;v++)for(const k of kinds){const cost=costFor(k);if(v>=cost&&dp[v-cost]+1<dp[v]){dp[v]=dp[v-cost]+1;prev[v]=k;}}
   let value=limit;while(value>0&&dp[value]>unitCap-kinds.length)value--;
   if(dp[value]>unitCap-kinds.length)return;
-  const spent=base+value;if(spent<bestSpent)return;if(spent>bestSpent){options.length=0;bestSpent=spent;}
-  const roster=[...kinds];while(value>0){const k=prev[value];roster.push(k);value-=COST[k];}options.push(roster);
+  const spent=base+value,roster=[...kinds];while(value>0){const k=prev[value];roster.push(k);value-=costFor(k);}
+  if(roster.filter(k=>k==='healer').length>Math.max(1,Math.floor(roster.length*0.35)))return;
+  if(spent<bestSpent)return;if(spent>bestSpent){options.length=0;bestSpent=spent;}options.push(roster);
  }
  function combinations(from,chosen){if(chosen.length===count){consider(chosen);return;}for(let i=from;i<pool.length;i++)combinations(i+1,[...chosen,pool[i]]);}
  combinations(0,[]);const kinds=options[Math.floor(r()*options.length)]||['sword'];
- const a=kinds.map(place),spent=kinds.reduce((n,k)=>n+COST[k],0);budgets[side]={planned,spent};if(side===0)previousArmyKinds=[...new Set(kinds)];return a;
+ const a=kinds.map(place),spent=kinds.reduce((n,k)=>n+BALANCE_COST[k],0);budgets[side]={planned,spent};if(side===0)previousArmyKinds=[...new Set(kinds)];return a;
 }
 
-function setup(s){seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1]){const army=units.filter(u=>u.side===side);if(army.length>8)army.forEach((u,i)=>{u.x=50+(i%8)*54;u.y=side?458-Math.floor(i/8)*50:80+Math.floor(i/8)*50;});else {const gap=Math.max(36,2*Math.max(...army.map(u=>TYPES[u.k].radius||RADII[u.k]||9)));army.forEach((u,i)=>u.y=(side?418:120)+(side?-1:1)*Math.floor(i/4)*gap);}}initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
-function update(){document.querySelector('#status').textContent=`第 ${round} / 20 戦　残機 ${3-mistakes}`;for(let side=0;side<2;side++){let counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);document.querySelector(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>`${TYPES[k].name} ×${n}`).join('　')}document.querySelector('#red').hidden=state!=='choose';document.querySelector('#blue').hidden=state!=='choose';document.querySelector('#next').hidden=state!=='result';document.querySelector('#next').textContent=mistakes>=3||round>=20?'もう一度':'次の戦いへ';document.querySelector('#pause').hidden=state!=='fight';document.querySelector('#speed').hidden=state!=='fight';document.querySelector('#pause').textContent=paused?'再開':'一時停止';document.querySelector('#speed').textContent='速度 '+speed+'×';document.querySelector('#message').textContent=state==='choose'?'勝つ側を選ぶと戦闘が始まります':state==='fight'?'戦闘中…':mistakes>=3?'終了：3回外れました。':round>=20?'全20戦終了！ 正解 '+correct+' 回':winner===null?'引き分け。失敗には数えません。':`${winner===0?'左':'右'}の勝利！　${winner===choice?'予想的中':'予想は外れ'}`}
+function setup(s){seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1]){const army=units.filter(u=>u.side===side);army.forEach((u,i)=>{const depth=Math.floor(i/8),rows=Math.min(8,army.length-depth*8);u.x=army.length<=8?(side?360:120):(side?420-depth*50:60+depth*50);u.y=269-(rows-1)*25+(i%8)*50;u.originForward=side?-1:1;});}initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
+function update(){}
 
 // Independent collision candidate. Circle footprints are gameplay geometry.
 const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8};
@@ -257,14 +187,14 @@ function loop(t){
  const delta=last===null?0:Math.max(0,(t-last)/1000);last=t;
  if(document.hidden===true){resetSoloClock();requestAnimationFrame(loop);return;}
  if(state==='fight'&&!paused){
-  acc=Math.min(Math.max(0,60-elapsed)+1/60,acc+delta*speed);
+  acc=Math.min(Math.max(0,60-elapsed)+1/60,ReplayClock.advanceSceneSeconds(elapsed+acc,delta,speed)-elapsed);
   const hasClock=typeof performance!=='undefined'&&typeof performance.now==='function',started=hasClock?performance.now():0;let steps=0;
   while(acc+1e-12>=1/60&&state==='fight'&&steps<SOLO_MAX_STEPS_PER_FRAME){
    if(steps>0&&hasClock&&performance.now()-started>=SOLO_FRAME_BUDGET_MS)break;
    step(1/60);acc=Math.max(0,acc-1/60);steps++;
   }
   if(state!=='fight')acc=0;
-  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent='戦闘時間 '+Math.min(60,elapsed).toFixed(1)+' / 60 秒';
+  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent=Math.min(60,elapsed).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(elapsed,speed)+'×';
  }else {acc=0;if(state==='result'){visualTime+=Math.min(delta,.1);if(visualTime-elapsed<.8)draw();}}
  requestAnimationFrame(loop);
 }
@@ -273,7 +203,7 @@ function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
-function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
+function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'quick10-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
 function credits(n){return (n>0?'+':'')+n+' G'}
 function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
@@ -281,9 +211,9 @@ setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
-  q('#status').textContent='第 '+round+' / 20 戦';
+  q('#status').textContent='第 '+round+' / 10 戦';
   q('#balance').textContent=w.balance+' G';q('#profit').textContent=credits(w.score);q('#hits').textContent=w.correctCount+' / '+walletState.completedRounds;
-  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=20?'20戦の最終結果':'今回の結果';
+  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=TOTAL_ROUNDS?'10戦の最終結果':'今回の結果';
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
@@ -291,7 +221,7 @@ update=function(){
   q('#confirm').disabled=selectedSide===null;
   q('#stakeHint').textContent=selectedStake?'正解 '+credits(10+selectedStake)+' · 外れ −'+selectedStake+' G':'正解 +10 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
-  q('#next').textContent=round>=20?'もう一度':'次の戦いへ';
+  q('#next').textContent=round>=TOTAL_ROUNDS?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
     const entry=walletState.ledger[round-1].entries[0];
     q('#message').textContent=winner===null?'引き分け':(winner===0?'左':'右')+'の勝利';
@@ -315,7 +245,7 @@ function openPrediction(seedValue){
 }
 function nextPrediction(){
   if(state!=='result')return;
-  if(round>=20){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
+  if(round>=TOTAL_ROUNDS){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
   openPrediction((Math.random()*4294967296)>>>0);
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);

@@ -32,10 +32,11 @@ def bundle(name,path,dep=''):
    exports.extend(re.findall(r'(?:^|,)\s*(\w+)\s*=',m[1]))
  src=re.sub(r'^import .*?;\n','',src,flags=re.M)
  return 'const '+name+'=(()=>{'+dep+'\n'+src.replace('export ','')+'\nreturn {'+','.join(exports)+'};})();\n'
+s=s.replace('/* WALLET_MODULE */',bundle('Wallet','wallet/wallet.mjs')+'const RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;\n')
 b=bundle('ScoreBridge','ranking/score-bridge.mjs')
 b+=bundle('ReplayTransfer','multiplayer/replay-transfer.mjs')
 b+=bundle('ReplayClock','multiplayer/clock-sync.mjs')
-b+=bundle('MultiProtocol','multiplayer/protocol.mjs','const {packReplay,validMeta,createSender,createReceiver}=ReplayTransfer;const {createClockEstimator}=ReplayClock;')
+b+=bundle('MultiProtocol','multiplayer/protocol.mjs','const {packReplay,validMeta,createSender,createReceiver}=ReplayTransfer;const {createClockEstimator,sceneTickFromWallMs}=ReplayClock;')
 b+=bundle('MultiBinding','multiplayer/wallet-binding.mjs','const wallet=Wallet;const {createSession}=MultiProtocol;')
 b+=bundle('SDKAdapter','multiplayer/sdk-adapter.mjs','const {PROTOCOL,encode,decode,createSession}=MultiProtocol;')
 b+=bundle('CompactReplay','replay/compact-replay.mjs')

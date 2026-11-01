@@ -108,9 +108,8 @@
       if (check) cancelSlot('selection-check');
       play('selection-check', card,
         [
-          { transform: 'translateY(1px) scale(.985)' },
-          { transform: 'translateY(-1px) scale(1.018)', offset: 0.7 },
-          { transform: 'translateY(0px) scale(1)' }
+          { opacity: 0.82 },
+          { opacity: 1 }
         ], { duration: 120, easing: 'cubic-bezier(.2,.8,.2,1)' });
     }
   }

@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createSession,encode,PROTOCOL,MAX_WIRE_BYTES} from './protocol.mjs';
 import {createWalletSession} from './wallet-binding.mjs';
-const wire=x=>encode({protocol:PROTOCOL,version:1,roomId:'room',sessionId:'session',...x});
+const wire=x=>encode({protocol:PROTOCOL,version:1,mode:'GRAVITY_QUICK10_V1',roomId:'room',sessionId:'session',...x});
 function setup(wallet=false){let clock=1000;const sent=[];let h;h=(wallet?createWalletSession:createSession)({roomId:'room',sessionId:'session',userId:'h',hostId:'h',members:['g'],now:()=>clock,send:w=>{sent.push(w);const m=JSON.parse(w);if(m.type==='replay-chunk')for(const id of h.getState().participants.filter(x=>x!=='h'))h.receive(id,wire({type:'replay-ack',battleId:m.battleId,digest:m.digest,index:m.index}));}});return{h,sent,time:t=>clock=t};}
 const bet=(seq=1,over={})=>wire({type:'bet',roundId:1,seq,side:'A',stake:5,...over});
 const replay={engineVersion:'v1',ticks:10,winner:'A',events:[]};

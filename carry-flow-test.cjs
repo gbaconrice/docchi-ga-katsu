@@ -6,20 +6,21 @@ function click(id){assert(nodes[id],id);assert(!nodes[id].disabled,id+' disabled
 
 click('#soloStart');
 const rows=[];
-for(let r=1;r<=20;r++){
+for(let r=1;r<=10;r++){
  const original=run('JSON.parse(JSON.stringify(initialUnits))');const composition=side=>original.filter(u=>u.side===side).map(u=>u.k);
  click(r%2?'#red':'#blue');click('#confirm');while(run('state')==='fight')frame();
  const winner=run('winner'),score=run('walletState.ledger[round-1]');assert.equal(score.outcome,winner===null?'draw':winner===0?'A':'B');
  rows.push(run('({round,winner,cost:[0,1].map(side=>initialUnits.filter(u=>u.side===side).reduce((n,u)=>n+COST[u.k],0)),counts:[0,1].map(side=>initialUnits.filter(u=>u.side===side).length),kinds:[0,1].map(side=>new Set(initialUnits.filter(u=>u.side===side).map(u=>u.k)).size),budgets:JSON.parse(JSON.stringify(budgets)),carryStreak})'));
- if(r===20)break;
+ if(r===10)break;
  run('nextPrediction()');assert.equal(run('round'),r+1);
  if(winner!==null){const left=run('initialUnits.filter(u=>u.side===0).map(u=>u.k)');assert.deepEqual(Array.from(left),composition(winner));}
  assert(run('initialUnits.every(u=>u.hp===TYPES[u.k].hp&&!u.dead&&!u.parentToken&&!u.ownerToken&&!u.summonCount&&!u.splitDone&&!u.burrowStage)'));
  assert(run('new Set(initialUnits.map(u=>u.token)).size===initialUnits.length'));
  assert(run('initialUnits.every(u=>u.k!=="slimelet")'));
- if(r+1>=6)assert.equal(run('new Set(initialUnits.filter(u=>u.side===1).map(u=>u.k)).size'),r+1<12?2:3);
+ if(r+1>=4)assert.equal(run('new Set(initialUnits.filter(u=>u.side===1).map(u=>u.k)).size'),r+1<7?2:3);
 }
-assert.equal(run('walletState.completedRounds'),20);
+assert.equal(run('walletState.completedRounds'),10);frame(100);assert.equal(run('round'),10);assert.equal(run('state'),'result');assert.equal(run('walletState.mode'),'GRAVITY_QUICK10_V1');assert.throws(()=>run('Wallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:11,deadline:999})'));
+
 run('nextPrediction()');assert.equal(run('carryStreak'),0);assert.equal(run('pendingCarryKinds'),null);assert.equal(run('round'),1);
-fs.writeFileSync('v9-carry-probe.json',JSON.stringify(rows,null,2));
-console.log('PASS 20 real rounds: actual winner starting roster carries left fresh, wallet original sides settled, 2/3-kind challengers, token uniqueness, reset; probe saved');
+fs.writeFileSync('v10-carry-probe.json',JSON.stringify(rows,null,2));
+console.log('PASS 10 real rounds: actual winner starting roster carries left fresh, wallet original sides settled, 2/3-kind challengers, token uniqueness, reset; probe saved');

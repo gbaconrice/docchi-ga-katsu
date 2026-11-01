@@ -1,9 +1,10 @@
 // Draft a BET and army; only the Start button commits once.
-// No implicit predictions and no automatic restart after round 20.
+// No implicit predictions and no automatic restart after round 10.
 const RESULT_READ_SECONDS=3;
 let pausePanelOpen=false,pausePanelWasPaused=false;
 let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
-function resetResultRead(){resultReadSeconds=0;resultReadLast=null;}
+function resetResultRead(){resultReadSeconds=0;resultReadLast=null;syncResultProgress();}
+function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=TOTAL_ROUNDS||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
 function commitArmy(side){
  if(screenMode!=='game'||state!=='choose')return;
  if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
@@ -15,10 +16,11 @@ document.querySelector('#blue').onclick=()=>commitArmy(1);
 document.querySelector('#confirm').hidden=false;
 document.querySelector('#confirm').onclick=()=>{if(!predictionPreview)startPrediction(false);};
 function advanceResultRead(t){
- if(multiSession||state!=='result'||round>=20||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
+ if(multiSession||state!=='result'||round>=TOTAL_ROUNDS||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
  if(resultReadRound!==round){resetResultRead();resultReadRound=round;}
  if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
  resultReadLast=t;
+ syncResultProgress();
  const next=document.querySelector('#next');
  next.textContent='次の戦いへ · '+Math.max(0,Math.ceil(RESULT_READ_SECONDS-resultReadSeconds));
  if(resultReadSeconds>=RESULT_READ_SECONDS){resetResultRead();nextPrediction();}
@@ -91,7 +93,7 @@ function toggleUnits(open){
 function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
  q('#gameScreen')?.setAttribute('data-phase',state);if(pausePanelOpen&&state!=='fight')closePausePanel();
- const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<20;
+ const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<TOTAL_ROUNDS;
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',cameraZoom===1]])if(q(id))q(id).disabled=disabled;
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }

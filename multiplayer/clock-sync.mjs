@@ -19,3 +19,15 @@ export function createClockEstimator({now=Date.now,send}){
  }
  return{probe,accept,estimate};
 }
+
+/** Shared presentation pacing; no physics delta or winner changes. */
+export function effectiveSpeed(sceneSeconds,manual=1){return Math.max(manual,sceneSeconds>=40?3:sceneSeconds>=20?2:1);}
+export function advanceSceneSeconds(sceneSeconds,wallSeconds,manual=1){
+ let scene=Math.max(0,sceneSeconds),remaining=Math.max(0,wallSeconds);
+ for(let i=0;i<3&&remaining>0;i++){
+  const boundary=scene<20?20:scene<40?40:Infinity,speed=effectiveSpeed(scene,manual),until=(boundary-scene)/speed;
+  if(remaining<until){scene+=remaining*speed;remaining=0;}else{scene=boundary;remaining-=until;}
+ }
+ return scene;
+}
+export function sceneTickFromWallMs(ms){return Math.max(0,Math.floor(advanceSceneSeconds(0,Math.max(0,ms)/1000,1)*60+1e-7));}

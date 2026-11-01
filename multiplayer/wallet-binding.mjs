@@ -5,7 +5,7 @@ export function createWalletSession(options){
   let ledger=null,session;
   session=createSession({...options,
     onOpenRound(input){
-      const base=ledger||wallet.createSession({sessionId:options.sessionId,playerIds:session.getState().participants,config:options.walletConfig});
+      const base=ledger||wallet.createSession({sessionId:options.sessionId,playerIds:session.getState().participants,mode:session.getState().mode,config:options.walletConfig});
       const next=wallet.openRound(base,input);return {wallets:next.players,commit:()=>{ledger=next;}};
     },
     validateBet(playerId,stake,side,roundId){

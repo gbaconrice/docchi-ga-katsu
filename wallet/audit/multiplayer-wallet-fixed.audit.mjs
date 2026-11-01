@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createWalletSession} from '../../multiplayer/wallet-binding.mjs';
 import {encode,PROTOCOL} from '../../multiplayer/protocol.mjs';
-const wire=body=>encode({protocol:PROTOCOL,version:1,roomId:'r',sessionId:'s',...body});
+const wire=body=>encode({protocol:PROTOCOL,version:1,mode:'GRAVITY_QUICK10_V1',roomId:'r',sessionId:'s',...body});
 const replay={engineVersion:'v1',ticks:1,winner:'A',events:[]};
 function setup(members=['g']){let time=0;const sent=[];const h=createWalletSession({roomId:'r',sessionId:'s',userId:'h',hostId:'h',members,now:()=>time,send:w=>sent.push(JSON.parse(w))});return {h,sent,time:x=>time=x};}
 test('FIX VERIFIED: refusing all replay ACK cannot cancel confirmed loss or duplicate reward',()=>{

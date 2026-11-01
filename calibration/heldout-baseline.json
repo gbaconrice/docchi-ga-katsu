@@ -1,0 +1,7390 @@
+{
+  "mode": "GRAVITY_QUICK10_V1",
+  "complete": true,
+  "completedSessions": 6,
+  "requestedSessions": 6,
+  "sourceHashes": {
+    "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+    "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+    "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+    "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+  },
+  "policy": {
+    "name": "baseline",
+    "baseline": true
+  },
+  "seedStart": 101,
+  "method": {
+    "sessionSeeds": "1..N; seeded mulberry32 supplies normal Math.random calls only",
+    "prediction": "alternating A/B at zero stake; no skip, reroll or result-conditioned adjustment",
+    "continuation": "normal nextPrediction winner starting-roster carry, not surviving roster",
+    "hpRatio": "winner surviving ORIGINAL-unit HP / original starting HP; dead original units count as zero",
+    "survivingCostRatio": "surviving ORIGINAL-unit static cost / original starting cost; spawned units excluded",
+    "allHpRatio": "all winner surviving HP including children / original starting HP, may exceed 1",
+    "allCreatedHpRatio": "all winner surviving HP / starting max HP of every actually-created same-side entity, bounded 0..1; reported to avoid classifying all-dead slime parents as a close win automatically",
+    "incomingDamage": "positive resolved_hit intents from opposing-side source, including armor/overkill; not net HP after healing",
+    "thresholds": "25% and 75% are descriptive audit bins, not validated quality thresholds or generation controls",
+    "selectionBias": "carry and stage/type eligibility confound win rates; combinations with small n are not causal evidence",
+    "nativeSDK": false,
+    "render": false
+  },
+  "choiceNonInterference": {
+    "seed": 123456,
+    "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+  },
+  "overall": {
+    "battles": 60,
+    "leftWins": 20,
+    "rightWins": 39,
+    "draws": 1,
+    "winnerOriginalHpRatio": {
+      "n": 59,
+      "mean": 0.3729303184621089,
+      "median": 0.35714285714285715,
+      "p10": 0.06899224806201551,
+      "p90": 0.6746666666666666,
+      "min": 0.005376344086021506,
+      "max": 0.8233333333333334
+    },
+    "winnerOriginalSurvivingCostRatio": {
+      "n": 59,
+      "mean": 0.5874285310324147,
+      "median": 0.631578947368421,
+      "p10": 0.14473684210526316,
+      "p90": 1,
+      "min": 0.06451612903225806,
+      "max": 1
+    },
+    "winnerAllRemainingHpRatioOfCreated": {
+      "n": 59,
+      "mean": 0.3708523945840094,
+      "median": 0.35714285714285715,
+      "p10": 0.06899224806201551,
+      "p90": 0.6746666666666666,
+      "min": 0.005376344086021506,
+      "max": 0.8233333333333334
+    },
+    "winnerAllHpPerInitialHp": {
+      "n": 59,
+      "mean": 0.382813169907772,
+      "median": 0.35714285714285715,
+      "p10": 0.06899224806201551,
+      "p90": 0.68,
+      "min": 0.005376344086021506,
+      "max": 1.2441176470588236
+    },
+    "simSeconds": {
+      "n": 60,
+      "mean": 15.297777777777855,
+      "median": 12.683333333333543,
+      "p10": 7.949999999999977,
+      "p90": 24.14999999999991,
+      "min": 5.999999999999984,
+      "max": 40.999999999998956
+    },
+    "firstHitSeconds": {
+      "n": 60,
+      "mean": 2.142777777777775,
+      "median": 2.116666666666664,
+      "p10": 1.0000000000000013,
+      "p90": 2.966666666666661,
+      "min": 0.8333333333333343,
+      "max": 4.033333333333324
+    },
+    "winnerNoInitialCasualtyRate": 0.13559322033898305,
+    "winnerNoIncomingDamageRate": 0,
+    "oneSideNoIncomingDamageRate": 0,
+    "closeHpAtMost25PercentRate": 0.3220338983050847,
+    "routHpAtLeast75PercentRate": 0.05084745762711865
+  },
+  "byRound": {
+    "1": {
+      "battles": 6,
+      "leftWins": 3,
+      "rightWins": 3,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.3162009803921569,
+        "median": 0.25,
+        "p10": 0.0775,
+        "p90": 0.47058823529411764,
+        "min": 0.0775,
+        "max": 0.625
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.6041666666666666,
+        "median": 0.25,
+        "p10": 0.125,
+        "p90": 1,
+        "min": 0.125,
+        "max": 1
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.3162009803921569,
+        "median": 0.25,
+        "p10": 0.0775,
+        "p90": 0.47058823529411764,
+        "min": 0.0775,
+        "max": 0.625
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.3162009803921569,
+        "median": 0.25,
+        "p10": 0.0775,
+        "p90": 0.47058823529411764,
+        "min": 0.0775,
+        "max": 0.625
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 12.14166666666685,
+        "median": 12.683333333333543,
+        "p10": 7.949999999999977,
+        "p90": 12.916666666666888,
+        "min": 7.949999999999977,
+        "max": 13.950000000000273
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 3.2388888888888823,
+        "median": 2.7666666666666617,
+        "p10": 2.6999999999999953,
+        "p90": 3.9333333333333242,
+        "min": 2.6999999999999953,
+        "max": 3.9666666666666575
+      },
+      "winnerNoInitialCasualtyRate": 0.5,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.5,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "2": {
+      "battles": 6,
+      "leftWins": 0,
+      "rightWins": 6,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.4618399044205496,
+        "median": 0.38064516129032255,
+        "p10": 0.29333333333333333,
+        "p90": 0.5866666666666667,
+        "min": 0.29333333333333333,
+        "max": 0.68
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.7166666666666667,
+        "median": 0.7,
+        "p10": 0.4444444444444444,
+        "p90": 0.8,
+        "min": 0.4444444444444444,
+        "max": 1
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.4618399044205496,
+        "median": 0.38064516129032255,
+        "p10": 0.29333333333333333,
+        "p90": 0.5866666666666667,
+        "min": 0.29333333333333333,
+        "max": 0.68
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.4618399044205496,
+        "median": 0.38064516129032255,
+        "p10": 0.29333333333333333,
+        "p90": 0.5866666666666667,
+        "min": 0.29333333333333333,
+        "max": 0.68
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 9.658333333333394,
+        "median": 8.683333333333344,
+        "p10": 8.24999999999999,
+        "p90": 10.666666666666776,
+        "min": 8.24999999999999,
+        "max": 11.650000000000158
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 2.397222222222218,
+        "median": 2.4333333333333296,
+        "p10": 1.9666666666666646,
+        "p90": 2.6166666666666623,
+        "min": 1.9666666666666646,
+        "max": 2.6833333333333287
+      },
+      "winnerNoInitialCasualtyRate": 0.16666666666666666,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "3": {
+      "battles": 6,
+      "leftWins": 3,
+      "rightWins": 3,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.4571391332681656,
+        "median": 0.3655913978494624,
+        "p10": 0.24,
+        "p90": 0.6864516129032258,
+        "min": 0.24,
+        "max": 0.6980645161290323
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.652020202020202,
+        "median": 0.5454545454545454,
+        "p10": 0.3,
+        "p90": 1,
+        "min": 0.3,
+        "max": 1
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.4571391332681656,
+        "median": 0.3655913978494624,
+        "p10": 0.24,
+        "p90": 0.6864516129032258,
+        "min": 0.24,
+        "max": 0.6980645161290323
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.4571391332681656,
+        "median": 0.3655913978494624,
+        "p10": 0.24,
+        "p90": 0.6864516129032258,
+        "min": 0.24,
+        "max": 0.6980645161290323
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 14.055555555555664,
+        "median": 12.183333333333518,
+        "p10": 6.283333333333316,
+        "p90": 19.733333333333494,
+        "min": 6.283333333333316,
+        "max": 20.966666666666757
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 2.3166666666666633,
+        "median": 2.1333333333333306,
+        "p10": 1.816666666666665,
+        "p90": 2.8166666666666615,
+        "min": 1.816666666666665,
+        "max": 2.8166666666666615
+      },
+      "winnerNoInitialCasualtyRate": 0.3333333333333333,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.16666666666666666,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "4": {
+      "battles": 6,
+      "leftWins": 2,
+      "rightWins": 4,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.20031997192991588,
+        "median": 0.0728476821192053,
+        "p10": 0.005376344086021506,
+        "p90": 0.3466666666666667,
+        "min": 0.005376344086021506,
+        "max": 0.41818181818181815
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.3757353757353757,
+        "median": 0.23809523809523808,
+        "p10": 0.07692307692307693,
+        "p90": 0.5,
+        "min": 0.07692307692307693,
+        "max": 0.9090909090909091
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.20031997192991588,
+        "median": 0.0728476821192053,
+        "p10": 0.005376344086021506,
+        "p90": 0.3466666666666667,
+        "min": 0.005376344086021506,
+        "max": 0.41818181818181815
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.20031997192991588,
+        "median": 0.0728476821192053,
+        "p10": 0.005376344086021506,
+        "p90": 0.3466666666666667,
+        "min": 0.005376344086021506,
+        "max": 0.41818181818181815
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 14.625000000000098,
+        "median": 11.933333333333506,
+        "p10": 8.600000000000007,
+        "p90": 18.133333333333585,
+        "min": 8.600000000000007,
+        "max": 25.599999999999827
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 2.1111111111111085,
+        "median": 2.0499999999999976,
+        "p10": 1.566666666666666,
+        "p90": 2.249999999999997,
+        "min": 1.566666666666666,
+        "max": 2.9499999999999944
+      },
+      "winnerNoInitialCasualtyRate": 0,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.5,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "5": {
+      "battles": 6,
+      "leftWins": 1,
+      "rightWins": 5,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.26873266160879977,
+        "median": 0.2383177570093458,
+        "p10": 0.11311475409836065,
+        "p90": 0.3380392156862745,
+        "min": 0.11311475409836065,
+        "max": 0.4672897196261682
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.47747103844664823,
+        "median": 0.3902439024390244,
+        "p10": 0.1794871794871795,
+        "p90": 0.6923076923076923,
+        "min": 0.1794871794871795,
+        "max": 0.7619047619047619
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.26873266160879977,
+        "median": 0.2383177570093458,
+        "p10": 0.11311475409836065,
+        "p90": 0.3380392156862745,
+        "min": 0.11311475409836065,
+        "max": 0.4672897196261682
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.26873266160879977,
+        "median": 0.2383177570093458,
+        "p10": 0.11311475409836065,
+        "p90": 0.3380392156862745,
+        "min": 0.11311475409836065,
+        "max": 0.4672897196261682
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 15.58611111111116,
+        "median": 10.900000000000121,
+        "p10": 7.233333333333313,
+        "p90": 21.23333333333341,
+        "min": 7.233333333333313,
+        "max": 24.18333333333324
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 2.1249999999999973,
+        "median": 1.866666666666665,
+        "p10": 1.7833333333333319,
+        "p90": 2.28333333333333,
+        "min": 1.7833333333333319,
+        "max": 2.966666666666661
+      },
+      "winnerNoInitialCasualtyRate": 0,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.5,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "6": {
+      "battles": 6,
+      "leftWins": 2,
+      "rightWins": 3,
+      "draws": 1,
+      "winnerOriginalHpRatio": {
+        "n": 5,
+        "mean": 0.31491704848737295,
+        "median": 0.10483870967741936,
+        "p10": 0.01803921568627451,
+        "p90": 0.6333333333333333,
+        "min": 0.01803921568627451,
+        "max": 0.7533333333333333
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 5,
+        "mean": 0.47245564892623715,
+        "median": 0.35294117647058826,
+        "p10": 0.09523809523809523,
+        "p90": 0.8412698412698413,
+        "min": 0.09523809523809523,
+        "max": 0.8823529411764706
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 5,
+        "mean": 0.31456008874234415,
+        "median": 0.10483870967741936,
+        "p10": 0.01625441696113074,
+        "p90": 0.6333333333333333,
+        "min": 0.01625441696113074,
+        "max": 0.7533333333333333
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 5,
+        "mean": 0.31491704848737295,
+        "median": 0.10483870967741936,
+        "p10": 0.01803921568627451,
+        "p90": 0.6333333333333333,
+        "min": 0.01803921568627451,
+        "max": 0.7533333333333333
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 19.063888888888656,
+        "median": 8.78333333333335,
+        "p10": 5.999999999999984,
+        "p90": 26.91666666666642,
+        "min": 5.999999999999984,
+        "max": 40.999999999998956
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 2.28333333333333,
+        "median": 2.1833333333333305,
+        "p10": 1.8833333333333315,
+        "p90": 2.3833333333333298,
+        "min": 1.8833333333333315,
+        "max": 3.0333333333333274
+      },
+      "winnerNoInitialCasualtyRate": 0,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.6,
+      "routHpAtLeast75PercentRate": 0.2
+    },
+    "7": {
+      "battles": 6,
+      "leftWins": 2,
+      "rightWins": 4,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.4266305117753369,
+        "median": 0.36666666666666664,
+        "p10": 0.035555555555555556,
+        "p90": 0.5670175438596491,
+        "min": 0.035555555555555556,
+        "max": 0.8233333333333334
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.6174397026004559,
+        "median": 0.5882352941176471,
+        "p10": 0.06451612903225806,
+        "p90": 0.75,
+        "min": 0.06451612903225806,
+        "max": 1
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.4266305117753369,
+        "median": 0.36666666666666664,
+        "p10": 0.035555555555555556,
+        "p90": 0.5670175438596491,
+        "min": 0.035555555555555556,
+        "max": 0.8233333333333334
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.4266305117753369,
+        "median": 0.36666666666666664,
+        "p10": 0.035555555555555556,
+        "p90": 0.5670175438596491,
+        "min": 0.035555555555555556,
+        "max": 0.8233333333333334
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 14.06666666666685,
+        "median": 12.283333333333523,
+        "p10": 9.133333333333367,
+        "p90": 18.183333333333582,
+        "min": 9.133333333333367,
+        "max": 18.433333333333568
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 1.8833333333333313,
+        "median": 1.5499999999999994,
+        "p10": 0.8333333333333343,
+        "p90": 2.4833333333333294,
+        "min": 0.8333333333333343,
+        "max": 3.0833333333333273
+      },
+      "winnerNoInitialCasualtyRate": 0.16666666666666666,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.16666666666666666,
+      "routHpAtLeast75PercentRate": 0.16666666666666666
+    },
+    "8": {
+      "battles": 6,
+      "leftWins": 1,
+      "rightWins": 5,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.4348572185605985,
+        "median": 0.3971223021582734,
+        "p10": 0.1697805907172996,
+        "p90": 0.6374797427652733,
+        "min": 0.1697805907172996,
+        "max": 0.6746666666666666
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.6855614543114544,
+        "median": 0.7619047619047619,
+        "p10": 0.234375,
+        "p90": 0.8666666666666667,
+        "min": 0.234375,
+        "max": 0.921875
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.4348572185605985,
+        "median": 0.3971223021582734,
+        "p10": 0.1697805907172996,
+        "p90": 0.6374797427652733,
+        "min": 0.1697805907172996,
+        "max": 0.6746666666666666
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.4348572185605985,
+        "median": 0.3971223021582734,
+        "p10": 0.1697805907172996,
+        "p90": 0.6374797427652733,
+        "min": 0.1697805907172996,
+        "max": 0.6746666666666666
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 18.24166666666673,
+        "median": 16.83333333333366,
+        "p10": 9.016666666666694,
+        "p90": 18.4666666666669,
+        "min": 9.016666666666694,
+        "max": 34.56666666666599
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 1.6111111111111098,
+        "median": 1.4499999999999997,
+        "p10": 0.8333333333333343,
+        "p90": 2.166666666666664,
+        "min": 0.8333333333333343,
+        "max": 2.749999999999995
+      },
+      "winnerNoInitialCasualtyRate": 0,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.3333333333333333,
+      "routHpAtLeast75PercentRate": 0
+    },
+    "9": {
+      "battles": 6,
+      "leftWins": 3,
+      "rightWins": 3,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.37988417071517994,
+        "median": 0.17866666666666667,
+        "p10": 0.0438871473354232,
+        "p90": 0.5950372208436725,
+        "min": 0.0438871473354232,
+        "max": 0.8147909967845659
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.5626882863724969,
+        "median": 0.4444444444444444,
+        "p10": 0.1111111111111111,
+        "p90": 0.8863636363636364,
+        "min": 0.1111111111111111,
+        "max": 1
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.37301307116733157,
+        "median": 0.17866666666666667,
+        "p10": 0.0438871473354232,
+        "p90": 0.553810623556582,
+        "min": 0.0438871473354232,
+        "max": 0.8147909967845659
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.37988417071517994,
+        "median": 0.17866666666666667,
+        "p10": 0.0438871473354232,
+        "p90": 0.5950372208436725,
+        "min": 0.0438871473354232,
+        "max": 0.8147909967845659
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 18.438888888889043,
+        "median": 19.100000000000197,
+        "p10": 11.650000000000158,
+        "p90": 20.816666666666766,
+        "min": 11.650000000000158,
+        "max": 21.216666666666743
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 1.7416666666666651,
+        "median": 1.6333333333333324,
+        "p10": 0.8333333333333343,
+        "p90": 2.416666666666663,
+        "min": 0.8333333333333343,
+        "max": 2.449999999999996
+      },
+      "winnerNoInitialCasualtyRate": 0.16666666666666666,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0.5,
+      "routHpAtLeast75PercentRate": 0.16666666666666666
+    },
+    "10": {
+      "battles": 6,
+      "leftWins": 3,
+      "rightWins": 3,
+      "draws": 0,
+      "winnerOriginalHpRatio": {
+        "n": 6,
+        "mean": 0.4591127051338904,
+        "median": 0.38767123287671235,
+        "p10": 0.2905027932960894,
+        "p90": 0.5971786833855799,
+        "min": 0.2905027932960894,
+        "max": 0.6610294117647059
+      },
+      "winnerOriginalSurvivingCostRatio": {
+        "n": 6,
+        "mean": 0.6909181215602471,
+        "median": 0.6391752577319587,
+        "p10": 0.6052631578947368,
+        "p90": 0.7555555555555555,
+        "min": 0.6052631578947368,
+        "max": 0.8108108108108109
+      },
+      "winnerAllRemainingHpRatioOfCreated": {
+        "n": 6,
+        "mean": 0.4458483530012847,
+        "median": 0.38767123287671235,
+        "p10": 0.2905027932960894,
+        "p90": 0.5814432989690722,
+        "min": 0.2905027932960894,
+        "max": 0.5971786833855799
+      },
+      "winnerAllHpPerInitialHp": {
+        "n": 6,
+        "mean": 0.5562940776829101,
+        "median": 0.38767123287671235,
+        "p10": 0.2905027932960894,
+        "p90": 0.5971786833855799,
+        "min": 0.2905027932960894,
+        "max": 1.2441176470588236
+      },
+      "simSeconds": {
+        "n": 6,
+        "mean": 17.10000000000004,
+        "median": 11.550000000000153,
+        "p10": 10.650000000000109,
+        "p90": 24.14999999999991,
+        "min": 10.650000000000109,
+        "max": 25.89999999999981
+      },
+      "firstHitSeconds": {
+        "n": 6,
+        "mean": 1.7194444444444432,
+        "median": 1.35,
+        "p10": 0.9833333333333347,
+        "p90": 1.5333333333333328,
+        "min": 0.9833333333333347,
+        "max": 4.033333333333324
+      },
+      "winnerNoInitialCasualtyRate": 0,
+      "winnerNoIncomingDamageRate": 0,
+      "oneSideNoIncomingDamageRate": 0,
+      "closeHpAtMost25PercentRate": 0,
+      "routHpAtLeast75PercentRate": 0
+    }
+  },
+  "byCombination": {
+    "spear:8 VS rider:3": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.25
+      ],
+      "simSeconds": [
+        12.916666666666888
+      ]
+    },
+    "spear:8 VS archer:10": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.68
+      ],
+      "simSeconds": [
+        10.666666666666776
+      ]
+    },
+    "archer:10 VS spear:12": {
+      "n": 2,
+      "leftWins": 2,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.24,
+        0.28
+      ],
+      "simSeconds": [
+        19.733333333333494,
+        18.100000000000254
+      ]
+    },
+    "archer:10 VS cannon:6+spear:1": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.3466666666666667
+      ],
+      "simSeconds": [
+        10.500000000000101
+      ]
+    },
+    "archer:10 VS rider:4+sword:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.11311475409836065
+      ],
+      "simSeconds": [
+        21.23333333333341
+      ]
+    },
+    "rider:4+sword:3 VS goblin:3+stormmage:9": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.6333333333333333
+      ],
+      "simSeconds": [
+        7.649999999999978
+      ]
+    },
+    "goblin:3+stormmage:9 VS boar:2+cannon:8+goblin:2": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.36666666666666664
+      ],
+      "simSeconds": [
+        9.133333333333367
+      ]
+    },
+    "goblin:3+stormmage:9 VS healer:1+shield:5+stormmage:8": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.6374797427652733
+      ],
+      "simSeconds": [
+        9.016666666666694
+      ]
+    },
+    "healer:1+shield:5+stormmage:8 VS drake:10+goblin:1+shield:1": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.8147909967845659
+      ],
+      "simSeconds": [
+        11.650000000000158
+      ]
+    },
+    "healer:1+shield:5+stormmage:8 VS bombbug:1+cannon:13+goblin:3": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.47720257234726676
+      ],
+      "simSeconds": [
+        10.650000000000109
+      ]
+    },
+    "rider:3 VS spear:8": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.19411764705882353
+      ],
+      "simSeconds": [
+        12.866666666666886
+      ]
+    },
+    "spear:8 VS boar:6": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.38064516129032255
+      ],
+      "simSeconds": [
+        8.24999999999999
+      ]
+    },
+    "boar:6 VS shield:9": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.3655913978494624
+      ],
+      "simSeconds": [
+        20.966666666666757
+      ]
+    },
+    "boar:6 VS frostmage:9+sword:1": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.005376344086021506
+      ],
+      "simSeconds": [
+        25.599999999999827
+      ]
+    },
+    "boar:6 VS frostmage:8+golem:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.2383177570093458
+      ],
+      "simSeconds": [
+        24.18333333333324
+      ]
+    },
+    "frostmage:8+golem:1 VS golem:3+rider:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.10483870967741936
+      ],
+      "simSeconds": [
+        40.999999999998956
+      ]
+    },
+    "golem:3+rider:3 VS burrower:11+shield:1+spear:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.035555555555555556
+      ],
+      "simSeconds": [
+        18.433333333333568
+      ]
+    },
+    "burrower:11+shield:1+spear:1 VS frostmage:4+goblin:2+golem:6": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.3971223021582734
+      ],
+      "simSeconds": [
+        17.8833333333336
+      ]
+    },
+    "frostmage:4+goblin:2+golem:6 VS goblin:1+rider:10+sword:2": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5184313725490196
+      ],
+      "simSeconds": [
+        19.6333333333335
+      ]
+    },
+    "goblin:1+rider:10+sword:2 VS burrower:1+stormmage:2+wraith:12": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.6610294117647059
+      ],
+      "simSeconds": [
+        19.650000000000166
+      ]
+    },
+    "spear:6 VS sword:6": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.28
+      ],
+      "simSeconds": [
+        7.949999999999977
+      ]
+    },
+    "sword:6 VS boar:5": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5148387096774194
+      ],
+      "simSeconds": [
+        10.433333333333431
+      ]
+    },
+    "boar:5 VS sword:11": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.4727272727272727
+      ],
+      "simSeconds": [
+        12.183333333333518
+      ]
+    },
+    "sword:11 VS boar:8+goblin:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.06899224806201551
+      ],
+      "simSeconds": [
+        18.133333333333585
+      ]
+    },
+    "boar:8+goblin:1 VS bombbug:4+frostmage:10": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.4672897196261682
+      ],
+      "simSeconds": [
+        9.966666666666741
+      ]
+    },
+    "bombbug:4+frostmage:10 VS golem:2+stormmage:9": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.7533333333333333
+      ],
+      "simSeconds": [
+        8.78333333333335
+      ]
+    },
+    "golem:2+stormmage:9 VS drake:9+healer:1+shield:2": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.8233333333333334
+      ],
+      "simSeconds": [
+        12.283333333333523
+      ]
+    },
+    "golem:2+stormmage:9 VS rider:8+slime:2+spear:2": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.6746666666666666
+      ],
+      "simSeconds": [
+        12.683333333333543
+      ]
+    },
+    "golem:2+stormmage:9 VS archer:4+boar:1+rider:8": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.17866666666666667
+      ],
+      "simSeconds": [
+        21.216666666666743
+      ]
+    },
+    "golem:2+stormmage:9 VS boar:18+bombbug:1+goblin:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.34109153713298795
+      ],
+      "simSeconds": [
+        10.700000000000111
+      ]
+    },
+    "sword:8 VS rider:3": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.0775
+      ],
+      "simSeconds": [
+        13.950000000000273
+      ]
+    },
+    "sword:8 VS archer:10": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5866666666666667
+      ],
+      "simSeconds": [
+        11.650000000000158
+      ]
+    },
+    "archer:10 VS bombbug:11+goblin:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.0728476821192053
+      ],
+      "simSeconds": [
+        11.933333333333506
+      ]
+    },
+    "bombbug:11+goblin:3 VS bombbug:1+sword:15": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.13774834437086092
+      ],
+      "simSeconds": [
+        7.233333333333313
+      ]
+    },
+    "bombbug:11+goblin:3 VS boar:2+rider:5": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 0,
+      "draws": 1,
+      "winnerHpRatios": [],
+      "simSeconds": [
+        5.999999999999984
+      ]
+    },
+    "bombbug:1+shield:1+sword:4 VS boar:1+goblin:2+golem:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5670175438596491
+      ],
+      "simSeconds": [
+        18.183333333333582
+      ]
+    },
+    "boar:1+goblin:2+golem:3 VS bombbug:2+cannon:4+stormmage:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5109717868338558
+      ],
+      "simSeconds": [
+        16.83333333333366
+      ]
+    },
+    "bombbug:2+cannon:4+stormmage:3 VS boar:10+goblin:1+spear:1": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.0438871473354232
+      ],
+      "simSeconds": [
+        18.216666666666914
+      ]
+    },
+    "bombbug:2+cannon:4+stormmage:3 VS golem:5+healer:3+sword:2": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5971786833855799
+      ],
+      "simSeconds": [
+        25.89999999999981
+      ]
+    },
+    "shield:3 VS sword:4": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.625
+      ],
+      "simSeconds": [
+        12.483333333333533
+      ]
+    },
+    "sword:4 VS goblin:9": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.29333333333333333
+      ],
+      "simSeconds": [
+        8.683333333333344
+      ]
+    },
+    "goblin:9 VS boar:5": {
+      "n": 2,
+      "leftWins": 0,
+      "rightWins": 2,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.6864516129032258,
+        0.6980645161290323
+      ],
+      "simSeconds": [
+        7.066666666666647,
+        6.283333333333316
+      ]
+    },
+    "boar:5 VS archer:9+goblin:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.2898550724637681
+      ],
+      "simSeconds": [
+        12.983333333333558
+      ]
+    },
+    "archer:9+goblin:3 VS boar:6+slime:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.3380392156862745
+      ],
+      "simSeconds": [
+        20.000000000000146
+      ]
+    },
+    "boar:6+slime:3 VS cannon:7+stormmage:2": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.01803921568627451
+      ],
+      "simSeconds": [
+        26.91666666666642
+      ]
+    },
+    "boar:6+slime:3 VS cannon:6+shield:3+stormmage:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.35714285714285715
+      ],
+      "simSeconds": [
+        16.583333333333673
+      ]
+    },
+    "cannon:6+shield:3+stormmage:1 VS archer:3+burrower:2+golem:5": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.1697805907172996
+      ],
+      "simSeconds": [
+        34.56666666666599
+      ]
+    },
+    "archer:3+burrower:2+golem:5 VS frostmage:1+rider:8+wraith:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.5950372208436725
+      ],
+      "simSeconds": [
+        19.100000000000197
+      ]
+    },
+    "frostmage:1+rider:8+wraith:1 VS boar:18+goblin:1+stormmage:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.38767123287671235
+      ],
+      "simSeconds": [
+        11.550000000000153
+      ]
+    },
+    "spear:4 VS shield:3": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.47058823529411764
+      ],
+      "simSeconds": [
+        12.683333333333543
+      ]
+    },
+    "spear:4 VS goblin:9": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.31555555555555553
+      ],
+      "simSeconds": [
+        8.266666666666657
+      ]
+    },
+    "boar:5 VS rider:3+sword:3": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.41818181818181815
+      ],
+      "simSeconds": [
+        8.600000000000007
+      ]
+    },
+    "rider:3+sword:3 VS boar:2+rider:4": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.3178861788617886
+      ],
+      "simSeconds": [
+        10.900000000000121
+      ]
+    },
+    "boar:2+rider:4 VS golem:4+shield:4": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.06504065040650407
+      ],
+      "simSeconds": [
+        24.03333333333325
+      ]
+    },
+    "boar:2+rider:4 VS boar:8+frostmage:2+stormmage:1": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.41006711409395974
+      ],
+      "simSeconds": [
+        9.783333333333399
+      ]
+    },
+    "boar:8+frostmage:2+stormmage:1 VS archer:2+boar:10+healer:2": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.21912222222222222
+      ],
+      "simSeconds": [
+        18.4666666666669
+      ]
+    },
+    "archer:2+boar:10+healer:2 VS archer:1+burrower:13+frostmage:2": {
+      "n": 1,
+      "leftWins": 0,
+      "rightWins": 1,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.12849162011173185
+      ],
+      "simSeconds": [
+        20.816666666666766
+      ]
+    },
+    "archer:1+burrower:13+frostmage:2 VS archer:1+goblin:1+shield:23": {
+      "n": 1,
+      "leftWins": 1,
+      "rightWins": 0,
+      "draws": 0,
+      "winnerHpRatios": [
+        0.2905027932960894
+      ],
+      "simSeconds": [
+        24.14999999999991
+      ]
+    }
+  },
+  "byKind": {
+    "spear": {
+      "armyAppearances": 14,
+      "decisiveWins": 4,
+      "decisiveLosses": 10,
+      "draws": 0,
+      "totalStartingUnits": 76
+    },
+    "rider": {
+      "armyAppearances": 19,
+      "decisiveWins": 7,
+      "decisiveLosses": 11,
+      "draws": 1,
+      "totalStartingUnits": 98
+    },
+    "archer": {
+      "armyAppearances": 17,
+      "decisiveWins": 10,
+      "decisiveLosses": 7,
+      "draws": 0,
+      "totalStartingUnits": 105
+    },
+    "cannon": {
+      "armyAppearances": 9,
+      "decisiveWins": 4,
+      "decisiveLosses": 5,
+      "draws": 0,
+      "totalStartingUnits": 58
+    },
+    "sword": {
+      "armyAppearances": 18,
+      "decisiveWins": 7,
+      "decisiveLosses": 11,
+      "draws": 0,
+      "totalStartingUnits": 96
+    },
+    "goblin": {
+      "armyAppearances": 27,
+      "decisiveWins": 13,
+      "decisiveLosses": 13,
+      "draws": 1,
+      "totalStartingUnits": 82
+    },
+    "stormmage": {
+      "armyAppearances": 21,
+      "decisiveWins": 16,
+      "decisiveLosses": 5,
+      "draws": 0,
+      "totalStartingUnits": 114
+    },
+    "boar": {
+      "armyAppearances": 30,
+      "decisiveWins": 16,
+      "decisiveLosses": 13,
+      "draws": 1,
+      "totalStartingUnits": 183
+    },
+    "healer": {
+      "armyAppearances": 7,
+      "decisiveWins": 4,
+      "decisiveLosses": 3,
+      "draws": 0,
+      "totalStartingUnits": 11
+    },
+    "shield": {
+      "armyAppearances": 15,
+      "decisiveWins": 5,
+      "decisiveLosses": 10,
+      "draws": 0,
+      "totalStartingUnits": 69
+    },
+    "drake": {
+      "armyAppearances": 2,
+      "decisiveWins": 0,
+      "decisiveLosses": 2,
+      "draws": 0,
+      "totalStartingUnits": 19
+    },
+    "bombbug": {
+      "armyAppearances": 12,
+      "decisiveWins": 7,
+      "decisiveLosses": 4,
+      "draws": 1,
+      "totalStartingUnits": 51
+    },
+    "frostmage": {
+      "armyAppearances": 13,
+      "decisiveWins": 7,
+      "decisiveLosses": 6,
+      "draws": 0,
+      "totalStartingUnits": 63
+    },
+    "golem": {
+      "armyAppearances": 17,
+      "decisiveWins": 9,
+      "decisiveLosses": 8,
+      "draws": 0,
+      "totalStartingUnits": 55
+    },
+    "burrower": {
+      "armyAppearances": 7,
+      "decisiveWins": 5,
+      "decisiveLosses": 2,
+      "draws": 0,
+      "totalStartingUnits": 53
+    },
+    "wraith": {
+      "armyAppearances": 3,
+      "decisiveWins": 2,
+      "decisiveLosses": 1,
+      "draws": 0,
+      "totalStartingUnits": 14
+    },
+    "slime": {
+      "armyAppearances": 4,
+      "decisiveWins": 2,
+      "decisiveLosses": 2,
+      "draws": 0,
+      "totalStartingUnits": 11
+    }
+  },
+  "records": [
+    {
+      "round": 1,
+      "seed": 582603121,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 775,
+      "simSeconds": 12.916666666666888,
+      "firstHitSeconds": 2.6999999999999953,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "spear": 8
+        },
+        {
+          "rider": 3
+        }
+      ],
+      "counts": [
+        8,
+        3
+      ],
+      "initialCost": [
+        24,
+        24
+      ],
+      "initialHp": [
+        680,
+        690
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 24,
+          "spent": 24
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        170,
+        0
+      ],
+      "remainingAllHp": [
+        170,
+        0
+      ],
+      "survivingOriginalCost": [
+        6,
+        0
+      ],
+      "originalSurvivors": [
+        2,
+        0
+      ],
+      "allSurvivors": [
+        2,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        684,
+        702
+      ],
+      "receivedHits": [
+        18,
+        39
+      ],
+      "childCount": 0,
+      "createdHp": [
+        680,
+        690
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.25,
+      "winnerOriginalHpRatio": 0.25,
+      "winnerAllHpPerInitialHp": 0.25,
+      "winnerOriginalSurvivingCostRatio": 0.25,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 2,
+      "seed": 3284799363,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 640,
+      "simSeconds": 10.666666666666776,
+      "firstHitSeconds": 2.6166666666666623,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "spear": 8
+        },
+        {
+          "archer": 10
+        }
+      ],
+      "counts": [
+        8,
+        10
+      ],
+      "initialCost": [
+        24,
+        30
+      ],
+      "initialHp": [
+        680,
+        600
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 31,
+          "spent": 30
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        408
+      ],
+      "remainingAllHp": [
+        0,
+        408
+      ],
+      "survivingOriginalCost": [
+        0,
+        24
+      ],
+      "originalSurvivors": [
+        0,
+        8
+      ],
+      "allSurvivors": [
+        0,
+        8
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        784,
+        216
+      ],
+      "receivedHits": [
+        56,
+        12
+      ],
+      "childCount": 0,
+      "createdHp": [
+        680,
+        600
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.68,
+      "winnerOriginalHpRatio": 0.68,
+      "winnerAllHpPerInitialHp": 0.68,
+      "winnerOriginalSurvivingCostRatio": 0.8,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 3,
+      "seed": 2321895009,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1184,
+      "simSeconds": 19.733333333333494,
+      "firstHitSeconds": 2.8166666666666615,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "spear": 12
+        }
+      ],
+      "counts": [
+        10,
+        12
+      ],
+      "initialCost": [
+        30,
+        36
+      ],
+      "initialHp": [
+        600,
+        1020
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 38,
+          "spent": 36
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        144,
+        0
+      ],
+      "remainingAllHp": [
+        144,
+        0
+      ],
+      "survivingOriginalCost": [
+        9,
+        0
+      ],
+      "originalSurvivors": [
+        3,
+        0
+      ],
+      "allSurvivors": [
+        3,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        558,
+        1204
+      ],
+      "receivedHits": [
+        31,
+        86
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        1020
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.24,
+      "winnerOriginalHpRatio": 0.24,
+      "winnerAllHpPerInitialHp": 0.24,
+      "winnerOriginalSurvivingCostRatio": 0.3,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 4,
+      "seed": 2761734473,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 630,
+      "simSeconds": 10.500000000000101,
+      "firstHitSeconds": 2.9499999999999944,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "cannon": 6,
+          "spear": 1
+        }
+      ],
+      "counts": [
+        10,
+        7
+      ],
+      "initialCost": [
+        30,
+        39
+      ],
+      "initialHp": [
+        600,
+        517
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 39,
+          "spent": 39
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        208,
+        0
+      ],
+      "remainingAllHp": [
+        208,
+        0
+      ],
+      "survivingOriginalCost": [
+        15,
+        0
+      ],
+      "originalSurvivors": [
+        5,
+        0
+      ],
+      "allSurvivors": [
+        5,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        437,
+        602
+      ],
+      "receivedHits": [
+        19,
+        43
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        517
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.3466666666666667,
+      "winnerOriginalHpRatio": 0.3466666666666667,
+      "winnerAllHpPerInitialHp": 0.3466666666666667,
+      "winnerOriginalSurvivingCostRatio": 0.5,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 5,
+      "seed": 1649615189,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1274,
+      "simSeconds": 21.23333333333341,
+      "firstHitSeconds": 2.0166666666666644,
+      "carryStreakBefore": 3,
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "rider": 4,
+          "sword": 3
+        }
+      ],
+      "counts": [
+        10,
+        7
+      ],
+      "initialCost": [
+        30,
+        41
+      ],
+      "initialHp": [
+        600,
+        1220
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 41,
+          "spent": 41
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        138
+      ],
+      "remainingAllHp": [
+        0,
+        138
+      ],
+      "survivingOriginalCost": [
+        0,
+        16
+      ],
+      "originalSurvivors": [
+        0,
+        2
+      ],
+      "allSurvivors": [
+        0,
+        2
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        803,
+        1134
+      ],
+      "receivedHits": [
+        25,
+        81
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        1220
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.11311475409836065,
+      "winnerOriginalHpRatio": 0.11311475409836065,
+      "winnerAllHpPerInitialHp": 0.11311475409836065,
+      "winnerOriginalSurvivingCostRatio": 0.3902439024390244,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 6,
+      "seed": 2977945295,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 459,
+      "simSeconds": 7.649999999999978,
+      "firstHitSeconds": 2.0166666666666644,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "rider": 4,
+          "sword": 3
+        },
+        {
+          "goblin": 3,
+          "stormmage": 9
+        }
+      ],
+      "counts": [
+        7,
+        12
+      ],
+      "initialCost": [
+        41,
+        51
+      ],
+      "initialHp": [
+        1220,
+        870
+      ],
+      "budgets": [
+        {
+          "planned": 41,
+          "spent": 41
+        },
+        {
+          "planned": 51,
+          "spent": 51
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        551
+      ],
+      "remainingAllHp": [
+        0,
+        551
+      ],
+      "survivingOriginalCost": [
+        0,
+        45
+      ],
+      "originalSurvivors": [
+        0,
+        9
+      ],
+      "allSurvivors": [
+        0,
+        9
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1331.8199999999997,
+        376
+      ],
+      "receivedHits": [
+        75,
+        11
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1220,
+        870
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.6333333333333333,
+      "winnerOriginalHpRatio": 0.6333333333333333,
+      "winnerAllHpPerInitialHp": 0.6333333333333333,
+      "winnerOriginalSurvivingCostRatio": 0.8823529411764706,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 7,
+      "seed": 2523387385,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 548,
+      "simSeconds": 9.133333333333367,
+      "firstHitSeconds": 1.5499999999999994,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "goblin": 3,
+          "stormmage": 9
+        },
+        {
+          "boar": 2,
+          "cannon": 8,
+          "goblin": 2
+        }
+      ],
+      "counts": [
+        12,
+        12
+      ],
+      "initialCost": [
+        51,
+        62
+      ],
+      "initialHp": [
+        870,
+        986
+      ],
+      "budgets": [
+        {
+          "planned": 51,
+          "spent": 51
+        },
+        {
+          "planned": 62,
+          "spent": 62
+        }
+      ],
+      "centroids": [
+        {
+          "x": 76.66666666666667,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        319,
+        0
+      ],
+      "remainingAllHp": [
+        319,
+        0
+      ],
+      "survivingOriginalCost": [
+        30,
+        0
+      ],
+      "originalSurvivors": [
+        6,
+        0
+      ],
+      "allSurvivors": [
+        6,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        647,
+        1134.6600000000003
+      ],
+      "receivedHits": [
+        27,
+        61
+      ],
+      "childCount": 0,
+      "createdHp": [
+        870,
+        986
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.36666666666666664,
+      "winnerOriginalHpRatio": 0.36666666666666664,
+      "winnerAllHpPerInitialHp": 0.36666666666666664,
+      "winnerOriginalSurvivingCostRatio": 0.5882352941176471,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 8,
+      "seed": 4137481328,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 541,
+      "simSeconds": 9.016666666666694,
+      "firstHitSeconds": 2.749999999999995,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "goblin": 3,
+          "stormmage": 9
+        },
+        {
+          "healer": 1,
+          "shield": 5,
+          "stormmage": 8
+        }
+      ],
+      "counts": [
+        12,
+        14
+      ],
+      "initialCost": [
+        51,
+        64
+      ],
+      "initialHp": [
+        870,
+        1555
+      ],
+      "budgets": [
+        {
+          "planned": 51,
+          "spent": 51
+        },
+        {
+          "planned": 64,
+          "spent": 64
+        }
+      ],
+      "centroids": [
+        {
+          "x": 76.66666666666667,
+          "y": 269
+        },
+        {
+          "x": 398.57142857142856,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        991.281
+      ],
+      "remainingAllHp": [
+        0,
+        991.281
+      ],
+      "survivingOriginalCost": [
+        0,
+        59
+      ],
+      "originalSurvivors": [
+        0,
+        13
+      ],
+      "allSurvivors": [
+        0,
+        13
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1004.0200000000002,
+        623.3190000000001
+      ],
+      "receivedHits": [
+        56,
+        45
+      ],
+      "childCount": 0,
+      "createdHp": [
+        870,
+        1555
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.6374797427652733,
+      "winnerOriginalHpRatio": 0.6374797427652733,
+      "winnerAllHpPerInitialHp": 0.6374797427652733,
+      "winnerOriginalSurvivingCostRatio": 0.921875,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 9,
+      "seed": 981799193,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 699,
+      "simSeconds": 11.650000000000158,
+      "firstHitSeconds": 2.416666666666663,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "healer": 1,
+          "shield": 5,
+          "stormmage": 8
+        },
+        {
+          "drake": 10,
+          "goblin": 1,
+          "shield": 1
+        }
+      ],
+      "counts": [
+        14,
+        12
+      ],
+      "initialCost": [
+        64,
+        76
+      ],
+      "initialHp": [
+        1555,
+        1670
+      ],
+      "budgets": [
+        {
+          "planned": 64,
+          "spent": 64
+        },
+        {
+          "planned": 76,
+          "spent": 76
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        1267,
+        0
+      ],
+      "remainingAllHp": [
+        1267,
+        0
+      ],
+      "survivingOriginalCost": [
+        64,
+        0
+      ],
+      "originalSurvivors": [
+        14,
+        0
+      ],
+      "allSurvivors": [
+        14,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        340,
+        1849.5200000000002
+      ],
+      "receivedHits": [
+        16,
+        114
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1555,
+        1670
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.8147909967845659,
+      "winnerOriginalHpRatio": 0.8147909967845659,
+      "winnerAllHpPerInitialHp": 0.8147909967845659,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 10,
+      "seed": 333572643,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 639,
+      "simSeconds": 10.650000000000109,
+      "firstHitSeconds": 1.3666666666666667,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "healer": 1,
+          "shield": 5,
+          "stormmage": 8
+        },
+        {
+          "bombbug": 1,
+          "cannon": 13,
+          "goblin": 3
+        }
+      ],
+      "counts": [
+        14,
+        17
+      ],
+      "initialCost": [
+        64,
+        87
+      ],
+      "initialHp": [
+        1555,
+        1141
+      ],
+      "budgets": [
+        {
+          "planned": 64,
+          "spent": 64
+        },
+        {
+          "planned": 87,
+          "spent": 87
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 390.5882352941176,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        742.0499999999998,
+        0
+      ],
+      "remainingAllHp": [
+        742.0499999999998,
+        0
+      ],
+      "survivingOriginalCost": [
+        45,
+        0
+      ],
+      "originalSurvivors": [
+        10,
+        0
+      ],
+      "allSurvivors": [
+        10,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        901.5999999999996,
+        1324
+      ],
+      "receivedHits": [
+        50,
+        75
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1555,
+        1141
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.47720257234726676,
+      "winnerOriginalHpRatio": 0.47720257234726676,
+      "winnerAllHpPerInitialHp": 0.47720257234726676,
+      "winnerOriginalSurvivingCostRatio": 0.703125,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 101
+    },
+    {
+      "round": 1,
+      "seed": 2955426137,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 772,
+      "simSeconds": 12.866666666666886,
+      "firstHitSeconds": 2.6999999999999953,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "rider": 3
+        },
+        {
+          "spear": 8
+        }
+      ],
+      "counts": [
+        3,
+        8
+      ],
+      "initialCost": [
+        24,
+        24
+      ],
+      "initialHp": [
+        690,
+        680
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 24,
+          "spent": 24
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        132
+      ],
+      "remainingAllHp": [
+        0,
+        132
+      ],
+      "survivingOriginalCost": [
+        0,
+        6
+      ],
+      "originalSurvivors": [
+        0,
+        2
+      ],
+      "allSurvivors": [
+        0,
+        2
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        702,
+        722
+      ],
+      "receivedHits": [
+        39,
+        19
+      ],
+      "childCount": 0,
+      "createdHp": [
+        690,
+        680
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.19411764705882353,
+      "winnerOriginalHpRatio": 0.19411764705882353,
+      "winnerAllHpPerInitialHp": 0.19411764705882353,
+      "winnerOriginalSurvivingCostRatio": 0.25,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 2,
+      "seed": 2336338973,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 495,
+      "simSeconds": 8.24999999999999,
+      "firstHitSeconds": 1.9666666666666646,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "spear": 8
+        },
+        {
+          "boar": 6
+        }
+      ],
+      "counts": [
+        8,
+        6
+      ],
+      "initialCost": [
+        24,
+        30
+      ],
+      "initialHp": [
+        680,
+        930
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 31,
+          "spent": 30
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        354
+      ],
+      "remainingAllHp": [
+        0,
+        354
+      ],
+      "survivingOriginalCost": [
+        0,
+        30
+      ],
+      "originalSurvivors": [
+        0,
+        6
+      ],
+      "allSurvivors": [
+        0,
+        6
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        792,
+        576
+      ],
+      "receivedHits": [
+        30,
+        32
+      ],
+      "childCount": 0,
+      "createdHp": [
+        680,
+        930
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.38064516129032255,
+      "winnerOriginalHpRatio": 0.38064516129032255,
+      "winnerAllHpPerInitialHp": 0.38064516129032255,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 3,
+      "seed": 3246951050,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 1258,
+      "simSeconds": 20.966666666666757,
+      "firstHitSeconds": 2.499999999999996,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 6
+        },
+        {
+          "shield": 9
+        }
+      ],
+      "counts": [
+        6,
+        9
+      ],
+      "initialCost": [
+        30,
+        36
+      ],
+      "initialHp": [
+        930,
+        1530
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 38,
+          "spent": 36
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        340,
+        0
+      ],
+      "remainingAllHp": [
+        340,
+        0
+      ],
+      "survivingOriginalCost": [
+        20,
+        0
+      ],
+      "originalSurvivors": [
+        4,
+        0
+      ],
+      "allSurvivors": [
+        4,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        600,
+        1592
+      ],
+      "receivedHits": [
+        60,
+        70
+      ],
+      "childCount": 0,
+      "createdHp": [
+        930,
+        1530
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.3655913978494624,
+      "winnerOriginalHpRatio": 0.3655913978494624,
+      "winnerAllHpPerInitialHp": 0.3655913978494624,
+      "winnerOriginalSurvivingCostRatio": 0.6666666666666666,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 4,
+      "seed": 4237001160,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1536,
+      "simSeconds": 25.599999999999827,
+      "firstHitSeconds": 1.7166666666666655,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "boar": 6
+        },
+        {
+          "frostmage": 9,
+          "sword": 1
+        }
+      ],
+      "counts": [
+        6,
+        10
+      ],
+      "initialCost": [
+        30,
+        39
+      ],
+      "initialHp": [
+        930,
+        865
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 39,
+          "spent": 39
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        5,
+        0
+      ],
+      "remainingAllHp": [
+        5,
+        0
+      ],
+      "survivingOriginalCost": [
+        5,
+        0
+      ],
+      "originalSurvivors": [
+        1,
+        0
+      ],
+      "allSurvivors": [
+        1,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        972,
+        992
+      ],
+      "receivedHits": [
+        64,
+        40
+      ],
+      "childCount": 0,
+      "createdHp": [
+        930,
+        865
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.005376344086021506,
+      "winnerOriginalHpRatio": 0.005376344086021506,
+      "winnerAllHpPerInitialHp": 0.005376344086021506,
+      "winnerOriginalSurvivingCostRatio": 0.16666666666666666,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 5,
+      "seed": 3972499128,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1451,
+      "simSeconds": 24.18333333333324,
+      "firstHitSeconds": 1.866666666666665,
+      "carryStreakBefore": 3,
+      "composition": [
+        {
+          "boar": 6
+        },
+        {
+          "frostmage": 8,
+          "golem": 1
+        }
+      ],
+      "counts": [
+        6,
+        9
+      ],
+      "initialCost": [
+        30,
+        41
+      ],
+      "initialHp": [
+        930,
+        1070
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 41,
+          "spent": 41
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        255
+      ],
+      "remainingAllHp": [
+        0,
+        255
+      ],
+      "survivingOriginalCost": [
+        0,
+        13
+      ],
+      "originalSurvivors": [
+        0,
+        2
+      ],
+      "allSurvivors": [
+        0,
+        2
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1035,
+        892
+      ],
+      "receivedHits": [
+        55,
+        35
+      ],
+      "childCount": 0,
+      "createdHp": [
+        930,
+        1070
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.2383177570093458,
+      "winnerOriginalHpRatio": 0.2383177570093458,
+      "winnerAllHpPerInitialHp": 0.2383177570093458,
+      "winnerOriginalSurvivingCostRatio": 0.3170731707317073,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 6,
+      "seed": 3044217823,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 2460,
+      "simSeconds": 40.999999999998956,
+      "firstHitSeconds": 2.3833333333333298,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "frostmage": 8,
+          "golem": 1
+        },
+        {
+          "golem": 3,
+          "rider": 3
+        }
+      ],
+      "counts": [
+        9,
+        6
+      ],
+      "initialCost": [
+        41,
+        51
+      ],
+      "initialHp": [
+        1070,
+        1860
+      ],
+      "budgets": [
+        {
+          "planned": 41,
+          "spent": 41
+        },
+        {
+          "planned": 51,
+          "spent": 51
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        195
+      ],
+      "remainingAllHp": [
+        0,
+        195
+      ],
+      "survivingOriginalCost": [
+        0,
+        18
+      ],
+      "originalSurvivors": [
+        0,
+        2
+      ],
+      "allSurvivors": [
+        0,
+        2
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1246,
+        1720
+      ],
+      "receivedHits": [
+        29,
+        96
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1070,
+        1860
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.10483870967741936,
+      "winnerOriginalHpRatio": 0.10483870967741936,
+      "winnerAllHpPerInitialHp": 0.10483870967741936,
+      "winnerOriginalSurvivingCostRatio": 0.35294117647058826,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 7,
+      "seed": 2945169874,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1106,
+      "simSeconds": 18.433333333333568,
+      "firstHitSeconds": 0.8333333333333343,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "golem": 3,
+          "rider": 3
+        },
+        {
+          "burrower": 11,
+          "shield": 1,
+          "spear": 1
+        }
+      ],
+      "counts": [
+        6,
+        13
+      ],
+      "initialCost": [
+        51,
+        62
+      ],
+      "initialHp": [
+        1860,
+        1575
+      ],
+      "budgets": [
+        {
+          "planned": 51,
+          "spent": 51
+        },
+        {
+          "planned": 62,
+          "spent": 62
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 400.7692307692308,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        56
+      ],
+      "remainingAllHp": [
+        0,
+        56
+      ],
+      "survivingOriginalCost": [
+        0,
+        4
+      ],
+      "originalSurvivors": [
+        0,
+        1
+      ],
+      "allSurvivors": [
+        0,
+        1
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1901,
+        1816
+      ],
+      "receivedHits": [
+        81,
+        44
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1860,
+        1575
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.035555555555555556,
+      "winnerOriginalHpRatio": 0.035555555555555556,
+      "winnerAllHpPerInitialHp": 0.035555555555555556,
+      "winnerOriginalSurvivingCostRatio": 0.06451612903225806,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 8,
+      "seed": 3445278465,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1073,
+      "simSeconds": 17.8833333333336,
+      "firstHitSeconds": 0.8333333333333343,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "burrower": 11,
+          "shield": 1,
+          "spear": 1
+        },
+        {
+          "frostmage": 4,
+          "goblin": 2,
+          "golem": 6
+        }
+      ],
+      "counts": [
+        13,
+        12
+      ],
+      "initialCost": [
+        62,
+        74
+      ],
+      "initialHp": [
+        1575,
+        2780
+      ],
+      "budgets": [
+        {
+          "planned": 62,
+          "spent": 62
+        },
+        {
+          "planned": 74,
+          "spent": 74
+        }
+      ],
+      "centroids": [
+        {
+          "x": 79.23076923076923,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        1104
+      ],
+      "remainingAllHp": [
+        0,
+        1104
+      ],
+      "survivingOriginalCost": [
+        0,
+        59
+      ],
+      "originalSurvivors": [
+        0,
+        9
+      ],
+      "allSurvivors": [
+        0,
+        9
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1865.75,
+        1701
+      ],
+      "receivedHits": [
+        88,
+        71
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1575,
+        2780
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.3971223021582734,
+      "winnerOriginalHpRatio": 0.3971223021582734,
+      "winnerAllHpPerInitialHp": 0.3971223021582734,
+      "winnerOriginalSurvivingCostRatio": 0.7972972972972973,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 9,
+      "seed": 2107364305,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1178,
+      "simSeconds": 19.6333333333335,
+      "firstHitSeconds": 2.449999999999996,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "frostmage": 4,
+          "goblin": 2,
+          "golem": 6
+        },
+        {
+          "goblin": 1,
+          "rider": 10,
+          "sword": 2
+        }
+      ],
+      "counts": [
+        12,
+        13
+      ],
+      "initialCost": [
+        74,
+        88
+      ],
+      "initialHp": [
+        2780,
+        2550
+      ],
+      "budgets": [
+        {
+          "planned": 74,
+          "spent": 74
+        },
+        {
+          "planned": 88,
+          "spent": 88
+        }
+      ],
+      "centroids": [
+        {
+          "x": 76.66666666666667,
+          "y": 269
+        },
+        {
+          "x": 400.7692307692308,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        1322
+      ],
+      "remainingAllHp": [
+        0,
+        1322
+      ],
+      "survivingOriginalCost": [
+        0,
+        78
+      ],
+      "originalSurvivors": [
+        0,
+        11
+      ],
+      "allSurvivors": [
+        0,
+        11
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        3063,
+        1251
+      ],
+      "receivedHits": [
+        88,
+        50
+      ],
+      "childCount": 0,
+      "createdHp": [
+        2780,
+        2550
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5184313725490196,
+      "winnerOriginalHpRatio": 0.5184313725490196,
+      "winnerAllHpPerInitialHp": 0.5184313725490196,
+      "winnerOriginalSurvivingCostRatio": 0.8863636363636364,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 10,
+      "seed": 682123497,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1179,
+      "simSeconds": 19.650000000000166,
+      "firstHitSeconds": 1.35,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "goblin": 1,
+          "rider": 10,
+          "sword": 2
+        },
+        {
+          "burrower": 1,
+          "stormmage": 2,
+          "wraith": 12
+        }
+      ],
+      "counts": [
+        13,
+        15
+      ],
+      "initialCost": [
+        88,
+        111
+      ],
+      "initialHp": [
+        2550,
+        1360
+      ],
+      "budgets": [
+        {
+          "planned": 88,
+          "spent": 88
+        },
+        {
+          "planned": 111,
+          "spent": 111
+        }
+      ],
+      "centroids": [
+        {
+          "x": 79.23076923076923,
+          "y": 269
+        },
+        {
+          "x": 396.6666666666667,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        899
+      ],
+      "remainingAllHp": [
+        0,
+        1692
+      ],
+      "survivingOriginalCost": [
+        0,
+        90
+      ],
+      "originalSurvivors": [
+        0,
+        12
+      ],
+      "allSurvivors": [
+        0,
+        32
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        2643.7999999999997,
+        1536
+      ],
+      "receivedHits": [
+        216,
+        47
+      ],
+      "childCount": 31,
+      "createdHp": [
+        2550,
+        2910
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5814432989690722,
+      "winnerOriginalHpRatio": 0.6610294117647059,
+      "winnerAllHpPerInitialHp": 1.2441176470588236,
+      "winnerOriginalSurvivingCostRatio": 0.8108108108108109,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 102
+    },
+    {
+      "round": 1,
+      "seed": 1230102804,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 477,
+      "simSeconds": 7.949999999999977,
+      "firstHitSeconds": 3.3666666666666596,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "spear": 6
+        },
+        {
+          "sword": 6
+        }
+      ],
+      "counts": [
+        6,
+        6
+      ],
+      "initialCost": [
+        18,
+        18
+      ],
+      "initialHp": [
+        510,
+        600
+      ],
+      "budgets": [
+        {
+          "planned": 18,
+          "spent": 18
+        },
+        {
+          "planned": 18,
+          "spent": 18
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        168
+      ],
+      "remainingAllHp": [
+        0,
+        168
+      ],
+      "survivingOriginalCost": [
+        0,
+        18
+      ],
+      "originalSurvivors": [
+        0,
+        6
+      ],
+      "allSurvivors": [
+        0,
+        6
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        510,
+        432
+      ],
+      "receivedHits": [
+        30,
+        24
+      ],
+      "childCount": 0,
+      "createdHp": [
+        510,
+        600
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.28,
+      "winnerOriginalHpRatio": 0.28,
+      "winnerAllHpPerInitialHp": 0.28,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 2,
+      "seed": 4065669716,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 626,
+      "simSeconds": 10.433333333333431,
+      "firstHitSeconds": 2.066666666666664,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "sword": 6
+        },
+        {
+          "boar": 5
+        }
+      ],
+      "counts": [
+        6,
+        5
+      ],
+      "initialCost": [
+        18,
+        25
+      ],
+      "initialHp": [
+        600,
+        775
+      ],
+      "budgets": [
+        {
+          "planned": 18,
+          "spent": 18
+        },
+        {
+          "planned": 25,
+          "spent": 25
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        399
+      ],
+      "remainingAllHp": [
+        0,
+        399
+      ],
+      "survivingOriginalCost": [
+        0,
+        20
+      ],
+      "originalSurvivors": [
+        0,
+        4
+      ],
+      "allSurvivors": [
+        0,
+        4
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        640,
+        391
+      ],
+      "receivedHits": [
+        24,
+        23
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        775
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5148387096774194,
+      "winnerOriginalHpRatio": 0.5148387096774194,
+      "winnerAllHpPerInitialHp": 0.5148387096774194,
+      "winnerOriginalSurvivingCostRatio": 0.8,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 3,
+      "seed": 573130627,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 731,
+      "simSeconds": 12.183333333333518,
+      "firstHitSeconds": 2.1333333333333306,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 5
+        },
+        {
+          "sword": 11
+        }
+      ],
+      "counts": [
+        5,
+        11
+      ],
+      "initialCost": [
+        25,
+        33
+      ],
+      "initialHp": [
+        775,
+        1100
+      ],
+      "budgets": [
+        {
+          "planned": 25,
+          "spent": 25
+        },
+        {
+          "planned": 33,
+          "spent": 33
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 406.3636363636364,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        520
+      ],
+      "remainingAllHp": [
+        0,
+        520
+      ],
+      "survivingOriginalCost": [
+        0,
+        18
+      ],
+      "originalSurvivors": [
+        0,
+        6
+      ],
+      "allSurvivors": [
+        0,
+        6
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        850,
+        660
+      ],
+      "receivedHits": [
+        50,
+        25
+      ],
+      "childCount": 0,
+      "createdHp": [
+        775,
+        1100
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.4727272727272727,
+      "winnerOriginalHpRatio": 0.4727272727272727,
+      "winnerAllHpPerInitialHp": 0.4727272727272727,
+      "winnerOriginalSurvivingCostRatio": 0.5454545454545454,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 4,
+      "seed": 3795106790,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1088,
+      "simSeconds": 18.133333333333585,
+      "firstHitSeconds": 2.249999999999997,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "sword": 11
+        },
+        {
+          "boar": 8,
+          "goblin": 1
+        }
+      ],
+      "counts": [
+        11,
+        9
+      ],
+      "initialCost": [
+        33,
+        42
+      ],
+      "initialHp": [
+        1100,
+        1290
+      ],
+      "budgets": [
+        {
+          "planned": 33,
+          "spent": 33
+        },
+        {
+          "planned": 42,
+          "spent": 42
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        89
+      ],
+      "remainingAllHp": [
+        0,
+        89
+      ],
+      "survivingOriginalCost": [
+        0,
+        10
+      ],
+      "originalSurvivors": [
+        0,
+        2
+      ],
+      "allSurvivors": [
+        0,
+        2
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1181,
+        1309
+      ],
+      "receivedHits": [
+        49,
+        77
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1100,
+        1290
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.06899224806201551,
+      "winnerOriginalHpRatio": 0.06899224806201551,
+      "winnerAllHpPerInitialHp": 0.06899224806201551,
+      "winnerOriginalSurvivingCostRatio": 0.23809523809523808,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 5,
+      "seed": 1392575946,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 598,
+      "simSeconds": 9.966666666666741,
+      "firstHitSeconds": 1.8333333333333317,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 8,
+          "goblin": 1
+        },
+        {
+          "bombbug": 4,
+          "frostmage": 10
+        }
+      ],
+      "counts": [
+        9,
+        14
+      ],
+      "initialCost": [
+        42,
+        52
+      ],
+      "initialHp": [
+        1290,
+        1070
+      ],
+      "budgets": [
+        {
+          "planned": 42,
+          "spent": 42
+        },
+        {
+          "planned": 52,
+          "spent": 52
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 398.57142857142856,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        500
+      ],
+      "remainingAllHp": [
+        0,
+        500
+      ],
+      "survivingOriginalCost": [
+        0,
+        36
+      ],
+      "originalSurvivors": [
+        0,
+        9
+      ],
+      "allSurvivors": [
+        0,
+        9
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1625,
+        409
+      ],
+      "receivedHits": [
+        55,
+        13
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1290,
+        1070
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.4672897196261682,
+      "winnerOriginalHpRatio": 0.4672897196261682,
+      "winnerAllHpPerInitialHp": 0.4672897196261682,
+      "winnerOriginalSurvivingCostRatio": 0.6923076923076923,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 6,
+      "seed": 901483321,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 527,
+      "simSeconds": 8.78333333333335,
+      "firstHitSeconds": 3.0333333333333274,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "bombbug": 4,
+          "frostmage": 10
+        },
+        {
+          "golem": 2,
+          "stormmage": 9
+        }
+      ],
+      "counts": [
+        14,
+        11
+      ],
+      "initialCost": [
+        52,
+        63
+      ],
+      "initialHp": [
+        1070,
+        1500
+      ],
+      "budgets": [
+        {
+          "planned": 52,
+          "spent": 52
+        },
+        {
+          "planned": 63,
+          "spent": 63
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 406.3636363636364,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        1130
+      ],
+      "remainingAllHp": [
+        0,
+        1130
+      ],
+      "survivingOriginalCost": [
+        0,
+        53
+      ],
+      "originalSurvivors": [
+        0,
+        9
+      ],
+      "allSurvivors": [
+        0,
+        9
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1277.88,
+        390
+      ],
+      "receivedHits": [
+        74,
+        26
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1070,
+        1500
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.7533333333333333,
+      "winnerOriginalHpRatio": 0.7533333333333333,
+      "winnerAllHpPerInitialHp": 0.7533333333333333,
+      "winnerOriginalSurvivingCostRatio": 0.8412698412698413,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 7,
+      "seed": 2044868754,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 737,
+      "simSeconds": 12.283333333333523,
+      "firstHitSeconds": 2.4833333333333294,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "golem": 2,
+          "stormmage": 9
+        },
+        {
+          "drake": 9,
+          "healer": 1,
+          "shield": 2
+        }
+      ],
+      "counts": [
+        11,
+        12
+      ],
+      "initialCost": [
+        63,
+        75
+      ],
+      "initialHp": [
+        1500,
+        1710
+      ],
+      "budgets": [
+        {
+          "planned": 63,
+          "spent": 63
+        },
+        {
+          "planned": 75,
+          "spent": 75
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        1235,
+        0
+      ],
+      "remainingAllHp": [
+        1235,
+        0
+      ],
+      "survivingOriginalCost": [
+        63,
+        0
+      ],
+      "originalSurvivors": [
+        11,
+        0
+      ],
+      "allSurvivors": [
+        11,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        265,
+        1940.331
+      ],
+      "receivedHits": [
+        13,
+        110
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1500,
+        1710
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.8233333333333334,
+      "winnerOriginalHpRatio": 0.8233333333333334,
+      "winnerAllHpPerInitialHp": 0.8233333333333334,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 8,
+      "seed": 115372980,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 761,
+      "simSeconds": 12.683333333333543,
+      "firstHitSeconds": 2.166666666666664,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "golem": 2,
+          "stormmage": 9
+        },
+        {
+          "rider": 8,
+          "slime": 2,
+          "spear": 2
+        }
+      ],
+      "counts": [
+        11,
+        12
+      ],
+      "initialCost": [
+        63,
+        78
+      ],
+      "initialHp": [
+        1500,
+        2240
+      ],
+      "budgets": [
+        {
+          "planned": 63,
+          "spent": 63
+        },
+        {
+          "planned": 78,
+          "spent": 78
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        1012,
+        0
+      ],
+      "remainingAllHp": [
+        1012,
+        0
+      ],
+      "survivingOriginalCost": [
+        48,
+        0
+      ],
+      "originalSurvivors": [
+        8,
+        0
+      ],
+      "allSurvivors": [
+        8,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        590,
+        2550.919999999999
+      ],
+      "receivedHits": [
+        21,
+        140
+      ],
+      "childCount": 4,
+      "createdHp": [
+        1500,
+        2380
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.6746666666666666,
+      "winnerOriginalHpRatio": 0.6746666666666666,
+      "winnerAllHpPerInitialHp": 0.6746666666666666,
+      "winnerOriginalSurvivingCostRatio": 0.7619047619047619,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 9,
+      "seed": 3184972884,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1273,
+      "simSeconds": 21.216666666666743,
+      "firstHitSeconds": 2.116666666666664,
+      "carryStreakBefore": 3,
+      "composition": [
+        {
+          "golem": 2,
+          "stormmage": 9
+        },
+        {
+          "archer": 4,
+          "boar": 1,
+          "rider": 8
+        }
+      ],
+      "counts": [
+        11,
+        13
+      ],
+      "initialCost": [
+        63,
+        81
+      ],
+      "initialHp": [
+        1500,
+        2235
+      ],
+      "budgets": [
+        {
+          "planned": 63,
+          "spent": 63
+        },
+        {
+          "planned": 81,
+          "spent": 81
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 400.7692307692308,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        268,
+        0
+      ],
+      "remainingAllHp": [
+        268,
+        0
+      ],
+      "survivingOriginalCost": [
+        28,
+        0
+      ],
+      "originalSurvivors": [
+        4,
+        0
+      ],
+      "allSurvivors": [
+        4,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1392,
+        2365.539999999999
+      ],
+      "receivedHits": [
+        62,
+        124
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1500,
+        2235
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.17866666666666667,
+      "winnerOriginalHpRatio": 0.17866666666666667,
+      "winnerAllHpPerInitialHp": 0.17866666666666667,
+      "winnerOriginalSurvivingCostRatio": 0.4444444444444444,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 10,
+      "seed": 636493165,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 642,
+      "simSeconds": 10.700000000000111,
+      "firstHitSeconds": 1.0500000000000012,
+      "carryStreakBefore": 4,
+      "composition": [
+        {
+          "golem": 2,
+          "stormmage": 9
+        },
+        {
+          "boar": 18,
+          "bombbug": 1,
+          "goblin": 1
+        }
+      ],
+      "counts": [
+        11,
+        20
+      ],
+      "initialCost": [
+        63,
+        95
+      ],
+      "initialHp": [
+        1500,
+        2895
+      ],
+      "budgets": [
+        {
+          "planned": 63,
+          "spent": 63
+        },
+        {
+          "planned": 95,
+          "spent": 95
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 380,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        987.4600000000002
+      ],
+      "remainingAllHp": [
+        0,
+        987.4600000000002
+      ],
+      "survivingOriginalCost": [
+        0,
+        60
+      ],
+      "originalSurvivors": [
+        0,
+        12
+      ],
+      "allSurvivors": [
+        0,
+        12
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1727,
+        2037.4200000000003
+      ],
+      "receivedHits": [
+        55,
+        109
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1500,
+        2895
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.34109153713298795,
+      "winnerOriginalHpRatio": 0.34109153713298795,
+      "winnerAllHpPerInitialHp": 0.34109153713298795,
+      "winnerOriginalSurvivingCostRatio": 0.631578947368421,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 103
+    },
+    {
+      "round": 1,
+      "seed": 4266349086,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 837,
+      "simSeconds": 13.950000000000273,
+      "firstHitSeconds": 2.7666666666666617,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "sword": 8
+        },
+        {
+          "rider": 3
+        }
+      ],
+      "counts": [
+        8,
+        3
+      ],
+      "initialCost": [
+        24,
+        24
+      ],
+      "initialHp": [
+        800,
+        690
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 24,
+          "spent": 24
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        62,
+        0
+      ],
+      "remainingAllHp": [
+        62,
+        0
+      ],
+      "survivingOriginalCost": [
+        3,
+        0
+      ],
+      "originalSurvivors": [
+        1,
+        0
+      ],
+      "allSurvivors": [
+        1,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        836,
+        714
+      ],
+      "receivedHits": [
+        22,
+        42
+      ],
+      "childCount": 0,
+      "createdHp": [
+        800,
+        690
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.0775,
+      "winnerOriginalHpRatio": 0.0775,
+      "winnerAllHpPerInitialHp": 0.0775,
+      "winnerOriginalSurvivingCostRatio": 0.125,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 2,
+      "seed": 4124913963,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 699,
+      "simSeconds": 11.650000000000158,
+      "firstHitSeconds": 2.4333333333333296,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "sword": 8
+        },
+        {
+          "archer": 10
+        }
+      ],
+      "counts": [
+        8,
+        10
+      ],
+      "initialCost": [
+        24,
+        30
+      ],
+      "initialHp": [
+        800,
+        600
+      ],
+      "budgets": [
+        {
+          "planned": 24,
+          "spent": 24
+        },
+        {
+          "planned": 31,
+          "spent": 30
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        352
+      ],
+      "remainingAllHp": [
+        0,
+        352
+      ],
+      "survivingOriginalCost": [
+        0,
+        21
+      ],
+      "originalSurvivors": [
+        0,
+        7
+      ],
+      "allSurvivors": [
+        0,
+        7
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        896,
+        272
+      ],
+      "receivedHits": [
+        64,
+        16
+      ],
+      "childCount": 0,
+      "createdHp": [
+        800,
+        600
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5866666666666667,
+      "winnerOriginalHpRatio": 0.5866666666666667,
+      "winnerAllHpPerInitialHp": 0.5866666666666667,
+      "winnerOriginalSurvivingCostRatio": 0.7,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 3,
+      "seed": 3142644994,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 1086,
+      "simSeconds": 18.100000000000254,
+      "firstHitSeconds": 2.8166666666666615,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "spear": 12
+        }
+      ],
+      "counts": [
+        10,
+        12
+      ],
+      "initialCost": [
+        30,
+        36
+      ],
+      "initialHp": [
+        600,
+        1020
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 38,
+          "spent": 36
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        168,
+        0
+      ],
+      "remainingAllHp": [
+        168,
+        0
+      ],
+      "survivingOriginalCost": [
+        12,
+        0
+      ],
+      "originalSurvivors": [
+        4,
+        0
+      ],
+      "allSurvivors": [
+        4,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        504,
+        1176
+      ],
+      "receivedHits": [
+        28,
+        84
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        1020
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.28,
+      "winnerOriginalHpRatio": 0.28,
+      "winnerAllHpPerInitialHp": 0.28,
+      "winnerOriginalSurvivingCostRatio": 0.4,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 4,
+      "seed": 985889598,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 716,
+      "simSeconds": 11.933333333333506,
+      "firstHitSeconds": 2.1333333333333306,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "archer": 10
+        },
+        {
+          "bombbug": 11,
+          "goblin": 3
+        }
+      ],
+      "counts": [
+        10,
+        14
+      ],
+      "initialCost": [
+        30,
+        39
+      ],
+      "initialHp": [
+        600,
+        755
+      ],
+      "budgets": [
+        {
+          "planned": 30,
+          "spent": 30
+        },
+        {
+          "planned": 39,
+          "spent": 39
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 398.57142857142856,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        55
+      ],
+      "remainingAllHp": [
+        0,
+        55
+      ],
+      "survivingOriginalCost": [
+        0,
+        3
+      ],
+      "originalSurvivors": [
+        0,
+        1
+      ],
+      "allSurvivors": [
+        0,
+        1
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1382,
+        490
+      ],
+      "receivedHits": [
+        24,
+        35
+      ],
+      "childCount": 0,
+      "createdHp": [
+        600,
+        755
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.0728476821192053,
+      "winnerOriginalHpRatio": 0.0728476821192053,
+      "winnerAllHpPerInitialHp": 0.0728476821192053,
+      "winnerOriginalSurvivingCostRatio": 0.07692307692307693,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 5,
+      "seed": 1876758721,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 434,
+      "simSeconds": 7.233333333333313,
+      "firstHitSeconds": 2.966666666666661,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "bombbug": 11,
+          "goblin": 3
+        },
+        {
+          "bombbug": 1,
+          "sword": 15
+        }
+      ],
+      "counts": [
+        14,
+        16
+      ],
+      "initialCost": [
+        39,
+        48
+      ],
+      "initialHp": [
+        755,
+        1555
+      ],
+      "budgets": [
+        {
+          "planned": 39,
+          "spent": 39
+        },
+        {
+          "planned": 48,
+          "spent": 48
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 395,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        104,
+        0
+      ],
+      "remainingAllHp": [
+        104,
+        0
+      ],
+      "survivingOriginalCost": [
+        7,
+        0
+      ],
+      "originalSurvivors": [
+        3,
+        0
+      ],
+      "allSurvivors": [
+        3,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        255,
+        3355
+      ],
+      "receivedHits": [
+        15,
+        43
+      ],
+      "childCount": 0,
+      "createdHp": [
+        755,
+        1555
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.13774834437086092,
+      "winnerOriginalHpRatio": 0.13774834437086092,
+      "winnerAllHpPerInitialHp": 0.13774834437086092,
+      "winnerOriginalSurvivingCostRatio": 0.1794871794871795,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 6,
+      "seed": 174776538,
+      "choice": 0,
+      "winner": "draw",
+      "ticks": 360,
+      "simSeconds": 5.999999999999984,
+      "firstHitSeconds": 1.8833333333333315,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "bombbug": 11,
+          "goblin": 3
+        },
+        {
+          "boar": 2,
+          "rider": 5
+        }
+      ],
+      "counts": [
+        14,
+        7
+      ],
+      "initialCost": [
+        39,
+        50
+      ],
+      "initialHp": [
+        755,
+        1460
+      ],
+      "budgets": [
+        {
+          "planned": 39,
+          "spent": 39
+        },
+        {
+          "planned": 50,
+          "spent": 50
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        0
+      ],
+      "remainingAllHp": [
+        0,
+        0
+      ],
+      "survivingOriginalCost": [
+        0,
+        0
+      ],
+      "originalSurvivors": [
+        0,
+        0
+      ],
+      "allSurvivors": [
+        0,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        280,
+        1673
+      ],
+      "receivedHits": [
+        7,
+        21
+      ],
+      "childCount": 0,
+      "createdHp": [
+        755,
+        1460
+      ],
+      "winnerAllRemainingHpRatioOfCreated": null,
+      "winnerOriginalHpRatio": null,
+      "winnerAllHpPerInitialHp": null,
+      "winnerOriginalSurvivingCostRatio": null,
+      "winnerNoInitialCasualty": null,
+      "winnerNoIncomingDamage": null,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 7,
+      "seed": 3690884972,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1091,
+      "simSeconds": 18.183333333333582,
+      "firstHitSeconds": 1.7999999999999985,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "bombbug": 1,
+          "shield": 1,
+          "sword": 4
+        },
+        {
+          "boar": 1,
+          "goblin": 2,
+          "golem": 3
+        }
+      ],
+      "counts": [
+        6,
+        6
+      ],
+      "initialCost": [
+        19,
+        36
+      ],
+      "initialHp": [
+        625,
+        1425
+      ],
+      "budgets": [
+        {
+          "planned": 19,
+          "spent": 19
+        },
+        {
+          "planned": 36,
+          "spent": 36
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        808
+      ],
+      "remainingAllHp": [
+        0,
+        808
+      ],
+      "survivingOriginalCost": [
+        0,
+        27
+      ],
+      "originalSurvivors": [
+        0,
+        3
+      ],
+      "allSurvivors": [
+        0,
+        3
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        735,
+        623
+      ],
+      "receivedHits": [
+        21,
+        35
+      ],
+      "childCount": 0,
+      "createdHp": [
+        625,
+        1425
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5670175438596491,
+      "winnerOriginalHpRatio": 0.5670175438596491,
+      "winnerAllHpPerInitialHp": 0.5670175438596491,
+      "winnerOriginalSurvivingCostRatio": 0.75,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 8,
+      "seed": 2192296218,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1010,
+      "simSeconds": 16.83333333333366,
+      "firstHitSeconds": 1.4499999999999997,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 1,
+          "goblin": 2,
+          "golem": 3
+        },
+        {
+          "bombbug": 2,
+          "cannon": 4,
+          "stormmage": 3
+        }
+      ],
+      "counts": [
+        6,
+        9
+      ],
+      "initialCost": [
+        36,
+        45
+      ],
+      "initialHp": [
+        1425,
+        638
+      ],
+      "budgets": [
+        {
+          "planned": 36,
+          "spent": 36
+        },
+        {
+          "planned": 45,
+          "spent": 45
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        326
+      ],
+      "remainingAllHp": [
+        0,
+        326
+      ],
+      "survivingOriginalCost": [
+        0,
+        39
+      ],
+      "originalSurvivors": [
+        0,
+        7
+      ],
+      "allSurvivors": [
+        0,
+        7
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1689.1999999999998,
+        202
+      ],
+      "receivedHits": [
+        68,
+        4
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1425,
+        638
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5109717868338558,
+      "winnerOriginalHpRatio": 0.5109717868338558,
+      "winnerAllHpPerInitialHp": 0.5109717868338558,
+      "winnerOriginalSurvivingCostRatio": 0.8666666666666667,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 9,
+      "seed": 831175740,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 1093,
+      "simSeconds": 18.216666666666914,
+      "firstHitSeconds": 1.6333333333333324,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "bombbug": 2,
+          "cannon": 4,
+          "stormmage": 3
+        },
+        {
+          "boar": 10,
+          "goblin": 1,
+          "spear": 1
+        }
+      ],
+      "counts": [
+        9,
+        12
+      ],
+      "initialCost": [
+        45,
+        55
+      ],
+      "initialHp": [
+        638,
+        1685
+      ],
+      "budgets": [
+        {
+          "planned": 45,
+          "spent": 45
+        },
+        {
+          "planned": 55,
+          "spent": 55
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        28,
+        0
+      ],
+      "remainingAllHp": [
+        28,
+        0
+      ],
+      "survivingOriginalCost": [
+        5,
+        0
+      ],
+      "originalSurvivors": [
+        1,
+        0
+      ],
+      "allSurvivors": [
+        1,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        553,
+        1913.78
+      ],
+      "receivedHits": [
+        19,
+        57
+      ],
+      "childCount": 0,
+      "createdHp": [
+        638,
+        1685
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.0438871473354232,
+      "winnerOriginalHpRatio": 0.0438871473354232,
+      "winnerAllHpPerInitialHp": 0.0438871473354232,
+      "winnerOriginalSurvivingCostRatio": 0.1111111111111111,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 10,
+      "seed": 235925691,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1554,
+      "simSeconds": 25.89999999999981,
+      "firstHitSeconds": 4.033333333333324,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "bombbug": 2,
+          "cannon": 4,
+          "stormmage": 3
+        },
+        {
+          "golem": 5,
+          "healer": 3,
+          "sword": 2
+        }
+      ],
+      "counts": [
+        9,
+        10
+      ],
+      "initialCost": [
+        45,
+        63
+      ],
+      "initialHp": [
+        638,
+        2345
+      ],
+      "budgets": [
+        {
+          "planned": 45,
+          "spent": 45
+        },
+        {
+          "planned": 63,
+          "spent": 63
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        381,
+        0
+      ],
+      "remainingAllHp": [
+        381,
+        0
+      ],
+      "survivingOriginalCost": [
+        34,
+        0
+      ],
+      "originalSurvivors": [
+        6,
+        0
+      ],
+      "allSurvivors": [
+        6,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        198,
+        2557.14
+      ],
+      "receivedHits": [
+        7,
+        122
+      ],
+      "childCount": 0,
+      "createdHp": [
+        638,
+        2345
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.5971786833855799,
+      "winnerOriginalHpRatio": 0.5971786833855799,
+      "winnerAllHpPerInitialHp": 0.5971786833855799,
+      "winnerOriginalSurvivingCostRatio": 0.7555555555555555,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 104
+    },
+    {
+      "round": 1,
+      "seed": 562876136,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 749,
+      "simSeconds": 12.483333333333533,
+      "firstHitSeconds": 3.9666666666666575,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "shield": 3
+        },
+        {
+          "sword": 4
+        }
+      ],
+      "counts": [
+        3,
+        4
+      ],
+      "initialCost": [
+        12,
+        12
+      ],
+      "initialHp": [
+        510,
+        400
+      ],
+      "budgets": [
+        {
+          "planned": 12,
+          "spent": 12
+        },
+        {
+          "planned": 12,
+          "spent": 12
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        250
+      ],
+      "remainingAllHp": [
+        0,
+        250
+      ],
+      "survivingOriginalCost": [
+        0,
+        12
+      ],
+      "originalSurvivors": [
+        0,
+        4
+      ],
+      "allSurvivors": [
+        0,
+        4
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        510,
+        150
+      ],
+      "receivedHits": [
+        30,
+        15
+      ],
+      "childCount": 0,
+      "createdHp": [
+        510,
+        400
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.625,
+      "winnerOriginalHpRatio": 0.625,
+      "winnerAllHpPerInitialHp": 0.625,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 2,
+      "seed": 1332831447,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 521,
+      "simSeconds": 8.683333333333344,
+      "firstHitSeconds": 2.6833333333333287,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "sword": 4
+        },
+        {
+          "goblin": 9
+        }
+      ],
+      "counts": [
+        4,
+        9
+      ],
+      "initialCost": [
+        12,
+        18
+      ],
+      "initialHp": [
+        400,
+        450
+      ],
+      "budgets": [
+        {
+          "planned": 12,
+          "spent": 12
+        },
+        {
+          "planned": 18,
+          "spent": 18
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        132
+      ],
+      "remainingAllHp": [
+        0,
+        132
+      ],
+      "survivingOriginalCost": [
+        0,
+        8
+      ],
+      "originalSurvivors": [
+        0,
+        4
+      ],
+      "allSurvivors": [
+        0,
+        4
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        432,
+        323
+      ],
+      "receivedHits": [
+        48,
+        19
+      ],
+      "childCount": 0,
+      "createdHp": [
+        400,
+        450
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.29333333333333333,
+      "winnerOriginalHpRatio": 0.29333333333333333,
+      "winnerAllHpPerInitialHp": 0.29333333333333333,
+      "winnerOriginalSurvivingCostRatio": 0.4444444444444444,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 3,
+      "seed": 4045663589,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 424,
+      "simSeconds": 7.066666666666647,
+      "firstHitSeconds": 1.816666666666665,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "goblin": 9
+        },
+        {
+          "boar": 5
+        }
+      ],
+      "counts": [
+        9,
+        5
+      ],
+      "initialCost": [
+        18,
+        25
+      ],
+      "initialHp": [
+        450,
+        775
+      ],
+      "budgets": [
+        {
+          "planned": 18,
+          "spent": 18
+        },
+        {
+          "planned": 25,
+          "spent": 25
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        532
+      ],
+      "remainingAllHp": [
+        0,
+        532
+      ],
+      "survivingOriginalCost": [
+        0,
+        25
+      ],
+      "originalSurvivors": [
+        0,
+        5
+      ],
+      "allSurvivors": [
+        0,
+        5
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        540,
+        243
+      ],
+      "receivedHits": [
+        19,
+        27
+      ],
+      "childCount": 0,
+      "createdHp": [
+        450,
+        775
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.6864516129032258,
+      "winnerOriginalHpRatio": 0.6864516129032258,
+      "winnerAllHpPerInitialHp": 0.6864516129032258,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 4,
+      "seed": 3244645213,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 779,
+      "simSeconds": 12.983333333333558,
+      "firstHitSeconds": 1.566666666666666,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 5
+        },
+        {
+          "archer": 9,
+          "goblin": 3
+        }
+      ],
+      "counts": [
+        5,
+        12
+      ],
+      "initialCost": [
+        25,
+        33
+      ],
+      "initialHp": [
+        775,
+        690
+      ],
+      "budgets": [
+        {
+          "planned": 25,
+          "spent": 25
+        },
+        {
+          "planned": 33,
+          "spent": 33
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 403.3333333333333,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        200
+      ],
+      "remainingAllHp": [
+        0,
+        200
+      ],
+      "survivingOriginalCost": [
+        0,
+        12
+      ],
+      "originalSurvivors": [
+        0,
+        4
+      ],
+      "allSurvivors": [
+        0,
+        4
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        825,
+        520
+      ],
+      "receivedHits": [
+        60,
+        18
+      ],
+      "childCount": 0,
+      "createdHp": [
+        775,
+        690
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.2898550724637681,
+      "winnerOriginalHpRatio": 0.2898550724637681,
+      "winnerAllHpPerInitialHp": 0.2898550724637681,
+      "winnerOriginalSurvivingCostRatio": 0.36363636363636365,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 5,
+      "seed": 2641400062,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1200,
+      "simSeconds": 20.000000000000146,
+      "firstHitSeconds": 2.28333333333333,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 9,
+          "goblin": 3
+        },
+        {
+          "boar": 6,
+          "slime": 3
+        }
+      ],
+      "counts": [
+        12,
+        9
+      ],
+      "initialCost": [
+        33,
+        42
+      ],
+      "initialHp": [
+        690,
+        1275
+      ],
+      "budgets": [
+        {
+          "planned": 33,
+          "spent": 33
+        },
+        {
+          "planned": 42,
+          "spent": 42
+        }
+      ],
+      "centroids": [
+        {
+          "x": 76.66666666666667,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        431
+      ],
+      "remainingAllHp": [
+        0,
+        431
+      ],
+      "survivingOriginalCost": [
+        0,
+        22
+      ],
+      "originalSurvivors": [
+        0,
+        5
+      ],
+      "allSurvivors": [
+        0,
+        5
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        760,
+        881
+      ],
+      "receivedHits": [
+        30,
+        64
+      ],
+      "childCount": 0,
+      "createdHp": [
+        690,
+        1275
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.3380392156862745,
+      "winnerOriginalHpRatio": 0.3380392156862745,
+      "winnerAllHpPerInitialHp": 0.3380392156862745,
+      "winnerOriginalSurvivingCostRatio": 0.5238095238095238,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 6,
+      "seed": 1338177479,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 1615,
+      "simSeconds": 26.91666666666642,
+      "firstHitSeconds": 2.1833333333333305,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 6,
+          "slime": 3
+        },
+        {
+          "cannon": 7,
+          "stormmage": 2
+        }
+      ],
+      "counts": [
+        9,
+        9
+      ],
+      "initialCost": [
+        42,
+        52
+      ],
+      "initialHp": [
+        1275,
+        664
+      ],
+      "budgets": [
+        {
+          "planned": 42,
+          "spent": 42
+        },
+        {
+          "planned": 52,
+          "spent": 52
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        23,
+        0
+      ],
+      "remainingAllHp": [
+        23,
+        0
+      ],
+      "survivingOriginalCost": [
+        4,
+        0
+      ],
+      "originalSurvivors": [
+        1,
+        0
+      ],
+      "allSurvivors": [
+        1,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1518.68,
+        715
+      ],
+      "receivedHits": [
+        68,
+        39
+      ],
+      "childCount": 4,
+      "createdHp": [
+        1415,
+        664
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.01625441696113074,
+      "winnerOriginalHpRatio": 0.01803921568627451,
+      "winnerAllHpPerInitialHp": 0.01803921568627451,
+      "winnerOriginalSurvivingCostRatio": 0.09523809523809523,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 7,
+      "seed": 3635630172,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 995,
+      "simSeconds": 16.583333333333673,
+      "firstHitSeconds": 3.0833333333333273,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "boar": 6,
+          "slime": 3
+        },
+        {
+          "cannon": 6,
+          "shield": 3,
+          "stormmage": 1
+        }
+      ],
+      "counts": [
+        9,
+        10
+      ],
+      "initialCost": [
+        42,
+        53
+      ],
+      "initialHp": [
+        1275,
+        1022
+      ],
+      "budgets": [
+        {
+          "planned": 42,
+          "spent": 42
+        },
+        {
+          "planned": 53,
+          "spent": 53
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        365
+      ],
+      "remainingAllHp": [
+        0,
+        365
+      ],
+      "survivingOriginalCost": [
+        0,
+        31
+      ],
+      "originalSurvivors": [
+        0,
+        6
+      ],
+      "allSurvivors": [
+        0,
+        6
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1658.28,
+        713
+      ],
+      "receivedHits": [
+        84,
+        33
+      ],
+      "childCount": 6,
+      "createdHp": [
+        1485,
+        1022
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.35714285714285715,
+      "winnerOriginalHpRatio": 0.35714285714285715,
+      "winnerAllHpPerInitialHp": 0.35714285714285715,
+      "winnerOriginalSurvivingCostRatio": 0.5849056603773585,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 8,
+      "seed": 3933011537,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 2074,
+      "simSeconds": 34.56666666666599,
+      "firstHitSeconds": 0.8333333333333343,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "cannon": 6,
+          "shield": 3,
+          "stormmage": 1
+        },
+        {
+          "archer": 3,
+          "burrower": 2,
+          "golem": 5
+        }
+      ],
+      "counts": [
+        10,
+        10
+      ],
+      "initialCost": [
+        53,
+        64
+      ],
+      "initialHp": [
+        1022,
+        2370
+      ],
+      "budgets": [
+        {
+          "planned": 53,
+          "spent": 53
+        },
+        {
+          "planned": 64,
+          "spent": 64
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        402.38
+      ],
+      "remainingAllHp": [
+        0,
+        402.38
+      ],
+      "survivingOriginalCost": [
+        0,
+        15
+      ],
+      "originalSurvivors": [
+        0,
+        3
+      ],
+      "allSurvivors": [
+        0,
+        3
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1194.3000000000002,
+        2027.96
+      ],
+      "receivedHits": [
+        65,
+        99
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1022,
+        2370
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.1697805907172996,
+      "winnerOriginalHpRatio": 0.1697805907172996,
+      "winnerAllHpPerInitialHp": 0.1697805907172996,
+      "winnerOriginalSurvivingCostRatio": 0.234375,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 9,
+      "seed": 2508246904,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1146,
+      "simSeconds": 19.100000000000197,
+      "firstHitSeconds": 1.0000000000000013,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 3,
+          "burrower": 2,
+          "golem": 5
+        },
+        {
+          "frostmage": 1,
+          "rider": 8,
+          "wraith": 1
+        }
+      ],
+      "counts": [
+        10,
+        10
+      ],
+      "initialCost": [
+        64,
+        76
+      ],
+      "initialHp": [
+        2370,
+        2015
+      ],
+      "budgets": [
+        {
+          "planned": 64,
+          "spent": 64
+        },
+        {
+          "planned": 76,
+          "spent": 76
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 410,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        1199
+      ],
+      "remainingAllHp": [
+        0,
+        1199
+      ],
+      "survivingOriginalCost": [
+        0,
+        60
+      ],
+      "originalSurvivors": [
+        0,
+        8
+      ],
+      "allSurvivors": [
+        0,
+        8
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        2551,
+        1058
+      ],
+      "receivedHits": [
+        84,
+        39
+      ],
+      "childCount": 3,
+      "createdHp": [
+        2370,
+        2165
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.553810623556582,
+      "winnerOriginalHpRatio": 0.5950372208436725,
+      "winnerAllHpPerInitialHp": 0.5950372208436725,
+      "winnerOriginalSurvivingCostRatio": 0.7894736842105263,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 10,
+      "seed": 1163398577,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 693,
+      "simSeconds": 11.550000000000153,
+      "firstHitSeconds": 1.5333333333333328,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "frostmage": 1,
+          "rider": 8,
+          "wraith": 1
+        },
+        {
+          "boar": 18,
+          "goblin": 1,
+          "stormmage": 1
+        }
+      ],
+      "counts": [
+        10,
+        20
+      ],
+      "initialCost": [
+        76,
+        97
+      ],
+      "initialHp": [
+        2015,
+        2920
+      ],
+      "budgets": [
+        {
+          "planned": 76,
+          "spent": 76
+        },
+        {
+          "planned": 97,
+          "spent": 97
+        }
+      ],
+      "centroids": [
+        {
+          "x": 70,
+          "y": 269
+        },
+        {
+          "x": 380,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        1132
+      ],
+      "remainingAllHp": [
+        0,
+        1132
+      ],
+      "survivingOriginalCost": [
+        0,
+        62
+      ],
+      "originalSurvivors": [
+        0,
+        13
+      ],
+      "allSurvivors": [
+        0,
+        13
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        2243.2200000000003,
+        1914
+      ],
+      "receivedHits": [
+        88,
+        68
+      ],
+      "childCount": 3,
+      "createdHp": [
+        2165,
+        2920
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.38767123287671235,
+      "winnerOriginalHpRatio": 0.38767123287671235,
+      "winnerAllHpPerInitialHp": 0.38767123287671235,
+      "winnerOriginalSurvivingCostRatio": 0.6391752577319587,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 105
+    },
+    {
+      "round": 1,
+      "seed": 899760411,
+      "choice": 1,
+      "winner": "A",
+      "ticks": 761,
+      "simSeconds": 12.683333333333543,
+      "firstHitSeconds": 3.9333333333333242,
+      "carryStreakBefore": 0,
+      "composition": [
+        {
+          "spear": 4
+        },
+        {
+          "shield": 3
+        }
+      ],
+      "counts": [
+        4,
+        3
+      ],
+      "initialCost": [
+        12,
+        12
+      ],
+      "initialHp": [
+        340,
+        510
+      ],
+      "budgets": [
+        {
+          "planned": 12,
+          "spent": 12
+        },
+        {
+          "planned": 12,
+          "spent": 12
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        160,
+        0
+      ],
+      "remainingAllHp": [
+        160,
+        0
+      ],
+      "survivingOriginalCost": [
+        12,
+        0
+      ],
+      "originalSurvivors": [
+        4,
+        0
+      ],
+      "allSurvivors": [
+        4,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        180,
+        540
+      ],
+      "receivedHits": [
+        18,
+        30
+      ],
+      "childCount": 0,
+      "createdHp": [
+        340,
+        510
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.47058823529411764,
+      "winnerOriginalHpRatio": 0.47058823529411764,
+      "winnerAllHpPerInitialHp": 0.47058823529411764,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 2,
+      "seed": 2812355246,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 496,
+      "simSeconds": 8.266666666666657,
+      "firstHitSeconds": 2.6166666666666623,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "spear": 4
+        },
+        {
+          "goblin": 9
+        }
+      ],
+      "counts": [
+        4,
+        9
+      ],
+      "initialCost": [
+        12,
+        18
+      ],
+      "initialHp": [
+        340,
+        450
+      ],
+      "budgets": [
+        {
+          "planned": 12,
+          "spent": 12
+        },
+        {
+          "planned": 18,
+          "spent": 18
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 414.44444444444446,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        142
+      ],
+      "remainingAllHp": [
+        0,
+        142
+      ],
+      "survivingOriginalCost": [
+        0,
+        10
+      ],
+      "originalSurvivors": [
+        0,
+        5
+      ],
+      "allSurvivors": [
+        0,
+        5
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        360,
+        324
+      ],
+      "receivedHits": [
+        40,
+        18
+      ],
+      "childCount": 0,
+      "createdHp": [
+        340,
+        450
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.31555555555555553,
+      "winnerOriginalHpRatio": 0.31555555555555553,
+      "winnerAllHpPerInitialHp": 0.31555555555555553,
+      "winnerOriginalSurvivingCostRatio": 0.5555555555555556,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 3,
+      "seed": 507467240,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 377,
+      "simSeconds": 6.283333333333316,
+      "firstHitSeconds": 1.816666666666665,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "goblin": 9
+        },
+        {
+          "boar": 5
+        }
+      ],
+      "counts": [
+        9,
+        5
+      ],
+      "initialCost": [
+        18,
+        25
+      ],
+      "initialHp": [
+        450,
+        775
+      ],
+      "budgets": [
+        {
+          "planned": 18,
+          "spent": 18
+        },
+        {
+          "planned": 25,
+          "spent": 25
+        }
+      ],
+      "centroids": [
+        {
+          "x": 65.55555555555556,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        541
+      ],
+      "remainingAllHp": [
+        0,
+        541
+      ],
+      "survivingOriginalCost": [
+        0,
+        25
+      ],
+      "originalSurvivors": [
+        0,
+        5
+      ],
+      "allSurvivors": [
+        0,
+        5
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        500,
+        234
+      ],
+      "receivedHits": [
+        17,
+        26
+      ],
+      "childCount": 0,
+      "createdHp": [
+        450,
+        775
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.6980645161290323,
+      "winnerOriginalHpRatio": 0.6980645161290323,
+      "winnerAllHpPerInitialHp": 0.6980645161290323,
+      "winnerOriginalSurvivingCostRatio": 1,
+      "winnerNoInitialCasualty": true,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 4,
+      "seed": 3420405981,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 516,
+      "simSeconds": 8.600000000000007,
+      "firstHitSeconds": 2.0499999999999976,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 5
+        },
+        {
+          "rider": 3,
+          "sword": 3
+        }
+      ],
+      "counts": [
+        5,
+        6
+      ],
+      "initialCost": [
+        25,
+        33
+      ],
+      "initialHp": [
+        775,
+        990
+      ],
+      "budgets": [
+        {
+          "planned": 25,
+          "spent": 25
+        },
+        {
+          "planned": 33,
+          "spent": 33
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        414
+      ],
+      "remainingAllHp": [
+        0,
+        414
+      ],
+      "survivingOriginalCost": [
+        0,
+        30
+      ],
+      "originalSurvivors": [
+        0,
+        5
+      ],
+      "allSurvivors": [
+        0,
+        5
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        854,
+        580
+      ],
+      "receivedHits": [
+        28,
+        21
+      ],
+      "childCount": 0,
+      "createdHp": [
+        775,
+        990
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.41818181818181815,
+      "winnerOriginalHpRatio": 0.41818181818181815,
+      "winnerAllHpPerInitialHp": 0.41818181818181815,
+      "winnerOriginalSurvivingCostRatio": 0.9090909090909091,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 5,
+      "seed": 1044395317,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 654,
+      "simSeconds": 10.900000000000121,
+      "firstHitSeconds": 1.7833333333333319,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "rider": 3,
+          "sword": 3
+        },
+        {
+          "boar": 2,
+          "rider": 4
+        }
+      ],
+      "counts": [
+        6,
+        6
+      ],
+      "initialCost": [
+        33,
+        42
+      ],
+      "initialHp": [
+        990,
+        1230
+      ],
+      "budgets": [
+        {
+          "planned": 33,
+          "spent": 33
+        },
+        {
+          "planned": 42,
+          "spent": 42
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        391
+      ],
+      "remainingAllHp": [
+        0,
+        391
+      ],
+      "survivingOriginalCost": [
+        0,
+        32
+      ],
+      "originalSurvivors": [
+        0,
+        4
+      ],
+      "allSurvivors": [
+        0,
+        4
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1116,
+        909
+      ],
+      "receivedHits": [
+        31,
+        30
+      ],
+      "childCount": 0,
+      "createdHp": [
+        990,
+        1230
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.3178861788617886,
+      "winnerOriginalHpRatio": 0.3178861788617886,
+      "winnerAllHpPerInitialHp": 0.3178861788617886,
+      "winnerOriginalSurvivingCostRatio": 0.7619047619047619,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 6,
+      "seed": 2448212047,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1442,
+      "simSeconds": 24.03333333333325,
+      "firstHitSeconds": 2.199999999999997,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 2,
+          "rider": 4
+        },
+        {
+          "golem": 4,
+          "shield": 4
+        }
+      ],
+      "counts": [
+        6,
+        8
+      ],
+      "initialCost": [
+        42,
+        52
+      ],
+      "initialHp": [
+        1230,
+        2240
+      ],
+      "budgets": [
+        {
+          "planned": 42,
+          "spent": 42
+        },
+        {
+          "planned": 52,
+          "spent": 52
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 360,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        80,
+        0
+      ],
+      "remainingAllHp": [
+        80,
+        0
+      ],
+      "survivingOriginalCost": [
+        8,
+        0
+      ],
+      "originalSurvivors": [
+        1,
+        0
+      ],
+      "allSurvivors": [
+        1,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1270,
+        2432
+      ],
+      "receivedHits": [
+        47,
+        68
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1230,
+        2240
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.06504065040650407,
+      "winnerOriginalHpRatio": 0.06504065040650407,
+      "winnerAllHpPerInitialHp": 0.06504065040650407,
+      "winnerOriginalSurvivingCostRatio": 0.19047619047619047,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 7,
+      "seed": 3423672835,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 587,
+      "simSeconds": 9.783333333333399,
+      "firstHitSeconds": 1.5499999999999994,
+      "carryStreakBefore": 2,
+      "composition": [
+        {
+          "boar": 2,
+          "rider": 4
+        },
+        {
+          "boar": 8,
+          "frostmage": 2,
+          "stormmage": 1
+        }
+      ],
+      "counts": [
+        6,
+        11
+      ],
+      "initialCost": [
+        42,
+        53
+      ],
+      "initialHp": [
+        1230,
+        1490
+      ],
+      "budgets": [
+        {
+          "planned": 42,
+          "spent": 42
+        },
+        {
+          "planned": 53,
+          "spent": 53
+        }
+      ],
+      "centroids": [
+        {
+          "x": 120,
+          "y": 269
+        },
+        {
+          "x": 406.3636363636364,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        611
+      ],
+      "remainingAllHp": [
+        0,
+        611
+      ],
+      "survivingOriginalCost": [
+        0,
+        38
+      ],
+      "originalSurvivors": [
+        0,
+        8
+      ],
+      "allSurvivors": [
+        0,
+        8
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1308.82,
+        962
+      ],
+      "receivedHits": [
+        56,
+        26
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1230,
+        1490
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.41006711409395974,
+      "winnerOriginalHpRatio": 0.41006711409395974,
+      "winnerAllHpPerInitialHp": 0.41006711409395974,
+      "winnerOriginalSurvivingCostRatio": 0.7169811320754716,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 8,
+      "seed": 3442720441,
+      "choice": 0,
+      "winner": "B",
+      "ticks": 1108,
+      "simSeconds": 18.4666666666669,
+      "firstHitSeconds": 1.6333333333333324,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "boar": 8,
+          "frostmage": 2,
+          "stormmage": 1
+        },
+        {
+          "archer": 2,
+          "boar": 10,
+          "healer": 2
+        }
+      ],
+      "counts": [
+        11,
+        14
+      ],
+      "initialCost": [
+        53,
+        64
+      ],
+      "initialHp": [
+        1490,
+        1800
+      ],
+      "budgets": [
+        {
+          "planned": 53,
+          "spent": 53
+        },
+        {
+          "planned": 64,
+          "spent": 64
+        }
+      ],
+      "centroids": [
+        {
+          "x": 73.63636363636364,
+          "y": 269
+        },
+        {
+          "x": 398.57142857142856,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        394.42
+      ],
+      "remainingAllHp": [
+        0,
+        394.42
+      ],
+      "survivingOriginalCost": [
+        0,
+        34
+      ],
+      "originalSurvivors": [
+        0,
+        8
+      ],
+      "allSurvivors": [
+        0,
+        8
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1624,
+        1723.14
+      ],
+      "receivedHits": [
+        70,
+        84
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1490,
+        1800
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.21912222222222222,
+      "winnerOriginalHpRatio": 0.21912222222222222,
+      "winnerAllHpPerInitialHp": 0.21912222222222222,
+      "winnerOriginalSurvivingCostRatio": 0.53125,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 9,
+      "seed": 114652156,
+      "choice": 1,
+      "winner": "B",
+      "ticks": 1249,
+      "simSeconds": 20.816666666666766,
+      "firstHitSeconds": 0.8333333333333343,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 2,
+          "boar": 10,
+          "healer": 2
+        },
+        {
+          "archer": 1,
+          "burrower": 13,
+          "frostmage": 2
+        }
+      ],
+      "counts": [
+        14,
+        16
+      ],
+      "initialCost": [
+        64,
+        76
+      ],
+      "initialHp": [
+        1800,
+        1790
+      ],
+      "budgets": [
+        {
+          "planned": 64,
+          "spent": 64
+        },
+        {
+          "planned": 76,
+          "spent": 76
+        }
+      ],
+      "centroids": [
+        {
+          "x": 81.42857142857143,
+          "y": 269
+        },
+        {
+          "x": 395,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        0,
+        230
+      ],
+      "remainingAllHp": [
+        0,
+        230
+      ],
+      "survivingOriginalCost": [
+        0,
+        11
+      ],
+      "originalSurvivors": [
+        0,
+        3
+      ],
+      "allSurvivors": [
+        0,
+        3
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        2139,
+        1658
+      ],
+      "receivedHits": [
+        93,
+        70
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1800,
+        1790
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.12849162011173185,
+      "winnerOriginalHpRatio": 0.12849162011173185,
+      "winnerAllHpPerInitialHp": 0.12849162011173185,
+      "winnerOriginalSurvivingCostRatio": 0.14473684210526316,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    },
+    {
+      "round": 10,
+      "seed": 496721651,
+      "choice": 0,
+      "winner": "A",
+      "ticks": 1449,
+      "simSeconds": 24.14999999999991,
+      "firstHitSeconds": 0.9833333333333347,
+      "carryStreakBefore": 1,
+      "composition": [
+        {
+          "archer": 1,
+          "burrower": 13,
+          "frostmage": 2
+        },
+        {
+          "archer": 1,
+          "goblin": 1,
+          "shield": 23
+        }
+      ],
+      "counts": [
+        16,
+        25
+      ],
+      "initialCost": [
+        76,
+        97
+      ],
+      "initialHp": [
+        1790,
+        4020
+      ],
+      "budgets": [
+        {
+          "planned": 76,
+          "spent": 76
+        },
+        {
+          "planned": 97,
+          "spent": 97
+        }
+      ],
+      "centroids": [
+        {
+          "x": 85,
+          "y": 269
+        },
+        {
+          "x": 366,
+          "y": 269
+        }
+      ],
+      "remainingOriginalHp": [
+        520,
+        0
+      ],
+      "remainingAllHp": [
+        520,
+        0
+      ],
+      "survivingOriginalCost": [
+        46,
+        0
+      ],
+      "originalSurvivors": [
+        10,
+        0
+      ],
+      "allSurvivors": [
+        10,
+        0
+      ],
+      "originalFullHp": [
+        false,
+        false
+      ],
+      "receivedDamage": [
+        1280,
+        4235.099999999999
+      ],
+      "receivedHits": [
+        127,
+        187
+      ],
+      "childCount": 0,
+      "createdHp": [
+        1790,
+        4020
+      ],
+      "winnerAllRemainingHpRatioOfCreated": 0.2905027932960894,
+      "winnerOriginalHpRatio": 0.2905027932960894,
+      "winnerAllHpPerInitialHp": 0.2905027932960894,
+      "winnerOriginalSurvivingCostRatio": 0.6052631578947368,
+      "winnerNoInitialCasualty": false,
+      "winnerNoIncomingDamage": false,
+      "oneSideNoIncomingDamage": false,
+      "sessionSeed": 106
+    }
+  ]
+}

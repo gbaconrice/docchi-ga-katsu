@@ -4,8 +4,8 @@ const scoreBridge=ScoreBridge.createScoreBridge({isGravity:()=>gravityContext||n
 async function submitFinalScore(action){
  if(!multiSession&&!walletState)return {status:'ineligible'};
  const snapshot=multiSession?multiSession.getState():null;
- const input=snapshot?{sessionId:snapshot.sessionId,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
- if(input.completedRounds!==20||input.spectator)return {status:'ineligible'};
+ const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:TOTAL_ROUNDS,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
+ if(input.completedRounds!==TOTAL_ROUNDS||input.spectator)return {status:'ineligible'};
  if(globalThis.parent&&globalThis.parent!==globalThis&&!gravityContext&&!nativeProfileVerified){
   try{const sdk=await loadNativeSDK();let timer;const profile=await Promise.race([sdk.user.getMyUserInfo(),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),3000)})]);clearTimeout(timer);nativeProfileVerified=profile?.errno===0&&!!profile.data?.user_id;}catch{}
  }
@@ -41,7 +41,7 @@ function displayMultiState(){
   const ranks=(s.wallets||[]).slice().sort((a,b)=>b.score-a.score);
   let prior=null,rankNo=0;
   q('#breakdown').textContent=ranks.map((p,i)=>{if(p.score!==prior)rankNo=i+1;prior=p.score;return rankNo+'位 '+(p.playerId===multiUser?'あなた':p.playerId)+'：純益 '+credits(p.score)+' / 残高 '+p.balance+' G / 正解 '+p.correctCount;}).join('\n');
-  q('#next').hidden=!multiHost;q('#next').disabled=s.phase!=='result';q('#next').textContent=round>=20?'20戦終了・ひとり用へ戻る':'ホスト：次の戦いへ';
+  q('#next').hidden=!multiHost;q('#next').disabled=s.phase!=='result';q('#next').textContent=round>=TOTAL_ROUNDS?'10戦終了・ひとり用へ戻る':'ホスト：次の戦いへ';
  }
  if(s.phase==='battle'){const clock=multiSession.getPlaybackClock();if(!clock.ready)q('#phaseTitle').textContent=clock.status==='waiting-replay'?'戦闘記録を受信中':'観戦の時計を確認中';else if(clock.status==='waiting-start')q('#phaseTitle').textContent='共有開始時刻を待っています';q('#roomStatus').textContent+=' / '+(clock.ready?'共有時刻で再生（推定誤差±'+Math.round(clock.uncertaintyMs||0)+'ms）':'時計または記録の確認待ち');}
  if(s.phase==='stopped'){q('#comparison').hidden=true;q('#battle').hidden=true;q('#resultPanel').hidden=true;q('#roomStatus').textContent='停止：'+s.stoppedReason+'。未精算の予約は差し引きません。退出して戻れます。';}
@@ -49,9 +49,9 @@ function displayMultiState(){
 update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
 function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));}}if(multiSession)displayMultiState();}
 function resetMultiRound(){multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
-function publicMatchup(){return {engineVersion:'v9-roster-carry',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
+function publicMatchup(){return {engineVersion:'v10-quick10',runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
 function openMultiRound(){
- if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=20)return;
+ if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=TOTAL_ROUNDS)return;
  const nextRound=s.roundId===null?1:s.roundId+1;const priorWorld={round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,budgets:budgets.slice()};
  try{carryStreak=s.phase==='result'?(s.winner==='A'?carryStreak+1:s.winner==='B'?1:0):0;pendingCarryKinds=s.phase==='result'&&(s.winner==='A'||s.winner==='B')?multiInitial.filter(u=>u.side===(s.winner==='A'?0:1)).map(u=>u.k):null;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
  multiSession.openRound({roundId:round,durationMs:30000,matchup:publicMatchup()});multiSnapshot=multiSession.getState();displayMultiState();
@@ -83,7 +83,7 @@ startPrediction=function(skip=false){
  if(mockGuest)mockGuest.predict('A',0);
  multiSnapshot=multiSession.getState();displayMultiState();
 };
-nextPrediction=function(){if(!multiSession){if(round>=20)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=20){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
+nextPrediction=function(){if(!multiSession){if(round>=TOTAL_ROUNDS)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
 document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#next').onclick=()=>nextPrediction();
 function drainMock(){let n=0;while(mockQueue.length&&n++<10000){const [to,from,wire]=mockQueue.shift();to()?.receive(from,wire);}}
 function pumpMulti(now){
@@ -111,7 +111,7 @@ loop=function(t){if(!multiSession)return soloLoop(t);pumpMulti(Date.now());reque
 function beginMock(){
  if(multiSession||multiBusy||state==='fight')return;
  multiUser='you';multiHost=true;multiError='';multiLastPump=0;multiHeartbeat=0;multiRoundSeen=null;
- multiSession=MultiBinding.createWalletSession({roomId:'local-mock',sessionId:'mock-'+Date.now(),userId:'you',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>mockGuest,'you',wire]),onChange:onMultiChange});
+ multiSession=MultiBinding.createWalletSession({roomId:'local-mock',sessionId:'quick10-mock-'+Date.now(),userId:'you',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>mockGuest,'you',wire]),onChange:onMultiChange});
  const sid=multiSession.getState().sessionId;
  mockGuest=MultiProtocol.createSession({roomId:'local-mock',sessionId:sid,userId:'mock-guest',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>multiSession,'mock-guest',wire])});
  multiSnapshot=multiSession.getState();multiSession.hello();drainMock();displayMultiState();

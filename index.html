@@ -209,7 +209,14 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   overflow-wrap: anywhere;
   font-variant-numeric: tabular-nums;
 }
-.army-card[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 1px; }
+.army-card[aria-pressed="true"] {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--gold);
+}
+.army-card:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--gold);
+}
 .army-card[aria-pressed="true"]::after {
   content: "✓";
   position: absolute;
@@ -390,6 +397,9 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
   .battle-controls { grid-template-columns: repeat(4, minmax(44px, 1fr)); }
 }
 
+
+.result-progress {height:3px;width:min(100%,220px);margin:12px auto 0;background:#ffffff22;overflow:hidden;border-radius:2px}
+.result-progress span {display:block;height:100%;background:var(--gold,#e6c56b);transform-origin:left center}
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -509,6 +519,7 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
       <p id="breakdown" class="result-summary"></p>
       <p class="score-line">純益 <span id="profit"></span><span class="score-separator">・</span>正解 <span id="hits"></span></p>
       <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <div id="resultProgress" class="result-progress" hidden aria-label="次の対戦まで"><span id="resultProgressFill"></span></div>
       <p id="scoreStatus" class="sr-only" aria-live="polite"></p>
     </section>
   </section>
@@ -546,25 +557,29 @@ h1 { margin: 0; font-size: 21px; letter-spacing: .05em; }
 'use strict';
 const Wallet=(()=>{
 /** Deterministic host-authoritative game-credit ledger. No money, SDK or networking. */
-const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:20, precision:0});
+const GAME_MODE = 'GRAVITY_QUICK10_V1';
+const TOTAL_ROUNDS = 10;
+const DEFAULT_CONFIG = Object.freeze({initialBalance:100, correctReward:10, stakeCap:50, winMultiplier:1, totalRounds:10, precision:0});
 const fail = code => { throw new Error(code); };
 const int = (value, code='INVALID_INTEGER') => { if (!Number.isSafeInteger(value) || value < 0) fail(code); return value; };
 const id = value => { if(typeof value !== 'string' || !value.trim()) fail('INVALID_ID'); return value; };
 const freeze = value => { if(value && typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);} return value; };
 const clone = state => JSON.parse(JSON.stringify(state));
-const session = (state, sessionId) => { if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
+const modeState = state => {if(state?.mode!==GAME_MODE||state?.schemaVersion!==2||state?.config?.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_GAME_MODE');};
+const session = (state, sessionId) => { modeState(state); if(state.sessionId !== sessionId) fail('SESSION_MISMATCH'); };
 const player = (state, playerId) => { const p=state.players.find(p=>p.playerId===playerId); if(!p) fail('UNKNOWN_PLAYER'); return p; };
 const active = (state, roundId) => { if(!state.currentRound || state.currentRound.roundId!==roundId) fail('ROUND_NOT_ACTIVE'); return state.currentRound; };
-function createSession({sessionId,playerIds,config={}}){
+function createSession({sessionId,playerIds,config={},mode=GAME_MODE}){
+  if(mode!==GAME_MODE)fail('INCOMPATIBLE_GAME_MODE');
   id(sessionId);
   if(!Array.isArray(playerIds)||!playerIds.length) fail('PLAYERS_REQUIRED');
   playerIds.forEach(id); if(new Set(playerIds).size!==playerIds.length) fail('DUPLICATE_PLAYER');
   if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k))) fail('UNKNOWN_CONFIG');
   const c={...DEFAULT_CONFIG,...config}; Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
   if(c.precision!==0) fail('INTEGER_CREDITS_ONLY');
-  if(!c.totalRounds) fail('INVALID_CONFIG');
+  if(c.totalRounds!==TOTAL_ROUNDS) fail('INCOMPATIBLE_ROUND_COUNT');
   if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+c.totalRounds*(c.correctReward+c.stakeCap*c.winMultiplier))) fail('CONFIG_OVERFLOW');
-  return freeze({schemaVersion:1,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
+  return freeze({schemaVersion:2,mode:GAME_MODE,sessionId,config:c,players:playerIds.map(playerId=>({playerId,balance:c.initialBalance,score:0,correctCount:0})),currentRound:null,completedRounds:0,ledger:[]});
 }
 function openRound(state,{sessionId,roundId,deadline}){
   session(state,sessionId);int(roundId);int(deadline);
@@ -610,16 +625,20 @@ function reconnectPlayer(state,{sessionId,playerId}){
   return freeze(p?{role:'player',...p}:{role:'spectator',playerId});
 }
 function walletView(state,playerId){
+  modeState(state);
   const p=player(state,playerId),reserved=state.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
   return freeze({...p,reserved,available:p.balance-reserved,maxStake:Math.min(p.balance,state.config.stakeCap)});
 }
 /** Competition rank depends solely on signed profit; equal profits share rank. No SDK submission. */
 function standings(state){
+  modeState(state);
   const rows=state.players.map(p=>({...p})).sort((a,b)=>b.score-a.score || (a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));
   let rank=0;return freeze(rows.map((p,i)=>{if(i===0||p.score!==rows[i-1].score)rank=i+1;return{rank,...p};}));
 }
 
-return {DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings};})();
+return {GAME_MODE,TOTAL_ROUNDS,DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reconnectPlayer,walletView,standings};})();
+const RUN_MODE=Wallet.GAME_MODE,TOTAL_ROUNDS=Wallet.TOTAL_ROUNDS;
+
 
 /*
  * どっちが勝つ？ — original, synthesized battle audio.
@@ -1269,11 +1288,13 @@ return {DEFAULT_CONFIG,createSession,openRound,commitPrediction,settleRound,reco
 
 const ScoreBridge=(()=>{
 /** Explicit final-action bridge only. No startup send, storage, clamping or other-player reports. */
+const GAME_MODE = 'GRAVITY_QUICK10_V1';
+const TOTAL_ROUNDS = 10;
 function createScoreBridge({isGravity=false,isEmbedded=false,postMessage}={}){
  const attempted=new Set();
- return Object.freeze({submit({sessionId,playerId,players,completedRounds,totalRounds=20,action,spectator=false}){
+ return Object.freeze({submit({sessionId,playerId,players,completedRounds,totalRounds=TOTAL_ROUNDS,mode,action,spectator=false}){
   if(!(typeof isGravity==='function'?isGravity():isGravity)||!isEmbedded)return {status:'standalone'};
-  if(!['finish','lobby','replay'].includes(action)||spectator||completedRounds!==20||totalRounds!==20)return {status:'ineligible'};
+  if(!['finish','lobby','replay'].includes(action)||spectator||mode!==GAME_MODE||completedRounds!==TOTAL_ROUNDS||totalRounds!==TOTAL_ROUNDS)return {status:'ineligible'};
   if(typeof sessionId!=='string'||!sessionId||typeof playerId!=='string'||!Array.isArray(players))return {status:'invalid'};
   const own=players.find(p=>p.playerId===playerId);
   if(!own||!Number.isSafeInteger(own.score)||typeof postMessage!=='function')return {status:'invalid'};
@@ -1284,7 +1305,7 @@ function createScoreBridge({isGravity=false,isEmbedded=false,postMessage}={}){
  }});
 }
 
-return {createScoreBridge};})();
+return {GAME_MODE,TOTAL_ROUNDS,createScoreBridge};})();
 const ReplayTransfer=(()=>{
 /** Bounded, paced replay broadcast. FNV checksum is corruption detection, NOT authentication. */
 const RAW_CHUNK_BYTES=6000, MAX_REPLAY_BYTES=2*1024*1024, TRANSFER_TIMEOUT_MS=120000;
@@ -1338,10 +1359,24 @@ function createClockEstimator({now=Date.now,send}){
  return{probe,accept,estimate};
 }
 
-return {CLOCK_SAMPLE_MAX_AGE_MS,CLOCK_MAX_UNCERTAINTY_MS,createClockEstimator};})();
-const MultiProtocol=(()=>{const {packReplay,validMeta,createSender,createReceiver}=ReplayTransfer;const {createClockEstimator}=ReplayClock;
+/** Shared presentation pacing; no physics delta or winner changes. */
+function effectiveSpeed(sceneSeconds,manual=1){return Math.max(manual,sceneSeconds>=40?3:sceneSeconds>=20?2:1);}
+function advanceSceneSeconds(sceneSeconds,wallSeconds,manual=1){
+ let scene=Math.max(0,sceneSeconds),remaining=Math.max(0,wallSeconds);
+ for(let i=0;i<3&&remaining>0;i++){
+  const boundary=scene<20?20:scene<40?40:Infinity,speed=effectiveSpeed(scene,manual),until=(boundary-scene)/speed;
+  if(remaining<until){scene+=remaining*speed;remaining=0;}else{scene=boundary;remaining-=until;}
+ }
+ return scene;
+}
+function sceneTickFromWallMs(ms){return Math.max(0,Math.floor(advanceSceneSeconds(0,Math.max(0,ms)/1000,1)*60+1e-7));}
+
+return {CLOCK_SAMPLE_MAX_AGE_MS,CLOCK_MAX_UNCERTAINTY_MS,createClockEstimator,effectiveSpeed,advanceSceneSeconds,sceneTickFromWallMs};})();
+const MultiProtocol=(()=>{const {packReplay,validMeta,createSender,createReceiver}=ReplayTransfer;const {createClockEstimator,sceneTickFromWallMs}=ReplayClock;
 /** Client-host coordination, NOT a trusted server or private transport. */
-const PROTOCOL = 'gravity-prediction-battle';
+const GAME_MODE = 'GRAVITY_QUICK10_V1';
+const TOTAL_ROUNDS = 10;
+const PROTOCOL = 'gravity-prediction-battle-quick10-v1';
 const MAX_WIRE_BYTES = 48000; // conservative application cap, not verified SDK quota
 const PHASES = ['lobby','predict','locked','battle','settle','result','stopped'];
 const sid = x => typeof x === 'string' && x.length > 0 && x.length <= 128;
@@ -1349,25 +1384,29 @@ const integer = x => Number.isSafeInteger(x) && x >= 0;
 const clone = x => JSON.parse(JSON.stringify(x));
 const bytes = s => new TextEncoder().encode(s).length;
 function encode(message) {
-  const wire = JSON.stringify(message);
+  // New-protocol control messages (SDK discovery/confirmation) inherit this package's mode.
+  // Old protocol names are never upgraded, and explicit incompatible modes stay incompatible.
+  const tagged=message?.protocol===PROTOCOL&&message.mode===undefined?{...message,mode:GAME_MODE}:message;
+  const wire = JSON.stringify(tagged);
   if (bytes(wire) > MAX_WIRE_BYTES) throw new RangeError('wire-cap-exceeded');
   return wire;
 }
 function decode(wire) {
   if (typeof wire !== 'string' || bytes(wire) > MAX_WIRE_BYTES) return null;
-  try { const m=JSON.parse(wire); return m && m.protocol===PROTOCOL && m.version===1 ? m : null; } catch { return null; }
+  try { const m=JSON.parse(wire); return m && m.protocol===PROTOCOL && m.version===1 && m.mode===GAME_MODE ? m : null; } catch { return null; }
 }
-function createSession({roomId, sessionId, userId, hostId, members=[], send,
+function createSession({roomId, sessionId, userId, hostId, members=[], send, mode=GAME_MODE,
   now=Date.now, validateBet=()=>true, settle=()=>null, onOpenRound=()=>{}, onAcceptBet=()=>{}, onChange=()=>{}, hostTimeoutMs=30000}) {
+  if(mode!==GAME_MODE)throw new Error('incompatible-game-mode');
   if (![roomId,sessionId,userId,hostId].every(sid) || typeof send!=='function') throw new TypeError('identity/send required');
   const host=userId===hostId;
   const seats=[...new Set([hostId,...members])];
   if (seats.length>8 || !seats.every(sid)) throw new RangeError('maximum eight application seats');
-  let state={sessionId,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
+  let state={sessionId,mode:GAME_MODE,totalRounds:TOTAL_ROUNDS,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
     spectators:[],readyIds:[],bets:[],winner:null,replay:null,wallets:null,stoppedReason:null};
   let localSeq=0,lastHostSeen=now(),outgoing=null,incoming=null,canonicalReplay=null;
   const sequences=new Map(), privateBets=new Map(), settled=new Set();
-  const envelope = body => ({protocol:PROTOCOL,version:1,roomId,sessionId,...body});
+  const envelope = body => ({protocol:PROTOCOL,version:1,mode:GAME_MODE,roomId,sessionId,...body});
   const emit = body => {
     const wire=encode(envelope(body));
     try {const result=send(wire);if(result?.then)result.catch(()=>stop('transport-error'));return result;}
@@ -1394,14 +1433,14 @@ function createSession({roomId, sessionId, userId, hostId, members=[], send,
   function receive(sender,wire){
     if(!sid(sender)||state.phase==='stopped')return false;
     const m=decode(wire);
-    if(!m||m.roomId!==roomId||m.sessionId!==sessionId)return false;
+    if(!m||m.mode!==GAME_MODE||m.roomId!==roomId||m.sessionId!==sessionId)return false;
     if(!host){
       if(sender!==hostId)return false;
       if(m.type==='clock-reply'){if(m.targetId!==userId||!clockEstimator.accept(m))return false;lastHostSeen=now();notify();return true;}
       if(m.type==='replay-chunk')return incoming?.receive(m)??false;
       if(m.type!=='snapshot')return false;
       const s=m.state;
-      if(!s||s.sessionId!==sessionId||!integer(s.revision)||!PHASES.includes(s.phase)||
+      if(!s||s.mode!==GAME_MODE||s.totalRounds!==TOTAL_ROUNDS||s.sessionId!==sessionId||!(s.roundId===null?['lobby','stopped'].includes(s.phase):(integer(s.roundId)&&s.roundId>=1&&s.roundId<=TOTAL_ROUNDS))||!integer(s.revision)||!PHASES.includes(s.phase)||(s.confirmedResult!=null&&(!integer(s.confirmedResult.roundId)||s.confirmedResult.roundId<1||s.confirmedResult.roundId>TOTAL_ROUNDS||s.confirmedResult.roundId!==s.roundId))||
         !Array.isArray(s.participants)||s.participants.length>8||!s.participants.every(sid)||
         new Set(s.participants).size!==s.participants.length||!s.participants.includes(hostId)||
         !Array.isArray(s.spectators)||!s.spectators.every(sid)||!Array.isArray(s.bets)||
@@ -1451,7 +1490,7 @@ function createSession({roomId, sessionId, userId, hostId, members=[], send,
     const estimate=host?{known:true,estimatedHostNow:now(),uncertaintyMs:0,sampleAgeMs:0,status:'host-clock'}:clockEstimator.estimate();
     const startAt=integer(state.replayStartAt)?state.replayStartAt:null;
     const ready=estimate.known&&startAt!==null&&!!canonicalReplay&&state.phase!=='stopped';
-    const sceneTick=ready?Math.min(canonicalReplay.ticks,Math.max(0,Math.floor((estimate.estimatedHostNow-startAt)*60/1000))):null;
+    const sceneTick=ready?Math.min(canonicalReplay.ticks,Math.max(0,sceneTickFromWallMs(estimate.estimatedHostNow-startAt))):null;
     const status=state.phase==='stopped'?'stopped':!estimate.known?estimate.status:!canonicalReplay||startAt===null?'waiting-replay':estimate.estimatedHostNow<startAt?'waiting-start':sceneTick>=canonicalReplay.ticks?'finished':'playing';
     return {...estimate,startAt,ready,sceneTick,status};
   }
@@ -1463,7 +1502,7 @@ function createSession({roomId, sessionId, userId, hostId, members=[], send,
     hello(){if(!host){emit({type:'hello'});clockEstimator.probe(true);}else broadcast();},
     heartbeat(){if(host&&state.phase!=='stopped'){tick();broadcast();}},
     openRound({roundId,durationMs,matchup}){
-      requireHost();if(!['lobby','result'].includes(state.phase)||!integer(roundId)||roundId<1||settled.has(roundId)||!integer(durationMs)||durationMs<1)throw new Error('invalid-round');
+      requireHost();if(!['lobby','result'].includes(state.phase)||!integer(roundId)||roundId<1||roundId>TOTAL_ROUNDS||roundId!==(state.roundId??0)+1||settled.has(roundId)||!integer(durationMs)||durationMs<1)throw new Error('invalid-round');
       const deadline=now()+durationMs;if(!integer(deadline))throw new Error('invalid-clock');
       // Matchup must contain public army configuration only; do not send future seed.
       encode(envelope({type:'snapshot',state:{...state,matchup}}));
@@ -1502,14 +1541,14 @@ function createSession({roomId, sessionId, userId, hostId, members=[], send,
   });
 }
 
-return {PROTOCOL,MAX_WIRE_BYTES,encode,decode,createSession};})();
+return {GAME_MODE,TOTAL_ROUNDS,PROTOCOL,MAX_WIRE_BYTES,encode,decode,createSession};})();
 const MultiBinding=(()=>{const wallet=Wallet;const {createSession}=MultiProtocol;
 /** Wallet roster is frozen at first prediction, not at initial room creation. */
 function createWalletSession(options){
   let ledger=null,session;
   session=createSession({...options,
     onOpenRound(input){
-      const base=ledger||wallet.createSession({sessionId:options.sessionId,playerIds:session.getState().participants,config:options.walletConfig});
+      const base=ledger||wallet.createSession({sessionId:options.sessionId,playerIds:session.getState().participants,mode:session.getState().mode,config:options.walletConfig});
       const next=wallet.openRound(base,input);return {wallets:next.players,commit:()=>{ledger=next;}};
     },
     validateBet(playerId,stake,side,roundId){
@@ -1709,38 +1748,43 @@ function generateEarlyArmies(seed,eligibleCosts=null,featuredKinds=null){
 }
 
 let previousArmyKinds=[],pendingCarryKinds=null,initialKinds=[[],[]],initialUnits=[],carryStreak=0,leftArmyCost=0;
+function progressRound(n=round){return 1+Math.floor((Math.max(1,Math.min(TOTAL_ROUNDS,n))-1)*19/(TOTAL_ROUNDS-1));}
+const BALANCE_COST=Object.fromEntries(Object.entries(COST).map(([k,v])=>[k,Math.max(1,Math.round(v*({"stormmage":1.4}[k]||1)))]));let leftArmyCount=0;
 function makeArmy(r,side){
+ const stage=progressRound(),advance=round<=1?1:stage-progressRound(round-1);
  const place=(k,i)=>({id:side*100+i,token:`r${round}:s${seed}:${side}:${i}`,side,k,x:90+(i%4)*90,y:(side===0?120:418)+(side===0?1:-1)*Math.floor(i/4)*36,hp:TYPES[k].hp,cd:r()*.5,priority:r(),dead:false});
- if(side===0&&pendingCarryKinds){const kinds=pendingCarryKinds;pendingCarryKinds=null;previousArmyKinds=[...new Set(kinds)];const spent=kinds.reduce((n,k)=>n+COST[k],0);budgets[0]={planned:spent,spent};return kinds.map(place);}
- if(round<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(round>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,COST[k]])),round===3?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
- const unitCap=round===1?8:round<=5?12:round<=11?16:round<=16?24:32;
- const planned=side===1?Math.min(160,Math.max(12+2*(round-1),Math.ceil(leftArmyCost*(1.04+Math.min(carryStreak,4)*.02))+2)):12+Math.min(12,Math.floor((round-1)/2))+Math.floor(r()*5)-2;
+ if(side===0&&pendingCarryKinds){const kinds=pendingCarryKinds;pendingCarryKinds=null;previousArmyKinds=[...new Set(kinds)];const spent=kinds.reduce((n,k)=>n+BALANCE_COST[k],0);budgets[0]={planned:spent,spent};return kinds.map(place);}
+ if(stage<=5&&(side===0||round===1)){const earlyKeys=['sword','shield','spear','archer','rider',...(stage>=3?['goblin','boar','slime']:[])].filter(k=>TYPES[k]);const plan=generateEarlyArmies(seed,Object.fromEntries(earlyKeys.map(k=>[k,BALANCE_COST[k]])),round===2?['boar','slime']:null);budgets[side]={planned:plan.spent[side],spent:plan.spent[side]};return plan.armies[side].map(place)}
+ const unitCap=round===1?8:stage<=5?12:stage<=11?16:stage<=16?24:32;
+ const planned=side===1?Math.min(160,Math.max(Math.round((12+2*(stage-1))*1),Math.ceil(leftArmyCost*Math.pow(1+Math.min(carryStreak,4)*0.005,advance))+Math.round(0.5*advance))):12+Math.min(12,Math.floor((stage-1)/2))+Math.floor(r()*5)-2;
  const unlock={goblin:3,boar:3,slime:3,bombbug:6,frostmage:6,golem:8,stormmage:10,burrower:12,drake:12,wraith:12};
- let pool=keys.filter(k=>round>=(unlock[k]||1)&&(round>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
+ let pool=keys.filter(k=>stage>=(unlock[k]||1)&&(stage>5||['sword','shield','spear','archer','rider','goblin','boar','slime'].includes(k)));
  if(side===1&&previousArmyKinds.length===1)pool=pool.filter(k=>k!==previousArmyKinds[0]);
  if(side===1&&!previousArmyKinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))pool=pool.filter(k=>k!=='drake');
- const count=round<=5?1:round<=11?2:3,needAir=side===1&&previousArmyKinds.includes('drake');
+ const count=round<=3?1:round<=6?2:3,needAir=side===1&&previousArmyKinds.includes('drake');
  const options=[];let bestSpent=-1;
  function consider(kinds){
   if(needAir&&!kinds.some(k=>TYPES[k].attackTargetMask?.includes('air')))return;
-  const base=kinds.reduce((n,k)=>n+COST[k],0),limit=planned-base;if(limit<0)return;
-  // Bounded coin packing chooses composition from cost only, never battle outcomes.
+  // Static cost and known-roster interaction surcharge only; no battle outcome or prediction input.
+  const costFor=k=>BALANCE_COST[k]+(false&&previousArmyKinds.includes('drake')&&TYPES[k].attackTargetMask?.includes('air')?1:0)+(false&&leftArmyCount>=12&&['stormmage','cannon','bombbug'].includes(k)?1:0)+(false&&k==='healer'&&kinds.some(x=>['golem','shield'].includes(x))?1:0)+(false&&k==='stormmage'&&kinds.some(x=>['healer','shield','frostmage'].includes(x))?1:0);
+  const base=kinds.reduce((n,k)=>n+costFor(k),0),limit=planned-base;if(limit<0)return;
   const dp=Array(limit+1).fill(Infinity),prev=Array(limit+1);dp[0]=0;
-  for(let v=1;v<=limit;v++)for(const k of kinds){const cost=COST[k];if(v>=cost&&dp[v-cost]+1<dp[v]){dp[v]=dp[v-cost]+1;prev[v]=k;}}
+  for(let v=1;v<=limit;v++)for(const k of kinds){const cost=costFor(k);if(v>=cost&&dp[v-cost]+1<dp[v]){dp[v]=dp[v-cost]+1;prev[v]=k;}}
   let value=limit;while(value>0&&dp[value]>unitCap-kinds.length)value--;
   if(dp[value]>unitCap-kinds.length)return;
-  const spent=base+value;if(spent<bestSpent)return;if(spent>bestSpent){options.length=0;bestSpent=spent;}
-  const roster=[...kinds];while(value>0){const k=prev[value];roster.push(k);value-=COST[k];}options.push(roster);
+  const spent=base+value,roster=[...kinds];while(value>0){const k=prev[value];roster.push(k);value-=costFor(k);}
+  if(roster.filter(k=>k==='healer').length>Math.max(1,Math.floor(roster.length*0.35)))return;
+  if(spent<bestSpent)return;if(spent>bestSpent){options.length=0;bestSpent=spent;}options.push(roster);
  }
  function combinations(from,chosen){if(chosen.length===count){consider(chosen);return;}for(let i=from;i<pool.length;i++)combinations(i+1,[...chosen,pool[i]]);}
  combinations(0,[]);const kinds=options[Math.floor(r()*options.length)]||['sword'];
- const a=kinds.map(place),spent=kinds.reduce((n,k)=>n+COST[k],0);budgets[side]={planned,spent};if(side===0)previousArmyKinds=[...new Set(kinds)];return a;
+ const a=kinds.map(place),spent=kinds.reduce((n,k)=>n+BALANCE_COST[k],0);budgets[side]={planned,spent};if(side===0)previousArmyKinds=[...new Set(kinds)];return a;
 }
 
-function setup(s){pendingSummons=[];combatEvents=[];seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1]){const army=units.filter(u=>u.side===side);if(army.length>8)army.forEach((u,i)=>{u.x=50+(i%8)*54;u.y=side?458-Math.floor(i/8)*50:80+Math.floor(i/8)*50;});else {const gap=Math.max(36,2*Math.max(...army.map(u=>TYPES[u.k].radius||RADII[u.k]||9)));army.forEach((u,i)=>u.y=(side?418:120)+(side?-1:1)*Math.floor(i/4)*gap);}}initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
-function update(){document.querySelector('#status').textContent=`第 ${round} / 20 戦　残機 ${3-mistakes}`;for(let side=0;side<2;side++){let counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);document.querySelector(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>`${TYPES[k].name} ×${n}`).join('　')}document.querySelector('#red').hidden=state!=='choose';document.querySelector('#blue').hidden=state!=='choose';document.querySelector('#next').hidden=state!=='result';document.querySelector('#next').textContent=mistakes>=3||round>=20?'もう一度':'次の戦いへ';document.querySelector('#pause').hidden=state!=='fight';document.querySelector('#speed').hidden=state!=='fight';document.querySelector('#pause').textContent=paused?'再開':'一時停止';document.querySelector('#speed').textContent='速度 '+speed+'×';document.querySelector('#message').textContent=state==='choose'?'勝つ側を選ぶと戦闘が始まります':state==='fight'?'戦闘中…':mistakes>=3?'終了：3回外れました。':round>=20?'全20戦終了！ 正解 '+correct+' 回':winner===null?'引き分け。失敗には数えません。':`${winner===0?'左':'右'}の勝利！　${winner===choice?'予想的中':'予想は外れ'}`}
+function setup(s){pendingSummons=[];combatEvents=[];seed=s>>>0;let r=rng(seed);previousArmyKinds=[];const leftArmy=makeArmy(r,0);leftArmyCount=leftArmy.length;previousArmyKinds=[...new Set(leftArmy.map(u=>u.k))];leftArmyCost=leftArmy.reduce((n,u)=>n+BALANCE_COST[u.k],0);units=[...leftArmy,...makeArmy(r,1)];for(const side of [0,1]){const army=units.filter(u=>u.side===side);army.forEach((u,i)=>{const depth=Math.floor(i/8),rows=Math.min(8,army.length-depth*8);u.x=army.length<=8?(side?360:120):(side?420-depth*50:60+depth*50);u.y=269-(rows-1)*25+(i%8)*50;u.originForward=side?-1:1;});}initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));initialUnits=JSON.parse(JSON.stringify(units));shots=[];elapsed=0;choice=null;winner=null;state='choose';update();draw()}
+function update(){}
 
-// Independent monster-combat candidate. Geometry and combat metadata remain separate.
+// v10 horizontal combat: side 0 advances +x, side 1 advances -x; stats/caps unchanged.
 const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7};
 const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
@@ -1758,21 +1802,24 @@ function nearbyGrid(list,positions=null){
  return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++)for(const u of cells.get((cx+dx)+','+(cy+dy))||[])found.push(u);return found.sort(stableOrder)};
 }
 function snapPosition(v){return Math.round(v*4096)/4096}
+// X reflection needs an odd tie rule about the field center, not absolute Math.round.
+// Epsilon is in quantized units (under 3e-11 world px), only resolving float ties.
+function snapXPosition(v){const q=(v-FIELD.w/2)*4096;return FIELD.w/2+(q<0?-1:1)*Math.floor(Math.abs(q)+.5+1e-7)/4096}
 function resolveBodies(alive,positions){
  // Jacobi: unordered same-layer pairs, simultaneous corrections, inverse explicit mass.
  for(let pass=0;pass<8;pass++){
   const near=nearbyGrid(alive,positions),index=new Map(alive.map((u,i)=>[u,i])),delta=new Map(alive.map(u=>[u,{x:0,y:0}]));let maximum=0;
-  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
-  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapPosition(p.x);p.y=snapPosition(p.y)}
+  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
+  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
   if(maximum<.04)break;
  }
 }
 function hashString(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function spawnPosition(parent,spawnToken,alive,kind='goblin'){
  // A deterministic spiral, rotated by stable token. No shared RNG or array-order draws.
- const pr=radiusOf(parent),r=radiusOf({k:kind}),start=hashString(spawnToken)%8,base=pr+r+3,forward=parent.originForward??(parent.y<=FIELD.h/2?1:-1);
+ const pr=radiusOf(parent),r=radiusOf({k:kind}),start=hashString(spawnToken)%8,base=pr+r+3,forward=parent.originForward??(parent.side===0?1:-1);
  for(let ring=0;ring<6;ring++)for(let j=0;j<8;j++){
-  const slot=(start+j)%8,angle=slot*Math.PI/4,dist=base+ring*(r*1.65),x=snapPosition(parent.x+Math.cos(angle)*dist),y=snapPosition(parent.y+Math.sin(angle)*forward*dist);
+  const slot=(start+j)%8,angle=slot*Math.PI/4,dist=base+ring*(r*1.65),x=snapXPosition(parent.x+Math.cos(angle)*forward*dist),y=snapPosition(parent.y+Math.sin(angle)*dist);
   if(x<r||x>FIELD.w-r||y<r||y>FIELD.h-r)continue;
   const free=alive.every(v=>!canCollide(v,{k:kind})||Math.hypot(v.x-x,v.y-y)>=radiusOf(v)+r+1);
   if(free)return {x,y};
@@ -1809,15 +1856,15 @@ function step(dt){
  }
  const sideCounts=[0,0];for(const u of alive)sideCounts[u.side]++;
  for(const u of alive){
-  tokenOf(u);if(u.originForward===undefined)u.originForward=u.y<=FIELD.h/2?1:-1;
+  tokenOf(u);if(u.originForward===undefined)u.originForward=u.side===0?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
   const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
-    const rear=enemies.slice().sort((a,b)=>(b.y-a.y)*u.originForward||Math.abs(a.x-u.x)-Math.abs(b.x-u.x)||stableOrder(a,b))[0];
+    const rear=enemies.slice().sort((a,b)=>(b.x-a.x)*u.originForward||Math.abs(a.y-u.y)-Math.abs(b.y-u.y)||stableOrder(a,b))[0];
     u.burrowStage='warning';u.burrowUntil=elapsed+t.burrowWarning;
-    u.burrowX=Math.max(radiusOf(u),Math.min(FIELD.w-radiusOf(u),rear.x));u.burrowY=Math.max(radiusOf(u),Math.min(FIELD.h-radiusOf(u),rear.y+u.originForward*(radiusOf(u)+radiusOf(rear)+6)));
+    u.burrowX=Math.max(radiusOf(u),Math.min(FIELD.w-radiusOf(u),rear.x+u.originForward*(radiusOf(u)+radiusOf(rear)+6)));u.burrowY=Math.max(radiusOf(u),Math.min(FIELD.h-radiusOf(u),rear.y));
     if(collectEvents)publishCombatEvent({type:'burrow_warning',sourceToken:tokenOf(u),x:u.burrowX,y:u.burrowY,sourceX:u.x,sourceY:u.y,targetX:u.burrowX,targetY:u.burrowY,until:u.burrowUntil});
    }
    if(u.burrowStage==='warning'){
@@ -1852,7 +1899,7 @@ function step(dt){
   const gap=v=>Math.hypot(v.x-u.x,v.y-u.y)-radiusOf(u)-radiusOf(v);
   let dist=Math.min(...enemies.map(gap));const target=enemies.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
   if(dist>t.reach+1/2048){
-   let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0;
+   let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
    const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&targetLayers.get(u)===targetLayers.get(v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
    if(blocked){const turn=(u.priority??.25)<.5?-1:1,tx=ny*u.originForward*turn,ty=-nx*u.originForward*turn;nx+=tx*1.35;ny+=ty*1.35;const length=Math.hypot(nx,ny);nx/=length;ny/=length}
@@ -1877,7 +1924,7 @@ function step(dt){
    if(collectEvents)publishCombatEvent({type:'projectile_release',source:sourceToken,sourceToken,k:u.k,target:targetToken,targetToken,x:u.x,y:u.y});
   }else{
    hit(target,t.dmg+(u.chargeReady?t.chargeBonus:0),false,u.k,tokenOf(u));
-   if(u.chargeReady){u.chargeReady=false;const dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),push=knockbacks.get(target)||{x:0,y:0};const knock=t.knockback*Math.min(1,massOf(u)/massOf(target));push.x+=(d>1e-8?dx/d:1)*knock;push.y+=(d>1e-8?dy/d:0)*knock;knockbacks.set(target,push);if(collectEvents)publishCombatEvent({type:'charge_impact',sourceToken:tokenOf(u),targetToken:tokenOf(target),x:u.x,y:u.y,targetX:target.x,targetY:target.y});}
+   if(u.chargeReady){u.chargeReady=false;const dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),push=knockbacks.get(target)||{x:0,y:0};const knock=t.knockback*Math.min(1,massOf(u)/massOf(target));push.x+=(d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)))*knock;push.y+=(d>1e-8?dy/d:0)*knock;knockbacks.set(target,push);if(collectEvents)publishCombatEvent({type:'charge_impact',sourceToken:tokenOf(u),targetToken:tokenOf(target),x:u.x,y:u.y,targetX:target.x,targetY:target.y});}
    if(collectEvents&&u.k==='golem')golemContacts.push({source:u,target});
   }
  }
@@ -1889,7 +1936,7 @@ function step(dt){
    if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
    else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
    s.done=true;
-  }else if(d>1e-8){s.x=snapPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
+  }else if(d>1e-8){s.x=snapXPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
  }
  shots=shots.filter(s=>!s.done);
  const resolvedHeals=[];
@@ -2069,14 +2116,14 @@ function loop(t){
  const delta=last===null?0:Math.max(0,(t-last)/1000);last=t;
  if(document.hidden===true){resetSoloClock();requestAnimationFrame(loop);return;}
  if(state==='fight'&&!paused){
-  acc=Math.min(Math.max(0,60-elapsed)+1/60,acc+delta*speed);
+  acc=Math.min(Math.max(0,60-elapsed)+1/60,ReplayClock.advanceSceneSeconds(elapsed+acc,delta,speed)-elapsed);
   const hasClock=typeof performance!=='undefined'&&typeof performance.now==='function',started=hasClock?performance.now():0;let steps=0;
   while(acc+1e-12>=1/60&&state==='fight'&&steps<SOLO_MAX_STEPS_PER_FRAME){
    if(steps>0&&hasClock&&performance.now()-started>=SOLO_FRAME_BUDGET_MS)break;
    step(1/60);acc=Math.max(0,acc-1/60);steps++;
   }
   if(state!=='fight')acc=0;
-  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent='戦闘時間 '+Math.min(60,elapsed).toFixed(1)+' / 60 秒';
+  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent=Math.min(60,elapsed).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(elapsed,speed)+'×';
  }else {acc=0;if(state==='result'){visualTime+=Math.min(delta,.1);if(visualTime-elapsed<.8)draw();}}
  requestAnimationFrame(loop);
 }
@@ -2085,7 +2132,7 @@ function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused
 let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
 const ROLE_NOTES={sword:'標準近接',shield:'重い前衛',spear:'長い近接',archer:'対空射撃',cannon:'対空・範囲',rider:'速い近接',healer:'回復',goblin:'小型・速い',golem:'大型・重い・遅い',drake:'飛行・対空必要',wraith:'地上・小鬼3体召喚',boar:'一度だけ突進',bombbug:'近づいて自爆',frostmage:'減速・対空',stormmage:'連鎖・対空',burrower:'一度だけ潜る',slime:'倒れると2体',slimelet:'分裂した小滴'};
-function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
+function freshWallet(){pendingCarryKinds=null;carryStreak=0;initialKinds=[[],[]];initialUnits=[];walletState=Wallet.createSession({sessionId:'quick10-solo-'+(++walletSessionCounter),playerIds:[PLAYER]});}
 function credits(n){return (n>0?'+':'')+n+' G'}
 function currentWallet(){return Wallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
@@ -2093,9 +2140,9 @@ setup=function(s){resetSoloClock();selectedSide=null;selectedStake=0;spriteSetup
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);
-  q('#status').textContent='第 '+round+' / 20 戦';
+  q('#status').textContent='第 '+round+' / 10 戦';
   q('#balance').textContent=w.balance+' G';q('#profit').textContent=credits(w.score);q('#hits').textContent=w.correctCount+' / '+walletState.completedRounds;
-  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=20?'20戦の最終結果':'今回の結果';
+  q('#phaseTitle').textContent=state==='choose'?'勝つのはどっち？':state==='fight'?'戦場を観戦':round>=TOTAL_ROUNDS?'10戦の最終結果':'今回の結果';
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
@@ -2103,7 +2150,7 @@ update=function(){
   q('#confirm').disabled=selectedSide===null;
   q('#stakeHint').textContent=selectedStake?'正解 '+credits(10+selectedStake)+' · 外れ −'+selectedStake+' G':'正解 +10 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
-  q('#next').textContent=round>=20?'もう一度':'次の戦いへ';
+  q('#next').textContent=round>=TOTAL_ROUNDS?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
     const entry=walletState.ledger[round-1].entries[0];
     q('#message').textContent=winner===null?'引き分け':(winner===0?'左':'右')+'の勝利';
@@ -2127,7 +2174,7 @@ function openPrediction(seedValue){
 }
 function nextPrediction(){
   if(state!=='result')return;
-  if(round>=20){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
+  if(round>=TOTAL_ROUNDS){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryKinds=winner===0||winner===1?[...initialKinds[winner]]:null;carryStreak=winner===0?carryStreak+1:winner===1?1:0;round++;}
   openPrediction((Math.random()*4294967296)>>>0);
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
@@ -2141,8 +2188,8 @@ const scoreBridge=ScoreBridge.createScoreBridge({isGravity:()=>gravityContext||n
 async function submitFinalScore(action){
  if(!multiSession&&!walletState)return {status:'ineligible'};
  const snapshot=multiSession?multiSession.getState():null;
- const input=snapshot?{sessionId:snapshot.sessionId,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
- if(input.completedRounds!==20||input.spectator)return {status:'ineligible'};
+ const input=snapshot?{sessionId:snapshot.sessionId,mode:snapshot.mode,totalRounds:TOTAL_ROUNDS,playerId:multiUser,players:snapshot.wallets,completedRounds:snapshot.phase==='result'?snapshot.roundId:0,action,spectator:!snapshot.participants.includes(multiUser)}:{sessionId:walletState.sessionId,mode:walletState.mode,totalRounds:TOTAL_ROUNDS,playerId:PLAYER,players:walletState.players,completedRounds:walletState.completedRounds,action};
+ if(input.completedRounds!==TOTAL_ROUNDS||input.spectator)return {status:'ineligible'};
  if(globalThis.parent&&globalThis.parent!==globalThis&&!gravityContext&&!nativeProfileVerified){
   try{const sdk=await loadNativeSDK();let timer;const profile=await Promise.race([sdk.user.getMyUserInfo(),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),3000)})]);clearTimeout(timer);nativeProfileVerified=profile?.errno===0&&!!profile.data?.user_id;}catch{}
  }
@@ -2178,7 +2225,7 @@ function displayMultiState(){
   const ranks=(s.wallets||[]).slice().sort((a,b)=>b.score-a.score);
   let prior=null,rankNo=0;
   q('#breakdown').textContent=ranks.map((p,i)=>{if(p.score!==prior)rankNo=i+1;prior=p.score;return rankNo+'位 '+(p.playerId===multiUser?'あなた':p.playerId)+'：純益 '+credits(p.score)+' / 残高 '+p.balance+' G / 正解 '+p.correctCount;}).join('\n');
-  q('#next').hidden=!multiHost;q('#next').disabled=s.phase!=='result';q('#next').textContent=round>=20?'20戦終了・ひとり用へ戻る':'ホスト：次の戦いへ';
+  q('#next').hidden=!multiHost;q('#next').disabled=s.phase!=='result';q('#next').textContent=round>=TOTAL_ROUNDS?'10戦終了・ひとり用へ戻る':'ホスト：次の戦いへ';
  }
  if(s.phase==='battle'){const clock=multiSession.getPlaybackClock();if(!clock.ready)q('#phaseTitle').textContent=clock.status==='waiting-replay'?'戦闘記録を受信中':'観戦の時計を確認中';else if(clock.status==='waiting-start')q('#phaseTitle').textContent='共有開始時刻を待っています';q('#roomStatus').textContent+=' / '+(clock.ready?'共有時刻で再生（推定誤差±'+Math.round(clock.uncertaintyMs||0)+'ms）':'時計または記録の確認待ち');}
  if(s.phase==='stopped'){q('#comparison').hidden=true;q('#battle').hidden=true;q('#resultPanel').hidden=true;q('#roomStatus').textContent='停止：'+s.stoppedReason+'。未精算の予約は差し引きません。退出して戻れます。';}
@@ -2186,9 +2233,9 @@ function displayMultiState(){
 update=function(){if(multiRecording)return;if(multiSession)displayMultiState();else soloUpdate();};
 function onMultiChange(s){if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;resetMultiRound();if(!multiHost&&s.matchup?.units){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));}}if(multiSession)displayMultiState();}
 function resetMultiRound(){multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=0;}
-function publicMatchup(){return {engineVersion:'v9-roster-carry',units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
+function publicMatchup(){return {engineVersion:'v10-quick10',runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:64,maxActiveUnits:64,maxCreatedEntities:256};}
 function openMultiRound(){
- if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=20)return;
+ if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase)||s.roundId>=TOTAL_ROUNDS)return;
  const nextRound=s.roundId===null?1:s.roundId+1;const priorWorld={round,carryStreak,pendingCarryKinds,initialKinds,initialUnits,previousArmyKinds,leftArmyCost,units,shots,elapsed,choice,winner,state,seed,visualTime,visualUnits,activeEffects,newEffects,effectClockTick,last,acc,selectedSide,selectedStake,multiInitial,multiRoundSeen,multiLastSceneTick,multiPredictionPending,multiReplay,multiPlayback,multiPlaybackStarted,multiRecording,pendingSummons,combatEvents,cameraZoom,cameraX,cameraY,cameraDrag,budgets:budgets.slice()};
  try{carryStreak=s.phase==='result'?(s.winner==='A'?carryStreak+1:s.winner==='B'?1:0):0;pendingCarryKinds=s.phase==='result'&&(s.winner==='A'||s.winner==='B')?multiInitial.filter(u=>u.side===(s.winner==='A'?0:1)).map(u=>u.k):null;round=nextRound;resetMultiRound();multiRecording=true;try{setup((Math.random()*4294967296)>>>0)}finally{multiRecording=false}round=nextRound;multiRoundSeen=round;multiInitial=JSON.parse(JSON.stringify(units));
  multiSession.openRound({roundId:round,durationMs:30000,matchup:publicMatchup()});multiSnapshot=multiSession.getState();displayMultiState();
@@ -2220,7 +2267,7 @@ startPrediction=function(skip=false){
  if(mockGuest)mockGuest.predict('A',0);
  multiSnapshot=multiSession.getState();displayMultiState();
 };
-nextPrediction=function(){if(!multiSession){if(round>=20)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=20){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
+nextPrediction=function(){if(!multiSession){if(round>=TOTAL_ROUNDS)submitFinalScore('replay');return soloNext();}if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS){submitFinalScore('finish');void leaveMulti();return;}openMultiRound();};
 document.querySelector('#confirm').onclick=()=>startPrediction();document.querySelector('#next').onclick=()=>nextPrediction();
 function drainMock(){let n=0;while(mockQueue.length&&n++<10000){const [to,from,wire]=mockQueue.shift();to()?.receive(from,wire);}}
 function pumpMulti(now){
@@ -2248,7 +2295,7 @@ loop=function(t){if(!multiSession)return soloLoop(t);pumpMulti(Date.now());reque
 function beginMock(){
  if(multiSession||multiBusy||state==='fight')return;
  multiUser='you';multiHost=true;multiError='';multiLastPump=0;multiHeartbeat=0;multiRoundSeen=null;
- multiSession=MultiBinding.createWalletSession({roomId:'local-mock',sessionId:'mock-'+Date.now(),userId:'you',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>mockGuest,'you',wire]),onChange:onMultiChange});
+ multiSession=MultiBinding.createWalletSession({roomId:'local-mock',sessionId:'quick10-mock-'+Date.now(),userId:'you',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>mockGuest,'you',wire]),onChange:onMultiChange});
  const sid=multiSession.getState().sessionId;
  mockGuest=MultiProtocol.createSession({roomId:'local-mock',sessionId:sid,userId:'mock-guest',hostId:'you',members:['you','mock-guest'],send:wire=>mockQueue.push([()=>multiSession,'mock-guest',wire])});
  multiSnapshot=multiSession.getState();multiSession.hello();drainMock();displayMultiState();
@@ -2327,7 +2374,7 @@ function updateUnitTraits(){
 }
 document.querySelector('#unitKind').onchange=updateUnitTraits;
 let formationVisible=false;
-function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
+function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
 update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
 let lastScreenPhase=null;
@@ -2346,11 +2393,12 @@ if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener(
 showScreen('home');
 
 // Draft a BET and army; only the Start button commits once.
-// No implicit predictions and no automatic restart after round 20.
+// No implicit predictions and no automatic restart after round 10.
 const RESULT_READ_SECONDS=3;
 let pausePanelOpen=false,pausePanelWasPaused=false;
 let resultReadSeconds=0,resultReadLast=null,resultReadRound=null;
-function resetResultRead(){resultReadSeconds=0;resultReadLast=null;}
+function resetResultRead(){resultReadSeconds=0;resultReadLast=null;syncResultProgress();}
+function syncResultProgress(){const bar=document.querySelector("#resultProgress"),fill=document.querySelector("#resultProgressFill");if(!bar||!fill)return;bar.hidden=!!multiSession||state!=="result"||round>=TOTAL_ROUNDS||screenMode!=="game";fill.setAttribute("style","transform:scaleX("+Math.max(0,1-resultReadSeconds/RESULT_READ_SECONDS)+")");}
 function commitArmy(side){
  if(screenMode!=='game'||state!=='choose')return;
  if(multiSession){const s=multiSession.getState();if(s.phase!=='predict'||multiPredictionPending||s.readyIds.includes(multiUser))return;}
@@ -2362,10 +2410,11 @@ document.querySelector('#blue').onclick=()=>commitArmy(1);
 document.querySelector('#confirm').hidden=false;
 document.querySelector('#confirm').onclick=()=>{if(!predictionPreview)startPrediction(false);};
 function advanceResultRead(t){
- if(multiSession||state!=='result'||round>=20||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
+ if(multiSession||state!=='result'||round>=TOTAL_ROUNDS||screenMode!=='game'||document.hidden===true){resetResultRead();return;}
  if(resultReadRound!==round){resetResultRead();resultReadRound=round;}
  if(resultReadLast!==null)resultReadSeconds+=Math.max(0,(t-resultReadLast)/1000);
  resultReadLast=t;
+ syncResultProgress();
  const next=document.querySelector('#next');
  next.textContent='次の戦いへ · '+Math.max(0,Math.ceil(RESULT_READ_SECONDS-resultReadSeconds));
  if(resultReadSeconds>=RESULT_READ_SECONDS){resetResultRead();nextPrediction();}
@@ -2438,7 +2487,7 @@ function toggleUnits(open){
 function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
  q('#gameScreen')?.setAttribute('data-phase',state);if(pausePanelOpen&&state!=='fight')closePausePanel();
- const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<20;
+ const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<TOTAL_ROUNDS;
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',cameraZoom===1]])if(q(id))q(id).disabled=disabled;
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }
@@ -2621,9 +2670,8 @@ if(typeof document.addEventListener==='function')document.addEventListener('keyd
       if (check) cancelSlot('selection-check');
       play('selection-check', card,
         [
-          { transform: 'translateY(1px) scale(.985)' },
-          { transform: 'translateY(-1px) scale(1.018)', offset: 0.7 },
-          { transform: 'translateY(0px) scale(1)' }
+          { opacity: 0.82 },
+          { opacity: 1 }
         ], { duration: 120, easing: 'cubic-bezier(.2,.8,.2,1)' });
     }
   }

@@ -1,4 +1,4 @@
-// Independent monster-combat candidate. Geometry and combat metadata remain separate.
+// v10 horizontal combat: side 0 advances +x, side 1 advances -x; stats/caps unchanged.
 const RADII={sword:9,shield:12,spear:9,archer:8,cannon:14,rider:15,healer:8,goblin:7,golem:25,drake:13,wraith:9,boar:14,bombbug:9,frostmage:8,stormmage:8,burrower:11,slime:16,slimelet:7};
 const REACH={sword:6,shield:3,spear:25,archer:132,cannon:102,rider:4,healer:72,goblin:4,golem:2,drake:12,wraith:63,boar:4,bombbug:5,frostmage:110,stormmage:95,burrower:5,slime:3,slimelet:3};
 for(const k of keys){TYPES[k].radius=RADII[k];TYPES[k].reach=REACH[k]}
@@ -16,21 +16,24 @@ function nearbyGrid(list,positions=null){
  return (x,y,range=GRID_SIZE)=>{const found=[],cx=Math.floor(x/GRID_SIZE),cy=Math.floor(y/GRID_SIZE),n=Math.ceil(Math.max(0,range)/GRID_SIZE);for(let dx=-n;dx<=n;dx++)for(let dy=-n;dy<=n;dy++)for(const u of cells.get((cx+dx)+','+(cy+dy))||[])found.push(u);return found.sort(stableOrder)};
 }
 function snapPosition(v){return Math.round(v*4096)/4096}
+// X reflection needs an odd tie rule about the field center, not absolute Math.round.
+// Epsilon is in quantized units (under 3e-11 world px), only resolving float ties.
+function snapXPosition(v){const q=(v-FIELD.w/2)*4096;return FIELD.w/2+(q<0?-1:1)*Math.floor(Math.abs(q)+.5+1e-7)/4096}
 function resolveBodies(alive,positions){
  // Jacobi: unordered same-layer pairs, simultaneous corrections, inverse explicit mass.
  for(let pass=0;pass<8;pass++){
   const near=nearbyGrid(alive,positions),index=new Map(alive.map((u,i)=>[u,i])),delta=new Map(alive.map(u=>[u,{x:0,y:0}]));let maximum=0;
-  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
-  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapPosition(p.x);p.y=snapPosition(p.y)}
+  for(const u of alive){const p=positions.get(u),ru=radiusOf(u);for(const v of near(p.x,p.y,ru+MAX_RADIUS)){if(index.get(v)<=index.get(u)||!canCollide(u,v))continue;const q=positions.get(v),rv=radiusOf(v),dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy),penetration=ru+rv-d;if(penetration<=.01)continue;maximum=Math.max(maximum,penetration);const nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0,iu=1/massOf(u),iv=1/massOf(v),a=delta.get(u),b=delta.get(v),correction=penetration+.005;a.x-=nx*correction*iu/(iu+iv);a.y-=ny*correction*iu/(iu+iv);b.x+=nx*correction*iv/(iu+iv);b.y+=ny*correction*iv/(iu+iv)}}
+  for(const u of alive){const p=positions.get(u),d=delta.get(u),r=radiusOf(u),length=Math.hypot(d.x,d.y),scale=length>r*.5?r*.5/length:1;p.x=Math.max(r,Math.min(FIELD.w-r,p.x+d.x*scale));p.y=Math.max(r,Math.min(FIELD.h-r,p.y+d.y*scale));p.x=snapXPosition(p.x);p.y=snapPosition(p.y)}
   if(maximum<.04)break;
  }
 }
 function hashString(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function spawnPosition(parent,spawnToken,alive,kind='goblin'){
  // A deterministic spiral, rotated by stable token. No shared RNG or array-order draws.
- const pr=radiusOf(parent),r=radiusOf({k:kind}),start=hashString(spawnToken)%8,base=pr+r+3,forward=parent.originForward??(parent.y<=FIELD.h/2?1:-1);
+ const pr=radiusOf(parent),r=radiusOf({k:kind}),start=hashString(spawnToken)%8,base=pr+r+3,forward=parent.originForward??(parent.side===0?1:-1);
  for(let ring=0;ring<6;ring++)for(let j=0;j<8;j++){
-  const slot=(start+j)%8,angle=slot*Math.PI/4,dist=base+ring*(r*1.65),x=snapPosition(parent.x+Math.cos(angle)*dist),y=snapPosition(parent.y+Math.sin(angle)*forward*dist);
+  const slot=(start+j)%8,angle=slot*Math.PI/4,dist=base+ring*(r*1.65),x=snapXPosition(parent.x+Math.cos(angle)*forward*dist),y=snapPosition(parent.y+Math.sin(angle)*dist);
   if(x<r||x>FIELD.w-r||y<r||y>FIELD.h-r)continue;
   const free=alive.every(v=>!canCollide(v,{k:kind})||Math.hypot(v.x-x,v.y-y)>=radiusOf(v)+r+1);
   if(free)return {x,y};
@@ -67,15 +70,15 @@ function step(dt){
  }
  const sideCounts=[0,0];for(const u of alive)sideCounts[u.side]++;
  for(const u of alive){
-  tokenOf(u);if(u.originForward===undefined)u.originForward=u.y<=FIELD.h/2?1:-1;
+  tokenOf(u);if(u.originForward===undefined)u.originForward=u.side===0?1:-1;
   const t=TYPES[u.k];if(u.summonCharges===undefined)u.summonCharges=t.summonCharges||0;
   const enemies=alive.filter(v=>v.side!==u.side&&canTargetSnapshot(u,v));moves.set(u,{x:u.x,y:u.y});u.cd-=dt;
   if(t.chargeBonus&&u.chargeReady===undefined)u.chargeReady=true;
   if(t.burrowWarning){
    if(u.burrowStage===undefined&&enemies.length){
-    const rear=enemies.slice().sort((a,b)=>(b.y-a.y)*u.originForward||Math.abs(a.x-u.x)-Math.abs(b.x-u.x)||stableOrder(a,b))[0];
+    const rear=enemies.slice().sort((a,b)=>(b.x-a.x)*u.originForward||Math.abs(a.y-u.y)-Math.abs(b.y-u.y)||stableOrder(a,b))[0];
     u.burrowStage='warning';u.burrowUntil=elapsed+t.burrowWarning;
-    u.burrowX=Math.max(radiusOf(u),Math.min(FIELD.w-radiusOf(u),rear.x));u.burrowY=Math.max(radiusOf(u),Math.min(FIELD.h-radiusOf(u),rear.y+u.originForward*(radiusOf(u)+radiusOf(rear)+6)));
+    u.burrowX=Math.max(radiusOf(u),Math.min(FIELD.w-radiusOf(u),rear.x+u.originForward*(radiusOf(u)+radiusOf(rear)+6)));u.burrowY=Math.max(radiusOf(u),Math.min(FIELD.h-radiusOf(u),rear.y));
     if(collectEvents)publishCombatEvent({type:'burrow_warning',sourceToken:tokenOf(u),x:u.burrowX,y:u.burrowY,sourceX:u.x,sourceY:u.y,targetX:u.burrowX,targetY:u.burrowY,until:u.burrowUntil});
    }
    if(u.burrowStage==='warning'){
@@ -110,7 +113,7 @@ function step(dt){
   const gap=v=>Math.hypot(v.x-u.x,v.y-u.y)-radiusOf(u)-radiusOf(v);
   let dist=Math.min(...enemies.map(gap));const target=enemies.filter(v=>Math.abs(gap(v)-dist)<1e-7).sort(stableOrder)[0];
   if(dist>t.reach+1/2048){
-   let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:1,ny=d>1e-8?dy/d:0;
+   let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),nx=d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)),ny=d>1e-8?dy/d:0;
    // Snapshot-local lateral avoidance. Only bodies which physically collide can block.
    const blocked=near(u.x,u.y,radiusOf(u)+MAX_RADIUS).some(v=>v!==u&&v!==target&&targetLayers.get(u)===targetLayers.get(v)&&((v.x-u.x)*nx+(v.y-u.y)*ny)>0&&Math.hypot(v.x-u.x,v.y-u.y)<radiusOf(u)+radiusOf(v)+5);
    if(blocked){const turn=(u.priority??.25)<.5?-1:1,tx=ny*u.originForward*turn,ty=-nx*u.originForward*turn;nx+=tx*1.35;ny+=ty*1.35;const length=Math.hypot(nx,ny);nx/=length;ny/=length}
@@ -135,7 +138,7 @@ function step(dt){
    if(collectEvents)publishCombatEvent({type:'projectile_release',source:sourceToken,sourceToken,k:u.k,target:targetToken,targetToken,x:u.x,y:u.y});
   }else{
    hit(target,t.dmg+(u.chargeReady?t.chargeBonus:0),false,u.k,tokenOf(u));
-   if(u.chargeReady){u.chargeReady=false;const dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),push=knockbacks.get(target)||{x:0,y:0};const knock=t.knockback*Math.min(1,massOf(u)/massOf(target));push.x+=(d>1e-8?dx/d:1)*knock;push.y+=(d>1e-8?dy/d:0)*knock;knockbacks.set(target,push);if(collectEvents)publishCombatEvent({type:'charge_impact',sourceToken:tokenOf(u),targetToken:tokenOf(target),x:u.x,y:u.y,targetX:target.x,targetY:target.y});}
+   if(u.chargeReady){u.chargeReady=false;const dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy),push=knockbacks.get(target)||{x:0,y:0};const knock=t.knockback*Math.min(1,massOf(u)/massOf(target));push.x+=(d>1e-8?dx/d:(u.originForward??(u.side===0?1:-1)))*knock;push.y+=(d>1e-8?dy/d:0)*knock;knockbacks.set(target,push);if(collectEvents)publishCombatEvent({type:'charge_impact',sourceToken:tokenOf(u),targetToken:tokenOf(target),x:u.x,y:u.y,targetX:target.x,targetY:target.y});}
    if(collectEvents&&u.k==='golem')golemContacts.push({source:u,target});
   }
  }
@@ -147,7 +150,7 @@ function step(dt){
    if(s.splash)alive.filter(v=>v.side!==s.side&&s.mask.includes(targetLayers.get(v))&&Math.hypot(v.x-s.target.x,v.y-s.target.y)<=s.splash+1e-7).forEach(v=>hit(v,s.damage,true,s.k,s.sourceToken));
    else if(!s.target.dead&&s.mask.includes(targetLayers.get(s.target))){hit(s.target,s.damage,true,s.k,s.sourceToken);if(s.slowDuration)slowIntents.push({target:s.target,sourceToken:s.sourceToken,factor:s.slowFactor,duration:s.slowDuration,immunity:s.slowImmunity});}
    s.done=true;
-  }else if(d>1e-8){s.x=snapPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
+  }else if(d>1e-8){s.x=snapXPosition(s.x+dx/d*210*dt);s.y=snapPosition(s.y+dy/d*210*dt)}
  }
  shots=shots.filter(s=>!s.done);
  const resolvedHeals=[];

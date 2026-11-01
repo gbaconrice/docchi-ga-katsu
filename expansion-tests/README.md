@@ -1,3 +1,5 @@
+> v10 note: this folder’s physics.js now uses horizontal combat. Legacy vertical trajectory/counter fixtures below are historical. Current axis regression: `node ../v10-horizontal-physics-audit.cjs` from this directory (or run the file from the candidate root). See `../V10-HORIZONTAL-AUDIT.md`.
+
 # Six-unit combat expansion — frozen candidate
 
 This folder owns combat source and contracts only. No browser rendering, publication, SDK calls, or economy changes were performed. Original v6.2 files remain unchanged.

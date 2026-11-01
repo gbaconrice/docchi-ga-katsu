@@ -27,7 +27,7 @@ Important: call `unlockFromGesture(event)` or the gesture-taking APIs below *syn
 - Wrap deterministic replay/recording work such as v9 `multiRecording` with `setSuppressed(true)` / `setSuppressed(false)` in `try/finally`. This forcibly silences both cues and ambience during canonical replay generation. Also ensure the live event consumer is not called during that recording path.
 - `setPhase('idle'|'result')` can fade the ambience; use `finishBattle...` for the one-shot result cue. `destroy()` disconnects and closes all managed nodes.
 
-Keep the key stable across reconnects so a replayed snapshot cannot repeat the opening/result sound. Never call `beginBattle` or `finishBattle...` with only a round number shared across separate runs; include a session/room ID. The module retains a bounded recent-key window sized beyond the 20-round match.
+Keep the key stable across reconnects so a replayed snapshot cannot repeat the opening/result sound. Never call `beginBattle` or `finishBattle...` with only a round number shared across separate runs; include a session/room ID. The module retains a bounded recent-key window sized beyond the 10-round match.
 
 ## Sound design
 

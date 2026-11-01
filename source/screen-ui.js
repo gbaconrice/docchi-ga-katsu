@@ -46,7 +46,7 @@ function updateUnitTraits(){
 }
 document.querySelector('#unitKind').onchange=updateUnitTraits;
 let formationVisible=false;
-function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent='戦闘時間 '+Math.min(60,multiLastSceneTick/60).toFixed(1)+' / 60 秒';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
+function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
 update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
 let lastScreenPhase=null;

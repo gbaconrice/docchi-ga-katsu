@@ -1,7 +1,9 @@
-import {createClockEstimator} from './clock-sync.mjs';
+import {createClockEstimator,sceneTickFromWallMs} from './clock-sync.mjs';
 import {packReplay,validMeta,createSender,createReceiver} from './replay-transfer.mjs';
 /** Client-host coordination, NOT a trusted server or private transport. */
-export const PROTOCOL = 'gravity-prediction-battle';
+export const GAME_MODE = 'GRAVITY_QUICK10_V1';
+export const TOTAL_ROUNDS = 10;
+export const PROTOCOL = 'gravity-prediction-battle-quick10-v1';
 export const MAX_WIRE_BYTES = 48000; // conservative application cap, not verified SDK quota
 const PHASES = ['lobby','predict','locked','battle','settle','result','stopped'];
 const sid = x => typeof x === 'string' && x.length > 0 && x.length <= 128;
@@ -9,25 +11,29 @@ const integer = x => Number.isSafeInteger(x) && x >= 0;
 const clone = x => JSON.parse(JSON.stringify(x));
 const bytes = s => new TextEncoder().encode(s).length;
 export function encode(message) {
-  const wire = JSON.stringify(message);
+  // New-protocol control messages (SDK discovery/confirmation) inherit this package's mode.
+  // Old protocol names are never upgraded, and explicit incompatible modes stay incompatible.
+  const tagged=message?.protocol===PROTOCOL&&message.mode===undefined?{...message,mode:GAME_MODE}:message;
+  const wire = JSON.stringify(tagged);
   if (bytes(wire) > MAX_WIRE_BYTES) throw new RangeError('wire-cap-exceeded');
   return wire;
 }
 export function decode(wire) {
   if (typeof wire !== 'string' || bytes(wire) > MAX_WIRE_BYTES) return null;
-  try { const m=JSON.parse(wire); return m && m.protocol===PROTOCOL && m.version===1 ? m : null; } catch { return null; }
+  try { const m=JSON.parse(wire); return m && m.protocol===PROTOCOL && m.version===1 && m.mode===GAME_MODE ? m : null; } catch { return null; }
 }
-export function createSession({roomId, sessionId, userId, hostId, members=[], send,
+export function createSession({roomId, sessionId, userId, hostId, members=[], send, mode=GAME_MODE,
   now=Date.now, validateBet=()=>true, settle=()=>null, onOpenRound=()=>{}, onAcceptBet=()=>{}, onChange=()=>{}, hostTimeoutMs=30000}) {
+  if(mode!==GAME_MODE)throw new Error('incompatible-game-mode');
   if (![roomId,sessionId,userId,hostId].every(sid) || typeof send!=='function') throw new TypeError('identity/send required');
   const host=userId===hostId;
   const seats=[...new Set([hostId,...members])];
   if (seats.length>8 || !seats.every(sid)) throw new RangeError('maximum eight application seats');
-  let state={sessionId,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
+  let state={sessionId,mode:GAME_MODE,totalRounds:TOTAL_ROUNDS,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
     spectators:[],readyIds:[],bets:[],winner:null,replay:null,wallets:null,stoppedReason:null};
   let localSeq=0,lastHostSeen=now(),outgoing=null,incoming=null,canonicalReplay=null;
   const sequences=new Map(), privateBets=new Map(), settled=new Set();
-  const envelope = body => ({protocol:PROTOCOL,version:1,roomId,sessionId,...body});
+  const envelope = body => ({protocol:PROTOCOL,version:1,mode:GAME_MODE,roomId,sessionId,...body});
   const emit = body => {
     const wire=encode(envelope(body));
     try {const result=send(wire);if(result?.then)result.catch(()=>stop('transport-error'));return result;}
@@ -54,14 +60,14 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
   function receive(sender,wire){
     if(!sid(sender)||state.phase==='stopped')return false;
     const m=decode(wire);
-    if(!m||m.roomId!==roomId||m.sessionId!==sessionId)return false;
+    if(!m||m.mode!==GAME_MODE||m.roomId!==roomId||m.sessionId!==sessionId)return false;
     if(!host){
       if(sender!==hostId)return false;
       if(m.type==='clock-reply'){if(m.targetId!==userId||!clockEstimator.accept(m))return false;lastHostSeen=now();notify();return true;}
       if(m.type==='replay-chunk')return incoming?.receive(m)??false;
       if(m.type!=='snapshot')return false;
       const s=m.state;
-      if(!s||s.sessionId!==sessionId||!integer(s.revision)||!PHASES.includes(s.phase)||
+      if(!s||s.mode!==GAME_MODE||s.totalRounds!==TOTAL_ROUNDS||s.sessionId!==sessionId||!(s.roundId===null?['lobby','stopped'].includes(s.phase):(integer(s.roundId)&&s.roundId>=1&&s.roundId<=TOTAL_ROUNDS))||!integer(s.revision)||!PHASES.includes(s.phase)||(s.confirmedResult!=null&&(!integer(s.confirmedResult.roundId)||s.confirmedResult.roundId<1||s.confirmedResult.roundId>TOTAL_ROUNDS||s.confirmedResult.roundId!==s.roundId))||
         !Array.isArray(s.participants)||s.participants.length>8||!s.participants.every(sid)||
         new Set(s.participants).size!==s.participants.length||!s.participants.includes(hostId)||
         !Array.isArray(s.spectators)||!s.spectators.every(sid)||!Array.isArray(s.bets)||
@@ -111,7 +117,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     const estimate=host?{known:true,estimatedHostNow:now(),uncertaintyMs:0,sampleAgeMs:0,status:'host-clock'}:clockEstimator.estimate();
     const startAt=integer(state.replayStartAt)?state.replayStartAt:null;
     const ready=estimate.known&&startAt!==null&&!!canonicalReplay&&state.phase!=='stopped';
-    const sceneTick=ready?Math.min(canonicalReplay.ticks,Math.max(0,Math.floor((estimate.estimatedHostNow-startAt)*60/1000))):null;
+    const sceneTick=ready?Math.min(canonicalReplay.ticks,Math.max(0,sceneTickFromWallMs(estimate.estimatedHostNow-startAt))):null;
     const status=state.phase==='stopped'?'stopped':!estimate.known?estimate.status:!canonicalReplay||startAt===null?'waiting-replay':estimate.estimatedHostNow<startAt?'waiting-start':sceneTick>=canonicalReplay.ticks?'finished':'playing';
     return {...estimate,startAt,ready,sceneTick,status};
   }
@@ -123,7 +129,7 @@ export function createSession({roomId, sessionId, userId, hostId, members=[], se
     hello(){if(!host){emit({type:'hello'});clockEstimator.probe(true);}else broadcast();},
     heartbeat(){if(host&&state.phase!=='stopped'){tick();broadcast();}},
     openRound({roundId,durationMs,matchup}){
-      requireHost();if(!['lobby','result'].includes(state.phase)||!integer(roundId)||roundId<1||settled.has(roundId)||!integer(durationMs)||durationMs<1)throw new Error('invalid-round');
+      requireHost();if(!['lobby','result'].includes(state.phase)||!integer(roundId)||roundId<1||roundId>TOTAL_ROUNDS||roundId!==(state.roundId??0)+1||settled.has(roundId)||!integer(durationMs)||durationMs<1)throw new Error('invalid-round');
       const deadline=now()+durationMs;if(!integer(deadline))throw new Error('invalid-clock');
       // Matchup must contain public army configuration only; do not send future seed.
       encode(envelope({type:'snapshot',state:{...state,matchup}}));

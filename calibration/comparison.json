@@ -1,0 +1,2574 @@
+{
+  "generatedAt": "2026-11-01T14:26:46.728Z",
+  "trainingSeeds": [
+    1,
+    2,
+    3
+  ],
+  "heldoutSeeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106
+  ],
+  "thresholds": "descriptive not validated; no runtime outcome selection",
+  "results": {
+    "baseline-fixed.json": {
+      "policy": {
+        "baseline": true
+      },
+      "overall": {
+        "n": 30,
+        "left": 9,
+        "right": 21,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.4005035600087422,
+        "winnerSurvivingOriginalCostRatio": 0.6834884027283551,
+        "stompAtLeast75Rate": 0.06666666666666667,
+        "closeAtMost25Rate": 0.23333333333333334,
+        "winnerNoInitialCasualtyRate": 0.16666666666666666,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.726111111111202,
+        "meanCost": [
+          45,
+          55.6
+        ],
+        "meanCount": [
+          10.433333333333334,
+          11.3
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.28856209150326795,
+          "winnerSurvivingOriginalCostRatio": 0.6,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.255555555555725,
+          "meanCost": [
+            20,
+            26
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8.666666666666666
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.5252688172043011,
+          "winnerSurvivingOriginalCostRatio": 0.9,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.283333333333365,
+          "meanCost": [
+            26,
+            32.333333333333336
+          ],
+          "meanCount": [
+            8.666666666666666,
+            8.666666666666666
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.31934840468173803,
+          "winnerSurvivingOriginalCostRatio": 0.6232323232323232,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.488888888889022,
+          "meanCost": [
+            30.333333333333332,
+            39
+          ],
+          "meanCount": [
+            9,
+            12.333333333333334
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.6205863952304441,
+          "winnerSurvivingOriginalCostRatio": 0.7640587055221202,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.705555555555762,
+          "meanCost": [
+            36,
+            46
+          ],
+          "meanCount": [
+            12.333333333333334,
+            10.666666666666666
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.1718686482750312,
+          "winnerSurvivingOriginalCostRatio": 0.37017454090624824,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 21.749999999999858,
+          "meanCost": [
+            46,
+            56.333333333333336
+          ],
+          "meanCount": [
+            10.666666666666666,
+            12
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.47766703111677816,
+          "winnerSurvivingOriginalCostRatio": 0.5703981906513552,
+          "stompAtLeast75Rate": 0.3333333333333333,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 20.15000000000002,
+          "meanCost": [
+            53,
+            64.66666666666667
+          ],
+          "meanCount": [
+            11.333333333333334,
+            13.333333333333334
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.38988270012089726,
+          "winnerSurvivingOriginalCostRatio": 0.8499539170506912,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.666666666666822,
+          "meanCost": [
+            64.66666666666667,
+            77
+          ],
+          "meanCount": [
+            13.333333333333334,
+            13
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 3,
+          "right": 0,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3260268023332378,
+          "winnerSurvivingOriginalCostRatio": 0.6691039426523298,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 20.922222222222146,
+          "meanCost": [
+            77,
+            91
+          ],
+          "meanCount": [
+            13,
+            12.666666666666666
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.5220175200792435,
+          "winnerSurvivingOriginalCostRatio": 0.7796290739351504,
+          "stompAtLeast75Rate": 0.3333333333333333,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.21111111111125,
+          "meanCost": [
+            77,
+            103.66666666666667
+          ],
+          "meanCount": [
+            13,
+            17.333333333333332
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "heldout-baseline.json": {
+      "policy": {
+        "name": "baseline",
+        "baseline": true
+      },
+      "overall": {
+        "n": 60,
+        "left": 20,
+        "right": 39,
+        "draw": 1,
+        "winnerCreatedHpRatio": 0.3708523945840094,
+        "winnerSurvivingOriginalCostRatio": 0.5874285310324147,
+        "stompAtLeast75Rate": 0.05084745762711865,
+        "closeAtMost25Rate": 0.3220338983050847,
+        "winnerNoInitialCasualtyRate": 0.13559322033898305,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.297777777777856,
+        "meanCost": [
+          39.8,
+          49.96666666666667
+        ],
+        "meanCount": [
+          8.966666666666667,
+          10.333333333333334
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3162009803921569,
+          "winnerSurvivingOriginalCostRatio": 0.6041666666666666,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.5,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.14166666666685,
+          "meanCost": [
+            19,
+            19
+          ],
+          "meanCount": [
+            5.333333333333333,
+            4.5
+          ]
+        },
+        "2": {
+          "n": 6,
+          "left": 0,
+          "right": 6,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4618399044205496,
+          "winnerSurvivingOriginalCostRatio": 0.7166666666666667,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 9.658333333333394,
+          "meanCost": [
+            19,
+            25.166666666666668
+          ],
+          "meanCount": [
+            6.333333333333333,
+            8.166666666666666
+          ]
+        },
+        "3": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4571391332681656,
+          "winnerSurvivingOriginalCostRatio": 0.652020202020202,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.16666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.055555555555664,
+          "meanCost": [
+            25.166666666666668,
+            31.833333333333332
+          ],
+          "meanCount": [
+            8.166666666666666,
+            9
+          ]
+        },
+        "4": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.20031997192991588,
+          "winnerSurvivingOriginalCostRatio": 0.3757353757353757,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.6250000000001,
+          "meanCost": [
+            28.833333333333332,
+            37.5
+          ],
+          "meanCount": [
+            7.833333333333333,
+            9.666666666666666
+          ]
+        },
+        "5": {
+          "n": 6,
+          "left": 1,
+          "right": 5,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.26873266160879977,
+          "winnerSurvivingOriginalCostRatio": 0.47747103844664823,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.58611111111116,
+          "meanCost": [
+            34.5,
+            44.333333333333336
+          ],
+          "meanCount": [
+            9.5,
+            10.166666666666666
+          ]
+        },
+        "6": {
+          "n": 6,
+          "left": 2,
+          "right": 3,
+          "draw": 1,
+          "winnerCreatedHpRatio": 0.31456008874234415,
+          "winnerSurvivingOriginalCostRatio": 0.47245564892623726,
+          "stompAtLeast75Rate": 0.2,
+          "closeAtMost25Rate": 0.6,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 19.063888888888656,
+          "meanCost": [
+            42.833333333333336,
+            53.166666666666664
+          ],
+          "meanCount": [
+            9.833333333333334,
+            8.833333333333334
+          ]
+        },
+        "7": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4266305117753369,
+          "winnerSurvivingOriginalCostRatio": 0.6174397026004559,
+          "stompAtLeast75Rate": 0.16666666666666666,
+          "closeAtMost25Rate": 0.16666666666666666,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.066666666666853,
+          "meanCost": [
+            44.666666666666664,
+            56.833333333333336
+          ],
+          "meanCount": [
+            8.333333333333334,
+            10.666666666666666
+          ]
+        },
+        "8": {
+          "n": 6,
+          "left": 1,
+          "right": 5,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.43485721856059856,
+          "winnerSurvivingOriginalCostRatio": 0.6855614543114544,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.24166666666673,
+          "meanCost": [
+            53,
+            64.83333333333333
+          ],
+          "meanCount": [
+            10.5,
+            11.833333333333334
+          ]
+        },
+        "9": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.37301307116733157,
+          "winnerSurvivingOriginalCostRatio": 0.5626882863724968,
+          "stompAtLeast75Rate": 0.16666666666666666,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.438888888889043,
+          "meanCost": [
+            62.333333333333336,
+            75.33333333333333
+          ],
+          "meanCount": [
+            11.666666666666666,
+            12.666666666666666
+          ]
+        },
+        "10": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4458483530012847,
+          "winnerSurvivingOriginalCostRatio": 0.6909181215602471,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.10000000000004,
+          "meanCost": [
+            68.66666666666667,
+            91.66666666666667
+          ],
+          "meanCount": [
+            12.166666666666666,
+            17.833333333333332
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "heldout-low.json": {
+      "policy": {
+        "name": "low",
+        "multiplier": 0.96,
+        "streak": 0,
+        "additive": 0,
+        "floorFactor": 1,
+        "supportCap": 1,
+        "counter": false,
+        "synergy": false,
+        "weights": {}
+      },
+      "overall": {
+        "n": 60,
+        "left": 25,
+        "right": 34,
+        "draw": 1,
+        "winnerCreatedHpRatio": 0.3143417350359312,
+        "winnerSurvivingOriginalCostRatio": 0.5982046249419131,
+        "stompAtLeast75Rate": 0.03389830508474576,
+        "closeAtMost25Rate": 0.4067796610169492,
+        "winnerNoInitialCasualtyRate": 0.1016949152542373,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.56416666666673,
+        "meanCost": [
+          27.166666666666668,
+          31.3
+        ],
+        "meanCount": [
+          7.266666666666667,
+          7.6
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3162009803921569,
+          "winnerSurvivingOriginalCostRatio": 0.6041666666666666,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.5,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.14166666666685,
+          "meanCost": [
+            19,
+            19
+          ],
+          "meanCount": [
+            5.333333333333333,
+            4.5
+          ]
+        },
+        "2": {
+          "n": 6,
+          "left": 4,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.37020270270270267,
+          "winnerSurvivingOriginalCostRatio": 0.5972222222222222,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.16666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 10.180555555555646,
+          "meanCost": [
+            19,
+            19
+          ],
+          "meanCount": [
+            6.333333333333333,
+            8.166666666666666
+          ]
+        },
+        "3": {
+          "n": 6,
+          "left": 5,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.31341977651275565,
+          "winnerSurvivingOriginalCostRatio": 0.673611111111111,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.075000000000108,
+          "meanCost": [
+            20.333333333333332,
+            21
+          ],
+          "meanCount": [
+            7,
+            8.666666666666666
+          ]
+        },
+        "4": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.19693361550968194,
+          "winnerSurvivingOriginalCostRatio": 0.4375,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.8333333333333334,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.000000000000197,
+          "meanCost": [
+            21,
+            24
+          ],
+          "meanCount": [
+            7,
+            6.666666666666667
+          ]
+        },
+        "5": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3334004851107664,
+          "winnerSurvivingOriginalCostRatio": 0.6517857142857143,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.477777777777938,
+          "meanCost": [
+            23.333333333333332,
+            28
+          ],
+          "meanCount": [
+            6.666666666666667,
+            6
+          ]
+        },
+        "6": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.37710799603682044,
+          "winnerSurvivingOriginalCostRatio": 0.6197916666666666,
+          "stompAtLeast75Rate": 0.16666666666666666,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.1444444444445,
+          "meanCost": [
+            26,
+            32
+          ],
+          "meanCount": [
+            7.166666666666667,
+            8
+          ]
+        },
+        "7": {
+          "n": 6,
+          "left": 1,
+          "right": 4,
+          "draw": 1,
+          "winnerCreatedHpRatio": 0.24471226899038484,
+          "winnerSurvivingOriginalCostRatio": 0.5770833333333333,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 26.43055555555517,
+          "meanCost": [
+            29.333333333333332,
+            36
+          ],
+          "meanCount": [
+            8.333333333333334,
+            6.833333333333333
+          ]
+        },
+        "8": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.37374269480283145,
+          "winnerSurvivingOriginalCostRatio": 0.6550925925925926,
+          "stompAtLeast75Rate": 0.16666666666666666,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.663888888888918,
+          "meanCost": [
+            32.333333333333336,
+            40
+          ],
+          "meanCount": [
+            6.666666666666667,
+            9.333333333333334
+          ]
+        },
+        "9": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.243250062184321,
+          "winnerSurvivingOriginalCostRatio": 0.4856060606060606,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 19.78888888888892,
+          "meanCost": [
+            38.666666666666664,
+            44
+          ],
+          "meanCount": [
+            8.833333333333334,
+            8.833333333333334
+          ]
+        },
+        "10": {
+          "n": 6,
+          "left": 0,
+          "right": 6,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3628418571092989,
+          "winnerSurvivingOriginalCostRatio": 0.6766666666666667,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.16666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.73888888888901,
+          "meanCost": [
+            42.666666666666664,
+            50
+          ],
+          "meanCount": [
+            9.333333333333334,
+            9
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "heldout-soft_weight.json": {
+      "policy": {
+        "name": "soft_weight",
+        "multiplier": 1,
+        "streak": 0.005,
+        "additive": 0.5,
+        "floorFactor": 1,
+        "supportCap": 0.35,
+        "counter": false,
+        "synergy": false,
+        "weights": {
+          "stormmage": 1.4
+        }
+      },
+      "overall": {
+        "n": 60,
+        "left": 21,
+        "right": 39,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.2367644773592725,
+        "winnerSurvivingOriginalCostRatio": 0.5143876615130418,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.5833333333333334,
+        "winnerNoInitialCasualtyRate": 0.15,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.64333333333352,
+        "meanCost": [
+          27.65,
+          31.416666666666668
+        ],
+        "meanCount": [
+          6.666666666666667,
+          6.666666666666667
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3162009803921569,
+          "winnerSurvivingOriginalCostRatio": 0.6041666666666666,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.5,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.14166666666685,
+          "meanCost": [
+            19,
+            19
+          ],
+          "meanCount": [
+            5.333333333333333,
+            4.5
+          ]
+        },
+        "2": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.12519901305480052,
+          "winnerSurvivingOriginalCostRatio": 0.25555555555555554,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.8333333333333334,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.216666666666887,
+          "meanCost": [
+            19,
+            21.166666666666668
+          ],
+          "meanCount": [
+            6.333333333333333,
+            5.333333333333333
+          ]
+        },
+        "3": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.17258433480919247,
+          "winnerSurvivingOriginalCostRatio": 0.5180555555555556,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.861111111111343,
+          "meanCost": [
+            20.5,
+            22.833333333333332
+          ],
+          "meanCount": [
+            6.5,
+            6.333333333333333
+          ]
+        },
+        "4": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.12983232806001485,
+          "winnerSurvivingOriginalCostRatio": 0.425997150997151,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.8333333333333334,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.1138888888891,
+          "meanCost": [
+            21.666666666666668,
+            25.666666666666668
+          ],
+          "meanCount": [
+            6.666666666666667,
+            6.333333333333333
+          ]
+        },
+        "5": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.33375342975493777,
+          "winnerSurvivingOriginalCostRatio": 0.5662151067323481,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.022222222222501,
+          "meanCost": [
+            24.333333333333332,
+            28.166666666666668
+          ],
+          "meanCount": [
+            6.333333333333333,
+            6.666666666666667
+          ]
+        },
+        "6": {
+          "n": 6,
+          "left": 2,
+          "right": 4,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.21049471761374164,
+          "winnerSurvivingOriginalCostRatio": 0.48757183908045976,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.38888888888896,
+          "meanCost": [
+            27,
+            30
+          ],
+          "meanCount": [
+            6.5,
+            7.333333333333333
+          ]
+        },
+        "7": {
+          "n": 6,
+          "left": 1,
+          "right": 5,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.23511924830171518,
+          "winnerSurvivingOriginalCostRatio": 0.5796228213507625,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.88333333333358,
+          "meanCost": [
+            30.333333333333332,
+            35.333333333333336
+          ],
+          "meanCount": [
+            7.666666666666667,
+            6.166666666666667
+          ]
+        },
+        "8": {
+          "n": 6,
+          "left": 0,
+          "right": 6,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.24601389546627192,
+          "winnerSurvivingOriginalCostRatio": 0.5805555555555556,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.13888888888903,
+          "meanCost": [
+            34.666666666666664,
+            39.333333333333336
+          ],
+          "meanCount": [
+            6.5,
+            6.833333333333333
+          ]
+        },
+        "9": {
+          "n": 6,
+          "left": 3,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.29999901072823393,
+          "winnerSurvivingOriginalCostRatio": 0.5761363636363637,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.730555555555583,
+          "meanCost": [
+            39.333333333333336,
+            42.666666666666664
+          ],
+          "meanCount": [
+            6.833333333333333,
+            8.5
+          ]
+        },
+        "10": {
+          "n": 6,
+          "left": 1,
+          "right": 5,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.29844781541166027,
+          "winnerSurvivingOriginalCostRatio": 0.5499999999999999,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.5,
+          "winnerNoInitialCasualtyRate": 0.16666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.93611111111134,
+          "meanCost": [
+            40.666666666666664,
+            50
+          ],
+          "meanCount": [
+            8,
+            8.666666666666666
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-low.json": {
+      "policy": {
+        "name": "low",
+        "multiplier": 0.96,
+        "streak": 0,
+        "additive": 0,
+        "floorFactor": 1,
+        "supportCap": 1,
+        "counter": false,
+        "synergy": false,
+        "weights": {}
+      },
+      "overall": {
+        "n": 30,
+        "left": 16,
+        "right": 14,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.3131125330714935,
+        "winnerSurvivingOriginalCostRatio": 0.6350198412698412,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.4,
+        "winnerNoInitialCasualtyRate": 0.16666666666666666,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 14.761111111111202,
+        "meanCost": [
+          28,
+          31.533333333333335
+        ],
+        "meanCount": [
+          6.933333333333334,
+          7.366666666666666
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 3,
+          "right": 0,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.34142156862745104,
+          "winnerSurvivingOriginalCostRatio": 0.875,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 9.966666666666745,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8.666666666666666
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4005049019607843,
+          "winnerSurvivingOriginalCostRatio": 0.7416666666666667,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 8.227777777777774,
+          "meanCost": [
+            20,
+            21.333333333333332
+          ],
+          "meanCount": [
+            6.666666666666667,
+            10.666666666666666
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.29173642533936656,
+          "winnerSurvivingOriginalCostRatio": 0.4583333333333333,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.888888888889108,
+          "meanCost": [
+            22.666666666666668,
+            24
+          ],
+          "meanCount": [
+            8.666666666666666,
+            7
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.21813360693114459,
+          "winnerSurvivingOriginalCostRatio": 0.5595238095238095,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.205555555555781,
+          "meanCost": [
+            24,
+            28
+          ],
+          "meanCount": [
+            8,
+            5.666666666666667
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4109331639632597,
+          "winnerSurvivingOriginalCostRatio": 0.8526785714285715,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.244444444444563,
+          "meanCost": [
+            28,
+            32
+          ],
+          "meanCount": [
+            5.666666666666667,
+            7
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2580056642663742,
+          "winnerSurvivingOriginalCostRatio": 0.5629960317460317,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.316666666666857,
+          "meanCost": [
+            29.333333333333332,
+            36
+          ],
+          "meanCount": [
+            5.666666666666667,
+            6.333333333333333
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.10214027831216836,
+          "winnerSurvivingOriginalCostRatio": 0.2583333333333333,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 25.005555555555418,
+          "meanCost": [
+            32,
+            40
+          ],
+          "meanCount": [
+            6,
+            6.666666666666667
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.39527132207716925,
+          "winnerSurvivingOriginalCostRatio": 0.6818181818181818,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 20.044444444444434,
+          "meanCost": [
+            40,
+            44
+          ],
+          "meanCount": [
+            6.666666666666667,
+            9
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 3,
+          "right": 0,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.349171209694734,
+          "winnerSurvivingOriginalCostRatio": 0.6515151515151515,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.88333333333328,
+          "meanCost": [
+            44,
+            50
+          ],
+          "meanCount": [
+            9,
+            8.333333333333334
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-low_weight.json": {
+      "policy": {
+        "name": "low_weight",
+        "multiplier": 0.96,
+        "streak": 0,
+        "additive": 0,
+        "floorFactor": 1,
+        "supportCap": 0.35,
+        "counter": false,
+        "synergy": false,
+        "weights": {
+          "stormmage": 1.4
+        }
+      },
+      "overall": {
+        "n": 30,
+        "left": 17,
+        "right": 13,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.31962062837105737,
+        "winnerSurvivingOriginalCostRatio": 0.5978800787991964,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.4666666666666667,
+        "winnerNoInitialCasualtyRate": 0.16666666666666666,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 14.086666666666824,
+        "meanCost": [
+          27.666666666666668,
+          30.933333333333334
+        ],
+        "meanCount": [
+          8,
+          7.966666666666667
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 3,
+          "right": 0,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.34142156862745104,
+          "winnerSurvivingOriginalCostRatio": 0.875,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 9.966666666666745,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8.666666666666666
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4005049019607843,
+          "winnerSurvivingOriginalCostRatio": 0.7416666666666667,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 8.227777777777774,
+          "meanCost": [
+            20,
+            21.333333333333332
+          ],
+          "meanCount": [
+            6.666666666666667,
+            10.666666666666666
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.266710479528599,
+          "winnerSurvivingOriginalCostRatio": 0.5833333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.972222222222397,
+          "meanCost": [
+            22.666666666666668,
+            24
+          ],
+          "meanCount": [
+            8.666666666666666,
+            5.666666666666667
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3395564753495217,
+          "winnerSurvivingOriginalCostRatio": 0.6190476190476191,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.811111111111328,
+          "meanCost": [
+            24,
+            28
+          ],
+          "meanCount": [
+            7,
+            5.666666666666667
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4675200482101842,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.161111111111326,
+          "meanCost": [
+            26.666666666666668,
+            32
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.31496375749007327,
+          "winnerSurvivingOriginalCostRatio": 0.5474537037037037,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.627777777777984,
+          "meanCost": [
+            30.666666666666668,
+            33.333333333333336
+          ],
+          "meanCount": [
+            7.333333333333333,
+            7.333333333333333
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.17062174253955076,
+          "winnerSurvivingOriginalCostRatio": 0.27499999999999997,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 23.52222222222217,
+          "meanCost": [
+            33.333333333333336,
+            40
+          ],
+          "meanCount": [
+            8.666666666666666,
+            12
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2531320297765655,
+          "winnerSurvivingOriginalCostRatio": 0.5038770053475935,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.127777777778054,
+          "meanCost": [
+            40,
+            40.666666666666664
+          ],
+          "meanCount": [
+            12,
+            8.666666666666666
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 3,
+          "right": 0,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2779680906853608,
+          "winnerSurvivingOriginalCostRatio": 0.41675579322638145,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.622222222222424,
+          "meanCost": [
+            39.333333333333336,
+            50
+          ],
+          "meanCount": [
+            10,
+            8.666666666666666
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-soft.json": {
+      "policy": {
+        "name": "soft",
+        "multiplier": 1,
+        "streak": 0.005,
+        "additive": 0.5,
+        "floorFactor": 1,
+        "supportCap": 1,
+        "counter": false,
+        "synergy": false,
+        "weights": {}
+      },
+      "overall": {
+        "n": 30,
+        "left": 10,
+        "right": 20,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.3158403006777897,
+        "winnerSurvivingOriginalCostRatio": 0.5899927642600055,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.3333333333333333,
+        "winnerNoInitialCasualtyRate": 0.16666666666666666,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 13.816666666666823,
+        "meanCost": [
+          28.6,
+          32.4
+        ],
+        "meanCount": [
+          7.533333333333333,
+          7.233333333333333
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.22201771030993042,
+          "winnerSurvivingOriginalCostRatio": 0.75,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.516666666666836,
+          "meanCost": [
+            20,
+            22
+          ],
+          "meanCount": [
+            6.666666666666667,
+            4.666666666666667
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2517610513739546,
+          "winnerSurvivingOriginalCostRatio": 0.5185185185185185,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.777777777777944,
+          "meanCost": [
+            20.333333333333332,
+            24
+          ],
+          "meanCount": [
+            5.666666666666667,
+            8
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4110622878419488,
+          "winnerSurvivingOriginalCostRatio": 0.5633780332056194,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.138888888889072,
+          "meanCost": [
+            24,
+            26.666666666666668
+          ],
+          "meanCount": [
+            8,
+            9
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.27987750548778295,
+          "winnerSurvivingOriginalCostRatio": 0.4047619047619048,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.077777777777925,
+          "meanCost": [
+            26.666666666666668,
+            29.333333333333332
+          ],
+          "meanCount": [
+            9,
+            7.333333333333333
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36030944926820996,
+          "winnerSurvivingOriginalCostRatio": 0.6375718390804598,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.472222222222362,
+          "meanCost": [
+            28.666666666666668,
+            32
+          ],
+          "meanCount": [
+            8.333333333333334,
+            7.333333333333333
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.209264069758214,
+          "winnerSurvivingOriginalCostRatio": 0.5203943167305236,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.32777777777793,
+          "meanCost": [
+            30,
+            36
+          ],
+          "meanCount": [
+            8.333333333333334,
+            8
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.19588568655007468,
+          "winnerSurvivingOriginalCostRatio": 0.35000000000000003,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.39999999999996,
+          "meanCost": [
+            32.333333333333336,
+            40
+          ],
+          "meanCount": [
+            8.333333333333334,
+            7
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.4047221593300585,
+          "winnerSurvivingOriginalCostRatio": 0.7045454545454546,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.516666666666913,
+          "meanCost": [
+            40,
+            44
+          ],
+          "meanCount": [
+            7,
+            7.666666666666667
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.45969589731523985,
+          "winnerSurvivingOriginalCostRatio": 0.7424242424242425,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.111111111111242,
+          "meanCost": [
+            44,
+            50
+          ],
+          "meanCount": [
+            7.666666666666667,
+            9
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-soft_counter.json": {
+      "policy": {
+        "name": "soft_counter",
+        "multiplier": 1,
+        "streak": 0.005,
+        "additive": 0.5,
+        "floorFactor": 1,
+        "supportCap": 0.35,
+        "counter": true,
+        "synergy": true,
+        "weights": {
+          "stormmage": 1.4
+        }
+      },
+      "overall": {
+        "n": 30,
+        "left": 13,
+        "right": 17,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.26181001834217216,
+        "winnerSurvivingOriginalCostRatio": 0.5558732931747637,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.6,
+        "winnerNoInitialCasualtyRate": 0.2,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.16166666666682,
+        "meanCost": [
+          27.366666666666667,
+          31.5
+        ],
+        "meanCount": [
+          7.333333333333333,
+          7.266666666666667
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.22201771030993042,
+          "winnerSurvivingOriginalCostRatio": 0.75,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.516666666666836,
+          "meanCost": [
+            20,
+            22
+          ],
+          "meanCount": [
+            6.666666666666667,
+            4.666666666666667
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2517610513739546,
+          "winnerSurvivingOriginalCostRatio": 0.5185185185185185,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.777777777777944,
+          "meanCost": [
+            20.333333333333332,
+            24
+          ],
+          "meanCount": [
+            5.666666666666667,
+            8
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.08375322673500846,
+          "winnerSurvivingOriginalCostRatio": 0.27037037037037037,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.916666666666668,
+          "meanCost": [
+            24,
+            26.666666666666668
+          ],
+          "meanCount": [
+            8,
+            6.333333333333333
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.16414103507480993,
+          "winnerSurvivingOriginalCostRatio": 0.5753968253968254,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.216666666666953,
+          "meanCost": [
+            25.333333333333332,
+            28.333333333333332
+          ],
+          "meanCount": [
+            6.333333333333333,
+            6.333333333333333
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3587051423558046,
+          "winnerSurvivingOriginalCostRatio": 0.6651785714285715,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.8333333333336,
+          "meanCost": [
+            27.666666666666668,
+            30.666666666666668
+          ],
+          "meanCount": [
+            7,
+            7.333333333333333
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.12021625256017336,
+          "winnerSurvivingOriginalCostRatio": 0.2738095238095238,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.716666666666775,
+          "meanCost": [
+            29.333333333333332,
+            33.333333333333336
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.557512390800143,
+          "winnerSurvivingOriginalCostRatio": 0.8220455749867513,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.905555555555688,
+          "meanCost": [
+            30.666666666666668,
+            37
+          ],
+          "meanCount": [
+            7.333333333333333,
+            9.333333333333334
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.31098138426833644,
+          "winnerSurvivingOriginalCostRatio": 0.5672014260249555,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.41111111111133,
+          "meanCost": [
+            37,
+            43
+          ],
+          "meanCount": [
+            9.333333333333334,
+            7
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.1852048004010779,
+          "winnerSurvivingOriginalCostRatio": 0.4078787878787879,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 23.49444444444435,
+          "meanCost": [
+            39.333333333333336,
+            50
+          ],
+          "meanCount": [
+            10,
+            11.333333333333334
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-soft_floor.json": {
+      "policy": {
+        "name": "soft_floor",
+        "multiplier": 1,
+        "streak": 0.005,
+        "additive": 0.5,
+        "floorFactor": 0.8,
+        "supportCap": 0.35,
+        "counter": false,
+        "synergy": false,
+        "weights": {
+          "stormmage": 1.4
+        }
+      },
+      "overall": {
+        "n": 30,
+        "left": 13,
+        "right": 17,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.25304915644842363,
+        "winnerSurvivingOriginalCostRatio": 0.5407327399913073,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.5666666666666667,
+        "winnerNoInitialCasualtyRate": 0.2,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 17.002777777777887,
+        "meanCost": [
+          25.166666666666668,
+          27.8
+        ],
+        "meanCount": [
+          6.566666666666666,
+          6.233333333333333
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.22368437697659707,
+          "winnerSurvivingOriginalCostRatio": 0.5,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.20555555555566,
+          "meanCost": [
+            20,
+            21.333333333333332
+          ],
+          "meanCount": [
+            6.666666666666667,
+            5.666666666666667
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.24367409485221547,
+          "winnerSurvivingOriginalCostRatio": 0.6518518518518518,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.000000000000176,
+          "meanCost": [
+            20.333333333333332,
+            22.666666666666668
+          ],
+          "meanCount": [
+            5.666666666666667,
+            5.333333333333333
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.11623354948151794,
+          "winnerSurvivingOriginalCostRatio": 0.24405458089668616,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.705555555555595,
+          "meanCost": [
+            22.666666666666668,
+            25
+          ],
+          "meanCount": [
+            5.333333333333333,
+            6.333333333333333
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2055395913154534,
+          "winnerSurvivingOriginalCostRatio": 0.5146198830409356,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.744444444444582,
+          "meanCost": [
+            23.666666666666668,
+            26
+          ],
+          "meanCount": [
+            6.333333333333333,
+            6
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.19536691971474576,
+          "winnerSurvivingOriginalCostRatio": 0.41723155516258964,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 23.733333333333267,
+          "meanCost": [
+            24.333333333333332,
+            28
+          ],
+          "meanCount": [
+            6.333333333333333,
+            6.666666666666667
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.3355895077896125,
+          "winnerSurvivingOriginalCostRatio": 0.5938697318007663,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.166666666666874,
+          "meanCost": [
+            27.333333333333332,
+            30
+          ],
+          "meanCount": [
+            7,
+            5.333333333333333
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2922172255516055,
+          "winnerSurvivingOriginalCostRatio": 0.6285919540229885,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.188888888888847,
+          "meanCost": [
+            28.333333333333332,
+            32
+          ],
+          "meanCount": [
+            7.666666666666667,
+            7
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.28140506237291457,
+          "winnerSurvivingOriginalCostRatio": 0.5458333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.033333333333385,
+          "meanCost": [
+            31,
+            35
+          ],
+          "meanCount": [
+            6.666666666666667,
+            8
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.27297404688709037,
+          "winnerSurvivingOriginalCostRatio": 0.6029411764705882,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.422222222222395,
+          "meanCost": [
+            34,
+            38
+          ],
+          "meanCount": [
+            7.666666666666667,
+            7.666666666666667
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    },
+    "train-soft_weight.json": {
+      "policy": {
+        "name": "soft_weight",
+        "multiplier": 1,
+        "streak": 0.005,
+        "additive": 0.5,
+        "floorFactor": 1,
+        "supportCap": 0.35,
+        "counter": false,
+        "synergy": false,
+        "weights": {
+          "stormmage": 1.4
+        }
+      },
+      "overall": {
+        "n": 30,
+        "left": 12,
+        "right": 18,
+        "draw": 0,
+        "winnerCreatedHpRatio": 0.2633649486954181,
+        "winnerSurvivingOriginalCostRatio": 0.5380713083213083,
+        "stompAtLeast75Rate": 0,
+        "closeAtMost25Rate": 0.5666666666666667,
+        "winnerNoInitialCasualtyRate": 0.16666666666666666,
+        "winnerNoIncomingDamageRate": 0,
+        "meanSeconds": 15.301111111111272,
+        "meanCost": [
+          28.166666666666668,
+          31.5
+        ],
+        "meanCount": [
+          8.133333333333333,
+          7.6
+        ]
+      },
+      "byRound": {
+        "1": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.36380718954248364,
+          "winnerSurvivingOriginalCostRatio": 0.7083333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 13.827777777778039,
+          "meanCost": [
+            20,
+            20
+          ],
+          "meanCount": [
+            6.333333333333333,
+            4.333333333333333
+          ]
+        },
+        "2": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.22201771030993042,
+          "winnerSurvivingOriginalCostRatio": 0.75,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.6666666666666666,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.516666666666836,
+          "meanCost": [
+            20,
+            22
+          ],
+          "meanCount": [
+            6.666666666666667,
+            4.666666666666667
+          ]
+        },
+        "3": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2517610513739546,
+          "winnerSurvivingOriginalCostRatio": 0.5185185185185185,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 11.777777777777944,
+          "meanCost": [
+            20.333333333333332,
+            24
+          ],
+          "meanCount": [
+            5.666666666666667,
+            8
+          ]
+        },
+        "4": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.08375322673500846,
+          "winnerSurvivingOriginalCostRatio": 0.27037037037037037,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 17.916666666666668,
+          "meanCost": [
+            24,
+            26.666666666666668
+          ],
+          "meanCount": [
+            8,
+            6.333333333333333
+          ]
+        },
+        "5": {
+          "n": 3,
+          "left": 2,
+          "right": 1,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.2831099163679809,
+          "winnerSurvivingOriginalCostRatio": 0.5753968253968254,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0.3333333333333333,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 12.583333333333549,
+          "meanCost": [
+            25.333333333333332,
+            28.333333333333332
+          ],
+          "meanCount": [
+            6.333333333333333,
+            6.666666666666667
+          ]
+        },
+        "6": {
+          "n": 3,
+          "left": 0,
+          "right": 3,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.438204318384036,
+          "winnerSurvivingOriginalCostRatio": 0.5833333333333334,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 16.56666666666695,
+          "meanCost": [
+            26.666666666666668,
+            32
+          ],
+          "meanCount": [
+            7.333333333333333,
+            9.666666666666666
+          ]
+        },
+        "7": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.20821292237125646,
+          "winnerSurvivingOriginalCostRatio": 0.5023148148148149,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 15.561111111111328,
+          "meanCost": [
+            32,
+            33.333333333333336
+          ],
+          "meanCount": [
+            9.666666666666666,
+            8.666666666666666
+          ]
+        },
+        "8": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.256921846544434,
+          "winnerSurvivingOriginalCostRatio": 0.45555555555555555,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.6666666666666666,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.977777777777817,
+          "meanCost": [
+            34.666666666666664,
+            40
+          ],
+          "meanCount": [
+            9.333333333333334,
+            9.333333333333334
+          ]
+        },
+        "9": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.17441361276977715,
+          "winnerSurvivingOriginalCostRatio": 0.371969696969697,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 1,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 18.766666666666747,
+          "meanCost": [
+            38.666666666666664,
+            41.333333333333336
+          ],
+          "meanCount": [
+            11,
+            9.666666666666666
+          ]
+        },
+        "10": {
+          "n": 3,
+          "left": 1,
+          "right": 2,
+          "draw": 0,
+          "winnerCreatedHpRatio": 0.35144769255531894,
+          "winnerSurvivingOriginalCostRatio": 0.644920634920635,
+          "stompAtLeast75Rate": 0,
+          "closeAtMost25Rate": 0.3333333333333333,
+          "winnerNoInitialCasualtyRate": 0,
+          "winnerNoIncomingDamageRate": 0,
+          "meanSeconds": 14.516666666666827,
+          "meanCost": [
+            40,
+            47.333333333333336
+          ],
+          "meanCount": [
+            11,
+            8.666666666666666
+          ]
+        }
+      },
+      "sourceHashes": {
+        "index.html": "d161d5492d016cf056e2f003ff64f3029243d2fe998e1e0fa1ce32df96bfe3c5",
+        "physics/physics.js": "ad2b3aa8728ac2516cf73046bd8605ebc8e08ba2fd53ddcf14debd4265ee89d6",
+        "source/solo-v3.template": "e9b292cb781700e6aefcc81c362bd3cbf4da17e80577122c737fa1f8297f592b",
+        "wallet/wallet.mjs": "d21a6ff2a8d4adadde835f27a8c3b291f0d3b870a156aa1e0b6bb7bae65b8837"
+      },
+      "choiceNonInterference": {
+        "seed": 123456,
+        "oppositePredictionsSameOutcomeUnitsAndNextRoster": true
+      }
+    }
+  }
+}
