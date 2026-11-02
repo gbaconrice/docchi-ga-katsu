@@ -1,9 +1,9 @@
 {
   "status": "development-preview-functional-regression-pass-visual-and-global-balance-open",
-  "indexSha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb",
+  "indexSha256": "3b9a3b24aa1df077fd00f05c206339d8a891b690eb291564a0d7dba163d708bc",
   "physicsSha256": "c95c9bec077d6c36e70407950971ce2f6f17c6f8709dcd722542f47b056ab03f",
   "contractSha256": "cdb4686771e082c73588765430e4165869eab024bdee7d678538ff9bf5fac209",
-  "contentRevision": "6252b0042f259729b2183d240a90484858705e7d3ac5aa44b553fe21b0f21319",
+  "contentRevision": "4b3e07ddf7889381d72cb9e6d726a15f03d9ce93dc9a7797ebb38da3237e36ec",
   "selectable100": 100,
   "uniqueLicensedAtlases": 100,
   "preservedOriginalFrames": 7214,
@@ -18,9 +18,9 @@
     "deterministic doublebuild"
   ],
   "limits": [
-    "no actualbrowser/mobile/native visualQA claim",
-    "old selectionmodel retained",
+    "global balance and field-specific bias remain OPEN",
     "field4percent provisional",
+    "no universal mobile/native/audio QA claim",
     "not500speciesfinished",
     "noGRAVITYtransfer"
   ],
@@ -63,7 +63,23 @@
     ],
     "existingFieldSizingTest": "PASS",
     "deterministicRebuild": "PASS",
-    "visualQa": "pending authorized actual GB",
+    "visualQa": "1280x720 actual GB preview/combat all four borders,95/123 bodies and controls observed PASS; Ringstaff transient not observed",
     "noPhysicsModelCameraArtChange": true
+  },
+  "modelDelta": {
+    "baseIndexSha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb",
+    "modelSha256": "ba839dd3aa6a0fcf5dfd3d3d08056415110dee283972aeaae8d7c5522e817052",
+    "noNumericRosterOrPriceChange": true,
+    "no105OrSword15OrEarlyMix": true,
+    "neutralProduction650": "frozen paired sessions; primary close76to105/200,stomps5to0; residual left bias",
+    "field360": "functional PASS, closeness41/34/31 of120 by field; globalbalance NOT closed",
+    "swordNatural160": "8 naturally Sword-opening seed pairs,10 rounds/model; left62to44/80,stomp9to1,maxcarry9to5,largeArmy10to21",
+    "newFocusedTests": [
+      "content-revision 11 PASS",
+      "100 stats adapter PASS",
+      "HP canonical side actual-inline PASS",
+      "2client canonical replay and settlement PASS"
+    ],
+    "allStudies": "raw failed cases preserved; no winner forcing or after-BET adaptation"
   }
 }

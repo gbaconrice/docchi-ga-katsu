@@ -14,18 +14,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 4129,
-      "sha256": "8bce5ab0fad490c8d400385014633c1911a7e6c65c6d8b69aa047b2e85495fbe"
+      "bytes": 5001,
+      "sha256": "77d688f9e1995d76e187f274f6170b92af9154967a9a71fc2ae3b030e54c7973"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 2641,
-      "sha256": "48f022de7dfd974281fe889120bd0d2f24b112c7a54c76f5f565b95c81d70a7e"
+      "bytes": 3664,
+      "sha256": "7ad9c6cce810123ebc0e15cd481dca6cabb649d5c3f112ea28f740de380833e9"
     },
     {
       "path": "index.html",
-      "bytes": 7126852,
-      "sha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb"
+      "bytes": 7178705,
+      "sha256": "3b9a3b24aa1df077fd00f05c206339d8a891b690eb291564a0d7dba163d708bc"
     },
     {
       "path": "licenses/Duelyst-CC0-1.0.txt",
@@ -61,5 +61,5 @@
   "fileCountIncludingManifest": 12,
   "manifestSelfExcluded": true,
   "runtimeExternalAssetsRequired": false,
-  "deployment": "Narrow CSS top-header reservation bugfix; preserve existing trusted Pages workflow/config."
+  "deployment": "Provisional v2 pre-BET composition estimator update only; preserve existing trusted Pages workflow/config."
 }
