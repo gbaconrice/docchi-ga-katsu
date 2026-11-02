@@ -1,85 +1,30 @@
 {
-  "status": "development-preview-functional-regression-pass-visual-and-global-balance-open",
-  "indexSha256": "3b9a3b24aa1df077fd00f05c206339d8a891b690eb291564a0d7dba163d708bc",
-  "physicsSha256": "c95c9bec077d6c36e70407950971ce2f6f17c6f8709dcd722542f47b056ab03f",
-  "contractSha256": "cdb4686771e082c73588765430e4165869eab024bdee7d678538ff9bf5fac209",
-  "contentRevision": "4b3e07ddf7889381d72cb9e6d726a15f03d9ce93dc9a7797ebb38da3237e36ec",
-  "selectable100": 100,
-  "uniqueLicensedAtlases": 100,
-  "preservedOriginalFrames": 7214,
-  "sourcePngBytes": 3328254,
-  "validation": [
-    "cohesive166 unique command regressions including actual25round extension",
-    "canonical2client replay/ledger/async lifecycle",
-    "100stat adapter/101internal labels",
-    "source hashes/rectangles/actualevent/death/cancel",
-    "HP canonical leftblue/rightred across preview/combat/guest/spawn/carry",
-    "lazy originalAtlas loading and epoch/error/reset guards",
-    "deterministic doublebuild"
+  "status": "PROVISIONAL200 development preview package approved for normal publication workflow; not globally balanced",
+  "indexSHA256": "7e13ae3ecc8d6cdda19d918d223d6983251e5a69e0c30ab599e017ba7bf06dbe",
+  "evaluationBaseIndexSHA256": "4fd299495d8179e212d0700e08fa60fe774c297ac7e3395c23e7aadd3c08c35c",
+  "normalSessions": 24,
+  "actualFights": 281,
+  "functionalFailures": 0,
+  "retries": 0,
+  "pairedSeedClusters": 12,
+  "publicCountUnchanged": 100,
+  "sourceUnique200": true,
+  "originalFrames": 15148,
+  "profileTests": "base200 independent sidecar14/14; spectacle focused suite recorded separately",
+  "presentation": "canonical receipt only; unproven final-blow cues suppressed; bounded/reducedmotion; no physics/economics changes",
+  "ranking": "SDK range/acceptance unverified; exact internal decimals; no unsafe clamping",
+  "visualQA": "new200/spectacle not browser rendered or audio auditioned",
+  "limitations": [
+    "new100 identity/count coefficients zero; shared actual features nonzero",
+    "close55→57,left80→75,stomp1→2; not superiority proof",
+    "all3fields observed,4% strength provisional",
+    "281 fights are clustered24 sessions, not281 independent samples"
   ],
-  "limits": [
-    "global balance and field-specific bias remain OPEN",
-    "field4percent provisional",
-    "no universal mobile/native/audio QA claim",
-    "not500speciesfinished",
-    "noGRAVITYtransfer"
-  ],
-  "supersedesOnlyDevelopmentPreview": true,
-  "presentationDelta": {
-    "baseIndexSha256": "3976e2ec0e05dde508b1ad8848894f4816d4b3c61d886e4a6d31beb8d899d15c",
-    "changes": "camera floor-only / fixed screen frame / camera actors and HP; no extra zoom or inner-body clip",
-    "unchanged": [
-      "physics",
-      "prices",
-      "old model",
-      "field 4percent",
-      "CSS",
-      "source image bytes"
-    ],
-    "focusedPass": [
-      "draw order and source invariants",
-      "exact64v64 stable geometry",
-      "async floor/frame fallback",
-      "profile asset byte mutations",
-      "HP colors and canonical multiplayer replay",
-      "deterministic rebuild"
-    ],
-    "limits": [
-      "mock/static evidence only for this patch",
-      "transient outer-canvas clipping deliberately unchanged",
-      "historical camera drag exact-value mismatch remains on base and candidate"
-    ]
-  },
-  "topEdgeDelta": {
-    "baseIndexSha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4",
-    "scope": "CSS desktop field-view header absolute to relative, inset auto; existing42/38px row owns layout space",
-    "nonCssHtmlByteExact": true,
-    "staticGeometryPass": [
-      "1280x720",
-      "900x640",
-      "899x640",
-      "1280x639",
-      "320x844"
-    ],
-    "existingFieldSizingTest": "PASS",
-    "deterministicRebuild": "PASS",
-    "visualQa": "1280x720 actual GB preview/combat all four borders,95/123 bodies and controls observed PASS; Ringstaff transient not observed",
-    "noPhysicsModelCameraArtChange": true
-  },
-  "modelDelta": {
-    "baseIndexSha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb",
-    "modelSha256": "ba839dd3aa6a0fcf5dfd3d3d08056415110dee283972aeaae8d7c5522e817052",
-    "noNumericRosterOrPriceChange": true,
-    "no105OrSword15OrEarlyMix": true,
-    "neutralProduction650": "frozen paired sessions; primary close76to105/200,stomps5to0; residual left bias",
-    "field360": "functional PASS, closeness41/34/31 of120 by field; globalbalance NOT closed",
-    "swordNatural160": "8 naturally Sword-opening seed pairs,10 rounds/model; left62to44/80,stomp9to1,maxcarry9to5,largeArmy10to21",
-    "newFocusedTests": [
-      "content-revision 11 PASS",
-      "100 stats adapter PASS",
-      "HP canonical side actual-inline PASS",
-      "2client canonical replay and settlement PASS"
-    ],
-    "allStudies": "raw failed cases preserved; no winner forcing or after-BET adaptation"
-  }
+  "observedSpecies": 147,
+  "new50ObservedAndEventAttributed": 32,
+  "new50AbsentCoverageGap": 18,
+  "gateFinalManifestSHA256": "90ee44648f12c2349bbc8d69740c6da37dacd17a2acaf87a4eb143f0d0024a1d",
+  "resourceNote": "Peak original-body atlas arithmetic34MiB, soft unpinned loader budget32MiB; not measured browser/GPU residency",
+  "publicCountUnchangedScope": "Observed prior deployment only; this approved package targets200, deployment must be separately verified",
+  "publication": "User approved development preview publication; no deployment success claimed by this artifact"
 }

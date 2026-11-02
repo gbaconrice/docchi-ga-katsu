@@ -1,65 +1,17 @@
 {
-  "schema": "public-confirmation-package-v1",
-  "exactFrozenCandidateHtml": true,
-  "files": [
-    {
-      "path": ".nojekyll",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "ARTWORK.md",
-      "bytes": 1104,
-      "sha256": "13071a93464b657754727aa256a7d3a1df5b83842afe7c149f3b9e089b536e05"
-    },
-    {
-      "path": "README.md",
-      "bytes": 5001,
-      "sha256": "77d688f9e1995d76e187f274f6170b92af9154967a9a71fc2ae3b030e54c7973"
-    },
-    {
-      "path": "VALIDATION.json",
-      "bytes": 3664,
-      "sha256": "7ad9c6cce810123ebc0e15cd481dca6cabb649d5c3f112ea28f740de380833e9"
-    },
-    {
-      "path": "index.html",
-      "bytes": 7178705,
-      "sha256": "3b9a3b24aa1df077fd00f05c206339d8a891b690eb291564a0d7dba163d708bc"
-    },
-    {
-      "path": "licenses/Duelyst-CC0-1.0.txt",
-      "bytes": 7048,
-      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
-    },
-    {
-      "path": "licenses/SpritePilot-CC0-1.0.txt",
-      "bytes": 7048,
-      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
-    },
-    {
-      "path": "provenance/Duelyst-original-sources.json",
-      "bytes": 418661,
-      "sha256": "47f0821d0b85b626a67ad453ea4826dad195d1a95d416fbc44c441a84e008dbf"
-    },
-    {
-      "path": "provenance/SpritePilot-CREDITS.txt",
-      "bytes": 655,
-      "sha256": "fe13d28b8bbfb56986d025647f1e9b48a52f74934a1488b68b99eeeea16e1cc5"
-    },
-    {
-      "path": "provenance/SpritePilot-LICENSE-EVIDENCE.txt",
-      "bytes": 863,
-      "sha256": "fffd356cb2b3144efe4a67476dc198219eb76b99aa505a43f225b0a56e542300"
-    },
-    {
-      "path": "provenance/SpritePilot-effects.json",
-      "bytes": 4562,
-      "sha256": "87f74a13fd5448cfc2b5be72eba89b2a308f7d357de69cf7b586f3a2f813b6cb"
-    }
-  ],
-  "fileCountIncludingManifest": 12,
-  "manifestSelfExcluded": true,
-  "runtimeExternalAssetsRequired": false,
-  "deployment": "Provisional v2 pre-BET composition estimator update only; preserve existing trusted Pages workflow/config."
+  "status": "Approved development preview publication package; deployment success requires separate verification; no GRAVITY submission",
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ARTWORK.md": "9fbf32e7d00ced15fcafaf21666e057efdd4d62a043890e6f8b23dcfb8a6820b",
+    "README.md": "058ee51803a68e9ea5bfea5f6223733c5135c59a34396310940326660ab59ab8",
+    "VALIDATION.json": "b6f35e85daf55c3bf99d286d86406331890297ce1a5685efaae9c2ab1f1f27eb",
+    "index.html": "7e13ae3ecc8d6cdda19d918d223d6983251e5a69e0c30ab599e017ba7bf06dbe",
+    "licenses/Duelyst-CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "licenses/SpritePilot-CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "provenance/Duelyst-original-sources.json": "775455ca0a03d863a1f0491be2baeb1765bf07e32245eda9b9a102057a0042a1",
+    "provenance/SpritePilot-CREDITS.txt": "fe13d28b8bbfb56986d025647f1e9b48a52f74934a1488b68b99eeeea16e1cc5",
+    "provenance/SpritePilot-LICENSE-EVIDENCE.txt": "fffd356cb2b3144efe4a67476dc198219eb76b99aa505a43f225b0a56e542300",
+    "provenance/SpritePilot-effects.json": "87f74a13fd5448cfc2b5be72eba89b2a308f7d357de69cf7b586f3a2f813b6cb"
+  },
+  "indexSHA256": "7e13ae3ecc8d6cdda19d918d223d6983251e5a69e0c30ab599e017ba7bf06dbe"
 }

@@ -1,9 +1,5 @@
-# 素材・原本の扱い
+# 素材と原本
 
-現100種は100個の重複しないCC0原atlasを使用。全7,214 source framesをclipsと未使用原画として保持。Slimeletは親と同じatlasで、別の選択種には数えません。
-
-原PNG/plistは pinned commit `2843f2400854136598631288c2e8dfb8f5173de7` のOpenDuelyst archiveとSHA/Gitblob照合済み。実際に使う接点・放出・取消は本ゲームの実eventが優先し、原作timing/能力の移植とは称しません。unused flightも別の弾として増やしません。
-
-`provenance/Duelyst-original-sources.json` が各原画の識別情報です。HTMLのPNGは同SHAの原atlas bytesです。原ライセンス原文は無改変。SpritePilotの出典・原ライセンスも保存しています。個別SpritePilotのCREDITSにある過去のeffects-package文言は、その効果素材範囲の履歴であり、現100キャラクターを自作と主張するものではありません。
-
-全sourceの検査は画面での密集・接地・スマートフォン可読性を保証しません。実画面QAは未完です。
+200個の別原典CC0 atlas、全15,148 original framesを使用・未使用原画として保持。Slimeletは親atlasを共有する内部子で追加種には数えません。
+原PNG/plistはOpenDuelystの固定commit2843f2400854136598631288c2e8dfb8f5173de7と照合済み。原画pixelsは変更していません。原作能力・原作速度を移植したとは称しません。
+各出典、hash、全frame名はprovenance/Duelyst-original-sources.json。CC0原文とSpritePilot効果素材の出典証拠も無改変保存。原画レビューはゲーム画面での全種可読性保証ではありません。
