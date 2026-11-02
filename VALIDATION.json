@@ -1,6 +1,6 @@
 {
   "status": "development-preview-functional-regression-pass-visual-and-global-balance-open",
-  "indexSha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4",
+  "indexSha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb",
   "physicsSha256": "c95c9bec077d6c36e70407950971ce2f6f17c6f8709dcd722542f47b056ab03f",
   "contractSha256": "cdb4686771e082c73588765430e4165869eab024bdee7d678538ff9bf5fac209",
   "contentRevision": "6252b0042f259729b2183d240a90484858705e7d3ac5aa44b553fe21b0f21319",
@@ -49,5 +49,21 @@
       "transient outer-canvas clipping deliberately unchanged",
       "historical camera drag exact-value mismatch remains on base and candidate"
     ]
+  },
+  "topEdgeDelta": {
+    "baseIndexSha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4",
+    "scope": "CSS desktop field-view header absolute to relative, inset auto; existing42/38px row owns layout space",
+    "nonCssHtmlByteExact": true,
+    "staticGeometryPass": [
+      "1280x720",
+      "900x640",
+      "899x640",
+      "1280x639",
+      "320x844"
+    ],
+    "existingFieldSizingTest": "PASS",
+    "deterministicRebuild": "PASS",
+    "visualQa": "pending authorized actual GB",
+    "noPhysicsModelCameraArtChange": true
   }
 }

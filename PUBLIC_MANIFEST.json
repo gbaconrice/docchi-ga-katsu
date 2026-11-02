@@ -14,18 +14,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 3775,
-      "sha256": "f5eae20654c46b5bd300b4edc324b03591881fd68d6ef0b8edc37907b6bc570e"
+      "bytes": 4129,
+      "sha256": "8bce5ab0fad490c8d400385014633c1911a7e6c65c6d8b69aa047b2e85495fbe"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 2088,
-      "sha256": "345e81f93ad5d69cfa49acf194a0738711726533bb6cc88c97ca987804633cef"
+      "bytes": 2641,
+      "sha256": "48f022de7dfd974281fe889120bd0d2f24b112c7a54c76f5f565b95c81d70a7e"
     },
     {
       "path": "index.html",
-      "bytes": 7126856,
-      "sha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4"
+      "bytes": 7126852,
+      "sha256": "e120ee9754aa2f48a5da80eda079eadaa1152b809b4cd3a020bd2581fadadaeb"
     },
     {
       "path": "licenses/Duelyst-CC0-1.0.txt",
@@ -61,5 +61,5 @@
   "fileCountIncludingManifest": 12,
   "manifestSelfExcluded": true,
   "runtimeExternalAssetsRequired": false,
-  "deployment": "Narrow presentation bugfix from public3976; retain existing trusted Pages workflow/config; no permission changes."
+  "deployment": "Narrow CSS top-header reservation bugfix; preserve existing trusted Pages workflow/config."
 }
