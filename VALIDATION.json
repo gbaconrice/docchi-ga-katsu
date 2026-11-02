@@ -1,9 +1,9 @@
 {
   "status": "development-preview-functional-regression-pass-visual-and-global-balance-open",
-  "indexSha256": "3976e2ec0e05dde508b1ad8848894f4816d4b3c61d886e4a6d31beb8d899d15c",
+  "indexSha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4",
   "physicsSha256": "c95c9bec077d6c36e70407950971ce2f6f17c6f8709dcd722542f47b056ab03f",
   "contractSha256": "cdb4686771e082c73588765430e4165869eab024bdee7d678538ff9bf5fac209",
-  "contentRevision": "d4b8925db5901bae7ed829522c68fc937d0c611eb56c15d2b220b9744d796a51",
+  "contentRevision": "6252b0042f259729b2183d240a90484858705e7d3ac5aa44b553fe21b0f21319",
   "selectable100": 100,
   "uniqueLicensedAtlases": 100,
   "preservedOriginalFrames": 7214,
@@ -24,5 +24,30 @@
     "not500speciesfinished",
     "noGRAVITYtransfer"
   ],
-  "supersedesOnlyDevelopmentPreview": true
+  "supersedesOnlyDevelopmentPreview": true,
+  "presentationDelta": {
+    "baseIndexSha256": "3976e2ec0e05dde508b1ad8848894f4816d4b3c61d886e4a6d31beb8d899d15c",
+    "changes": "camera floor-only / fixed screen frame / camera actors and HP; no extra zoom or inner-body clip",
+    "unchanged": [
+      "physics",
+      "prices",
+      "old model",
+      "field 4percent",
+      "CSS",
+      "source image bytes"
+    ],
+    "focusedPass": [
+      "draw order and source invariants",
+      "exact64v64 stable geometry",
+      "async floor/frame fallback",
+      "profile asset byte mutations",
+      "HP colors and canonical multiplayer replay",
+      "deterministic rebuild"
+    ],
+    "limits": [
+      "mock/static evidence only for this patch",
+      "transient outer-canvas clipping deliberately unchanged",
+      "historical camera drag exact-value mismatch remains on base and candidate"
+    ]
+  }
 }

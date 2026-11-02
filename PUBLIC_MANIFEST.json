@@ -1,6 +1,6 @@
 {
   "schema": "public-confirmation-package-v1",
-  "exactDeliveredHtml": true,
+  "exactFrozenCandidateHtml": true,
   "files": [
     {
       "path": ".nojekyll",
@@ -14,18 +14,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 3338,
-      "sha256": "d1b9ecdd289971131639c73776a681c6e953bbe78e9a23b4140cc320dab6a334"
+      "bytes": 3775,
+      "sha256": "f5eae20654c46b5bd300b4edc324b03591881fd68d6ef0b8edc37907b6bc570e"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 1231,
-      "sha256": "d89c5eaf3f8849b962bd1993bf94f73fbd53b31407a64313799c085c36a03c81"
+      "bytes": 2088,
+      "sha256": "345e81f93ad5d69cfa49acf194a0738711726533bb6cc88c97ca987804633cef"
     },
     {
       "path": "index.html",
-      "bytes": 7131962,
-      "sha256": "3976e2ec0e05dde508b1ad8848894f4816d4b3c61d886e4a6d31beb8d899d15c"
+      "bytes": 7126856,
+      "sha256": "b9ed70e1e76147e8dce81847c28250b4009d6aa98faef6c7f616a6b8e02e76a4"
     },
     {
       "path": "licenses/Duelyst-CC0-1.0.txt",
@@ -61,5 +61,5 @@
   "fileCountIncludingManifest": 12,
   "manifestSelfExcluded": true,
   "runtimeExternalAssetsRequired": false,
-  "deployment": "Replace obsolete public content with this exact package; retain existing trusted repository Pages workflow/config if present. No workflow permissions change."
+  "deployment": "Narrow presentation bugfix from public3976; retain existing trusted Pages workflow/config; no permission changes."
 }
