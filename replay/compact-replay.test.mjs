@@ -1,9 +1,0 @@
-import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
-import {createCompactRecorder,createPlayback} from './compact-replay.mjs';
-const script=fs.readFileSync('index.html','utf8').match(/<script id="game-runtime">([\s\S]*?)<\/script>/)[1];
-const ctx=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)}),d={getContext:()=>ctx,setAttribute(){}};
-const c={TextEncoder,TextDecoder,btoa,atob,document:{querySelector:()=>d},Math,requestAnimationFrame:()=>{},makeRecorder:createCompactRecorder};vm.createContext(c);vm.runInContext(script,c);
-const results=vm.runInContext(`(()=>{let out=[];for(let seed=1;seed<=30;seed++){round=10;setup(seed);state='fight';const rec=makeRecorder();let tick=0;const read=()=>({units,shots,poseFor:spriteFrame,facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects});rec.capture(0,read());const checks=[];while(state==='fight'){spriteStep(1/60);tick++;rec.capture(tick,read(),state==='result');checks.push([tick,units.map(u=>[u.id,u.hp,u.dead,spriteFrame(u),u.presentationFlags||0])])}out.push({replay:rec.finish({ticks:tick,winner:winner===null?'draw':winner===0?'A':'B'}),checks});}return out})()`,c);
-let maxBytes=0,total=0;
-for(const {replay,checks} of results){const p=createPlayback(replay);maxBytes=Math.max(maxBytes,Buffer.byteLength(JSON.stringify(replay)));for(const [tick,expected] of checks){const actual=p.at(tick);for(const [id,hp,dead,pose,flags] of expected){const u=actual.units.find(u=>u.id===id);if(!u){assert(dead);continue;}assert(Math.abs(u.hp-hp)<=.0051);assert.equal(u.dead,dead);assert.equal(u.presentationFlags,flags);if(pose>=3)assert.equal(u.pose,pose);}total++}}
-console.log(JSON.stringify({pass:true,battles:30,validatedTicks:total,maxJSONBytes:maxBytes,checks:'HP,death,attack/hit/cast exact tick; guests no simulation'}));

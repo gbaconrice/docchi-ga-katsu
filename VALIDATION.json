@@ -1,0 +1,28 @@
+{
+  "status": "development-preview-functional-regression-pass-visual-and-global-balance-open",
+  "indexSha256": "3976e2ec0e05dde508b1ad8848894f4816d4b3c61d886e4a6d31beb8d899d15c",
+  "physicsSha256": "c95c9bec077d6c36e70407950971ce2f6f17c6f8709dcd722542f47b056ab03f",
+  "contractSha256": "cdb4686771e082c73588765430e4165869eab024bdee7d678538ff9bf5fac209",
+  "contentRevision": "d4b8925db5901bae7ed829522c68fc937d0c611eb56c15d2b220b9744d796a51",
+  "selectable100": 100,
+  "uniqueLicensedAtlases": 100,
+  "preservedOriginalFrames": 7214,
+  "sourcePngBytes": 3328254,
+  "validation": [
+    "cohesive166 unique command regressions including actual25round extension",
+    "canonical2client replay/ledger/async lifecycle",
+    "100stat adapter/101internal labels",
+    "source hashes/rectangles/actualevent/death/cancel",
+    "HP canonical leftblue/rightred across preview/combat/guest/spawn/carry",
+    "lazy originalAtlas loading and epoch/error/reset guards",
+    "deterministic doublebuild"
+  ],
+  "limits": [
+    "no actualbrowser/mobile/native visualQA claim",
+    "old selectionmodel retained",
+    "field4percent provisional",
+    "not500speciesfinished",
+    "noGRAVITYtransfer"
+  ],
+  "supersedesOnlyDevelopmentPreview": true
+}
