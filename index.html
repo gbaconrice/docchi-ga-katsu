@@ -1280,7 +1280,7 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
           <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
           <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
         </div>
-        <p id="stakeHint" class="stake-hint" aria-live="polite">正解 +10 G</p>
+        <p id="stakeHint" class="stake-hint" aria-live="polite">的中 +15 G · 外れ −10 G · 引分 ±0 G</p>
       </section>
       <div id="comparisonScroll" class="comparison-scroll">
         <div class="army-grid" role="group" aria-label="勝つ方">
@@ -1537,7 +1537,8 @@ const DoubleUpLedger=(()=>{const {validateEnvironment,sameEnvironment}=BattleFie
 const TOTAL_ROUNDS=10;
 const MIN_STAKE=10;
 const LEDGER_RETENTION=20;
-const DEFAULT_CONFIG=Object.freeze({initialBalance:100,correctReward:10,stakeCap:50,winMultiplier:1,totalRounds:10,precision:0});
+// Legacy fields remain readable for existing sessions; the fixed 3/2 profit rule is authoritative.
+const DEFAULT_CONFIG=Object.freeze({initialBalance:100,correctReward:10,stakeCap:50,winMultiplier:1,profitNumerator:3,profitDenominator:2,totalRounds:10,precision:0});
 const fail=code=>{throw new Error(code)};
 const int=(v,code='INVALID_INTEGER')=>{if(!Number.isSafeInteger(v)||v<0)fail(code);return v};
 const id=v=>{if(typeof v!=='string'||!v.trim())fail('INVALID_ID');return v};
@@ -1560,7 +1561,8 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k)))fail('UNKNOWN_CONFIG');
   const c={...DEFAULT_CONFIG,...config};Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
   if(c.precision!==0)fail('INTEGER_CREDITS_ONLY');if(c.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_ROUND_COUNT');
-  if(!Number.isSafeInteger(c.stakeCap*c.winMultiplier)||!Number.isSafeInteger(c.initialBalance+TOTAL_ROUNDS*(c.correctReward+c.stakeCap*c.winMultiplier)))fail('CONFIG_OVERFLOW');
+  if(c.profitNumerator!==3||c.profitDenominator!==2)fail('INCOMPATIBLE_PROFIT_RULE');
+  if(BigInt(c.initialBalance)+BigInt(TOTAL_ROUNDS)*((BigInt(c.stakeCap)*3n+1n)/2n)>BigInt(Number.MAX_SAFE_INTEGER))fail('CONFIG_OVERFLOW');
   const initial=BigInt(c.initialBalance);
   return freeze({schemaVersion,mode:gameMode,sessionId,...(environment===null?{}:{environment:validateEnvironment(environment)}),config:c,
     players:playerIds.map(playerId=>({playerId,balance:amountValue(initial),score:0,correctCount:0,cashedOut:false,cashoutAmount:null,cashoutRound:null,cashoutRequestId:null,cashoutReason:null,terminalReason:null})),
@@ -1598,7 +1600,8 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   for(const p of next.players){
    const c=r.commits.find(x=>x.playerId===p.playerId),predicted=!!c?.side,valid=outcome==='A'||outcome==='B';
    const correct=predicted&&valid?c.side===outcome:null,stake=amountBig(c?.stake??0),before=amountBig(p.balance);
-   let delta=0n;if(correct===true)delta=roundId<=TOTAL_ROUNDS?BigInt(s.config.correctReward)+stake*BigInt(s.config.winMultiplier):stake;
+   // First ten rounds: 1.5× stake as net profit, half-up to whole G. Legacy config fields remain for saved-session compatibility.
+   let delta=0n;if(correct===true)delta=roundId<=TOTAL_ROUNDS?(stake*3n+1n)/2n:stake;
    else if(correct===false)delta=-stake;
    const after=before+delta;if(after<0n)fail('BALANCE_INVARIANT');
    if(after.toString().replace('-','').length>MAX_AMOUNT_DIGITS)fail('AMOUNT_DIGIT_LIMIT');
@@ -5948,7 +5951,7 @@ update=function(){
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
   for(const n of [0,10,25,50]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
   q('#confirm').disabled=selectedSide===null||!validPredictionStake(w.balance,selectedStake);
-  q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':selectedStake?'的中 '+credits(Money.signedValue(Money.amountBig(selectedStake)+10n))+' · 外れ −'+MoneyUI.balanceText(selectedStake):'0 G · 的中 +10 G';
+  q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':'的中 '+credits(Money.signedValue((Money.amountBig(selectedStake)*3n+1n)/2n))+' · 外れ −'+MoneyUI.balanceText(selectedStake)+' · 引分 ±0 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
   q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
