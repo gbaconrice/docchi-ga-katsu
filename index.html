@@ -1208,6 +1208,27 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 #gameScreen[data-personal-result="true"] #resultPanel #breakdown { color:#432e1d; }
 #gameScreen[data-personal-result="true"] #resultPanel[data-earned="true"] #breakdown,#gameScreen[data-personal-result="true"] #resultPanel[data-double-up="true"] #breakdown { color:#70450c; text-shadow:none; }
 .bankrupt-notice { margin:4px 0; color:#6d342e; font-size:13px; font-weight:800; line-height:1.35; }
+
+/* The playing surface is a wooden tavern table; controls sit on paper and leather. */
+#app {
+  background-color: #714222;
+  background-image:
+    linear-gradient(90deg,rgba(30,14,7,.42),transparent 4%,transparent 96%,rgba(30,14,7,.42)),
+    repeating-linear-gradient(92deg,transparent 0 12px,rgba(39,19,9,.10) 13px 14px,transparent 15px 35px,rgba(239,172,91,.07) 36px 38px,transparent 39px 71px),
+    repeating-linear-gradient(0deg,#4a2718 0 2px,#ad7545 3px,#86512d 5px,#754324 56px,#8b5732 61px,#4a2818 64px);
+  box-shadow:inset 0 0 0 2px #432417,inset 0 0 0 4px #b2854b,inset 0 0 0 6px #55311d,0 0 24px #24170e;
+}
+.home-title { box-shadow:inset 0 0 0 4px #f9edcf,0 4px 8px rgba(34,16,8,.55); }
+.home-screen::before,.home-screen::after { color:#f4d8a3; text-shadow:0 1px 2px #32190d; }
+.game-topline { background:linear-gradient(#68412a,#3f2519); border-color:#bd9054; box-shadow:inset 0 1px #be9360,0 2px 3px #30180d; }
+.stake-card,.room-screen,.result-panel,#gameScreen[data-personal-result="true"] #resultPanel,.units-dialog,.army-card {
+  box-shadow:inset 0 0 0 2px rgba(255,244,211,.65),0 3px 6px rgba(36,18,9,.5);
+}
+.army-card[aria-pressed="true"] { box-shadow:inset 0 0 0 3px #bd8937,0 0 0 2px #f1cd72; }
+.prediction-footer { box-shadow:0 -2px 0 #98713e,0 3px 7px rgba(31,14,7,.45); }
+.battle-clock { color:#fff0cf; text-shadow:0 1px 2px #30190f; }
+/* Canvas keeps its exact size and fit; its letterboxing shows the table, not a flat field colour. */
+#field { background:transparent; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
