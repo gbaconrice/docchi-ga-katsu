@@ -1548,7 +1548,7 @@ const TOTAL_ROUNDS=10;
 const MIN_STAKE=10;
 const LEDGER_RETENTION=20;
 // Legacy fields remain readable for existing sessions; the fixed 3/2 profit rule is authoritative.
-const DEFAULT_CONFIG=Object.freeze({initialBalance:100,correctReward:10,stakeCap:50,winMultiplier:1,profitNumerator:3,profitDenominator:2,totalRounds:10,precision:0});
+const DEFAULT_CONFIG=Object.freeze({initialBalance:100,correctReward:10,stakeCap:50,winMultiplier:1,profitNumerator:3,profitDenominator:2,zeroStakeRecovery:10,totalRounds:10,precision:0});
 const fail=code=>{throw new Error(code)};
 const int=(v,code='INVALID_INTEGER')=>{if(!Number.isSafeInteger(v)||v<0)fail(code);return v};
 const id=v=>{if(typeof v!=='string'||!v.trim())fail('INVALID_ID');return v};
@@ -1571,15 +1571,15 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   if(Object.keys(config).some(k=>!Object.hasOwn(DEFAULT_CONFIG,k)))fail('UNKNOWN_CONFIG');
   const c={...DEFAULT_CONFIG,...config};Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
   if(c.precision!==0)fail('INTEGER_CREDITS_ONLY');if(c.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_ROUND_COUNT');
-  if(c.profitNumerator!==3||c.profitDenominator!==2)fail('INCOMPATIBLE_PROFIT_RULE');
+  if(c.profitNumerator!==3||c.profitDenominator!==2||c.zeroStakeRecovery!==10)fail('INCOMPATIBLE_PROFIT_RULE');
   if(BigInt(c.initialBalance)+BigInt(TOTAL_ROUNDS)*((BigInt(c.stakeCap)*3n+1n)/2n)>BigInt(Number.MAX_SAFE_INTEGER))fail('CONFIG_OVERFLOW');
   const initial=BigInt(c.initialBalance);
   return freeze({schemaVersion,mode:gameMode,sessionId,...(environment===null?{}:{environment:validateEnvironment(environment)}),config:c,
     players:playerIds.map(playerId=>({playerId,balance:amountValue(initial),score:0,correctCount:0,cashedOut:false,cashoutAmount:null,cashoutRound:null,cashoutRequestId:null,cashoutReason:null,terminalReason:null})),
     currentRound:null,completedRounds:0,maxRounds:TOTAL_ROUNDS,continuations:[],cashouts:[],ledger:[],terminalReason:null});
  };
- const isBankrupt=s=>{modeState(s);return solo&&s.players.length===1&&!s.currentRound&&s.completedRounds>0&&amountBig(s.players[0].balance)===0n};
- const canFinishRun=s=>{modeState(s);return solo&&!s.currentRound&&(isBankrupt(s)||(s.completedRounds>=TOTAL_ROUNDS&&s.terminalReason==='cashed-out'))};
+ const isBankrupt=s=>{modeState(s);return solo&&s.players.length===1&&!s.currentRound&&s.completedRounds>=TOTAL_ROUNDS&&amountBig(s.players[0].balance)===0n};
+ const canFinishRun=s=>{modeState(s);return solo&&!s.currentRound&&(s.completedRounds>=TOTAL_ROUNDS&&(s.terminalReason==='cashed-out'||isBankrupt(s)))};
  const openRound=(s,{sessionId,roundId,deadline}={})=>{
   session(s,sessionId);int(roundId);int(deadline);if(!activePlayers(s).length)fail('NO_ACTIVE_PLAYERS');
   if(s.currentRound?.roundId===roundId){if(s.currentRound.deadline!==deadline)fail('ROUND_CONFLICT');return s;}
@@ -1611,16 +1611,16 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
    const c=r.commits.find(x=>x.playerId===p.playerId),predicted=!!c?.side,valid=outcome==='A'||outcome==='B';
    const correct=predicted&&valid?c.side===outcome:null,stake=amountBig(c?.stake??0),before=amountBig(p.balance);
    // First ten rounds: 1.5× stake as net profit, half-up to whole G. Legacy config fields remain for saved-session compatibility.
-   let delta=0n;if(correct===true)delta=roundId<=TOTAL_ROUNDS?(stake*3n+1n)/2n:stake;
+   let delta=0n;if(correct===true)delta=roundId<=TOTAL_ROUNDS?(stake===0n?10n:(stake*3n+1n)/2n):stake;
    else if(correct===false)delta=-stake;
    const after=before+delta;if(after<0n)fail('BALANCE_INVARIANT');
    if(after.toString().replace('-','').length>MAX_AMOUNT_DIGITS)fail('AMOUNT_DIGIT_LIMIT');
    const score=after-BigInt(s.config.initialBalance),correctCount=p.correctCount+(correct===true?1:0);if(!Number.isSafeInteger(correctCount))fail('CORRECT_COUNT_OVERFLOW');p.balance=amountValue(after);p.score=signedValue(score);p.correctCount=correctCount;
-   if(after===0n&&!p.cashedOut)p.terminalReason='bankrupt';
+   if(roundId>=TOTAL_ROUNDS&&after===0n&&!p.cashedOut)p.terminalReason='bankrupt';
    entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake:amountValue(stake),correct,delta:signedValue(delta),balanceBefore:amountValue(before),balanceAfter:amountValue(after),scoreAfter:signedValue(score)});
   }
   next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;
-  if(solo&&amountBig(next.players[0].balance)===0n)next.terminalReason='bankrupt';
+  if(solo&&roundId>=TOTAL_ROUNDS&&amountBig(next.players[0].balance)===0n)next.terminalReason='bankrupt';
   return freeze(next);
  };
  const continueDoubleUp=(s,{sessionId,roundId,requestId}={})=>{
@@ -5961,7 +5961,7 @@ update=function(){
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
   for(const n of [0,10,25,50]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
   q('#confirm').disabled=selectedSide===null||!validPredictionStake(w.balance,selectedStake);
-  q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':'的中 '+credits(Money.signedValue((Money.amountBig(selectedStake)*3n+1n)/2n))+' · 外れ −'+MoneyUI.balanceText(selectedStake)+' · 引分 ±0 G';
+  q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':Money.amountBig(selectedStake)===0n?'0 G · 的中 +10 G · 外れ・引分 ±0 G':'的中 '+credits(Money.signedValue((Money.amountBig(selectedStake)*3n+1n)/2n))+' · 外れ −'+MoneyUI.balanceText(selectedStake)+' · 引分 ±0 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
   q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
@@ -7287,8 +7287,6 @@ function syncExtensionControls(){
  const multiBoundary=!!s&&s.phase==='result'&&s.roundId>=TOTAL_ROUNDS;
  const own=s?.wallets?.find(p=>p.playerId===multiUser),bankruptNotice=document.querySelector('#bankruptNotice');
  if(bankruptNotice){const broke=multiSession?own?.terminalReason==='bankrupt':soloBoundary&&SoloWallet.isBankrupt(walletState);bankruptNotice.hidden=!broke;bankruptNotice.textContent=broke?(multiSession?'残高0Gで予想終了。ほかの人の対戦は観戦できます。':'残高0Gで終了です。'):'';}
- const allBroke=!!s&&s.phase==='result'&&s.roundId<TOTAL_ROUNDS&&activeDoubleUpIds(s).length===0;
- if(allBroke){choices.hidden=true;cash.hidden=true;cont.hidden=true;next.hidden=false;next.disabled=false;next.textContent='ホームに戻る';return;}
  if(multiBoundary){
   const own=s.wallets?.find(p=>p.playerId===multiUser),isParticipant=s.participants.includes(multiUser);
   const active=isParticipant&&own&&!own.cashedOut&&own.terminalReason!=='bankrupt'&&Money.amountBig(own.balance)>0n,canContinue=active&&Money.doubleAmountFits(own.balance);
@@ -7357,7 +7355,6 @@ const extensionNext=document.querySelector('#next').onclick;
 document.querySelector('#next').onclick=e=>{
  if(multiSession){
   const own=multiSnapshot?.wallets?.find(p=>p.playerId===multiUser);
-  if(multiSnapshot?.phase==='result'&&round<TOTAL_ROUNDS&&activeDoubleUpIds(multiSnapshot).length===0){void leaveMulti().then(()=>showScreen('home'));return;}
   if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS&&(own?.cashedOut||own?.terminalReason==='bankrupt')){showScreen('home');return;}
   if(round<TOTAL_ROUNDS)extensionNext(e);return;
  }
