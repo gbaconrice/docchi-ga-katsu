@@ -1199,6 +1199,11 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 .result-title,.result-summary,.result-ranking,.result-winner,.checkpoint-net { color:#432e1d; }
 .units-side { background:#3b5140; }
 
+
+/* Odds badge (solo odds). */
+#app .odds-badge { display:block; width:max-content; margin:0 auto 6px; padding:1px 12px; border-radius:999px; font-weight:800; font-size:1.05rem; line-height:1.5; color:#432e1d; background:#f2dfb8; border:2px solid #985647; box-shadow:0 1px 0 rgba(0,0,0,.25); }
+#app .odds-badge[data-long="true"] { color:#fff0d6; background:#985647; border-color:#6d342e; }
+#app .odds-badge[hidden] { display:none; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1286,12 +1291,14 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
         <div class="army-grid" role="group" aria-label="勝つ方">
           <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍" aria-describedby="redStats">
             <span class="army-title sr-only" id="redTitle">左</span>
+            <span id="redOdds" class="odds-badge" hidden></span>
             <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左の軍の兵士"></canvas>
             <span id="redList" class="army-summary sr-only" aria-live="off"></span>
             <span id="redStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
           </button>
           <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍" aria-describedby="blueStats">
             <span class="army-title sr-only" id="blueTitle">右</span>
+            <span id="blueOdds" class="odds-badge" hidden></span>
             <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右の軍の兵士"></canvas>
             <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
             <span id="blueStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
@@ -1570,11 +1577,11 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
  };
  const isBankrupt=s=>{modeState(s);return solo&&s.players.length===1&&!s.currentRound&&s.completedRounds>=TOTAL_ROUNDS&&amountBig(s.players[0].balance)===0n};
  const canFinishRun=s=>{modeState(s);return solo&&!s.currentRound&&(s.completedRounds>=TOTAL_ROUNDS&&(s.terminalReason==='cashed-out'||isBankrupt(s)))};
- const openRound=(s,{sessionId,roundId,deadline}={})=>{
+ const openRound=(s,{sessionId,roundId,deadline,odds=null}={})=>{if(odds!==null&&(!odds||typeof odds!=='object'||!['A','B'].every(k=>Number.isSafeInteger(odds[k])&&odds[k]>100&&odds[k]<=10000)))fail('INVALID_ODDS');
   session(s,sessionId);int(roundId);int(deadline);if(!activePlayers(s).length)fail('NO_ACTIVE_PLAYERS');
   if(s.currentRound?.roundId===roundId){if(s.currentRound.deadline!==deadline)fail('ROUND_CONFLICT');return s;}
   if(s.currentRound)fail('ROUND_STILL_OPEN');if(roundId!==s.completedRounds+1||roundId>s.maxRounds)fail('ROUND_OUT_OF_ORDER');
-  const next=clone(s);next.currentRound={roundId,deadline,commits:[]};return freeze(next);
+  const next=clone(s);next.currentRound={roundId,deadline,commits:[],...(odds?{odds:{A:odds.A,B:odds.B}}:{})};return freeze(next);
  };
  const commitPrediction=(s,{sessionId,roundId,playerId,side,stake=0,now}={})=>{
   session(s,sessionId);int(roundId);int(now);const stakeN=amountBig(stake,'INVALID_STAKE');const p=player(s,playerId),r=active(s,roundId);
@@ -1601,13 +1608,13 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
    const c=r.commits.find(x=>x.playerId===p.playerId),predicted=!!c?.side,valid=outcome==='A'||outcome==='B';
    const correct=predicted&&valid?c.side===outcome:null,stake=amountBig(c?.stake??0),before=amountBig(p.balance);
    // First ten rounds: 1.5× stake as net profit, half-up to whole G. Legacy config fields remain for saved-session compatibility.
-   let delta=0n;if(correct===true)delta=roundId<=TOTAL_ROUNDS?(stake*3n+1n)/2n:stake;
+   let delta=0n;const ox=r.odds&&c?.side?BigInt(r.odds[c.side]):null;if(correct===true)delta=ox!==null?(stake*(ox-100n)+50n)/100n:roundId<=TOTAL_ROUNDS?(stake*3n+1n)/2n:stake;
    else if(correct===false)delta=-stake;
    const after=before+delta;if(after<0n)fail('BALANCE_INVARIANT');
    if(after.toString().replace('-','').length>MAX_AMOUNT_DIGITS)fail('AMOUNT_DIGIT_LIMIT');
    const score=after-BigInt(s.config.initialBalance),correctCount=p.correctCount+(correct===true?1:0);if(!Number.isSafeInteger(correctCount))fail('CORRECT_COUNT_OVERFLOW');p.balance=amountValue(after);p.score=signedValue(score);p.correctCount=correctCount;
    if(roundId>=TOTAL_ROUNDS&&after===0n)p.terminalReason='bankrupt';
-   entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake:amountValue(stake),correct,delta:signedValue(delta),balanceBefore:amountValue(before),balanceAfter:amountValue(after),scoreAfter:signedValue(score)});
+   entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake:amountValue(stake),...(ox!==null?{odds:Number(ox)}:{}),correct,delta:signedValue(delta),balanceBefore:amountValue(before),balanceAfter:amountValue(after),scoreAfter:signedValue(score)});
   }
   next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;
   if(solo&&roundId>=TOTAL_ROUNDS&&amountBig(next.players[0].balance)===0n)next.terminalReason='bankrupt';
@@ -1692,6 +1699,19 @@ const standings=wallet.standings;
 const setRunEnvironment=wallet.setRunEnvironment;
 
 return {GAME_MODE,TOTAL_ROUNDS,MIN_STAKE,DEFAULT_CONFIG,LEDGER_RETENTION,createSession,isBankrupt,canFinishRun,canCashOut,canContinueDoubleUp,openRound,commitPrediction,settleRound,continueDoubleUp,cashOut,reconnectPlayer,walletView,standings,setRunEnvironment};})();
+const MatchOdds=(()=>{
+/** Solo odds from the pre-bet situation only (never from the simulated result).
+ Measured on 600 headless simulated fights (ODDS.md): stats of the two rosters did not predict the winner,
+ but the incumbent did. Left won 32% in round 1 (no champion), 65% as reigning champion, 75% after 4+ straight wins.
+ RETURN keeps the average payout of the flat rules (early 1.5x profit ~= 1.25 return at 50/50; double-up 2x ~= 1.0),
+ but prices each side by its chance, so picking the obvious side is no longer a free edge. */
+const P_LEFT=Object.freeze({opening:0.32,champion:0.65,longChampion:0.75}),LONG_STREAK=4,RETURN_EARLY=1.25,RETURN_DOUBLEUP=1.00,MIN=110,MAX=800;
+function toOdds(p,ret){const raw=Math.floor(ret/p*20)*5;return Math.max(MIN,Math.min(MAX,raw));}
+function leftProbability({champion=false,streak=0}={}){return !champion?P_LEFT.opening:streak>=LONG_STREAK?P_LEFT.longChampion:P_LEFT.champion;}
+function quote(situation={}){const pA=leftProbability(situation),ret=situation.doubleUp?RETURN_DOUBLEUP:RETURN_EARLY;return {pA,odds:{A:toOdds(pA,ret),B:toOdds(1-pA,ret)}};}
+function payout(stake,oddsX100){return (BigInt(stake)*(BigInt(oddsX100)-100n)+50n)/100n;}
+function label(oddsX100){return '×'+(oddsX100/100).toFixed(2);}
+return {P_LEFT,LONG_STREAK,RETURN_EARLY,RETURN_DOUBLEUP,MIN,MAX,leftProbability,quote,toOdds,payout,label};})();
 const GrowthGenerator=(()=>{
 /** Bounded pre-bet roster generator. No simulation, outcomes, prediction, money or I/O. */
 const GENERATOR_VERSION='winner-initial-carry-no-add-v2-draw-retains-left';
@@ -5973,7 +5993,7 @@ step=function(dt){spriteStep(dt);if(state==='result'&&walletState&&walletState.c
   walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome:winner===null?'draw':winner===0?'A':'B',now:0});update();
 }};
 function openPrediction(seedValue){
-  const prepared=prepareOpening(seedValue),runWallet=walletState.environment||walletState.completedRounds!==0||walletState.currentRound?walletState:SoloWallet.setRunEnvironment(walletState,BattleFields.selectRunEnvironment(seedValue)),nextWallet=SoloWallet.openRound(runWallet,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER});walletState=nextWallet;battleEnvironment=walletState.environment??null;setup(seedValue,prepared);
+  const prepared=prepareOpening(seedValue),runWallet=walletState.environment||walletState.completedRounds!==0||walletState.currentRound?walletState:SoloWallet.setRunEnvironment(walletState,BattleFields.selectRunEnvironment(seedValue)),nextWallet=SoloWallet.openRound(runWallet,{sessionId:walletState.sessionId,roundId:round,deadline:Number.MAX_SAFE_INTEGER,odds:MatchOdds.quote({champion:prepared.base.length>0,streak:carryStreak,doubleUp:round>10}).odds});walletState=nextWallet;battleEnvironment=walletState.environment??null;setup(seedValue,prepared);
 }
 function nextPrediction(){
   if(state!=='result')return;
@@ -6217,7 +6237,7 @@ function drawArmyPreviews(){
    const licensed=LICENSED_CLIP_REGISTRIES[g.k],monster=MONSTER_META[g.k],exp=EXPANSION_ROLES.has(g.k),cell=monster?monster.cell[0]:exp?64:48,cellH=monster?monster.cell[1]:cell,anchor=licensed?licensed.anchor:monster?monster.anchor:exp?[29,53]:[21,41];
    const licensedFrame=licensed?.clips.idle.frames[0],img=licensed?licensedImageForFrame(g.k,licensedFrame):legacyImage(monster?g.k+'_'+(side?'blue':'red'):(side?'blue':'red')+(exp?'Expansion':'')),x=spacing*(i+.5),y=height-22;
    if(img&&img.complete&&img.naturalWidth){p.save();p.translate(x,y);p.scale((side?-1:1)*scale,scale);if(licensed){const f=licensedFrame;if(f)p.drawImage(img,...f.rect,-anchor[0]*licensed.renderScale,-anchor[1]*licensed.renderScale,f.rect[2]*licensed.renderScale,f.rect[3]*licensed.renderScale);}else p.drawImage(img,0,(monster?0:SPRITE_ROWS[g.k])*cell,cell,cellH,-anchor[0],-anchor[1],cell,cellH);p.restore();}else if(licensed){drawLicensedPlaceholder(p,g.k,x,y,side);}
-   p.fillStyle=side?'#bdddf5':'#ffbaa5';p.font='bold 13px sans-serif';p.textAlign='center';p.fillText('×'+g.count,x,height-4);
+   p.fillStyle=side?'#ffbaa5':'#bdddf5';p.font='bold 13px sans-serif';p.textAlign='center';p.fillText('×'+g.count,x,height-4);
   });
   if(el.setAttribute)el.setAttribute('aria-label',(side?'右':'左')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
  }
@@ -7356,6 +7376,18 @@ document.querySelector('#next').onclick=e=>{
 const extensionStart=document.querySelector('#soloStart').onclick;
 document.querySelector('#soloStart').onclick=e=>{if(soloRunEnded&&!multiSession){round=1;freshWallet();openPrediction((Math.random()*4294967296)>>>0);}extensionStart(e);};
 const extensionUpdate=update;update=function(){extensionUpdate();syncExtensionControls();};
+function syncOdds(){
+ const q=id=>document.querySelector(id),solo=!multiSession&&!!walletState,o=solo?walletState.currentRound?.odds:null,show=!!o&&state==='choose';
+ for(const [side,key] of [[0,'A'],[1,'B']]){const el=q(side?'#blueOdds':'#redOdds');if(!el)continue;el.hidden=!show;if(!show)continue;const other=o[key==='A'?'B':'A'];el.textContent=MatchOdds.label(o[key]);if(el.setAttribute){el.setAttribute('data-long',String(o[key]>other));el.setAttribute('aria-label','配当'+MatchOdds.label(o[key])+(o[key]>other?'（大穴側）':'（本命側）'));}}
+ if(show){
+  const hint=q('#stakeHint'),stake=selectedStake??0;
+  if(selectedSide===null)hint.textContent=(o.A<o.B?'左（王者）':'右')+'が本命 · 不利な側ほど高配当';
+  else{const ox=o[selectedSide===0?'A':'B'],win=MatchOdds.payout(stake,ox);hint.textContent=(round>10?'全額BET ':'')+MatchOdds.label(ox)+'：的中 '+credits(Money.signedValue(win))+' · 外れ −'+MoneyUI.balanceText(stake)+' · 引分 ±0 G';}
+ }
+ if(solo&&state==='result'&&walletState.completedRounds===round){const entry=walletState.ledger.find(r=>r.roundId===round)?.entries[0];if(entry&&entry.odds&&entry.correct===true){const b=q('#breakdown');const t='的中 '+MatchOdds.label(entry.odds)+' '+credits(entry.delta);if(b.textContent!==t)b.textContent=t;}}
+}
+const oddsUpdate=update;update=function(){oddsUpdate();syncOdds();};
+
 const extensionDisplay=displayMultiState;displayMultiState=function(){extensionDisplay();syncExtensionControls();};
 const extensionLoop=loop;loop=function(t){extensionLoop(t);syncExtensionControls();};
 syncExtensionControls();
