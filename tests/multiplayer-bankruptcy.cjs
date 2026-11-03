@@ -10,7 +10,21 @@ for(const zeroPlayer of ['host','guest']){
 vm.runInContext(`{
 let queue=[],host,guest;const now=()=>1000,o={roomId:'room',sessionId:'session',hostId:'host',members:['host','guest'],now};host=MultiBinding.createWalletSession({...o,userId:'host',send:w=>queue.push(['guest','host',w])});guest=MultiProtocol.createSession({...o,userId:'guest',send:w=>queue.push(['host','guest',w])});const flush=()=>{let n=0;while(queue.length&&n++<10000){const [to,from,w]=queue.shift();(to==='host'?host:guest).receive(from,w)}if(queue.length)throw Error('queue')};guest.hello();host.hello();flush();
 const zeroPlayer=ZERO_PLAYER;
-function play(n, winner){host.openRound({roundId:n,durationMs:10000,matchup:{units:[]}});flush();let hs=zeroPlayer==='host'?(n<=2?50:0):10,gs=zeroPlayer==='guest'?(n<=2?50:0):10;let hside=n<=2&&zeroPlayer==='host'?'A':'B',gside=n<=2&&zeroPlayer==='guest'?'A':'B';if(!host.predict(hside,hs)||!guest.predict(gside,gs))throw Error('prediction rejected');flush();if(host.getState().phase!=='locked')throw Error('round not locked');host.startBattle({engineVersion:'test',ticks:1,winner,events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush()}
-play(1,'B');play(2,'B');let wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==0||wallets.find(x=>x.playerId===zeroPlayer).terminalReason)throw Error('0 G player incorrectly eliminated');play(3,'B');wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==10)throw Error('0 G recovery failed');if(wallets.find(x=>x.playerId!==zeroPlayer).balance!==145)throw Error('other player settlement failed');
+function play(n, winner){host.openRound({roundId:n,durationMs:10000,matchup:{units:[]}});flush();let hs=zeroPlayer==='host'?(n<=2?50:0):(n===1?25:n===2?35:48),gs=zeroPlayer==='guest'?(n<=2?50:0):(n===1?25:n===2?35:48);let hside=n<=2&&zeroPlayer==='host'?'A':'B',gside=n<=2&&zeroPlayer==='guest'?'A':'B';if(!host.predict(hside,hs)||!guest.predict(gside,gs))throw Error('prediction rejected');flush();if(host.getState().phase!=='locked')throw Error('round not locked');host.startBattle({engineVersion:'test',ticks:1,winner,events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush()}
+play(1,'B');play(2,'B');let wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==0||wallets.find(x=>x.playerId===zeroPlayer).terminalReason)throw Error('0 G player incorrectly eliminated');play(3,'B');wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==10)throw Error('0 G recovery failed');if(wallets.find(x=>x.playerId!==zeroPlayer).balance!==263)throw Error('other player settlement failed');
 }`.replace('ZERO_PLAYER',JSON.stringify(zeroPlayer)),context);console.log('PASS multiplayer 0 G recovery:',zeroPlayer)
 }
+
+vm.runInContext(`{
+ const host=MultiBinding.createWalletSession({roomId:'compat',sessionId:'compat-session',hostId:'host',userId:'host',members:['host'],send:()=>{},now:()=>1000});
+ const old='251ebf18f7748ecb355b3b53d408a4b313d7f5963bc11cc040f30510971c12c7';
+ const wire=MultiProtocol.encode({protocol:MultiProtocol.PROTOCOL,version:1,roomId:'compat',sessionId:'compat-session',type:'hello',contentRevision:old});
+ if(host.receive('old-peer',wire)!==false||host.getCompatibilityErrors()['old-peer']!=='content-revision-mismatch')throw Error('old client accepted');
+ if(host.getState().participants.includes('old-peer'))throw Error('old client joined');
+}`,context);console.log('PASS old-version client rejected before joining');
+vm.runInContext(`{
+ const host=MultiBinding.createWalletSession({roomId:'high',sessionId:'high-session',hostId:'host',userId:'host',members:['host'],walletConfig:{initialBalance:1000},send:()=>{},now:()=>1000});
+ host.openRound({roundId:1,durationMs:10000,matchup:{units:[]}});
+ host.predict('A',10);if(host.getState().phase!=='predict'||host.getLedger().currentRound.commits.length)throw Error('legacy amount accepted');
+ host.predict('A',250);if(host.getState().phase!=='locked'||host.getLedger().currentRound.commits[0].stake!==250)throw Error('25 percent rejected');
+}`,context);console.log('PASS host validates percentage stakes above former cap');

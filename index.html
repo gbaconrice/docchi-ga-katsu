@@ -1229,6 +1229,13 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 .battle-clock { color:#fff0cf; text-shadow:0 1px 2px #30190f; }
 /* Canvas keeps its exact size and fit; its letterboxing shows the table, not a flat field colour. */
 #field { background:transparent; }
+/* Keep the action a simple leather rectangle and identify selections with a clear border. */
+.stake-options { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.stake-option { font-size:12px; overflow-wrap:anywhere; }
+.prediction-footer { background:transparent; border-radius:0; box-shadow:none; }
+.prediction-start { min-height:64px; border:2px solid #bd955f; border-radius:4px; clip-path:none; box-shadow:inset 0 1px #cb9782,0 2px 0 #412119; }
+.army-card[aria-pressed="true"]::after { content:none; display:none; }
+.army-card[aria-pressed="true"] { border-color:#754c19; box-shadow:inset 0 0 0 3px #bb8b35,0 0 0 2px #f5da93; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1306,9 +1313,9 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
         <h3 id="stakeTitle">BET</h3>
         <div class="stake-options" role="group" aria-label="BET額">
           <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
-          <button id="stake10" class="stake-option" type="button" aria-pressed="false">10 G</button>
           <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
           <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
+          <button id="stake100" class="stake-option" type="button" aria-pressed="false">全額</button>
         </div>
         <p id="stakeHint" class="stake-hint" aria-live="polite">的中 +15 G · 外れ −10 G · 引分 ±0 G</p>
       </section>
@@ -1494,47 +1501,20 @@ const MIN_STAKE=10;
 const STAKE_CAP=50;
 const asRound=(round)=>Number.isSafeInteger(round)&&round>=1?round:1;
 
-/** Default control value. Past round ten, this deliberately selects the whole bankroll. */
-function defaultStake(balance,round=1,min=MIN_STAKE,cap=STAKE_CAP){
- const b=amountBig(balance);
- if(asRound(round)>10)return b===0n?null:amountValue(b);
- if(b===0n)return 0;
- if(b<BigInt(min))return amountValue(b); // Legacy 1–9G balance: all-in compatibility.
- return min;
+/** Percent options round half up using integer arithmetic. */
+function stakeOption(option,balance,round=1){
+ const b=amountBig(balance),r=asRound(round);if(b===0n)return option===0&&r<=10?0:null;
+ if(r>10)return option===100?amountValue(b):null;
+ if(![25,50,100].includes(option))return null;
+ const n=(b*BigInt(option)+50n)/100n;return amountValue(n<1n?1n:n>b?b:n);
 }
-
-/** Maps the existing stake chips to exact amounts without coercing decimal strings. */
-function stakeOption(option,balance,round=1,min=MIN_STAKE,cap=STAKE_CAP){
- if(!Number.isSafeInteger(option)||option<0)return null;
- const b=amountBig(balance),r=asRound(round);
- if(r>10)return option===cap&&b>0n?amountValue(b):null;
- if(option===0)return b===0n?0:null; // Free prediction only when broke.
- if(option===min&&b>0n&&b<BigInt(min))return amountValue(b);
- return option;
-}
-
-function validStake(balance,stake,round=1,min=MIN_STAKE,cap=STAKE_CAP){
- let b,s;try{b=amountBig(balance);s=amountBig(stake)}catch{return false}
- const r=asRound(round);
- if(r>10)return b>0n&&s===b;
- if(b===0n)return s===0n;
- if(b<BigInt(min))return s===b;
- return s>=BigInt(min)&&s<=BigInt(cap)&&s<=b;
-}
-
+function defaultStake(balance,round=1){const b=amountBig(balance);return b===0n?(asRound(round)<=10?0:null):stakeOption(asRound(round)>10?100:25,balance,round)}
+function validStake(balance,stake,round=1){let b,s;try{b=amountBig(balance);s=amountBig(stake)}catch{return false}if(b===0n)return asRound(round)<=10&&s===0n;return (asRound(round)>10?[100]:[25,50,100]).some(n=>amountBig(stakeOption(n,b,round))===s)}
 function sameAmount(a,b){try{return amountBig(a)===amountBig(b)}catch{return false}}
 function sameSigned(a,b){try{return signedBig(a)===signedBig(b)}catch{return false}}
 function amountAtMost(a,b){try{return amountBig(a)<=amountBig(b)}catch{return false}}
-function maximumStake(balance,round=1,cap=STAKE_CAP){
- const b=amountBig(balance);if(asRound(round)>10)return amountValue(b);
- return amountValue(b<BigInt(cap)?b:BigInt(cap));
-}
-function stakeLabel(option,balance,round=1,min=MIN_STAKE,cap=STAKE_CAP){
- const amount=stakeOption(option,balance,round,min,cap);
- if(amount===null)return `${option} G`;
- if(!sameAmount(amount,option))return `全額 ${amountText(amount)} G`;
- return `${option} G`;
-}
+function maximumStake(balance){return amountValue(amountBig(balance))}
+function stakeLabel(option,balance,round=1){const amount=stakeOption(option,balance,round);const name=option===100?'全額':option===0?'0 G':option+'%';return amount===null?name:option===0?name:name+' · '+amountText(amount)+' G'}
 function credits(value){return `${signedText(value,{plus:true})} G`}
 function balanceText(value){return `${amountText(value)} G`}
 function rankedByScore(rows){
@@ -1593,7 +1573,7 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   const c={...DEFAULT_CONFIG,...config};Object.values(c).forEach(v=>int(v,'INVALID_CONFIG'));
   if(c.precision!==0)fail('INTEGER_CREDITS_ONLY');if(c.totalRounds!==TOTAL_ROUNDS)fail('INCOMPATIBLE_ROUND_COUNT');
   if(c.profitNumerator!==3||c.profitDenominator!==2||c.zeroStakeRecovery!==10)fail('INCOMPATIBLE_PROFIT_RULE');
-  if(BigInt(c.initialBalance)+BigInt(TOTAL_ROUNDS)*((BigInt(c.stakeCap)*3n+1n)/2n)>BigInt(Number.MAX_SAFE_INTEGER))fail('CONFIG_OVERFLOW');
+  // Amounts use BigInt-backed serialization; legacy stakeCap is retained only for snapshots.
   const initial=BigInt(c.initialBalance);
   return freeze({schemaVersion,mode:gameMode,sessionId,...(environment===null?{}:{environment:validateEnvironment(environment)}),config:c,
     players:playerIds.map(playerId=>({playerId,balance:amountValue(initial),score:0,correctCount:0,cashedOut:false,cashoutAmount:null,cashoutRound:null,cashoutRequestId:null,cashoutReason:null,terminalReason:null})),
@@ -1614,12 +1594,7 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   if(old){if(old.side===side&&amountBig(old.stake)===stakeN)return s;fail('COMMIT_LOCKED');}
   if(now>=r.deadline)fail('COMMIT_DEADLINE');const balance=amountBig(p.balance);
   if(stakeN>balance)fail('STAKE_EXCEEDS_LIMIT');
-  if(side!==null&&roundId<=TOTAL_ROUNDS){
-   if(balance===0n){if(stakeN!==0n)fail('STAKE_EXCEEDS_LIMIT');}
-   else if(balance<BigInt(MIN_STAKE)){if(stakeN!==balance)fail('LOW_BALANCE_ALL_IN_REQUIRED');}
-   else if(stakeN<BigInt(MIN_STAKE))fail('MINIMUM_STAKE_REQUIRED');
-   else if(stakeN>BigInt(s.config.stakeCap))fail('STAKE_EXCEEDS_LIMIT');
-  }
+  if(side!==null&&roundId<=TOTAL_ROUNDS&&!MoneyUI.validStake(balance,stakeN,roundId))fail('INVALID_PERCENT_STAKE');
   if(side!==null&&roundId>TOTAL_ROUNDS&&(balance===0n||stakeN!==balance))fail('DOUBLEUP_ALL_IN_REQUIRED');
   const next=clone(s);next.currentRound.commits.push({playerId,side,stake:serializedStake});return freeze(next);
  };
@@ -1665,7 +1640,7 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
  const reconnectPlayer=(s,{sessionId,playerId}={})=>{session(s,sessionId);id(playerId);const p=s.players.find(x=>x.playerId===playerId);return freeze(p?{role:p.cashedOut?'cashed-out':p.terminalReason==='bankrupt'?'inactive':'player',...p}:{role:'spectator',playerId})};
  const walletView=(s,playerId)=>{
   modeState(s);const p=player(s,playerId),reserved=s.currentRound?.commits.find(c=>c.playerId===playerId)?.stake??0;
-  const balance=amountBig(p.balance),held=amountBig(reserved),cap=BigInt(s.config.stakeCap);return freeze({...p,reserved:amountValue(held),available:amountValue(balance-held),maxStake:amountValue(s.completedRounds<TOTAL_ROUNDS?(balance<cap?balance:cap):balance)});
+  const balance=amountBig(p.balance),held=amountBig(reserved);return freeze({...p,reserved:amountValue(held),available:amountValue(balance-held),maxStake:amountValue(balance)});
  };
  const standings=s=>{
   modeState(s);const rows=s.players.map(p=>({...p})).sort((a,b)=>compareSigned(b.score,a.score)||(a.playerId<b.playerId?-1:a.playerId>b.playerId?1:0));let rank=0;return freeze(rows.map((p,i)=>{if(i===0||signedBig(p.score)!==signedBig(rows[i-1].score))rank=i+1;return{rank,...p}}));
@@ -3204,7 +3179,7 @@ function createReactionChannel({
 return {REACTION_PROTOCOL,REACTION_MODE,REACTION_TYPE,REACTIONS,REACTION_LIMITS,parseReactionWire,createReactionChannel};})();
 const ContentProfile=(()=>{
 // Build-generated semantic content revision; no runtime hashing or network.
-const CONTENT_REVISION="251ebf18f7748ecb355b3b53d408a4b313d7f5963bc11cc040f30510971c12c7";
+const CONTENT_REVISION="c444e038aa04c07a1087cc7de2af3b7caab12c75ab240d7bde73814ea1254b47";
 const validContentRevision=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 
 return {CONTENT_REVISION,validContentRevision};})();
@@ -5956,7 +5931,7 @@ function loop(t){
 }
 if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',resetSoloClock);
 function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
-let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
+let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0,selectedStakeOption=25;
 const PLAYER='local';
 const MIN_BET=Wallet.MIN_STAKE;
 function minimumBetForBalance(balance,forRound=round){return MoneyUI.defaultStake(balance,forRound,MIN_BET,50)??0;}
@@ -5969,7 +5944,7 @@ function freshWallet(){battleEnvironment=null;endLicensedAssets();soloRunEnded=f
 function credits(n){return MoneyUI.credits(n)}
 function currentWallet(){return SoloWallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);};
+setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);syncArenaField();
@@ -5980,7 +5955,7 @@ update=function(){
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
-  for(const n of [0,10,25,50]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
+  for(const n of [0,25,50,100]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.hidden=amount===null;b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&selectedStakeOption===n));}
   q('#confirm').disabled=selectedSide===null||!validPredictionStake(w.balance,selectedStake);
   q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':Money.amountBig(selectedStake)===0n?'0 G · 的中 +10 G · 外れ・引分 ±0 G':'的中 '+credits(Money.signedValue((Money.amountBig(selectedStake)*3n+1n)/2n))+' · 外れ −'+MoneyUI.balanceText(selectedStake)+' · 引分 ±0 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
@@ -5993,7 +5968,7 @@ update=function(){
   }
 };
 function selectSide(side){if(state!=='choose')return;selectedSide=side;update()}
-function selectStake(option){const w=currentWallet(),amount=stakeOptionAmount(option,w.balance);if(state!=='choose'||![0,10,25,50].includes(option)||amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake))return;selectedStake=amount;update()}
+function selectStake(option){const w=currentWallet(),amount=stakeOptionAmount(option,w.balance);if(state!=='choose'||![0,25,50,100].includes(option)||amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake))return;selectedStake=amount;selectedStakeOption=option;update()}
 function startPrediction(skip=false){
   if(state!=='choose'||skip||selectedSide===null||!validPredictionStake(currentWallet().balance,selectedStake))return;
   walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
@@ -6014,7 +5989,7 @@ function nextPrediction(){
   }catch(error){({round,mistakes,correct,speed,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);beginLicensedOpening(units);throw error;}
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
-for(const n of [0,10,25,50])document.querySelector('#stake'+n).onclick=()=>selectStake(n);
+for(const n of [0,25,50,100])document.querySelector('#stake'+n).onclick=()=>selectStake(n);
 document.querySelector('#confirm').onclick=()=>startPrediction();
 document.querySelector('#pause').onclick=()=>{setPaused(!paused);update()};document.querySelector('#speed').onclick=()=>{setSpeed(speed===1?2:1);update()};
 document.querySelector('#next').onclick=nextPrediction;
@@ -6066,7 +6041,7 @@ function displayMultiState(){
  q('#pause').hidden=false;q('#speed').hidden=true;
  q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';
  q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
- for(const n of [0,10,25,50]){const amount=stakeOptionAmount(n,currentWallet().balance),button=q('#stake'+n);button.disabled=ready||multiPredictionPending||!player||amount===null||!validPredictionStake(currentWallet().balance,amount)||!MoneyUI.amountAtMost(amount,currentWallet().maxStake);button.textContent=MoneyUI.stakeLabel(n,currentWallet().balance,round,MIN_BET,50);if(button.setAttribute)button.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
+ for(const n of [0,25,50,100]){const amount=stakeOptionAmount(n,currentWallet().balance),button=q('#stake'+n);button.hidden=amount===null;button.disabled=ready||multiPredictionPending||!player||amount===null||!validPredictionStake(currentWallet().balance,amount)||!MoneyUI.amountAtMost(amount,currentWallet().maxStake);button.textContent=MoneyUI.stakeLabel(n,currentWallet().balance,round,MIN_BET,50);if(button.setAttribute)button.setAttribute('aria-pressed',String(amount!==null&&selectedStakeOption===n));}
  q('#beginRound').hidden=!(multiHost&&s.phase==='lobby');q('#exitRoom').hidden=false;
  const role=player?(multiHost?'ホスト':'参加者'):seat&&ownPlayer?.terminalReason==='bankrupt'?'0G・予想終了／観戦':seat?'終了後観戦':'観戦のみ';
  q('#roomStatus').textContent=(mockGuest?'練習相手と観戦 / ':('部屋コード '+(multiAdapter?.getRoomId()||'—')+' / '))+role+' / '+s.participants.length+'人 / '+s.phase+(ready?' / 予想受付済み':multiPredictionPending?' / 予想送信中（受付確認待ち）':'')+(s.phase==='predict'?' / あと約'+Math.max(0,Math.ceil((s.deadline-Date.now())/1000))+'秒':'')+(s.departedIds?.length&&s.roundId<TOTAL_ROUNDS?' / 離脱者は10戦後に終了':'')+(multiError?' / '+multiError:'')+(s.replayError?' / 観戦記録の転送障害（確定結果は維持）':'');
@@ -6094,7 +6069,7 @@ function observeCanonicalCashout(s){
 }
 function maybeAutoAdvanceDoubleUp(s){if(!multiHost||!multiSession||s?.phase!=='result'||s.roundId<TOTAL_ROUNDS||!multiDoubleUpDecisionsComplete(s)||multiAutoAdvanceRound===s.roundId)return;multiAutoAdvanceRound=s.roundId;openMultiRound();}
 function onMultiChange(s){if(s.environment)battleEnvironment=BattleFields.validateEnvironment(s.environment);if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;round=s.roundId||1;multiAutoAdvanceRound=null;resetMultiRound();if(!multiHost&&s.matchup?.units&&admitMultiMatchup(s)){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));beginLicensedOpening(units);configureFixedCamera();}}if(multiSession){displayMultiState();observeCanonicalCashout(s);maybeAutoAdvanceDoubleUp(s);}}
-function resetMultiRound(){if(multiUnavailableRound!==null)multiError='';multiUnavailableRound=null;multiUnavailableAdvanceRound=null;multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStake=minimumBetForBalance(currentWallet().balance,Math.max(1,round));}
+function resetMultiRound(){if(multiUnavailableRound!==null)multiError='';multiUnavailableRound=null;multiUnavailableAdvanceRound=null;multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;multiPlaybackStarted=0;selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance,Math.max(1,round));}
 function publicMatchup(){return {...(battleEnvironment?{environment:battleEnvironment}:{}),engineVersion:CompactReplay.COMPACT_VERSION,runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:128,maxActiveUnits:128,maxCreatedEntities:512};}
 function openMultiRound(){
  if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase))return;
