@@ -678,6 +678,7 @@ h1 { margin: 0; color: var(--ink); font-size: clamp(24px, 7vw, 28px); line-heigh
   display: block;
   width: 12px;
   height: 12px;
+  opacity: 0;
   border: 2px solid #70501f;
   background: #f3d77f;
   image-rendering: pixelated;
@@ -6984,7 +6985,7 @@ function setEarnedStage(positive,stage){
  if(positive)panel.setAttribute('data-earn-stage',stage||'waiting');
  else panel.setAttribute('data-earn-stage','none');
 }
-function hideEarnedFlight(){const layer=document.querySelector('#earnedFlightLayer');if(layer)layer.hidden=true;}
+function hideEarnedFlight(){const layer=document.querySelector('#earnedFlightLayer'),burst=document.querySelector('#earnedBurst');if(layer)layer.hidden=true;if(burst)burst.hidden=true;}
 function finishEarnedDisplay(scene){
  const entry=scene?.entry,delta=ownPositiveDelta(entry),q=id=>document.querySelector(id);
  if(delta){const node=q('#breakdown'),text=credits(delta);if(node&&node.textContent!==text)node.textContent=text;setEarnedStage(true,'complete');}
@@ -7081,11 +7082,30 @@ function startTerminalResolve(scene,now){
  ],{duration:220,easing:'cubic-bezier(.2,.8,.3,1)'});
 }
 function syncTerminalResolve(scene,now){if(!scene.resolveStarted||scene.resolveReduced)return;const age=Math.max(0,now-scene.resolveStartedAt),stage=age<48?'windup':age<128?'impact':'settled',panel=document.querySelector('#resultPanel');if(panel&&typeof panel.getAttribute==='function'&&typeof panel.setAttribute==='function'&&panel.getAttribute('data-resolve-stage')!==stage)panel.setAttribute('data-resolve-stage',stage);}
+// Measure the final amount, not the full-width paragraph or its initial zero.
+function earnedTextRect(scene,node){
+ if(!node||typeof document.createRange!=='function')return null;
+ const delta=ownPositiveDelta(scene?.entry);if(!delta)return null;
+ const original=node.textContent;let range,rect;
+ try{node.textContent=credits(delta);range=document.createRange();range.selectNodeContents(node);rect=range.getBoundingClientRect();}
+ catch(_){return null}finally{node.textContent=original;range?.detach?.()}
+ if(!rect||![rect.left,rect.right,rect.top,rect.bottom,rect.width,rect.height].every(Number.isFinite)||rect.width<=0||rect.height<=0)return null;
+ // The count-up text briefly scales to 1.08: keep a margin around that extent.
+ const padX=rect.width*.04+3,padY=rect.height*.04+3;
+ return {left:rect.left-padX,right:rect.right+padX,top:rect.top-padY,bottom:rect.bottom+padY};
+}
+function earnedSidePoint(rect,radius){
+ const w=typeof innerWidth==='number'?innerWidth:0,h=typeof innerHeight==='number'?innerHeight:0;
+ if(!(w>2*radius&&h>2*radius))return null;
+ const y=Math.max(radius,Math.min(h-radius,(rect.top+rect.bottom)/2));
+ if(rect.right+2*radius<=w)return {x:rect.right+radius,y,side:1};
+ if(rect.left-2*radius>=0)return {x:rect.left-radius,y,side:-1};
+ return null;
+}
 function burstEarnedCoins(scene,fromNode){
  const layer=document.querySelector('#earnedFlightLayer'),node=document.querySelector('#earnedBurst');if(!layer||!node||typeof fromNode?.getBoundingClientRect!=='function'||typeof node.animate!=='function'||scene.reducedMotion)return false;
- let rect;try{rect=fromNode.getBoundingClientRect()}catch{return false}if(!rect||!(rect.width>0&&rect.height>0))return false;
- const x=rect.left+rect.width/2,y=rect.top+rect.height/2;if(!Number.isFinite(x)||!Number.isFinite(y))return false;
- layer.hidden=false;node.style.left=(x-29)+'px';node.style.top=(y-29)+'px';node.hidden=false;
+ const rect=earnedTextRect(scene,fromNode),point=rect&&earnedSidePoint(rect,58);if(!point)return false;
+ const {x,y}=point;layer.hidden=false;node.style.left=(x-29)+'px';node.style.top=(y-29)+'px';node.hidden=false;
  try{const animation=node.animate([
   {transform:'scale(.3) rotate(0deg)',opacity:0},
   {transform:'scale(1.08) rotate(45deg)',opacity:.88,offset:.34},
@@ -7110,17 +7130,17 @@ function animateBalanceArrival(scene){
 function resultFlyCoins(scene,fromNode,toNode){
  const layer=document.querySelector('#earnedFlightLayer'),ids=['#earnedCoin1','#earnedCoin2','#earnedCoin3','#earnedCoin4'];
  if(!layer||typeof fromNode?.getBoundingClientRect!=='function'||typeof toNode?.getBoundingClientRect!=='function')return false;
- let from,to;try{from=fromNode.getBoundingClientRect();to=toNode.getBoundingClientRect();}catch(_){return false;}
- if(!from||!to||!(from.width>0&&from.height>0&&to.width>0&&to.height>0))return false;
- const sx=from.left+from.width/2,sy=from.top+from.height/2,tx=to.left+to.width/2,ty=to.top+to.height/2;
- if(![sx,sy,tx,ty].every(Number.isFinite))return false;
- const viewportWidth=typeof innerWidth==='number'?innerWidth:Math.max(from.left+from.width,to.left+to.width)+16;
- const corridorX=Math.max(tx,Math.min(viewportWidth-8,Math.max(tx,sx)+16));
- const offsets=[[-9,-2],[-3,-7],[5,-4],[10,2]],animations=[];
+ let to;try{to=toNode.getBoundingClientRect();}catch(_){return false;}
+ const from=earnedTextRect(scene,fromNode),point=from&&earnedSidePoint(from,20);
+ if(!point||!to||!(to.width>0&&to.height>0))return false;
+ const sx=point.x,sy=point.y,tx=to.left+to.width/2-6,ty=to.top+to.height/2-6;
+ if(![sx,sy,tx,ty].every(Number.isFinite)||ty>=from.top-16||sy+(ty-sy)*.82+12>=from.top)return false;
+ const corridorX=point.x-6;
+ const offsets=[[-9,-2],[-3,-7],[5,-4],[9,2]],animations=[];
  layer.hidden=false;
  for(let i=0;i<ids.length;i++){
   const coin=document.querySelector(ids[i]);if(!coin||typeof coin.animate!=='function')continue;
-  const [ox,oy]=offsets[i],left=sx+ox,top=sy+oy,dx=tx-left,dy=ty-top;
+  const [ox,oy]=offsets[i],left=sx+ox-6,top=sy+oy-6,dx=tx-left,dy=ty-top;
   try{
    if(coin.style){coin.style.left=left+'px';coin.style.top=top+'px';}
    const animation=coin.animate([
@@ -7163,7 +7183,7 @@ function syncPersonalResult(now){
  const key=audioBattleKey()+':'+personalViewerId(),entry=ownResultEntry();
  if(!personalResultScene||personalResultScene.key!==key){
   cancelPersonalResult();const seen=personalResultSeen.has(key);personalResultSeen.add(key);if(personalResultSeen.size>40)personalResultSeen.delete(personalResultSeen.values().next().value);
-  personalResultScene={key,resultStart:null,sequenceStart:null,stage:0,cancelled:seen||document.hidden===true,animations:[],entry:null,earnedRevealed:false,countComplete:false,flightStarted:false,flightActive:false,arrivalDone:false,reducedMotion:false,resolveStarted:false,doubleUpShown:false};
+  personalResultScene={key,resultStart:null,sequenceStart:null,stage:0,cancelled:seen||document.hidden===true,animations:[],entry:null,earnedRevealed:false,countComplete:false,flightStarted:false,flightAttempted:false,flightActive:false,arrivalDone:false,reducedMotion:false,resolveStarted:false,doubleUpShown:false};
  }
  const scene=personalResultScene;
  if(!scene.entry&&validOwnSettlement(entry))scene.entry=entry;
@@ -7209,13 +7229,12 @@ function syncPersonalResult(now){
  });
  if(activeDelta>0n){
   syncEarnedCount(scene,activeEntry,elapsed);
-  if(!scene.reducedMotion&&!scene.flightStarted&&elapsed>=680&&elapsed<1000){resultFlyCoins(scene,q('#breakdown'),q('#balance'));}
+  if(!scene.reducedMotion&&!scene.flightAttempted&&elapsed>=680&&elapsed<1000){scene.flightAttempted=true;resultFlyCoins(scene,q('#breakdown'),q('#balance'));}
  }
  const arrivalAt=scene.reducedMotion?280:1000;
  advance(3,arrivalAt,()=>{
   if(activeDelta<=0n)return;
   if(scene.flightActive){hideEarnedFlight();scene.flightActive=false;}
-  else if(!placeEarnedCoinsAtBalance(scene,q('#balance')))return false;
   scene.arrivalDone=true;
   if(q('#breakdown'))q('#breakdown').textContent=credits(activeDelta);
   setEarnedStage(true,'arrived');
