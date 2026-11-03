@@ -1199,6 +1199,15 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 .result-title,.result-summary,.result-ranking,.result-winner,.checkpoint-net { color:#432e1d; }
 .units-side { background:#3b5140; }
 
+
+/* Result states share one vocabulary and high-contrast ink on parchment. */
+#gameScreen[data-personal-result="true"] #resultPanel[data-outcome="hit"] { border-color:#88601f; box-shadow:inset 0 0 0 3px #e8c875,0 5px 16px #24130f; }
+#gameScreen[data-personal-result="true"] #resultPanel[data-outcome="miss"] { border-color:#765143; box-shadow:inset 0 0 0 3px #d1b09a,0 5px 16px #24130f; }
+#gameScreen[data-personal-result="true"] #resultPanel[data-outcome="neutral"] { border-color:#82704f; }
+#gameScreen[data-personal-result="true"] #resultPanel[data-outcome="hit"] #message { color:#51300f; }
+#gameScreen[data-personal-result="true"] #resultPanel #breakdown { color:#432e1d; }
+#gameScreen[data-personal-result="true"] #resultPanel[data-earned="true"] #breakdown,#gameScreen[data-personal-result="true"] #resultPanel[data-double-up="true"] #breakdown { color:#70450c; text-shadow:none; }
+.bankrupt-notice { margin:4px 0; color:#6d342e; font-size:13px; font-weight:800; line-height:1.35; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1359,6 +1368,7 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
       <span id="doubleUpBadge" class="double-up-badge" aria-hidden="true" hidden>×2</span>
       <span id="finalBlowCaption" class="final-blow-caption" aria-hidden="true" hidden>決着</span>
       <p id="breakdown" class="result-summary" aria-live="off"></p>
+      <p id="bankruptNotice" class="bankrupt-notice" hidden></p>
       <p id="resultRanking" class="result-ranking" hidden></p>
       <p id="checkpointNet" class="checkpoint-net" hidden></p>
       <div class="compatibility-hooks" hidden aria-hidden="true">
@@ -1568,8 +1578,8 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
     players:playerIds.map(playerId=>({playerId,balance:amountValue(initial),score:0,correctCount:0,cashedOut:false,cashoutAmount:null,cashoutRound:null,cashoutRequestId:null,cashoutReason:null,terminalReason:null})),
     currentRound:null,completedRounds:0,maxRounds:TOTAL_ROUNDS,continuations:[],cashouts:[],ledger:[],terminalReason:null});
  };
- const isBankrupt=s=>{modeState(s);return solo&&s.players.length===1&&!s.currentRound&&s.completedRounds>=TOTAL_ROUNDS&&amountBig(s.players[0].balance)===0n};
- const canFinishRun=s=>{modeState(s);return solo&&!s.currentRound&&(s.completedRounds>=TOTAL_ROUNDS&&(s.terminalReason==='cashed-out'||isBankrupt(s)))};
+ const isBankrupt=s=>{modeState(s);return solo&&s.players.length===1&&!s.currentRound&&s.completedRounds>0&&amountBig(s.players[0].balance)===0n};
+ const canFinishRun=s=>{modeState(s);return solo&&!s.currentRound&&(isBankrupt(s)||(s.completedRounds>=TOTAL_ROUNDS&&s.terminalReason==='cashed-out'))};
  const openRound=(s,{sessionId,roundId,deadline}={})=>{
   session(s,sessionId);int(roundId);int(deadline);if(!activePlayers(s).length)fail('NO_ACTIVE_PLAYERS');
   if(s.currentRound?.roundId===roundId){if(s.currentRound.deadline!==deadline)fail('ROUND_CONFLICT');return s;}
@@ -1606,11 +1616,11 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
    const after=before+delta;if(after<0n)fail('BALANCE_INVARIANT');
    if(after.toString().replace('-','').length>MAX_AMOUNT_DIGITS)fail('AMOUNT_DIGIT_LIMIT');
    const score=after-BigInt(s.config.initialBalance),correctCount=p.correctCount+(correct===true?1:0);if(!Number.isSafeInteger(correctCount))fail('CORRECT_COUNT_OVERFLOW');p.balance=amountValue(after);p.score=signedValue(score);p.correctCount=correctCount;
-   if(roundId>=TOTAL_ROUNDS&&after===0n)p.terminalReason='bankrupt';
+   if(after===0n&&!p.cashedOut)p.terminalReason='bankrupt';
    entries.push({playerId:p.playerId,side:c?.side??null,submitted:!!c,stake:amountValue(stake),correct,delta:signedValue(delta),balanceBefore:amountValue(before),balanceAfter:amountValue(after),scoreAfter:signedValue(score)});
   }
   next.ledger.push({sessionId,roundId,outcome,entries});if(next.ledger.length>LEDGER_RETENTION)next.ledger.splice(0,next.ledger.length-LEDGER_RETENTION);next.completedRounds=roundId;next.currentRound=null;
-  if(solo&&roundId>=TOTAL_ROUNDS&&amountBig(next.players[0].balance)===0n)next.terminalReason='bankrupt';
+  if(solo&&amountBig(next.players[0].balance)===0n)next.terminalReason='bankrupt';
   return freeze(next);
  };
  const continueDoubleUp=(s,{sessionId,roundId,requestId}={})=>{
@@ -6037,7 +6047,7 @@ function displayMultiState(){
  q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
  for(const n of [0,10,25,50]){const amount=stakeOptionAmount(n,currentWallet().balance),button=q('#stake'+n);button.disabled=ready||multiPredictionPending||!player||amount===null||!validPredictionStake(currentWallet().balance,amount)||!MoneyUI.amountAtMost(amount,currentWallet().maxStake);button.textContent=MoneyUI.stakeLabel(n,currentWallet().balance,round,MIN_BET,50);if(button.setAttribute)button.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
  q('#beginRound').hidden=!(multiHost&&s.phase==='lobby');q('#exitRoom').hidden=false;
- const role=player?(multiHost?'ホスト':'参加者'):seat?'終了後観戦':'観戦のみ';
+ const role=player?(multiHost?'ホスト':'参加者'):seat&&ownPlayer?.terminalReason==='bankrupt'?'0G・予想終了／観戦':seat?'終了後観戦':'観戦のみ';
  q('#roomStatus').textContent=(mockGuest?'練習相手と観戦 / ':('部屋コード '+(multiAdapter?.getRoomId()||'—')+' / '))+role+' / '+s.participants.length+'人 / '+s.phase+(ready?' / 予想受付済み':multiPredictionPending?' / 予想送信中（受付確認待ち）':'')+(s.phase==='predict'?' / あと約'+Math.max(0,Math.ceil((s.deadline-Date.now())/1000))+'秒':'')+(s.departedIds?.length&&s.roundId<TOTAL_ROUNDS?' / 離脱者は10戦後に終了':'')+(multiError?' / '+multiError:'')+(s.replayError?' / 観戦記録の転送障害（確定結果は維持）':'');
  q('#phaseTitle').textContent=s.phase==='lobby'?'参加者待ち':s.phase==='predict'?'みんなで予想':s.phase==='locked'?'予想締切・戦闘記録を準備':s.phase==='battle'?(multiPlayback?'同じ戦闘記録を観戦':'戦闘記録を受信中'):s.phase==='stopped'?'通信を停止しました':'今回の結果';
  q('#hits').textContent=currentWallet().correctCount+' / '+(s.phase==='result'||s.phase==='settle'?round:round-1);if(!player){q('#balance').textContent='—';q('#profit').textContent='—';q('#hits').textContent='観戦';}
@@ -6695,8 +6705,6 @@ function syncBattleAudio(){audioCall(()=>{
   const expectsReceipt=!multiSession||(Array.isArray(multiSnapshot?.participants)&&multiSnapshot.participants.includes(multiUser));
   if(expectsReceipt&&(!ownSettlement||(typeof validOwnSettlement==='function'&&!validOwnSettlement(ownSettlement)))){battleAudio.setPhase('result');return;}
   const feedback=resolvePersonalResultFeedback({multiSession,multiSnapshot,multiUser,choice,winner,selectedStake,soloSettlement});
-  const resultPanel=document.querySelector('#resultPanel');
-  if(resultPanel) resultPanel.dataset.outcome=feedback.won===true?'win':feedback.won===false?'loss':'draw';
   battleAudio.finishBattleForChoice(audioBattleKey(),feedback.won,{stake:feedback.stake,deferStages:feedback.authoritative});
  }else battleAudio.setPhase('idle');
 });}
@@ -7277,6 +7285,10 @@ function syncExtensionControls(){
  const soloBoundary=!multiSession&&state==='result'&&soloTerminalBoundary();
  const s=multiSession?multiSnapshot:null;
  const multiBoundary=!!s&&s.phase==='result'&&s.roundId>=TOTAL_ROUNDS;
+ const own=s?.wallets?.find(p=>p.playerId===multiUser),bankruptNotice=document.querySelector('#bankruptNotice');
+ if(bankruptNotice){const broke=multiSession?own?.terminalReason==='bankrupt':soloBoundary&&SoloWallet.isBankrupt(walletState);bankruptNotice.hidden=!broke;bankruptNotice.textContent=broke?(multiSession?'残高0Gで予想終了。ほかの人の対戦は観戦できます。':'残高0Gで終了です。'):'';}
+ const allBroke=!!s&&s.phase==='result'&&s.roundId<TOTAL_ROUNDS&&activeDoubleUpIds(s).length===0;
+ if(allBroke){choices.hidden=true;cash.hidden=true;cont.hidden=true;next.hidden=false;next.disabled=false;next.textContent='ホームに戻る';return;}
  if(multiBoundary){
   const own=s.wallets?.find(p=>p.playerId===multiUser),isParticipant=s.participants.includes(multiUser);
   const active=isParticipant&&own&&!own.cashedOut&&own.terminalReason!=='bankrupt'&&Money.amountBig(own.balance)>0n,canContinue=active&&Money.doubleAmountFits(own.balance);
@@ -7345,6 +7357,7 @@ const extensionNext=document.querySelector('#next').onclick;
 document.querySelector('#next').onclick=e=>{
  if(multiSession){
   const own=multiSnapshot?.wallets?.find(p=>p.playerId===multiUser);
+  if(multiSnapshot?.phase==='result'&&round<TOTAL_ROUNDS&&activeDoubleUpIds(multiSnapshot).length===0){void leaveMulti().then(()=>showScreen('home'));return;}
   if(multiSnapshot?.phase==='result'&&round>=TOTAL_ROUNDS&&(own?.cashedOut||own?.terminalReason==='bankrupt')){showScreen('home');return;}
   if(round<TOTAL_ROUNDS)extensionNext(e);return;
  }
