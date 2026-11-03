@@ -6227,7 +6227,7 @@ function drawArmyPreviews(){
    const licensed=LICENSED_CLIP_REGISTRIES[g.k],monster=MONSTER_META[g.k],exp=EXPANSION_ROLES.has(g.k),cell=monster?monster.cell[0]:exp?64:48,cellH=monster?monster.cell[1]:cell,anchor=licensed?licensed.anchor:monster?monster.anchor:exp?[29,53]:[21,41];
    const licensedFrame=licensed?.clips.idle.frames[0],img=licensed?licensedImageForFrame(g.k,licensedFrame):legacyImage(monster?g.k+'_'+(side?'blue':'red'):(side?'blue':'red')+(exp?'Expansion':'')),x=spacing*(i+.5),y=height-22;
    if(img&&img.complete&&img.naturalWidth){p.save();p.translate(x,y);p.scale((side?-1:1)*scale,scale);if(licensed){const f=licensedFrame;if(f)p.drawImage(img,...f.rect,-anchor[0]*licensed.renderScale,-anchor[1]*licensed.renderScale,f.rect[2]*licensed.renderScale,f.rect[3]*licensed.renderScale);}else p.drawImage(img,0,(monster?0:SPRITE_ROWS[g.k])*cell,cell,cellH,-anchor[0],-anchor[1],cell,cellH);p.restore();}else if(licensed){drawLicensedPlaceholder(p,g.k,x,y,side);}
-   p.fillStyle=side?'#bdddf5':'#ffbaa5';p.font='bold 13px sans-serif';p.textAlign='center';p.fillText('×'+g.count,x,height-4);
+   p.fillStyle=side?'#ffbaa5':'#bdddf5';p.font='bold 13px sans-serif';p.textAlign='center';p.fillText('×'+g.count,x,height-4);
   });
   if(el.setAttribute)el.setAttribute('aria-label',(side?'右':'左')+'：'+groups.map(g=>TYPES[g.k].name+' '+g.count+'体').join('、'));
  }
