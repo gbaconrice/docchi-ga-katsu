@@ -1,0 +1,908 @@
+{
+  "description": "Working preview replacements; these entries supersede matching role records in Duelyst-original-sources.json. Other roles retain their existing provenance. Visual runtime QA is pending.",
+  "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+  "replacementCount": 41,
+  "replacements": [
+    {
+      "role": "willyee_hellhound",
+      "displayName": "獄炎の猟犬",
+      "sourceUnitId": "neutral_beastdarkharbinger",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_beastdarkharbinger.png",
+      "sourcePngSha256": "1f95e40adc27c80d53e85e002ce07d119b00ba736c7e01b42b65a6959b79fcf2",
+      "sourcePlistSha256": "9729f30f314f5044cf30136fc97bc6908742dfa051c13b70bc2d9aeb313185f2",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 7,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_ogre",
+      "displayName": "血鉄の巨漢",
+      "sourceUnitId": "neutral_bloodletter",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_bloodletter.png",
+      "sourcePngSha256": "440c1ecd123b013e3f8fe938fb02ed62f7d87a20179fde51cad5f42f2bc635d7",
+      "sourcePlistSha256": "15c8485de0325c63cdfce817e63661e078e3d21442c4964e32bb3169e698d3b7",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        65,
+        118
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 28,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 28,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_goblin",
+      "displayName": "短刃の傭兵",
+      "sourceUnitId": "neutral_mercmelee3",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercmelee3.png",
+      "sourcePngSha256": "f49d7b45d6014722e6a613b71be099c74d14e4c2831d821aed50f03c07c935e0",
+      "sourcePlistSha256": "c503a86bdf605e99ae49c22086d5776137985afdd793e4ee32ee204ed69d8685",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 5,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_lizardman",
+      "displayName": "青鱗の拳獣",
+      "sourceUnitId": "neutral_exun",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_exun.png",
+      "sourcePngSha256": "78d8fb2966fcccdd6052ff9f1d699912677c4bacbbf11ee813d0ac01677164e1",
+      "sourcePlistSha256": "4a776ff8e35854a33c33a045f4d5696f346ea81163e738fbb67b0b4ac6a27793",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 6,
+      "attackSourceSubset": {
+        "first": 6,
+        "lastInclusive": 14,
+        "reason": "single contact; later source strikes omitted"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_scorpion",
+      "displayName": "炎鋏の機獣",
+      "sourceUnitId": "neutral_golemstormmetal",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_golemstormmetal.png",
+      "sourcePngSha256": "1d8f2125a2047e4943b1529642cddbbd7c7c322e30feed654c1de6950d570148",
+      "sourcePlistSha256": "8229081092e943f7828c79b48c49114db53dc0d833a08146bf95cd474f65db38",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 6,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 7,
+        "reason": "single contact; later source strikes omitted"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_knight",
+      "displayName": "黄金の騎士",
+      "sourceUnitId": "neutral_goldenjusticar",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_goldenjusticar.png",
+      "sourcePngSha256": "8c99c2ad1f5dba8e4a9064398de992a2bb898efd4dcfb92182c018a1082166b4",
+      "sourcePlistSha256": "5cc6e8eed5a6189cc54fe85b6586eca847db978a8a51881e4564fbb8326935d4",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        65,
+        114
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 13,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_rogue",
+      "displayName": "双刃の盗賊",
+      "sourceUnitId": "neutral_mercdaggerkiri",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercdaggerkiri.png",
+      "sourcePngSha256": "e048ff57b6a2cf304221f9cfcba608ce37657ce7d45a5bfbef21b7831b0f9264",
+      "sourcePlistSha256": "142fd2a3411d20f0667d253867a4ad60566f95646eae3d54ef3510e21964d4d2",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 10,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_monk",
+      "displayName": "拳法僧",
+      "sourceUnitId": "neutral_highhand",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_highhand.png",
+      "sourcePngSha256": "7357b1d0019dc95fae1e23f686a2c21deadee714d98528ab32d0b7a6b5d3e3a7",
+      "sourcePlistSha256": "19d425a268e62c127d6873df35346017865805f8dc9a67f2d975dd7592ee215e",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 14,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_robed_fighter",
+      "displayName": "星衣の剣士",
+      "sourceUnitId": "neutral_astralcrusader",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_astralcrusader.png",
+      "sourcePngSha256": "421391784fcfb762d21aa011e637e43c006edeb202920ad01b6e122f9570b72e",
+      "sourcePlistSha256": "8c2e236e7f05bddd4a50e27906c643a41d2a0d9835c52b74e6d23115b0e9df59",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 19,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_alchemist",
+      "displayName": "蒼珠の魔術師",
+      "sourceUnitId": "neutral_mercazurehorn",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercazurehorn.png",
+      "sourcePngSha256": "b51dc3bf7bb1abec3de27871db636225bfa40396a9ce64e155cf93770862e81d",
+      "sourcePlistSha256": "887a5c581281a5211b8d4e6c224f03eeb0fe9765ea8963ca62454e1d95734b29",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 4,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 4,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_ribbon_dancer",
+      "displayName": "翡翠の舞闘士",
+      "sourceUnitId": "neutral_mercarcanelimiter",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercarcanelimiter.png",
+      "sourcePngSha256": "da7692616ee6f687a1846c57614e8e6b1ea1d6608e29c70591283272f4733e24",
+      "sourcePlistSha256": "ba007823295a19f57aec007c4b196b0fb9ee44e74ea9d3dc56df550230247214",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 7,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 12,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_02",
+      "displayName": "工匠の術師",
+      "sourceUnitId": "neutral_artificer",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_artificer.png",
+      "sourcePngSha256": "3c8f9d768efef65b764e4d8c07c3b21877ed762032eb297350cd648f2ab4a37b",
+      "sourcePlistSha256": "b640de602fe394d8c35215a75a4764011ede6d9686ddbb3d5e10906f13ca0c5a",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 15,
+      "attackSourceSubset": {
+        "first": 15,
+        "lastInclusive": 30,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_08",
+      "displayName": "蒼光の呪術師",
+      "sourceUnitId": "f6_ynuytwarlock",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f6_ynuytwarlock.png",
+      "sourcePngSha256": "371552ddedfce16ee91ca03a224ab9017397eb353f7a2e6d9fbe509ca2dbcfe0",
+      "sourcePlistSha256": "d7cd12fa4b8979e7bcb7a8772ca2a93a9b0bc9c0379e1849bbce8f3b1b933a2a",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 9,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_42",
+      "displayName": "宝珠の術師",
+      "sourceUnitId": "neutral_aethermaster",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_aethermaster.png",
+      "sourcePngSha256": "a3640c6929ec89028177649110d7486b318f6ea0ef608a74ab9c943bf2e90502",
+      "sourcePlistSha256": "3b1a1e36fe08a41aaf4220a29f2be392b981251597d8b7009ac09f3f4bb19dae",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 11,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 11,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_47",
+      "displayName": "樹鬣の獣",
+      "sourceUnitId": "neutral_hollowgrovekeeper",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_hollowgrovekeeper.png",
+      "sourcePngSha256": "21d2b60d6de4e2b4199942852f94cb12016e66d9514fbaeb3409aa64b0415b04",
+      "sourcePlistSha256": "3da73e7f1b7a012597b9e8e64701aad503efc120c9b76f968856958bf70127f8",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 9,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 10,
+        "reason": "single contact; later source strikes omitted"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_51",
+      "displayName": "鋼盾の衛兵",
+      "sourceUnitId": "neutral_golemsteel",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_golemsteel.png",
+      "sourcePngSha256": "172ccfe5a41055c86099430605c66c2f6af49d3389e6700a0704cb0ec3d37a2f",
+      "sourcePlistSha256": "d4f13340ec65ed1bd3f585d29b2fc84674dabc3da925b79589135d275edd9486",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 6,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_03_axe_wayfarer",
+      "displayName": "斧の旅人",
+      "sourceUnitId": "neutral_inquisitorkron",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_inquisitorkron.png",
+      "sourcePngSha256": "908577fa135b4b58a8fd51a5a3739a599ae4a12764292f81886d22abc92864f2",
+      "sourcePlistSha256": "e9f2f69586f59606ba104c48f966382bacd5455b62d8075b10f4c4ff6f0f6a1c",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        55,
+        94
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 12,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 13,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_10_lute_bard",
+      "displayName": "紅衣の術師",
+      "sourceUnitId": "neutral_crimsonmystic",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_crimsonmystic.png",
+      "sourcePngSha256": "d3f8d2d4139c929a7444adf1abe34bfcfca204a6ef905cb80e1cc9218157e172",
+      "sourcePlistSha256": "95358457cc8f5f359c163eb02e284c2a9bf0d6a054fea246c29757ac58804a7a",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        55,
+        93
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 5,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 5,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_22_crescent_reaper",
+      "displayName": "月刃の戦士",
+      "sourceUnitId": "neutral_dagona",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_dagona.png",
+      "sourcePngSha256": "d4719b5229ecffd73372524a968e4c2a58753be52812eb3b5a775394db368f00",
+      "sourcePlistSha256": "2d6d4bf3e91d53e35444a989e543f1923ebe3991f8a322050936212be1990f0c",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        70,
+        124
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 7,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 10,
+        "reason": "single contact; later source strikes omitted"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_34_goldring_caster",
+      "displayName": "火灯しの術師",
+      "sourceUnitId": "neutral_firestarter",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_firestarter.png",
+      "sourcePngSha256": "3edcc6d9821d1aa49b0ba93164ae614c42b8c9b7cd10576e18c8531340af15cf",
+      "sourcePlistSha256": "0eb4e71e6c264d3545003ed7ab8017c91b987dd463926f36daaacbde421a2eea",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        70,
+        124
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 10,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 10,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_43_redgauntlet_brawler",
+      "displayName": "蒼拳の巨兵",
+      "sourceUnitId": "neutral_emp",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_emp.png",
+      "sourcePngSha256": "946699f8766f0f1a154c0342530a8c28530c9534b5de4c6c1491937a293c8734",
+      "sourcePlistSha256": "70329cc9aa1ce98bdb40de5b25f0bb4bedbec7666585a700223f9eb9827a94f9",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 12,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 14,
+        "reason": "single contact; later source strikes omitted"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_48_horned_heavy",
+      "displayName": "紅晶の斬り兵",
+      "sourceUnitId": "neutral_golembloodshard",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_golembloodshard.png",
+      "sourcePngSha256": "9c370ddf3362ae19184dfcdbfafa10dacb7968d5e4351c3b5ab0c48e1aaf5a03",
+      "sourcePlistSha256": "be10f2c1b28baf135977922f2803343a11d6b36fc3e7f0ac83b843a9e1989d17",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 7,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_52_spiked_hammerer",
+      "displayName": "金刃の重戦士",
+      "sourceUnitId": "neutral_ironclad",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_ironclad.png",
+      "sourcePngSha256": "6827ec85d2d37b438e86c5bc3e52ffe886f73ecd015128994a183b2815f4afdc",
+      "sourcePlistSha256": "d6ba08d4080a484a8345b3b461cb3161d8ee0ea876c86ba9338e1afcd316e6ae",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        70,
+        124
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 5,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 6,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_stone_golem",
+      "displayName": "晶槌の守護者",
+      "sourceUnitId": "neutral_diamondgolem",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_diamondgolem.png",
+      "sourcePngSha256": "f3a1cbeae1b56a9f6ea67c5830d0644a611034731a34133fe826be07e8097954",
+      "sourcePlistSha256": "9a8c8c0b72eb509d9e15ebde6a4088f28662a510009ca2a9dc4dbfe4b0dc02f7",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        65,
+        114
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 8,
+      "attackSourceSubset": {
+        "first": 15,
+        "lastInclusive": 27,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_skel_archer",
+      "displayName": "蒼火の射手",
+      "sourceUnitId": "neutral_tribalranged1",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_tribalranged1.png",
+      "sourcePngSha256": "6b17135edfbfdd9e74b374dafb730c3b191b0aa158725d5d7868be6cb4e12434",
+      "sourcePlistSha256": "9dc21ed8dd8841c050d4820a527322716d7354158bcb867d2e76240383d544d8",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 8,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_char_54",
+      "displayName": "星珠の術師",
+      "sourceUnitId": "f3_insightcaster",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f3_insightcaster.png",
+      "sourcePngSha256": "3410d46d0cbea9a3a04a491b907513b187d80836b64b745a978c79fd74b60655",
+      "sourcePlistSha256": "fe4beb3cb9e947e8a989906d1b17b6d790d8c2395f019228e325df4f116704a1",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 14,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "forkbill_strider",
+      "displayName": "白骨の長首獣",
+      "sourceUnitId": "neutral_serpenti",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_serpenti.png",
+      "sourcePngSha256": "b855de553fed9966dd0feb724529a8966269ba6c10f5847b2eff66f8f1ea97c5",
+      "sourcePlistSha256": "0e53840757c1bbe2cf1f3c193e4c54c257ccfbf60c32bca0e5251768814e510b",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 12,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "opalfin_sky_ray",
+      "displayName": "翡翠鰭の守り手",
+      "sourceUnitId": "neutral_koi",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_koi.png",
+      "sourcePngSha256": "d41451f0acae208ac5bd9813700f3ceb9cb14f190932d090aed55e66ea584f96",
+      "sourcePlistSha256": "e6ee0ddb28ff08c8f2999bb6f656cadd17138aa00a44d699db6d9b69369b9128",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        82
+      ],
+      "renderScale": 1,
+      "attackEvent": "ward_granted",
+      "attackContactFrame": 5,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 11,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "displayName": "蒼鋏の巨蟹",
+      "sourceUnitId": "neutral_giantcrab",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_giantcrab.png",
+      "sourcePngSha256": "cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+      "sourcePlistSha256": "c2b30318bb7715d0fcc87eec7c8781b5ab5fff23eb0345d61ee90279e9c1bdf3",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        84
+      ],
+      "renderScale": 1,
+      "attackEvent": "combo_melee_contact",
+      "attackContactFrame": 15,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 17,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "copperbrow_bristle_ram",
+      "displayName": "紫尾の爪獣",
+      "sourceUnitId": "neutral_beastmirkwooddevourer",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_beastmirkwooddevourer.png",
+      "sourcePngSha256": "705c3dedb867995833e507b6b1fb5bc38252f544664f2d9bb80640eac9bbce0c",
+      "sourcePlistSha256": "305123bf0a27f301c096cac7191701ee60250bfc7c65a8204f99421f77e152c1",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 17,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "glasswing_sting_moth",
+      "displayName": "宵翅の刃虫",
+      "sourceUnitId": "neutral_eclipse",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_eclipse.png",
+      "sourcePngSha256": "6dd5fe52ae708fc0a8060b344f78caeaaa0521bcb995bfd20ac8db0884d64789",
+      "sourcePlistSha256": "7c0b847e966fd3fca7d2ef0fddf84a99b996bab4e218224c80350d77e96b1ae3",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        83
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 2,
+      "attackSourceSubset": {
+        "first": 11,
+        "lastInclusive": 15,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "ribbed_fanclam",
+      "displayName": "蒼環の浮遊体",
+      "sourceUnitId": "neutral_fog",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_fog.png",
+      "sourcePngSha256": "3b1c1593569e3ff186dba2f0f15184d9a40bb1e20dab0426fd45ad92d3c94fa4",
+      "sourcePlistSha256": "d5b13e686934e25f1501cb95103b443184ca8eea31f6e3a88296b44d98cac46c",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        55,
+        87
+      ],
+      "renderScale": 1,
+      "attackEvent": "projectile_release",
+      "attackContactFrame": 7,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 7,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "duskgargoyle_clawer",
+      "displayName": "空駆けの刃機",
+      "sourceUnitId": "neutral_deceptib0t",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_deceptib0t.png",
+      "sourcePngSha256": "30d591fcc354a900ca425b1713ca98a062838f58fb0bbdaec02ec044a78877e5",
+      "sourcePlistSha256": "e3c23e6a81419f6a3ae808b31ca5f5a24cde1f3518f74aad828414c8bf831c73",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        82
+      ],
+      "renderScale": 1,
+      "attackEvent": "combo_melee_contact",
+      "attackContactFrame": 5,
+      "attackSourceSubset": {
+        "first": 0,
+        "lastInclusive": 8,
+        "reason": "single contact and avoid duplicate projectile effects"
+      },
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "duskbrown_rat",
+      "displayName": "洞窟の小獣",
+      "sourceUnitId": "neutral_beastcavern",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_beastcavern.png",
+      "sourcePngSha256": "9ee9a790ef06a011e88ab98aa90aa0857a01f522f7dba1ccd6ac567759d71100",
+      "sourcePlistSha256": "b137f550db566c45698c30f1e9c7fa5434f5140bd2a68456802dcb5e3a700020",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "combo_melee_contact",
+      "attackContactFrame": 5,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "duskflutter_bat",
+      "displayName": "氷翼の狼蝙蝠",
+      "sourceUnitId": "f6_wolfraven",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f6_wolfraven.png",
+      "sourcePngSha256": "7066059eed9dff750e40316d517406f3ff2408d47ba0e5ec22533a85c0e05ecc",
+      "sourcePlistSha256": "5cd7073c1cd155a1bdadc8dfc30ef67d538e15e999a6582eb74141c28c3f3439",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        65
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 6,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "branchsweep_treant",
+      "displayName": "枝腕の守り手",
+      "sourceUnitId": "neutral_golemnature",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_golemnature.png",
+      "sourcePngSha256": "46277ff3ca52fed0bfe26eb3345ba44dfe9a8fb16a5e9d24c08a64732c5e4add",
+      "sourcePlistSha256": "05731010e6e4b20198aa2e0889429d758b14ea91da64198818316c0edbd968a3",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "cleave_release",
+      "attackContactFrame": 4,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "archclapper_walker",
+      "displayName": "石刃の構え兵",
+      "sourceUnitId": "neutral_golemstone",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_golemstone.png",
+      "sourcePngSha256": "63c179db11c66f27808de73e5501c00e3035b8ba9a376e953be758be0612b1be",
+      "sourcePlistSha256": "56e9dd88cf8411e96bcc3e8295c93329aac0d5a191acb0534c96cdfaef0e5957",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "combo_melee_contact",
+      "attackContactFrame": 10,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_ghoul",
+      "displayName": "屍喰い",
+      "sourceUnitId": "neutral_ashmephyt",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_ashmephyt.png",
+      "sourcePngSha256": "56e8ecb4906198e718e2af1ba49efb3a07f0d7c4a8e1f2b7b037f3ab7aaae196",
+      "sourcePlistSha256": "9860bdcd3773b699d4163a06ca3706fc7066e0b8a74b172d156eedbf2382a5f6",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        60,
+        104
+      ],
+      "renderScale": 1,
+      "attackEvent": "resolved_hit",
+      "attackContactFrame": 18,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "bellgill_mender",
+      "displayName": "聖輪の癒し手",
+      "sourceUnitId": "f1_sunstonetemplar",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f1_sunstonetemplar.png",
+      "sourcePngSha256": "561b92d0d1d338fbe5771586547678122d5ad86b058510fd06658ad62256dd61",
+      "sourcePlistSha256": "507a0c68eb5efe8d4af61d28f6a3223e6e23567cf874e8e5bf4daed9ea5f5c8c",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        40,
+        64
+      ],
+      "renderScale": 1,
+      "attackEvent": "healing_pulse",
+      "attackContactFrame": 13,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "puffcap_mender",
+      "displayName": "白掌の祈り手",
+      "sourceUnitId": "neutral_prophetwhitepalm",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_prophetwhitepalm.png",
+      "sourcePngSha256": "f426a0493b02e32cecc6fec4c3d71cd0ef9c5c2e0e75ac6cd93ec3d4fa7eacb4",
+      "sourcePlistSha256": "865f089c873094b0987200325bcf6efb3f6bfe02b13a73e06d46d94c616c084a",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        83
+      ],
+      "renderScale": 1,
+      "attackEvent": "healing_pulse",
+      "attackContactFrame": 16,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    },
+    {
+      "role": "willyee_frost_dragon",
+      "displayName": "霜息の白竜",
+      "sourceUnitId": "f6_whitewyvern",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f6_whitewyvern.png",
+      "sourcePngSha256": "f75f3677148a74190e58c73d0da0cca968e86d98d35360be77a699dad7760840",
+      "sourcePlistSha256": "cf2f6063df4c4da8d0131183385c4e01b3ec1801d8844e4818aa15cccd3c957c",
+      "license": "CC0-1.0",
+      "credit": "Counterplay Games; OpenDuelyst archive/contributors",
+      "anchor": [
+        50,
+        82
+      ],
+      "renderScale": 1,
+      "attackEvent": "high_breath_release",
+      "attackContactFrame": 16,
+      "attackSourceSubset": null,
+      "visualRuntimeQA": "pending"
+    }
+  ],
+  "pendingCandidates": []
+}
