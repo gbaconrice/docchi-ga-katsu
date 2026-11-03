@@ -1107,6 +1107,98 @@ h1, .room-screen h2 { color: var(--walnut-deep); }
 #resultPanel[data-outcome="draw"] { border-color:#88744c; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
 
+
+/* Tavern B: timber framing, leather controls and parchment cards. */
+:root { --tavern-wood:#4a291a; --tavern-dark:#27160f; --tavern-leather:#65351f; --tavern-gold:#d4ad68; --tavern-paper:#f3dfb4; --tavern-ink:#352315; }
+body { background: #29180f; }
+#app {
+  background: repeating-linear-gradient(90deg, #432719 0 3px, #56321f 4px, #6c4027 70px, #4b2b1b 73px, #321b12 76px);
+  box-shadow: inset 0 0 0 3px #28160f, inset 0 0 0 5px #a27642, 0 0 28px #170d08;
+}
+#homeScreen:not([hidden]), #roomScreen:not([hidden]) { color: var(--tavern-ink); }
+.home-screen {
+  align-content:center; gap:16px; padding:24px 18px;
+  background: linear-gradient(90deg, transparent 0 7%, rgba(43,24,14,.55) 7% 8%, transparent 8% 92%, rgba(43,24,14,.55) 92% 93%, transparent 93%);
+}
+.home-screen::before {
+  content:'✦  予想酒場  ✦'; display:block; margin:0 auto -9px; padding:4px 18px;
+  border:1px solid #b6884e; border-radius:2px; background:#412417; color:#f4dba5;
+  font-family:Georgia,'Yu Mincho',serif; font-size:12px; letter-spacing:.18em; box-shadow:0 2px 3px #21120b;
+}
+.home-title {
+  padding:18px 8px; border:3px double #c3985b; border-radius:4px;
+  color:#fff0c5; background:linear-gradient(180deg,#704328,#3a2015);
+  box-shadow:0 4px 0 #24130d, inset 0 0 0 3px #3d2417, inset 0 1px 8px #b7834a;
+  font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,serif; font-weight:900; text-shadow:0 2px 1px #1d1009;
+}
+.home-choice { min-height:68px; border-radius:4px; box-shadow:0 3px 0 #2b160e, inset 0 1px #e2c085, inset 0 0 0 3px rgba(255,220,150,.12); }
+.home-choice.cta-primary, .cta-primary, .prediction-start {
+  color:#fff3d6; border-color:#d6ae6a; background:linear-gradient(180deg,#9a5932,#63321e 55%,#4c2619);
+  text-shadow:0 1px #32170e; box-shadow:0 3px 0 #2c180f,inset 0 1px #e8bd79,inset 0 0 0 3px rgba(255,220,150,.09);
+}
+.home-choice.cta-secondary, #showMultiplayer, .cta-secondary { color:#3b281a; border-color:#8d6338; background:linear-gradient(#f9e9c4,#d8b987); text-shadow:0 1px #fff0cb; }
+.room-screen { margin-block:auto; padding:20px 16px; border:3px double #8c6036; background:linear-gradient(115deg,rgba(255,250,220,.55),transparent 60%),repeating-linear-gradient(8deg,rgba(125,76,30,.035) 0 1px,transparent 1px 7px),#e9d09d; box-shadow:0 5px 12px #26150e; }
+.room-screen h2, .room-hint, .room-code-label { color:#4d2d1b; }
+.game-topline { padding-inline:8px; border:2px solid #aa7a43; border-radius:3px; background:linear-gradient(#6c4028,#3a2116); box-shadow:inset 0 1px #b98a50,0 2px 0 #28170f; }
+.round-status { color:#fff0ce; }
+.wallet-pill { border:2px solid #bd9554; border-radius:3px; color:#392314; background:linear-gradient(#f7e5bb,#d8bb85); box-shadow:inset 0 1px #fff5d7; }
+.wallet-pill strong { color:#432613; }
+.stake-card { margin-block:6px 8px; padding:7px 10px; border:2px solid #94683b; border-radius:3px; color:#3b2819; background:repeating-linear-gradient(7deg,rgba(126,78,34,.035) 0 1px,transparent 1px 6px),#ecd6a8; box-shadow:inset 0 0 0 2px #f8e9c6,0 2px 0 #3a2014; }
+.stake-card h3 { color:#67401f; font-family:Georgia,serif; letter-spacing:.12em; }
+.stake-hint { color:#5b4028; }
+.comparison-scroll { padding:8px 4px 6px; }
+.army-card { gap:7px; padding:7px; border:3px solid #9c7041; border-radius:4px; color:#302216; background:repeating-linear-gradient(10deg,rgba(114,72,32,.035) 0 1px,transparent 1px 6px),#f2dfb8; box-shadow:inset 0 0 0 2px #fff0ca,0 3px 0 #301a11; }
+.army-card::before { display:block; margin:-1px -1px 0; padding:3px; border:1px solid #a98757; color:#f8e9c8; background:#60402a; text-align:center; font-size:12px; font-weight:900; letter-spacing:.08em; }
+.army-red::before { content:'左の軍'; background:#354d5b; }
+.army-blue::before { content:'右の軍'; background:#723b2e; }
+.army-card[aria-pressed="true"] { border-color:#f1cd72; box-shadow:inset 0 0 0 3px #bd8937,0 0 0 2px #4a2a18; }
+.army-preview { border:2px solid #73502f; border-radius:2px; }
+.formation-actions .text-button, .text-button, #formationBack, .battle-icon-button, .battle-controls .control-button {
+  color:#f8e8c5; border-color:#a97b46; background:linear-gradient(#70442c,#442719); box-shadow:inset 0 1px #a87b4b,0 2px 0 #2e1a11;
+}
+.battle-clock { color:#f7e6c2; text-shadow:0 1px #30190f; }
+.result-panel, #gameScreen[data-personal-result="true"] #resultPanel {
+  color:#392719; border:3px double #8b5f31; border-radius:3px;
+  background:repeating-linear-gradient(8deg,rgba(126,78,34,.04) 0 1px,transparent 1px 7px),#f0d9ab;
+  box-shadow:0 5px 16px #24130f,inset 0 0 0 3px #f9eac8;
+}
+.result-title, .result-summary, .result-ranking, .result-winner, .checkpoint-net { color:#432a18; }
+#resultPanel[data-earned="true"] #breakdown { color:#70450c; }
+#resultPanel[data-double-up="true"] #breakdown { color:#70450c; text-shadow:0 1px #fff2cc; }
+.units-dialog { color:#342215; border:3px double #a1713c; border-radius:3px; background:repeating-linear-gradient(8deg,rgba(126,78,34,.035) 0 1px,transparent 1px 7px),#eed8ad; box-shadow:0 6px 20px #1d100b; }
+.units-heading h2, .pause-dialog h2 { color:#4b2a18; }
+.units-side { color:#f8e8c5; border-color:#a57843; background:#583522; }
+.units-side h3 { color:#ffdf9a; }
+@media (max-height:640px) { .home-screen { gap:10px; padding-block:12px; } .home-title { padding-block:10px; } .home-choice { min-height:56px; } }
+
+
+/* B direction: parchment table, green and red leather, aged gilt. */
+:root { --tavern-ink:#352719; --tavern-paper:#f0dcb2; --tavern-gold:#9b733e; }
+html { background:#49301e; }
+body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,serif; background:repeating-linear-gradient(90deg,#3d281b 0 4px,#5b3a25 5px 90px,#372216 94px); }
+#app {
+ background:radial-gradient(ellipse at 50% 7%,rgba(255,249,220,.72),transparent 48%),repeating-linear-gradient(11deg,rgba(128,88,43,.025) 0 1px,transparent 1px 7px),#ebd4a4;
+ box-shadow:inset 0 0 0 2px #75502c,inset 0 0 0 5px #c29b62,inset 0 0 0 7px #8c653a,0 0 24px #24170e;
+}
+.home-screen { position:relative; background:transparent; padding-inline:20px; }
+.home-screen::before { content:'❧　✥　❧'; margin:0 auto -8px; padding:0; border:0; background:transparent; color:#8a6638; box-shadow:none; font-size:20px; letter-spacing:.22em; }
+.home-screen::after { content:'❧ ───── ✥ ───── ❧'; position:absolute; bottom:10px; left:0; right:0; text-align:center; color:#987443; font-size:14px; pointer-events:none; }
+.home-title { padding:20px 8px; border:3px double #a17b47; color:#422c1a; background:linear-gradient(90deg,rgba(147,107,55,.12),transparent 18% 82%,rgba(147,107,55,.12)),#f4e3bd; box-shadow:inset 0 0 0 4px #f9edcf,0 3px 0 #9a7547; text-shadow:0 1px #fff7df; }
+.home-choice.cta-primary,.cta-primary,.prediction-start { color:#fff0d6; border-color:#b99559; background:linear-gradient(#985647,#6d342e 58%,#512621); text-shadow:0 1px #3d1b17; box-shadow:inset 0 1px #c58b70,inset 0 0 0 3px rgba(255,226,177,.10),0 3px 0 #624a2f; }
+.home-choice.cta-secondary,#showMultiplayer,.cta-secondary { color:#fff0d1; border-color:#b99559; background:linear-gradient(#41604a,#243d30 55%,#1a3026); text-shadow:0 1px #17251b; box-shadow:inset 0 1px #80977a,inset 0 0 0 3px rgba(224,203,153,.13),0 3px 0 #624a2f; }
+.game-topline { background:linear-gradient(#4b5b42,#2c3e30); border-color:#9b7541; box-shadow:inset 0 1px #a8af86,0 2px 0 #86663f; }
+.stake-card,.room-screen,.result-panel,#gameScreen[data-personal-result="true"] #resultPanel,.units-dialog { background:repeating-linear-gradient(8deg,rgba(134,90,41,.035) 0 1px,transparent 1px 7px),#f2dfb8; border-color:#9d7746; }
+.stake-option { color:#f7e8c7; background:linear-gradient(#45604b,#273e30); border:2px solid #a17a47; }
+.stake-option[aria-pressed="true"] { color:#362719; background:linear-gradient(#f5db9c,#d2a859); border-color:#71532e; box-shadow:inset 0 0 0 2px #f9e7b7; }
+#app button:disabled { color:#6b6254; background:#d0c5ad; border-color:#a79b83; box-shadow:none; text-shadow:none; opacity:1; }
+.army-card { background:repeating-linear-gradient(10deg,rgba(134,90,41,.035) 0 1px,transparent 1px 6px),#f6e6c4; border-color:#a17c4d; }
+.army-red::before { background:#405b58; }.army-blue::before { background:#85473b; }
+.formation-actions .text-button,.text-button,#formationBack,.battle-icon-button,.battle-controls .control-button { color:#faeccb; border-color:#a78654; background:linear-gradient(#53624a,#303e30); }
+.battle-clock { color:#513b26; text-shadow:none; }
+.prediction-footer { border-radius:12px 12px 2px 2px; background:linear-gradient(90deg,#c9a873 0%,#f6e8c9 47%,#a98453 50%,#f6e8c9 53%,#c9a873 100%); box-shadow:0 -2px 0 #9a7544; }
+.result-title,.result-summary,.result-ranking,.result-winner,.checkpoint-net { color:#432e1d; }
+.units-side { background:#3b5140; }
+
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1182,6 +1274,12 @@ h1, .room-screen h2 { color: var(--walnut-deep); }
     <section id="comparison" class="comparison" aria-label="対戦予想">
       <section class="stake-card" aria-labelledby="stakeTitle">
         <h3 id="stakeTitle">BET</h3>
+        <div class="stake-options" role="group" aria-label="BET額">
+          <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
+          <button id="stake10" class="stake-option" type="button" aria-pressed="false">10 G</button>
+          <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
+          <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
+        </div>
         <p id="stakeHint" class="stake-hint" aria-live="polite">正解 +10 G</p>
       </section>
       <div id="comparisonScroll" class="comparison-scroll">
@@ -1390,7 +1488,7 @@ function validStake(balance,stake,round=1,min=MIN_STAKE,cap=STAKE_CAP){
  if(r>10)return b>0n&&s===b;
  if(b===0n)return s===0n;
  if(b<BigInt(min))return s===b;
- return s===BigInt(min);
+ return s>=BigInt(min)&&s<=BigInt(cap)&&s<=b;
 }
 
 function sameAmount(a,b){try{return amountBig(a)===amountBig(b)}catch{return false}}
@@ -1486,7 +1584,8 @@ function createDoubleUpLedger({gameMode,schemaVersion=4,solo=false}={}){
   if(side!==null&&roundId<=TOTAL_ROUNDS){
    if(balance===0n){if(stakeN!==0n)fail('STAKE_EXCEEDS_LIMIT');}
    else if(balance<BigInt(MIN_STAKE)){if(stakeN!==balance)fail('LOW_BALANCE_ALL_IN_REQUIRED');}
-   else if(stakeN!==BigInt(MIN_STAKE))fail('FIXED_STAKE_REQUIRED');
+   else if(stakeN<BigInt(MIN_STAKE))fail('MINIMUM_STAKE_REQUIRED');
+   else if(stakeN>BigInt(s.config.stakeCap))fail('STAKE_EXCEEDS_LIMIT');
   }
   if(side!==null&&roundId>TOTAL_ROUNDS&&(balance===0n||stakeN!==balance))fail('DOUBLEUP_ALL_IN_REQUIRED');
   const next=clone(s);next.currentRound.commits.push({playerId,side,stake:serializedStake});return freeze(next);
@@ -5827,6 +5926,7 @@ let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0;
 const PLAYER='local';
 const MIN_BET=Wallet.MIN_STAKE;
 function minimumBetForBalance(balance,forRound=round){return MoneyUI.defaultStake(balance,forRound,MIN_BET,50)??0;}
+function stakeOptionAmount(option,balance,forRound=round){return MoneyUI.stakeOption(option,balance,forRound,MIN_BET,50);}
 function validPredictionStake(balance,stake,forRound=round){return MoneyUI.validStake(balance,stake,forRound,MIN_BET,50);}
 function soloTerminalBoundary(){return !multiSession&&!!walletState&&(walletState.completedRounds===walletState.maxRounds||SoloWallet.isBankrupt(walletState));}
 let soloRunEnded=false;function sessionRoundLimit(){return multiSession?Math.max(TOTAL_ROUNDS,multiSnapshot?.totalRounds||TOTAL_ROUNDS):(walletState?.maxRounds||TOTAL_ROUNDS);}
@@ -5846,8 +5946,9 @@ update=function(){
   q('#comparison').hidden=state!=='choose';q('#battle').hidden=state!=='fight';q('#resultPanel').hidden=state!=='result';
   for(const side of [0,1]){const counts={};units.filter(u=>u.side===side).forEach(u=>counts[u.k]=(counts[u.k]||0)+1);q(side?'#blueList':'#redList').textContent=Object.entries(counts).map(([k,n])=>TYPES[k].name+' ×'+n+(ROLE_NOTES[k]?'（'+ROLE_NOTES[k]+'）':'')).join('　');}
   for(const side of [0,1]){const b=q(side?'#blue':'#red');if(b.setAttribute)b.setAttribute('aria-pressed',String(selectedSide===side));}
+  for(const n of [0,10,25,50]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
   q('#confirm').disabled=selectedSide===null||!validPredictionStake(w.balance,selectedStake);
-  q('#stakeHint').textContent=round>10?'全額 '+MoneyUI.balanceText(selectedStake)+'：的中で2倍・外れで0・引分は返却':'BET '+MoneyUI.balanceText(selectedStake)+'：的中 '+credits(Money.signedValue(Money.amountBig(selectedStake)+10n))+'・外れ -'+MoneyUI.balanceText(selectedStake)+'・引分は返却';
+  q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':selectedStake?'的中 '+credits(Money.signedValue(Money.amountBig(selectedStake)+10n))+' · 外れ −'+MoneyUI.balanceText(selectedStake):'0 G · 的中 +10 G';
   q('#pause').textContent='⏸';q('#speed').textContent='速度 '+speed+'×';
   q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
   if(state==='result'&&walletState.completedRounds===round){
@@ -5858,6 +5959,7 @@ update=function(){
   }
 };
 function selectSide(side){if(state!=='choose')return;selectedSide=side;update()}
+function selectStake(option){const w=currentWallet(),amount=stakeOptionAmount(option,w.balance);if(state!=='choose'||![0,10,25,50].includes(option)||amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake))return;selectedStake=amount;update()}
 function startPrediction(skip=false){
   if(state!=='choose'||skip||selectedSide===null||!validPredictionStake(currentWallet().balance,selectedStake))return;
   walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:round,playerId:PLAYER,side:skip?null:selectedSide===0?'A':'B',stake:skip?0:selectedStake,now:0});
@@ -5878,6 +5980,7 @@ function nextPrediction(){
   }catch(error){({round,mistakes,correct,speed,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);beginLicensedOpening(units);throw error;}
 }
 document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
+for(const n of [0,10,25,50])document.querySelector('#stake'+n).onclick=()=>selectStake(n);
 document.querySelector('#confirm').onclick=()=>startPrediction();
 document.querySelector('#pause').onclick=()=>{setPaused(!paused);update()};document.querySelector('#speed').onclick=()=>{setSpeed(speed===1?2:1);update()};
 document.querySelector('#next').onclick=nextPrediction;
@@ -5929,6 +6032,7 @@ function displayMultiState(){
  q('#pause').hidden=false;q('#speed').hidden=true;
  q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';
  q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
+ for(const n of [0,10,25,50]){const amount=stakeOptionAmount(n,currentWallet().balance),button=q('#stake'+n);button.disabled=ready||multiPredictionPending||!player||amount===null||!validPredictionStake(currentWallet().balance,amount)||!MoneyUI.amountAtMost(amount,currentWallet().maxStake);button.textContent=MoneyUI.stakeLabel(n,currentWallet().balance,round,MIN_BET,50);if(button.setAttribute)button.setAttribute('aria-pressed',String(amount!==null&&MoneyUI.sameAmount(selectedStake,amount)));}
  q('#beginRound').hidden=!(multiHost&&s.phase==='lobby');q('#exitRoom').hidden=false;
  const role=player?(multiHost?'ホスト':'参加者'):seat?'終了後観戦':'観戦のみ';
  q('#roomStatus').textContent=(mockGuest?'練習相手と観戦 / ':('部屋コード '+(multiAdapter?.getRoomId()||'—')+' / '))+role+' / '+s.participants.length+'人 / '+s.phase+(ready?' / 予想受付済み':multiPredictionPending?' / 予想送信中（受付確認待ち）':'')+(s.phase==='predict'?' / あと約'+Math.max(0,Math.ceil((s.deadline-Date.now())/1000))+'秒':'')+(s.departedIds?.length&&s.roundId<TOTAL_ROUNDS?' / 離脱者は10戦後に終了':'')+(multiError?' / '+multiError:'')+(s.replayError?' / 観戦記録の転送障害（確定結果は維持）':'');
