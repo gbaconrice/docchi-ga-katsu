@@ -35,3 +35,9 @@
 
 - このリポジトリ：`index.html`の`host-layout-config`、`SDKAdapter`、`MultiProtocol`、`ScoreBridge`、音声・画面制御。現時点の実SDK・実端末検証は未完了。
 - ナンバーブラフの参照版：コミット`45a066814e815da81331a9a2efdeca877d07ecdc`の[ルームアダプター](https://github.com/gbaconrice/number-bluff/blob/45a066814e815da81331a9a2efdeca877d07ecdc/gravity-room-adapter.js)、[プラットフォーム連携](https://github.com/gbaconrice/number-bluff/blob/45a066814e815da81331a9a2efdeca877d07ecdc/gravity-platform.js)、[画面スタイル](https://github.com/gbaconrice/number-bluff/blob/45a066814e815da81331a9a2efdeca877d07ecdc/styles.css)、[音声](https://github.com/gbaconrice/number-bluff/blob/45a066814e815da81331a9a2efdeca877d07ecdc/game-audio.js)、[アダプター記録](https://github.com/gbaconrice/number-bluff/blob/45a066814e815da81331a9a2efdeca877d07ecdc/GRAVITY_ADAPTER.md)。これらも実GRAVITYでの挙動の保証ではない。
+
+## 参加者とリアクション（2026-11-04実装）
+
+戦闘中の参加者列は、確定済みセッションの参加者・観戦者IDを使う。本人の `getMyUserInfo`、ルーム参加応答の `user_list`、部屋ID付き参加通知に、ナンバーブラフの実装で使われる `name` / `user_name`、`portrait` / `portait` が含まれる場合だけ名前・画像を表示する。欠ける場合は「あなた」「参加者N」「観戦N」の代替を使う。プロフィールは部屋内の表示補助であり、認証情報とは扱わない。画像URLは資格情報を含まないHTTPSだけを許可し、読み込み失敗時は代替を表示する。参加者の追加・本人確認は従来のセッション検証に従い、プロフィール情報では参加を許可しない。
+
+反応は実SDKの送信者IDに対応する列内の参加者に表示し、画面外の送信者は短い補助表示で示す。連投・表示数の上限と有効時間は従来どおり。11戦目以降も同じ正の安全な整数のラウンドIDで扱う。変更後の版識別子は旧版と異なり、全員が同じ版を使う必要がある。名前・画像フィールド、参加通知、スクロール・上部帯、音声通話共存はGRAVITY実機では未確認。

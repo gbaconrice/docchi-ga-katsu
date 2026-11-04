@@ -1247,6 +1247,19 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 .multi-results summary::before { content:'▾'; margin-right:6px; }
 .multi-results:not([open]) summary::before { content:'▸'; }
 .multi-results-list { max-height:7.2em; overflow:auto; overscroll-behavior:contain; padding:0 8px 6px; white-space:pre-wrap; overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+/* A compact, independently scrollable strip; the field keeps its dimensions. */
+.participant-rail-wrap { position:relative; flex:1 1 0; min-width:0; height:44px; }
+.participant-rail { display:flex; align-items:center; gap:3px; height:44px; min-width:0; overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:thin; }
+.participant-chip { position:relative; flex:0 0 43px; width:43px; height:42px; text-align:center; color:#fff2d6; font:700 9px/1 system-ui,sans-serif; text-shadow:0 1px 2px #26140c; }
+.participant-portrait { position:relative; display:grid; place-items:center; width:25px; height:25px; margin:0 auto 1px; border:1px solid #d1aa70; border-radius:50%; background:#3f2b20; overflow:hidden; }
+.participant-portrait img { width:100%; height:100%; object-fit:cover; }
+.participant-chip.is-self .participant-portrait { box-shadow:0 0 0 1px #ffe6a4; }
+.participant-name { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:13px; }
+.participant-emote { position:absolute; top:0; right:0; display:grid; place-items:center; width:20px; height:20px; border:1px solid #c69a5c; border-radius:50%; background:#fff0cd; color:#342014; font:16px/1 var(--emoji-font-stack); text-shadow:none; }
+.participant-emote[hidden],.reaction-outside[hidden] { display:none !important; }
+.reaction-outside { position:absolute; top:1px; right:1px; max-width:105px; padding:2px 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid #b78b50; border-radius:3px; background:#f4dfb5; color:#3b2618; font:700 10px/1.3 system-ui,sans-serif; pointer-events:none; }
+@media (max-width:899px) { .reaction-bar { left:auto; right:0; top:calc(100% + 4px); transform:none; } }
+@media (min-width:900px) and (min-height:640px) { .participant-rail-wrap { width:100%; flex:0 0 44px; } }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1366,6 +1379,10 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 
     <section id="battle" class="battle" hidden aria-label="戦闘">
       <div class="battle-toolbar">
+        <div id="participantRailWrap" class="participant-rail-wrap" hidden>
+          <div id="participantRail" class="participant-rail" tabindex="0" role="list" aria-label="参加者。横にスクロールできます"></div>
+          <span id="reactionOutside" class="reaction-outside" aria-live="polite" hidden></span>
+        </div>
         <p id="battleClock" class="battle-clock" aria-live="off"></p>
         <div id="reaction-feedback" class="reaction-feedback" aria-live="polite" aria-atomic="true"></div>
         <button id="formationBack" class="text-button" type="button" hidden aria-controls="comparison">戻る</button>
@@ -3048,7 +3065,7 @@ const REACTION_LIMITS = Object.freeze({
 
 const reactionIds = new Set(Object.keys(REACTIONS));
 const validId = value => typeof value === 'string' && /^[\w.:-]{1,128}$/.test(value);
-const validRound = value => Number.isSafeInteger(value) && value >= 1 && value <= 10;
+const validRound = value => Number.isSafeInteger(value) && value >= 1;
 const validSeq = value => Number.isSafeInteger(value) && value >= 1;
 const utf8Length = value => new TextEncoder().encode(value).length;
 const copyEvent = value => ({...value});
@@ -3155,7 +3172,7 @@ function createReactionChannel({
   }
 
   function setRound(id) {
-    if (id !== null && !(localOnly?Number.isSafeInteger(id)&&id>=1:validRound(id))) throw new TypeError('roundId must be null or 1..10');
+    if (id !== null && !(localOnly?Number.isSafeInteger(id)&&id>=1:validRound(id))) throw new TypeError('roundId must be null or a positive safe integer');
     if (roundId === id) return false;
     roundId = id;
     feed = [];
@@ -3221,7 +3238,7 @@ function createReactionChannel({
 return {REACTION_PROTOCOL,REACTION_MODE,REACTION_TYPE,REACTIONS,REACTION_LIMITS,parseReactionWire,createReactionChannel};})();
 const ContentProfile=(()=>{
 // Build-generated semantic content revision; no runtime hashing or network.
-const CONTENT_REVISION="e34a9aec394581c60f440b614faf30f9611bd2463e51bc175c7f401dfa2ee812";
+const CONTENT_REVISION="d41cbad6946c096c22a3e90b9eb1ed79fec298c299ca3447d08a6d415b9bfebc";;
 const validContentRevision=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 
 return {CONTENT_REVISION,validContentRevision};})();
@@ -3608,7 +3625,7 @@ const ReactionSdkBridge=(()=>{const {parseReactionWire,REACTION_MODE,REACTION_PR
 const SDK_SEND_TYPE = 'aitools_game_sendmsg';
 const MAX_PROTOCOL_WIRE_BYTES = 48000;
 const validId = value => typeof value === 'string' && value.length > 0 && value.length <= 128;
-const validRound = value => Number.isSafeInteger(value) && value >= 1 && value <= 10;
+const validRound = value => Number.isSafeInteger(value) && value >= 1;
 const byteLength = value => new TextEncoder().encode(value).length;
 
 function getContext(source) {
@@ -3716,6 +3733,17 @@ async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Prom
   const profile=await sdk.user.getMyUserInfo();
   if(profile?.errno!==0||!profile.data?.user_id)throw new Error('profile-unavailable');
   const userId=String(profile.data.user_id);
+  // These fields mirror the optional values used by Number Bluff; actual SDK
+  // availability and event shapes remain device-dependent.
+  const profiles=new Map();
+  function rememberProfile(raw){
+    const id=String(raw?.user_id??'');if(!id||id.length>128||profiles.size>=32&&!profiles.has(id))return;
+    const old=profiles.get(id)||{},rawName=raw?.user_name??raw?.name,rawUrl=raw?.portrait??raw?.portait;
+    const name=typeof rawName==='string'?rawName.replace(/[\u0000-\u001f\u007f-\u009f]/g,' ').trim().slice(0,24):'';
+    let avatarUrl=null;try{const u=new URL(rawUrl);if(u.protocol==='https:'&&!u.username&&!u.password)avatarUrl=u.href;}catch{}
+    profiles.set(id,{name:name||old.name||'',avatarUrl:avatarUrl||old.avatarUrl||null});
+  }
+  rememberProfile(profile.data);
   let session=null,roomId=null,hostId=null,sessionId=null,discovery=null,pending=false,nativeJoined=false;
   const send=async message=>{try{const r=await sdk.room.sendMessage({message});if(r?.errno!==undefined&&r.errno!==0)throw new Error('send-failed');return r;}catch(error){session?.close();return {errno:-1,error:String(error)};}};
   const control=body=>send(encode({protocol:PROTOCOL,version:1,contentRevision,roomId,...body}));
@@ -3727,6 +3755,7 @@ async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Prom
     const d=payload?.data;if(!d||!roomId)return;
     if(d.room_id!==undefined&&String(d.room_id)!==roomId)return;
     const sender=String(d.user_id||'');
+    if(payload.type==='aitools_game_joinroom'){if(d.room_id!==undefined)rememberProfile(d);return;}
     if(payload.type==='aitools_game_exitroom'){
       // Never apply unscoped departure: it can be a delayed previous-room event.
       if(d.room_id!==undefined)session?.memberLeft(sender);return;
@@ -3764,7 +3793,8 @@ async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Prom
       const r=await (kind==='create'?sdk.room.create({max_players:8,room_permission:permission}):sdk.room.join({room_id:id}));
       if(r?.errno!==0)throw new Error('entry-failed');nativeJoined=true;
       roomId=String(r.data?.room_id||id||'');if(!roomId)throw new Error('room-id-missing');
-      const roster=(r.data?.user_list||[]).map(x=>String(x.user_id));
+      const entries=Array.isArray(r.data?.user_list)?r.data.user_list:[];for(const entry of entries)rememberProfile(entry);
+      const roster=entries.map(x=>String(x.user_id));
       if(kind==='create'){hostId=userId;sessionId=nonce();}
       else{
         discovery={nonce:nonce(),roster:new Set(roster.filter(x=>x!==userId)),claims:new Map(),incompatible:new Set()};
@@ -3782,10 +3812,10 @@ async function install({sdk,nonce,sessionFactory=createSession,wait=ms=>new Prom
       session?.close();session=null;throw error;
     }finally{pending=false;}
   }
-  return Object.freeze({userId,
+  return Object.freeze({userId,getProfile:id=>{const p=profiles.get(String(id));return p?{...p}:null;},
     create(permission=0){if(![0,1].includes(permission))throw new Error('invalid-permission');return enter('create',null,permission);},
     join(id){if(typeof id!=='string'||!id)throw new Error('invalid-room-id');return enter('join',id);},
-    async exit(){if(pending)throw new Error('entry-pending');const r=await sdk.room.exit();if(r?.errno!==0)throw new Error('exit-failed');nativeJoined=false;session?.close();session=null;roomId=null;tickets.clear();rejectedPeers.clear();discovery=null;},
+    async exit(){if(pending)throw new Error('entry-pending');const r=await sdk.room.exit();if(r?.errno!==0)throw new Error('exit-failed');nativeJoined=false;session?.close();session=null;roomId=null;tickets.clear();rejectedPeers.clear();discovery=null;for(const id of profiles.keys())if(id!==userId)profiles.delete(id);},
     async list(){return sdk.room.getPublicRoomList();},
     sendReaction:wire=>reactionBridge.send(wire),getRoomId:()=>roomId,getSession:()=>session
   });
@@ -6095,7 +6125,7 @@ function multiStatusSummary(s,clock,now,host,ready,pending,player){
 function multiResultText(s,userId){
  if(!['settle','result'].includes(s.phase)||!Array.isArray(s.roundResults))return '';
  return s.participants.map((id,i)=>{
-  const e=s.roundResults.find(row=>row.playerId===id),name=id===userId?'あなた':'参加者'+(i+1)+'（'+id.slice(-6)+'）';
+  const e=s.roundResults.find(row=>row.playerId===id),profile=typeof multiAdapter!=='undefined'?multiAdapter?.getProfile?.(id):null,name=profile?.name||(id===userId?'あなた':'参加者'+(i+1)+'（'+id.slice(-6)+'）');
   if(!e){const p=s.wallets?.find(row=>row.playerId===id);return name+'：'+(p?.cashedOut?'終了済み':p?.terminalReason==='bankrupt'?'0G・予想終了':'結果待ち');}
   const side=e.side==='A'?'左':e.side==='B'?'右':'予想なし';
   const outcome=e.correct===true?'的中':e.correct===false?'はずれ':s.winner==='draw'?'引分':s.winner==='invalid'?'無効':'予想なし';
@@ -7004,10 +7034,45 @@ const motionMultiDisplay=displayMultiState;displayMultiState=function(){motionMu
 const NATIVE_REACTION_VIEW=Object.freeze({wow:Object.freeze({glyph:'😮',label:'驚き'}),cheer:Object.freeze({glyph:'😄',label:'喜び'}),frustrated:Object.freeze({glyph:'😭',label:'残念'}),applause:Object.freeze({glyph:'👏',label:'応援'})});
 let reactionChannel=null,reactionSessionKey=null,reactionOpen=false;
 function reactionLive(){return screenMode==='game'&&state==='fight'&&!multiRecording&&!predictionPreview&&!paused&&!unitsOpen&&!pausePanelOpen&&document.hidden!==true&&(!multiSession||(!!multiPlayback&&multiSnapshot?.phase==='battle'&&!!multiAdapter?.sendReaction));}
+let participantRailKey='',participantNodes=new Map();
+function participantEntries(snapshot,viewer,profileFor){
+ if(!snapshot)return [];
+ const players=Array.isArray(snapshot.participants)?snapshot.participants:[],spectators=Array.isArray(snapshot.spectators)?snapshot.spectators:[];
+ return [...players.map((id,i)=>({id,label:id===viewer?'あなた':'参加者'+(i+1),spectator:false})),...spectators.filter(id=>!players.includes(id)).map((id,i)=>({id,label:id===viewer?'あなた':'観戦'+(i+1),spectator:true}))].map(row=>{
+  const profile=typeof profileFor==='function'?profileFor(row.id):null;
+  return {...row,name:typeof profile?.name==='string'&&profile.name?profile.name:row.label,avatarUrl:profile?.avatarUrl||null};
+ });
+}
+function syncParticipantRail(enabled,feed){
+ const wrap=document.querySelector('#participantRailWrap'),rail=document.querySelector('#participantRail'),outside=document.querySelector('#reactionOutside');if(!wrap||!rail||!outside)return;
+ const show=!!enabled&&!!multiSession&&!!multiSnapshot;wrap.hidden=!show;
+ if(!show){outside.hidden=true;if(participantRailKey){participantRailKey='';participantNodes.clear();if(typeof rail.replaceChildren==='function')rail.replaceChildren();else rail.textContent='';}return;}
+ const entries=participantEntries(multiSnapshot,multiUser,id=>multiAdapter?.getProfile?.(id)),key=JSON.stringify(entries);
+ if(key!==participantRailKey){
+  participantRailKey=key;participantNodes.clear();const items=[];
+  for(const row of entries){
+   const chip=document.createElement('div'),portrait=document.createElement('span'),fallback=document.createElement('span'),name=document.createElement('span'),badge=document.createElement('span');
+   chip.className='participant-chip'+(row.id===multiUser?' is-self':'');chip.setAttribute('role','listitem');chip.setAttribute('aria-label',row.name+(row.id===multiUser?'（あなた）':'')+(row.spectator?'（観戦）':''));
+   portrait.className='participant-portrait';fallback.textContent=row.spectator?'観':'●';fallback.setAttribute('aria-hidden','true');portrait.appendChild(fallback);
+   if(row.avatarUrl){const img=document.createElement('img');img.alt='';img.referrerPolicy='no-referrer';img.loading='lazy';img.hidden=true;img.onload=()=>{img.hidden=false;fallback.hidden=true};img.onerror=()=>{img.hidden=true;fallback.hidden=false};img.src=row.avatarUrl;portrait.appendChild(img);}
+   name.className='participant-name';name.textContent=row.name;name.title=row.name;
+   badge.className='participant-emote';badge.hidden=true;badge.setAttribute('aria-hidden','true');chip.appendChild(portrait);chip.appendChild(name);chip.appendChild(badge);items.push(chip);participantNodes.set(row.id,{chip,badge,row});
+  }
+  if(typeof rail.replaceChildren==='function')rail.replaceChildren(...items);else{rail.textContent='';for(const item of items)rail.appendChild(item);}
+ }
+ const lastBySender=new Map();for(const item of feed)if(participantNodes.has(item.sender))lastBySender.set(item.sender,item);
+ for(const [id,entry] of participantNodes){const item=lastBySender.get(id),view=item&&NATIVE_REACTION_VIEW[item.emoji];entry.badge.hidden=!view;const glyph=view?.glyph||'',label=entry.row.name+(entry.row.id===multiUser?'（あなた）':'')+(entry.row.spectator?'（観戦）':'')+(view?'：'+view.label:'');if(entry.badge.textContent!==glyph)entry.badge.textContent=glyph;if(entry.chip.getAttribute('aria-label')!==label)entry.chip.setAttribute('aria-label',label);}
+ let offscreen='';
+ if(typeof rail.getBoundingClientRect==='function'){
+  const rr=rail.getBoundingClientRect();if(rr.width>0)for(let i=feed.length-1;i>=0;i--){const e=participantNodes.get(feed[i].sender),v=NATIVE_REACTION_VIEW[feed[i].emoji];if(!e||!v||typeof e.chip.getBoundingClientRect!=='function')continue;const box=e.chip.getBoundingClientRect();if(box.width>0&&(box.left<rr.left||box.right>rr.right)){offscreen=v.glyph+' '+e.row.name;break;}}
+ }
+ if(outside.hidden===!!offscreen)outside.hidden=!offscreen;if(offscreen&&outside.textContent!==offscreen)outside.textContent=offscreen;
+}
 function reactionRender(){
  const node=document.querySelector('#reaction-feedback');if(!node)return;
- const feed=reactionChannel?reactionChannel.getFeed():[];
- const latest=feed[feed.length-1],active=!!latest&&reactionLive();
+ const feed=reactionChannel?reactionChannel.getFeed():[],enabled=reactionLive();
+ const showParticipants=screenMode==='game'&&state==='fight'&&!multiRecording&&!predictionPreview;syncParticipantRail(showParticipants,enabled?feed:[]);
+ const latest=feed[feed.length-1],active=!!latest&&enabled&&!multiSession;
  const view=latest&&NATIVE_REACTION_VIEW[latest.emoji];node.textContent=view?view.glyph:'';node.setAttribute('role','img');node.setAttribute('aria-label',view?view.label:'');node.hidden=!active;node.setAttribute('data-active',String(active));document.querySelector('#battle').setAttribute('data-reaction-feedback',String(active));
 }
 function closeReactionMenu(){reactionOpen=false;syncReactions();}
