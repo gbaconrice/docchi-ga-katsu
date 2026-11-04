@@ -1,0 +1,9 @@
+PASS boot 4 scripts
+PASS solo start
+seed 2: 0/150 3s
+seed 2: 25/150 161s
+seed 2: 50/150 267s
+seed 2: 75/150 453s
+seed 2: 100/150 561s
+seed 2: 125/150 609s
+done {"tool":"tools/measure/sessions.cjs","html":"index.html","htmlSHA256":"27fce65742f94a975f1c74ee16d29db5551a0c17ce6fb4d20df3b689a83253ff","commit":"1bd685a56e5bf39e81cdfaddb8d35acbf8f6f370","seed":2,"fights":150,"sessions":15,"timeline":"every 15 ticks (0.25 s): [tick,hpL,maxHpL,aliveL,hpR,maxHpR,aliveR,minX,maxX,minY,maxY] (summons excluded)","node":"v22.23.4","bet":"always LEFT, 25% (0G when broke); does not affect battles","seconds":746,"createdAt":"2026-11-04T18:09:54.262Z"}
