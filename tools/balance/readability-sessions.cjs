@@ -1,0 +1,24 @@
+// Usage: [GAME_HTML=path] node tools/balance/readability-sessions.cjs <fights> <out.json>
+// Full solo sessions (10 rounds, then restart) through production code. Bets 25% on LEFT every round (pick does not affect the battle).
+// Records each side's units with TYPES stats (hp,dmg,rate,reach,speed,air,flying), costs, streak and winner.
+// Restart seeds use Math.random, so runs are not seed-reproducible.
+// Usage: node tools/balance/sessions.cjs <fights> <out.json>   (GAME_HTML=path optional)
+// Plays full solo sessions headlessly through the production code; records rosters and winners.
+const fs=require('fs'),vm=require('vm');const html=fs.readFileSync(process.env.GAME_HTML||'index.html','utf8');const scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);const errors=[],events={};const noop=()=>{};const ctx=new Proxy({measureText:()=>({width:10}),createLinearGradient:()=>({addColorStop:noop}),createRadialGradient:()=>({addColorStop:noop}),getImageData:()=>({data:new Uint8ClampedArray(16)})},{get:(o,k)=>k in o?o[k]:noop,set:(o,k,v)=>(o[k]=v,true)});const nodes=new Map();function elem(id){if(!nodes.has(id)){let n={id,hidden:false,disabled:false,style:{setProperty:noop,removeProperty:noop},dataset:{},classList:{add:noop,remove:noop,toggle:noop,contains:()=>false},setAttribute:noop,removeAttribute:noop,getAttribute:()=>null,addEventListener:noop,removeEventListener:noop,appendChild:noop,remove:noop,focus:noop,getContext:()=>ctx,getBoundingClientRect:()=>({width:480,height:538,left:0,top:0,right:480,bottom:538}),querySelector:()=>null,querySelectorAll:()=>[],getClientRects:()=>[],textContent:'',value:'',width:480,height:538};nodes.set(id,n)}return nodes.get(id)}
+const doc={hidden:false,documentElement:elem('html'),body:elem('body'),querySelector:s=>elem(s),querySelectorAll:()=>[],getElementById:id=>elem('#'+id),createElement:t=>elem('new-'+t),addEventListener:(n,f)=>{(events[n]??=[]).push(f)},removeEventListener:noop};const pendingImages=[];class Img{constructor(){pendingImages.push(this);this.complete=false;this.naturalWidth=0;this.naturalHeight=0}set src(v){this._src=v}get src(){return this._src}}const sandbox={document:doc,Image:Img,console,URLSearchParams,location:{search:'',href:'http://localhost/'},navigator:{userAgent:'test'},performance:{now:()=>1000},requestAnimationFrame:()=>1,cancelAnimationFrame:noop,setTimeout:()=>1,clearTimeout:noop,setInterval:()=>1,clearInterval:noop,localStorage:{getItem:()=>null,setItem:noop},addEventListener:(n,f)=>{(events['window:'+n]??=[]).push(f)},removeEventListener:noop,innerWidth:400,innerHeight:800,devicePixelRatio:1,matchMedia:()=>({matches:false,addEventListener:noop}),ResizeObserver:class{observe(){}disconnect(){}}};sandbox.window=sandbox;sandbox.globalThis=sandbox;let context=vm.createContext(sandbox);for(let i=0;i<scripts.length;i++){try{vm.runInContext(scripts[i],context,{filename:'script-'+i+'.js',timeout:15000})}catch(e){console.log('FAIL script',i,e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}console.log('PASS boot',scripts.length,'scripts');for(const [id,n] of nodes){if(id==='#soloStart'&&typeof n.onclick==='function'){try{n.onclick({isTrusted:true});console.log('PASS solo start')}catch(e){console.log('FAIL solo start',e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}}
+
+if(process.env.BALANCE_SEED){}
+const N=+process.argv[2]||40,out=[];const T0=Date.now();
+const ev=s=>vm.runInContext(s,context);
+for(let k=0;k<N;k++){
+ const info=ev("({round,streak:carryStreak,fam:openingPlan?.archetypeDecision?.realized??null,gv:openingPlan?.generatorVersion,ac:openingPlan?.actualCosts,ec:openingPlan?.estimatedCosts,m:openingPlan?.modelDecision?.predictedMargin??null,cand:openingPlan?.modelDecision?.candidateCount,units:units.map(u=>[u.side,u.k,TYPES[u.k].hp,TYPES[u.k].dmg,TYPES[u.k].rate,TYPES[u.k].reach,TYPES[u.k].speed,!!TYPES[u.k].air,!!TYPES[u.k].flying]),carry:pendingCarryOutcome,nL:initialKinds[0].length,nR:initialKinds[1].length,kL:[...new Set(initialKinds[0])],kR:[...new Set(initialKinds[1])],env:battleEnvironment?.fieldId})");
+ const bal=ev("walletState.players[0].balance");
+ const stake=BigInt(bal)>0n?'#stake25':'#stake0';
+ for(const id of ['#red',stake,'#confirm']){const n=nodes.get(id);n.onclick&&n.onclick({isTrusted:true})}
+ let g=0;while(ev("state")==='fight'&&g<4000){ev("step(1/60)");g++}
+ out.push({...info,winner:ev("winner"),ticks:g});
+ if(k%20==0)console.error(k,((Date.now()-T0)/1000).toFixed(0)+'s');
+ let ok=true;try{if(ev("round")>=10)throw Error('restart');ev("nextPrediction()")}catch(e){ok=false}
+ if(!ok){try{ev("round=1;mistakes=0;correct=0;speed=1;soloRunEnded=false;freshWallet();openPrediction((Math.random()*4294967296)>>>0)")}catch(e){console.error('restart fail',e.message);break}}
+}
+fs.writeFileSync(process.argv[3],JSON.stringify(out));console.error('done',(Date.now()-T0)/1000);
