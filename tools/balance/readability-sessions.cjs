@@ -1,5 +1,6 @@
 // Usage: [GAME_HTML=path] node tools/balance/readability-sessions.cjs <fights> <out.json>
 // Full solo sessions (10 rounds, then restart) through production code. Bets 25% on LEFT every round (pick does not affect the battle).
+// Timeline every 0.25 s: [tick, hpL, maxL, aliveL, hpR, maxR, aliveR, minX, maxX, minY, maxY].
 // Records each side's units with TYPES stats (hp,dmg,rate,reach,speed,air,flying), costs, streak and winner.
 // Restart seeds use Math.random, so runs are not seed-reproducible.
 // Usage: node tools/balance/sessions.cjs <fights> <out.json>   (GAME_HTML=path optional)
@@ -15,8 +16,10 @@ for(let k=0;k<N;k++){
  const bal=ev("walletState.players[0].balance");
  const stake=BigInt(bal)>0n?'#stake25':'#stake0';
  for(const id of ['#red',stake,'#confirm']){const n=nodes.get(id);n.onclick&&n.onclick({isTrusted:true})}
- let g=0;while(ev("state")==='fight'&&g<4000){ev("step(1/60)");g++}
- out.push({...info,winner:ev("winner"),ticks:g});
+ let g=0;const tl=[];const snap=()=>ev("units.map(u=>[u.side,u.dead?0:Math.max(0,u.hp),TYPES[u.k].hp,Math.round(u.x),Math.round(u.y)])");
+ const take=()=>{const us=snap();const s=[0,1].map(side=>{const a=us.filter(u=>u[0]===side);return [a.reduce((t,u)=>t+u[1],0),a.reduce((t,u)=>t+u[2],0),a.filter(u=>u[1]>0).length]});const alive=us.filter(u=>u[1]>0);const xs=alive.map(u=>u[3]),ys=alive.map(u=>u[4]);tl.push([g,s[0][0],s[0][1],s[0][2],s[1][0],s[1][1],s[1][2],xs.length?Math.min(...xs):0,xs.length?Math.max(...xs):0,ys.length?Math.min(...ys):0,ys.length?Math.max(...ys):0])};
+ take();while(ev("state")==='fight'&&g<4000){ev("step(1/60)");g++;if(g%15===0)take()}take();
+ out.push({...info,winner:ev("winner"),ticks:g,tl});
  if(k%20==0)console.error(k,((Date.now()-T0)/1000).toFixed(0)+'s');
  let ok=true;try{if(ev("round")>=10)throw Error('restart');ev("nextPrediction()")}catch(e){ok=false}
  if(!ok){try{ev("round=1;mistakes=0;correct=0;speed=1;soloRunEnded=false;freshWallet();openPrediction((Math.random()*4294967296)>>>0)")}catch(e){console.error('restart fail',e.message);break}}

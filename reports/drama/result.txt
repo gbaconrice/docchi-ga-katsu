@@ -1,0 +1,9 @@
+fights 300 | battle length s: median 18.3  p90 30.5
+winner was behind at some point (HP share < 50%): 197/300 = 66%
+winner was behind at 60% of the battle (late reversal): 32/300 = 11%
+close finish (loser still >= 35% share in last quarter): 121/300 = 40%
+lead changes (45/55 band): 0 = 263/300 = 88%, 1 = 33/300 = 11%, 2+ = 4/300 = 1%
+winner's worst share: median 0.50; below 0.40 in 10/300 = 3%
+decided (winner >= 70% and stays) at median 80% of the battle; before 50% in 3/300 = 1%
+alive-unit bounding box / field (max of w,h ratios), median: {'start': 0.92, '25%': 0.51, '50%': 0.35, '75%': 0.25, 'end': 0.13}
+  share of fights where the fight fits in half the field:  {'start': '0/300 = 0%', '25%': '144/300 = 48%', '50%': '276/300 = 92%', '75%': '287/300 = 96%', 'end': '297/300 = 99%'}
