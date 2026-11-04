@@ -1,8 +1,8 @@
 {
   "scope": "300-species preview HTML; LF-normalized Git blob",
   "index": "index.html",
-  "indexSHA256": "70a3608bd0e9f4d44df22f9a0474de76e6f5ed8cd481669356ece500aff4ae31",
-  "validation": "BATTLE_FEEL_WORKTREE.md",
+  "indexSHA256": "9989ce8461dc8c422beb22305396c7b0163f7bb9eb460a5a3c0f2bcfd479f752",
+  "validation": "PREDICTION_REWARD_WORKTREE.md",
   "balance": "BALANCE_STUDY.md",
   "reachability": "REACHABILITY_STUDY.md",
   "legacyRecords": [
@@ -26,5 +26,5 @@
       "integrated": "change adapted with additional fixes; PR not merged"
     }
   ],
-  "previousValidation": "BET_CARRY_VALIDATION.md"
+  "previousValidation": "BATTLE_FEEL_WORKTREE.md"
 }
