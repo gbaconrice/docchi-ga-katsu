@@ -1,0 +1,28 @@
+{
+  "status": "offline study; deployment requires separate verification",
+  "sources": {
+    "prior": "af5c6144588d7e7838d670e140d6b5b3fff284fb2ebde41de3e8dfd65f29840d",
+    "pr3": "be907b4606822b2ebe7a590ec992d0a6057d64b29a0e4836ccf359c156c49196",
+    "fixed": "9f28aa72593acbde5cd89fe90165e27f1ee2a8c0e02dcd89558e28dee6cf8e03"
+  },
+  "sessionSeeds": [
+    123456789,
+    4242,
+    987654321
+  ],
+  "fightsPerSeed": 40,
+  "firstRoundSeeds": [
+    24680,
+    13579
+  ],
+  "firstRoundsPerSeed": 40,
+  "simulator": "tools/balance/reachability-sessions.cjs",
+  "firstRoundSimulator": "tools/balance/first-rounds.cjs",
+  "duelSimulator": "tools/balance/duels.cjs",
+  "summary": "tools/balance/compare-sessions.cjs",
+  "notes": [
+    "Sessions are clustered; seed streams are the same but outcomes and later rosters may diverge.",
+    "Forced one-on-one duels are artificial and do not establish reachability.",
+    "Worktree-only UI changes are included in fixed; no deployment performed."
+  ]
+}

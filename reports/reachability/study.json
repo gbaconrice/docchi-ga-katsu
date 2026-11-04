@@ -1,0 +1,30 @@
+{
+  "status": "offline study; deployment requires separate verification",
+  "indexSHA256": "9f28aa72593acbde5cd89fe90165e27f1ee2a8c0e02dcd89558e28dee6cf8e03",
+  "additionalSessionSeeds": [
+    20261103,
+    3141592653,
+    2718281828
+  ],
+  "fightsPerSeed": 100,
+  "firstRoundGenerationSeeds": {
+    "start": 1,
+    "end": 1000
+  },
+  "secondRoundHypotheses": {
+    "firstSeeds": 120,
+    "hypotheticalWinners": 2,
+    "challengerSeedsEach": 5
+  },
+  "directedAssumedPaths": {
+    "firstSeeds": 40,
+    "beamWidth": 6,
+    "candidateSeedsPerRound": 16,
+    "maxRound": 14
+  },
+  "caveats": [
+    "Second-round and directed searches assume battle outcomes and do not prove the outcomes can occur.",
+    "No singleton flying unit found in sampled play; later-round impossibility is not proven.",
+    "The first-round invariant applies only to the recorded worktree catalog and generator."
+  ]
+}

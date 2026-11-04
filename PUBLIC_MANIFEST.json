@@ -13,5 +13,7 @@
     "provenance/SpritePilot-LICENSE-EVIDENCE.txt": "fffd356cb2b3144efe4a67476dc198219eb76b99aa505a43f225b0a56e542300",
     "provenance/SpritePilot-effects.json": "87f74a13fd5448cfc2b5be72eba89b2a308f7d357de69cf7b586f3a2f813b6cb"
   },
-  "indexSHA256": "7e13ae3ecc8d6cdda19d918d223d6983251e5a69e0c30ab599e017ba7bf06dbe"
+  "indexSHA256": "7e13ae3ecc8d6cdda19d918d223d6983251e5a69e0c30ab599e017ba7bf06dbe",
+  "scopeNote": "Historical 200-species preview record only. Hashes, results and deployment status do not validate the current 300-species worktree; see VALIDATION_CURRENT.md.",
+  "historicalRecord": true
 }

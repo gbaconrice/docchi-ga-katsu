@@ -1,0 +1,29 @@
+{
+  "scope": "300-species preview HTML; LF-normalized Git blob",
+  "index": "index.html",
+  "indexSHA256": "9f28aa72593acbde5cd89fe90165e27f1ee2a8c0e02dcd89558e28dee6cf8e03",
+  "validation": "VALIDATION_CURRENT.md",
+  "balance": "BALANCE_STUDY.md",
+  "reachability": "REACHABILITY_STUDY.md",
+  "legacyRecords": [
+    "PUBLIC_MANIFEST.json",
+    "VALIDATION.json"
+  ],
+  "limitations": [
+    "Smartphone and GRAVITY multi-device behavior not verified on actual devices.",
+    "A pathological single-flying-unit balance case remains unresolved and later-round reachability is unknown.",
+    "Deployment status requires separate verification."
+  ],
+  "prSources": [
+    {
+      "number": 2,
+      "head": "3d1d257cb8fc8730b6ae3200a202c2b4ad58b83c",
+      "integrated": "change applied; PR not merged"
+    },
+    {
+      "number": 3,
+      "head": "48f761acc2be48f62d6954c1a681671cf1abfa99",
+      "integrated": "change adapted with additional fixes; PR not merged"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+// Usage: node tools/balance/duels.cjs <jobs.json> <out.json> <part> <parts>
+// Stages single-species duels through prepareOpening/openPrediction/step (production physics).
+const fs=require('fs'),vm=require('vm');const html=fs.readFileSync(process.env.GAME_HTML||'index.html','utf8');const scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);const errors=[],events={};const noop=()=>{};const ctx=new Proxy({measureText:()=>({width:10}),createLinearGradient:()=>({addColorStop:noop}),createRadialGradient:()=>({addColorStop:noop}),getImageData:()=>({data:new Uint8ClampedArray(16)})},{get:(o,k)=>k in o?o[k]:noop,set:(o,k,v)=>(o[k]=v,true)});const nodes=new Map();function elem(id){if(!nodes.has(id)){let n={id,hidden:false,disabled:false,style:{setProperty:noop,removeProperty:noop},dataset:{},classList:{add:noop,remove:noop,toggle:noop,contains:()=>false},setAttribute:noop,removeAttribute:noop,getAttribute:()=>null,addEventListener:noop,removeEventListener:noop,appendChild:noop,remove:noop,focus:noop,getContext:()=>ctx,getBoundingClientRect:()=>({width:480,height:538,left:0,top:0,right:480,bottom:538}),querySelector:()=>null,querySelectorAll:()=>[],getClientRects:()=>[],textContent:'',value:'',width:480,height:538};nodes.set(id,n)}return nodes.get(id)}
+const doc={hidden:false,documentElement:elem('html'),body:elem('body'),querySelector:s=>elem(s),querySelectorAll:()=>[],getElementById:id=>elem('#'+id),createElement:t=>elem('new-'+t),addEventListener:(n,f)=>{(events[n]??=[]).push(f)},removeEventListener:noop};const pendingImages=[];class Img{constructor(){pendingImages.push(this);this.complete=false;this.naturalWidth=0;this.naturalHeight=0}set src(v){this._src=v}get src(){return this._src}}const sandbox={document:doc,Image:Img,console,URLSearchParams,location:{search:'',href:'http://localhost/'},navigator:{userAgent:'test'},performance:{now:()=>1000},requestAnimationFrame:()=>1,cancelAnimationFrame:noop,setTimeout:()=>1,clearTimeout:noop,setInterval:()=>1,clearInterval:noop,localStorage:{getItem:()=>null,setItem:noop},addEventListener:(n,f)=>{(events['window:'+n]??=[]).push(f)},removeEventListener:noop,innerWidth:400,innerHeight:800,devicePixelRatio:1,matchMedia:()=>({matches:false,addEventListener:noop}),ResizeObserver:class{observe(){}disconnect(){}}};sandbox.window=sandbox;sandbox.globalThis=sandbox;let context=vm.createContext(sandbox);for(let i=0;i<scripts.length;i++){try{vm.runInContext(scripts[i],context,{filename:'script-'+i+'.js',timeout:15000})}catch(e){console.log('FAIL script',i,e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}console.log('PASS boot',scripts.length,'scripts');for(const [id,n] of nodes){if(id==='#soloStart'&&typeof n.onclick==='function'){try{n.onclick({isTrusted:true});console.log('PASS solo start')}catch(e){console.log('FAIL solo start',e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}}
+
+
+// Controlled duels: single-species army vs single-species reference army, staged through the real
+// prepareOpening/openPrediction/step path so physics, fields and settlement are the production code.
+const ev=s=>vm.runInContext(s,context);
+const [jobsFile,outFile,part,parts]=process.argv.slice(2);const jobs=JSON.parse(fs.readFileSync(jobsFile,'utf8')).filter((_,i)=>i%(+parts)===(+part));
+ev(`globalThis.__duel=null;const __origPrep=prepareOpening;prepareOpening=function(s){const r=__origPrep(s);if(!globalThis.__duel)return r;const {L,R}=globalThis.__duel;const lp=growthGenerator.fit(L),rp=growthGenerator.fit(R);if(!lp||!rp)throw Error('duel-fit');const plan={...r.plan,leftKinds:L.slice(),rightKinds:R.slice(),leftPositions:lp.map(p=>({...p})),rightPositions:rp.map(p=>({...p,x:480-p.x}))};return {...r,base:[],plan,opening:OpeningUnits.instantiateOpening(plan,TYPES)};};`);
+const out=[];const T0=Date.now();
+for(const [i,j] of jobs.entries()){
+  const L=Array(j.nL).fill(j.kL),R=Array(j.nR).fill(j.kR);
+  try{
+    ev(`globalThis.__duel=${JSON.stringify({L,R})};round=1;mistakes=0;correct=0;pendingCarryKinds=null;pendingCarryOutcome=null;carryStreak=0;freshWallet();openPrediction(${j.seed>>>0});`);
+    for(const id of ['#red','#stake25','#confirm']){const n=nodes.get(id);n.onclick&&n.onclick({isTrusted:true})}
+    let g=0;while(ev("state")==='fight'&&g<4000){ev("step(1/60)");g++}
+    const w=ev("winner"),alive=ev("[units.filter(u=>!u.dead&&u.side===0).length,units.filter(u=>!u.dead&&u.side===1).length]");
+    out.push({...j,winner:w,ticks:g,alive,env:ev("battleEnvironment?.fieldId")});
+  }catch(e){out.push({...j,error:String(e.message||e)});}
+  if(i%50===0){console.error(part,i,'/',jobs.length,((Date.now()-T0)/1000).toFixed(0)+'s');fs.writeFileSync(outFile,JSON.stringify(out));}
+}
+fs.writeFileSync(outFile,JSON.stringify(out));console.error('done',part,(Date.now()-T0)/1000);

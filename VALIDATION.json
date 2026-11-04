@@ -26,5 +26,7 @@
   "gateFinalManifestSHA256": "90ee44648f12c2349bbc8d69740c6da37dacd17a2acaf87a4eb143f0d0024a1d",
   "resourceNote": "Peak original-body atlas arithmetic34MiB, soft unpinned loader budget32MiB; not measured browser/GPU residency",
   "publicCountUnchangedScope": "Observed prior deployment only; this approved package targets200, deployment must be separately verified",
-  "publication": "User approved development preview publication; no deployment success claimed by this artifact"
+  "publication": "User approved development preview publication; no deployment success claimed by this artifact",
+  "scopeNote": "Historical 200-species preview record only. Hashes, results and deployment status do not validate the current 300-species worktree; see VALIDATION_CURRENT.md.",
+  "historicalRecord": true
 }
