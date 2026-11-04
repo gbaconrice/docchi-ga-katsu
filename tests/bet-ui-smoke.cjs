@@ -6,4 +6,4 @@ const actual=vm.runInContext('({screenMode,state,choice,round,battleEnvironment}
 for(const im of [...pendingImages]){if(typeof im.onload==='function'){im.complete=true;im.naturalWidth=480;im.naturalHeight=538;try{im.onload()}catch(e){console.log('FAIL deferred image callback',e.stack.split('\n').slice(0,6).join('\n'));process.exit(1)}}}console.log('PASS deferred image callbacks');
 
 const commit=vm.runInContext('walletState.currentRound.commits[0].stake',context);if(commit!==25)throw Error('selected BET not committed: '+commit);console.log('PASS 25 G selected and committed');
-const hint=nodes.get('#stakeHint').textContent;if(!hint.includes('+38 G')||!hint.includes('−25 G'))throw Error('incorrect 25 G hint: '+hint);console.log('PASS 25 G hint matches +38 G / −25 G');
+const hint=nodes.get('#stakeHint').textContent;if(!hint.includes('+25 G')||!hint.includes('−25 G'))throw Error('incorrect 25 G hint: '+hint);console.log('PASS 25 G hint matches +25 G / −25 G');

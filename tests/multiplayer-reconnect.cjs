@@ -10,14 +10,14 @@ for(const zeroPlayer of ['host','guest']){
 vm.runInContext(`{
 let queue=[],host,guest;const now=()=>1000,o={roomId:'room',sessionId:'session',hostId:'host',members:['host','guest'],now};host=MultiBinding.createWalletSession({...o,userId:'host',send:w=>queue.push(['guest','host',w])});guest=MultiProtocol.createSession({...o,userId:'guest',send:w=>queue.push(['host','guest',w])});const flush=()=>{let n=0;while(queue.length&&n++<10000){const [to,from,w]=queue.shift();(to==='host'?host:guest).receive(from,w)}if(queue.length)throw Error('queue')};guest.hello();host.hello();flush();
 const zeroPlayer=ZERO_PLAYER;
-function play(n, winner){host.openRound({roundId:n,durationMs:10000,matchup:{units:[]}});flush();let hs=zeroPlayer==='host'?(n<=2?50:0):(n===1?25:n===2?35:48),gs=zeroPlayer==='guest'?(n<=2?50:0):(n===1?25:n===2?35:48);let hside=n<=2&&zeroPlayer==='host'?'A':'B',gside=n<=2&&zeroPlayer==='guest'?'A':'B';if(!host.predict(hside,hs)||!guest.predict(gside,gs))throw Error('prediction rejected');flush();if(host.getState().phase!=='locked')throw Error('round not locked');host.startBattle({engineVersion:'test',ticks:1,winner,events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush()}
-play(1,'B');play(2,'B');let wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==0||wallets.find(x=>x.playerId===zeroPlayer).terminalReason)throw Error('0 G player incorrectly eliminated');play(3,'B');wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==10)throw Error('0 G recovery failed');if(wallets.find(x=>x.playerId!==zeroPlayer).balance!==263)throw Error('other player settlement failed');
+function play(n, winner){host.openRound({roundId:n,durationMs:10000,matchup:{units:[]}});flush();let hs=zeroPlayer==='host'?(n<=2?50:0):(n===1?25:n===2?31:39),gs=zeroPlayer==='guest'?(n<=2?50:0):(n===1?25:n===2?31:39);let hside=n<=2&&zeroPlayer==='host'?'A':'B',gside=n<=2&&zeroPlayer==='guest'?'A':'B';if(!host.predict(hside,hs)||!guest.predict(gside,gs))throw Error('prediction rejected');flush();if(host.getState().phase!=='locked')throw Error('round not locked');host.startBattle({engineVersion:'test',ticks:1,winner,events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush()}
+play(1,'B');play(2,'B');let wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==0||wallets.find(x=>x.playerId===zeroPlayer).terminalReason)throw Error('0 G player incorrectly eliminated');play(3,'B');wallets=host.getState().wallets;if(wallets.find(x=>x.playerId===zeroPlayer).balance!==10)throw Error('0 G recovery failed');if(wallets.find(x=>x.playerId!==zeroPlayer).balance!==195)throw Error('other player settlement failed');
 }`.replace('ZERO_PLAYER',JSON.stringify(zeroPlayer)),context);console.log('PASS multiplayer 0 G recovery:',zeroPlayer)
 }
 
 vm.runInContext(`{
  const host=MultiBinding.createWalletSession({roomId:'compat',sessionId:'compat-session',hostId:'host',userId:'host',members:['host'],send:()=>{},now:()=>1000});
- const old='251ebf18f7748ecb355b3b53d408a4b313d7f5963bc11cc040f30510971c12c7';
+ const old='d41cbad6946c096c22a3e90b9eb1ed79fec298c299ca3447d08a6d415b9bfebc';
  const wire=MultiProtocol.encode({protocol:MultiProtocol.PROTOCOL,version:1,roomId:'compat',sessionId:'compat-session',type:'hello',contentRevision:old});
  if(host.receive('old-peer',wire)!==false||host.getCompatibilityErrors()['old-peer']!=='content-revision-mismatch')throw Error('old client accepted');
  if(host.getState().participants.includes('old-peer'))throw Error('old client joined');
@@ -40,4 +40,16 @@ vm.runInContext(`{
 }`,context);
 vm.runInContext(`{
  const base=growthGenerator.generate({round:1,streak:0,carryKinds:[],seed:712,previousOutcome:null});round=2;carryStreak=1;initialKinds=[base.leftKinds.slice(),base.rightKinds.slice()];pendingCarryKinds=base.leftKinds.slice();pendingCarryOutcome='A';const hostPlan=prepareOpening(726).plan;const saved=JSON.parse(JSON.stringify(initialKinds));initialKinds=JSON.parse(JSON.stringify(saved));const restoredPlan=prepareOpening(726).plan;if(JSON.stringify(hostPlan.leftKinds)!==JSON.stringify(restoredPlan.leftKinds)||JSON.stringify(hostPlan.rightKinds)!==JSON.stringify(restoredPlan.rightKinds))throw Error('reconnected host history generation differs');console.log('PASS same seed and restored host history produce same next matchup');
+}`,context);
+
+vm.runInContext(`{
+ let queue=[], host,guest;const opts={roomId:'right-carry',sessionId:'right-carry-session',hostId:'host',members:['host','guest'],now:()=>1000};
+ host=MultiBinding.createWalletSession({...opts,userId:'host',send:w=>queue.push(['guest','host',w])});
+ const newGuest=()=>MultiProtocol.createSession({...opts,userId:'guest',send:w=>queue.push(['host','guest',w])});guest=newGuest();
+ const flush=()=>{let n=0;while(queue.length&&n++<10000){let [to,from,w]=queue.shift();(to==='host'?host:guest).receive(from,w)}if(queue.length)throw Error('queue')};
+ guest.hello();host.hello();flush();round=1;carryStreak=0;pendingCarryKinds=null;pendingCarryOutcome=null;initialKinds=[[],[]];const first=prepareOpening(712);openingPlan=first.plan;initialKinds=[first.plan.leftKinds.slice(),first.plan.rightKinds.slice()];multiInitial=JSON.parse(JSON.stringify(first.opening));
+ host.openRound({roundId:1,durationMs:10000,matchup:{units:multiInitial}});flush();host.predict('A',25);guest.predict('B',25);flush();host.startBattle({engineVersion:'test',ticks:1,winner:'B',events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush();const winning=host.getState().matchup.units.filter(u=>u.side===1).map(u=>u.k);
+ guest.close();guest=newGuest();guest.hello();flush();if(guest.getState().winner!=='B'||JSON.stringify(guest.getState().matchup.units)!==JSON.stringify(host.getState().matchup.units))throw Error('right win snapshot not restored');
+ multiHost=true;multiSession=host;multiSnapshot=host.getState();multiRoundSeen=1;multiUser='host';openMultiRound();flush();const h=host.getState(),g=guest.getState();if(h.roundId!==2||h.phase!=='predict')throw Error('next round not started: '+JSON.stringify({round:h.roundId,phase:h.phase,multiError}));const hright=h.matchup.units.filter(u=>u.side===1).map(u=>u.k),gright=g.matchup.units.filter(u=>u.side===1).map(u=>u.k);if(JSON.stringify(hright)!==JSON.stringify(winning)||JSON.stringify(gright)!==JSON.stringify(winning))throw Error('right winner was not preserved for host and guest');
+ guest.close();guest=newGuest();guest.hello();flush();if(JSON.stringify(guest.getState().matchup.units)!==JSON.stringify(host.getState().matchup.units))throw Error('next-round snapshot mismatch after reconnect');console.log('PASS right winner survives guest reconnect, actual next-round opening, and second reconnect');
 }`,context);
