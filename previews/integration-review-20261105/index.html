@@ -1515,6 +1515,10 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
  #gameScreen[data-field-view="true"] #battle[data-crowd-inspector="true"] .field-stage { bottom:68px; }
  #gameScreen[data-field-view="true"] .crowd-inspector { position:absolute; left:0; right:84px; bottom:0; min-height:64px; }
 }
+
+/* Compact camera-mode status inside the existing control; no extra row. */
+#app #zoomReset { white-space:normal; font-size:11px; line-height:1.1; min-width:44px; min-height:44px; }
+#app #zoomReset::before { content:attr(data-camera-mode); display:block; color:inherit; font-size:12px; font-weight:900; line-height:1.15; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -7393,7 +7397,15 @@ draw=function(){
  }finally{fieldDrawPass='all';}
  syncCrowdInspector();
 };
-function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'pinch-zoom':'manipulation';el.style.cursor=cameraZoom>1?(cameraDrag?.active?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraMode==='auto'?'。自動追従中':'')+(cameraZoom>1?'。ドラッグで移動、全体ボタンで全体表示':''));}
+function syncCameraModeStatus(){
+ const b=document.querySelector('#zoomReset');if(!b)return;
+ const mode=cameraMode==='manual'?'手動':cameraMode==='overview'?'全体':'自動';
+ const action=cameraMode==='overview'?'自動へ':'全体へ';
+ b.setAttribute('data-camera-mode',mode);b.textContent=action;
+ b.setAttribute('aria-label','現在の表示：'+(cameraMode==='auto'?'自動追従':cameraMode==='manual'?'手動':'全体表示')+'。押すと'+(cameraMode==='overview'?'自動追従':'全体表示'));
+ b.setAttribute('aria-pressed',String(cameraMode==='overview'));
+}
+function syncCameraInput(){syncCameraModeStatus();const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'pinch-zoom':'manipulation';el.style.cursor=cameraZoom>1?(cameraDrag?.active?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraMode==='auto'?'。自動追従中':'')+(cameraZoom>1?'。ドラッグで移動、全体ボタンで全体表示':''));}
 function resetCamera(){cameraMode='overview';cameraAutoLast=null;cameraAutoBounds=null;cameraZoom=1;centerFixedCamera();cameraDrag=null;syncCameraInput();draw();syncFlowControls();}
 function setCameraZoom(direction){const values=[1,1.25,1.5,2];cameraMode='manual';cameraAutoLast=null;cameraAutoBounds=null;cameraZoom=direction>0?(values.find(v=>v>cameraZoom+.001)??2):([...values].reverse().find(v=>v<cameraZoom-.001)??1);cameraDrag=null;clampCamera();syncCameraInput();draw();syncFlowControls();}
 const cameraCanvas=document.querySelector('#field');
@@ -7875,7 +7887,7 @@ function syncFlowControls(){
  q('#gameScreen')?.setAttribute('data-phase',state);if(unitsOpen&&state!=='fight')toggleUnits(false);if(pausePanelOpen&&state!=='fight')closePausePanel();
  const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<sessionRoundLimit()&&!soloTerminalBoundary();
  for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',false]])if(q(id))q(id).disabled=disabled;
-  const cameraToggle=q('#zoomReset');if(cameraToggle){cameraToggle.textContent=cameraMode==='overview'?'自動':'全体';cameraToggle.setAttribute('aria-label',cameraMode==='overview'?'自動追従に戻す':'戦場全体を固定表示');cameraToggle.setAttribute('aria-pressed',String(cameraMode==='overview'));}
+  syncCameraModeStatus();
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }
 for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}],['#zoomOut',()=>setCameraZoom(-1)],['#zoomIn',()=>setCameraZoom(1)],['#zoomReset',toggleCameraOverview]]){const b=document.querySelector(id);if(b)b.onclick=fn;}

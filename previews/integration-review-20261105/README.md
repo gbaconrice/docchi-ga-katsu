@@ -4,4 +4,6 @@ This self-contained preview is separate from the normal game. It is based on mai
 
 The candidate passed 90 normal mocked regression tests, 37 adapted packet tests, and a separate inline image failure/retry test. Two packet tests use equivalent embedded asset fixtures instead of the older external URLs. These are mock/synthetic checks: actual mobile rendering, iOS gestures, audible sound, GRAVITY WebView and live multi-device communication remain unverified. The experimental pillar feature retains 14 unresolved cases among 60 synthetic dense-corner fixtures; that is not an observed gameplay rate.
 
-The HTML is approximately 42 MB and can take time to download. This page is for review and does not replace the normal game. Its gameplay content revision is `92a48b98155d8170c7d5bd4d556cf4e865c02e60058f36b1d96784c57c43fb14` and its expected HTML SHA-256 is `e71a60792b2a939413c0ecc67d0329d80e9cf6da609dfc80a9f689e7a3de3478`.
+The HTML is approximately 42 MB and can take time to download. This page is for review and does not replace the normal game. Its gameplay content revision is `92a48b98155d8170c7d5bd4d556cf4e865c02e60058f36b1d96784c57c43fb14` and its expected HTML SHA-256 is `fd8a32b76c2b68a36a5ea03241689452b609a21c6321e686b0580866dd615e3d`.
+
+The existing camera button displays its current auto, manual, or overview mode alongside its action; mock checks cover screen-reader labels, round persistence and 44px target size.
