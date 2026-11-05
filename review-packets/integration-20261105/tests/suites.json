@@ -1,0 +1,46 @@
+{
+  "runtime": [
+    "camera-review",
+    "test-strengths",
+    "test-opening-integration",
+    "test-audio-resume",
+    "test-image-retry",
+    "test-map-assets",
+    "test-focus-input",
+    "test-inspector",
+    "test-replay-focus-independence",
+    "test-corner-mechanics",
+    "test-combined-rollback",
+    "test-corner-integration",
+    "test-corner-lifetime-integration",
+    "review-corner-cancel-cooldown",
+    "review-corner-combat-safety",
+    "test-corner-helper-independent",
+    "test-corner-lifetime-helper"
+  ],
+  "reward": [
+    "independent-synced-timeline",
+    "independent-synced-lifecycle",
+    "independent-audio-mute",
+    "reward-balance-flow",
+    "reward-timing",
+    "reward-position",
+    "countup",
+    "multi-personal-outcome",
+    "regression-required",
+    "result-audio",
+    "result-scatter",
+    "result-contrast",
+    "result-scroll-regression",
+    "bet-selection",
+    "zero-balance",
+    "reaction-protocol"
+  ],
+  "reward_explicit_image_failure": [
+    "zero-result-ui",
+    "multiplayer-bankruptcy",
+    "multiplayer-reconnect",
+    "mvp-accounting"
+  ],
+  "omission": "The ordinary MVP mock fails at the inherited image gate. The explicit image-error/continue-with-placeholders variant is included and must not be called real image loading."
+}

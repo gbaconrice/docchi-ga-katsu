@@ -1,0 +1,18 @@
+--- a/index.html
++++ b/index.html
+@@ -132,6 +132,15 @@
+         <i id="finalImpactCore" class="combat-spectacle-core"></i>
+       </span>
+       </div>
++      <section id="crowdInspector" class="crowd-inspector" aria-label="選択した兵士" hidden>
++        <div class="crowd-inspector-copy">
++          <span id="crowdFocusName" role="status" aria-live="polite" aria-atomic="true">兵士をタップで詳細</span>
++          <span id="crowdFocusHP" aria-live="off">前後ボタンでも選べます</span>
++        </div>
++        <button id="crowdPrevious" type="button" aria-label="前の兵士を選ぶ" title="前の兵士">‹</button>
++        <button id="crowdNext" type="button" aria-label="次の兵士を選ぶ" title="次の兵士">›</button>
++        <button id="crowdClear" type="button" aria-label="兵士の選択を解除" title="選択を解除" disabled>×</button>
++      </section>
+       <div id="battleControls" class="battle-controls" aria-label="戦場の操作">
+         <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
+         <button id="speedDown" class="control-button" type="button" aria-label="戦闘速度を下げる">速度 −</button>

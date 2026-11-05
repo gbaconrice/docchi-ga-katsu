@@ -1,0 +1,369 @@
+[
+  {
+    "packet_path": "tests/runtime/harness.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/harness.cjs",
+    "source_sha256": "3a1f97693f1047e4ab156ed378ecbec465bbbbc418b8be92a1d2f3240ba4ab6f",
+    "packet_sha256": "3a1f97693f1047e4ab156ed378ecbec465bbbbc418b8be92a1d2f3240ba4ab6f",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/corner-presentation-helper.js",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/corner-presentation-helper.js",
+    "source_sha256": "09e452573cebb642a280e3022407974193b1fc2bea1f2e721cbb3f559c07c105",
+    "packet_sha256": "09e452573cebb642a280e3022407974193b1fc2bea1f2e721cbb3f559c07c105",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/fixtures.json",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/fixtures.json",
+    "source_sha256": "3cbe75501c9bf7ddbe724a938f5cd4f255866afbc68c8874b46b703a64459a9b",
+    "packet_sha256": "3cbe75501c9bf7ddbe724a938f5cd4f255866afbc68c8874b46b703a64459a9b",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-corner-mechanics.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-corner-mechanics.cjs",
+    "source_sha256": "5fe291c25007f495048f50dc6daebe28bb4cb189cf4ebab651554cd5b6de1509",
+    "packet_sha256": "5fe291c25007f495048f50dc6daebe28bb4cb189cf4ebab651554cd5b6de1509",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-combined-rollback.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-combined-rollback.cjs",
+    "source_sha256": "ea39e087d733c54ebcc092ac72f5abd2f07bf77364547e31ea1b378e66cb6b92",
+    "packet_sha256": "ea39e087d733c54ebcc092ac72f5abd2f07bf77364547e31ea1b378e66cb6b92",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-corner-integration.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-corner-integration.cjs",
+    "source_sha256": "b9995f179cf77680e585e215715125b199f86626ffd664b57986ddd14b67537d",
+    "packet_sha256": "b9995f179cf77680e585e215715125b199f86626ffd664b57986ddd14b67537d",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-corner-lifetime-integration.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-corner-lifetime-integration.cjs",
+    "source_sha256": "abad091a0d7d58527943ac5aab9d18081dcbef69ea098c25f1a4c278b8857c84",
+    "packet_sha256": "abad091a0d7d58527943ac5aab9d18081dcbef69ea098c25f1a4c278b8857c84",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/review-corner-cancel-cooldown.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/review-corner-cancel-cooldown.cjs",
+    "source_sha256": "5167b3e454abefb029122c7a561ec5b316d9c2c0f86f4d97f83ce306bd6b4c51",
+    "packet_sha256": "5167b3e454abefb029122c7a561ec5b316d9c2c0f86f4d97f83ce306bd6b4c51",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/review-corner-combat-safety.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/review-corner-combat-safety.cjs",
+    "source_sha256": "3964aff99f146a7e8252ec00ebf45ac2ba63e0dad2b4b12e7f120a2f516eb69e",
+    "packet_sha256": "3964aff99f146a7e8252ec00ebf45ac2ba63e0dad2b4b12e7f120a2f516eb69e",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-corner-helper-independent.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-corner-helper-independent.cjs",
+    "source_sha256": "c82e9237bea162468e022b234038c0bd16d22bd4266d5ded0a639002e79d94ff",
+    "packet_sha256": "c82e9237bea162468e022b234038c0bd16d22bd4266d5ded0a639002e79d94ff",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-corner-lifetime-helper.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/pillar-validation/test-corner-lifetime-helper.cjs",
+    "source_sha256": "bd2774a888607f11f606b811693a168ea6b1811bde1d5b8f24cf23264e23adb3",
+    "packet_sha256": "bd2774a888607f11f606b811693a168ea6b1811bde1d5b8f24cf23264e23adb3",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/vm-harness.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/crowd-retention/vm-harness.cjs",
+    "source_sha256": "3a1f97693f1047e4ab156ed378ecbec465bbbbc418b8be92a1d2f3240ba4ab6f",
+    "packet_sha256": "3a1f97693f1047e4ab156ed378ecbec465bbbbc418b8be92a1d2f3240ba4ab6f",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-focus-input.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/crowd-retention/test-focus-input.cjs",
+    "source_sha256": "84bd195c9fecf2ec3aaf62a2c204c7d6f0505003b39a899ab1886620e65501aa",
+    "packet_sha256": "84bd195c9fecf2ec3aaf62a2c204c7d6f0505003b39a899ab1886620e65501aa",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-inspector.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/crowd-retention/test-inspector.cjs",
+    "source_sha256": "35819130853aed4c0ae6b1fe9372f50d3d1b53ecd3a9c46fdde5283136373c61",
+    "packet_sha256": "35819130853aed4c0ae6b1fe9372f50d3d1b53ecd3a9c46fdde5283136373c61",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-replay-focus-independence.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/crowd-retention/test-replay-focus-independence.cjs",
+    "source_sha256": "50b6125cf1b3b552ca364a12ea748aff4ec8feef3bbf905886156344088e6a94",
+    "packet_sha256": "50b6125cf1b3b552ca364a12ea748aff4ec8feef3bbf905886156344088e6a94",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/camera-review.cjs",
+    "source_collection": "docchi-camera-review/camera-review.cjs",
+    "source_sha256": "3d2438211484b3b8fd79d6f832badbd75aca8e90512b7116f1d149c5b64831aa",
+    "packet_sha256": "3d2438211484b3b8fd79d6f832badbd75aca8e90512b7116f1d149c5b64831aa",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-opening-integration.cjs",
+    "source_collection": "army-progression-study/test-opening-integration.cjs",
+    "source_sha256": "cfad517c5a6d4bff2b34ca4f72b3a8b28123cb21c1856392dec62d8701b2d387",
+    "packet_sha256": "cfad517c5a6d4bff2b34ca4f72b3a8b28123cb21c1856392dec62d8701b2d387",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/runtime/test-strengths.cjs",
+    "source_collection": "stat-hierarchy-study/test-strengths.cjs",
+    "source_sha256": "1a04cf9d59c1d4b5c60ccdc77fb2a6adff26aa7659d052503d83e389be403abe",
+    "packet_sha256": "35bff1ec6731182ecec06164f8079f0a37ae279d396027b3e23b34aa710df8ae",
+    "adaptations": [
+      {
+        "before": "process.env.GAME_JS=__dirname+'/candidate-runtime.js';",
+        "after": "if(!process.env.GAME_JS)throw Error('GAME_JS is required');"
+      },
+      {
+        "before": "require('../pillar-cloud-study/harness.cjs')",
+        "after": "require('./harness.cjs')"
+      }
+    ]
+  },
+  {
+    "packet_path": "tests/runtime/test-audio-resume.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/runtime-hardening/test-audio-resume.cjs",
+    "source_sha256": "1dcd41637b91910bbf85f19bf583e55b64b80ef763b3b0291c3bbf97e5afbff4",
+    "packet_sha256": "e96782ccbc61facddce517551ea3d78a982a841745988de9083d084c91c68bb3",
+    "adaptations": [
+      {
+        "before": "<absolute shared harness path>",
+        "after": "path.join(__dirname,'harness.cjs')"
+      }
+    ]
+  },
+  {
+    "packet_path": "tests/runtime/test-image-retry.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/runtime-hardening/test-image-retry.cjs",
+    "source_sha256": "b2d16bdf2aad1a334705d7a54c5219bf4d394f2f2807bac0af4deba1a3a662ca",
+    "packet_sha256": "b2d16bdf2aad1a334705d7a54c5219bf4d394f2f2807bac0af4deba1a3a662ca",
+    "adaptations": []
+  },
+  {
+    "packet_path": "tests/reward/tests/adapted-fallback-preload.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/adapted-fallback-preload.cjs",
+    "source_sha256": "5b74948b9f2303ed506f90b6d8eb2e152f88d645d625243344b5d6b49aaaf175",
+    "packet_sha256": "5b74948b9f2303ed506f90b6d8eb2e152f88d645d625243344b5d6b49aaaf175",
+    "adaptations": [],
+    "earlier_review_source_sha256": "5b74948b9f2303ed506f90b6d8eb2e152f88d645d625243344b5d6b49aaaf175",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/bet-selection.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/bet-selection.cjs",
+    "source_sha256": "3f81397400f9e8787cdefb78edad69e2b892266c4dd7d25ba14cb7088bfdb275",
+    "packet_sha256": "3f81397400f9e8787cdefb78edad69e2b892266c4dd7d25ba14cb7088bfdb275",
+    "adaptations": [],
+    "earlier_review_source_sha256": "3f81397400f9e8787cdefb78edad69e2b892266c4dd7d25ba14cb7088bfdb275",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/bet-ui-smoke.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/bet-ui-smoke.cjs",
+    "source_sha256": "554248ddbfe8254e7061bce54177e09651cc6a8d7efb006eeaef42c296f8c149",
+    "packet_sha256": "554248ddbfe8254e7061bce54177e09651cc6a8d7efb006eeaef42c296f8c149",
+    "adaptations": [],
+    "earlier_review_source_sha256": "554248ddbfe8254e7061bce54177e09651cc6a8d7efb006eeaef42c296f8c149",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/boot-smoke.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/boot-smoke.cjs",
+    "source_sha256": "ec9621cdc8e7c00649a45b68a6f208d398050cab93ef1a958aa88b91e21242a7",
+    "packet_sha256": "ec9621cdc8e7c00649a45b68a6f208d398050cab93ef1a958aa88b91e21242a7",
+    "adaptations": [],
+    "earlier_review_source_sha256": "ec9621cdc8e7c00649a45b68a6f208d398050cab93ef1a958aa88b91e21242a7",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/countup.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/countup.cjs",
+    "source_sha256": "aa9ac406059df265ae4914ad30ab11771c57719e7054a6909bd433cda143d99e",
+    "packet_sha256": "aa9ac406059df265ae4914ad30ab11771c57719e7054a6909bd433cda143d99e",
+    "adaptations": [],
+    "earlier_review_source_sha256": "937dcc5daa47c4a7b54caa48b1d6ed2a476257a8956c47bf17a4bd0c9f07741a",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/independent-audio-mute.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/independent-audio-mute.cjs",
+    "source_sha256": "28bff98e63566e91884356b8dd993fae11e624802ebee4ce9b69bdbbd85778d7",
+    "packet_sha256": "28bff98e63566e91884356b8dd993fae11e624802ebee4ce9b69bdbbd85778d7",
+    "adaptations": [],
+    "earlier_review_source_sha256": "28bff98e63566e91884356b8dd993fae11e624802ebee4ce9b69bdbbd85778d7",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/independent-synced-lifecycle.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/independent-synced-lifecycle.cjs",
+    "source_sha256": "ac2f140b47272f850bde8bc9c46e67ae0bfd3cdd08f0b133b2a5c43c1157d979",
+    "packet_sha256": "ac2f140b47272f850bde8bc9c46e67ae0bfd3cdd08f0b133b2a5c43c1157d979",
+    "adaptations": [],
+    "earlier_review_source_sha256": "67298c081d166d345f62291229cb1ec1c9335f781bc8fffad14d23f5d18a5a57",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/independent-synced-timeline.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/independent-synced-timeline.cjs",
+    "source_sha256": "9ee781d4c6e0732498fa2370ec31a6156eb3a6877d3e9fec6b453334bbc7d0af",
+    "packet_sha256": "9ee781d4c6e0732498fa2370ec31a6156eb3a6877d3e9fec6b453334bbc7d0af",
+    "adaptations": [],
+    "earlier_review_source_sha256": "0fc6c7414a4069c913c18be1e28ebff69ee27cae2c658de1cb5a71dd544f7fe1",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/multi-personal-outcome.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/multi-personal-outcome.cjs",
+    "source_sha256": "b7ad51d168c3a3f52c317cb4e12210c48e4d862a6c4d7f3bae0d3f1446145f37",
+    "packet_sha256": "b7ad51d168c3a3f52c317cb4e12210c48e4d862a6c4d7f3bae0d3f1446145f37",
+    "adaptations": [],
+    "earlier_review_source_sha256": "0c90cf9df46d03b9cfc070ef3e430c4595062862d2f91c121094c734af2895bf",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/multiplayer-bankruptcy.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/multiplayer-bankruptcy.cjs",
+    "source_sha256": "c5ddde1927833ce63a8a34b2f0580a5dfacd8f7fad43bc61af5cb8d62d8d5043",
+    "packet_sha256": "c5ddde1927833ce63a8a34b2f0580a5dfacd8f7fad43bc61af5cb8d62d8d5043",
+    "adaptations": [],
+    "earlier_review_source_sha256": "c5ddde1927833ce63a8a34b2f0580a5dfacd8f7fad43bc61af5cb8d62d8d5043",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/multiplayer-reconnect.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/multiplayer-reconnect.cjs",
+    "source_sha256": "ccc46bd3e572df8f69d7986267986c5cb524c6d58788ee10bc03e4c167f63d93",
+    "packet_sha256": "ccc46bd3e572df8f69d7986267986c5cb524c6d58788ee10bc03e4c167f63d93",
+    "adaptations": [],
+    "earlier_review_source_sha256": "ccc46bd3e572df8f69d7986267986c5cb524c6d58788ee10bc03e4c167f63d93",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/mvp-accounting.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/mvp-accounting.cjs",
+    "source_sha256": "e58cfe9581bf108a246a467e5e79c6d9cd1b88ffcaa0538eaaae0b679a548f49",
+    "packet_sha256": "e58cfe9581bf108a246a467e5e79c6d9cd1b88ffcaa0538eaaae0b679a548f49",
+    "adaptations": [],
+    "earlier_review_source_sha256": "e58cfe9581bf108a246a467e5e79c6d9cd1b88ffcaa0538eaaae0b679a548f49",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/reaction-protocol.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/reaction-protocol.cjs",
+    "source_sha256": "c4c5d5b56d561fea59d8b85bea796b5dda39f430c24cb6d18681d1397046d492",
+    "packet_sha256": "c4c5d5b56d561fea59d8b85bea796b5dda39f430c24cb6d18681d1397046d492",
+    "adaptations": [],
+    "earlier_review_source_sha256": "c4c5d5b56d561fea59d8b85bea796b5dda39f430c24cb6d18681d1397046d492",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/regression-required.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/regression-required.cjs",
+    "source_sha256": "6ce18bba3934251a5d9e614db18012e597c31a9ff5b74f19817043aafe4786ff",
+    "packet_sha256": "6ce18bba3934251a5d9e614db18012e597c31a9ff5b74f19817043aafe4786ff",
+    "adaptations": [],
+    "earlier_review_source_sha256": "c1017c66c25e973126d2f617ad8fe136ebc193767415f3ff236a53e9320ad3f2",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/result-audio.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/result-audio.cjs",
+    "source_sha256": "190ca7dd4c5f4e54896c7ceb21d53a30c768187936d67f3b03092c9de9228a12",
+    "packet_sha256": "190ca7dd4c5f4e54896c7ceb21d53a30c768187936d67f3b03092c9de9228a12",
+    "adaptations": [],
+    "earlier_review_source_sha256": "190ca7dd4c5f4e54896c7ceb21d53a30c768187936d67f3b03092c9de9228a12",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/result-contrast.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/result-contrast.cjs",
+    "source_sha256": "a6b30c6f019fa0dd201b224379fde967819efaff8377e9228a0f508471e58a74",
+    "packet_sha256": "a6b30c6f019fa0dd201b224379fde967819efaff8377e9228a0f508471e58a74",
+    "adaptations": [],
+    "earlier_review_source_sha256": "a6b30c6f019fa0dd201b224379fde967819efaff8377e9228a0f508471e58a74",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/result-scatter.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/result-scatter.cjs",
+    "source_sha256": "32e7c11ae73d9eb8a461ddbb45cf17ff6dad732af112c3f40fe2b3e173dedee8",
+    "packet_sha256": "32e7c11ae73d9eb8a461ddbb45cf17ff6dad732af112c3f40fe2b3e173dedee8",
+    "adaptations": [],
+    "earlier_review_source_sha256": "32e7c11ae73d9eb8a461ddbb45cf17ff6dad732af112c3f40fe2b3e173dedee8",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/result-scroll-regression.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/result-scroll-regression.cjs",
+    "source_sha256": "a25e5cfc8e7a0957fd3a38a7817f7466b2c99dcf84d84a9b6b24604a61072f1c",
+    "packet_sha256": "a25e5cfc8e7a0957fd3a38a7817f7466b2c99dcf84d84a9b6b24604a61072f1c",
+    "adaptations": [],
+    "earlier_review_source_sha256": "a25e5cfc8e7a0957fd3a38a7817f7466b2c99dcf84d84a9b6b24604a61072f1c",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/reward-balance-flow.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/reward-balance-flow.cjs",
+    "source_sha256": "ccf596fc581602bf070e107fc2233658c9592049476a87c45e13c61ea9d42847",
+    "packet_sha256": "ccf596fc581602bf070e107fc2233658c9592049476a87c45e13c61ea9d42847",
+    "adaptations": [],
+    "earlier_review_source_sha256": "7f10c590713671f789e1b56acbb6d8d172e3f4c75451b3f049e0a46fa3f14d43",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/reward-position.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/reward-position.cjs",
+    "source_sha256": "8a5237b782ae86bc72423d491f82e6ac5a010097ed4d684e427ec179ec437567",
+    "packet_sha256": "8a5237b782ae86bc72423d491f82e6ac5a010097ed4d684e427ec179ec437567",
+    "adaptations": [],
+    "earlier_review_source_sha256": "8a5237b782ae86bc72423d491f82e6ac5a010097ed4d684e427ec179ec437567",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/reward-timing.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/reward-timing.cjs",
+    "source_sha256": "18388791953da232d623964657cd8bcaae0fbd52a7103ab90258df53368f4be4",
+    "packet_sha256": "18388791953da232d623964657cd8bcaae0fbd52a7103ab90258df53368f4be4",
+    "adaptations": [],
+    "earlier_review_source_sha256": "2d8826abfc2ec1a742a0737221949eca12ac5471af1453590211747df4f348c4",
+    "earlier_mock_adapter": "mock multiPlayback.cornerCuesAt returning []"
+  },
+  {
+    "packet_path": "tests/reward/tests/zero-balance.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/zero-balance.cjs",
+    "source_sha256": "30d75e91e3976462f465954c5797ee5f403a7c64fe811d98c976b787ecad6478",
+    "packet_sha256": "30d75e91e3976462f465954c5797ee5f403a7c64fe811d98c976b787ecad6478",
+    "adaptations": [],
+    "earlier_review_source_sha256": "30d75e91e3976462f465954c5797ee5f403a7c64fe811d98c976b787ecad6478",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/reward/tests/zero-result-ui.cjs",
+    "source_collection": "gravity-delivery-cloud-audit/candidate/integrated-reward-experimental/output/reward-validation/fixture/tests/zero-result-ui.cjs",
+    "source_sha256": "26e2755f02f39528ed80f548696f8ca9824e396e2748a21763d993ac8ad4aa5d",
+    "packet_sha256": "26e2755f02f39528ed80f548696f8ca9824e396e2748a21763d993ac8ad4aa5d",
+    "adaptations": [],
+    "earlier_review_source_sha256": "26e2755f02f39528ed80f548696f8ca9824e396e2748a21763d993ac8ad4aa5d",
+    "earlier_mock_adapter": null
+  },
+  {
+    "packet_path": "tests/runtime/test-map-assets.cjs",
+    "source_collection": "New packet-specific mapping/hash/cache test based on reviewed map-cache test cases. No earlier source assertions are replaced.",
+    "packet_sha256": "bb964acab180ef4d55c84b87fc5e598e10c7a0fc16b5fc3cbfbc2c93585c6585",
+    "adaptations": []
+  }
+]

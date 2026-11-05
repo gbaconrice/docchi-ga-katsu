@@ -1,0 +1,55 @@
+const fs=require('fs'),vm=require('vm');const html=fs.readFileSync(process.env.GAME_HTML||'index.html','utf8');const scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);const errors=[],events={};const noop=()=>{};const ctx=new Proxy({measureText:()=>({width:10}),createLinearGradient:()=>({addColorStop:noop}),createRadialGradient:()=>({addColorStop:noop}),getImageData:()=>({data:new Uint8ClampedArray(16)})},{get:(o,k)=>k in o?o[k]:noop,set:(o,k,v)=>(o[k]=v,true)});const nodes=new Map();function elem(id){if(!nodes.has(id)){let n={id,hidden:false,disabled:false,style:{setProperty:noop,removeProperty:noop},dataset:{},classList:{add:noop,remove:noop,toggle:noop,contains:()=>false},setAttribute:noop,removeAttribute:noop,getAttribute:()=>null,addEventListener:noop,removeEventListener:noop,appendChild:noop,remove:noop,focus:noop,getContext:()=>ctx,getBoundingClientRect:()=>({width:480,height:538,left:0,top:0,right:480,bottom:538}),querySelector:()=>null,querySelectorAll:()=>[],getClientRects:()=>[],textContent:'',value:'',width:480,height:538};nodes.set(id,n)}return nodes.get(id)}
+const doc={hidden:false,documentElement:elem('html'),body:elem('body'),querySelector:s=>elem(s),querySelectorAll:()=>[],getElementById:id=>elem('#'+id),createElement:t=>elem('new-'+t),addEventListener:(n,f)=>{(events[n]??=[]).push(f)},removeEventListener:noop};const pendingImages=[];class Img{constructor(){pendingImages.push(this);this.complete=false;this.naturalWidth=0;this.naturalHeight=0}set src(v){this._src=v}get src(){return this._src}}const sandbox={document:doc,Image:Img,console,URLSearchParams,location:{search:'',href:'http://localhost/'},navigator:{userAgent:'test'},performance:{now:()=>1000},requestAnimationFrame:()=>1,cancelAnimationFrame:noop,setTimeout:()=>1,clearTimeout:noop,setInterval:()=>1,clearInterval:noop,localStorage:{getItem:()=>null,setItem:noop},addEventListener:(n,f)=>{(events['window:'+n]??=[]).push(f)},removeEventListener:noop,innerWidth:400,innerHeight:800,devicePixelRatio:1,matchMedia:()=>({matches:false,addEventListener:noop}),ResizeObserver:class{observe(){}disconnect(){}}};sandbox.window=sandbox;sandbox.globalThis=sandbox;let context=vm.createContext(sandbox);for(let i=0;i<scripts.length;i++){try{vm.runInContext(scripts[i],context,{filename:'script-'+i+'.js',timeout:15000})}catch(e){console.log('FAIL script',i,e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}
+
+const assert=require('assert'),get=s=>vm.runInContext(s,context);let now=1000;sandbox.performance.now=()=>now;
+function tick(n=1){for(let i=0;i<n;i++){now+=1000/60;get(`updateAutoCamera(${now})`);}}
+function camera(){return Array.from(get('[cameraZoom,cameraX,cameraY]'));}
+function inFrame(){return get(`(()=>{const b=automaticCameraBounds(),s=cameraFitScale*cameraZoom;return b&&CAMERA_CENTER.x+(b.left-cameraX)*s>=CAMERA_INTERIOR.left-1e-7&&CAMERA_CENTER.x+(b.right-cameraX)*s<=CAMERA_INTERIOR.right+1e-7&&CAMERA_CENTER.y+(b.top-cameraY)*s>=CAMERA_INTERIOR.top-1e-7&&CAMERA_CENTER.y+(b.bottom-cameraY)*s<=CAMERA_INTERIOR.bottom+1e-7})()`);}
+get("openSoloScreen();setup(123);units=[{id:1,k:'sword',side:0,x:210,y:230,hp:50},{id:2,k:'sword',side:1,x:250,y:260,hp:50}];initialUnits=JSON.parse(JSON.stringify(units));shots=[];configureFixedCamera();state='fight';screenMode='game';paused=false");
+const roster=get('JSON.stringify(units)'),seedBefore=get('seed');
+assert.equal(get('cameraMode'),'auto');assert.equal(get('cameraZoom'),1);tick(240);
+assert(get('cameraZoom')>1.5);assert(get('cameraZoom')<=1.75);assert(inFrame());
+assert.equal(get('JSON.stringify(units)'),roster);assert.equal(get('seed'),seedBefore);
+console.log('PASS default auto, bounded zoom, all bodies/HP in frame, no roster/RNG mutation');
+const center=camera();get('for(const u of units)u.x+=80');tick(100);assert(camera()[1]>center[1]+25);assert(inFrame());
+get('units[0].x=25;units[0].y=85;units[1].x=455;units[1].y=510');tick();assert(inFrame());assert(get('cameraZoom')<1.5);
+get("units.push({id:3,k:'sword',side:0,x:-1000,y:500,hp:0,dead:true})");assert(get('automaticCameraBounds().left')>-100);
+get("units.push({id:4,k:'sword',side:0,x:5,y:5,hp:20});shots=[{x:470,y:510}]");tick();assert(inFrame());
+console.log('PASS pan follows, spread/summon safety widens immediately, dead bodies ignored, projectiles retained');
+get("cameraZoom=1.62;setCameraZoom(-1)");assert.equal(get('cameraZoom'),1.5);assert.equal(get('cameraMode'),'manual');const manual=camera();get('units[0].x=350');tick(90);assert.deepEqual(camera(),manual);
+get('resetCamera()');assert.equal(get('cameraMode'),'overview');const overview=camera();tick(60);assert.deepEqual(camera(),overview);
+get('toggleCameraOverview()');assert.equal(get('cameraMode'),'auto');get('setup(456)');assert.equal(get('cameraMode'),'auto');assert.equal(get('cameraZoom'),1);
+get('setCameraZoom(1);resetMultiRound()');assert.equal(get('cameraMode'),'manual');assert.equal(get('cameraZoom'),1.25);get('setup(123)');assert.equal(get('cameraMode'),'manual');assert.equal(get('cameraZoom'),1.25);get('resetCamera();setup(456)');assert.equal(get('cameraMode'),'overview');assert.equal(get('cameraZoom'),1);get('toggleCameraOverview()');
+console.log('PASS arbitrary auto zoom steps, manual hold, overview/auto toggle, auto default and manual/overview mode persistence across solo and multi-round reset');
+get("state='fight';paused=false;units=[{id:1,k:'sword',side:0,x:210,y:230,hp:50},{id:2,k:'sword',side:1,x:250,y:260,hp:50}];shots=[];configureFixedCamera()");tick(180);
+for(const flag of ['paused','document.hidden','multiRecording']){get(`${flag}=true`);const before=camera();get('units[0].x+=3');tick(30);assert.deepEqual(camera(),before);get(`${flag}=false`);}
+sandbox.matchMedia=()=>({matches:true,addEventListener:noop});tick();assert.equal(get('cameraZoom'),1);assert.equal(nodes.get('#field').style.touchAction,'manipulation');assert.equal(nodes.get('#field').style.cursor,'default');assert.equal(get('cameraAutoBounds'),null);sandbox.matchMedia=()=>({matches:false,addEventListener:noop});
+get("state='result'");const result=camera();tick(30);assert.deepEqual(camera(),result);get("state='fight';multiSession={};multiPlayback=null");const waiting=camera();tick(30);assert.deepEqual(camera(),waiting);get('multiSession=null');
+console.log('PASS paused, hidden, recording, result, no-playback wait and reduced-motion protections');
+get('setCameraZoom(1)');assert.equal(nodes.get('#field').style.touchAction,'pinch-zoom');get('resetCamera()');assert.equal(nodes.get('#field').style.touchAction,'manipulation');
+get('setCameraZoom(1)');nodes.get('#field').onpointerdown({pointerId:10,isPrimary:true,button:0,clientX:100,clientY:100,preventDefault:noop});assert.equal(get('cameraMode'),'manual');assert(get('cameraDrag')!==null);nodes.get('#field').onpointercancel({pointerId:10});assert.equal(get('cameraDrag'),null);
+const css=fs.readFileSync(process.env.GAME_CSS||'releases/gravity-lazy-v3/gravity/game.css','utf8');assert(css.includes('-webkit-user-select: none'));assert(css.includes('#app input, #app textarea'));assert(!css.includes('user-scalable=no'));
+console.log('PASS overview double-tap policy, pinch-zoom preserved, canceled drag cleanup, scoped selection CSS');
+get("multiSession=null;units=[{id:1,k:'sword',side:0,x:200,y:200,hp:10},{id:2,k:'sword',side:1,x:202,y:201,hp:10}];globalThis.paintSteps=[];drawSprite=u=>{paintSteps.push('body'+u.id);return true};drawVisibleHP=u=>paintSteps.push('hp'+u.id);fieldDrawPass='actors';flowDraw()");assert.deepEqual(Array.from(sandbox.paintSteps),['body1','body2','hp1','hp2']);
+console.log('PASS existing foreground HP paint order retained');
+
+// Regression: the rendered facing changes, but originForward stays fixed.
+get("multiSession=null;cameraMode='auto';state='fight';screenMode='game';paused=false;units=[{id:1,k:'emberfist_pillarer',side:0,x:120,y:280,hp:50,originForward:1,face:-1},{id:2,k:'sword',side:1,x:450,y:280,hp:50}];initialUnits=JSON.parse(JSON.stringify(units));shots=[];configureFixedCamera();visualFor(units[0]).face=-1");tick(360);
+const actualLeft=get("(()=>{const u=units[0],v=stableCameraInsets({...u,originForward:-1});return CAMERA_CENTER.x+(u.x-v.left-cameraX)*cameraFitScale*cameraZoom})()");
+assert(actualLeft>=get('CAMERA_INTERIOR.left')-1e-7,`Mirrored body cropped at ${actualLeft}`);assert(inFrame());
+assert(get("Object.keys(TYPES).every(k=>{units=[{id:1,k,side:0,x:200,y:300,hp:1,originForward:1}];shots=[];const v=stableCameraInsets(units[0]);if(!v)return true;const b=automaticCameraBounds(),extent=Math.max(v.left,v.right);return Math.abs(b.left-(200-extent))<1e-7&&Math.abs(b.right-(200+extent))<1e-7})"));
+console.log('PASS all roster bodies reserve both facings; reversed asymmetric actor remains within frame');
+
+const canvas=nodes.get('#field');let capture=null;
+canvas.setPointerCapture=id=>{capture=id};canvas.hasPointerCapture=id=>capture===id;canvas.releasePointerCapture=id=>{if(capture===id){capture=null;canvas.onlostpointercapture({pointerId:id})}};
+const pointer=(id,x=100,y=100,primary=true)=>({pointerId:id,isPrimary:primary,button:0,clientX:x,clientY:y,preventDefault:noop});
+function autoGesture(){get("cameraMode='auto';cameraZoom=1.5;cameraAutoBounds=null;cameraDrag=null;centerFixedCamera();syncCameraInput()");}
+autoGesture();canvas.onpointerdown(pointer(10));canvas.onpointerup(pointer(10));assert.equal(get('cameraMode'),'auto');assert.equal(capture,null);
+autoGesture();canvas.onpointerdown(pointer(11));canvas.onpointermove(pointer(11,102,102));canvas.onpointerup(pointer(11,102,102));assert.equal(get('cameraMode'),'auto');
+autoGesture();canvas.onpointerdown(pointer(12));canvas.onpointercancel(pointer(12));assert.equal(get('cameraMode'),'auto');assert.equal(get('cameraDrag'),null);assert.equal(capture,null);
+autoGesture();canvas.onpointerdown(pointer(13));canvas.onpointermove(pointer(13,110,100));assert.equal(get('cameraMode'),'manual');canvas.onpointerup(pointer(13,110,100));assert.equal(get('cameraMode'),'manual');assert.equal(get('cameraDrag'),null);
+autoGesture();const beforeCancel=camera();canvas.onpointerdown(pointer(14));canvas.onpointermove(pointer(14,110,100));canvas.onpointercancel(pointer(14,110,100));assert.equal(get('cameraMode'),'auto');assert.deepEqual(camera(),beforeCancel);
+autoGesture();canvas.onpointerdown(pointer(15));canvas.onpointermove(pointer(15,110,100));canvas.onpointerdown(pointer(16,140,100,false));assert.equal(get('cameraMode'),'auto');assert.equal(get('cameraDrag'),null);assert.equal(capture,null);
+autoGesture();canvas.onpointerdown(pointer(17));canvas.onpointermove(pointer(17,110,100));canvas.onlostpointercapture({pointerId:17});assert.equal(get('cameraMode'),'auto');assert.equal(get('cameraDrag'),null);
+get("cameraMode='manual'");canvas.onpointerdown(pointer(18));canvas.onpointercancel(pointer(18));assert.equal(get('cameraMode'),'manual');
+console.log('PASS tap/jitter preserve auto; committed drag holds manual; cancel, second finger and lost capture restore prior mode');

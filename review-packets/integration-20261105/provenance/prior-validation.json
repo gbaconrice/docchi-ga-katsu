@@ -1,0 +1,71 @@
+{
+  "status": "ISOLATED COMBINED REWARD EXPERIMENT; NOT APPROVED PREVIEW; NOT PUBLISHED",
+  "release": "canonical-7512d6cc49e5da81",
+  "contentRevision": "aee9bc0f4d59f0b481aab16e7ec497fb3e67c4a723364f607109f0d401b455cf",
+  "runtimeSHA256": "40f9af3edf5c88f7636d05b6266f0a07b23bccbd6bdce52361ce4bc542146f77",
+  "inputTreesUnmodified": true,
+  "unresolvedMergeConflicts": 0,
+  "exactUpstreamRuntimeHunks": 9,
+  "combinedCommands": 20,
+  "allExpectedCombinedOutcomes": true,
+  "rewardDistinctSuites": 20,
+  "loaderCases": 12,
+  "replayFrames": 1210,
+  "replayFocusedFrames": 1175,
+  "replaySceneSHA256": "b9807b21bf2de27d1d7de96c86b318281516f4c4f275a616f046195680316823",
+  "pillarRetainedCommands": 12,
+  "originalLegacyDiagnostics": {
+    "legacy-fallback": {
+      "passed": 35,
+      "total": 38,
+      "failed": [
+        "countup.cjs",
+        "multi-personal-outcome.cjs",
+        "reward-position.cjs"
+      ]
+    },
+    "legacy-unmodified": {
+      "passed": 25,
+      "total": 39,
+      "failed": [
+        "bet-ui-smoke.cjs",
+        "boot-smoke.cjs",
+        "boot-storage-denied.cjs",
+        "character-loading.cjs",
+        "countup.cjs",
+        "multi-personal-outcome.cjs",
+        "multi-status-integration.cjs",
+        "multiplayer-bankruptcy.cjs",
+        "multiplayer-reconnect.cjs",
+        "mvp-accounting.cjs",
+        "reaction-game-integration.cjs",
+        "result-field.cjs",
+        "reward-position.cjs",
+        "zero-result-ui.cjs"
+      ]
+    }
+  },
+  "originalLegacyStatusChanges": [
+    {
+      "file": "countup.cjs",
+      "before": "passed",
+      "after": "failed"
+    },
+    {
+      "file": "multi-personal-outcome.cjs",
+      "before": "passed",
+      "after": "failed"
+    },
+    {
+      "file": "reward-position.cjs",
+      "before": "passed",
+      "after": "failed"
+    }
+  ],
+  "caveats": [
+    "GB-only tavern/UI/audio source work remains absent.",
+    "14/60 synthetic legal-eight pillar corner cases remain unresolved; this is not a live occurrence rate.",
+    "Real browser/mobile/iOS/GRAVITY/device animation/audio/live network/two-device testing remains missing.",
+    "No publication; no existing preview or candidate replaced."
+  ]
+}

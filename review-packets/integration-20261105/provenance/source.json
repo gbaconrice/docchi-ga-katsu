@@ -1,0 +1,132 @@
+{
+  "status": "ARTIFACT-ONLY REVIEW BRANCH APPROVED. GAME INTEGRATION AND DEPLOYMENT NOT ESTABLISHED.",
+  "repository": "https://github.com/gbaconrice/docchi-ga-katsu",
+  "cloud_base_commit": "e319e808e5ffd4c186f7ca43afd533b18177b429",
+  "normal_main_checked": "5377bae0aaf2135c43834a2c18780467bb579034",
+  "normal_main_tree": "2ee3700264f755a631b567dca8a99f6c817ec899",
+  "normal_root_blob": "489ad19fa8e3c80c5df78bb4f0a87e75651c2573",
+  "normal_root_bytes": 41572233,
+  "main_delta_paths": [
+    "index.html",
+    "CURRENT_PREVIEW_MANIFEST.json",
+    "licenses/SFXMINT.md"
+  ],
+  "cloud_reference_release": "canonical-7512d6cc49e5da81",
+  "cloud_reference_revision": "aee9bc0f4d59f0b481aab16e7ec497fb3e67c4a723364f607109f0d401b455cf",
+  "warning": "Cloud reference is derived from old lightweight v3; not proven semantically equivalent to normal root. Never overwrite normal root using this packet.",
+  "files": [
+    {
+      "name": "game-runtime.js",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/game-runtime.js",
+      "base_bytes": 5727760,
+      "base_sha256": "f265e31e5b61e4dc383d40fdc76aaa534f15cd12eebb223dd9ba4ada300f6bec",
+      "reference_bytes": 5790542,
+      "reference_sha256": "40f9af3edf5c88f7636d05b6266f0a07b23bccbd6bdce52361ce4bc542146f77",
+      "patch": "patches/game-runtime.js.patch",
+      "patch_sha256": "8e0367c9868e9816aeeed3d2fb69cb9b6a4c597a5fe5aa33e3c61223d4bfd366",
+      "hunks": 53
+    },
+    {
+      "name": "game.css",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/game.css",
+      "base_bytes": 58604,
+      "base_sha256": "3349edf642f44fea29edaf607cfe2c422f7d4b0cd30d930c02bc5ff9d5c4408d",
+      "reference_bytes": 62138,
+      "reference_sha256": "5adc3ddae2cf92e8bc344aa55930b04ff94c87bc715b000410f284e49728f14b",
+      "patch": "patches/game.css.patch",
+      "patch_sha256": "5a85e9c23be53d26f6c37ea150f8407bf48987c2ff4fc92cafcef5da8e93179d",
+      "hunks": 1
+    },
+    {
+      "name": "index.html",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/index.html",
+      "base_bytes": 18358,
+      "base_sha256": "234a0d2f7b3c088bd716aed4fc26dcb61ff42a4ed3c4b6451041f43196d057a1",
+      "reference_bytes": 19107,
+      "reference_sha256": "23aac7cd8d87a83d19e8ea8458f605adf08d41fdc76455880c839d8f134e717c",
+      "patch": "patches/index.html.patch",
+      "patch_sha256": "a60a1d7214cec0d73195c6bee101e4031ad489d5c81f6e1599659993af2a9dd9",
+      "hunks": 1
+    }
+  ],
+  "assets": [
+    {
+      "packet_path": "assets/c79c7430c69f6050ffeb7fab6b25cadac4c72eb57c7cfa082aa2039c633e9e66.webp",
+      "proposed_repository_path": "releases/gravity-lazy-v3/images/c79c7430c69f6050ffeb7fab6b25cadac4c72eb57c7cfa082aa2039c633e9e66.webp",
+      "field_id": "desert",
+      "bytes": 41854,
+      "sha256": "c79c7430c69f6050ffeb7fab6b25cadac4c72eb57c7cfa082aa2039c633e9e66",
+      "dimensions": [
+        480,
+        538
+      ],
+      "creation_method": "built-in imagegen, nearest-neighbor size normalization, WebP quality 85"
+    },
+    {
+      "packet_path": "assets/e563fdc3a46093e40324be7d866428a4120cb7bdf84e2fac44a0545532b429ca.webp",
+      "proposed_repository_path": "releases/gravity-lazy-v3/images/e563fdc3a46093e40324be7d866428a4120cb7bdf84e2fac44a0545532b429ca.webp",
+      "field_id": "icefield",
+      "bytes": 36450,
+      "sha256": "e563fdc3a46093e40324be7d866428a4120cb7bdf84e2fac44a0545532b429ca",
+      "dimensions": [
+        480,
+        538
+      ],
+      "creation_method": "built-in imagegen, nearest-neighbor size normalization, WebP quality 85"
+    },
+    {
+      "packet_path": "assets/0797e5372cbaf2ab654b5d431feb0c6f395335ca383c7825a1a583a13f1442f2.webp",
+      "proposed_repository_path": "releases/gravity-lazy-v3/images/0797e5372cbaf2ab654b5d431feb0c6f395335ca383c7825a1a583a13f1442f2.webp",
+      "field_id": "highland",
+      "bytes": 57866,
+      "sha256": "0797e5372cbaf2ab654b5d431feb0c6f395335ca383c7825a1a583a13f1442f2",
+      "dimensions": [
+        480,
+        538
+      ],
+      "creation_method": "built-in imagegen, nearest-neighbor size normalization, WebP quality 85"
+    },
+    {
+      "packet_path": "assets/b3264bbc46f0ba2ccf8bf63f2381e0c9df94e34a4ba2fefd25060d2265a25c7b.webp",
+      "proposed_repository_path": "releases/gravity-lazy-v3/images/b3264bbc46f0ba2ccf8bf63f2381e0c9df94e34a4ba2fefd25060d2265a25c7b.webp",
+      "field_id": "rockfield",
+      "bytes": 62822,
+      "sha256": "b3264bbc46f0ba2ccf8bf63f2381e0c9df94e34a4ba2fefd25060d2265a25c7b",
+      "dimensions": [
+        480,
+        538
+      ],
+      "creation_method": "built-in imagegen, nearest-neighbor size normalization, WebP quality 85"
+    },
+    {
+      "packet_path": "assets/c3d23e4be025d2cd325d641c7334d38678715a969a1d7e92cb158221165a1932.webp",
+      "proposed_repository_path": "releases/gravity-lazy-v3/images/c3d23e4be025d2cd325d641c7334d38678715a969a1d7e92cb158221165a1932.webp",
+      "field_id": "volcano",
+      "bytes": 56518,
+      "sha256": "c3d23e4be025d2cd325d641c7334d38678715a969a1d7e92cb158221165a1932",
+      "dimensions": [
+        480,
+        538
+      ],
+      "creation_method": "built-in imagegen, nearest-neighbor size normalization, WebP quality 85"
+    }
+  ],
+  "support_files": [
+    {
+      "name": "host-layout.js",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/host-layout.js",
+      "sha256": "05fa4b7e3ed0d56182359cfa017a80dcbd2ae532a36558db653fea0498410b32"
+    },
+    {
+      "name": "boot-errors.js",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/boot-errors.js",
+      "sha256": "dcd496d3b3bd749c3b6c1bbbc84a2443c73266c9f1310158903bad0b4e0a81dd"
+    },
+    {
+      "name": "viewport.js",
+      "repository_base_path": "releases/gravity-lazy-v3/gravity/viewport.js",
+      "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf"
+    }
+  ],
+  "reward_source_commit": "https://github.com/gbaconrice/docchi-ga-katsu/commit/1ce488dafed8ad3b353c76bcdb3632a241bfbde4"
+}

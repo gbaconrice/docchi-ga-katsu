@@ -1,0 +1,218 @@
+{
+  "status": "37 selected mock suites passed on reconstructed historical cloud reference. Not a test of latest normal main or a future merge.",
+  "reconstruction": {
+    "runtime_sha256": "40f9af3edf5c88f7636d05b6266f0a07b23bccbd6bdce52361ce4bc542146f77",
+    "fixture_sha256": "6098c59086fddea73169f29a611eb56f80420ca2545e764758abbddf807b260a",
+    "exact_source_and_packaged_test_identities_verified": 43
+  },
+  "tests": {
+    "passed": 37,
+    "total": 37,
+    "results": [
+      {
+        "test": "camera-review",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-strengths",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-opening-integration",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-audio-resume",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-image-retry",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-map-assets",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-focus-input",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-inspector",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-replay-focus-independence",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-corner-mechanics",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-combined-rollback",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-corner-integration",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-corner-lifetime-integration",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "review-corner-cancel-cooldown",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "review-corner-combat-safety",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-corner-helper-independent",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "test-corner-lifetime-helper",
+        "group": "runtime",
+        "exit_code": 0
+      },
+      {
+        "test": "independent-synced-timeline",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "independent-synced-lifecycle",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "independent-audio-mute",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "reward-balance-flow",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "reward-timing",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "reward-position",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "countup",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "multi-personal-outcome",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "regression-required",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "result-audio",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "result-scatter",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "result-contrast",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "result-scroll-regression",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "bet-selection",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "zero-balance",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "reaction-protocol",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "zero-result-ui-explicit-image-failure",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "multiplayer-bankruptcy-explicit-image-failure",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "multiplayer-reconnect-explicit-image-failure",
+        "group": "reward",
+        "exit_code": 0
+      },
+      {
+        "test": "mvp-accounting-explicit-image-failure",
+        "group": "reward",
+        "exit_code": 0
+      }
+    ],
+    "limits": "Mock tests only; current normal-source and device acceptance are separate."
+  },
+  "privacy_review": {
+    "credential_and_personal_contact_pattern_scan": "No findings",
+    "machine_specific_paths": "None",
+    "image_review": "Five opaque 480x538 terrain images; no personal imagery or EXIF/XMP metadata found",
+    "included_content": "Technical deltas, synthetic test fixtures, generated floor art, public repository identifiers, hashes and review guidance only"
+  },
+  "remaining_limits": [
+    "14/60 synthetic legal-eight pillar corner cases remain unresolved; not a live failure rate",
+    "Normal main tavern, text and five sounds are not included in the cloud reference; preserve them during integration",
+    "Real browser, phone, iOS, GRAVITY, audible audio, network and two-device acceptance remain unverified"
+  ],
+  "output_isolation_regression": {
+    "output_isolation": "passed",
+    "inherited_OUT_sentinel_unchanged": true,
+    "mock_suites": 37,
+    "mock_suites_passed": 37,
+    "limits": "Historical cloud reference and mocks only."
+  }
+}

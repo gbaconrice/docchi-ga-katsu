@@ -1,0 +1,4190 @@
+[
+  {
+    "id": "crowd-pillar_hammerer-8-False",
+    "k": "pillar_hammerer",
+    "x": 446,
+    "y": 531,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 416,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 392,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 368,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 344,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 416,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 392,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 368,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 344,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "crowd-pillar_hammerer-8-True",
+    "k": "pillar_hammerer",
+    "x": 34,
+    "y": 531,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 64,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 88,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 112,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 136,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 64,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 88,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 112,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 136,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "crowd-spectralhand_wizard-8-False",
+    "k": "spectralhand_wizard",
+    "x": 452,
+    "y": 531,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 422,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 398,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 374,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 350,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 422,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 398,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 374,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 350,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "crowd-spectralhand_wizard-8-True",
+    "k": "spectralhand_wizard",
+    "x": 28,
+    "y": 531,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 58,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 82,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 106,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 130,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 58,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 82,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 106,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 130,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "crowd-colossal_hornfist-8-False",
+    "k": "colossal_hornfist",
+    "x": 440,
+    "y": 531,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 410,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 386,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 362,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 338,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 410,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 386,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 362,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 338,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "crowd-colossal_hornfist-8-True",
+    "k": "colossal_hornfist",
+    "x": 40,
+    "y": 531,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 70,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 94,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 118,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 142,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 70,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 94,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 118,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 142,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legacy-test-out-of-bounds"
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-0-False",
+    "k": "pillar_hammerer",
+    "x": 446,
+    "y": 518,
+    "tx": 473,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-2-False",
+    "k": "pillar_hammerer",
+    "x": 446,
+    "y": 518,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 416,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 392,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-8-False",
+    "k": "pillar_hammerer",
+    "x": 446,
+    "y": 518,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 416,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 392,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 368,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 344,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 416,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 392,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 368,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 344,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-0-True",
+    "k": "pillar_hammerer",
+    "x": 34,
+    "y": 518,
+    "tx": 7,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-2-True",
+    "k": "pillar_hammerer",
+    "x": 34,
+    "y": 518,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 64,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 88,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-pillar_hammerer-8-True",
+    "k": "pillar_hammerer",
+    "x": 34,
+    "y": 518,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 64,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 88,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 112,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 136,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 64,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 88,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 112,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 136,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-0-False",
+    "k": "spectralhand_wizard",
+    "x": 452,
+    "y": 524,
+    "tx": 473,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-2-False",
+    "k": "spectralhand_wizard",
+    "x": 452,
+    "y": 524,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 422,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 398,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-8-False",
+    "k": "spectralhand_wizard",
+    "x": 452,
+    "y": 524,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 422,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 398,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 374,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 350,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 422,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 398,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 374,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 350,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-0-True",
+    "k": "spectralhand_wizard",
+    "x": 28,
+    "y": 524,
+    "tx": 7,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-2-True",
+    "k": "spectralhand_wizard",
+    "x": 28,
+    "y": 524,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 58,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 82,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-spectralhand_wizard-8-True",
+    "k": "spectralhand_wizard",
+    "x": 28,
+    "y": 524,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 58,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 82,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 106,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 130,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 58,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 82,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 106,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 130,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-0-False",
+    "k": "colossal_hornfist",
+    "x": 440,
+    "y": 512,
+    "tx": 473,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-2-False",
+    "k": "colossal_hornfist",
+    "x": 440,
+    "y": 512,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 402,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 378,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-8-False",
+    "k": "colossal_hornfist",
+    "x": 440,
+    "y": 512,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 402,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 378,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 354,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 330,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 402,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 378,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 354,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 330,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": false,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-0-True",
+    "k": "colossal_hornfist",
+    "x": 40,
+    "y": 512,
+    "tx": 7,
+    "ty": 531,
+    "allies": [],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-2-True",
+    "k": "colossal_hornfist",
+    "x": 40,
+    "y": 512,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 78,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 102,
+        "y": 500
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-near-original-colossal_hornfist-8-True",
+    "k": "colossal_hornfist",
+    "x": 40,
+    "y": 512,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 78,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 102,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 126,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 150,
+        "y": 500
+      },
+      {
+        "k": "shield",
+        "x": 78,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 102,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 126,
+        "y": 474
+      },
+      {
+        "k": "shield",
+        "x": 150,
+        "y": 474
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "mirror": true,
+    "cohort": "legal-near-original",
+    "realDamage": true
+  },
+  {
+    "id": "legal-crowd-6-false",
+    "k": "pillar_hammerer",
+    "x": 445.139123336412,
+    "y": 507.69376862607896,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 351.96640183683485,
+        "y": 477.4223745530471
+      },
+      {
+        "k": "shield",
+        "x": 383.6292533809319,
+        "y": 458.5581659190357
+      },
+      {
+        "k": "shield",
+        "x": 399.12194184493273,
+        "y": 509.9478733772412
+      },
+      {
+        "k": "shield",
+        "x": 366.069488436915,
+        "y": 512.8870291560888
+      },
+      {
+        "k": "shield",
+        "x": 326.02438687812537,
+        "y": 458.31343308184296
+      },
+      {
+        "k": "shield",
+        "x": 314.4244720088318,
+        "y": 500.53805556334555
+      },
+      {
+        "k": "shield",
+        "x": 429.82804364990443,
+        "y": 447.5886154556647
+      },
+      {
+        "k": "shield",
+        "x": 295.3542987583205,
+        "y": 524.0171690406278
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-6-true",
+    "k": "pillar_hammerer",
+    "x": 34.86087666358799,
+    "y": 507.69376862607896,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 128.03359816316515,
+        "y": 477.4223745530471
+      },
+      {
+        "k": "shield",
+        "x": 96.37074661906809,
+        "y": 458.5581659190357
+      },
+      {
+        "k": "shield",
+        "x": 80.87805815506727,
+        "y": 509.9478733772412
+      },
+      {
+        "k": "shield",
+        "x": 113.93051156308502,
+        "y": 512.8870291560888
+      },
+      {
+        "k": "shield",
+        "x": 153.97561312187463,
+        "y": 458.31343308184296
+      },
+      {
+        "k": "shield",
+        "x": 165.5755279911682,
+        "y": 500.53805556334555
+      },
+      {
+        "k": "shield",
+        "x": 50.17195635009557,
+        "y": 447.5886154556647
+      },
+      {
+        "k": "shield",
+        "x": 184.6457012416795,
+        "y": 524.0171690406278
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-7-false",
+    "k": "spectralhand_wizard",
+    "x": 421.0571283707395,
+    "y": 519.691565092653,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 397.70706904586405,
+        "y": 420.9397500446066
+      },
+      {
+        "k": "shield",
+        "x": 314.7539312625304,
+        "y": 461.17923245206475
+      },
+      {
+        "k": "shield",
+        "x": 359.67628374230117,
+        "y": 484.0053846100345
+      },
+      {
+        "k": "shield",
+        "x": 283.1266048224643,
+        "y": 428.4707824047655
+      },
+      {
+        "k": "shield",
+        "x": 368.48103330936283,
+        "y": 452.071773561649
+      },
+      {
+        "k": "shield",
+        "x": 386.8354796199128,
+        "y": 472.5327581660822
+      },
+      {
+        "k": "shield",
+        "x": 343.33679037634283,
+        "y": 463.2794567756355
+      },
+      {
+        "k": "shield",
+        "x": 414.8059486737475,
+        "y": 475.4782827300951
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-7-true",
+    "k": "spectralhand_wizard",
+    "x": 58.94287162926048,
+    "y": 519.691565092653,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 82.29293095413595,
+        "y": 420.9397500446066
+      },
+      {
+        "k": "shield",
+        "x": 165.2460687374696,
+        "y": 461.17923245206475
+      },
+      {
+        "k": "shield",
+        "x": 120.32371625769883,
+        "y": 484.0053846100345
+      },
+      {
+        "k": "shield",
+        "x": 196.8733951775357,
+        "y": 428.4707824047655
+      },
+      {
+        "k": "shield",
+        "x": 111.51896669063717,
+        "y": 452.071773561649
+      },
+      {
+        "k": "shield",
+        "x": 93.1645203800872,
+        "y": 472.5327581660822
+      },
+      {
+        "k": "shield",
+        "x": 136.66320962365717,
+        "y": 463.2794567756355
+      },
+      {
+        "k": "shield",
+        "x": 65.19405132625252,
+        "y": 475.4782827300951
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-8-false",
+    "k": "colossal_hornfist",
+    "x": 387.3438836308196,
+    "y": 496.4823639392853,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 383.44495351891965,
+        "y": 428.0962298484519
+      },
+      {
+        "k": "shield",
+        "x": 436.24628223944455,
+        "y": 423.2016985286027
+      },
+      {
+        "k": "shield",
+        "x": 345.27140646707267,
+        "y": 473.201305330731
+      },
+      {
+        "k": "shield",
+        "x": 432.4546341272071,
+        "y": 450.83588554523885
+      },
+      {
+        "k": "shield",
+        "x": 312.9610461136326,
+        "y": 518.8005562303588
+      },
+      {
+        "k": "shield",
+        "x": 345.3905451623723,
+        "y": 443.36630601156503
+      },
+      {
+        "k": "shield",
+        "x": 438.83659407962114,
+        "y": 481.39320748485625
+      },
+      {
+        "k": "shield",
+        "x": 325.57114166673273,
+        "y": 424.1664203396067
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-8-true",
+    "k": "colossal_hornfist",
+    "x": 92.65611636918038,
+    "y": 496.4823639392853,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 96.55504648108035,
+        "y": 428.0962298484519
+      },
+      {
+        "k": "shield",
+        "x": 43.753717760555446,
+        "y": 423.2016985286027
+      },
+      {
+        "k": "shield",
+        "x": 134.72859353292733,
+        "y": 473.201305330731
+      },
+      {
+        "k": "shield",
+        "x": 47.5453658727929,
+        "y": 450.83588554523885
+      },
+      {
+        "k": "shield",
+        "x": 167.03895388636738,
+        "y": 518.8005562303588
+      },
+      {
+        "k": "shield",
+        "x": 134.6094548376277,
+        "y": 443.36630601156503
+      },
+      {
+        "k": "shield",
+        "x": 41.163405920378864,
+        "y": 481.39320748485625
+      },
+      {
+        "k": "shield",
+        "x": 154.42885833326727,
+        "y": 424.1664203396067
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-15-false",
+    "k": "pillar_hammerer",
+    "x": 363.6230513220653,
+    "y": 492.58129004668444,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 302.6683492260054,
+        "y": 488.598283784464
+      },
+      {
+        "k": "shield",
+        "x": 390.95393595751375,
+        "y": 456.9480170151219
+      },
+      {
+        "k": "shield",
+        "x": 349.6995675051585,
+        "y": 452.4441025443375
+      },
+      {
+        "k": "shield",
+        "x": 301.7542201234028,
+        "y": 458.7154059121385
+      },
+      {
+        "k": "shield",
+        "x": 426.1211259337142,
+        "y": 425.67515211366117
+      },
+      {
+        "k": "shield",
+        "x": 440.9054270712659,
+        "y": 507.4429533230141
+      },
+      {
+        "k": "shield",
+        "x": 398.44457275699824,
+        "y": 523.0323401475325
+      },
+      {
+        "k": "shield",
+        "x": 429.4250432541594,
+        "y": 480.428753699176
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-15-true",
+    "k": "pillar_hammerer",
+    "x": 116.3769486779347,
+    "y": 492.58129004668444,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 177.33165077399462,
+        "y": 488.598283784464
+      },
+      {
+        "k": "shield",
+        "x": 89.04606404248625,
+        "y": 456.9480170151219
+      },
+      {
+        "k": "shield",
+        "x": 130.30043249484152,
+        "y": 452.4441025443375
+      },
+      {
+        "k": "shield",
+        "x": 178.24577987659723,
+        "y": 458.7154059121385
+      },
+      {
+        "k": "shield",
+        "x": 53.87887406628579,
+        "y": 425.67515211366117
+      },
+      {
+        "k": "shield",
+        "x": 39.094572928734124,
+        "y": 507.4429533230141
+      },
+      {
+        "k": "shield",
+        "x": 81.55542724300176,
+        "y": 523.0323401475325
+      },
+      {
+        "k": "shield",
+        "x": 50.57495674584061,
+        "y": 480.428753699176
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-16-false",
+    "k": "spectralhand_wizard",
+    "x": 444.5984208257869,
+    "y": 506.41400969028473,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 320.3638217924163,
+        "y": 427.6327401222661
+      },
+      {
+        "k": "shield",
+        "x": 398.4862228529528,
+        "y": 433.30096617527306
+      },
+      {
+        "k": "shield",
+        "x": 313.5311157768592,
+        "y": 480.6441968968138
+      },
+      {
+        "k": "shield",
+        "x": 291.653937199153,
+        "y": 462.58176365867257
+      },
+      {
+        "k": "shield",
+        "x": 366.9046063674614,
+        "y": 474.4168865540996
+      },
+      {
+        "k": "shield",
+        "x": 346.367452875711,
+        "y": 424.11643815785646
+      },
+      {
+        "k": "shield",
+        "x": 383.9717659400776,
+        "y": 494.31403408385813
+      },
+      {
+        "k": "shield",
+        "x": 333.17222378682345,
+        "y": 524.9935873681679
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-16-true",
+    "k": "spectralhand_wizard",
+    "x": 35.40157917421311,
+    "y": 506.41400969028473,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 159.63617820758373,
+        "y": 427.6327401222661
+      },
+      {
+        "k": "shield",
+        "x": 81.51377714704722,
+        "y": 433.30096617527306
+      },
+      {
+        "k": "shield",
+        "x": 166.46888422314078,
+        "y": 480.6441968968138
+      },
+      {
+        "k": "shield",
+        "x": 188.346062800847,
+        "y": 462.58176365867257
+      },
+      {
+        "k": "shield",
+        "x": 113.09539363253862,
+        "y": 474.4168865540996
+      },
+      {
+        "k": "shield",
+        "x": 133.63254712428898,
+        "y": 424.11643815785646
+      },
+      {
+        "k": "shield",
+        "x": 96.0282340599224,
+        "y": 494.31403408385813
+      },
+      {
+        "k": "shield",
+        "x": 146.82777621317655,
+        "y": 524.9935873681679
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-17-false",
+    "k": "colossal_hornfist",
+    "x": 397.20491024199873,
+    "y": 504.5847552716732,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 352.5370224425569,
+        "y": 449.31102116405964
+      },
+      {
+        "k": "shield",
+        "x": 304.6673214016482,
+        "y": 511.6595624657348
+      },
+      {
+        "k": "shield",
+        "x": 343.98871628101915,
+        "y": 420.2708291253075
+      },
+      {
+        "k": "shield",
+        "x": 371.64072137791663,
+        "y": 428.38802250288427
+      },
+      {
+        "k": "shield",
+        "x": 443.3242201944813,
+        "y": 449.5100785372779
+      },
+      {
+        "k": "shield",
+        "x": 450.66117136273533,
+        "y": 495.82226648181677
+      },
+      {
+        "k": "shield",
+        "x": 332.8772944537923,
+        "y": 491.28083873260766
+      },
+      {
+        "k": "shield",
+        "x": 440.72322763036937,
+        "y": 521.8563867891207
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-17-true",
+    "k": "colossal_hornfist",
+    "x": 82.79508975800127,
+    "y": 504.5847552716732,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 127.46297755744308,
+        "y": 449.31102116405964
+      },
+      {
+        "k": "shield",
+        "x": 175.33267859835178,
+        "y": 511.6595624657348
+      },
+      {
+        "k": "shield",
+        "x": 136.01128371898085,
+        "y": 420.2708291253075
+      },
+      {
+        "k": "shield",
+        "x": 108.35927862208337,
+        "y": 428.38802250288427
+      },
+      {
+        "k": "shield",
+        "x": 36.67577980551869,
+        "y": 449.5100785372779
+      },
+      {
+        "k": "shield",
+        "x": 29.33882863726467,
+        "y": 495.82226648181677
+      },
+      {
+        "k": "shield",
+        "x": 147.12270554620773,
+        "y": 491.28083873260766
+      },
+      {
+        "k": "shield",
+        "x": 39.276772369630635,
+        "y": 521.8563867891207
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-24-false",
+    "k": "pillar_hammerer",
+    "x": 418.4930532472208,
+    "y": 488.76398845389485,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 416.666431943886,
+        "y": 428.9061388010159
+      },
+      {
+        "k": "shield",
+        "x": 445.9242821158841,
+        "y": 524.9289154242724
+      },
+      {
+        "k": "shield",
+        "x": 446.3637980213389,
+        "y": 457.3318480355665
+      },
+      {
+        "k": "shield",
+        "x": 305.35181996878237,
+        "y": 491.03517718520015
+      },
+      {
+        "k": "shield",
+        "x": 336.59369880799204,
+        "y": 484.1892469711602
+      },
+      {
+        "k": "shield",
+        "x": 315.59545170981437,
+        "y": 444.58582483790815
+      },
+      {
+        "k": "shield",
+        "x": 292.0761731406674,
+        "y": 522.8136426387355
+      },
+      {
+        "k": "shield",
+        "x": 364.3831843836233,
+        "y": 421.4594937944785
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-24-true",
+    "k": "pillar_hammerer",
+    "x": 61.506946752779186,
+    "y": 488.76398845389485,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 63.33356805611402,
+        "y": 428.9061388010159
+      },
+      {
+        "k": "shield",
+        "x": 34.075717884115875,
+        "y": 524.9289154242724
+      },
+      {
+        "k": "shield",
+        "x": 33.63620197866112,
+        "y": 457.3318480355665
+      },
+      {
+        "k": "shield",
+        "x": 174.64818003121763,
+        "y": 491.03517718520015
+      },
+      {
+        "k": "shield",
+        "x": 143.40630119200796,
+        "y": 484.1892469711602
+      },
+      {
+        "k": "shield",
+        "x": 164.40454829018563,
+        "y": 444.58582483790815
+      },
+      {
+        "k": "shield",
+        "x": 187.92382685933262,
+        "y": 522.8136426387355
+      },
+      {
+        "k": "shield",
+        "x": 115.6168156163767,
+        "y": 421.4594937944785
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-25-false",
+    "k": "spectralhand_wizard",
+    "x": 426.35043340269476,
+    "y": 492.65722382441163,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 361.2999437144026,
+        "y": 438.4342545522377
+      },
+      {
+        "k": "shield",
+        "x": 379.47847491595894,
+        "y": 485.3382360935211
+      },
+      {
+        "k": "shield",
+        "x": 437.0020679710433,
+        "y": 425.7014667214826
+      },
+      {
+        "k": "shield",
+        "x": 414.01132606435567,
+        "y": 458.28337618894875
+      },
+      {
+        "k": "shield",
+        "x": 318.1489748740569,
+        "y": 481.7711906172335
+      },
+      {
+        "k": "shield",
+        "x": 337.88079276215285,
+        "y": 507.78252057824284
+      },
+      {
+        "k": "shield",
+        "x": 451.660064724274,
+        "y": 509.3505842741579
+      },
+      {
+        "k": "shield",
+        "x": 345.05836413707584,
+        "y": 464.7894174186513
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-25-true",
+    "k": "spectralhand_wizard",
+    "x": 53.64956659730524,
+    "y": 492.65722382441163,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 118.70005628559738,
+        "y": 438.4342545522377
+      },
+      {
+        "k": "shield",
+        "x": 100.52152508404106,
+        "y": 485.3382360935211
+      },
+      {
+        "k": "shield",
+        "x": 42.99793202895671,
+        "y": 425.7014667214826
+      },
+      {
+        "k": "shield",
+        "x": 65.98867393564433,
+        "y": 458.28337618894875
+      },
+      {
+        "k": "shield",
+        "x": 161.85102512594312,
+        "y": 481.7711906172335
+      },
+      {
+        "k": "shield",
+        "x": 142.11920723784715,
+        "y": 507.78252057824284
+      },
+      {
+        "k": "shield",
+        "x": 28.33993527572602,
+        "y": 509.3505842741579
+      },
+      {
+        "k": "shield",
+        "x": 134.94163586292416,
+        "y": 464.7894174186513
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-26-false",
+    "k": "colossal_hornfist",
+    "x": 391.5584770264104,
+    "y": 495.2253385782242,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 350.4121502256021,
+        "y": 506.4762754207477
+      },
+      {
+        "k": "shield",
+        "x": 441.94553332868963,
+        "y": 426.6875236444175
+      },
+      {
+        "k": "shield",
+        "x": 435.0673326058313,
+        "y": 510.8643521601334
+      },
+      {
+        "k": "shield",
+        "x": 308.53263412136585,
+        "y": 505.56738205067813
+      },
+      {
+        "k": "shield",
+        "x": 294.5106329629198,
+        "y": 451.6968497186899
+      },
+      {
+        "k": "shield",
+        "x": 452.86997492890805,
+        "y": 453.8674568505958
+      },
+      {
+        "k": "shield",
+        "x": 306.5541485743597,
+        "y": 423.91491638310254
+      },
+      {
+        "k": "shield",
+        "x": 458.02607835736126,
+        "y": 491.0023462055251
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-26-true",
+    "k": "colossal_hornfist",
+    "x": 88.4415229735896,
+    "y": 495.2253385782242,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 129.5878497743979,
+        "y": 506.4762754207477
+      },
+      {
+        "k": "shield",
+        "x": 38.054466671310365,
+        "y": 426.6875236444175
+      },
+      {
+        "k": "shield",
+        "x": 44.932667394168675,
+        "y": 510.8643521601334
+      },
+      {
+        "k": "shield",
+        "x": 171.46736587863415,
+        "y": 505.56738205067813
+      },
+      {
+        "k": "shield",
+        "x": 185.48936703708023,
+        "y": 451.6968497186899
+      },
+      {
+        "k": "shield",
+        "x": 27.13002507109195,
+        "y": 453.8674568505958
+      },
+      {
+        "k": "shield",
+        "x": 173.44585142564029,
+        "y": 423.91491638310254
+      },
+      {
+        "k": "shield",
+        "x": 21.973921642638743,
+        "y": 491.0023462055251
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-33-false",
+    "k": "pillar_hammerer",
+    "x": 424.5979377767071,
+    "y": 501.27413686271757,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 354.0463059814647,
+        "y": 437.64077476225793
+      },
+      {
+        "k": "shield",
+        "x": 367.6809759577736,
+        "y": 513.6323606399819
+      },
+      {
+        "k": "shield",
+        "x": 348.12400741968304,
+        "y": 476.4994622245431
+      },
+      {
+        "k": "shield",
+        "x": 284.0457763103768,
+        "y": 525.0019894437864
+      },
+      {
+        "k": "shield",
+        "x": 311.6400240594521,
+        "y": 522.1956568472087
+      },
+      {
+        "k": "shield",
+        "x": 408.73880529310554,
+        "y": 468.5083922846243
+      },
+      {
+        "k": "shield",
+        "x": 308.7783619342372,
+        "y": 434.95237251836807
+      },
+      {
+        "k": "shield",
+        "x": 339.2460519867018,
+        "y": 512.558846609667
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-33-true",
+    "k": "pillar_hammerer",
+    "x": 55.40206222329289,
+    "y": 501.27413686271757,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 125.95369401853532,
+        "y": 437.64077476225793
+      },
+      {
+        "k": "shield",
+        "x": 112.31902404222637,
+        "y": 513.6323606399819
+      },
+      {
+        "k": "shield",
+        "x": 131.87599258031696,
+        "y": 476.4994622245431
+      },
+      {
+        "k": "shield",
+        "x": 195.95422368962318,
+        "y": 525.0019894437864
+      },
+      {
+        "k": "shield",
+        "x": 168.35997594054788,
+        "y": 522.1956568472087
+      },
+      {
+        "k": "shield",
+        "x": 71.26119470689446,
+        "y": 468.5083922846243
+      },
+      {
+        "k": "shield",
+        "x": 171.22163806576282,
+        "y": 434.95237251836807
+      },
+      {
+        "k": "shield",
+        "x": 140.7539480132982,
+        "y": 512.558846609667
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-34-false",
+    "k": "spectralhand_wizard",
+    "x": 441.6756235761568,
+    "y": 520.0135558564216,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 388.20004934910685,
+        "y": 437.45175589993596
+      },
+      {
+        "k": "shield",
+        "x": 336.05904042255133,
+        "y": 465.198154062964
+      },
+      {
+        "k": "shield",
+        "x": 430.1384420366958,
+        "y": 486.38153784535825
+      },
+      {
+        "k": "shield",
+        "x": 290.1918881991878,
+        "y": 452.5048930570483
+      },
+      {
+        "k": "shield",
+        "x": 409.29262194316834,
+        "y": 504.8189548002556
+      },
+      {
+        "k": "shield",
+        "x": 351.8429804081097,
+        "y": 443.2352258823812
+      },
+      {
+        "k": "shield",
+        "x": 374.0501285297796,
+        "y": 498.13570139650255
+      },
+      {
+        "k": "shield",
+        "x": 372.4549345066771,
+        "y": 462.6072663916275
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-34-true",
+    "k": "spectralhand_wizard",
+    "x": 38.324376423843205,
+    "y": 520.0135558564216,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 91.79995065089315,
+        "y": 437.45175589993596
+      },
+      {
+        "k": "shield",
+        "x": 143.94095957744867,
+        "y": 465.198154062964
+      },
+      {
+        "k": "shield",
+        "x": 49.86155796330422,
+        "y": 486.38153784535825
+      },
+      {
+        "k": "shield",
+        "x": 189.80811180081218,
+        "y": 452.5048930570483
+      },
+      {
+        "k": "shield",
+        "x": 70.70737805683166,
+        "y": 504.8189548002556
+      },
+      {
+        "k": "shield",
+        "x": 128.15701959189028,
+        "y": 443.2352258823812
+      },
+      {
+        "k": "shield",
+        "x": 105.94987147022039,
+        "y": 498.13570139650255
+      },
+      {
+        "k": "shield",
+        "x": 107.54506549332291,
+        "y": 462.6072663916275
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-35-false",
+    "k": "colossal_hornfist",
+    "x": 445.3903102548793,
+    "y": 505.53081607818604,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 376.67528729420155,
+        "y": 475.98897383827716
+      },
+      {
+        "k": "shield",
+        "x": 422.1343907015398,
+        "y": 448.95844367332757
+      },
+      {
+        "k": "shield",
+        "x": 386.09565210994333,
+        "y": 424.60542824771255
+      },
+      {
+        "k": "shield",
+        "x": 343.1977602513507,
+        "y": 499.13171750865877
+      },
+      {
+        "k": "shield",
+        "x": 404.37637019436806,
+        "y": 467.1641203062609
+      },
+      {
+        "k": "shield",
+        "x": 314.8904992872849,
+        "y": 449.92639289423823
+      },
+      {
+        "k": "shield",
+        "x": 344.79233644437045,
+        "y": 459.05057715717703
+      },
+      {
+        "k": "shield",
+        "x": 285.0361881079152,
+        "y": 492.7292869221419
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-35-true",
+    "k": "colossal_hornfist",
+    "x": 34.609689745120704,
+    "y": 505.53081607818604,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 103.32471270579845,
+        "y": 475.98897383827716
+      },
+      {
+        "k": "shield",
+        "x": 57.865609298460186,
+        "y": 448.95844367332757
+      },
+      {
+        "k": "shield",
+        "x": 93.90434789005667,
+        "y": 424.60542824771255
+      },
+      {
+        "k": "shield",
+        "x": 136.8022397486493,
+        "y": 499.13171750865877
+      },
+      {
+        "k": "shield",
+        "x": 75.62362980563194,
+        "y": 467.1641203062609
+      },
+      {
+        "k": "shield",
+        "x": 165.1095007127151,
+        "y": 449.92639289423823
+      },
+      {
+        "k": "shield",
+        "x": 135.20766355562955,
+        "y": 459.05057715717703
+      },
+      {
+        "k": "shield",
+        "x": 194.96381189208478,
+        "y": 492.7292869221419
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-42-false",
+    "k": "pillar_hammerer",
+    "x": 356.47704356815666,
+    "y": 489.32979163434356,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 423.95613063592464,
+        "y": 479.3829652350396
+      },
+      {
+        "k": "shield",
+        "x": 293.6844656476751,
+        "y": 465.7416096627712
+      },
+      {
+        "k": "shield",
+        "x": 415.5894650099799,
+        "y": 524.0790279032663
+      },
+      {
+        "k": "shield",
+        "x": 295.18773667979985,
+        "y": 496.49029427953064
+      },
+      {
+        "k": "shield",
+        "x": 348.1093524163589,
+        "y": 421.3680329909548
+      },
+      {
+        "k": "shield",
+        "x": 443.19645878393203,
+        "y": 507.1847406383604
+      },
+      {
+        "k": "shield",
+        "x": 455.64310328569263,
+        "y": 466.5156576661393
+      },
+      {
+        "k": "shield",
+        "x": 402.4338529864326,
+        "y": 450.4069697037339
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-42-true",
+    "k": "pillar_hammerer",
+    "x": 123.52295643184334,
+    "y": 489.32979163434356,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 56.04386936407536,
+        "y": 479.3829652350396
+      },
+      {
+        "k": "shield",
+        "x": 186.3155343523249,
+        "y": 465.7416096627712
+      },
+      {
+        "k": "shield",
+        "x": 64.4105349900201,
+        "y": 524.0790279032663
+      },
+      {
+        "k": "shield",
+        "x": 184.81226332020015,
+        "y": 496.49029427953064
+      },
+      {
+        "k": "shield",
+        "x": 131.8906475836411,
+        "y": 421.3680329909548
+      },
+      {
+        "k": "shield",
+        "x": 36.80354121606797,
+        "y": 507.1847406383604
+      },
+      {
+        "k": "shield",
+        "x": 24.356896714307368,
+        "y": 466.5156576661393
+      },
+      {
+        "k": "shield",
+        "x": 77.56614701356739,
+        "y": 450.4069697037339
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-43-false",
+    "k": "spectralhand_wizard",
+    "x": 438.93331398721784,
+    "y": 501.1514032687992,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 320.5531358765438,
+        "y": 497.1368708703667
+      },
+      {
+        "k": "shield",
+        "x": 390.3921358799562,
+        "y": 439.1199379628524
+      },
+      {
+        "k": "shield",
+        "x": 292.71800212096423,
+        "y": 440.59499504510313
+      },
+      {
+        "k": "shield",
+        "x": 361.3381626782939,
+        "y": 483.43765642959625
+      },
+      {
+        "k": "shield",
+        "x": 449.96700175572187,
+        "y": 470.6972548533231
+      },
+      {
+        "k": "shield",
+        "x": 422.40634691435844,
+        "y": 435.9529161360115
+      },
+      {
+        "k": "shield",
+        "x": 313.78608480561525,
+        "y": 458.456388855353
+      },
+      {
+        "k": "shield",
+        "x": 360.9705573832616,
+        "y": 443.27324732299894
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-43-true",
+    "k": "spectralhand_wizard",
+    "x": 41.06668601278216,
+    "y": 501.1514032687992,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 159.44686412345618,
+        "y": 497.1368708703667
+      },
+      {
+        "k": "shield",
+        "x": 89.60786412004381,
+        "y": 439.1199379628524
+      },
+      {
+        "k": "shield",
+        "x": 187.28199787903577,
+        "y": 440.59499504510313
+      },
+      {
+        "k": "shield",
+        "x": 118.66183732170612,
+        "y": 483.43765642959625
+      },
+      {
+        "k": "shield",
+        "x": 30.032998244278133,
+        "y": 470.6972548533231
+      },
+      {
+        "k": "shield",
+        "x": 57.59365308564156,
+        "y": 435.9529161360115
+      },
+      {
+        "k": "shield",
+        "x": 166.21391519438475,
+        "y": 458.456388855353
+      },
+      {
+        "k": "shield",
+        "x": 119.02944261673838,
+        "y": 443.27324732299894
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-44-false",
+    "k": "colossal_hornfist",
+    "x": 407.56935842800885,
+    "y": 499.1821371912956,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 293.8516551954672,
+        "y": 472.32658795360476
+      },
+      {
+        "k": "shield",
+        "x": 351.7962656309828,
+        "y": 444.4634142173454
+      },
+      {
+        "k": "shield",
+        "x": 432.1056581148878,
+        "y": 439.4721521139145
+      },
+      {
+        "k": "shield",
+        "x": 363.1244328292087,
+        "y": 513.6611722763628
+      },
+      {
+        "k": "shield",
+        "x": 382.21401228103787,
+        "y": 432.53410524874926
+      },
+      {
+        "k": "shield",
+        "x": 301.332342508249,
+        "y": 431.72229163814336
+      },
+      {
+        "k": "shield",
+        "x": 329.4672413682565,
+        "y": 492.0980978971347
+      },
+      {
+        "k": "shield",
+        "x": 288.7534853024408,
+        "y": 512.8178873592988
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-44-true",
+    "k": "colossal_hornfist",
+    "x": 72.43064157199115,
+    "y": 499.1821371912956,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 186.14834480453283,
+        "y": 472.32658795360476
+      },
+      {
+        "k": "shield",
+        "x": 128.20373436901718,
+        "y": 444.4634142173454
+      },
+      {
+        "k": "shield",
+        "x": 47.894341885112226,
+        "y": 439.4721521139145
+      },
+      {
+        "k": "shield",
+        "x": 116.87556717079133,
+        "y": 513.6611722763628
+      },
+      {
+        "k": "shield",
+        "x": 97.78598771896213,
+        "y": 432.53410524874926
+      },
+      {
+        "k": "shield",
+        "x": 178.66765749175102,
+        "y": 431.72229163814336
+      },
+      {
+        "k": "shield",
+        "x": 150.5327586317435,
+        "y": 492.0980978971347
+      },
+      {
+        "k": "shield",
+        "x": 191.24651469755918,
+        "y": 512.8178873592988
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-51-false",
+    "k": "pillar_hammerer",
+    "x": 442.62470721732825,
+    "y": 504.4673338243738,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 449.6007308596745,
+        "y": 466.53778940066695
+      },
+      {
+        "k": "shield",
+        "x": 318.9298400981352,
+        "y": 475.69804365281016
+      },
+      {
+        "k": "shield",
+        "x": 332.8697340609506,
+        "y": 500.4304673355073
+      },
+      {
+        "k": "shield",
+        "x": 317.95180124696344,
+        "y": 446.18367063906044
+      },
+      {
+        "k": "shield",
+        "x": 343.75917836558074,
+        "y": 460.5515975514427
+      },
+      {
+        "k": "shield",
+        "x": 397.0637136371806,
+        "y": 490.92234054766595
+      },
+      {
+        "k": "shield",
+        "x": 357.9829771956429,
+        "y": 524.5918563036248
+      },
+      {
+        "k": "shield",
+        "x": 291.27037091646343,
+        "y": 465.1335994973779
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-51-true",
+    "k": "pillar_hammerer",
+    "x": 37.37529278267175,
+    "y": 504.4673338243738,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 30.399269140325487,
+        "y": 466.53778940066695
+      },
+      {
+        "k": "shield",
+        "x": 161.07015990186483,
+        "y": 475.69804365281016
+      },
+      {
+        "k": "shield",
+        "x": 147.13026593904942,
+        "y": 500.4304673355073
+      },
+      {
+        "k": "shield",
+        "x": 162.04819875303656,
+        "y": 446.18367063906044
+      },
+      {
+        "k": "shield",
+        "x": 136.24082163441926,
+        "y": 460.5515975514427
+      },
+      {
+        "k": "shield",
+        "x": 82.93628636281937,
+        "y": 490.92234054766595
+      },
+      {
+        "k": "shield",
+        "x": 122.01702280435711,
+        "y": 524.5918563036248
+      },
+      {
+        "k": "shield",
+        "x": 188.72962908353657,
+        "y": 465.1335994973779
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-52-false",
+    "k": "spectralhand_wizard",
+    "x": 362.94960191007704,
+    "y": 506.27951403521,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 322.8991085337475,
+        "y": 503.1065741274506
+      },
+      {
+        "k": "shield",
+        "x": 326.39703740831465,
+        "y": 461.91964924987406
+      },
+      {
+        "k": "shield",
+        "x": 293.6995672388002,
+        "y": 428.62745722476393
+      },
+      {
+        "k": "shield",
+        "x": 417.98911277670413,
+        "y": 461.47949515096843
+      },
+      {
+        "k": "shield",
+        "x": 415.7689827447757,
+        "y": 425.00289548840374
+      },
+      {
+        "k": "shield",
+        "x": 283.45973224844784,
+        "y": 486.7288153944537
+      },
+      {
+        "k": "shield",
+        "x": 372.2415843931958,
+        "y": 470.4997658478096
+      },
+      {
+        "k": "shield",
+        "x": 445.84402388427407,
+        "y": 506.18283265829086
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-52-true",
+    "k": "spectralhand_wizard",
+    "x": 117.05039808992296,
+    "y": 506.27951403521,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 157.1008914662525,
+        "y": 503.1065741274506
+      },
+      {
+        "k": "shield",
+        "x": 153.60296259168535,
+        "y": 461.91964924987406
+      },
+      {
+        "k": "shield",
+        "x": 186.30043276119977,
+        "y": 428.62745722476393
+      },
+      {
+        "k": "shield",
+        "x": 62.01088722329587,
+        "y": 461.47949515096843
+      },
+      {
+        "k": "shield",
+        "x": 64.23101725522429,
+        "y": 425.00289548840374
+      },
+      {
+        "k": "shield",
+        "x": 196.54026775155216,
+        "y": 486.7288153944537
+      },
+      {
+        "k": "shield",
+        "x": 107.75841560680419,
+        "y": 470.4997658478096
+      },
+      {
+        "k": "shield",
+        "x": 34.155976115725935,
+        "y": 506.18283265829086
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-53-false",
+    "k": "colossal_hornfist",
+    "x": 444.8620252078399,
+    "y": 491.5570806413889,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 286.79940425325185,
+        "y": 502.94905105419457
+      },
+      {
+        "k": "shield",
+        "x": 399.25711227115244,
+        "y": 506.7406097939238
+      },
+      {
+        "k": "shield",
+        "x": 416.766778328456,
+        "y": 422.4670960046351
+      },
+      {
+        "k": "shield",
+        "x": 317.35903456341475,
+        "y": 496.26046513114125
+      },
+      {
+        "k": "shield",
+        "x": 344.0963324578479,
+        "y": 437.8295735772699
+      },
+      {
+        "k": "shield",
+        "x": 291.4974601427093,
+        "y": 462.59803057461977
+      },
+      {
+        "k": "shield",
+        "x": 394.8388108657673,
+        "y": 440.1097172293812
+      },
+      {
+        "k": "shield",
+        "x": 361.6698052501306,
+        "y": 464.2115451460704
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-53-true",
+    "k": "colossal_hornfist",
+    "x": 35.137974792160094,
+    "y": 491.5570806413889,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 193.20059574674815,
+        "y": 502.94905105419457
+      },
+      {
+        "k": "shield",
+        "x": 80.74288772884756,
+        "y": 506.7406097939238
+      },
+      {
+        "k": "shield",
+        "x": 63.233221671544015,
+        "y": 422.4670960046351
+      },
+      {
+        "k": "shield",
+        "x": 162.64096543658525,
+        "y": 496.26046513114125
+      },
+      {
+        "k": "shield",
+        "x": 135.9036675421521,
+        "y": 437.8295735772699
+      },
+      {
+        "k": "shield",
+        "x": 188.50253985729069,
+        "y": 462.59803057461977
+      },
+      {
+        "k": "shield",
+        "x": 85.1611891342327,
+        "y": 440.1097172293812
+      },
+      {
+        "k": "shield",
+        "x": 118.3301947498694,
+        "y": 464.2115451460704
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-60-false",
+    "k": "pillar_hammerer",
+    "x": 396.7301970580593,
+    "y": 481.84864809177816,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 298.64207898732275,
+        "y": 448.8665138995275
+      },
+      {
+        "k": "shield",
+        "x": 281.8200651044026,
+        "y": 423.7454162798822
+      },
+      {
+        "k": "shield",
+        "x": 438.19965828675777,
+        "y": 484.0134003441781
+      },
+      {
+        "k": "shield",
+        "x": 307.4502596864477,
+        "y": 494.19812700152397
+      },
+      {
+        "k": "shield",
+        "x": 338.36485873442143,
+        "y": 437.0643204571679
+      },
+      {
+        "k": "shield",
+        "x": 338.69834105018526,
+        "y": 525.1925124563277
+      },
+      {
+        "k": "shield",
+        "x": 317.0521067036316,
+        "y": 467.34849073085934
+      },
+      {
+        "k": "shield",
+        "x": 413.6068476876244,
+        "y": 420.37658155243844
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-60-true",
+    "k": "pillar_hammerer",
+    "x": 83.26980294194072,
+    "y": 481.84864809177816,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 181.35792101267725,
+        "y": 448.8665138995275
+      },
+      {
+        "k": "shield",
+        "x": 198.1799348955974,
+        "y": 423.7454162798822
+      },
+      {
+        "k": "shield",
+        "x": 41.80034171324223,
+        "y": 484.0134003441781
+      },
+      {
+        "k": "shield",
+        "x": 172.54974031355232,
+        "y": 494.19812700152397
+      },
+      {
+        "k": "shield",
+        "x": 141.63514126557857,
+        "y": 437.0643204571679
+      },
+      {
+        "k": "shield",
+        "x": 141.30165894981474,
+        "y": 525.1925124563277
+      },
+      {
+        "k": "shield",
+        "x": 162.94789329636842,
+        "y": 467.34849073085934
+      },
+      {
+        "k": "shield",
+        "x": 66.3931523123756,
+        "y": 420.37658155243844
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-61-false",
+    "k": "spectralhand_wizard",
+    "x": 422.1054506720975,
+    "y": 501.51017896831036,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 415.13998109381646,
+        "y": 466.82986952830106
+      },
+      {
+        "k": "shield",
+        "x": 280.77382614370435,
+        "y": 429.1007387107238
+      },
+      {
+        "k": "shield",
+        "x": 398.5266523761675,
+        "y": 525.1394421095029
+      },
+      {
+        "k": "shield",
+        "x": 430.96315626520663,
+        "y": 425.99169604294
+      },
+      {
+        "k": "shield",
+        "x": 322.24749410059303,
+        "y": 427.42590344976634
+      },
+      {
+        "k": "shield",
+        "x": 304.35174610000104,
+        "y": 486.349722054787
+      },
+      {
+        "k": "shield",
+        "x": 334.5543480711058,
+        "y": 525.2434500027448
+      },
+      {
+        "k": "shield",
+        "x": 294.6700405841693,
+        "y": 462.2796308537945
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-61-true",
+    "k": "spectralhand_wizard",
+    "x": 57.894549327902496,
+    "y": 501.51017896831036,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 64.86001890618354,
+        "y": 466.82986952830106
+      },
+      {
+        "k": "shield",
+        "x": 199.22617385629565,
+        "y": 429.1007387107238
+      },
+      {
+        "k": "shield",
+        "x": 81.47334762383252,
+        "y": 525.1394421095029
+      },
+      {
+        "k": "shield",
+        "x": 49.036843734793365,
+        "y": 425.99169604294
+      },
+      {
+        "k": "shield",
+        "x": 157.75250589940697,
+        "y": 427.42590344976634
+      },
+      {
+        "k": "shield",
+        "x": 175.64825389999896,
+        "y": 486.349722054787
+      },
+      {
+        "k": "shield",
+        "x": 145.44565192889422,
+        "y": 525.2434500027448
+      },
+      {
+        "k": "shield",
+        "x": 185.32995941583067,
+        "y": 462.2796308537945
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-62-false",
+    "k": "colossal_hornfist",
+    "x": 357.1416202234104,
+    "y": 489.2829342484474,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 300.72290539275855,
+        "y": 465.1036575147882
+      },
+      {
+        "k": "shield",
+        "x": 450.7419003220275,
+        "y": 445.9851685669273
+      },
+      {
+        "k": "shield",
+        "x": 351.1071884492412,
+        "y": 429.03691714257
+      },
+      {
+        "k": "shield",
+        "x": 295.7823318755254,
+        "y": 436.7582137202844
+      },
+      {
+        "k": "shield",
+        "x": 383.1025761598721,
+        "y": 524.8662394545972
+      },
+      {
+        "k": "shield",
+        "x": 409.48345608543605,
+        "y": 474.31489793304354
+      },
+      {
+        "k": "shield",
+        "x": 399.72581882495433,
+        "y": 432.40897375158966
+      },
+      {
+        "k": "shield",
+        "x": 438.0739057669416,
+        "y": 496.84349489212036
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-62-true",
+    "k": "colossal_hornfist",
+    "x": 122.85837977658957,
+    "y": 489.2829342484474,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 179.27709460724145,
+        "y": 465.1036575147882
+      },
+      {
+        "k": "shield",
+        "x": 29.258099677972496,
+        "y": 445.9851685669273
+      },
+      {
+        "k": "shield",
+        "x": 128.89281155075878,
+        "y": 429.03691714257
+      },
+      {
+        "k": "shield",
+        "x": 184.21766812447459,
+        "y": 436.7582137202844
+      },
+      {
+        "k": "shield",
+        "x": 96.89742384012789,
+        "y": 524.8662394545972
+      },
+      {
+        "k": "shield",
+        "x": 70.51654391456395,
+        "y": 474.31489793304354
+      },
+      {
+        "k": "shield",
+        "x": 80.27418117504567,
+        "y": 432.40897375158966
+      },
+      {
+        "k": "shield",
+        "x": 41.92609423305839,
+        "y": 496.84349489212036
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-69-false",
+    "k": "pillar_hammerer",
+    "x": 393.7488332623616,
+    "y": 499.11127528734505,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 452.74434679653496,
+        "y": 482.62464539241046
+      },
+      {
+        "k": "shield",
+        "x": 312.0858611771837,
+        "y": 502.7790433317423
+      },
+      {
+        "k": "shield",
+        "x": 283.60844548325986,
+        "y": 508.457152065821
+      },
+      {
+        "k": "shield",
+        "x": 409.21071080025285,
+        "y": 455.85569308605045
+      },
+      {
+        "k": "shield",
+        "x": 332.1510162902996,
+        "y": 474.6976760039106
+      },
+      {
+        "k": "shield",
+        "x": 378.34535182919353,
+        "y": 443.11137049179524
+      },
+      {
+        "k": "shield",
+        "x": 449.1102860076353,
+        "y": 432.54868883732706
+      },
+      {
+        "k": "shield",
+        "x": 302.6021533133462,
+        "y": 474.022389261052
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-69-true",
+    "k": "pillar_hammerer",
+    "x": 86.25116673763841,
+    "y": 499.11127528734505,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 27.255653203465044,
+        "y": 482.62464539241046
+      },
+      {
+        "k": "shield",
+        "x": 167.9141388228163,
+        "y": 502.7790433317423
+      },
+      {
+        "k": "shield",
+        "x": 196.39155451674014,
+        "y": 508.457152065821
+      },
+      {
+        "k": "shield",
+        "x": 70.78928919974715,
+        "y": 455.85569308605045
+      },
+      {
+        "k": "shield",
+        "x": 147.8489837097004,
+        "y": 474.6976760039106
+      },
+      {
+        "k": "shield",
+        "x": 101.65464817080647,
+        "y": 443.11137049179524
+      },
+      {
+        "k": "shield",
+        "x": 30.889713992364705,
+        "y": 432.54868883732706
+      },
+      {
+        "k": "shield",
+        "x": 177.3978466866538,
+        "y": 474.022389261052
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-70-false",
+    "k": "spectralhand_wizard",
+    "x": 388.21505445521325,
+    "y": 496.3344988916069,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 313.35949337575585,
+        "y": 474.88651445508003
+      },
+      {
+        "k": "shield",
+        "x": 423.48470281343907,
+        "y": 430.27185626048595
+      },
+      {
+        "k": "shield",
+        "x": 437.18617253471166,
+        "y": 476.7280058879405
+      },
+      {
+        "k": "shield",
+        "x": 286.55461529735476,
+        "y": 433.8507046736777
+      },
+      {
+        "k": "shield",
+        "x": 417.9210238112137,
+        "y": 499.2948284903541
+      },
+      {
+        "k": "shield",
+        "x": 386.1738330544904,
+        "y": 421.15260909311473
+      },
+      {
+        "k": "shield",
+        "x": 377.6180287776515,
+        "y": 462.30775376874954
+      },
+      {
+        "k": "shield",
+        "x": 324.8726438963786,
+        "y": 502.48793663457036
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-70-true",
+    "k": "spectralhand_wizard",
+    "x": 91.78494554478675,
+    "y": 496.3344988916069,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 166.64050662424415,
+        "y": 474.88651445508003
+      },
+      {
+        "k": "shield",
+        "x": 56.51529718656093,
+        "y": 430.27185626048595
+      },
+      {
+        "k": "shield",
+        "x": 42.81382746528834,
+        "y": 476.7280058879405
+      },
+      {
+        "k": "shield",
+        "x": 193.44538470264524,
+        "y": 433.8507046736777
+      },
+      {
+        "k": "shield",
+        "x": 62.07897618878633,
+        "y": 499.2948284903541
+      },
+      {
+        "k": "shield",
+        "x": 93.82616694550961,
+        "y": 421.15260909311473
+      },
+      {
+        "k": "shield",
+        "x": 102.38197122234851,
+        "y": 462.30775376874954
+      },
+      {
+        "k": "shield",
+        "x": 155.12735610362142,
+        "y": 502.48793663457036
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-71-false",
+    "k": "colossal_hornfist",
+    "x": 425.2357201417908,
+    "y": 499.4162597209215,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 332.1220488520339,
+        "y": 488.2272927071899
+      },
+      {
+        "k": "shield",
+        "x": 445.4244837304577,
+        "y": 438.41671987157315
+      },
+      {
+        "k": "shield",
+        "x": 316.79375825915486,
+        "y": 462.9644822999835
+      },
+      {
+        "k": "shield",
+        "x": 357.3671436822042,
+        "y": 436.0942485546693
+      },
+      {
+        "k": "shield",
+        "x": 384.6606930019334,
+        "y": 468.58997499756515
+      },
+      {
+        "k": "shield",
+        "x": 353.9515537628904,
+        "y": 521.594763815403
+      },
+      {
+        "k": "shield",
+        "x": 364.26549626048654,
+        "y": 495.17474153544754
+      },
+      {
+        "k": "shield",
+        "x": 310.018389322795,
+        "y": 432.9436366893351
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-71-true",
+    "k": "colossal_hornfist",
+    "x": 54.76427985820919,
+    "y": 499.4162597209215,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 147.8779511479661,
+        "y": 488.2272927071899
+      },
+      {
+        "k": "shield",
+        "x": 34.57551626954228,
+        "y": 438.41671987157315
+      },
+      {
+        "k": "shield",
+        "x": 163.20624174084514,
+        "y": 462.9644822999835
+      },
+      {
+        "k": "shield",
+        "x": 122.63285631779581,
+        "y": 436.0942485546693
+      },
+      {
+        "k": "shield",
+        "x": 95.3393069980666,
+        "y": 468.58997499756515
+      },
+      {
+        "k": "shield",
+        "x": 126.0484462371096,
+        "y": 521.594763815403
+      },
+      {
+        "k": "shield",
+        "x": 115.73450373951346,
+        "y": 495.17474153544754
+      },
+      {
+        "k": "shield",
+        "x": 169.98161067720503,
+        "y": 432.9436366893351
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-78-false",
+    "k": "pillar_hammerer",
+    "x": 426.55904290731996,
+    "y": 504.5107995374128,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 362.16374007519335,
+        "y": 421.1429722746834
+      },
+      {
+        "k": "shield",
+        "x": 352.93179298285395,
+        "y": 511.3996896035969
+      },
+      {
+        "k": "shield",
+        "x": 387.5935265375301,
+        "y": 465.492913604714
+      },
+      {
+        "k": "shield",
+        "x": 398.3343804022297,
+        "y": 524.2517399666831
+      },
+      {
+        "k": "shield",
+        "x": 314.79645936284214,
+        "y": 490.08553340286016
+      },
+      {
+        "k": "shield",
+        "x": 459.1689449874684,
+        "y": 438.0479728030041
+      },
+      {
+        "k": "shield",
+        "x": 414.07134518492967,
+        "y": 460.24241721071303
+      },
+      {
+        "k": "shield",
+        "x": 284.83207024168223,
+        "y": 434.2577486122027
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-78-true",
+    "k": "pillar_hammerer",
+    "x": 53.44095709268004,
+    "y": 504.5107995374128,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 117.83625992480665,
+        "y": 421.1429722746834
+      },
+      {
+        "k": "shield",
+        "x": 127.06820701714605,
+        "y": 511.3996896035969
+      },
+      {
+        "k": "shield",
+        "x": 92.40647346246988,
+        "y": 465.492913604714
+      },
+      {
+        "k": "shield",
+        "x": 81.66561959777027,
+        "y": 524.2517399666831
+      },
+      {
+        "k": "shield",
+        "x": 165.20354063715786,
+        "y": 490.08553340286016
+      },
+      {
+        "k": "shield",
+        "x": 20.83105501253158,
+        "y": 438.0479728030041
+      },
+      {
+        "k": "shield",
+        "x": 65.92865481507033,
+        "y": 460.24241721071303
+      },
+      {
+        "k": "shield",
+        "x": 195.16792975831777,
+        "y": 434.2577486122027
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-79-false",
+    "k": "spectralhand_wizard",
+    "x": 410.4074828559533,
+    "y": 519.1633452810347,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 286.91733905579895,
+        "y": 459.03396343719214
+      },
+      {
+        "k": "shield",
+        "x": 305.49461817834526,
+        "y": 438.7358210980892
+      },
+      {
+        "k": "shield",
+        "x": 292.96764503698796,
+        "y": 497.6434850813821
+      },
+      {
+        "k": "shield",
+        "x": 449.1557834809646,
+        "y": 510.09463387634605
+      },
+      {
+        "k": "shield",
+        "x": 422.772179688327,
+        "y": 434.656235829927
+      },
+      {
+        "k": "shield",
+        "x": 360.33157841768116,
+        "y": 457.13411188405007
+      },
+      {
+        "k": "shield",
+        "x": 396.5024588862434,
+        "y": 477.6344727650285
+      },
+      {
+        "k": "shield",
+        "x": 340.2680652355775,
+        "y": 504.6695521539077
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-79-true",
+    "k": "spectralhand_wizard",
+    "x": 69.59251714404672,
+    "y": 519.1633452810347,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 193.08266094420105,
+        "y": 459.03396343719214
+      },
+      {
+        "k": "shield",
+        "x": 174.50538182165474,
+        "y": 438.7358210980892
+      },
+      {
+        "k": "shield",
+        "x": 187.03235496301204,
+        "y": 497.6434850813821
+      },
+      {
+        "k": "shield",
+        "x": 30.8442165190354,
+        "y": 510.09463387634605
+      },
+      {
+        "k": "shield",
+        "x": 57.227820311672986,
+        "y": 434.656235829927
+      },
+      {
+        "k": "shield",
+        "x": 119.66842158231884,
+        "y": 457.13411188405007
+      },
+      {
+        "k": "shield",
+        "x": 83.4975411137566,
+        "y": 477.6344727650285
+      },
+      {
+        "k": "shield",
+        "x": 139.73193476442248,
+        "y": 504.6695521539077
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-80-false",
+    "k": "colossal_hornfist",
+    "x": 430.49263053108007,
+    "y": 486.22129386663437,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 385.3423827094957,
+        "y": 450.66447999421507
+      },
+      {
+        "k": "shield",
+        "x": 386.2773931445554,
+        "y": 490.8528593014926
+      },
+      {
+        "k": "shield",
+        "x": 345.6355091324076,
+        "y": 472.017059574835
+      },
+      {
+        "k": "shield",
+        "x": 380.3788804123178,
+        "y": 525.0639896243811
+      },
+      {
+        "k": "shield",
+        "x": 280.5989720998332,
+        "y": 435.6212847502902
+      },
+      {
+        "k": "shield",
+        "x": 310.7094883872196,
+        "y": 522.260538966395
+      },
+      {
+        "k": "shield",
+        "x": 333.6129051959142,
+        "y": 433.84681781288236
+      },
+      {
+        "k": "shield",
+        "x": 282.6525129796937,
+        "y": 524.0329696517438
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-80-true",
+    "k": "colossal_hornfist",
+    "x": 49.50736946891993,
+    "y": 486.22129386663437,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 94.65761729050428,
+        "y": 450.66447999421507
+      },
+      {
+        "k": "shield",
+        "x": 93.72260685544461,
+        "y": 490.8528593014926
+      },
+      {
+        "k": "shield",
+        "x": 134.3644908675924,
+        "y": 472.017059574835
+      },
+      {
+        "k": "shield",
+        "x": 99.62111958768219,
+        "y": 525.0639896243811
+      },
+      {
+        "k": "shield",
+        "x": 199.4010279001668,
+        "y": 435.6212847502902
+      },
+      {
+        "k": "shield",
+        "x": 169.2905116127804,
+        "y": 522.260538966395
+      },
+      {
+        "k": "shield",
+        "x": 146.3870948040858,
+        "y": 433.84681781288236
+      },
+      {
+        "k": "shield",
+        "x": 197.3474870203063,
+        "y": 524.0329696517438
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-87-false",
+    "k": "pillar_hammerer",
+    "x": 419.37191498000175,
+    "y": 483.947776183486,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 310.7663217978552,
+        "y": 475.522099243477
+      },
+      {
+        "k": "shield",
+        "x": 356.8675628071651,
+        "y": 456.7901452621445
+      },
+      {
+        "k": "shield",
+        "x": 299.42843955475837,
+        "y": 423.4403591360897
+      },
+      {
+        "k": "shield",
+        "x": 356.09959305729717,
+        "y": 489.26860480289906
+      },
+      {
+        "k": "shield",
+        "x": 406.90441254060715,
+        "y": 437.5349847720936
+      },
+      {
+        "k": "shield",
+        "x": 326.78467318881303,
+        "y": 420.37208598293364
+      },
+      {
+        "k": "shield",
+        "x": 329.5165619952604,
+        "y": 501.17679984215647
+      },
+      {
+        "k": "shield",
+        "x": 439.24985576886684,
+        "y": 436.88103481940925
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-87-true",
+    "k": "pillar_hammerer",
+    "x": 60.62808501999825,
+    "y": 483.947776183486,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 169.2336782021448,
+        "y": 475.522099243477
+      },
+      {
+        "k": "shield",
+        "x": 123.13243719283491,
+        "y": 456.7901452621445
+      },
+      {
+        "k": "shield",
+        "x": 180.57156044524163,
+        "y": 423.4403591360897
+      },
+      {
+        "k": "shield",
+        "x": 123.90040694270283,
+        "y": 489.26860480289906
+      },
+      {
+        "k": "shield",
+        "x": 73.09558745939285,
+        "y": 437.5349847720936
+      },
+      {
+        "k": "shield",
+        "x": 153.21532681118697,
+        "y": 420.37208598293364
+      },
+      {
+        "k": "shield",
+        "x": 150.48343800473958,
+        "y": 501.17679984215647
+      },
+      {
+        "k": "shield",
+        "x": 40.75014423113316,
+        "y": 436.88103481940925
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-88-false",
+    "k": "spectralhand_wizard",
+    "x": 374.06224745791405,
+    "y": 495.86493993736804,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 409.01188409421593,
+        "y": 495.88667193055153
+      },
+      {
+        "k": "shield",
+        "x": 391.01347856689245,
+        "y": 521.8211218137294
+      },
+      {
+        "k": "shield",
+        "x": 286.47015613969415,
+        "y": 431.2717217197642
+      },
+      {
+        "k": "shield",
+        "x": 428.7866340065375,
+        "y": 522.7387138642371
+      },
+      {
+        "k": "shield",
+        "x": 288.0118243349716,
+        "y": 469.69833774957806
+      },
+      {
+        "k": "shield",
+        "x": 372.8287535579875,
+        "y": 445.6215805169195
+      },
+      {
+        "k": "shield",
+        "x": 335.0081662693992,
+        "y": 485.0438418164849
+      },
+      {
+        "k": "shield",
+        "x": 456.30285042803735,
+        "y": 458.0427898960188
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-88-true",
+    "k": "spectralhand_wizard",
+    "x": 105.93775254208595,
+    "y": 495.86493993736804,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 70.98811590578407,
+        "y": 495.88667193055153
+      },
+      {
+        "k": "shield",
+        "x": 88.98652143310755,
+        "y": 521.8211218137294
+      },
+      {
+        "k": "shield",
+        "x": 193.52984386030585,
+        "y": 431.2717217197642
+      },
+      {
+        "k": "shield",
+        "x": 51.2133659934625,
+        "y": 522.7387138642371
+      },
+      {
+        "k": "shield",
+        "x": 191.9881756650284,
+        "y": 469.69833774957806
+      },
+      {
+        "k": "shield",
+        "x": 107.17124644201249,
+        "y": 445.6215805169195
+      },
+      {
+        "k": "shield",
+        "x": 144.99183373060077,
+        "y": 485.0438418164849
+      },
+      {
+        "k": "shield",
+        "x": 23.697149571962655,
+        "y": 458.0427898960188
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-89-false",
+    "k": "colossal_hornfist",
+    "x": 417.8064866224304,
+    "y": 485.0406394302845,
+    "tx": 473,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 313.198015592061,
+        "y": 449.08852613624185
+      },
+      {
+        "k": "shield",
+        "x": 360.1435279054567,
+        "y": 460.20878299418837
+      },
+      {
+        "k": "shield",
+        "x": 372.36293339636177,
+        "y": 487.2533572418615
+      },
+      {
+        "k": "shield",
+        "x": 284.70082606654614,
+        "y": 470.055939999409
+      },
+      {
+        "k": "shield",
+        "x": 425.54475659970194,
+        "y": 436.7664640136063
+      },
+      {
+        "k": "shield",
+        "x": 349.09677631687373,
+        "y": 428.29808006528765
+      },
+      {
+        "k": "shield",
+        "x": 376.3575287582353,
+        "y": 430.6285827141255
+      },
+      {
+        "k": "shield",
+        "x": 457.27514809463173,
+        "y": 477.9316217303276
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": false,
+    "cohort": "seeded-legal-eight"
+  },
+  {
+    "id": "legal-crowd-89-true",
+    "k": "colossal_hornfist",
+    "x": 62.193513377569616,
+    "y": 485.0406394302845,
+    "tx": 7,
+    "ty": 531,
+    "allies": [
+      {
+        "k": "shield",
+        "x": 166.80198440793902,
+        "y": 449.08852613624185
+      },
+      {
+        "k": "shield",
+        "x": 119.85647209454328,
+        "y": 460.20878299418837
+      },
+      {
+        "k": "shield",
+        "x": 107.63706660363823,
+        "y": 487.2533572418615
+      },
+      {
+        "k": "shield",
+        "x": 195.29917393345386,
+        "y": 470.055939999409
+      },
+      {
+        "k": "shield",
+        "x": 54.45524340029806,
+        "y": 436.7664640136063
+      },
+      {
+        "k": "shield",
+        "x": 130.90322368312627,
+        "y": 428.29808006528765
+      },
+      {
+        "k": "shield",
+        "x": 103.64247124176472,
+        "y": 430.6285827141255
+      },
+      {
+        "k": "shield",
+        "x": 22.72485190536827,
+        "y": 477.9316217303276
+      }
+    ],
+    "seconds": 20,
+    "mobileAllies": true,
+    "realDamage": true,
+    "mirror": true,
+    "cohort": "seeded-legal-eight"
+  }
+]
