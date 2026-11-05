@@ -555,7 +555,7 @@ h1 { margin: 0; color: var(--ink); font-size: clamp(24px, 7vw, 28px); line-heigh
   margin: 3px 0 0;
   padding: 3px 6px;
   border: 1px solid rgb(208 163 79 / 62%);
-  color: #f1cf77;
+  color: #432e1d;
   background: rgb(208 163 79 / 10%);
   font-size: 12px;
   font-weight: 850;
@@ -1244,6 +1244,7 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 #gameScreen[data-personal-result="true"] #resultPanel[data-earned="true"] #breakdown { color:#432e1d; background:transparent; text-shadow:0 0 3px #f2dfb8,0 0 5px #f2dfb8; }
 /* Selection hierarchy: identity, primary stats, then supporting details. */
 #comparison .comparison-scroll { min-height:0; scroll-padding-block:12px; padding-block:10px 18px; }
+#comparisonScroll { overflow-anchor:none; }
 #comparison .army-card { overflow:visible; }
 #comparison .army-preview { flex:0 0 auto; }
 #comparison .comparison-unit-heading { align-items:center; padding-bottom:3px; border-bottom:1px solid #c4a778; }

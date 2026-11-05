@@ -581,7 +581,7 @@ h1 { margin: 0; color: var(--ink); font-size: clamp(24px, 7vw, 28px); line-heigh
   margin: 3px 0 0;
   padding: 3px 6px;
   border: 1px solid rgb(208 163 79 / 62%);
-  color: #f1cf77;
+  color: #432e1d;
   background: rgb(208 163 79 / 10%);
   font-size: 12px;
   font-weight: 850;
@@ -1270,6 +1270,7 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 #gameScreen[data-personal-result="true"] #resultPanel[data-earned="true"] #breakdown { color:#432e1d; background:transparent; text-shadow:0 0 3px #f2dfb8,0 0 5px #f2dfb8; }
 /* Selection hierarchy: identity, primary stats, then supporting details. */
 #comparison .comparison-scroll { min-height:0; scroll-padding-block:12px; padding-block:10px 18px; }
+#comparisonScroll { overflow-anchor:none; }
 #comparison .army-card { overflow:visible; }
 #comparison .army-preview { flex:0 0 auto; }
 #comparison .comparison-unit-heading { align-items:center; padding-bottom:3px; border-bottom:1px solid #c4a778; }
@@ -6215,7 +6216,7 @@ function freshWallet(){failedScoreKey=null;const retry=document.querySelector('#
 function credits(n){return MoneyUI.credits(n)}
 function currentWallet(){return SoloWallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s,prepared){resetSoloClock();const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);};
+setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);syncArenaField();
@@ -6561,9 +6562,9 @@ let formationVisible=false;
 function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
 update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
-let lastScreenPhase=null;
+let lastScreenPhase=null,lastPredictionViewKey=null;
 const screenMultiDisplay=displayMultiState;
-displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();};
+displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();if(!multiSession)lastPredictionViewKey=null;else if(multiSnapshot?.phase==='predict'){const key=JSON.stringify([multiSnapshot.sessionId,multiSnapshot.roundId]);if(key!==lastPredictionViewKey){lastPredictionViewKey=key;const scroll=document.querySelector('#comparisonScroll');if(scroll)scroll.scrollTop=0;}}};
 for(const img of Object.values(spriteImages)){const prior=img.onload;img.onload=()=>{if(prior)prior();drawArmyPreviews();};}
 document.querySelector('#soloStart').onclick=openSoloScreen;
 let publicRoomRequest=0;

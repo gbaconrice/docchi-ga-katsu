@@ -4659,7 +4659,7 @@ function freshWallet(){failedScoreKey=null;const retry=document.querySelector('#
 function credits(n){return MoneyUI.credits(n)}
 function currentWallet(){return SoloWallet.walletView(walletState,PLAYER)}
 const spriteSetup=setup;
-setup=function(s,prepared){resetSoloClock();const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);};
+setup=function(s,prepared){resetSoloClock();selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance);spriteSetup(s,prepared);const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;};
 update=function(){
   if(!walletState)return;
   const w=currentWallet(),q=id=>document.querySelector(id);syncArenaField();
@@ -5008,9 +5008,9 @@ let formationVisible=false;
 function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
 const screenUpdate=update;
 update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
-let lastScreenPhase=null;
+let lastScreenPhase=null,lastPredictionViewKey=null;
 const screenMultiDisplay=displayMultiState;
-displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();};
+displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&screenMode==='game')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();if(!multiSession)lastPredictionViewKey=null;else if(multiSnapshot?.phase==='predict'){const key=JSON.stringify([multiSnapshot.sessionId,multiSnapshot.roundId]);if(key!==lastPredictionViewKey){lastPredictionViewKey=key;const scroll=document.querySelector('#comparisonScroll');if(scroll)scroll.scrollTop=0;}}};
 for(const img of Object.values(spriteImages)){const prior=img.onload;img.onload=()=>{if(prior)prior();drawArmyPreviews();};}
 document.querySelector('#soloStart').onclick=openSoloScreen;
 let publicRoomRequest=0;
