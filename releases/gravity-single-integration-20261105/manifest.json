@@ -1,0 +1,43 @@
+{
+  "source": "root index.html in the same commit (LF normalized)",
+  "sourceSha256": "2a7a05a56dee92858bcb7ffa69e06f6f5dd05528d79ae5c7dde32678982df929",
+  "base": "https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-single-integration-20261105/",
+  "entryCharacters": 1193,
+  "files": [
+    {
+      "name": "index.html",
+      "bytes": 1311,
+      "sha256": "94d6116f36b8bc7b12728ec41cea22c308467d27b36e315da86c3ada96e60d29"
+    },
+    {
+      "name": "game-shell.js",
+      "bytes": 1691930,
+      "sha256": "0450ec94d8453976de5cc611dda2e64dac37edfdf38767ca7cc7d4e1d1e09328"
+    },
+    {
+      "name": "game.css",
+      "bytes": 3325168,
+      "sha256": "6d2ace269686fb721f20d9808e5b4fc355cec737866acc05db83736240983ecc"
+    },
+    {
+      "name": "host-layout.js",
+      "bytes": 1293,
+      "sha256": "05fa4b7e3ed0d56182359cfa017a80dcbd2ae532a36558db653fea0498410b32"
+    },
+    {
+      "name": "boot-errors.js",
+      "bytes": 421,
+      "sha256": "dcd496d3b3bd749c3b6c1bbbc84a2443c73266c9f1310158903bad0b4e0a81dd"
+    },
+    {
+      "name": "viewport.js",
+      "bytes": 1044,
+      "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf"
+    },
+    {
+      "name": "game-runtime.js",
+      "bytes": 38636081,
+      "sha256": "4191715c35b46a0a3285254f201f65d2f864707d7ecbd8d54f78412aad9b2601"
+    }
+  ]
+}
