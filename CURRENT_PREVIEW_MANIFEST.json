@@ -1,7 +1,7 @@
 {
   "scope": "300-species preview HTML; LF-normalized Git blob",
   "index": "index.html",
-  "indexSHA256": "7da59229511f6ecd16a6475726aabcb1668758cee5ba363d19cb6d485c4c8c1e",
+  "indexSHA256": "64de113ea3306a06d7d92877d7edc4c30ebc9a13bd27cf692955b964d465459d",
   "validation": "tests/result-scroll-regression.cjs",
   "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md",
   "balance": "BALANCE_STUDY.md",
