@@ -7681,11 +7681,12 @@ function scatterResultCoins(scene,node,entry){
  }
  if(!animations.length){layer.hidden=true;return false}scene.animations.push(...animations);scene.flightActive=true;return true;
 }
+const EARNED_COUNT_MS=420;
 function syncEarnedCount(scene,entry,elapsed){
  const delta=ownPositiveDelta(entry);if(!delta||!scene.earnedRevealed)return;
  const q=id=>document.querySelector(id),node=q('#breakdown');if(!node)return;
  // Ease out for 420ms after the reveal; only the display is interpolated.
- const linear=scene.reducedMotion||scene.cancelled?1:Math.max(0,Math.min(1,(elapsed-280)/420));
+ const linear=scene.reducedMotion||scene.cancelled?1:Math.max(0,Math.min(1,(elapsed-280)/EARNED_COUNT_MS));
  const progress=1-(1-linear)*(1-linear);
  const text=MoneyUI.resultCountupText(delta,progress);if(node.textContent!==text)node.textContent=text;
  scene.countComplete=progress>=1;setEarnedStage(true,scene.arrivalDone?'arrived':scene.countComplete?'counted':'counting');
@@ -7751,7 +7752,8 @@ function syncPersonalResult(now){
   syncEarnedCount(scene,activeEntry,elapsed);
 
  }
- const arrivalAt=280;
+ // Deposit SE, balance flash and 'arrived' wait for the count-up to finish (not its first frame); reduced motion has no count.
+ const arrivalAt=280+(scene.reducedMotion?0:EARNED_COUNT_MS);
  advance(3,arrivalAt,()=>{
   if(activeDelta<=0n)return;
 
