@@ -1516,9 +1516,6 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
  #gameScreen[data-field-view="true"] .crowd-inspector { position:absolute; left:0; right:84px; bottom:0; min-height:64px; }
 }
 
-/* Compact camera-mode status inside the existing control; no extra row. */
-#app #zoomReset { white-space:normal; font-size:11px; line-height:1.1; min-width:44px; min-height:44px; }
-#app #zoomReset::before { content:attr(data-camera-mode); display:block; color:inherit; font-size:12px; font-weight:900; line-height:1.15; }
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>
@@ -1694,9 +1691,6 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
         <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
         <button id="speedDown" class="control-button" type="button" aria-label="戦闘速度を下げる">速度 −</button>
         <button id="speedUp" class="control-button" type="button" aria-label="戦闘速度を上げる">速度 ＋</button>
-        <button id="zoomOut" class="control-button" type="button" aria-label="戦場を縮小">縮小</button>
-        <button id="zoomIn" class="control-button" type="button" aria-label="戦場を拡大">拡大</button>
-        <button id="zoomReset" class="control-button" type="button" aria-label="戦場全体を表示">全体</button>
         <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
       </div>
       <div id="reaction-backdrop" class="reaction-backdrop" hidden aria-hidden="true"></div>
@@ -7307,7 +7301,7 @@ let cameraX=240,cameraY=269,cameraDrag=null,cameraFitScale=1,cameraFitBounds={le
 let cameraMode='auto',cameraAutoLast=null,cameraAutoBounds=null;
 const AUTO_CAMERA_MAX_ZOOM=1.75,AUTO_CAMERA_PADDING=28;
 // New rounds reframe the new field, but retain the viewer's explicit mode/zoom.
-function resetCameraForRound(){if(cameraMode!=='manual')cameraZoom=1;cameraAutoLast=null;cameraAutoBounds=null;centerFixedCamera();cameraDrag=null;}
+function resetCameraForRound(){cameraMode='auto';cameraZoom=1;cameraAutoLast=null;cameraAutoBounds=null;centerFixedCamera();cameraDrag=null;}
 function automaticCameraBounds(){
  const b={left:Infinity,top:Infinity,right:-Infinity,bottom:-Infinity};let count=0;
  for(const u of units){
@@ -7351,11 +7345,6 @@ function updateAutoCamera(now){
  cameraY=Math.max(b.bottom+6-hy,Math.min(b.top-6+hy,cameraY));
  cameraZoom=scale/cameraFitScale;clampCamera();syncCameraInput();
 }
-function toggleCameraOverview(){
- if(cameraMode==='overview'){cameraMode='auto';cameraAutoLast=null;cameraAutoBounds=null;cameraDrag=null;syncCameraInput();draw();syncFlowControls();}
- else resetCamera();
-}
-
 function centerFixedCamera(){cameraX=(cameraFitBounds.left+cameraFitBounds.right)/2;cameraY=(cameraFitBounds.top+cameraFitBounds.bottom)/2;}
 const BASE_VISUAL_META={"sword": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [18, 40, 24, 0], "hover_gap": 0}, "shield": {"cell": [80, 80], "anchor": [40, 63], "visual_insets": [19, 42, 33, 5], "hover_gap": 0}, "archer": {"cell": [48, 48], "anchor": [21, 41], "visual_insets": [15, 36, 24, 0], "hover_gap": 0}, "spear": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [20, 49, 33, 0], "hover_gap": 0}, "cannon": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [22, 39, 29, 1], "hover_gap": 0}, "rider": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [24, 51, 31, 1], "hover_gap": 0}, "healer": {"cell": [64, 64], "anchor": [29, 53], "visual_insets": [17, 49, 22, 0], "hover_gap": 0}};
 for(const [k,m] of Object.entries(LICENSED_CLIP_SPECS)){const target=MONSTER_META[k]||BASE_VISUAL_META[k]||(BASE_VISUAL_META[k]={cell:m.clips.idle.frames[0].rect.slice(2),hover_gap:0});if(k==='wraith'||k==='drake')target.hover_gap=0;target.visual_insets=[...(m.camera_insets??m.visual_insets)];target.anchor=m.anchor.map(n=>n*(m.renderScale??1));target.preview_width=m.previewWidth??m.visual_insets[0]+m.visual_insets[2];}
@@ -7397,40 +7386,11 @@ draw=function(){
  }finally{fieldDrawPass='all';}
  syncCrowdInspector();
 };
-function syncCameraModeStatus(){
- const b=document.querySelector('#zoomReset');if(!b)return;
- const mode=cameraMode==='manual'?'手動':cameraMode==='overview'?'全体':'自動';
- const action=cameraMode==='overview'?'自動へ':'全体へ';
- b.setAttribute('data-camera-mode',mode);b.textContent=action;
- b.setAttribute('aria-label','現在の表示：'+(cameraMode==='auto'?'自動追従':cameraMode==='manual'?'手動':'全体表示')+'。押すと'+(cameraMode==='overview'?'自動追従':'全体表示'));
- b.setAttribute('aria-pressed',String(cameraMode==='overview'));
-}
-function syncCameraInput(){syncCameraModeStatus();const el=document.querySelector('#field');if(el.style){el.style.touchAction=cameraZoom>1?'pinch-zoom':'manipulation';el.style.cursor=cameraZoom>1?(cameraDrag?.active?'grabbing':'grab'):'default';}el.setAttribute?.('aria-label','左と右の戦闘'+(cameraMode==='auto'?'。自動追従中':'')+(cameraZoom>1?'。ドラッグで移動、全体ボタンで全体表示':''));}
-function resetCamera(){cameraMode='overview';cameraAutoLast=null;cameraAutoBounds=null;cameraZoom=1;centerFixedCamera();cameraDrag=null;syncCameraInput();draw();syncFlowControls();}
-function setCameraZoom(direction){const values=[1,1.25,1.5,2];cameraMode='manual';cameraAutoLast=null;cameraAutoBounds=null;cameraZoom=direction>0?(values.find(v=>v>cameraZoom+.001)??2):([...values].reverse().find(v=>v<cameraZoom-.001)??1);cameraDrag=null;clampCamera();syncCameraInput();draw();syncFlowControls();}
+function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction='pan-y pinch-zoom';el.style.cursor='default';}el.setAttribute?.('aria-label','戦場。自動追従中。兵士をタップすると詳細を表示');}
 const cameraCanvas=document.querySelector('#field');
-// A tap or a browser-owned gesture is not a manual-camera choice.
+// Pointer handlers below are wrapped by the unit-tap inspector; they do not pan the camera.
 const CAMERA_DRAG_THRESHOLD=5;
-cameraCanvas.onpointerdown=e=>{
- if(e.isPrimary===false){endCameraDrag(null,true);return;}
- if(cameraZoom<=1||(e.button!==undefined&&e.button!==0))return;
- const r=cameraCanvas.getBoundingClientRect(),scale=Math.min(r.width/480,r.height/538);if(!(scale>0))return;
- cameraDrag={id:e.pointerId,x:e.clientX,y:e.clientY,cx:cameraX,cy:cameraY,scale,active:false,mode:cameraMode,autoBounds:cameraAutoBounds};
- cameraCanvas.setPointerCapture?.(e.pointerId);syncCameraInput();
-};
-cameraCanvas.onpointermove=e=>{
- if(!cameraDrag||cameraDrag.id!==e.pointerId)return;
- const dx=e.clientX-cameraDrag.x,dy=e.clientY-cameraDrag.y;
- if(!cameraDrag.active){if(Math.hypot(dx,dy)<CAMERA_DRAG_THRESHOLD)return;cameraDrag.active=true;cameraMode='manual';cameraAutoLast=null;cameraAutoBounds=null;syncCameraInput();}
- cameraX=cameraDrag.cx-dx/(cameraDrag.scale*cameraFitScale*cameraZoom);cameraY=cameraDrag.cy-dy/(cameraDrag.scale*cameraFitScale*cameraZoom);clampCamera();e.preventDefault?.();draw();
-};
-function endCameraDrag(e,canceled=false){
- if(!cameraDrag||(e&&cameraDrag.id!==e.pointerId))return;
- const drag=cameraDrag;cameraDrag=null;
- if(canceled){cameraMode=drag.mode;cameraAutoBounds=drag.autoBounds;cameraAutoLast=null;cameraX=drag.cx;cameraY=drag.cy;}
- if(cameraCanvas.hasPointerCapture?.(drag.id))cameraCanvas.releasePointerCapture(drag.id);syncCameraInput();
-}
-cameraCanvas.onpointerup=e=>endCameraDrag(e);cameraCanvas.onpointercancel=e=>endCameraDrag(e,true);cameraCanvas.onlostpointercapture=e=>endCameraDrag(e,true);
+cameraCanvas.onpointerdown=()=>{};cameraCanvas.onpointermove=()=>{};cameraCanvas.onpointerup=()=>{};cameraCanvas.onpointercancel=()=>{};cameraCanvas.onlostpointercapture=()=>{};
 const cameraSetup=setup;setup=function(seedValue,prepared){cameraDrag=null;cameraSetup(seedValue,prepared);configureFixedCamera();syncCameraInput();draw();};
 const cameraResetMultiRound=resetMultiRound;resetMultiRound=function(){resetCameraForRound();cameraResetMultiRound();syncCameraInput();};
 if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',()=>{cameraDrag=null;clampCamera();syncCameraInput();draw();});
@@ -7886,11 +7846,10 @@ function syncFlowControls(){
  const q=id=>document.querySelector(id),s=multiSession?.getState();
  q('#gameScreen')?.setAttribute('data-phase',state);if(unitsOpen&&state!=='fight')toggleUnits(false);if(pausePanelOpen&&state!=='fight')closePausePanel();
  const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<sessionRoundLimit()&&!soloTerminalBoundary();
- for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2],['#zoomOut',cameraZoom<=1],['#zoomIn',cameraZoom>=2],['#zoomReset',false]])if(q(id))q(id).disabled=disabled;
-  syncCameraModeStatus();
+ for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2]])if(q(id))q(id).disabled=disabled;
  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
 }
-for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}],['#zoomOut',()=>setCameraZoom(-1)],['#zoomIn',()=>setCameraZoom(1)],['#zoomReset',toggleCameraOverview]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
+for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
 const flowUpdate=update;update=function(){flowUpdate();syncFlowControls();};
 const flowDisplayMulti=displayMultiState;displayMultiState=function(){flowDisplayMulti();syncFlowControls();};
 const flowAdvance=advanceResultRead;advanceResultRead=function(t){if(unitsOpen){resultReadLast=null;syncFlowControls();return;}flowAdvance(t);syncFlowControls();};
