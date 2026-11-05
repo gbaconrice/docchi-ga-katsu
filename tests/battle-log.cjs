@@ -1,0 +1,33 @@
+const fs=require('fs'),assert=require('assert');
+const harness=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
+new Function('require','assert',harness+`
+const run=s=>vm.runInContext(s,context,{timeout:60000});
+run(\`globalThis.logActors=[{id:'a',token:'a',k:'sword',side:0},{id:'b',token:'b',k:'shield',side:1},{id:'h',token:'h',k:'healer',side:0}];globalThis.hit={type:'resolved_hit',sourceToken:'a',targetToken:'b',amount:10};globalThis.heal={type:'heal',sourceToken:'h',targetToken:'a',actualAmount:3};globalThis.log=BattleLog.createRecorder();log.capture(1,[hit],logActors);log.capture(1,[heal],logActors);\`);
+assert.equal(run('log.size()'),1,'repeated tick is not consumed');
+assert.equal(run('BattleLog.describe(log.latest()).action'),'10ダメージ');
+run('log.capture(2,[heal],logActors);log.capture(45,[],logActors)');assert.equal(run('log.size()'),1);
+run('log.capture(46,[],logActors)');assert.equal(run('log.size()'),2);assert.equal(run('BattleLog.describe(log.latest()).action'),'3回復');assert.equal(run('log.latest().eventTick'),2);
+run('log.capture(47,[{...hit,amount:NaN},{...hit,sourceToken:"missing"}],logActors);log.capture(91,[],logActors)');assert.equal(run('log.size()'),2,'invalid events do not fabricate logs');
+run('log=BattleLog.createRecorder();for(let t=1;t<=3601;t++)log.capture(t,Array(128).fill(hit),logActors)');assert.equal(run('log.size()'),81,'high-frequency capture is bounded');assert(run('log.rows().every((r,i,a)=>!i||r[0]-a[i-1][0]>=45)'));
+console.log('PASS real-time samples: duplicate ticks, pending latest event, no backlog, invalid events and 81-row maximum');
+// Existing game heal event must report actual recovery, not requested healing.
+run(\`multiSession=null;battleEnvironment=null;resetBattleLog();TYPES.healer.speed=0;TYPES.sword.speed=0;TYPES.sword.dmg=0;elapsed=0;state='fight';winner=null;combatEvents=[];pendingSummons=[];shots=[];units=[{id:'h',token:'h',k:'healer',side:0,x:100,y:200,hp:TYPES.healer.hp,cd:0,priority:.1,dead:false,originForward:1},{id:'p',token:'p',k:'sword',side:0,x:120,y:200,hp:97,cd:10,priority:.2,dead:false,originForward:1},{id:'e',token:'e',k:'sword',side:1,x:400,y:200,hp:100,cd:10,priority:.3,dead:false,originForward:-1}];step(1/60);\`);
+assert.equal(run("combatEvents.find(e=>e.type==='heal').actualAmount"),3);assert.equal(run('soloBattleLog.latest().amount'),3);assert.equal(run('BattleLog.describe(soloBattleLog.latest()).action'),'3回復');
+// Existing hit amount is post-armor attack damage; it may exceed remaining HP.
+run(\`resetBattleLog();TYPES.sword.dmg=10;TYPES.sword.rate=100;TYPES.shield.dmg=0;TYPES.shield.speed=0;elapsed=0;state='fight';winner=null;shots=[];pendingSummons=[];units=[{id:'a',token:'a',k:'sword',side:0,x:208,y:250,hp:100,cd:0,priority:0,dead:false,originForward:1},{id:'v',token:'v',k:'shield',side:1,x:230,y:250,hp:5,cd:100,priority:1,dead:false,originForward:-1}];BattleInsights.start(units);step(1/60);\`);
+assert.equal(run('soloBattleLog.latest().amount'),10);assert.equal(run('units[1].hp'),-5);assert.equal(run('BattleLog.describe(soloBattleLog.latest()).action'),'10ダメージ');
+console.log('PASS authoritative actual heal and resolved hit; overkill remains attack damage, not a fabricated HP-loss value');
+// Canonical host computes once. Guests/reconnect consume the same bounded metadata.
+run(\`multiInitial=JSON.parse(JSON.stringify([initialUnits.find(u=>u.side===0),initialUnits.find(u=>u.side===1)]));Object.assign(multiInitial[0],{k:'boar',x:180,y:250,hp:TYPES.boar.hp,cd:0,dead:false});Object.assign(multiInitial[1],{k:'sword',x:300,y:250,hp:TYPES.sword.hp,cd:0,dead:false});globalThis.generated=buildCanonicalReplay();globalThis.playLog=BattleLog.createPlayback(generated);\`);
+assert(run('generated.battleLog.rows.length>0'));const first=run('generated.battleLog.rows[0][0]');assert.equal(run('playLog.at('+Math.max(0,first-1)+')'),null);assert(run('playLog.at('+first+')!==null'));assert.equal(run('JSON.stringify(playLog.at(generated.ticks))'),run('JSON.stringify(BattleLog.createPlayback(JSON.parse(JSON.stringify(generated))).at(generated.ticks))'));
+context.btoa=s=>Buffer.from(s,'binary').toString('base64');context.atob=s=>Buffer.from(s,'base64').toString('binary');
+run(\`globalThis.transferResult=(()=>{const packed=ReplayTransfer.packReplay(generated,'log-test');let result,receiver,sender,ms=1000;const join=()=>{receiver=ReplayTransfer.createReceiver({meta:packed.meta,sendAck:m=>sender.ack('guest',m),onComplete:r=>result=r});sender=ReplayTransfer.createSender({packed,recipients:['guest'],send:m=>receiver.receive(m),now:()=>ms});for(let i=0;i<10000&&!sender.ready();i++){ms+=150;sender.pump();}if(!sender.ready())throw Error('not acknowledged');return JSON.stringify(BattleLog.createPlayback(result).at(result.ticks));};return {first:join(),rejoined:join()};})();\`);
+assert.equal(run('transferResult.first'),run('transferResult.rejoined'));assert.equal(run('transferResult.first'),run('JSON.stringify(playLog.at(generated.ticks))'));
+run('globalThis.bad=JSON.parse(JSON.stringify(generated));bad.battleLog.rows[0][3]="missing"');assert.equal(run('BattleLog.createPlayback(bad).at(bad.ticks)'),null);assert(run('CompactReplay.createPlayback(bad)!==null'),'optional bad log does not break valid replay');
+run('delete bad.battleLog');assert.equal(run('BattleLog.createPlayback(bad).at(bad.ticks)'),null,'old replay has no invented log');
+run('globalThis.big={padding:"x".repeat(CompactReplay.MAX_REPLAY_BYTES-30)}');assert.equal(run('BattleLog.attach(big,generated.battleLog.rows)'),false);assert.equal(run('Object.hasOwn(big,"battleLog")'),false);
+console.log('PASS canonical host sample, time alignment, chunk transfer and reconnect, corrupt/missing log omission, replay byte-cap fallback');
+run(\`multiSession=null;state='fight';screenMode='game';predictionPreview=false;multiRecording=false;resetBattleLog();soloBattleLog.capture(1,[hit],logActors);syncBattleLog(1000);\`);
+assert.equal(nodes.get('#battleLogAction').textContent,'10ダメージ');run('soloBattleLog.capture(46,[heal],logActors);syncBattleLog(1200)');assert.equal(nodes.get('#battleLogAction').textContent,'10ダメージ');run('syncBattleLog(1500)');assert.equal(nodes.get('#battleLogAction').textContent,'3回復');run('syncBattleLog(1600)');assert.equal(nodes.get('#battleLogAction').textContent,'3回復');run("state='result';syncBattleLog(1700)");assert.equal(nodes.get('#battleLog').hidden,true);run("state='fight';multiRecording=true;syncBattleLog(1800)");assert.equal(nodes.get('#battleLog').hidden,true);
+console.log('PASS 500ms DOM throttle and log hidden during host precomputation/result');
+`)(require,assert);
