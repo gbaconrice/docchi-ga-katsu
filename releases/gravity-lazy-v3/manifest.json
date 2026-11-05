@@ -1,16 +1,16 @@
 {
-  "sourceSha256": "64de113ea3306a06d7d92877d7edc4c30ebc9a13bd27cf692955b964d465459d",
+  "sourceSha256": "7da59229511f6ecd16a6475726aabcb1668758cee5ba363d19cb6d485c4c8c1e",
   "contentRevision": "140cb049d03042705926e35497a19aac395f957028b16b021a4eeec31a14fff9",
   "remoteBase": "https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/",
-  "occurrences": 578,
+  "occurrences": 577,
   "verifiedCatalogImages": 271,
-  "uniqueImages": 564,
-  "assetBytes": 26638828,
+  "uniqueImages": 563,
+  "assetBytes": 24193000,
   "variants": [
     {
       "mode": "gravity",
-      "htmlBytes": 18373,
-      "runtimeBytes": 5907631
+      "htmlBytes": 18358,
+      "runtimeBytes": 5727760
     }
   ],
   "bundles": [
@@ -21,13 +21,13 @@
     },
     {
       "path": "gravity/game-runtime.js",
-      "bytes": 5907631,
-      "sha256": "191f37eae4b29481c80ce92ae0c2e1adbca28fa4a4e3e795366b2dcf70e17c8a"
+      "bytes": 5727760,
+      "sha256": "f265e31e5b61e4dc383d40fdc76aaa534f15cd12eebb223dd9ba4ada300f6bec"
     },
     {
       "path": "gravity/game.css",
-      "bytes": 59905,
-      "sha256": "4a5ccafae4938b6060c01bfad6b4e860c7565578078f19e8da333622e9d0e19b"
+      "bytes": 58604,
+      "sha256": "3349edf642f44fea29edaf607cfe2c422f7d4b0cd30d930c02bc5ff9d5c4408d"
     },
     {
       "path": "gravity/host-layout.js",
@@ -36,8 +36,8 @@
     },
     {
       "path": "gravity/index.html",
-      "bytes": 18373,
-      "sha256": "e163fa1d28fb02ccc8ed8abc54b15e0abfffd29ac5359dd35cf1398f78a76ab4"
+      "bytes": 18358,
+      "sha256": "234a0d2f7b3c088bd716aed4fc26dcb61ff42a4ed3c4b6451041f43196d057a1"
     },
     {
       "path": "gravity/viewport.js",
@@ -46,15 +46,6 @@
     }
   ],
   "assets": [
-    {
-      "name": "43fbeb1f07efc3c8bda997c7b28f3b02c5f7284d394ae984209bba630788d7aa.png",
-      "bytes": 2445828,
-      "sha256": "43fbeb1f07efc3c8bda997c7b28f3b02c5f7284d394ae984209bba630788d7aa",
-      "dimensions": [
-        1024,
-        1536
-      ]
-    },
     {
       "name": "bf06853b8247b08d2ee2dd4e86295b12990fc37cd1f379893677d497c7bfd9c3.png",
       "bytes": 30792,
