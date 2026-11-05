@@ -1,0 +1,1141 @@
+--- a/index.html
++++ b/index.html
+@@ -332,7 +332,7 @@
+ .comparison-list { display: grid; gap: 6px; min-width: 0; white-space: normal; text-align: left; }
+ .comparison-unit { display: grid; min-width: 0; gap: 3px; padding-top: 4px; border-top: 1px solid rgb(72 61 42 / 22%); }
+ .comparison-unit:first-child { padding-top: 0; border-top: 0; }
+-.battle-insights { margin:4px 0; color:#49391f; font-size:12px; line-height:1.35; overflow-wrap:anywhere; }
++.battle-insights { margin:4px 0; color:#49391f; font-size:12px; line-height:1.35; overflow-wrap:anywhere; white-space:pre-line; }
+ .comparison-terrain-note { display:block; max-width:100%; box-sizing:border-box; margin:0 0 5px; color:#3d513c; font-size:11px; line-height:1.35; overflow-wrap:anywhere; }
+ .comparison-unit-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 4px; min-width: 0; line-height: 1.2; }
+ .comparison-name { min-width: 0; font-size: 12px; font-weight: 800; overflow-wrap: anywhere; }
+@@ -420,6 +420,8 @@
+ .prediction-picks { display:flex; justify-content:center; flex-wrap:wrap; gap:2px; max-width:100%; pointer-events:none; }
+ .prediction-picks[hidden] { display:none; }
+ .prediction-pick { display:inline-grid; place-items:center; width:21px; height:21px; border:1px solid #936b35; border-radius:50%; overflow:hidden; color:#fff0d5; background:#513728; font:700 10px/1 system-ui,sans-serif; }
++.prediction-pick.is-selecting { border-style:dashed; }
++.prediction-pick.is-confirmed { border-color:#ffe5a1; box-shadow:0 0 0 1px #765222; }
+ .prediction-pick img { width:100%; height:100%; object-fit:cover; }
+ .battle-choice { flex:0 0 auto; max-width:80px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:#f8e9c8; background:#513728; border:1px solid #a98757; padding:3px 4px; font:700 10px/1.2 system-ui,sans-serif; }
+ .battle-choice[hidden] { display:none; }
+@@ -435,8 +437,8 @@
+ .reaction-feedback {
+   position: absolute;
+   z-index: 6;
+-  top: calc(100% + 4px);
+-  left: 0;
++  top: 12px;
++  left: 12px;
+   display: none;
+   width: 64px;
+   height: 64px;
+@@ -494,6 +496,7 @@
+   line-height: 1;
+ }
+ .field-stage {
++  container-type: size;
+   position: relative;
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+@@ -503,6 +506,16 @@
+   min-width: 0;
+   min-height: 0;
+   width: 100%;
++}
++/* Fit the frame itself, not only the bitmap inside a full-stage canvas box.
++   Keep the 480x538 content ratio and include the canvas's 1px border on each side.
++   The stage still owns spare layout space; only the fitted map owns its reaction. */
++.field-map {
++  position: relative;
++  width: min(100cqw, calc((100cqh - 2px) * 480 / 538 + 2px));
++  height: min(100cqh, calc((100cqw - 2px) * 538 / 480 + 2px));
++  min-width: 0;
++  min-height: 0;
+ }
+ .combat-spectacle[hidden], .double-up-badge[hidden], .final-blow-caption[hidden], .cashout-receipt[hidden], .earned-burst[hidden] { display: none !important; }
+ .combat-spectacle {
+@@ -601,6 +614,24 @@
+   image-rendering: pixelated;
+   object-fit: contain;
+ }
++
++/* One bounded, read-only combat sample below the selected character details. */
++.battle-log { flex:0 0 36px; height:36px; min-height:36px; min-width:0; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto; align-items:center; gap:4px; margin:0; padding:4px 6px; border:1px solid #8b9b79; border-radius:4px; background:#1d2c24; color:#f5e9c6; font:600 11px/1.2 system-ui,sans-serif; }
++.battle-log[hidden] { display:none; }
++/* Result transitions keep the same map budget without exposing stale log text. */
++#battle[data-battle-log-slot="true"] > .battle-log[hidden] { display:grid !important; visibility:hidden; pointer-events:none; }
++@media (min-width:900px) and (min-height:640px) {
++ #gameScreen[data-field-view="true"] #battle[data-battle-log-slot="true"] > .battle-log { position:absolute; left:0; right:84px; bottom:0; }
++ #gameScreen[data-field-view="true"] #battle[data-battle-log-slot="true"] .crowd-inspector { bottom:40px; }
++ #gameScreen[data-field-view="true"] #battle[data-battle-log-slot="true"] .field-stage { bottom:40px; }
++ #gameScreen[data-field-view="true"] #battle[data-battle-log-slot="true"][data-crowd-inspector="true"] .field-stage { bottom:108px; }
++}
++
++.battle-log-name { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
++.battle-log-action { white-space:nowrap; color:#ffe0ae; font-variant-numeric:tabular-nums; }
++.battle-log[data-kind="heal"] .battle-log-action { color:#c6efc1; }
++.battle-log[data-kind="empty"] #battleLogSource { grid-column:1 / -1; }
++
+ .battle-controls { display: grid; grid-template-columns: repeat(6, minmax(44px, 1fr)); gap: 4px; }
+ .control-button {
+   min-width: 44px;
+@@ -633,6 +664,8 @@
+ .result-summary { margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.35; white-space: pre-line; }
+ .result-next { margin-top: 6px; }
+ .result-winner { margin: 0 0 3px; color: var(--walnut-deep); font-size: 12px; }
++/* Both outcome labels share the result card's center, including multiline text. */
++#resultPanel > .result-title, #resultPanel > .result-winner { display:block; width:100%; margin-inline:0; text-align:center; text-indent:0; }
+ .result-ranking { font-size: 12px; margin: 4px 0; }
+ .checkpoint-net { margin: 2px 0 0; color: var(--muted); font-size: 12px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+ .extension-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+@@ -844,11 +877,6 @@
+   #gameScreen[data-field-view="true"] .battle-toolbar > * { pointer-events: auto; }
+   #gameScreen[data-field-view="true"] #reaction-feedback { pointer-events: none; }
+   #gameScreen[data-field-view="true"] .battle-clock { width: 100%; text-align: center; }
+-  #gameScreen[data-field-view="true"] .reaction-feedback {
+-    top: calc(100% + 4px);
+-    right: calc(100% + 8px);
+-    left: auto;
+-  }
+   #gameScreen[data-field-view="true"] .reaction-bar {
+     top: 0;
+     right: calc(100% + 8px);
+@@ -1232,7 +1260,7 @@
+ .army-card[aria-pressed="true"] { box-shadow:inset 0 0 0 3px #bd8937,0 0 0 2px #f1cd72; }
+ .prediction-footer { box-shadow:0 -2px 0 #98713e,0 3px 7px rgba(31,14,7,.45); }
+ .battle-clock { color:#fff0cf; text-shadow:0 1px 2px #30190f; }
+-/* Canvas keeps its exact size and fit; its letterboxing shows the table, not a flat field colour. */
++/* The fitted canvas frame follows the bitmap; no field-colour letterboxing. */
+ #field { background:transparent; }
+ /* Keep the action a simple leather rectangle and identify selections with a clear border. */
+ .stake-options { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@@ -1251,10 +1279,10 @@
+ .multi-results summary::before { content:'▾'; margin-right:6px; }
+ .multi-results:not([open]) summary::before { content:'▸'; }
+ .multi-results-list { max-height:7.2em; overflow:auto; overscroll-behavior:contain; padding:0 8px 6px; white-space:pre-wrap; overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+-/* A compact, independently scrollable strip; the field keeps its dimensions. */
+-.participant-rail-wrap { position:relative; flex:1 1 0; min-width:0; height:44px; }
+-.participant-rail { display:flex; align-items:center; gap:3px; height:44px; min-width:0; overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:thin; }
+-.participant-chip { position:relative; flex:0 0 43px; width:43px; height:42px; text-align:center; color:#fff2d6; font:700 9px/1 system-ui,sans-serif; text-shadow:0 1px 2px #26140c; }
++/* A separate compact strip; eight seats fit before optional spectator scrolling. */
++.participant-rail-wrap { position:relative; flex:0 0 40px; min-width:0; width:100%; height:40px; }
++.participant-rail { display:flex; align-items:center; gap:3px; height:40px; min-width:0; overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:thin; }
++.participant-chip { position:relative; flex:0 0 calc((100% - 21px) / 8); width:calc((100% - 21px) / 8); min-width:29px; max-width:43px; height:39px; text-align:center; color:#fff2d6; font:700 9px/1 system-ui,sans-serif; text-shadow:0 1px 2px #26140c; }
+ .participant-portrait { position:relative; display:grid; place-items:center; width:25px; height:25px; margin:0 auto 1px; border:1px solid #d1aa70; border-radius:50%; background:#3f2b20; overflow:hidden; }
+ .participant-portrait img { width:100%; height:100%; object-fit:cover; }
+ .participant-chip.is-self .participant-portrait { box-shadow:0 0 0 1px #ffe6a4; }
+@@ -1263,7 +1291,10 @@
+ .participant-emote[hidden],.reaction-outside[hidden] { display:none !important; }
+ .reaction-outside { position:absolute; top:1px; right:1px; max-width:105px; padding:2px 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid #b78b50; border-radius:3px; background:#f4dfb5; color:#3b2618; font:700 10px/1.3 system-ui,sans-serif; pointer-events:none; }
+ @media (max-width:899px) { .reaction-bar { left:auto; right:0; top:calc(100% + 4px); transform:none; } }
+-@media (min-width:900px) and (min-height:640px) { .participant-rail-wrap { width:100%; flex:0 0 44px; } }
++@media (min-width:900px) and (min-height:640px) {
++ #gameScreen[data-field-view="true"] .participant-rail-wrap { position:absolute; top:0; left:0; right:84px; width:auto; z-index:4; }
++ #gameScreen[data-field-view="true"] #battle[data-participants="true"] .field-stage { top:44px; }
++}
+ /* Keep settlement readable above gold in every outcome. */
+ #gameScreen[data-personal-result="true"] #resultPanel #breakdown,
+ #gameScreen[data-personal-result="true"] #resultPanel[data-double-up="true"] #breakdown,
+@@ -1474,30 +1505,38 @@
+   -webkit-touch-callout: default;
+ }
+ 
+-/* Restrained strengths: ordinary values remain parchment ink. Gold marks at
+-   most one characteristic metric and one concrete trait, never winning odds. */
+-.comparison-list {
+-  --strength-ink:#76520e; --strength-bg:#f9ecc7; --strength-rule:#a0813c;
++/* Meaning lives in the actual value/trait text, with no badge or shadow. */
++#comparison .comparison-list {
++ --tone-health:#174e9a; --tone-attack:#a01d1a; --tone-support:#12642c; --tone-defense:#174e9a;
++ --tone-control:#7435a0; --tone-mobility:#00626c; --tone-summon:#8b4b08; --tone-neutral:#493823;
+ }
+ .units-side .comparison-list {
+-  --strength-ink:#f1d185; --strength-bg:#3b5140; --strength-rule:#c3a460;
+-}
+-#comparison .comparison-trait[data-tone] { color:#59452e; background:#eadfca; border-color:#aa9471; }
+-.units-side .comparison-trait[data-tone] { color:#e4dcc8; background:transparent; border-color:#a48e63; }
+-#comparison .comparison-stat[data-emphasis="true"], .units-side .comparison-stat[data-emphasis="true"] {
+-  background:var(--strength-bg); box-shadow:inset 2px 0 var(--strength-rule);
+-}
++ --tone-health:#97c7ff; --tone-attack:#ffaaa0; --tone-support:#83e39b; --tone-defense:#97c7ff;
++ --tone-control:#dab0ff; --tone-mobility:#83dce2; --tone-summon:#ffd095; --tone-neutral:#eee0c3;
++}
++.comparison-list [data-tone="health"] { --tone-ink:var(--tone-health); }
++.comparison-list [data-tone="attack"] { --tone-ink:var(--tone-attack); }
++.comparison-list [data-tone="support"] { --tone-ink:var(--tone-support); }
++.comparison-list [data-tone="defense"] { --tone-ink:var(--tone-defense); }
++.comparison-list [data-tone="control"] { --tone-ink:var(--tone-control); }
++.comparison-list [data-tone="mobility"] { --tone-ink:var(--tone-mobility); }
++.comparison-list [data-tone="summon"] { --tone-ink:var(--tone-summon); }
++.comparison-list [data-tone="neutral"] { --tone-ink:var(--tone-neutral); }
++#comparison .comparison-unit *, .units-side .comparison-unit * { text-shadow:none; box-shadow:none; }
++#comparison .comparison-stat[data-emphasis="true"], .units-side .comparison-stat[data-emphasis="true"] { background:transparent; box-shadow:none; }
+ #comparison .comparison-stat[data-emphasis="true"] .comparison-stat-value,
+ #comparison .comparison-mobility-item[data-emphasis="true"] .comparison-mobility-value,
+ .units-side .comparison-stat[data-emphasis="true"] .comparison-stat-value,
+-.units-side .comparison-mobility-item[data-emphasis="true"] .comparison-mobility-value { color:var(--strength-ink); }
+-#comparison .comparison-trait[data-emphasis="true"], .units-side .comparison-trait[data-emphasis="true"] {
+-  color:var(--strength-ink); background:var(--strength-bg); border-color:var(--strength-rule); font-weight:800;
+-}
+-.comparison-strength-mark { color:var(--strength-ink); font:700 9px/1 system-ui,sans-serif; margin-inline-start:3px; vertical-align:middle; }
+-@media (forced-colors:active) {
+-  #comparison .comparison-stat[data-emphasis="true"], .units-side .comparison-stat[data-emphasis="true"] { box-shadow:none; }
+-}
++.units-side .comparison-mobility-item[data-emphasis="true"] .comparison-mobility-value { color:var(--tone-ink); font-weight:900; }
++#comparison .comparison-traits, .units-side .comparison-traits { flex-direction:column; align-items:flex-start; gap:3px; }
++#comparison .comparison-trait[data-tone], .units-side .comparison-trait[data-tone] {
++ color:var(--tone-ink); background:transparent; border:0; padding:0; border-radius:0;
++ font-size:13px; font-weight:800; line-height:1.35; white-space:normal; overflow-wrap:anywhere;
++}
++#comparison .comparison-stat-value, .units-side .comparison-stat-value { font-size:18px; line-height:1.2; letter-spacing:0; }
++#comparison .comparison-stat-wide .comparison-stat-value, .units-side .comparison-stat-wide .comparison-stat-value { font-size:15px; }
++#comparison .comparison-mobility-item, .units-side .comparison-mobility-item { flex-wrap:wrap; white-space:normal; }
++
+ 
+ /* Selection details stay in normal flow outside the canvas. No projectile/body overlay. */
+ .crowd-inspector { flex:0 0 auto; min-height:64px; display:grid; grid-template-columns:minmax(0,1fr) repeat(3,44px); gap:4px; align-items:center; padding:4px 6px; border:1px solid #8b9b79; border-radius:4px; background:#1d2c24; color:#f5e9c6; }
+@@ -1528,6 +1567,69 @@
+ }
+ 
+ #app #homeScreen .home-title img { display:block; width:min(100%,420px); height:auto; margin-inline:auto; }
++
++/* A quiet tavern ledger: lettering, space and a plain dark wood band.
++   Keep the gold counter unframed; the trailing pause control is a sibling. */
++#gameScreen > .game-topline {
++  flex-basis:auto;
++  gap:8px;
++  min-height:52px;
++  margin-block:4px 6px;
++  padding:6px 8px;
++  border:0;
++  border-radius:0;
++  background:#3b2a20;
++  box-shadow:none;
++}
++#gameScreen > .game-topline .round-status {
++  flex:1 1 0;
++  overflow-wrap:anywhere;
++  color:#eee0c3;
++  text-shadow:none;
++}
++#gameScreen > .game-topline .wallet-pill {
++  flex:0 1 auto;
++  flex-direction:column;
++  align-items:flex-end;
++  gap:2px;
++  min-width:64px;
++  max-width:48%;
++  margin-inline-start:auto;
++  padding:0;
++  border:0;
++  border-radius:0;
++  background:none;
++  box-shadow:none;
++  text-align:right;
++}
++#gameScreen .wallet-caption {
++  color:#c9b28d;
++  font:600 10px/1.2 system-ui,sans-serif;
++  letter-spacing:.08em;
++}
++#gameScreen > .game-topline .wallet-pill strong {
++  max-width:100%;
++  color:#f2e5c8;
++  font:600 22px/1.1 Georgia,'Yu Mincho',serif;
++  font-variant-numeric:tabular-nums;
++  overflow-wrap:anywhere;
++  text-shadow:none;
++}
++/* Pause/menu is a header control, independent of the field toolbar. */
++#gameScreen > .game-topline > #pause {
++  flex: 0 0 44px; width: 44px; min-width: 44px; height: 44px; min-height: 44px;
++  padding: 0; margin: 0; display: grid; place-items: center;
++  border: 1px solid #b28c58; border-radius: 6px;
++  color: #f7e4b8; background: #493322; box-shadow: none;
++  font-size: 21px; line-height: 1; cursor: pointer;
++}
++/* Keep the same header slot when Pause disappears, avoiding a result-screen jump. */
++#gameScreen > .game-topline > #pause[hidden] {
++  display: grid !important;
++  visibility: hidden;
++  pointer-events: none;
++}
++#gameScreen > .game-topline > #pause:focus-visible { outline: 2px solid #ffe7ad; outline-offset: 2px; }
+ </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
+ <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
+ <script>
+@@ -1603,8 +1705,10 @@
+     <div class="game-topline">
+       <p id="status" class="round-status" aria-live="polite">第 1 / 20 戦</p>
+       <div class="wallet-pill" aria-label="ゲーム内通貨">
++        <span class="wallet-caption" aria-hidden="true">所持金</span>
+         <strong id="balance">100 G</strong>
+       </div>
++      <button id="pause" class="control-button topbar-pause" type="button" aria-label="一時停止" aria-haspopup="dialog" aria-controls="pausePanel" hidden>⏸</button>
+     </div>
+     <h2 id="phaseTitle" class="sr-only"></h2>
+ 
+@@ -1626,27 +1730,24 @@
+         <div class="army-grid" role="group" aria-label="勝つ方">
+           <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍" aria-describedby="redStats">
+             <span class="army-title sr-only" id="redTitle">左</span>
+-            <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左の軍の兵士"></canvas>
++            <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左チームのキャラ"></canvas>
+             <span id="redList" class="army-summary sr-only" aria-live="off"></span>
+             <span id="redStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
+-            <span id="redPicks" class="prediction-picks" aria-label="確定した参加者" hidden></span>
++            <span id="redPicks" class="prediction-picks" aria-label="選択中・確定した参加者" hidden></span>
+           </button>
+           <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍" aria-describedby="blueStats">
+             <span class="army-title sr-only" id="blueTitle">右</span>
+-            <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右の軍の兵士"></canvas>
++            <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右チームのキャラ"></canvas>
+             <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
+             <span id="blueStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
+-            <span id="bluePicks" class="prediction-picks" aria-label="確定した参加者" hidden></span>
++            <span id="bluePicks" class="prediction-picks" aria-label="選択中・確定した参加者" hidden></span>
+           </button>
+         </div>
+ 
+-        <div class="formation-actions">
+-          <button id="formationToggle" class="text-button" type="button" aria-controls="battle" aria-expanded="false">配置を見る</button>
+-        </div>
+ 
+         <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
+         <div class="compatibility-hooks" hidden aria-hidden="true">
+-          <label for="unitKind">兵種の特徴</label><select id="unitKind"></select>
++          <label for="unitKind">キャラの特徴</label><select id="unitKind"></select>
+           <p id="unitTrait"></p>
+         </div>
+       </div>
+@@ -1657,16 +1758,9 @@
+ 
+     <section id="battle" class="battle" hidden aria-label="戦闘">
+       <div class="battle-toolbar"><div id="assetNoticeBattle" hidden role="status" style="font-size:12px;line-height:1.35;color:#3c2817;background:#f4e2b9;padding:4px 6px"><span id="assetTextBattle"></span> <button id="assetRetryBattle" type="button" hidden>再試行</button> <button id="assetContinueBattle" type="button" hidden>代替表示で続ける</button></div>
+-        <div id="participantRailWrap" class="participant-rail-wrap" hidden>
+-          <div id="participantRail" class="participant-rail" tabindex="0" role="list" aria-label="参加者。横にスクロールできます"></div>
+-          <span id="reactionOutside" class="reaction-outside" aria-live="polite" hidden></span>
+-        </div>
+         <span id="battleChoice" class="battle-choice" hidden></span>
+-        <span id="previewClock" class="preview-clock" aria-live="off" hidden></span>
+         <p id="battleClock" class="battle-clock" aria-live="off"></p>
+-        <div id="reaction-feedback" class="reaction-feedback" aria-live="polite" aria-atomic="true"></div>
+-        <button id="formationBack" class="text-button" type="button" hidden aria-controls="comparison">戻る</button>
+-        <button id="unitsToggle" class="battle-icon-button units-toggle" type="button" aria-label="兵種" title="兵種" aria-haspopup="dialog" aria-controls="unitsPanel"><span class="icon-slot icon-units" data-icon-slot="units" aria-hidden="true"></span></button>
++        <button id="unitsToggle" class="battle-icon-button units-toggle" type="button" aria-label="キャラ一覧" title="キャラ一覧" aria-haspopup="dialog" aria-controls="unitsPanel"><span class="icon-slot icon-units" data-icon-slot="units" aria-hidden="true"></span></button>
+         <button id="soundToggle" class="battle-icon-button sound-toggle" type="button" aria-label="音を切り替える" title="音"><svg class="sound-glyph" data-audio-icon viewBox="0 0 24 24" aria-hidden="true"><path class="speaker-shape" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="sound-wave" d="M15 9a5 5 0 0 1 0 6M17 6a9 9 0 0 1 0 12"/><path class="sound-mute" d="m15 9 6 6m0-6-6 6"/></svg></button>
+         <button id="reactionToggle" class="battle-icon-button reaction-toggle" type="button" aria-label="リアクション" title="リアクション" aria-controls="reaction-bar" aria-expanded="false" hidden><span class="reaction-toggle-emoji" aria-hidden="true">😄</span></button>
+         <div id="reaction-bar" class="reaction-bar" role="group" aria-label="リアクション" hidden>
+@@ -1676,8 +1770,15 @@
+           <button id="reactionApplause" type="button" aria-label="応援"><span class="reaction-emoji" data-stamp-slot="applause" aria-hidden="true">👏</span></button>
+         </div>
+       </div>
++        <div id="participantRailWrap" class="participant-rail-wrap" hidden>
++          <div id="participantRail" class="participant-rail" tabindex="0" role="list" aria-label="参加者。横にスクロールできます"></div>
++          <span id="reactionOutside" class="reaction-outside" aria-live="polite" hidden></span>
++        </div>
+       <div id="fieldStage" class="field-stage">
+-      <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
++      <div id="fieldMap" class="field-map">
++        <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
++        <div id="reaction-feedback" class="reaction-feedback" aria-live="polite" aria-atomic="true"></div>
++      </div>
+       <span id="openingCue" class="opening-cue" aria-hidden="true" hidden>対戦開始</span>
+       <span id="combatSpectacle" class="combat-spectacle" aria-hidden="true" hidden>
+         <i id="combatSpectacleRing" class="combat-spectacle-ring"></i>
+@@ -1690,21 +1791,19 @@
+         <i id="finalImpactCore" class="combat-spectacle-core"></i>
+       </span>
+       </div>
+-      <section id="crowdInspector" class="crowd-inspector" aria-label="選択した兵士" hidden>
++      <section id="crowdInspector" class="crowd-inspector" aria-label="選択したキャラ" hidden>
+         <div class="crowd-inspector-copy">
+-          <span id="crowdFocusName" role="status" aria-live="polite" aria-atomic="true">兵士をタップで詳細</span>
++          <span id="crowdFocusName" role="status" aria-live="polite" aria-atomic="true">タップで詳細確認</span>
+           <span id="crowdFocusHP" aria-live="off">前後ボタンでも選べます</span>
+         </div>
+-        <button id="crowdPrevious" type="button" aria-label="前の兵士を選ぶ" title="前の兵士">‹</button>
+-        <button id="crowdNext" type="button" aria-label="次の兵士を選ぶ" title="次の兵士">›</button>
+-        <button id="crowdClear" type="button" aria-label="兵士の選択を解除" title="選択を解除" disabled>×</button>
++        <button id="crowdPrevious" type="button" aria-label="前のキャラを選ぶ" title="前のキャラ">‹</button>
++        <button id="crowdNext" type="button" aria-label="次のキャラを選ぶ" title="次のキャラ">›</button>
++        <button id="crowdClear" type="button" aria-label="キャラの選択を解除" title="選択を解除" disabled>×</button>
+       </section>
+-      <div id="battleControls" class="battle-controls" aria-label="戦場の操作">
+-        <button id="pause" class="control-button" type="button" aria-label="一時停止">停止</button>
+-        <button id="speedDown" class="control-button" type="button" aria-label="戦闘速度を下げる">速度 −</button>
+-        <button id="speedUp" class="control-button" type="button" aria-label="戦闘速度を上げる">速度 ＋</button>
+-        <button id="speed" class="control-button" type="button" hidden aria-hidden="true" tabindex="-1">速度 1×</button>
+-      </div>
++      
++      <p id="battleLog" class="battle-log" hidden aria-live="off" aria-label="戦闘ログ。攻撃と回復の一部を表示します。">
++        <span id="battleLogSource" class="battle-log-name"></span><span id="battleLogArrow" aria-hidden="true"></span><span id="battleLogTarget" class="battle-log-name"></span><span id="battleLogAction" class="battle-log-action"></span>
++      </p>
+       <div id="reaction-backdrop" class="reaction-backdrop" hidden aria-hidden="true"></div>
+     </section>
+ 
+@@ -1782,7 +1881,7 @@
+   <section id="unitsPanel" class="units-panel" role="dialog" aria-modal="true" aria-labelledby="unitsTitle" hidden>
+     <div class="units-dialog">
+       <div class="units-heading">
+-        <h2 id="unitsTitle">兵種</h2>
++        <h2 id="unitsTitle">キャラ一覧</h2>
+         <button id="unitsClose" class="text-button" type="button">閉じる</button>
+       </div>
+       <div class="units-grid">
+@@ -3656,7 +3755,7 @@
+ return {REACTION_PROTOCOL,REACTION_MODE,REACTION_TYPE,REACTIONS,REACTION_LIMITS,parseReactionWire,createReactionChannel};})();
+ const ContentProfile=(()=>{
+ // Build-generated semantic content revision; no runtime hashing or network.
+-const CONTENT_REVISION="92a48b98155d8170c7d5bd4d556cf4e865c02e60058f36b1d96784c57c43fb14";;
++const CONTENT_REVISION="ffa32f9ae924b37622ffc0ee372e3f99f38fc3f8aec23dfd62a888ae3fa451dd";;
+ const validContentRevision=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
+ 
+ return {CONTENT_REVISION,validContentRevision};})();
+@@ -3802,10 +3901,11 @@
+   const seats=[hostId]; // Native/discovery rosters are hints, never compatible admission proof.
+   if (seats.length>8 || !seats.every(sid)) throw new RangeError('maximum eight application seats');
+   let state={sessionId,contentRevision,...(initialEnvironment?{environment:initialEnvironment}:{}),mode:GAME_MODE,totalRounds:TOTAL_ROUNDS,revision:host?0:-1,phase:'lobby',roundId:null,deadline:null,participants:seats,
+-    spectators:[],departedIds:[],readyIds:[],confirmedSides:[],bets:[],cashedOutIds:[],continueIds:[],winner:null,replay:null,wallets:null,roundResults:null,stoppedReason:null};
++    spectators:[],departedIds:[],readyIds:[],confirmedSides:[],selectedSides:[],selectionEpochs:[{userId:hostId,epoch:1}],bets:[],cashedOutIds:[],continueIds:[],winner:null,replay:null,wallets:null,roundResults:null,stoppedReason:null};
+   let localSeq=0,lastHostSeen=now(),outgoing=null,incoming=null,canonicalReplay=null;
+   const compatibilityErrors=new Map();
+-  const sequences=new Map(), privateBets=new Map(), settled=new Set();
++  const sequences=new Map(), selectionSequences=new Map(), privateBets=new Map(), settled=new Set();
++  let localSelectionSeq=0;
+   const envelope = body => ({protocol:PROTOCOL,version:1,mode:GAME_MODE,contentRevision,roomId,sessionId,...body});
+   const emit = body => {
+     const wire=encode(envelope(body));
+@@ -3829,10 +3929,10 @@
+     const current=state.wallets?.find(p=>p.playerId===playerId);if(!current||current.terminalReason==='bankrupt'||!isAmount(current.balance)||amountBig(current.balance)===0n)return false;
+     const cashoutRound=atPrediction?state.roundId-1:state.roundId,requestId=`auto-${reason}:${cashoutRound}`;
+     try{const prepared=onCashout({sessionId,playerId,roundId:cashoutRound,requestId,reason,allowDuringPrediction:atPrediction});if(!prepared?.wallets)return false;
+-      commit({wallets:clone(prepared.wallets),cashedOutIds:[...new Set([...state.cashedOutIds,playerId])],continueIds:state.continueIds.filter(id=>id!==playerId),readyIds:state.readyIds.filter(id=>id!==playerId),confirmedSides:state.confirmedSides.filter(x=>x.userId!==playerId)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(playerId)});return true;
++      commit({selectedSides:state.selectedSides.filter(x=>x.userId!==playerId),wallets:clone(prepared.wallets),cashedOutIds:[...new Set([...state.cashedOutIds,playerId])],continueIds:state.continueIds.filter(id=>id!==playerId),readyIds:state.readyIds.filter(id=>id!==playerId),confirmedSides:state.confirmedSides.filter(x=>x.userId!==playerId)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(playerId)});return true;
+     }catch{return false}
+   }
+-  function stop(reason){if(state.phase==='stopped')return;state={...state,phase:'stopped',stoppedReason:reason};notify();}
++  function stop(reason){if(state.phase==='stopped')return;state={...state,phase:'stopped',selectedSides:[],stoppedReason:reason};notify();}
+   function activeParticipants(){return state.participants.filter(id=>!state.cashedOutIds.includes(id)&&state.wallets?.find(p=>p.playerId===id)?.terminalReason!=='bankrupt');}
+   function closePrediction(){
+     if(state.phase!=='predict')return;
+@@ -3840,7 +3940,7 @@
+       const missing=activeParticipants().filter(id=>{const bet=privateBets.get(id);return !bet||bet.side===null});
+       for(const id of missing){if(state.phase!=='predict')return;cashOutParticipant(id,'no-prediction',{allowDuringPrediction:true});}
+     }
+-    if(state.phase==='predict')commit({phase:'locked',bets:[...privateBets.values()].filter(b=>b.side==='A'||b.side==='B')});
++    if(state.phase==='predict')commit({phase:'locked',selectedSides:[],bets:[...privateBets.values()].filter(b=>b.side==='A'||b.side==='B')});
+   }
+   function tick(){
+     if(state.phase==='stopped')return;
+@@ -3870,6 +3970,8 @@
+         !Array.isArray(s.participants)||s.participants.length>8||!s.participants.every(sid)||
+         new Set(s.participants).size!==s.participants.length||!s.participants.includes(hostId)||
+         !Array.isArray(s.spectators)||!s.spectators.every(sid)||!Array.isArray(s.departedIds)||!s.departedIds.every(id=>s.participants.includes(id))||!Array.isArray(s.bets)||!Array.isArray(s.readyIds)||new Set(s.readyIds).size!==s.readyIds.length||!s.readyIds.every(id=>s.participants.includes(id))||!Array.isArray(s.confirmedSides)||s.confirmedSides.length>8||new Set(s.confirmedSides.map(x=>x.userId)).size!==s.confirmedSides.length||!s.confirmedSides.every(x=>x&&s.participants.includes(x.userId)&&s.readyIds.includes(x.userId)&&['A','B'].includes(x.side)&&Object.keys(x).sort().join(',')==='side,userId')||!Array.isArray(s.cashedOutIds)||!s.cashedOutIds.every(id=>s.participants.includes(id))||!Array.isArray(s.continueIds)||!s.continueIds.every(id=>s.participants.includes(id))||
++        (!Array.isArray(s.selectionEpochs)||s.selectionEpochs.length!==s.participants.length||new Set(s.selectionEpochs.map(x=>x?.userId)).size!==s.selectionEpochs.length||!s.selectionEpochs.every(x=>x&&s.participants.includes(x.userId)&&integer(x.epoch)&&x.epoch>0&&Object.keys(x).sort().join(',')==='epoch,userId'))||
++        (!Array.isArray(s.selectedSides)||s.selectedSides.length>8||new Set(s.selectedSides.map(x=>x?.userId)).size!==s.selectedSides.length||!s.selectedSides.every(x=>x&&s.participants.includes(x.userId)&&!s.readyIds.includes(x.userId)&&!s.departedIds.includes(x.userId)&&!s.cashedOutIds.includes(x.userId)&&['A','B'].includes(x.side)&&Object.keys(x).sort().join(',')==='side,userId')||(s.phase!=='predict'&&s.selectedSides.length>0))||
+         (s.phase==='predict'&&(!integer(s.deadline)||!integer(s.roundId))))return false;
+       lastHostSeen=now(); // duplicate heartbeat is live, but never rewinds state
+       if(!validRoundResults(s))return false;
+@@ -3889,12 +3991,14 @@
+     if(m.type==='hello'){
+       compatibilityErrors.delete(sender);
+       if(!state.participants.includes(sender)&&!state.spectators.includes(sender)){
+-        if(state.phase==='lobby'&&state.roundId===null&&state.participants.length<8){commit({participants:[...state.participants,sender]});return true;}
++        if(state.phase==='lobby'&&state.roundId===null&&state.participants.length<8){commit({participants:[...state.participants,sender],selectionEpochs:[...state.selectionEpochs,{userId:sender,epoch:1}]});return true;}
+         // A new identity is never given a ranked seat after the first round.
+         if(state.spectators.length>=8)return false;
+         commit({spectators:[...state.spectators,sender]});
+-      } else if(state.departedIds.includes(sender))commit({departedIds:state.departedIds.filter(id=>id!==sender)});
+-      else broadcast();
++      } else if(state.participants.includes(sender)){
++        const previous=state.selectionEpochs.find(x=>x.userId===sender)?.epoch||1;if(previous>=Number.MAX_SAFE_INTEGER)return false;
++        commit({departedIds:state.departedIds.filter(id=>id!==sender),selectedSides:state.selectedSides.filter(x=>x.userId!==sender),selectionEpochs:state.selectionEpochs.map(x=>x.userId===sender?{userId:sender,epoch:previous+1}:x)},()=>selectionSequences.delete(sender));
++      } else broadcast();
+       outgoing?.addRecipient(sender);
+       return true;
+     }
+@@ -3906,7 +4010,7 @@
+       const current=state.wallets?.find(p=>p.playerId===sender);if(!current)return false;
+       if(current.cashedOut===true){if(current.cashoutRequestId===m.requestId){broadcast();return true;}return false;}
+       try{const cashoutRound=atPrediction?state.roundId-1:state.roundId,prepared=onCashout({sessionId,playerId:sender,roundId:cashoutRound,requestId:m.requestId,reason,allowDuringPrediction:atPrediction});if(!prepared?.wallets)return false;
+-        const ids=[...new Set([...state.cashedOutIds,sender])];commit({wallets:clone(prepared.wallets),cashedOutIds:ids,continueIds:state.continueIds.filter(id=>id!==sender),readyIds:state.readyIds.filter(id=>id!==sender),confirmedSides:state.confirmedSides.filter(x=>x.userId!==sender)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(sender)});
++        const ids=[...new Set([...state.cashedOutIds,sender])];commit({selectedSides:state.selectedSides.filter(x=>x.userId!==sender),wallets:clone(prepared.wallets),cashedOutIds:ids,continueIds:state.continueIds.filter(id=>id!==sender),readyIds:state.readyIds.filter(id=>id!==sender),confirmedSides:state.confirmedSides.filter(x=>x.userId!==sender)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(sender)});
+         if(atPrediction&&privateBets.size===activeParticipants().length)closePrediction();return true;
+       }catch{return false;}
+     }
+@@ -3915,6 +4019,15 @@
+       const current=state.wallets?.find(p=>p.playerId===sender);if(!current||current.terminalReason==='bankrupt'||!isAmount(current.balance)||amountBig(current.balance)===0n||!doubleAmountFits(current.balance))return false;
+       if(state.continueIds.includes(sender)){broadcast();return true;}
+       commit({continueIds:[...state.continueIds,sender]});return true;
++    }
++    if(m.type==='select-side'){
++      // Presentation only: no stake, ledger hook, ready state, or battle/RNG mutation.
++      const epoch=state.selectionEpochs.find(x=>x.userId===sender)?.epoch;
++      if(state.phase!=='predict'||m.roundId!==state.roundId||!activeParticipants().includes(sender)||state.departedIds.includes(sender)||privateBets.has(sender)||m.epoch!==epoch||!integer(m.seq)||m.seq<1||m.seq<=(selectionSequences.get(sender)||0)||!['A','B',null].includes(m.side)||m.stake!==undefined||(m.userId!==undefined&&m.userId!==sender))return false;
++      selectionSequences.set(sender,m.seq);
++      const previous=state.selectedSides.find(x=>x.userId===sender)?.side??null;if(previous===m.side)return true;
++      const selectedSides=state.selectedSides.filter(x=>x.userId!==sender);if(m.side!==null)selectedSides.push({userId:sender,side:m.side});
++      commit({selectedSides});return true;
+     }
+     if(m.type!=='bet'||state.phase!=='predict'||m.roundId!==state.roundId||
+       !state.participants.includes(sender)||!integer(m.seq)||m.seq<1||
+@@ -3925,7 +4038,7 @@
+     try {
+       if(validateBet(sender,m.stake,m.side,state.roundId)!==true)return false;
+       const prepared=onAcceptBet({playerId:sender,side:m.side,stake:m.stake,roundId:state.roundId,now:now()});if(prepared?.then)return false;
+-      commit({readyIds:[...privateBets.keys(),sender],confirmedSides:m.side===null?state.confirmedSides:[...state.confirmedSides,{userId:sender,side:m.side}]},()=>{
++      commit({selectedSides:state.selectedSides.filter(x=>x.userId!==sender),readyIds:[...privateBets.keys(),sender],confirmedSides:m.side===null?state.confirmedSides:[...state.confirmedSides,{userId:sender,side:m.side}]},()=>{
+         prepared?.commit?.();sequences.set(sender,m.seq);
+         privateBets.set(sender,{userId:sender,side:m.side,stake:m.stake});
+       });
+@@ -3960,7 +4073,13 @@
+       const proposedEnvironment=matchup.environment===undefined?null:validateEnvironment(matchup.environment);if((requireEnvironment&&!proposedEnvironment)||(state.environment&&!sameEnvironment(state.environment,proposedEnvironment)))throw Error('environment-mismatch');
+       matchup={...matchup,contentRevision};encode(envelope({type:'snapshot',state:{...state,matchup}}));
+       const prepared=onOpenRound({sessionId,environment:proposedEnvironment,roundId,deadline,...(doubleUp?{doubleUpContinue:true,continueRequestId:'doubleup:'+roundId}:{})});if(prepared?.then)throw new Error('synchronous-open-round-required');
+-      commit({...(proposedEnvironment?{environment:proposedEnvironment}:{}),phase:'predict',roundId,totalRounds:doubleUp?roundId:state.totalRounds,deadline,matchup:clone(matchup),readyIds:[],confirmedSides:[],bets:[],winner:null,replay:null,replayStartAt:null,replayError:null,confirmedResult:null,roundResults:null,continueIds:[],...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
++      commit({...(proposedEnvironment?{environment:proposedEnvironment}:{}),phase:'predict',roundId,totalRounds:doubleUp?roundId:state.totalRounds,deadline,matchup:clone(matchup),readyIds:[],confirmedSides:[],selectedSides:[],bets:[],winner:null,replay:null,replayStartAt:null,replayError:null,confirmedResult:null,roundResults:null,continueIds:[],...(prepared?.wallets?{wallets:clone(prepared.wallets)}:{})},()=>{prepared?.commit?.();privateBets.clear();sequences.clear();selectionSequences.clear();outgoing=null;incoming=null;canonicalReplay=null;});
++    },
++    previewSelection(side){
++      tick();const epoch=state.selectionEpochs.find(x=>x.userId===userId)?.epoch;
++      if(state.phase!=='predict'||!activeParticipants().includes(userId)||state.departedIds.includes(userId)||state.readyIds.includes(userId)||!['A','B',null].includes(side)||!integer(epoch)||epoch<1)return false;
++      const message=envelope({type:'select-side',roundId:state.roundId,epoch,seq:++localSelectionSeq,side});
++      if(host)return receive(userId,encode(message));emit(message);return true;
+     },
+     predict(side,stake){
+       tick();if(state.phase!=='predict'||!state.participants.includes(userId))return false;
+@@ -3980,7 +4099,7 @@
+       const atPrediction=reason==='room-exit'&&state.phase==='predict'&&state.roundId>TOTAL_ROUNDS&&(!host||!privateBets.has(userId)||privateBets.get(userId)?.side===null);
+       if((!atResult&&!atPrediction)||!state.participants.includes(userId)||state.cashedOutIds.includes(userId))return false;
+       const cashoutRound=atPrediction?state.roundId-1:state.roundId,requestId=(reason==='player'?'cashout:':'exit-cashout:')+cashoutRound;
+-      if(host){try{const prepared=onCashout({sessionId,playerId:userId,roundId:cashoutRound,requestId,reason,allowDuringPrediction:atPrediction});if(!prepared?.wallets)return false;commit({wallets:clone(prepared.wallets),cashedOutIds:[...new Set([...state.cashedOutIds,userId])],continueIds:state.continueIds.filter(id=>id!==userId),readyIds:state.readyIds.filter(id=>id!==userId)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(userId)});if(atPrediction&&privateBets.size===activeParticipants().length)closePrediction();return true;}catch{return false;}}
++      if(host){try{const prepared=onCashout({sessionId,playerId:userId,roundId:cashoutRound,requestId,reason,allowDuringPrediction:atPrediction});if(!prepared?.wallets)return false;commit({selectedSides:state.selectedSides.filter(x=>x.userId!==userId),wallets:clone(prepared.wallets),cashedOutIds:[...new Set([...state.cashedOutIds,userId])],continueIds:state.continueIds.filter(id=>id!==userId),readyIds:state.readyIds.filter(id=>id!==userId)},()=>{prepared.commit?.();if(atPrediction)privateBets.delete(userId)});if(atPrediction&&privateBets.size===activeParticipants().length)closePrediction();return true;}catch{return false;}}
+       emit({type:'cashout',roundId:cashoutRound,requestId,reason});return true;
+     },
+     startBattle(replay){
+@@ -4008,10 +4127,12 @@
+     showResult(){requireHost();if(state.phase!=='settle')throw new Error('not-settled');commit({phase:'result'});if(state.roundId>=TOTAL_ROUNDS){for(const id of state.departedIds.slice()){if(state.phase!=='result')break;cashOutParticipant(id,'room-exit');}}},
+     memberLeft(id){
+       if(id===hostId){stop('host-lost');return;}
+-      if(!host||!state.participants.includes(id)||state.cashedOutIds.includes(id))return;
++      if(!host)return;if(state.spectators.includes(id)){commit({spectators:state.spectators.filter(x=>x!==id)});return;}if(!state.participants.includes(id))return;
++      // Keep the ledger seat, but remove room presence and any unconfirmed choice.
++      if(!state.departedIds.includes(id))commit({departedIds:[...state.departedIds,id],selectedSides:state.selectedSides.filter(x=>x.userId!==id)});
++      if(state.cashedOutIds.includes(id))return;
+       if(state.phase==='result'&&state.roundId>=TOTAL_ROUNDS){cashOutParticipant(id,'room-exit');return;}
+       if(state.phase==='predict'&&state.roundId>TOTAL_ROUNDS){const bet=privateBets.get(id);if(!bet||bet.side===null){cashOutParticipant(id,'room-exit',{allowDuringPrediction:true});if(privateBets.size===activeParticipants().length)closePrediction();return;}}
+-      if(!state.departedIds.includes(id))commit({departedIds:[...state.departedIds,id]});
+     },
+     close(){stop('closed');}
+   });
+@@ -5413,7 +5534,7 @@
+ Object.assign(TYPES.onyx_scorpion,{rootOnHitDuration:.6,rootOnHitImmunity:2.4});
+ TYPES.tetherlash_adept.pullDistance=12;
+ Object.assign(TYPES.punchcap_mushroom,{mushroomTrapCharges:1,mushroomTrapDurationTicks:600,mushroomTrapArmingTicks:45,mushroomTrapRadius:24,mushroomTrapDamage:12});
+-const CONTENT_ROSTER={"version": "local-normal300-nominal-untrained-candidate", "selectable": ["sword", "shield", "spear", "archer", "cannon", "rider", "healer", "goblin", "golem", "drake", "wraith", "boar", "bombbug", "frostmage", "stormmage", "burrower", "slime", "screech_cricket", "reaper_mantis", "spore_toad", "rootwarden_treant", "sky_harpooner", "bounty_hound", "siege_crab", "voltaic_beetle", "crystal_tailbeast", "froststing_hornet", "onyx_scorpion", "saberspine_tiger", "maw_beast", "fireclaw_hawk", "frosthorn_rhino", "azure_mane_lion", "longtail_lizard", "rune_exorcist", "knife_skirmisher", "common_orc", "stone_mason", "toll_squire", "choir_friar", "spirit_fan_wolf", "breath_imp", "thornback_beast", "basalt_titan", "bone_crown_lich", "orb_hunter", "aegis_warden", "glimmer_sprite", "followup_cub", "frostbreath_lizard", "cleaver_brute", "repair_pylon", "repulsion_eye", "wingblade_duelist", "spinning_tailbeast", "silver_wingbird", "gauntlet_combo_guard", "shadow_runner", "palmstrike_adept", "shockplate_drake", "boulder_slammer", "crescent_blade_dancer", "feral_fistfighter", "thunderhorn_beast", "roarfang_beast", "gilded_shooter", "lumen_charger", "spark_bird", "azure_blade_trio", "crimson_mender", "emberwing_drake", "poleblade_dancer", "vortex_adept", "ward_bastion", "carapace_slashbeast", "sweep_acolyte", "tumbling_critter", "triad_chimera", "pillar_hammerer", "oni_wavelet", "vex_touchbeast", "wandering_warder", "bluefist_colossus", "curved_blade_raider", "coiltail_halberdier", "cinderbow_archer", "cinder_tailbeast", "redmask_duelist", "crownshield_guard", "goldring_core", "finback_clawbeast", "tendril_revenant", "razorclaw_reaver", "dusk_winglet", "windcloth_duelist", "antler_archer", "ringneck_prowler", "bluehorn_invoker", "light_bowman", "halo_healer", "shellpulse_beast", "crystal_glint_wisp", "emberstring_archer", "tetherlash_adept", "tigermask_archer", "goldwing_skirmisher", "triangle_warder", "scarlet_bladebeast", "bonefan_reaper", "gilded_hopper", "goldmask_pugilist", "azure_bear_brawler", "flamering_magus", "wheelblade_knight", "emberfist_pillarer", "domeback_colossus", "rosewhirl_critter", "crestblade_sentinel", "sootclaw_critter", "silverflare_archer", "redblade_strider", "greenflame_triad", "ashstaff_healer", "brownblade_scout", "ghostclaw_lynx", "bluewhip_minion", "wavebody_adept", "moonclaw_werewolf", "ringhold_guardian", "disc_crown_mender", "thornspin_ooze", "bloodmoon_crescent", "drumhammer_sister", "bubble_shadow_mender", "locust_pulsefighter", "spikeburst_grinder", "bubbleclaw_plaguer", "spinthrust_grincher", "hatblade_hsuku", "silverarm_vanguard", "gemswirl_mender", "sol_harp_mender", "bluewhip_hunter", "cyanribbon_weaver", "moonplunge_lancer", "voltwing_scarab", "veteran_flamewing", "ivoryspike_scarab", "bluepole_mogwai", "specterclaw_shuffler", "dawnblade_fencer", "goldring_shadow_mender", "embergrille_monument", "cyanarm_mystic", "whiteburst_pugilist", "stormhorn_tripler", "curled_jackal", "aurora_thrustmage", "shieldmace_companion", "inkorb_caster", "ribwraith_tripler", "klaxon_windup_blader", "flameaxe_dweller", "spectral_scale_dragon", "twinmoon_pontiff", "whitehair_spinblade", "redpole_warrior", "smoke_thrustfighter", "sunhalo_polyhedron", "daemonflash_tripler", "fenrir_dualguard", "antlerwhirl_myriad", "golden_tuft_mender", "fiery_coil_inceptor", "desert_flarebeast", "spiral_polecaster", "stonepulse_kolossus", "goldring_brawler", "pteryx_tailwing", "darkfan_clawlord", "cyanspike_commander", "golden_bowling", "windslice_fighter", "redcrescent_sentinel", "greenlash_hatmaster", "cyan_multiblade", "plated_dualdragon", "suspended_prism_mender", "rex_clawtripler", "crimson_levitator", "golden_whirlshaper", "colossal_hornfist", "goldgreatsword_duelist", "cyan_tripleblade", "goldtrident_duelist", "redhorn_dualbeast", "greenneck_burster", "frostthrust_lancer", "snowdisk_warder", "redcore_burstshrine", "goldstroke_rotator", "dusk_triplewarden", "iceclaw_legend", "cyanrise_silithar", "groundprism_windmiller", "flipthrust_legend", "flameburst_mythron", "bloodsurge_pillarist", "baast_handtripler", "metaltooth_duelist", "icy_dualslasher", "crystalback_rae", "orbslam_zyx", "brass_flareslinger", "sunbreak_pillar_guardian", "bobble_mender", "rune_cube_warder", "darkclaw_harbinger", "whirlsilk_cat", "twinflare_fox", "redshield_tripler", "shellburst_arcade", "accretion_burstcore", "deathknell_cutpillar", "redtail_whipper", "ringblade_maehv", "dreamflash_oracle", "candle_archdeacon", "wavepole_adept", "shade_trislasher", "twinpulse_mage", "redbud_blightbeast", "abyssal_palmweaver", "origami_wingburst", "ochre_antlerclaw", "komodo_fiveclaw", "quadcut_swordmaster", "latecut_staffblade", "ashbone_swordsman", "punchcap_mushroom", "fangeye_flier", "ooze_slammer", "clawring_bat", "jawchest_mimic", "spectralhand_wizard", "crownblade_king", "spearcut_huntress", "bluecoat_blader", "redtunic_swordsman", "hooded_ghost", "scarfhat_swordsman", "wrapped_mummy", "plume_swordknight", "ringfall_chakkram", "eggshell_repairpod", "bonecolumn_warder", "clubnose_forest_troll", "forkbill_strider", "opalfin_sky_ray", "kilnback_pincerbeast", "copperbrow_bristle_ram", "glasswing_sting_moth", "bellgill_mender", "archclapper_walker", "ribbed_fanclam", "duskgargoyle_clawer", "duskbrown_rat", "duskflutter_bat", "puffcap_mender", "branchsweep_treant", "willyee_ghoul", "willyee_hellhound", "willyee_skel_archer", "willyee_ogre", "willyee_goblin", "willyee_lizardman", "willyee_scorpion", "skullflare_triad", "floatinghelm_tripler", "willyee_knight", "willyee_rogue", "willyee_monk", "willyee_robed_fighter", "willyee_alchemist", "willyee_ribbon_dancer", "willyee_char_02", "willyee_char_08", "willyee_char_42", "willyee_char_47", "willyee_char_51", "willyee_char_54", "willyee_char_03_axe_wayfarer", "willyee_char_10_lute_bard", "willyee_char_22_crescent_reaper", "willyee_char_34_goldring_caster", "willyee_char_43_redgauntlet_brawler", "willyee_char_48_horned_heavy", "willyee_char_52_spiked_hammerer", "willyee_frost_dragon", "willyee_stone_golem"], "internal": ["slimelet"], "pendingBalance": ["bastion_stag", "moonshard_archer", "counter_barrier_mage", "dispel_mouse", "voltaic_stonegiant", "sky_mender", "coiled_shade"], "releaseGate": "local normal277 static candidate; default geometry rejected; no normal outcome campaign or global-balance admission", "candidateGates": {"coiled_shade": {"admission": "pending", "balanceGate": "open", "reason": "No compensating relative value demonstrated."}, "azure_blade_trio": {"admission": "local-content-only", "balanceStatus": "provisional-underpowered", "balanceGate": "OPEN", "heldoutRoleWins": "0/80", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain failed heldout."}, "crimson_mender": {"admission": "local-provisional", "balanceStatus": "conditional-value", "balanceGate": "not-production-calibrated"}, "emberwing_drake": {"admission": "local-content-only", "balanceStatus": "provisional-underpowered", "balanceGate": "OPEN", "heldoutRoleWins": "0/80", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain failed heldout."}, "poleblade_dancer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "conditional-placement-tradeoff"}, "vortex_adept": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "conditional-placement-tradeoff"}, "ward_bastion": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "carapace_slashbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "weak-provisional"}, "sweep_acolyte": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "tumbling_critter": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80"}, "triad_chimera": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "9/80"}, "pillar_hammerer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "oni_wavelet": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "15/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "vex_touchbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "28/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "wandering_warder": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-provisional", "heldoutRoleWins": "3/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "bluefist_colossus": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "5/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "curved_blade_raider": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "17/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "coiltail_halberdier": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-conditional-tradeoff", "heldoutRoleWins": "4/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "cinderbow_archer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "35/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "cinder_tailbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-conditional-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "redmask_duelist": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "crownshield_guard": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "16/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "goldring_core": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "sky_mender": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "utility-not-established-vs-equal-budget-controls", "heldoutRoleWins": "1/80", "oldStatsUnchanged": true}, "finback_clawbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "17/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "tendril_revenant": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "razorclaw_reaver": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "7/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "gleamblade_adept": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "relative-utility-not-established", "heldoutRoleWins": "8/80"}, "dusk_winglet": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "13/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "windcloth_duelist": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "antler_archer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "26/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "ringneck_prowler": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "9/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "bluehorn_invoker": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "5/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "tiny_palmbeast": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "relative-utility-unconfirmed", "heldoutRoleWins": "2/80"}, "light_bowman": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "narrow-tiny-air-threshold-tradeoff; general AA alternatives often better", "heldoutRoleWins": "9/80 ground;10/80 mirrored AA (40 unique+mirror40)", "requiredFollowup": "Price/rosterfit review, preserveSilvercounter andshortreachweakness"}, "halo_healer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-causal-healing; draw-heavy; supportfixture60percent exceeds fresh-right35percentcap", "heldoutRoleWins": "6/80 plus10draws", "requiredFollowup": "Legal <=35percent supportmixedtrain/held and groupHeal predictivefeatureaudit before production calibration"}, "shellpulse_beast": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "crystal_glint_wisp": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "emberstring_archer": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "tetherlash_adept": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "tigermask_archer": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "cohort252": {"normalGatePassed": false, "newIndividualTermsUnlearned": 52, "unmodelledGeometry": ["skullflare_triad", "floatinghelm_tripler"], "public": false}}, "fixtureOnly": [], "normal250Provisional": {"productionAdmission": false, "globalBalancePassed": false, "unmodelledGeometryExcluded": ["skullflare_triad", "floatinghelm_tripler"], "newIndividualTermsRemainUnlearned": 50, "supersededBy": "normal277Provisional"}, "normal277Provisional": {"schema": "local-normal277-balance-provisional-v1", "status": "STATIC-CANDIDATE-NOT-OUTCOME-TESTED", "baseSelectable": 250, "appendedTypes": ["scarfhat_swordsman", "wrapped_mummy", "plume_swordknight", "ringfall_chakkram", "eggshell_repairpod", "bonecolumn_warder", "clubnose_forest_troll", "forkbill_strider", "opalfin_sky_ray", "kilnback_pincerbeast", "copperbrow_bristle_ram", "glasswing_sting_moth", "bellgill_mender", "archclapper_walker", "ribbed_fanclam", "duskgargoyle_clawer", "duskbrown_rat", "duskflutter_bat", "puffcap_mender", "branchsweep_treant", "willyee_ghoul", "willyee_hellhound", "willyee_skel_archer", "willyee_ogre", "willyee_goblin", "willyee_lizardman", "willyee_scorpion"], "excludedUnmodelledGeometry": ["skullflare_triad", "floatinghelm_tripler"], "productionAdmission": false, "globalBalancePassed": false, "public": false}, "normal300Provisional": {"schema": "local-normal300-explicit-geometry-untrained-tail-v1", "status": "LOCAL ACTUAL SIMULATION CANDIDATE; lifecycle gate pending", "baseSelectable": 277, "geometryAdmissions": ["skullflare_triad", "floatinghelm_tripler"], "geometryPolicy": "exact physics/physics.js per-stage geometry remains active; fixed-stage geometry sidecar is informational only and is not substituted for combat", "appendedSourceProfiles": ["willyee_knight", "willyee_rogue", "willyee_monk", "willyee_robed_fighter", "willyee_alchemist", "willyee_ribbon_dancer", "willyee_char_02", "willyee_char_08", "willyee_char_42", "willyee_char_47", "willyee_char_51", "willyee_char_54", "willyee_char_03_axe_wayfarer", "willyee_char_10_lute_bard", "willyee_char_22_crescent_reaper", "willyee_char_34_goldring_caster", "willyee_char_43_redgauntlet_brawler", "willyee_char_48_horned_heavy", "willyee_char_52_spiked_hammerer", "willyee_frost_dragon", "willyee_stone_golem"], "productionAdmission": false, "globalBalancePassed": false, "public": false}};const keys=CONTENT_ROSTER.selectable.slice(), canvas=document.querySelector('#field'),ctx=canvas.getContext('2d');let speed=1,paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
++const CONTENT_ROSTER={"version": "local-normal300-nominal-untrained-candidate", "selectable": ["sword", "shield", "spear", "archer", "cannon", "rider", "healer", "goblin", "golem", "drake", "wraith", "boar", "bombbug", "frostmage", "stormmage", "burrower", "slime", "screech_cricket", "reaper_mantis", "spore_toad", "rootwarden_treant", "sky_harpooner", "bounty_hound", "siege_crab", "voltaic_beetle", "crystal_tailbeast", "froststing_hornet", "onyx_scorpion", "saberspine_tiger", "maw_beast", "fireclaw_hawk", "frosthorn_rhino", "azure_mane_lion", "longtail_lizard", "rune_exorcist", "knife_skirmisher", "common_orc", "stone_mason", "toll_squire", "choir_friar", "spirit_fan_wolf", "breath_imp", "thornback_beast", "basalt_titan", "bone_crown_lich", "orb_hunter", "aegis_warden", "glimmer_sprite", "followup_cub", "frostbreath_lizard", "cleaver_brute", "repair_pylon", "repulsion_eye", "wingblade_duelist", "spinning_tailbeast", "silver_wingbird", "gauntlet_combo_guard", "shadow_runner", "palmstrike_adept", "shockplate_drake", "boulder_slammer", "crescent_blade_dancer", "feral_fistfighter", "thunderhorn_beast", "roarfang_beast", "gilded_shooter", "lumen_charger", "spark_bird", "azure_blade_trio", "crimson_mender", "emberwing_drake", "poleblade_dancer", "vortex_adept", "ward_bastion", "carapace_slashbeast", "sweep_acolyte", "tumbling_critter", "triad_chimera", "pillar_hammerer", "oni_wavelet", "vex_touchbeast", "wandering_warder", "bluefist_colossus", "curved_blade_raider", "coiltail_halberdier", "cinderbow_archer", "cinder_tailbeast", "redmask_duelist", "crownshield_guard", "goldring_core", "finback_clawbeast", "tendril_revenant", "razorclaw_reaver", "dusk_winglet", "windcloth_duelist", "antler_archer", "ringneck_prowler", "bluehorn_invoker", "light_bowman", "halo_healer", "shellpulse_beast", "crystal_glint_wisp", "emberstring_archer", "tetherlash_adept", "tigermask_archer", "goldwing_skirmisher", "triangle_warder", "scarlet_bladebeast", "bonefan_reaper", "gilded_hopper", "goldmask_pugilist", "azure_bear_brawler", "flamering_magus", "wheelblade_knight", "emberfist_pillarer", "domeback_colossus", "rosewhirl_critter", "crestblade_sentinel", "sootclaw_critter", "silverflare_archer", "redblade_strider", "greenflame_triad", "ashstaff_healer", "brownblade_scout", "ghostclaw_lynx", "bluewhip_minion", "wavebody_adept", "moonclaw_werewolf", "ringhold_guardian", "disc_crown_mender", "thornspin_ooze", "bloodmoon_crescent", "drumhammer_sister", "bubble_shadow_mender", "locust_pulsefighter", "spikeburst_grinder", "bubbleclaw_plaguer", "spinthrust_grincher", "hatblade_hsuku", "silverarm_vanguard", "gemswirl_mender", "sol_harp_mender", "bluewhip_hunter", "cyanribbon_weaver", "moonplunge_lancer", "voltwing_scarab", "veteran_flamewing", "ivoryspike_scarab", "bluepole_mogwai", "specterclaw_shuffler", "dawnblade_fencer", "goldring_shadow_mender", "embergrille_monument", "cyanarm_mystic", "whiteburst_pugilist", "stormhorn_tripler", "curled_jackal", "aurora_thrustmage", "shieldmace_companion", "inkorb_caster", "ribwraith_tripler", "klaxon_windup_blader", "flameaxe_dweller", "spectral_scale_dragon", "twinmoon_pontiff", "whitehair_spinblade", "redpole_warrior", "smoke_thrustfighter", "sunhalo_polyhedron", "daemonflash_tripler", "fenrir_dualguard", "antlerwhirl_myriad", "golden_tuft_mender", "fiery_coil_inceptor", "desert_flarebeast", "spiral_polecaster", "stonepulse_kolossus", "goldring_brawler", "pteryx_tailwing", "darkfan_clawlord", "cyanspike_commander", "golden_bowling", "windslice_fighter", "redcrescent_sentinel", "greenlash_hatmaster", "cyan_multiblade", "plated_dualdragon", "suspended_prism_mender", "rex_clawtripler", "crimson_levitator", "golden_whirlshaper", "colossal_hornfist", "goldgreatsword_duelist", "cyan_tripleblade", "goldtrident_duelist", "redhorn_dualbeast", "greenneck_burster", "frostthrust_lancer", "snowdisk_warder", "redcore_burstshrine", "goldstroke_rotator", "dusk_triplewarden", "iceclaw_legend", "cyanrise_silithar", "groundprism_windmiller", "flipthrust_legend", "flameburst_mythron", "bloodsurge_pillarist", "baast_handtripler", "metaltooth_duelist", "icy_dualslasher", "crystalback_rae", "orbslam_zyx", "brass_flareslinger", "sunbreak_pillar_guardian", "bobble_mender", "rune_cube_warder", "darkclaw_harbinger", "whirlsilk_cat", "twinflare_fox", "redshield_tripler", "shellburst_arcade", "accretion_burstcore", "deathknell_cutpillar", "redtail_whipper", "ringblade_maehv", "dreamflash_oracle", "candle_archdeacon", "wavepole_adept", "shade_trislasher", "twinpulse_mage", "redbud_blightbeast", "abyssal_palmweaver", "origami_wingburst", "ochre_antlerclaw", "komodo_fiveclaw", "quadcut_swordmaster", "latecut_staffblade", "ashbone_swordsman", "punchcap_mushroom", "fangeye_flier", "ooze_slammer", "clawring_bat", "jawchest_mimic", "spectralhand_wizard", "crownblade_king", "spearcut_huntress", "bluecoat_blader", "redtunic_swordsman", "hooded_ghost", "scarfhat_swordsman", "wrapped_mummy", "plume_swordknight", "ringfall_chakkram", "eggshell_repairpod", "bonecolumn_warder", "clubnose_forest_troll", "forkbill_strider", "opalfin_sky_ray", "kilnback_pincerbeast", "copperbrow_bristle_ram", "glasswing_sting_moth", "bellgill_mender", "archclapper_walker", "ribbed_fanclam", "duskgargoyle_clawer", "duskbrown_rat", "duskflutter_bat", "puffcap_mender", "branchsweep_treant", "willyee_ghoul", "willyee_hellhound", "willyee_skel_archer", "willyee_ogre", "willyee_goblin", "willyee_lizardman", "willyee_scorpion", "skullflare_triad", "floatinghelm_tripler", "willyee_knight", "willyee_rogue", "willyee_monk", "willyee_robed_fighter", "willyee_alchemist", "willyee_ribbon_dancer", "willyee_char_02", "willyee_char_08", "willyee_char_42", "willyee_char_47", "willyee_char_51", "willyee_char_54", "willyee_char_03_axe_wayfarer", "willyee_char_10_lute_bard", "willyee_char_22_crescent_reaper", "willyee_char_34_goldring_caster", "willyee_char_43_redgauntlet_brawler", "willyee_char_48_horned_heavy", "willyee_char_52_spiked_hammerer", "willyee_frost_dragon", "willyee_stone_golem"], "internal": ["slimelet"], "pendingBalance": ["bastion_stag", "moonshard_archer", "counter_barrier_mage", "dispel_mouse", "voltaic_stonegiant", "sky_mender", "coiled_shade"], "releaseGate": "local normal277 static candidate; default geometry rejected; no normal outcome campaign or global-balance admission", "candidateGates": {"coiled_shade": {"admission": "pending", "balanceGate": "open", "reason": "No compensating relative value demonstrated."}, "azure_blade_trio": {"admission": "local-content-only", "balanceStatus": "provisional-underpowered", "balanceGate": "OPEN", "heldoutRoleWins": "0/80", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain failed heldout."}, "crimson_mender": {"admission": "local-provisional", "balanceStatus": "conditional-value", "balanceGate": "not-production-calibrated"}, "emberwing_drake": {"admission": "local-content-only", "balanceStatus": "provisional-underpowered", "balanceGate": "OPEN", "heldoutRoleWins": "0/80", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain failed heldout."}, "poleblade_dancer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "conditional-placement-tradeoff"}, "vortex_adept": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "conditional-placement-tradeoff"}, "ward_bastion": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "carapace_slashbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain fixed losing evidence.", "balanceStatus": "weak-provisional"}, "sweep_acolyte": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "tumbling_critter": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80"}, "triad_chimera": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "9/80"}, "pillar_hammerer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve negative heldout.", "balanceStatus": "provisional-underpowered", "heldoutRoleWins": "0/80"}, "oni_wavelet": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "15/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "vex_touchbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "28/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "wandering_warder": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-provisional", "heldoutRoleWins": "3/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "bluefist_colossus": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "5/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "curved_blade_raider": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "17/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "coiltail_halberdier": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-conditional-tradeoff", "heldoutRoleWins": "4/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "cinderbow_archer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "35/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "cinder_tailbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "weak-conditional-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; preserve all weak outcomes."}, "redmask_duelist": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "crownshield_guard": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "16/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "goldring_core": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "11/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "sky_mender": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "utility-not-established-vs-equal-budget-controls", "heldoutRoleWins": "1/80", "oldStatsUnchanged": true}, "finback_clawbeast": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "17/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "tendril_revenant": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "razorclaw_reaver": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "7/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain losing cells."}, "gleamblade_adept": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "relative-utility-not-established", "heldoutRoleWins": "8/80"}, "dusk_winglet": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "13/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "windcloth_duelist": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "6/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "antler_archer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "26/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "ringneck_prowler": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "9/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "bluehorn_invoker": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-mixed-tradeoff", "heldoutRoleWins": "5/80", "requiredFollowup": "Unified static-price/roster-fit calibration before final100 publication; retain all losing cells, no statistical significance claimed."}, "tiny_palmbeast": {"admission": "pending-not-active", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "relative-utility-unconfirmed", "heldoutRoleWins": "2/80"}, "light_bowman": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "narrow-tiny-air-threshold-tradeoff; general AA alternatives often better", "heldoutRoleWins": "9/80 ground;10/80 mirrored AA (40 unique+mirror40)", "requiredFollowup": "Price/rosterfit review, preserveSilvercounter andshortreachweakness"}, "halo_healer": {"admission": "local-content-only", "balanceGate": "OPEN", "competitiveValueConfirmed": false, "balanceStatus": "conditional-causal-healing; draw-heavy; supportfixture60percent exceeds fresh-right35percentcap", "heldoutRoleWins": "6/80 plus10draws", "requiredFollowup": "Legal <=35percent supportmixedtrain/held and groupHeal predictivefeatureaudit before production calibration"}, "shellpulse_beast": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "crystal_glint_wisp": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "emberstring_archer": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "tetherlash_adept": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "tigermask_archer": {"admission": "conditional-local-generation-trial", "balanceGate": "OPEN", "model": "five-ID-only trained240/freshheld180; old100exact", "publicRelease": false}, "cohort252": {"normalGatePassed": false, "newIndividualTermsUnlearned": 52, "unmodelledGeometry": ["skullflare_triad", "floatinghelm_tripler"], "public": false}}, "fixtureOnly": [], "normal250Provisional": {"productionAdmission": false, "globalBalancePassed": false, "unmodelledGeometryExcluded": ["skullflare_triad", "floatinghelm_tripler"], "newIndividualTermsRemainUnlearned": 50, "supersededBy": "normal277Provisional"}, "normal277Provisional": {"schema": "local-normal277-balance-provisional-v1", "status": "STATIC-CANDIDATE-NOT-OUTCOME-TESTED", "baseSelectable": 250, "appendedTypes": ["scarfhat_swordsman", "wrapped_mummy", "plume_swordknight", "ringfall_chakkram", "eggshell_repairpod", "bonecolumn_warder", "clubnose_forest_troll", "forkbill_strider", "opalfin_sky_ray", "kilnback_pincerbeast", "copperbrow_bristle_ram", "glasswing_sting_moth", "bellgill_mender", "archclapper_walker", "ribbed_fanclam", "duskgargoyle_clawer", "duskbrown_rat", "duskflutter_bat", "puffcap_mender", "branchsweep_treant", "willyee_ghoul", "willyee_hellhound", "willyee_skel_archer", "willyee_ogre", "willyee_goblin", "willyee_lizardman", "willyee_scorpion"], "excludedUnmodelledGeometry": ["skullflare_triad", "floatinghelm_tripler"], "productionAdmission": false, "globalBalancePassed": false, "public": false}, "normal300Provisional": {"schema": "local-normal300-explicit-geometry-untrained-tail-v1", "status": "LOCAL ACTUAL SIMULATION CANDIDATE; lifecycle gate pending", "baseSelectable": 277, "geometryAdmissions": ["skullflare_triad", "floatinghelm_tripler"], "geometryPolicy": "exact physics/physics.js per-stage geometry remains active; fixed-stage geometry sidecar is informational only and is not substituted for combat", "appendedSourceProfiles": ["willyee_knight", "willyee_rogue", "willyee_monk", "willyee_robed_fighter", "willyee_alchemist", "willyee_ribbon_dancer", "willyee_char_02", "willyee_char_08", "willyee_char_42", "willyee_char_47", "willyee_char_51", "willyee_char_54", "willyee_char_03_axe_wayfarer", "willyee_char_10_lute_bard", "willyee_char_22_crescent_reaper", "willyee_char_34_goldring_caster", "willyee_char_43_redgauntlet_brawler", "willyee_char_48_horned_heavy", "willyee_char_52_spiked_hammerer", "willyee_frost_dragon", "willyee_stone_golem"], "productionAdmission": false, "globalBalancePassed": false, "public": false}};const keys=CONTENT_ROSTER.selectable.slice(), canvas=document.querySelector('#field'),ctx=canvas.getContext('2d');let paused=false;let round=1,mistakes=0,correct=0,state='choose',choice=null,seed=123,units=[],shots=[],elapsed=0,last=0,acc=0,frame=0, winner=null;
+ function rng(s){return ()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
+ let budgets=[];const COST={sword:3,shield:4,spear:3,archer:3,cannon:6,rider:8,healer:4};Object.assign(COST,{"sword": 3, "shield": 4, "spear": 3, "archer": 3, "cannon": 6, "rider": 8, "healer": 4, "goblin": 2, "golem": 9, "drake": 7, "wraith": 8, "boar": 5, "bombbug": 3, "frostmage": 4, "stormmage": 5, "burrower": 5, "slime": 4, "slimelet": 0, "screech_cricket": 2, "reaper_mantis": 5, "spore_toad": 4, "rootwarden_treant": 9, "sky_harpooner": 5, "bounty_hound": 4, "siege_crab": 9, "voltaic_beetle": 2, "crystal_tailbeast": 2, "froststing_hornet": 2, "onyx_scorpion": 2, "saberspine_tiger": 3, "maw_beast": 1, "fireclaw_hawk": 5, "frosthorn_rhino": 6, "azure_mane_lion": 5, "longtail_lizard": 4, "rune_exorcist": 2, "common_orc": 3, "stone_mason": 2, "knife_skirmisher": 2, "toll_squire": 2, "choir_friar": 1, "spirit_fan_wolf": 2, "breath_imp": 2, "thornback_beast": 6, "basalt_titan": 10, "bone_crown_lich": 12, "orb_hunter": 5, "aegis_warden": 4, "glimmer_sprite": 1, "followup_cub": 1, "frostbreath_lizard": 8, "cleaver_brute": 9, "repair_pylon": 3, "repulsion_eye": 2, "wingblade_duelist": 5, "spinning_tailbeast": 1, "silver_wingbird": 2, "gauntlet_combo_guard": 5, "shadow_runner": 1, "palmstrike_adept": 3, "shockplate_drake": 10, "boulder_slammer": 4, "crescent_blade_dancer": 3, "feral_fistfighter": 4, "thunderhorn_beast": 8, "roarfang_beast": 3, "gilded_shooter": 2, "lumen_charger": 7, "spark_bird": 1, "azure_blade_trio": 3, "crimson_mender": 3, "emberwing_drake": 8, "poleblade_dancer": 1, "vortex_adept": 3, "ward_bastion": 2, "carapace_slashbeast": 7, "sweep_acolyte": 2, "tumbling_critter": 1, "triad_chimera": 8, "pillar_hammerer": 9, "oni_wavelet": 2, "vex_touchbeast": 3, "wandering_warder": 3, "bluefist_colossus": 8, "curved_blade_raider": 1, "coiltail_halberdier": 2, "cinderbow_archer": 4, "cinder_tailbeast": 9, "redmask_duelist": 1, "crownshield_guard": 2, "goldring_core": 3, "finback_clawbeast": 2, "tendril_revenant": 3, "razorclaw_reaver": 9, "dusk_winglet": 1, "windcloth_duelist": 4, "antler_archer": 3, "ringneck_prowler": 8, "bluehorn_invoker": 9, "light_bowman": 2, "halo_healer": 2, "shellpulse_beast": 2, "crystal_glint_wisp": 2, "emberstring_archer": 2, "tetherlash_adept": 4, "tigermask_archer": 5, "goldwing_skirmisher": 2, "triangle_warder": 1, "scarlet_bladebeast": 4, "bonefan_reaper": 8, "gilded_hopper": 2, "goldmask_pugilist": 1, "azure_bear_brawler": 4, "flamering_magus": 8, "wheelblade_knight": 5, "emberfist_pillarer": 8, "domeback_colossus": 6, "rosewhirl_critter": 1, "crestblade_sentinel": 3, "sootclaw_critter": 1, "silverflare_archer": 4, "redblade_strider": 4, "greenflame_triad": 4, "ashstaff_healer": 1, "brownblade_scout": 1, "ghostclaw_lynx": 3, "bluewhip_minion": 2, "wavebody_adept": 3, "moonclaw_werewolf": 8, "ringhold_guardian": 6, "disc_crown_mender": 3, "thornspin_ooze": 2, "bloodmoon_crescent": 4, "drumhammer_sister": 4, "bubble_shadow_mender": 2, "locust_pulsefighter": 4, "spikeburst_grinder": 8, "bubbleclaw_plaguer": 3, "spinthrust_grincher": 4, "hatblade_hsuku": 4, "silverarm_vanguard": 8, "gemswirl_mender": 3, "sol_harp_mender": 2, "bluewhip_hunter": 3, "cyanribbon_weaver": 1, "moonplunge_lancer": 5, "voltwing_scarab": 2, "veteran_flamewing": 7, "ivoryspike_scarab": 4, "bluepole_mogwai": 4, "specterclaw_shuffler": 4, "dawnblade_fencer": 3, "goldring_shadow_mender": 1, "embergrille_monument": 2, "cyanarm_mystic": 3, "whiteburst_pugilist": 4, "stormhorn_tripler": 6, "curled_jackal": 1, "aurora_thrustmage": 3, "shieldmace_companion": 4, "inkorb_caster": 2, "ribwraith_tripler": 3, "klaxon_windup_blader": 6, "flameaxe_dweller": 4, "spectral_scale_dragon": 4, "twinmoon_pontiff": 4, "whitehair_spinblade": 1, "redpole_warrior": 4, "smoke_thrustfighter": 4, "sunhalo_polyhedron": 5, "daemonflash_tripler": 3, "fenrir_dualguard": 7, "antlerwhirl_myriad": 3, "golden_tuft_mender": 1, "fiery_coil_inceptor": 7, "desert_flarebeast": 3, "spiral_polecaster": 3, "stonepulse_kolossus": 8, "goldring_brawler": 4, "pteryx_tailwing": 2, "darkfan_clawlord": 8, "cyanspike_commander": 3, "golden_bowling": 2, "windslice_fighter": 3, "redcrescent_sentinel": 3, "greenlash_hatmaster": 5, "cyan_multiblade": 3, "plated_dualdragon": 8, "suspended_prism_mender": 2, "rex_clawtripler": 4, "crimson_levitator": 5, "golden_whirlshaper": 3, "colossal_hornfist": 8, "goldgreatsword_duelist": 7, "cyan_tripleblade": 4, "goldtrident_duelist": 7, "redhorn_dualbeast": 8, "greenneck_burster": 3, "frostthrust_lancer": 3, "snowdisk_warder": 1, "redcore_burstshrine": 2, "goldstroke_rotator": 3, "dusk_triplewarden": 3, "iceclaw_legend": 5, "cyanrise_silithar": 7, "groundprism_windmiller": 4, "flipthrust_legend": 3, "flameburst_mythron": 8, "bloodsurge_pillarist": 3, "baast_handtripler": 4, "metaltooth_duelist": 4, "icy_dualslasher": 3, "crystalback_rae": 2, "orbslam_zyx": 4, "brass_flareslinger": 3, "sunbreak_pillar_guardian": 7, "bobble_mender": 1, "rune_cube_warder": 1, "darkclaw_harbinger": 1, "whirlsilk_cat": 2, "twinflare_fox": 4, "redshield_tripler": 4, "shellburst_arcade": 3, "accretion_burstcore": 6, "deathknell_cutpillar": 6, "redtail_whipper": 1, "ringblade_maehv": 6, "dreamflash_oracle": 1, "candle_archdeacon": 4, "wavepole_adept": 3, "shade_trislasher": 3, "twinpulse_mage": 3, "redbud_blightbeast": 3, "abyssal_palmweaver": 4, "origami_wingburst": 6, "ochre_antlerclaw": 2, "komodo_fiveclaw": 5, "quadcut_swordmaster": 6, "latecut_staffblade": 6, "skullflare_triad": 6, "floatinghelm_tripler": 6, "ashbone_swordsman": 2, "punchcap_mushroom": 2, "fangeye_flier": 2, "ooze_slammer": 4, "clawring_bat": 2, "jawchest_mimic": 4, "spectralhand_wizard": 8, "crownblade_king": 3, "spearcut_huntress": 3, "bluecoat_blader": 3, "redtunic_swordsman": 2, "hooded_ghost": 2, "scarfhat_swordsman": 3, "wrapped_mummy": 1, "plume_swordknight": 3, "ringfall_chakkram": 4, "eggshell_repairpod": 1, "bonecolumn_warder": 1, "clubnose_forest_troll": 1, "forkbill_strider": 3, "opalfin_sky_ray": 2, "kilnback_pincerbeast": 7, "copperbrow_bristle_ram": 3, "glasswing_sting_moth": 2, "bellgill_mender": 1, "archclapper_walker": 3, "ribbed_fanclam": 4, "duskgargoyle_clawer": 2, "duskbrown_rat": 1, "duskflutter_bat": 1, "puffcap_mender": 2, "branchsweep_treant": 3, "willyee_ghoul": 3, "willyee_hellhound": 3, "willyee_skel_archer": 3, "willyee_ogre": 3, "willyee_goblin": 3, "willyee_lizardman": 3, "willyee_scorpion": 3, "willyee_knight": 4, "willyee_rogue": 3, "willyee_monk": 3, "willyee_robed_fighter": 4, "willyee_alchemist": 3, "willyee_ribbon_dancer": 3, "willyee_char_02": 3, "willyee_char_08": 3, "willyee_char_42": 3, "willyee_char_47": 3, "willyee_char_51": 3, "willyee_char_54": 3, "willyee_char_03_axe_wayfarer": 3, "willyee_char_10_lute_bard": 3, "willyee_char_22_crescent_reaper": 3, "willyee_char_34_goldring_caster": 3, "willyee_char_43_redgauntlet_brawler": 3, "willyee_char_48_horned_heavy": 3, "willyee_char_52_spiked_hammerer": 3, "willyee_frost_dragon": 9, "willyee_stone_golem": 9});
+ // Optional opening generator: not installed in index.html by this candidate.
+@@ -6388,7 +6509,7 @@
+   const entry={u,key,anchor:a,left:a.x-14,top:a.y,width:28,height:4,focused:key===crowdFocusKey,outline:false,hiddenHP:false};
+   frame.set(u,entry);liveKeys.add(key);if(entry.focused)focused=entry;
+  }
+- if(crowdFocusKey!==null&&!focused){crowdFocusKey=null;crowdSelectionNotice='選択した兵士の表示が終了しました';}
++ if(crowdFocusKey!==null&&!focused){crowdFocusKey=null;crowdSelectionNotice='選択したキャラの表示が終了しました';}
+  crowdCandidateKeys=crowdCandidateKeys.filter(k=>liveKeys.has(k));if(crowdChoiceMode==='tap'&&!crowdCandidateKeys.length)crowdChoiceMode='all';crowdFrame=frame;crowdFocusedEntry=focused;return frame;
+ }
+ function resetCrowdPresentation(){crowdFrame.clear();crowdFocusKey=null;crowdFocusedEntry=null;crowdCandidateKeys=[];crowdChoiceMode='all';crowdSelectionNotice='';crowdTap=null;}
+@@ -6828,19 +6949,19 @@
+  const delta=last===null?0:Math.max(0,(t-last)/1000);last=t;
+  if(document.hidden===true){resetSoloClock();requestAnimationFrame(loop);return;}
+  if(state==='fight'&&!paused){
+-  acc=Math.min(Math.max(0,60-elapsed)+1/60,ReplayClock.advanceSceneSeconds(elapsed+acc,delta,speed)-elapsed);
++  acc=Math.min(Math.max(0,60-elapsed)+1/60,ReplayClock.advanceSceneSeconds(elapsed+acc,delta)-elapsed);
+   const hasClock=typeof performance!=='undefined'&&typeof performance.now==='function',started=hasClock?performance.now():0;let steps=0;
+   while(acc+1e-12>=1/60&&state==='fight'&&steps<SOLO_MAX_STEPS_PER_FRAME){
+    if(steps>0&&hasClock&&performance.now()-started>=SOLO_FRAME_BUDGET_MS)break;
+    step(1/60);acc=Math.max(0,acc-1/60);steps++;
+   }
+   if(state!=='fight')acc=0;
+-  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent=Math.min(60,elapsed).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(elapsed,speed)+'×';
++  draw();const clock=document.querySelector('#battleClock');if(clock)clock.textContent=Math.min(60,elapsed).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(elapsed)+'×';
+  }else {acc=0;if(state==='result'){visualTime+=Math.min(delta,.1);if(visualTime-elapsed<.8)draw();}}
+  requestAnimationFrame(loop);
+ }
+ if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',resetSoloClock);
+-function setSpeed(value){if([1,2].includes(value))speed=value}function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
++function setPaused(value){paused=!!value;resetSoloClock()}function choose(side){if(state!=='choose')return;choice=side;state='fight';paused=false;resetSoloClock();update()}
+ let walletSessionCounter=0,walletState,selectedSide=null,selectedStake=0,selectedStakeOption=25;
+ const PLAYER='local';
+ const MIN_BET=Wallet.MIN_STAKE;
+@@ -6868,7 +6989,7 @@
+   for(const n of [0,10,25,50,75,90,100]){const b=q('#stake'+n),amount=stakeOptionAmount(n,w.balance);b.hidden=amount===null;b.disabled=amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake);b.textContent=MoneyUI.stakeLabel(n,w.balance,round,MIN_BET,50);if(b.setAttribute)b.setAttribute('aria-pressed',String(amount!==null&&selectedStakeOption===n));}
+   q('#confirm').disabled=selectedSide===null||!validPredictionStake(w.balance,selectedStake);
+   q('#stakeHint').textContent=round>10?'全額BET：勝ち2倍／負け0／引分そのまま':Money.amountBig(selectedStake)===0n?'0 G · 的中 +10 G · 外れ・引分 ±0 G':'的中 '+credits(Money.signedValue(Money.amountBig(selectedStake)))+' · 外れ −'+MoneyUI.balanceText(selectedStake)+' · 引分 ±0 G';
+-  q('#pause').textContent='⏸';q('#pause').setAttribute?.('aria-label','一時停止');q('#speed').textContent='速度 '+speed+'×';
++  q('#pause').textContent='⏸';q('#pause').setAttribute?.('aria-label','一時停止');
+   q('#next').textContent=round>=sessionRoundLimit()?'もう一度':'次の戦いへ';
+   if(state==='result'&&walletState.completedRounds===round){
+     const entry=walletState.ledger.find(r=>r.roundId===round).entries[0];
+@@ -6877,7 +6998,18 @@
+     q('#breakdown').textContent=label+' '+credits(entry.delta);
+   }
+ };
+-function selectSide(side){if(state!=='choose')return;selectedSide=side;update()}
++let selectionPreviewTimer=null;
++function queueSelectionPreview(){
++  if(selectionPreviewTimer!==null){clearTimeout(selectionPreviewTimer);selectionPreviewTimer=null;}
++  if(!multiSession)return;
++  const session=multiSession,roundId=multiSnapshot?.roundId;
++  selectionPreviewTimer=setTimeout(()=>{selectionPreviewTimer=null;if(multiSession!==session||multiSnapshot?.roundId!==roundId||state!=='choose'||multiPredictionPending||multiSnapshot?.readyIds?.includes(multiUser))return;session.previewSelection?.(selectedSide===null?null:selectedSide===0?'A':'B');},120);
++}
++function selectSide(side){
++  if(state!=='choose'||![0,1,null].includes(side))return;
++  if(multiSession&&(multiPredictionPending||multiSnapshot?.phase!=='predict'||!multiSnapshot.participants.includes(multiUser)||multiSnapshot.readyIds.includes(multiUser)||multiSnapshot.departedIds.includes(multiUser)||multiSnapshot.cashedOutIds.includes(multiUser)))return;
++  selectedSide=side;update();if(multiSession){syncPredictionPicks(multiSnapshot);queueSelectionPreview();}
++}
+ function selectStake(option){const w=currentWallet(),amount=stakeOptionAmount(option,w.balance);if(state!=='choose'||![0,10,25,50,75,90,100].includes(option)||amount===null||!validPredictionStake(w.balance,amount)||!MoneyUI.amountAtMost(amount,w.maxStake))return;selectedStake=amount;selectedStakeOption=option;update()}
+ function startPrediction(skip=false){
+   if(state!=='choose'||skip||selectedSide===null||!validPredictionStake(currentWallet().balance,selectedStake))return;
+@@ -6893,15 +7025,15 @@
+ }
+ function nextPrediction(){
+   if(state!=='result')return;
+-  const before={round,mistakes,correct,speed,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter};
+-  try{if(round>=sessionRoundLimit()){round=1;mistakes=0;correct=0;speed=1;freshWallet()}else {pendingCarryOutcome=winner===0?'A':winner===1?'B':'draw';pendingCarryKinds=[...initialKinds[winner===1?1:0]];carryStreak=winner===null?carryStreak:winner===(openingPlan?.incumbentSide??0)?carryStreak+1:1;round++;}
++  const before={round,mistakes,correct,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter};
++  try{if(round>=sessionRoundLimit()){round=1;mistakes=0;correct=0;freshWallet()}else {pendingCarryOutcome=winner===0?'A':winner===1?'B':'draw';pendingCarryKinds=[...initialKinds[winner===1?1:0]];carryStreak=winner===null?carryStreak:winner===(openingPlan?.incumbentSide??0)?carryStreak+1:1;round++;}
+   openPrediction((Math.random()*4294967296)>>>0);
+-  }catch(error){({round,mistakes,correct,speed,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);beginLicensedOpening(units);throw error;}
++  }catch(error){({round,mistakes,correct,walletState,battleEnvironment,soloRunEnded,pendingCarryKinds,pendingCarryOutcome,carryStreak,initialKinds,initialUnits,walletSessionCounter}=before);beginLicensedOpening(units);throw error;}
+ }
+ document.querySelector('#red').onclick=()=>selectSide(0);document.querySelector('#blue').onclick=()=>selectSide(1);
+ for(const n of [0,10,25,50,75,90,100])document.querySelector('#stake'+n).onclick=()=>selectStake(n);
+ document.querySelector('#confirm').onclick=()=>startPrediction();
+-document.querySelector('#pause').onclick=()=>{setPaused(!paused);update()};document.querySelector('#speed').onclick=()=>{setSpeed(speed===1?2:1);update()};
++document.querySelector('#pause').onclick=()=>{setPaused(!paused);update()};
+ document.querySelector('#next').onclick=nextPrediction;
+ // UI admission only. Append-only codec registry intentionally includes latent roles.
+ function activeKind(kind,types){if(typeof kind!=='string'||!Object.prototype.hasOwnProperty.call(types,kind)||!types[kind]||(typeof CONTENT_ROSTER!=='undefined'&&!CONTENT_ROSTER.selectable.includes(kind)&&!CONTENT_ROSTER.internal.includes(kind))){const e=Error('inactive-content-role');e.code='inactive-content-role';e.kind=kind;throw e}}
+@@ -6974,7 +7106,29 @@
+  }).join('\n');
+ }
+ function syncOwnBattleChoice(){const node=document.querySelector('#battleChoice');if(!node)return;let side=null;if(state==='fight'&&!predictionPreview){if(multiSession){const pick=multiSnapshot?.confirmedSides?.find(x=>x.userId===multiUser);side=pick?.side??null;}else side=choice===0?'A':choice===1?'B':null;}node.hidden=!side;node.textContent=side==='A'?'予想：左':side==='B'?'予想：右':'';}
+-function syncPredictionPicks(snapshot){for(const side of ['A','B']){const node=document.querySelector(side==='A'?'#redPicks':'#bluePicks');if(!node)continue;const picks=snapshot?.phase==='predict'&&Array.isArray(snapshot.confirmedSides)?snapshot.confirmedSides.filter(x=>x.side===side).slice(0,8):[];node.hidden=!picks.length;const children=[];for(const pick of picks){const row=document.createElement('span'),fallback=document.createElement('span'),profile=multiAdapter?.getProfile?.(pick.userId),name=profile?.name||(pick.userId===multiUser?'あなた':'参加者'+(Math.max(0,snapshot.participants?.indexOf(pick.userId)??0)+1));row.className='prediction-pick';row.setAttribute('aria-label',name);fallback.textContent=name.slice(0,1);row.appendChild(fallback);let url=null;try{const u=new URL(profile?.avatarUrl);if(u.protocol==='https:'&&!u.username&&!u.password)url=u.href}catch(_){}if(url){const img=document.createElement('img');img.alt='';img.referrerPolicy='no-referrer';img.hidden=true;img.onload=()=>{img.hidden=false;fallback.hidden=true};img.onerror=()=>{img.hidden=true;fallback.hidden=false};img.src=url;row.appendChild(img)}children.push(row)}if(typeof node.replaceChildren==='function')node.replaceChildren(...children);else{node.textContent='';for(const child of children)node.appendChild(child)}}}
++function predictionPickEntries(snapshot,viewer,localSide){
++ if(snapshot?.phase!=='predict')return [];
++ const confirmed=Array.isArray(snapshot.confirmedSides)?snapshot.confirmedSides:[],confirmedIds=new Set(confirmed.map(x=>x.userId));
++ const previews=(Array.isArray(snapshot.selectedSides)?snapshot.selectedSides:[]).filter(x=>!confirmedIds.has(x.userId)&&!(snapshot.departedIds||[]).includes(x.userId));
++ const ownUnconfirmed=(snapshot.participants||[]).includes(viewer)&&!confirmedIds.has(viewer)&&!(snapshot.readyIds||[]).includes(viewer)&&!(snapshot.departedIds||[]).includes(viewer)&&!(snapshot.cashedOutIds||[]).includes(viewer);
++ const rows=[...confirmed.map(x=>({...x,confirmed:true})),...previews.filter(x=>!ownUnconfirmed||x.userId!==viewer).map(x=>({...x,confirmed:false}))];
++ if(ownUnconfirmed&&(localSide===0||localSide===1))rows.push({userId:viewer,side:localSide===0?'A':'B',confirmed:false});
++ return rows.slice(0,8);
++}
++function syncPredictionPicks(snapshot){
++ const entries=predictionPickEntries(snapshot,multiUser,typeof selectedSide==='undefined'?null:selectedSide);
++ for(const side of ['A','B']){
++  const node=document.querySelector(side==='A'?'#redPicks':'#bluePicks');if(!node)continue;
++  const picks=entries.filter(x=>x.side===side);node.hidden=!picks.length;const key=JSON.stringify(picks.map(p=>[p.userId,p.confirmed,multiAdapter?.getProfile?.(p.userId)||null]));if(node._predictionPickKey===key)continue;node._predictionPickKey=key;const children=[];
++  for(const pick of picks){
++   const row=document.createElement('span'),fallback=document.createElement('span'),profile=multiAdapter?.getProfile?.(pick.userId),name=profile?.name||(pick.userId===multiUser?'あなた':'参加者'+(Math.max(0,snapshot.participants?.indexOf(pick.userId)??0)+1));
++   row.className='prediction-pick'+(pick.confirmed?' is-confirmed':' is-selecting');row.setAttribute('aria-label',name+'（'+(pick.confirmed?'確定':'選択中')+'）');row.title=name+' · '+(pick.confirmed?'確定':'選択中');fallback.textContent=name.slice(0,1);row.appendChild(fallback);
++   let url=null;try{const u=new URL(profile?.avatarUrl);if(u.protocol==='https:'&&!u.username&&!u.password)url=u.href}catch(_){}
++   if(url){const img=document.createElement('img');img.alt='';img.referrerPolicy='no-referrer';img.hidden=true;img.onload=()=>{img.hidden=false;fallback.hidden=true};img.onerror=()=>{img.hidden=true;fallback.hidden=false};img.src=url;row.appendChild(img)}children.push(row)
++  }
++  if(typeof node.replaceChildren==='function')node.replaceChildren(...children);else{node.textContent='';for(const child of children)node.appendChild(child)}
++ }
++}
+ function displayMultiState(){
+  if(!multiSession||!multiSnapshot||multiRecording)return;
+  const s=multiSnapshot,q=id=>document.querySelector(id),ownPlayer=s.wallets?.find(p=>p.playerId===multiUser),seat=s.participants.includes(multiUser),player=seat&&ownPlayer?.cashedOut!==true&&ownPlayer?.terminalReason!=='bankrupt',ready=s.readyIds.includes(multiUser);
+@@ -6983,7 +7137,7 @@
+  if(s.phase==='predict')state='choose';else if(['locked','battle'].includes(s.phase))state='fight';else if(['settle','result'].includes(s.phase))state='result';else state='choose';
+  soloUpdate();
+  syncPredictionPicks(s);syncOwnBattleChoice();q('#comparison').hidden=s.phase!=='predict';q('#battle').hidden=s.phase!=='battle'||!multiPlayback;q('#resultPanel').hidden=!['settle','result'].includes(s.phase);
+- q('#pause').hidden=false;q('#pause').textContent='メニュー';q('#pause').setAttribute?.('aria-label','メニュー');q('#speed').hidden=true;
++ q('#pause').hidden=false;q('#pause').textContent='☰';q('#pause').setAttribute?.('aria-label','メニュー');
+  q('#confirm').disabled=selectedSide===null||ready||multiPredictionPending||!player||s.phase!=='predict';
+  q('#red').disabled=q('#blue').disabled=ready||multiPredictionPending||!player;
+  for(const n of [0,10,25,50,75,90,100]){const amount=stakeOptionAmount(n,currentWallet().balance),button=q('#stake'+n);button.hidden=amount===null;button.disabled=ready||multiPredictionPending||!player||amount===null||!validPredictionStake(currentWallet().balance,amount)||!MoneyUI.amountAtMost(amount,currentWallet().maxStake);button.textContent=MoneyUI.stakeLabel(n,currentWallet().balance,round,MIN_BET,50);if(button.setAttribute)button.setAttribute('aria-pressed',String(amount!==null&&selectedStakeOption===n));}
+@@ -7017,7 +7171,7 @@
+ }
+ function maybeAutoAdvanceDoubleUp(s){if(!multiHost||!multiSession||s?.phase!=='result'||s.roundId<TOTAL_ROUNDS||!multiDoubleUpDecisionsComplete(s)||multiAutoAdvanceRound===s.roundId)return;multiAutoAdvanceRound=s.roundId;openMultiRound();}
+ function onMultiChange(s){if(s.environment)battleEnvironment=BattleFields.validateEnvironment(s.environment);if(s.phase==='predict'||s.phase==='result'||s.phase==='settle')multiShownWallets=s.wallets;if(s.phase==='battle'&&multiSnapshot?.phase!=='battle')multiBattleWaitAt=Date.now();multiSnapshot=s;if(s.roundId!==multiRoundSeen){multiRoundSeen=s.roundId;round=s.roundId||1;multiAutoAdvanceRound=null;resetMultiRound();if(!multiHost&&s.matchup?.units&&admitMultiMatchup(s)){units=JSON.parse(JSON.stringify(s.matchup.units));initialUnits=JSON.parse(JSON.stringify(units));initialKinds=[0,1].map(side=>units.filter(u=>u.side===side).map(u=>u.k));beginLicensedOpening(units);configureFixedCamera();}}if(multiSession){displayMultiState();observeCanonicalCashout(s);maybeAutoAdvanceDoubleUp(s);}}
+-function resetMultiRound(){failedScoreKey=null;const retry=document.querySelector('#scoreRetry'),status=document.querySelector('#scoreStatus');if(retry)retry.hidden=true;if(status)status.textContent='';const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;if(multiUnavailableRound!==null)multiError='';multiUnavailableRound=null;multiUnavailableAdvanceRound=null;multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;replayCornerCues=[];cornerResultOffset=0;multiPlaybackStarted=0;selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance,Math.max(1,round));}
++function resetMultiRound(){if(selectionPreviewTimer!==null){clearTimeout(selectionPreviewTimer);selectionPreviewTimer=null;}failedScoreKey=null;const retry=document.querySelector('#scoreRetry'),status=document.querySelector('#scoreStatus');if(retry)retry.hidden=true;if(status)status.textContent='';const comparisonScroll=document.querySelector('#comparisonScroll');if(comparisonScroll)comparisonScroll.scrollTop=0;if(multiUnavailableRound!==null)multiError='';multiUnavailableRound=null;multiUnavailableAdvanceRound=null;multiLastSceneTick=0;multiPredictionPending=false;multiReplay=null;multiPlayback=null;replayCornerCues=[];cornerResultOffset=0;multiPlaybackStarted=0;selectedSide=null;selectedStakeOption=Money.amountBig(currentWallet().balance)===0n?0:round>10?100:25;selectedStake=minimumBetForBalance(currentWallet().balance,Math.max(1,round));}
+ function publicMatchup(){return {...(battleEnvironment?{environment:battleEnvironment}:{}),engineVersion:CompactReplay.COMPACT_VERSION,runMode:RUN_MODE,totalRounds:TOTAL_ROUNDS,units:units.map(u=>({id:u.id,side:u.side,k:u.k,x:u.x,y:u.y,hp:u.hp,dead:false})),maxInitialUnits:128,maxActiveUnits:128,maxCreatedEntities:512};}
+ function openMultiRound(){
+  if(!multiHost||!multiSession)return;const s=multiSession.getState();if(!['lobby','result'].includes(s.phase))return;
+@@ -7034,10 +7188,10 @@
+  resetLionPresentation();
+  beginLicensedOpening(multiInitial);
+  resultClipFrames=new Map();resultClipTail=null;resultClipKey=null;units=JSON.parse(JSON.stringify(multiInitial));BattleInsights.start(multiInitial);pendingSummons=[];shots=[];elapsed=0;visualTime=0;visualUnits=new WeakMap();activeEffects=[];newEffects=[];effectClockTick=0;replayCornerCues=[];cornerResultOffset=0;state='fight';winner=null;choice=null;
+- const recorder=CompactReplay.createCompactRecorder({retireAfterTicksFor:u=>licensedRetireTicks(u)}),read=()=>({units,shots,frameFor:u=>baseSpriteFrame(u),facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let recordingError=null;
++ const logRecorder=BattleLog.createRecorder(),recorder=CompactReplay.createCompactRecorder({retireAfterTicksFor:u=>licensedRetireTicks(u)}),read=()=>({units,shots,frameFor:u=>baseSpriteFrame(u),facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)});let recordingError=null;
+  try{recorder.capture(0,read());}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}
+- return {capture(tick){if(recordingError)throw Error(recordingError);recorder.capture(tick,read(),state==='result');},finish({ticks,recordingError:laterError}){const outcome=winner===null?'draw':winner===0?'A':'B';recordingError=recordingError||laterError;
+-  if(!recordingError){try{const replay=recorder.finish({ticks,winner:outcome,environment:battleEnvironment,cornerPillars:wave4Host.exportCornerHistory()});const facts=BattleInsights.finish(units,winner);if(facts)replay.battleFacts=facts;const finalIds=new Set(CompactReplay.createPlayback(replay).at(ticks).units.map(u=>u.id));replay.presentationTail=buildShieldPresentationTail(units.filter(u=>finalIds.has(u.id)));replay.geometry={field:[480,538],radii:Object.fromEntries(Object.entries(TYPES).map(([k,t])=>[k,t.radius])),reach:Object.fromEntries(Object.entries(TYPES).map(([k,t])=>[k,t.reach])),layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:512};CompactReplay.createPlayback(replay);return replay;}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}
++ return {capture(tick){if(recordingError)throw Error(recordingError);recorder.capture(tick,read(),state==='result');try{logRecorder.capture(tick,combatEvents,units);}catch(_){}},finish({ticks,recordingError:laterError}){const outcome=winner===null?'draw':winner===0?'A':'B';recordingError=recordingError||laterError;
++  if(!recordingError){try{const replay=recorder.finish({ticks,winner:outcome,environment:battleEnvironment,cornerPillars:wave4Host.exportCornerHistory()});const facts=BattleInsights.finish(units,winner);if(facts)replay.battleFacts=facts;const finalIds=new Set(CompactReplay.createPlayback(replay).at(ticks).units.map(u=>u.id));replay.presentationTail=buildShieldPresentationTail(units.filter(u=>finalIds.has(u.id)));replay.geometry={field:[480,538],radii:Object.fromEntries(Object.entries(TYPES).map(([k,t])=>[k,t.radius])),reach:Object.fromEntries(Object.entries(TYPES).map(([k,t])=>[k,t.reach])),layers:Object.fromEntries(Object.keys(TYPES).map(k=>[k,TYPES[k].collisionLayer])),activePerTeam:TEAM_CAP,maxCreatedEntities:512};try{BattleLog.attach(replay,logRecorder.rows());}catch(_){}CompactReplay.createPlayback(replay);return replay;}catch(e){if(e.message!=='replay-byte-cap')throw e;recordingError=e.message;}}
+   return {...(battleEnvironment?{environment:battleEnvironment}:{}),engineVersion:CompactReplay.COMPACT_VERSION,ticks,winner:outcome,events:[],unavailable:'replay-byte-cap'};
+  }};
+ }
+@@ -7050,7 +7204,7 @@
+ }
+ function startAsyncHostReplay(){
+  const owner=multiSession,token=++replayJobToken;multiBusy=true;
+- document.querySelector('#battle').hidden=false;document.querySelector('#battleControls').hidden=true;document.querySelector('#comparison').hidden=true;document.querySelector('#roomStatus').textContent='対戦準備中…';draw();
++ document.querySelector('#battle').hidden=false;document.querySelector('#comparison').hidden=true;document.querySelector('#roomStatus').textContent='対戦準備中…';draw();
+  if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(true));
+  void buildCanonicalReplayAsync({shouldCancel:()=>multiSession!==owner||owner.getState().phase!=='locked'}).then(replay=>{if(token===replayJobToken&&multiSession===owner&&owner.getState().phase==='locked')owner.startBattle(replay);}).catch(e=>{if(e.name!=='AbortError'&&token===replayJobToken){multiError=String(e.message);owner.close();}}).finally(()=>{if(token===replayJobToken){multiBusy=false;multiRecording=false;if(typeof battleAudio!=='undefined')audioCall(()=>battleAudio.setSuppressed(false));displayMultiState();}});
+ }
+@@ -7139,7 +7293,7 @@
+  pendingOwnCashoutPost=null;
+  try{if(multiAdapter&&!mockGuest)await multiAdapter.exit();multiSession?.close();multiSession=null;mockGuest=null;mockQueue=[];multiSnapshot=null;multiPlayback=null;multiReplay=null;round=1;mistakes=0;correct=0;freshWallet();openPrediction((Math.random()*4294967296)>>>0);
+  for(const id of ['#red','#blue','#next']){document.querySelector(id).disabled=false;document.querySelector(id).hidden=false;}
+- document.querySelector('#pause').hidden=false;document.querySelector('#speed').hidden=false;document.querySelector('#exitRoom').hidden=true;document.querySelector('#beginRound').hidden=true;document.querySelector('#roomStatus').textContent='オフライン・ひとり用';update();
++ document.querySelector('#pause').hidden=false;document.querySelector('#exitRoom').hidden=true;document.querySelector('#beginRound').hidden=true;document.querySelector('#roomStatus').textContent='オフライン・ひとり用';update();
+  }catch(e){document.querySelector('#roomStatus').textContent='退出失敗：'+e.message+'。もう一度退出してください。';}finally{multiBusy=false;}
+ }
+ document.querySelector('#mockRoom').onclick=beginMock;document.querySelector('#createRoom').onclick=()=>enterNative('create');document.querySelector('#joinRoom').onclick=()=>enterNative('join');
+@@ -7199,7 +7353,7 @@
+ }
+ document.querySelector('#unitKind').onchange=updateUnitTraits;
+ let formationVisible=false;
+-function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;document.querySelector('#battleControls').hidden=true;if(formationVisible)draw();}else document.querySelector('#battleControls').hidden=false;}
++function syncFormation(){document.querySelector('#battleClock').hidden=state!=='fight';if(multiSession&&multiPlayback)document.querySelector('#battleClock').textContent=Math.min(60,multiLastSceneTick/60).toFixed(1)+'秒 · '+ReplayClock.effectiveSpeed(multiLastSceneTick/60)+'×';if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){document.querySelector('#battle').hidden=true;if(formationVisible)draw();}}
+ const screenUpdate=update;
+ update=function(){screenUpdate();syncFormation();if(state==='choose'){drawArmyPreviews();updateUnitTraits();}};
+ let lastScreenPhase=null,lastPredictionViewKey=null;
+@@ -7242,7 +7396,6 @@
+ const exitScreen=leaveMulti;
+ leaveMulti=async function(){await exitScreen();if(!multiSession)showScreen('game');};
+ document.querySelector('#exitRoom').onclick=()=>leaveMulti();
+-document.querySelector('#formationToggle').onclick=()=>{};
+ if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('resize',drawArmyPreviews);
+ showScreen('home');
+ 
+@@ -7398,7 +7551,7 @@
+  }finally{fieldDrawPass='all';}
+  syncCrowdInspector();
+ };
+-function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction='pan-y pinch-zoom';el.style.cursor='default';}el.setAttribute?.('aria-label','戦場。自動追従中。兵士をタップすると詳細を表示');}
++function syncCameraInput(){const el=document.querySelector('#field');if(el.style){el.style.touchAction='pan-y pinch-zoom';el.style.cursor='default';}el.setAttribute?.('aria-label','戦場。自動追従中。タップで詳細確認');}
+ const cameraCanvas=document.querySelector('#field');
+ // Pointer handlers below are wrapped by the unit-tap inspector; they do not pan the camera.
+ const CAMERA_DRAG_THRESHOLD=5;
+@@ -7414,31 +7567,29 @@
+ };
+ function crowdInspectionAvailable(){return screenMode==='game'&&(state==='fight'||state==='result')&&!multiRecording&&(!multiSession||!!multiPlayback);}
+ function crowdLiveChoices(){return units.filter(crowdLive).sort((a,b)=>{const ak=crowdKey(a),bk=crowdKey(b);return a.side-b.side||(ak<bk?-1:ak>bk?1:0);});}
++function crowdSameKind(u,side,kind){return crowdLive(u)&&u.side===side&&u.k===kind;}
+ function crowdChoicePool(){
+- // Only a tap creates a fixed overlap group. Roster controls always read current
+- // live units so newly summoned or decoded units can be selected without Clear.
+- const live=crowdLiveChoices();
+- if(crowdChoiceMode==='tap'){
+-  const byKey=new Map(live.map(u=>[crowdKey(u),u]));crowdCandidateKeys=crowdCandidateKeys.filter(k=>byKey.has(k));
+-  if(crowdCandidateKeys.length)return crowdCandidateKeys.map(k=>byKey.get(k));
+- }
+- crowdChoiceMode='all';crowdCandidateKeys=[];return live;
++ // After a tap, previous/next use the full current same-army, same-kind roster.
++ // Clear keeps global button/keyboard browsing available for every kind.
++ // Tap overlaps are only for choosing bodies with repeated taps.
++ const live=crowdLiveChoices(),focus=live.find(u=>crowdKey(u)===crowdFocusKey);
++ return crowdChoiceMode==='tap'&&focus?live.filter(u=>crowdSameKind(u,focus.side,focus.k)):live;
+ }
+ function crowdChoiceOrdinal(d){
+- if(crowdChoiceMode==='tap')return {index:crowdCandidateKeys.indexOf(d.key),count:crowdCandidateKeys.length};
+- // Rank the current focus without sorting or storing the full roster per frame.
+- let index=0,count=0;for(const u of units){if(!crowdLive(u))continue;count++;if(u.side<d.side||(u.side===d.side&&crowdKey(u)<d.key))index++;}
++ // Read the live roster every frame, including summons and replay replacements.
++ // Keep the same key order as crowdLiveChoices without allocating a sorted list.
++ let index=0,count=0;for(const u of units){if(!crowdSameKind(u,d.side,d.kind))continue;count++;if(crowdKey(u)<d.key)index++;}
+  return {index,count};
+ }
+ function syncCrowdInspector(){
+  const ui=crowdInspectorUI;if(!ui?.root||!ui.name||!ui.hp)return;
+  const active=crowdInspectionAvailable();if(crowdInspectorLastActive!==active){crowdInspectorLastActive=active;ui.root.hidden=!active;document.getElementById('battle')?.setAttribute('data-crowd-inspector',active?'true':'false');}if(!active){crowdTap=null;return;}
+- const d=crowdFocusDetails();let label=d?`${d.side===0?'左軍':'右軍'} · ${d.name}`:(crowdSelectionNotice||'兵士をタップで詳細');
+- const ordinal=d?crowdChoiceOrdinal(d):null;if(ordinal&&ordinal.index>=0&&ordinal.count>1)label+=`（${ordinal.index+1}/${ordinal.count}）`;
++ const d=crowdFocusDetails();let label=d?`${d.side===0?'左軍':'右軍'} · ${d.name}`:(crowdSelectionNotice||'タップで詳細確認');
++ const ordinal=d?crowdChoiceOrdinal(d):null;if(ordinal&&ordinal.index>=0&&ordinal.count>0)label+=`（${ordinal.index+1}/${ordinal.count}）`;
+  const hp=d?`HP ${d.hp} / ${d.maxHP}`:'前後ボタンでも選べます';
+  if(ui.name.textContent!==label)ui.name.textContent=label;
+  if(ui.hp.textContent!==hp)ui.hp.textContent=hp;
+- const canChoose=units.some(crowdLive);
++ const canChoose=crowdChoiceMode==='tap'&&ordinal?ordinal.count>1:units.some(crowdLive);
+  if(ui.previous&&ui.previous.disabled===canChoose)ui.previous.disabled=!canChoose;if(ui.next&&ui.next.disabled===canChoose)ui.next.disabled=!canChoose;const clearDisabled=!d&&!crowdSelectionNotice;if(ui.clear&&ui.clear.disabled!==clearDisabled)ui.clear.disabled=clearDisabled;
+ }
+ function redrawCrowdSelection(){if(!crowdInspectionAvailable())return;draw();syncCrowdInspector();}
+@@ -7472,7 +7623,10 @@
+  const hits=crowdHitCandidates(point),keys=hits.map(crowdKey);
+  if(!hits.length){clearCrowdSelection();return;}
+  const same=crowdChoiceMode==='tap'&&keys.length===crowdCandidateKeys.length&&keys.every(k=>crowdCandidateKeys.includes(k));
+- if(same&&crowdCandidateKeys.includes(crowdFocusKey)){cycleCrowdSelection(1);return;}
++ if(same&&crowdCandidateKeys.includes(crowdFocusKey)){
++  const nextKey=crowdCandidateKeys[(crowdCandidateKeys.indexOf(crowdFocusKey)+1)%crowdCandidateKeys.length],next=hits.find(u=>crowdKey(u)===nextKey);
++  setCrowdFocus(next.token??next.id);redrawCrowdSelection();return;
++ }
+  crowdChoiceMode='tap';crowdCandidateKeys=keys;setCrowdFocus(hits[0].token??hits[0].id);redrawCrowdSelection();
+ }
+ if(crowdInspectorUI.previous)crowdInspectorUI.previous.onclick=()=>cycleCrowdSelection(-1);
+@@ -7623,19 +7777,19 @@
+       label = '扇射'; value = `${comparisonNumber(type.dmg)}/発 · 最大${type.fanCount}発`;
+       wide = true;
+     } else if (type.orbFollowTicks) {
+-      label = '追尾弾'; value = `${comparisonNumber(type.dmg)}×2 + ${comparisonNumber(type.dmg)}`;
+-      wide = true;
++      label = '追尾弾'; value = '3連射';
++      wide = false;
+     } else if (type.comboThirdTicks && type.comboFinalDamage) {
+       const stages = type.comboStageContacts ? type.comboStageContacts.length : [4,5,6].includes(type.comboContactCount) ? type.comboContactCount : 3;
+-      label = `${stages}段`; value = [...Array(stages-1).fill(comparisonNumber(type.dmg)),comparisonNumber(type.comboFinalDamage)].join(' + ');
+-      wide = true; addTrait('追撃は中断あり');
++      label = '攻撃'; value = `${stages}連撃`;
++      wide = false; addTrait('追撃は中断あり');
+     } else if (type.twoHitTicks) {
+-      label = '2連撃'; value = `${comparisonNumber(type.dmg)} + ${comparisonNumber(type.dmg)}`;
+-      wide = true; addTrait('追撃は中断あり');
++      label = '攻撃'; value = '2連撃';
++      wide = false; addTrait('追撃は中断あり');
+     } else if (type.highSecondTicks) {
+       label = type.highKind === 'shock' ? '衝撃' : '範囲斬り';
+-      value = `1段 ${comparisonNumber(type.dmg)} · 2段 ${comparisonNumber(type.highSecondDamage || type.dmg)}`;
+-      wide = true; addTrait(`${cap || 2}体攻撃`, 'attack');
++      value = '2連撃';
++      wide = false; addTrait(`${cap || 2}体攻撃`, 'attack');
+     } else if (type.burstDamage) {
+       label = '周囲'; value = comparisonNumber(type.burstDamage);
+     } else if (type.pillarOffset) {
+@@ -7695,6 +7849,9 @@
+   if (!supportOnly && actionCooldown && !type.explosionDamage) actionTicks.push(`${cooldownAfterAction?'攻撃後待ち':'基本間隔'}${actionCooldown}`);
+   else if (supportOnly && rate && !timing) actionTicks.push(`周期${rate}`);
+   if (!supportOnly && actionTicks.length) timing = actionTicks.join(' · ');
++  // Hide setup/stage timings in the comparison UI; combat parameters stay untouched.
++  timing=timing.split(' · ').filter(part=>! /^(構え|準備|[1-6]→[1-6]段|2発目|追加弾)/.test(part)).join(' · ');
++  if(type.twoHitTicks||type.comboThirdTicks||type.highSecondTicks||type.orbFollowTicks)timing='';
+   return {
+     hp: comparisonNumber(type.hp),
+     label,
+@@ -7702,9 +7859,9 @@
+     wide,
+     timing,
+     movement: Number.isFinite(type.speed) && type.speed > 0 ? comparisonNumber(type.speed) : '',
+-    distanceLabel: type.comboStageContacts ? '各段の接触域' : '間合い',
++    distanceLabel: '間合い',
+     distanceAriaLabel: type.comboStageContacts ? '固定前方円の中心距離と半径、または近接間合い。現在の相手の体と交差した段だけ命中' : type.projectile ? '射撃開始距離' : '攻撃開始距離',
+-    distance: type.comboStageContacts ? type.comboStageContacts.map(g=>g.mode==='forward-disk'?`前方${comparisonNumber(g.offset)}・半径${comparisonNumber(g.radius)}`:`近接${comparisonNumber(type.reach)}`).join(' → ') : Number.isFinite(type.reach ?? type.range) && (type.reach ?? type.range) > 0
++    distance: type.comboStageContacts ? '' : Number.isFinite(type.reach ?? type.range) && (type.reach ?? type.range) > 0
+       ? comparisonNumber(type.reach ?? type.range) : '',
+     traits: traits.slice(0,3),
+     traitTones: traitTones.slice(0,3),
+@@ -7713,52 +7870,42 @@
+   };
+ }
+ 
+-// Presentation reference only: the current selectable catalog, never a battle
+-// outcome or estimated DPS. Ties at the upper-quartile boundary are included.
++// Presentation-only comparisons: one item against the same metric and delivery.
++// Ordinary one-hit damage never competes with healing, combos or total DPS.
+ function comparisonStrengthReference() {
+-  const rows = CONTENT_ROSTER.selectable.map(kind=>({type:TYPES[kind],facts:buildUnitComparisonFacts(TYPES[kind])})).filter(row=>row.facts);
+-  const ordinaryAttack = row=>row.facts.attackable && !row.facts.wide && ['攻撃','射撃'].includes(row.facts.label);
+-  const sorted = values=>values.filter(value=>Number.isFinite(value)&&value>0).sort((a,b)=>a-b);
+-  return {
+-    hp: sorted(rows.map(row=>row.type.hp)),
+-    action: sorted(rows.filter(ordinaryAttack).map(row=>Number(row.facts.value))),
+-    movement: sorted(rows.map(row=>row.type.speed)),
+-    distance: sorted(rows.filter(row=>row.facts.attackable&&!row.type.comboStageContacts).map(row=>row.type.reach))
+-  };
+-}
+-function unitComparisonEmphasis(type, facts, reference) {
+-  const result={metric:null,reason:'',trait:-1};
+-  const specialAction = !facts.attackable || facts.wide || !['攻撃','射撃'].includes(facts.label);
+-  if (specialAction && facts.value !== '—') {
+-    result.metric='action';
+-    result.reason=`兵種の特徴：${facts.label} ${facts.value}。表示は基礎値です。`;
+-  } else {
+-    const candidates=[['hp','HP',type.hp],['action',facts.label,Number(facts.value)],['movement','移動',type.speed],['distance',facts.distanceLabel,type.reach]];
+-    let best=-1;
+-    for(const [metric,label,value] of candidates) {
+-      const values=reference[metric];
+-      if(!values.length||!Number.isFinite(value)||value<=0||metric==='action'&&!facts.attackable)continue;
+-      const cutoff=values[Math.ceil(values.length*.75)-1];
+-      if(value<cutoff)continue;
+-      const percentile=values.filter(other=>other<value).length/values.length;
+-      if(percentile<=best)continue;
+-      best=percentile;result.metric=metric;
+-      const scope=metric==='action'?'通常の攻撃・射撃':metric==='distance'?'攻撃できる通常兵種':'通常兵種';
+-      result.reason=`基礎${label} ${comparisonNumber(value)}。${scope}の上位四分位の目安（${comparisonNumber(cutoff)}以上）。${metric==='action'?'1回の基礎ダメージで、攻撃間隔や追加効果を含みません。':'地形や支援の補正前の値です。'}`;
+-    }
+-  }
+-  // Prefer a concrete defining mechanic over a generic attack/air tag. Keep the
+-  // original text, ordering, and conditions; mark at most one existing trait.
+-  const priority=['control','defense','support','summon','attack','mobility'];
+-  for(const tone of priority){const index=facts.traitTones.indexOf(tone);if(index!==-1){result.trait=index;break;}}
+-  return result;
++ const rows=CONTENT_ROSTER.selectable.map(kind=>({type:TYPES[kind],facts:buildUnitComparisonFacts(TYPES[kind])})).filter(row=>row.facts);
++ const ordinary=row=>row.facts.attackable&&!row.facts.wide&&['攻撃','射撃'].includes(row.facts.label)&&Number.isFinite(Number(row.facts.value));
++ const sorted=values=>values.filter(v=>Number.isFinite(v)&&v>0).sort((a,b)=>a-b);
++ const delivery=type=>type.projectile?'ranged':'melee',layer=type=>type.collisionLayer==='air'||type.flying?'air':'ground';
++ return {hp:sorted(rows.map(r=>r.type.hp)),
++  action:Object.fromEntries(['melee','ranged'].map(group=>[group,sorted(rows.filter(r=>ordinary(r)&&delivery(r.type)===group).map(r=>Number(r.facts.value)))])),
++  movement:Object.fromEntries(['ground','air'].map(group=>[group,sorted(rows.filter(r=>layer(r.type)===group).map(r=>r.type.speed))])),
++  distance:Object.fromEntries(['melee','ranged'].map(group=>[group,sorted(rows.filter(r=>ordinary(r)&&!r.type.comboStageContacts&&delivery(r.type)===group).map(r=>r.type.reach??r.type.range))]))};
++}
++function unitComparisonEmphasis(type,facts,reference) {
++ const result={metric:null,metrics:[],reason:'',reasons:{},trait:-1};
++ const delivery=type.projectile?'ranged':'melee',layer=type.collisionLayer==='air'||type.flying?'air':'ground';
++ const ordinary=facts.attackable&&!facts.wide&&['攻撃','射撃'].includes(facts.label)&&Number.isFinite(Number(facts.value));
++ const mark=(metric,reason)=>{result.metrics.push(metric);result.reasons[metric]=reason;if(result.metric===null){result.metric=metric;result.reason=reason;}};
++ if(!ordinary&&facts.value!=='—')mark('action',`${facts.label} ${facts.value}（基礎値）`);
++ const candidates=[['hp','HP',type.hp,reference.hp,'全キャラ'],['movement','移動',type.speed,reference.movement[layer],layer==='air'?'飛行キャラ':'地上キャラ']];
++ if(ordinary){const scope=delivery==='ranged'?'通常の射撃キャラ':'通常の近接キャラ';candidates.push(['action',facts.label,Number(facts.value),reference.action[delivery],scope]);if(!type.comboStageContacts)candidates.push(['distance',facts.distanceLabel,type.reach??type.range,reference.distance[delivery],scope]);}
++ for(const [metric,label,value,values,scope] of candidates){
++  if(!values?.length||!Number.isFinite(value)||value<=0)continue;
++  const cutoff=values[Math.ceil(values.length*.75)-1];
++  if(value<cutoff)continue;
++  mark(metric,`${scope}の${label}を比較。上位25%の基礎値（${comparisonNumber(cutoff)}以上）。${metric==='action'?'1回のダメージで、攻撃間隔や追加効果は含みません。':'地形や支援の補正前です。'}`);
++ }
++ const priority=['control','defense','support','summon','attack','mobility'];
++ for(const tone of priority){const index=facts.traitTones.indexOf(tone);if(index!==-1){result.trait=index;break;}}
++ return result;
+ }
+ 
+ function terrainTargetInfo(counts,environment){
+   const id=environment?.fieldId;
+   const matches=type=>{if(!type)return false;switch(id){case 'shallow_ford':return type.collisionLayer==='ground'&&!(Array.isArray(type.terrainAffinity)&&type.terrainAffinity.includes('shallow_ford'));case 'crosswind_ridge':return type.projectile===true;case 'desert':return !!(type.heal||type.groupHealAmount||type.rationHeal||type.selfRepairAmount||type.lifestealRatio);case 'icefield':return !!(type.knockback||type.repulsionDistance);case 'highland':return type.collisionLayer==='air';case 'rockfield':return !!type.chargeBonus;case 'volcano':return type.collisionLayer==='ground';default:return false;}};
+   const count=Object.keys(counts).filter(k=>matches(TYPES[k])).length;if(!count)return null;
+-  return {text:'地形対象 '+(id==='volcano'?'地上':'')+count+'種（条件あり） · 数値は基礎値',description:'この地形の影響を受ける可能性がある兵が'+count+'種類います。能力の発動は状況によります。表示される兵の数値は基礎値です。'};
++  return {text:'地形対象 '+(id==='volcano'?'地上':'')+count+'種（条件あり） · 数値は基礎値',description:'この地形の影響を受ける可能性があるキャラが'+count+'種類います。能力の発動は状況によります。表示されるキャラの数値は基礎値です。'};
+ }
+ function fillUnitStats() {
+   const opening = typeof initialUnits !== 'undefined' && initialUnits?.length
+@@ -7801,7 +7948,6 @@
+       if (!type || !facts) continue;
+       const emphasis=unitComparisonEmphasis(type,facts,strengthReference);
+       const markStrength=(node,reason)=>{node.setAttribute('data-emphasis','true');node.setAttribute('title',reason);};
+-      const strengthMark=reason=>{const mark=document.createElement('span');mark.className='comparison-strength-mark';mark.textContent='◆';mark.setAttribute('aria-label',reason);return mark;};
+       const unit = document.createElement('span'); unit.className = 'comparison-unit'; unit.setAttribute('role','listitem');
+       const heading = document.createElement('span'); heading.className = 'comparison-unit-heading';
+       const name = document.createElement('span'); name.className = 'comparison-name'; name.textContent = type.name || kind;
+@@ -7809,10 +7955,10 @@
+       append(heading, name, quantity); append(unit, heading);
+       const stats = document.createElement('span'); stats.className = 'comparison-stats';
+       const addStat = (label, value, isWide=false, tone='neutral', metric='') => {
+-        const cell = document.createElement('span'); cell.className = 'comparison-stat' + (isWide ? ' comparison-stat-wide' : ''); cell.setAttribute('data-tone', tone);
++        const cell = document.createElement('span'); cell.className = 'comparison-stat' + (isWide ? ' comparison-stat-wide' : ''); cell.setAttribute('data-tone', tone); cell.setAttribute('data-metric',metric);
+         const title = document.createElement('span'); title.className = 'comparison-stat-label'; title.textContent = label; title.setAttribute('aria-label', `${label} / 1体`);
+         const number = document.createElement('strong'); number.className = 'comparison-stat-value'; number.textContent = value || '—';
+-        if(emphasis.metric===metric){markStrength(cell,emphasis.reason);append(title,strengthMark(emphasis.reason));}
++        if(emphasis.metrics.includes(metric))markStrength(cell,emphasis.reasons[metric]);
+         append(cell, title, number); append(stats, cell);
+       };
+       addStat('HP', facts.hp, false, 'health', 'hp');
+@@ -7822,11 +7968,11 @@
+         const mobility = document.createElement('span'); mobility.className = 'comparison-mobility';
+         const addMetric = (label, value, ariaLabel='', metric='') => {
+           if (!value) return;
+-          const item = document.createElement('span'); item.className = 'comparison-mobility-item'; item.setAttribute('data-tone', 'mobility');
++          const item = document.createElement('span'); item.className = 'comparison-mobility-item'; item.setAttribute('data-tone', 'mobility'); item.setAttribute('data-metric',metric);
+           const caption = document.createElement('span'); caption.className = 'comparison-mobility-label'; caption.textContent = label;
+           const number = document.createElement('strong'); number.className = 'comparison-mobility-value'; number.textContent = value;
+           if (ariaLabel) number.setAttribute('aria-label', `${ariaLabel} ${value}`);
+-          if(emphasis.metric===metric){markStrength(item,emphasis.reason);append(caption,strengthMark(emphasis.reason));}
++          if(emphasis.metrics.includes(metric))markStrength(item,emphasis.reasons[metric]);
+           append(item, caption, number); append(mobility, item);
+         };
+         addMetric('移動', facts.movement, '', 'movement'); addMetric(facts.distanceLabel, facts.distance, facts.distanceAriaLabel, 'distance');
+@@ -7835,7 +7981,7 @@
+       if (facts.timing) { const time = document.createElement('span'); time.className = 'comparison-timing'; time.textContent = facts.timing; append(unit, time); }
+       if (facts.traits.length) {
+         const traitRow = document.createElement('span'); traitRow.className = 'comparison-traits';
+-        facts.traits.forEach((text, index) => { const trait = document.createElement('span'); trait.className = 'comparison-trait'; trait.setAttribute('data-tone', facts.traitTones[index] || 'neutral'); trait.textContent = text; const attackCap=text.match(/^(\d+)体攻撃$/),healCap=text.match(/^(\d+)体回復$/),splitCap=text.match(/^分裂(\d+)体$/); if(attackCap)trait.setAttribute('aria-label',`最大${attackCap[1]}体を攻撃`); else if(healCap)trait.setAttribute('aria-label',`最大${healCap[1]}体を回復`); else if(splitCap)trait.setAttribute('aria-label',`倒れると最大${splitCap[1]}体に分裂`); if(index===emphasis.trait){markStrength(trait,`兵種の特徴：${text}`);append(trait,strengthMark('兵種の特徴'));} append(traitRow, trait); });
++        facts.traits.forEach((text, index) => { const trait = document.createElement('span'); trait.className = 'comparison-trait'; trait.setAttribute('data-tone', facts.traitTones[index] || 'neutral'); trait.textContent = text; const attackCap=text.match(/^(\d+)体攻撃$/),healCap=text.match(/^(\d+)体回復$/),splitCap=text.match(/^分裂(\d+)体$/); if(attackCap)trait.setAttribute('aria-label',`最大${attackCap[1]}体を攻撃`); else if(healCap)trait.setAttribute('aria-label',`最大${healCap[1]}体を回復`); else if(splitCap)trait.setAttribute('aria-label',`倒れると最大${splitCap[1]}体に分裂`); if(index===emphasis.trait)markStrength(trait,text); append(traitRow, trait); });
+         append(unit, traitRow);
+       }
+       append(node, unit);
+@@ -7857,11 +8003,11 @@
+ function syncFlowControls(){
+  const q=id=>document.querySelector(id),s=multiSession?.getState();
+  q('#gameScreen')?.setAttribute('data-phase',state);if(unitsOpen&&state!=='fight')toggleUnits(false);if(pausePanelOpen&&state!=='fight')closePausePanel();
++ const pause=q('#pause');if(pause)pause.hidden=state!=='fight'||!!multiRecording||!!(multiSession&&(s?.phase!=='battle'||!multiPlayback));
+  const next=q('#next');if(next)next.hidden=!!multiSession?!multiHost:round<sessionRoundLimit()&&!soloTerminalBoundary();
+- for(const [id,disabled] of [['#speedDown',!!multiSession||speed<=1],['#speedUp',!!multiSession||speed>=2]])if(q(id))q(id).disabled=disabled;
+  if(unitsOpen||state==='choose')fillUnitStats();syncPredictionPreview();
+ }
+-for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)],['#speedDown',()=>{if(!multiSession){setSpeed(1);update();}}],['#speedUp',()=>{if(!multiSession){setSpeed(2);update();}}]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
++for(const [id,fn] of [['#unitsToggle',()=>toggleUnits(!unitsOpen)],['#unitsClose',()=>toggleUnits(false)]]){const b=document.querySelector(id);if(b)b.onclick=fn;}
+ const flowUpdate=update;update=function(){flowUpdate();syncFlowControls();};
+ const flowDisplayMulti=displayMultiState;displayMultiState=function(){flowDisplayMulti();syncFlowControls();};
+ const flowAdvance=advanceResultRead;advanceResultRead=function(t){if(unitsOpen){resultReadLast=null;syncFlowControls();return;}flowAdvance(t);syncFlowControls();};
+@@ -7869,19 +8015,15 @@
+ 
+ if(typeof document.addEventListener==='function')document.addEventListener('keydown',e=>{if(!unitsOpen)return;if(e.key==='Escape'){e.preventDefault();toggleUnits(false);}else if(e.key==='Tab'){e.preventDefault();document.querySelector('#unitsClose')?.focus?.();}});
+ 
+-let predictionPreview=false,previewOpening=null;
++// The prediction screen now commits directly; there is no formation-preview route.
++let predictionPreview=false;
+ function syncPredictionPreview(){
+- const q=id=>document.querySelector(id),canPreview=state==='choose'&&screenMode==='game'&&(!multiSession||(multiSnapshot?.phase==='predict'&&!multiPredictionPending&&!multiSnapshot.readyIds.includes(multiUser)));
+- if(!canPreview||previewOpening!==initialUnits)predictionPreview=false;
+- if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){q('#comparison').hidden=predictionPreview;q('#battle').hidden=!predictionPreview;q('#battleControls').hidden=true;}
+- for(const id of ['#battleClock','#unitsToggle','#soundToggle'])if(q(id))q(id).hidden=predictionPreview||(id==='#battleClock'&&state!=='fight');
+- if(q('#formationBack'))q('#formationBack').hidden=!predictionPreview;
+- const previewClock=q('#previewClock');if(previewClock){previewClock.hidden=!(predictionPreview&&multiSession);previewClock.textContent=predictionPreview&&multiSession?(q('#multiSummary')?.textContent||'残り時間を確認中')+' · 配置中も時間は進みます':'';}
+- q('#gameScreen')?.setAttribute('data-field-view',String(state==='fight'||predictionPreview));
+-}
+-function setPredictionPreview(value){if(value&&state!=='choose')return;predictionPreview=!!value;previewOpening=initialUnits;if(value){cameraZoom=1;centerFixedCamera();cameraDrag=null;syncCameraInput();}syncPredictionPreview();if(predictionPreview)draw();}
+-document.querySelector('#formationToggle').onclick=()=>setPredictionPreview(true);
+-const previewBack=document.querySelector('#formationBack');if(previewBack)previewBack.onclick=()=>setPredictionPreview(false);
++ const q=id=>document.querySelector(id);
++ predictionPreview=false;
++ if(state==='choose'&&(!multiSession||multiSnapshot?.phase==='predict')){q('#comparison').hidden=false;q('#battle').hidden=true;}
++ for(const id of ['#battleClock','#unitsToggle','#soundToggle'])if(q(id))q(id).hidden=id==='#battleClock'&&state!=='fight';
++ q('#gameScreen')?.setAttribute('data-field-view',String(state==='fight'));
++}
+ 
+ syncFlowControls();
+ 
+@@ -7893,7 +8035,16 @@
+ function closePausePanel(){if(!pausePanelOpen)return;pausePanelOpen=false;const p=document.querySelector('#pausePanel');if(p)p.hidden=true;document.querySelector('#pause')?.focus?.();if(!multiSession&&!pausePanelWasPaused)setPaused(false);}
+ document.querySelector('#pause').onclick=openPausePanel;
+ const pauseResume=document.querySelector('#pauseResume');if(pauseResume)pauseResume.onclick=closePausePanel;
+-const pauseExit=document.querySelector('#pauseExit');if(pauseExit)pauseExit.onclick=()=>{closePausePanel();if(multiSession)void leaveMulti().then(()=>{if(!multiSession)showScreen('home');});else returnHome();};
++// An explicit solo exit abandons the run; ordinary home navigation can still resume it.
++function exitSoloRun(){
++ if(multiSession)return false;
++ closePausePanel();if(unitsOpen)toggleUnits(false);
++ homePausedSolo=false;soloRunEnded=true;
++ // Leave the combat phase so room creation/joining is not blocked by an abandoned fight.
++ state='choose';selectedSide=null;choice=null;predictionPreview=false;cameraDrag=null;
++ setPaused(false);resetResultRead();showScreen('home');syncBattleAudio();return true;
++}
++const pauseExit=document.querySelector('#pauseExit');if(pauseExit)pauseExit.onclick=()=>{if(multiSession){closePausePanel();void leaveMulti().then(()=>{if(!multiSession)showScreen('home');});}else exitSoloRun();};
+ 
+ if(typeof document.addEventListener==='function')document.addEventListener('keydown',e=>{if(!pausePanelOpen)return;if(e.key==='Escape'){e.preventDefault();closePausePanel();}else if(e.key==='Tab'){e.preventDefault();const resume=document.querySelector('#pauseResume'),exit=document.querySelector('#pauseExit');(document.activeElement===resume?exit:resume)?.focus?.();}});
+ 
+@@ -8145,7 +8296,6 @@
+ }
+ const motionSelect=selectSide;selectSide=function(side){const before=selectedSide;motionSelect(side);if(state==='choose'&&selectedSide===side&&before!==side&&!predictionPreview)motionCall(()=>battleMotion.selectSide(side));};
+ const motionLoop=loop;loop=function(t){motionLoop(t);syncBattleMotion();};
+-const motionPreview=setPredictionPreview;setPredictionPreview=function(value){if(value)motionCall(()=>battleMotion.cancel());motionPreview(value);syncBattleMotion();};
+ 
+ const motionScreen=showScreen;showScreen=function(next){motionScreen(next);syncBattleMotion();};
+ const motionUpdate=update;update=function(){motionUpdate();syncBattleMotion();};
+@@ -8158,7 +8308,7 @@
+ let participantRailKey='',participantNodes=new Map();
+ function participantEntries(snapshot,viewer,profileFor){
+  if(!snapshot)return [];
+- const players=Array.isArray(snapshot.participants)?snapshot.participants:[],spectators=Array.isArray(snapshot.spectators)?snapshot.spectators:[];
++ const departed=new Set(Array.isArray(snapshot.departedIds)?snapshot.departedIds:[]),players=(Array.isArray(snapshot.participants)?snapshot.participants:[]).filter(id=>!departed.has(id)),spectators=(Array.isArray(snapshot.spectators)?snapshot.spectators:[]).filter(id=>!departed.has(id));
+  return [...players.map((id,i)=>({id,label:id===viewer?'あなた':'参加者'+(i+1),spectator:false})),...spectators.filter(id=>!players.includes(id)).map((id,i)=>({id,label:id===viewer?'あなた':'観戦'+(i+1),spectator:true}))].map(row=>{
+   const profile=typeof profileFor==='function'?profileFor(row.id):null;
+   return {...row,name:typeof profile?.name==='string'&&profile.name?profile.name:row.label,avatarUrl:profile?.avatarUrl||null};
+@@ -8166,7 +8316,7 @@
+ }
+ function syncParticipantRail(enabled,feed){
+  const wrap=document.querySelector('#participantRailWrap'),rail=document.querySelector('#participantRail'),outside=document.querySelector('#reactionOutside');if(!wrap||!rail||!outside)return;
+- const show=!!enabled&&!!multiSession&&!!multiSnapshot;wrap.hidden=!show;
++ const show=!!enabled&&!!multiSession&&!!multiSnapshot;wrap.hidden=!show;document.querySelector('#battle')?.setAttribute?.('data-participants',String(show));
+  if(!show){outside.hidden=true;if(participantRailKey){participantRailKey='';participantNodes.clear();if(typeof rail.replaceChildren==='function')rail.replaceChildren();else rail.textContent='';}return;}
+  const entries=participantEntries(multiSnapshot,multiUser,id=>multiAdapter?.getProfile?.(id)),key=JSON.stringify(entries);
+  if(key!==participantRailKey){
+@@ -8470,8 +8620,8 @@
+  const doubleBadge=q('#doubleUpBadge');if(doubleBadge)doubleBadge.hidden=!(doubleUpWin&&scene.earnedRevealed);
+  setEarnedStage(delta>0n,delta>0n?(scene.arrivalDone?'arrived':scene.countComplete?'counted':scene.earnedRevealed?'counting':'waiting'):'none');
+  // Keep the final canonical field visible; never fabricate a missing guest replay.
+- q('#battle').hidden=!!multiSession&&!multiReplay;q('#battleControls').hidden=true;
+- for(const id of ['#battleClock','#unitsToggle','#soundToggle','#reactionToggle','#formationBack'])if(q(id))q(id).hidden=true;
++ q('#battle').hidden=!!multiSession&&!multiReplay;
++ for(const id of ['#battleClock','#unitsToggle','#soundToggle','#reactionToggle'])if(q(id))q(id).hidden=true;
+  if(document.hidden===true){cancelPersonalResult();return;}if(scene.balanceHold&&!scene.cancelled)applyHeldBalance(scene);if(!Number.isFinite(now))return;
+  if(scene.resultStart===null)scene.resultStart=now;
+  const resultElapsed=Math.max(0,now-scene.resultStart);updateResultClipTail(key,resultElapsed);syncBattleAudio();
+@@ -8680,9 +8830,83 @@
+ const insightReplayCache=new WeakMap();
+ function replayInsights(replay){if(insightReplayCache.has(replay))return insightReplayCache.get(replay);const facts=BattleInsights.validate(replay.battleFacts,replay);insightReplayCache.set(replay,facts);return facts;}
+ let insightDeferredSession=null,insightDeferredRound=null,insightDeferredReplay=null;
+-function syncBattleInsights(){const node=document.querySelector('#battleInsights');if(!node)return;let facts=null;if(multiSession){if(insightDeferredSession!==multiSession||insightDeferredRound!==multiSnapshot?.roundId){insightDeferredSession=multiSession;insightDeferredRound=multiSnapshot?.roundId;insightDeferredReplay=null;}if(['settle','result'].includes(multiSnapshot?.phase)){if(!multiReplay&&!insightDeferredReplay)insightDeferredReplay=multiSession.getReplay?.()||null;const source=multiReplay||insightDeferredReplay;if(source&&source.winner===multiSnapshot.winner&&BattleFields.sameEnvironment(source.environment,multiSnapshot.environment))facts=replayInsights(source);}}else if(state==='result')facts=BattleInsights.finish(units,winner);const parts=[];if(facts?.mvp)parts.push('MVP（初期兵の敵HP減少） '+TYPES[facts.mvp.kind].name+' '+facts.mvp.value);if(facts?.close!==null&&facts?.close!==undefined)parts.push('接戦 · 勝利軍の初期兵残HP '+facts.close+'%');node.textContent=parts.join(' / ');node.hidden=!parts.length;}
++function syncBattleInsights(){const node=document.querySelector('#battleInsights');if(!node)return;let facts=null;if(multiSession){if(insightDeferredSession!==multiSession||insightDeferredRound!==multiSnapshot?.roundId){insightDeferredSession=multiSession;insightDeferredRound=multiSnapshot?.roundId;insightDeferredReplay=null;}if(['settle','result'].includes(multiSnapshot?.phase)){if(!multiReplay&&!insightDeferredReplay)insightDeferredReplay=multiSession.getReplay?.()||null;const source=multiReplay||insightDeferredReplay;if(source&&source.winner===multiSnapshot.winner&&BattleFields.sameEnvironment(source.environment,multiSnapshot.environment))facts=replayInsights(source);}}else if(state==='result')facts=BattleInsights.finish(units,winner);const parts=[];if(facts?.mvp)parts.push('MVP：'+TYPES[facts.mvp.kind].name+'\n勝ったチームで、敵に一番ダメージを与えたキャラ\n（最初からいたキャラで比較）');if(facts?.close!==null&&facts?.close!==undefined)parts.push('接戦 · 勝利軍の初期兵残HP '+facts.close+'%');node.textContent=parts.join('\n');node.hidden=!parts.length;}
+ const insightsUpdate=update;update=function(){insightsUpdate();syncBattleInsights();};
+ const insightsDisplay=displayMultiState;displayMultiState=function(){insightsDisplay();syncBattleInsights();};
++// Cosmetic samples of authoritative damage/heal events. Never writes combat state.
++const BattleLog=(()=>{
++ const INTERVAL_TICKS=45,MAX_ROWS=82,MAX_TICK=3601;
++ const token=u=>String(u?.token??u?.id??'');
++ const validToken=t=>typeof t==='string'&&t.length>0&&t.length<=160;
++ const amountText=n=>{const rounded=Math.round(n*100)/100;return rounded>0?String(rounded):'0.01未満';};
++ function createRecorder(){
++  let lastTick=-1,lastShown=-INTERVAL_TICKS,pending=null;const records=[];
++  return {capture(tick,events,entities){
++   if(!Number.isInteger(tick)||tick<0||tick>MAX_TICK||tick<=lastTick||!Array.isArray(events)||!Array.isArray(entities))return;
++   lastTick=tick;
++   for(let i=events.length-1;i>=0;i--){
++    const e=events[i],kind=e?.type==='resolved_hit'?0:e?.type==='heal'?1:-1,amount=kind===0?e.amount:e?.actualAmount;
++    if(kind<0||!Number.isFinite(amount)||amount<=0||amount>1e7)continue;
++    const source=e.sourceToken??e.source,target=e.targetToken??e.target;
++    if(!validToken(source)||!validToken(target))continue;
++    const from=entities.find(u=>token(u)===source),to=entities.find(u=>token(u)===target);
++    if(!from||!to||!TYPES[from.k]||!TYPES[to.k]||![0,1].includes(from.side)||![0,1].includes(to.side)||(kind===0?from.side===to.side:from.side!==to.side))continue;
++    pending={eventTick:tick,kind,source,target,amount,sourceKind:from.k,targetKind:to.k,sourceSide:from.side,targetSide:to.side};break;
++   }
++   if(!pending||tick-lastShown<INTERVAL_TICKS||records.length>=MAX_ROWS)return;
++   const row={...pending,tick};records.push(row);pending=null;lastShown=tick;
++  },latest(){return records.at(-1)||null;},rows(){return records.map(r=>[r.tick,r.eventTick,r.kind,r.source,r.target,r.amount]);},size(){return records.length;}};
++ }
++ function attach(replay,rows){
++  if(!rows.length)return false;
++  const log={version:1,rows};
++  // Optional logs must never turn an otherwise valid replay into an unavailable one.
++  if(CompactReplay.replayByteLength({...replay,battleLog:log})>CompactReplay.MAX_REPLAY_BYTES)return false;
++  replay.battleLog=log;return true;
++ }
++ function createPlayback(replay){
++  const log=replay?.battleLog;if(!log||log.version!==1||!Array.isArray(log.rows)||log.rows.length>MAX_ROWS||!Array.isArray(replay.initial)||!Array.isArray(replay.events))return {available:false,at:()=>null};
++  const metadata=new Map();
++  function remember(row,birth){if(!Array.isArray(row)||!validToken(row[9])||![0,1].includes(row[1])||!CompactReplay.ROLES[row[2]])return;const old=metadata.get(row[9]);if(old){if(old.id!==row[0])old.ambiguous=true;return;}metadata.set(row[9],{id:row[0],kind:CompactReplay.ROLES[row[2]],side:row[1],birth});}
++  for(const row of replay.initial)remember(row,0);
++  for(const e of replay.events)for(const row of e[3]||[])remember(row,e[0]);
++  let previous=-INTERVAL_TICKS;const rows=[];
++  for(const r of log.rows){
++   if(!Array.isArray(r)||r.length!==6)return {available:false,at:()=>null};
++   const [tick,eventTick,kind,source,target,amount]=r,from=metadata.get(source),to=metadata.get(target);
++   if(!Number.isInteger(tick)||tick<0||tick>replay.ticks||tick-previous<INTERVAL_TICKS||!Number.isInteger(eventTick)||eventTick<0||eventTick>tick||tick-eventTick>=INTERVAL_TICKS||![0,1].includes(kind)||!Number.isFinite(amount)||amount<=0||amount>1e7||!from||!to||from.ambiguous||to.ambiguous||from.birth>eventTick||to.birth>eventTick||(kind===0?from.side===to.side:from.side!==to.side))return {available:false,at:()=>null};
++   rows.push({tick,eventTick,kind,source,target,amount,sourceKind:from.kind,targetKind:to.kind,sourceSide:from.side,targetSide:to.side});previous=tick;
++  }
++  return {available:true,at(tick){if(!Number.isFinite(tick)||tick<0)return null;let low=0,high=rows.length;while(low<high){const mid=(low+high)>>1;if(rows[mid].tick<=tick)low=mid+1;else high=mid;}return rows[low-1]||null;}};
++ }
++ function describe(row){if(!row)return null;const source=(row.sourceSide===0?'左 ':'右 ')+TYPES[row.sourceKind].name,target=(row.targetSide===0?'左 ':'右 ')+TYPES[row.targetKind].name,amount=amountText(row.amount),action=amount+(row.kind===0?'ダメージ':'回復');return {source,target,action,kind:row.kind===0?'damage':'heal',sentence:row.kind===0?source+'が'+target+'に'+amount+'ダメージを与えた':source+'が'+target+'を'+amount+'回復した'};}
++ return {INTERVAL_TICKS,MAX_ROWS,createRecorder,attach,createPlayback,describe};
++})();
++let soloBattleLog=BattleLog.createRecorder(),battleLogReplaySource=null,battleLogPlayback=null,battleLogLastText='',battleLogLastWrite=-Infinity;
++function resetBattleLog(){soloBattleLog=BattleLog.createRecorder();battleLogReplaySource=null;battleLogPlayback=null;battleLogLastText='';battleLogLastWrite=-Infinity;}
++function syncBattleLog(now=performance.now()){
++ const node=document.querySelector('#battleLog');if(!node)return;
++ const reserved=crowdInspectionAvailable()&&!predictionPreview,visible=reserved&&state==='fight';
++ const battle=document.querySelector('#battle'),slot=reserved?'true':'false';
++ if(battle&&battle.getAttribute('data-battle-log-slot')!==slot)battle.setAttribute('data-battle-log-slot',slot);
++ if(node.hidden===visible)node.hidden=!visible;
++ if(!visible)return;
++ let row=null;
++ if(multiSession){if(multiReplay!==battleLogReplaySource){battleLogReplaySource=multiReplay;battleLogPlayback=multiReplay?BattleLog.createPlayback(multiReplay):null;battleLogLastText='';battleLogLastWrite=-Infinity;}row=battleLogPlayback?.at(multiLastSceneTick)||null;}
++ else row=soloBattleLog.latest();
++ const text=BattleLog.describe(row),key=text?.sentence||(multiSession&&multiReplay&&battleLogPlayback?.available===false?'この観戦記録にはログがありません':'戦闘ログ：攻撃・回復の一部を表示');
++ if(key===battleLogLastText||now-battleLogLastWrite<500)return;
++ battleLogLastText=key;battleLogLastWrite=now;
++ node.setAttribute('data-kind',text?.kind||'empty');node.setAttribute('aria-label',key+'。ログは一部を表示しています。');node.title=key;
++ document.querySelector('#battleLogSource').textContent=text?.source||key;
++ document.querySelector('#battleLogArrow').textContent=text?'→':'';
++ document.querySelector('#battleLogTarget').textContent=text?.target||'';
++ document.querySelector('#battleLogAction').textContent=text?.action||'';
++}
++const battleLogSetup=setup;setup=function(...args){resetBattleLog();return battleLogSetup(...args);};
++const battleLogStep=step;step=function(dt){battleLogStep(dt);if(!multiSession&&!multiRecording)try{soloBattleLog.capture(Math.round(elapsed*60),combatEvents,units);}catch(_){/* Optional text cannot abort combat. */}};
++const battleLogLoop=loop;loop=function(t){battleLogLoop(t);try{syncBattleLog(t);}catch(_){/* Optional text cannot interrupt the game loop. */}};
++
+ requestAnimationFrame(loop);
+ if(typeof window!=='undefined'&&window.__gameBootComplete)window.__gameBootComplete();
+ </script></body></html>
