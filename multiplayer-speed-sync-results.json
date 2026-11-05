@@ -1,0 +1,56 @@
+[
+  {
+    "wall": 0,
+    "hostScene": 0,
+    "guestScene": 0,
+    "clock": "0.0秒 · 1×"
+  },
+  {
+    "wall": 5,
+    "hostScene": 5,
+    "guestScene": 5,
+    "clock": "5.0秒 · 1×"
+  },
+  {
+    "wall": 7,
+    "hostScene": 7,
+    "guestScene": 7,
+    "clock": "7.0秒 · 1×"
+  },
+  {
+    "wall": 9,
+    "hostScene": 9,
+    "guestScene": 9,
+    "clock": "9.0秒 · 1×"
+  },
+  {
+    "wall": 10,
+    "hostScene": 10,
+    "guestScene": 10,
+    "clock": "10.0秒 · 1×"
+  },
+  {
+    "wall": 20,
+    "hostScene": 20,
+    "guestScene": 20,
+    "clock": "20.0秒 · 2×"
+  },
+  {
+    "wall": 25,
+    "hostScene": 30,
+    "guestScene": 30,
+    "clock": "30.0秒 · 2×"
+  },
+  {
+    "wall": 30,
+    "hostScene": 40,
+    "guestScene": 40,
+    "clock": "40.0秒 · 3×"
+  },
+  {
+    "wall": 35,
+    "hostScene": 55,
+    "guestScene": 55,
+    "clock": "55.0秒 · 3×"
+  }
+]
