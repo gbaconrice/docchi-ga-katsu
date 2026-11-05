@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "164209219a6fd0bb0b57d5c1c6bd09679fac83db1ba535010ce538616a6a975d",
+  "sourceSha256": "7da59229511f6ecd16a6475726aabcb1668758cee5ba363d19cb6d485c4c8c1e",
   "contentRevision": "140cb049d03042705926e35497a19aac395f957028b16b021a4eeec31a14fff9",
   "remoteBase": "https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/",
   "occurrences": 577,
@@ -9,7 +9,7 @@
   "variants": [
     {
       "mode": "gravity",
-      "htmlBytes": 18277,
+      "htmlBytes": 18358,
       "runtimeBytes": 5727760
     }
   ],
@@ -26,8 +26,8 @@
     },
     {
       "path": "gravity/game.css",
-      "bytes": 53975,
-      "sha256": "96dabad478dca9c1fb2add373004d27ab06c52075f481875daff58d389b005d3"
+      "bytes": 58604,
+      "sha256": "3349edf642f44fea29edaf607cfe2c422f7d4b0cd30d930c02bc5ff9d5c4408d"
     },
     {
       "path": "gravity/host-layout.js",
@@ -36,8 +36,8 @@
     },
     {
       "path": "gravity/index.html",
-      "bytes": 18357,
-      "sha256": "5247aa076af5a726cfd2ccb53821aaac693751a3d997705addbaf75be16c1e18"
+      "bytes": 18358,
+      "sha256": "234a0d2f7b3c088bd716aed4fc26dcb61ff42a4ed3c4b6451041f43196d057a1"
     },
     {
       "path": "gravity/viewport.js",

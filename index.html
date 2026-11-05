@@ -1299,6 +1299,146 @@ body { color:#352719; font-family:'Yu Mincho','Hiragino Mincho ProN',Georgia,ser
 
 .score-status { font-size:13px; color:#543b25; }
 #scoreRetry { min-height:44px; }
+
+/* Warm game controls: preserve layout, text, hit targets, field and safe areas. */
+#app .home-title {
+  padding: 15px 10px 16px;
+  border: 3px double #896439;
+  border-radius: 5px;
+  color: #3d2718;
+  background: linear-gradient(180deg, #fff1cf 0%, #ebd1a0 100%);
+  box-shadow: inset 0 0 0 3px #f8e9c6, inset 0 -3px 0 #c9a66d, 0 4px 0 #4b2c1c, 0 7px 9px #28150c80;
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', Georgia, serif;
+  font-weight: 900;
+  letter-spacing: .025em;
+  text-shadow: 0 1px #fff5dc;
+}
+#app .home-choice, #app .cta, #app #extensionChoices button {
+  border-radius: 5px;
+  border-width: 2px;
+  font-weight: 800;
+  letter-spacing: .025em;
+}
+#app .home-choice.cta-primary, #app .cta-primary, #app #continueRun {
+  color: #fff1dc;
+  border-color: #c79b5e;
+  background: linear-gradient(180deg,#87423b 0%,#6b2e2a 56%,#4e211e 100%);
+  box-shadow: inset 0 1px 0 #cc8b70, inset 0 -3px 0 #401a18, 0 3px 0 #3c2418, 0 5px 7px #25150c80;
+  text-shadow: 0 1px 1px #341511;
+}
+#app .home-choice.cta-secondary, #app .cta-secondary, #app #cashOut {
+  color: #fff1dc;
+  border-color: #c79b5e;
+  background: linear-gradient(180deg,#375d48 0%,#244331 56%,#162d23 100%);
+  box-shadow: inset 0 1px 0 #78947a, inset 0 -3px 0 #10251b, 0 3px 0 #3c2418, 0 5px 7px #25150c80;
+  text-shadow: 0 1px 1px #14251b;
+}
+#app #extensionChoices button { min-width: 44px; min-height: 48px; padding: 8px 5px; line-height: 1.2; }
+#app .home-choice:active:not(:disabled), #app .cta:active:not(:disabled), #app #extensionChoices button:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px #1c0d0b66, 0 1px 0 #3c2418;
+}
+#app .home-choice:focus-visible, #app .cta:focus-visible, #app #extensionChoices button:focus-visible {
+  outline: 3px solid #f5d77e;
+  outline-offset: 2px;
+}
+#app .home-choice:disabled, #app .cta:disabled, #app #extensionChoices button:disabled {
+  color: #645b4c;
+  border-color: #9a8c72;
+  background: #d2c7b1;
+  box-shadow: none;
+  text-shadow: none;
+  transform: none;
+  opacity: 1;
+}
+@media (max-height: 640px) {
+  #app .home-title { padding-block: 10px; }
+}
+
+
+/* Prediction and result hierarchy: compact parchment, leather, and brass. */
+#comparison .stake-card {
+  border-color: #805b34;
+  background: linear-gradient(180deg,#f6e7c8,#e4c995);
+  box-shadow: inset 0 1px #fff6dd, inset 0 -2px #c4a06b, 0 2px 3px #28150c55;
+}
+#comparison .stake-card h3 {
+  color: #4a301a;
+  font-family: Georgia, 'Yu Mincho', serif;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+#comparison .stake-hint { color:#513a25; font-weight:700; }
+#app #comparison .stake-option {
+  min-width:44px;
+  min-height:44px;
+  color:#fff1dc;
+  border:2px solid #b58c54;
+  border-radius:4px;
+  background:linear-gradient(180deg,#375d48,#244331 56%,#162d23);
+  box-shadow:inset 0 1px #78947a, inset 0 -2px #10251b, 0 2px 0 #543923;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+#app #comparison .stake-option[aria-pressed="true"] {
+  color:#352719;
+  border-color:#70502a;
+  background:linear-gradient(180deg,#fff0c1,#e2ba6d);
+  box-shadow:inset 0 0 0 2px #fff1c4, 0 0 0 2px #f0ce84;
+}
+#app #comparison .stake-option:disabled {
+  color:#5a5145;
+  border-color:#9e9079;
+  background:#ddd2bd;
+  box-shadow:none;
+  opacity:1;
+}
+#app #comparison .stake-option:disabled[aria-pressed="true"] {
+  color:#352719;
+  border-color:#70502a;
+  background:#e2ba6d;
+  box-shadow:inset 0 0 0 2px #fff1c4;
+}
+#app #comparison .stake-option:focus-visible,
+#app #comparison .army-card:focus-visible,
+#app #comparison #formationToggle:focus-visible {
+  outline:3px solid #79531f;
+  outline-offset:2px;
+}
+#app #comparison .stake-option:active:not(:disabled),
+#app #comparison #formationToggle:active:not(:disabled) { transform:translateY(1px); }
+#app #comparison .army-card {
+  border-color:#987042;
+  background-color:#f5e4bf;
+  box-shadow:inset 0 1px #fff7e3, 0 2px 3px #2d180c66;
+}
+#app #comparison .army-card[aria-pressed="true"] {
+  border-color:#70491a;
+  box-shadow:inset 0 0 0 3px #b98731, 0 0 0 2px #f5d99a;
+}
+#app #comparison #formationToggle {
+  min-height:44px;
+  color:#fff1dc;
+  border:2px solid #b58c54;
+  background:linear-gradient(180deg,#375d48,#244331 56%,#162d23);
+  box-shadow:inset 0 1px #78947a, 0 2px 0 #543923;
+  font-weight:800;
+}
+#gameScreen[data-personal-result="true"] #resultPanel {
+  border-color:#987044;
+  background:linear-gradient(180deg,#f8ebce,#ead4aa);
+}
+#gameScreen[data-personal-result="true"] #message {
+  color:#432e1d;
+  font-weight:900;
+  letter-spacing:.02em;
+  text-shadow:0 1px #fff6e5;
+}
+#gameScreen[data-personal-result="true"] #resultWinner {
+  color:#60482f;
+  font-weight:700;
+}
+
 </style></head><body><div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
 <noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
 <script>

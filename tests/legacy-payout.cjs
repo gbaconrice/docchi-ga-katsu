@@ -1,6 +1,9 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert'),{execFileSync}=require('child_process');
+const fs=require('fs'),vm=require('vm'),assert=require('assert'),crypto=require('crypto');
 function extract(html){const a=html.indexOf('const BattleFields=(()=>{'),b=html.indexOf('const GrowthGenerator=(()=>{',a);return vm.runInNewContext(html.slice(a,b)+'\n;({Wallet,SoloWallet,MoneyUI})')}
-const old=extract(execFileSync('git',['show','ca88d7e1e13cc58920c99c0b89037ca94f3aa86e:index.html'],{encoding:'utf8',maxBuffer:80*1024*1024})),fresh=extract(fs.readFileSync('index.html','utf8'));
+// Exact wallet module excerpt from ca88d7e1; available even in shallow clones.
+const oldSource=fs.readFileSync('tests/fixtures/wallet-ca88d7e.cjs','utf8').replace(/\r\n/g,'\n');
+assert.equal(crypto.createHash('sha256').update(oldSource).digest('hex'),'b327bea5ca9cf9b7a6c4342a841572a4226b8eac3176bc0a57f4d59f0c859ec2');
+const old=vm.runInNewContext(oldSource+'\n;({Wallet,SoloWallet,MoneyUI})'),fresh=extract(fs.readFileSync('index.html','utf8'));
 for(const name of ['SoloWallet','Wallet'])for(const outcome of ['A','B','draw']){const O=old[name],N=fresh[name],id='save-'+name;let s=O.createSession({sessionId:id,playerIds:['p']});s=O.openRound(s,{sessionId:id,roundId:1,deadline:100});s=O.commitPrediction(s,{sessionId:id,roundId:1,playerId:'p',side:'A',stake:25,now:1});assert.equal(s.currentRound.payoutRule,undefined);let done=N.settleRound(JSON.parse(JSON.stringify(s)),{sessionId:id,roundId:1,outcome,now:1});assert.equal(N.walletView(done,'p').balance,outcome==='A'?138:outcome==='B'?75:100);assert.strictEqual(N.settleRound(done,{sessionId:id,roundId:1,outcome,now:1}),done);done=N.openRound(done,{sessionId:id,roundId:2,deadline:100});assert.equal(done.currentRound.payoutRule,'even-v1');const balance=N.walletView(done,'p').balance,stake=fresh.MoneyUI.stakeOption(25,balance,2);done=N.commitPrediction(done,{sessionId:id,roundId:2,playerId:'p',side:'A',stake,now:1});done=N.settleRound(done,{sessionId:id,roundId:2,outcome:'A',now:1});assert.equal(N.walletView(done,'p').balance,balance+stake)}
 console.log('PASS old committed solo and multi ledgers preserve payout; next round uses new payout; settlement idempotent');
 
