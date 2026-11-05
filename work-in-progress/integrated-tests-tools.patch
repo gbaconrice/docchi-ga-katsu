@@ -1,0 +1,693 @@
+--- /dev/null
++++ b/tests/auto-speed-controls.cjs
+@@ -0,0 +1,15 @@
++const fs=require('fs'),vm=require('vm'),assert=require('assert');
++const html=fs.readFileSync('index.html','utf8');
++for(const id of ['speed','speedUp','speedDown','battleControls'])assert(!html.includes(`id="${id}"`),id+' remains in markup');
++assert(!html.includes('setSpeed('));assert(!html.includes('delta,speed'));assert(html.includes('ReplayClock.effectiveSpeed(elapsed)'));
++assert(html.indexOf('class="wallet-pill"')<html.indexOf('id="pause"'));assert(html.indexOf('id="pause"')<html.indexOf('id="phaseTitle"'));
++const h=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split("for(const id of ['#red'")[0];
++const {context,nodes}=new Function('require',h+';return {context,nodes};')(require);
++const run=s=>vm.runInContext(s,context);
++assert.equal(run('typeof speed'),'undefined');assert.equal(run('typeof setSpeed'),'undefined');
++for(const phase of ['choose','fight','result']){run(`multiSession=null;state='${phase}';syncFlowControls()`);assert.equal(nodes.get('#pause').hidden,phase!=='fight');}
++run("multiSession={getState:()=>({phase:'locked'})};state='fight';syncFlowControls()");assert(nodes.get('#pause').hidden);
++run("multiSession={getState:()=>({phase:'battle'})};multiPlayback={};state='fight';syncFlowControls()");assert(!nodes.get('#pause').hidden);
++run("multiSession=null;multiPlayback=null;state='fight';paused=false;document.querySelector('#pause').onclick({isTrusted:true})");assert(run('paused'));assert(!nodes.get('#pausePanel').hidden);
++run('document.querySelector("#pauseResume").onclick({isTrusted:true})');assert(!run('paused'));assert(nodes.get('#pausePanel').hidden);
++console.log('PASS no manual speed hooks, pause moved after wallet, choose/result/preparation visibility, solo pause and resume');
+--- /dev/null
++++ b/tests/battle-log-slot.cjs
+@@ -0,0 +1,27 @@
++const fs=require('fs'),assert=require('assert');
++const harness=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
++new Function('require','assert',harness+`
++const run=s=>vm.runInContext(s,context,{timeout:60000}),battle=nodes.get('#battle'),log=run("document.querySelector('#battleLog')"),attributes=new Map();let slotWrites=0;
++battle.getAttribute=k=>attributes.get(k)||null;battle.setAttribute=(k,v)=>{attributes.set(k,String(v));if(k==='data-battle-log-slot')slotWrites++;};
++run("multiSession=null;multiReplay=null;multiPlayback=null;multiRecording=false;predictionPreview=false;screenMode='game';state='fight';syncBattleLog(0)");
++assert.equal(log.hidden,false);assert.equal(attributes.get('data-battle-log-slot'),'true');
++run('syncBattleLog(1);syncBattleLog(2)');assert.equal(slotWrites,1,'unchanged slot does not write DOM each frame');
++run("state='result';syncBattleLog(10)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'true','result reserves same row');assert.equal(slotWrites,1,'fight to result does not change map reservation');
++run("state='choose';syncBattleLog(20)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'false');
++run("state='fight';screenMode='home';syncBattleLog(30)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'false');
++run("screenMode='game';multiRecording=true;syncBattleLog(40)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'false','host precomputation reserves no row');
++run("multiRecording=false;multiSession={};multiPlayback=null;syncBattleLog(50)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'false','unavailable replay reserves no row');
++run("multiPlayback={};syncBattleLog(60)");assert.equal(log.hidden,false);assert.equal(attributes.get('data-battle-log-slot'),'true');
++run("state='result';syncBattleLog(70)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'true','guest result preserves log slot');
++run("state='fight';predictionPreview=true;syncBattleLog(80)");assert.equal(log.hidden,true);assert.equal(attributes.get('data-battle-log-slot'),'false');
++console.log('PASS solo/guest fight and result reservation; prediction/home/precomputation/missing replay exclusion; no repeated attribute writes');
++`)(require,assert);
++const s=fs.readFileSync('index.html','utf8');
++assert(s.includes('#battle[data-battle-log-slot="true"] > .battle-log[hidden] { display:grid !important; visibility:hidden; pointer-events:none; }'));
++for(const rule of ['.battle-log { position:absolute; left:0; right:84px; bottom:0; }','.crowd-inspector { bottom:40px; }','.field-stage { bottom:40px; }','[data-crowd-inspector="true"] .field-stage { bottom:108px; }'])assert(s.includes(rule),rule);
++assert(s.includes('@media (min-width:900px) and (min-height:640px)'));
++console.log('PASS hidden row retains geometry without interaction and desktop has separate field/details/log bands');
++
++assert(s.includes('[hidden] { display: none !important; }'),'generic important hidden rule still exists');
++assert(s.includes('.battle-log[hidden] { display:grid !important;'),'reserved slot must override generic important display:none');
++console.log('PASS reserved log overrides the generic important hidden rule');
+--- /dev/null
++++ b/tests/battle-log.cjs
+@@ -0,0 +1,33 @@
++const fs=require('fs'),assert=require('assert');
++const harness=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
++new Function('require','assert',harness+`
++const run=s=>vm.runInContext(s,context,{timeout:60000});
++run(\`globalThis.logActors=[{id:'a',token:'a',k:'sword',side:0},{id:'b',token:'b',k:'shield',side:1},{id:'h',token:'h',k:'healer',side:0}];globalThis.hit={type:'resolved_hit',sourceToken:'a',targetToken:'b',amount:10};globalThis.heal={type:'heal',sourceToken:'h',targetToken:'a',actualAmount:3};globalThis.log=BattleLog.createRecorder();log.capture(1,[hit],logActors);log.capture(1,[heal],logActors);\`);
++assert.equal(run('log.size()'),1,'repeated tick is not consumed');
++assert.equal(run('BattleLog.describe(log.latest()).action'),'10ダメージ');
++run('log.capture(2,[heal],logActors);log.capture(45,[],logActors)');assert.equal(run('log.size()'),1);
++run('log.capture(46,[],logActors)');assert.equal(run('log.size()'),2);assert.equal(run('BattleLog.describe(log.latest()).action'),'3回復');assert.equal(run('log.latest().eventTick'),2);
++run('log.capture(47,[{...hit,amount:NaN},{...hit,sourceToken:"missing"}],logActors);log.capture(91,[],logActors)');assert.equal(run('log.size()'),2,'invalid events do not fabricate logs');
++run('log=BattleLog.createRecorder();for(let t=1;t<=3601;t++)log.capture(t,Array(128).fill(hit),logActors)');assert.equal(run('log.size()'),81,'high-frequency capture is bounded');assert(run('log.rows().every((r,i,a)=>!i||r[0]-a[i-1][0]>=45)'));
++console.log('PASS real-time samples: duplicate ticks, pending latest event, no backlog, invalid events and 81-row maximum');
++// Existing game heal event must report actual recovery, not requested healing.
++run(\`multiSession=null;battleEnvironment=null;resetBattleLog();TYPES.healer.speed=0;TYPES.sword.speed=0;TYPES.sword.dmg=0;elapsed=0;state='fight';winner=null;combatEvents=[];pendingSummons=[];shots=[];units=[{id:'h',token:'h',k:'healer',side:0,x:100,y:200,hp:TYPES.healer.hp,cd:0,priority:.1,dead:false,originForward:1},{id:'p',token:'p',k:'sword',side:0,x:120,y:200,hp:97,cd:10,priority:.2,dead:false,originForward:1},{id:'e',token:'e',k:'sword',side:1,x:400,y:200,hp:100,cd:10,priority:.3,dead:false,originForward:-1}];step(1/60);\`);
++assert.equal(run("combatEvents.find(e=>e.type==='heal').actualAmount"),3);assert.equal(run('soloBattleLog.latest().amount'),3);assert.equal(run('BattleLog.describe(soloBattleLog.latest()).action'),'3回復');
++// Existing hit amount is post-armor attack damage; it may exceed remaining HP.
++run(\`resetBattleLog();TYPES.sword.dmg=10;TYPES.sword.rate=100;TYPES.shield.dmg=0;TYPES.shield.speed=0;elapsed=0;state='fight';winner=null;shots=[];pendingSummons=[];units=[{id:'a',token:'a',k:'sword',side:0,x:208,y:250,hp:100,cd:0,priority:0,dead:false,originForward:1},{id:'v',token:'v',k:'shield',side:1,x:230,y:250,hp:5,cd:100,priority:1,dead:false,originForward:-1}];BattleInsights.start(units);step(1/60);\`);
++assert.equal(run('soloBattleLog.latest().amount'),10);assert.equal(run('units[1].hp'),-5);assert.equal(run('BattleLog.describe(soloBattleLog.latest()).action'),'10ダメージ');
++console.log('PASS authoritative actual heal and resolved hit; overkill remains attack damage, not a fabricated HP-loss value');
++// Canonical host computes once. Guests/reconnect consume the same bounded metadata.
++run(\`multiInitial=JSON.parse(JSON.stringify([initialUnits.find(u=>u.side===0),initialUnits.find(u=>u.side===1)]));Object.assign(multiInitial[0],{k:'boar',x:180,y:250,hp:TYPES.boar.hp,cd:0,dead:false});Object.assign(multiInitial[1],{k:'sword',x:300,y:250,hp:TYPES.sword.hp,cd:0,dead:false});globalThis.generated=buildCanonicalReplay();globalThis.playLog=BattleLog.createPlayback(generated);\`);
++assert(run('generated.battleLog.rows.length>0'));const first=run('generated.battleLog.rows[0][0]');assert.equal(run('playLog.at('+Math.max(0,first-1)+')'),null);assert(run('playLog.at('+first+')!==null'));assert.equal(run('JSON.stringify(playLog.at(generated.ticks))'),run('JSON.stringify(BattleLog.createPlayback(JSON.parse(JSON.stringify(generated))).at(generated.ticks))'));
++context.btoa=s=>Buffer.from(s,'binary').toString('base64');context.atob=s=>Buffer.from(s,'base64').toString('binary');
++run(\`globalThis.transferResult=(()=>{const packed=ReplayTransfer.packReplay(generated,'log-test');let result,receiver,sender,ms=1000;const join=()=>{receiver=ReplayTransfer.createReceiver({meta:packed.meta,sendAck:m=>sender.ack('guest',m),onComplete:r=>result=r});sender=ReplayTransfer.createSender({packed,recipients:['guest'],send:m=>receiver.receive(m),now:()=>ms});for(let i=0;i<10000&&!sender.ready();i++){ms+=150;sender.pump();}if(!sender.ready())throw Error('not acknowledged');return JSON.stringify(BattleLog.createPlayback(result).at(result.ticks));};return {first:join(),rejoined:join()};})();\`);
++assert.equal(run('transferResult.first'),run('transferResult.rejoined'));assert.equal(run('transferResult.first'),run('JSON.stringify(playLog.at(generated.ticks))'));
++run('globalThis.bad=JSON.parse(JSON.stringify(generated));bad.battleLog.rows[0][3]="missing"');assert.equal(run('BattleLog.createPlayback(bad).at(bad.ticks)'),null);assert(run('CompactReplay.createPlayback(bad)!==null'),'optional bad log does not break valid replay');
++run('delete bad.battleLog');assert.equal(run('BattleLog.createPlayback(bad).at(bad.ticks)'),null,'old replay has no invented log');
++run('globalThis.big={padding:"x".repeat(CompactReplay.MAX_REPLAY_BYTES-30)}');assert.equal(run('BattleLog.attach(big,generated.battleLog.rows)'),false);assert.equal(run('Object.hasOwn(big,"battleLog")'),false);
++console.log('PASS canonical host sample, time alignment, chunk transfer and reconnect, corrupt/missing log omission, replay byte-cap fallback');
++run(\`multiSession=null;state='fight';screenMode='game';predictionPreview=false;multiRecording=false;resetBattleLog();soloBattleLog.capture(1,[hit],logActors);syncBattleLog(1000);\`);
++assert.equal(nodes.get('#battleLogAction').textContent,'10ダメージ');run('soloBattleLog.capture(46,[heal],logActors);syncBattleLog(1200)');assert.equal(nodes.get('#battleLogAction').textContent,'10ダメージ');run('syncBattleLog(1500)');assert.equal(nodes.get('#battleLogAction').textContent,'3回復');run('syncBattleLog(1600)');assert.equal(nodes.get('#battleLogAction').textContent,'3回復');run("state='result';syncBattleLog(1700)");assert.equal(nodes.get('#battleLog').hidden,true);run("state='fight';multiRecording=true;syncBattleLog(1800)");assert.equal(nodes.get('#battleLog').hidden,true);
++console.log('PASS 500ms DOM throttle and log hidden during host precomputation/result');
++`)(require,assert);
+--- /dev/null
++++ b/tests/comparison-legibility.cjs
+@@ -0,0 +1,38 @@
++const fs=require('fs'),assert=require('assert');
++const harness=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
++new Function('require','assert',harness+`
++const run=s=>vm.runInContext(s,context,{timeout:60000});
++const before=run('JSON.stringify(TYPES)');
++const facts=JSON.parse(run('JSON.stringify(CONTENT_ROSTER.selectable.map(k=>({k,type:TYPES[k],facts:buildUnitComparisonFacts(TYPES[k])})))'));
++assert.equal(facts.length,300);assert.equal(run('JSON.stringify(TYPES)'),before,'display facts do not mutate mechanics');
++for(const row of facts){const t=row.type,f=row.facts;assert(f);assert(!/構え|準備|[1-6]→[1-6]段|2発目|追加弾/.test(f.timing),row.k+' timing leaked');if(t.comboStageContacts)assert.equal(f.distance,'',row.k+' per-stage contact geometry hidden');if(t.comboThirdTicks&&t.comboFinalDamage){const count=t.comboStageContacts?.length||([4,5,6].includes(t.comboContactCount)?t.comboContactCount:3);assert.equal(f.value,count+'連撃');assert.equal(f.timing,'');}else if(t.twoHitTicks){assert.equal(f.value,'2連撃');assert.equal(f.timing,'');}else if(t.highSecondTicks){assert.equal(f.value,'2連撃');assert.equal(f.timing,'');}else if(t.orbFollowTicks){assert.equal(f.value,'3連射');assert.equal(f.timing,'');}}
++const reference=JSON.parse(run('JSON.stringify(comparisonStrengthReference())'));
++const ordinary=r=>r.facts.attackable&&!r.facts.wide&&['攻撃','射撃'].includes(r.facts.label)&&Number.isFinite(Number(r.facts.value));
++const sorted=values=>values.filter(v=>Number.isFinite(v)&&v>0).sort((a,b)=>a-b);
++for(const delivery of ['melee','ranged']){const group=facts.filter(r=>ordinary(r)&&(r.type.projectile?'ranged':'melee')===delivery);assert.deepStrictEqual(reference.action[delivery],sorted(group.map(r=>Number(r.facts.value))));assert.deepStrictEqual(reference.distance[delivery],sorted(group.filter(r=>!r.type.comboStageContacts).map(r=>r.type.reach??r.type.range)));}
++for(const layer of ['ground','air'])assert.deepStrictEqual(reference.movement[layer],sorted(facts.filter(r=>(r.type.collisionLayer==='air'||r.type.flying?'air':'ground')===layer).map(r=>r.type.speed)));
++const emphasized=JSON.parse(run('JSON.stringify(CONTENT_ROSTER.selectable.map(k=>({k,f:buildUnitComparisonFacts(TYPES[k]),e:unitComparisonEmphasis(TYPES[k],buildUnitComparisonFacts(TYPES[k]),comparisonStrengthReference())})))'));
++assert(emphasized.some(r=>r.e.metrics.length>=2),'multiple distinct high stats may be emphasized');
++for(const r of emphasized)if(r.f.actionTone==='support'&&r.f.value!=='—')assert(r.e.metrics.includes('action'),'healing value itself emphasized: '+r.k);
++class E{constructor(){this.children=[];this.attrs={};this.className='';this.textContent='';this.classList={add:()=>{}};}setAttribute(k,v){this.attrs[k]=String(v);}append(...xs){this.children.push(...xs);}appendChild(x){this.children.push(x);}replaceChildren(...xs){this.children=xs;}}
++context.document.createElement=()=>new E();for(const id of ['#redStats','#blueStats','#unitsRedStats','#unitsBlueStats'])nodes.set(id,new E());
++run("initialUnits=CONTENT_ROSTER.selectable.map((k,i)=>({k,side:i%2}));fillUnitStats()");
++const walk=n=>[n,...n.children.flatMap(walk)],all=['#redStats','#blueStats','#unitsRedStats','#unitsBlueStats'].flatMap(id=>walk(nodes.get(id)));
++assert(!all.some(e=>e.textContent.includes('◆')||/強み/.test(e.textContent)||e.className==='comparison-strength-mark'));
++assert(all.some(e=>e.className.includes('comparison-stat')&&e.attrs['data-tone']==='support'&&e.attrs['data-emphasis']==='true'));
++assert(all.filter(e=>e.className==='comparison-trait').every(e=>e.attrs['data-tone']));
++assert.equal(run('JSON.stringify(TYPES)'),before,'rendering cannot change type values');
++console.log('PASS all 300 facts: combo identity retained, micro-timing/geometry hidden, per-metric peer groups, multiple highlights, healing value and no redundant markers');
++`)(require,assert);
++const html=fs.readFileSync('index.html','utf8');assert(!html.includes('兵種')&&!html.includes('兵士'));assert(html.includes('タップで詳細確認'));assert(!html.includes('comparison-strength-mark'));assert(!html.includes("mark.textContent='◆'"));
++assert(html.includes('text-shadow:none; box-shadow:none;'));
++const css=html.slice(html.indexOf('/* Meaning lives in the actual value/trait text'),html.indexOf('/* Selection details stay in normal flow'));
++for(const scope of ['#comparison .comparison-stat[data-emphasis="true"] .comparison-stat-value','#comparison .comparison-mobility-item[data-emphasis="true"] .comparison-mobility-value','#comparison .comparison-trait[data-tone]'])assert(css.includes(scope));
++function lum(hex){return hex.match(/[0-9a-f]{2}/gi).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((n,x,i)=>n+x*[.2126,.7152,.0722][i],0)}
++const groups=[{from:'#comparison .comparison-list {',colors:['174e9a','a01d1a','12642c','7435a0','00626c','8b4b08','493823'],bgs:['f2dfb8','eadfca','f5e4bf']},{from:'.units-side .comparison-list {',colors:['97c7ff','ffaaa0','83e39b','dab0ff','83dce2','ffd095','eee0c3'],bgs:['1f2a24','3a4037','3b5140']}];let minimum=Infinity;
++for(const g of groups){const block=css.slice(css.indexOf(g.from),css.indexOf('}',css.indexOf(g.from)));for(const fg of g.colors){assert(block.includes('#'+fg));for(const bg of g.bgs){const a=lum(fg),b=lum(bg),contrast=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);minimum=Math.min(minimum,contrast);assert(contrast>=4.5,fg+' on '+bg+' '+contrast);}}}
++console.log('PASS meaning-based text colors and contrast, minimum '+minimum.toFixed(2)+':1');
++// Narrow-width contract only: this does not claim browser rendering was tested.
++for(const width of [280,320,350,390,430]){const outer=width-(width<=355?16:24)-8,gap=width<=350?6:8,card=(outer-gap)/2,inner=card-14-6,stat=(inner-4)/2-6;assert(inner>=105);assert(stat>=44.5);const comboWidth=3*18;assert(comboWidth<=inner,'combo text can wrap within its cell/card without fixed minimum');}
++for(const required of ['grid-template-columns: repeat(2, minmax(0, 1fr))','overflow-wrap:anywhere','flex-wrap:wrap; white-space:normal','flex-direction:column; align-items:flex-start'])assert(html.includes(required));
++console.log('PASS 280–430px width arithmetic, zero grid minima, wrapping names/traits/metrics (not browser pixel QA)');
+--- /dev/null
++++ b/tests/crowd-counter.cjs
+@@ -0,0 +1,77 @@
++const fs=require('fs'),vm=require('vm');const html=fs.readFileSync(process.env.COUNTER_HTML||'index.html','utf8');const scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);const errors=[],events={};const noop=()=>{};const ctx=new Proxy({measureText:()=>({width:10}),createLinearGradient:()=>({addColorStop:noop}),createRadialGradient:()=>({addColorStop:noop}),getImageData:()=>({data:new Uint8ClampedArray(16)})},{get:(o,k)=>k in o?o[k]:noop,set:(o,k,v)=>(o[k]=v,true)});const nodes=new Map();function elem(id){if(!nodes.has(id)){let n={id,hidden:false,disabled:false,style:{setProperty:noop,removeProperty:noop},dataset:{},classList:{add:noop,remove:noop,toggle:noop,contains:()=>false},setAttribute:noop,removeAttribute:noop,getAttribute:()=>null,addEventListener:(name,fn)=>{(events[id+':'+name]??=[]).push(fn)},removeEventListener:noop,appendChild:noop,remove:noop,focus:noop,getContext:()=>ctx,getBoundingClientRect:()=>({width:480,height:538,left:0,top:0,right:480,bottom:538}),querySelector:()=>null,querySelectorAll:()=>[],getClientRects:()=>[],textContent:'',value:'',width:480,height:538};nodes.set(id,n)}return nodes.get(id)}
++const doc={hidden:false,documentElement:elem('html'),body:elem('body'),querySelector:s=>elem(s),querySelectorAll:()=>[],getElementById:id=>elem('#'+id),createElement:t=>elem('new-'+t),addEventListener:(n,f)=>{(events[n]??=[]).push(f)},removeEventListener:noop};const pendingImages=[];class Img{constructor(){pendingImages.push(this);this.complete=false;this.naturalWidth=0;this.naturalHeight=0}set src(v){this._src=v}get src(){return this._src}}const sandbox={document:doc,Image:Img,console,URLSearchParams,location:{search:'',href:'http://localhost/'},navigator:{userAgent:'test'},performance:{now:()=>1000},requestAnimationFrame:()=>1,cancelAnimationFrame:noop,setTimeout:()=>1,clearTimeout:noop,setInterval:()=>1,clearInterval:noop,localStorage:{getItem:()=>null,setItem:noop},addEventListener:(n,f)=>{(events['window:'+n]??=[]).push(f)},removeEventListener:noop,innerWidth:400,innerHeight:800,devicePixelRatio:1,matchMedia:()=>({matches:false,addEventListener:noop}),ResizeObserver:class{observe(){}disconnect(){}}};sandbox.window=sandbox;sandbox.globalThis=sandbox;let context=vm.createContext(sandbox);for(let i=0;i<scripts.length;i++){try{vm.runInContext(scripts[i],context,{filename:'script-'+i+'.js',timeout:15000})}catch(e){console.log('FAIL script',i,e.stack.split('\n').slice(0,5).join('\n'));process.exit(1)}}
++const assert=require('assert');
++const run=code=>vm.runInContext(code,context,{timeout:15000});
++const read=code=>JSON.parse(run(`JSON.stringify(${code})`));
++const state=()=>read(`({mode:crowdChoiceMode,focus:crowdFocusDetails(),ordinal:crowdFocusDetails()?crowdChoiceOrdinal(crowdFocusDetails()):null,label:crowdInspectorUI.name.textContent,pool:crowdChoicePool().map(crowdKey),previousDisabled:crowdInspectorUI.previous.disabled,nextDisabled:crowdInspectorUI.next.disabled})`);
++const tap=(x,y)=>run(`pickCrowdUnit({clientX:${x},clientY:${y}})`);
++function expectOrdinal(count,index){const s=state();assert.equal(s.ordinal.count,count);if(index!==undefined)assert.equal(s.ordinal.index,index);assert(s.label.endsWith(`（${s.ordinal.index+1}/${count}）`),s.label);if(s.mode==='tap'){assert.equal(s.pool.length,count);assert.equal(s.pool[s.ordinal.index],s.focus.key);}return s;}
++run(`
++ screenMode='game';state='fight';multiSession=null;multiRecording=false;multiPlayback=null;paused=true;shots=[];initialUnits=[];
++ cameraMode='overview';cameraFitScale=1;cameraZoom=1;cameraX=CAMERA_CENTER.x;cameraY=CAMERA_CENTER.y;
++ resetCrowdPresentation();
++ units=Array.from({length:38},(_,i)=>({id:i+1,token:'left-'+String(i+1).padStart(2,'0'),k:'sword',side:0,hp:TYPES.sword.hp,dead:false,x:i<5?80:i<17?250:400,y:i<17?160:430,originForward:1}));
++ units.push(...Array.from({length:7},(_,i)=>({id:101+i,token:'right-'+String(i+1).padStart(2,'0'),k:'sword',side:1,hp:TYPES.sword.hp,dead:false,x:250,y:310,originForward:-1})));
++ units.push({id:201,token:'left-archer',k:'archer',side:0,hp:TYPES.archer.hp,dead:false,x:60,y:310,originForward:1});
++ draw();
++`);
++const untouched=run('JSON.stringify(units)');
++assert.equal(run('crowdHitCandidates({x:80,y:140,pad:6}).length'),5);
++tap(80,140);expectOrdinal(38);
++assert.equal(run('crowdHitCandidates({x:250,y:140,pad:6}).length'),12);
++tap(250,140);expectOrdinal(38);
++console.log('PASS five-body and twelve-body overlaps both display the full 38-body same-army, same-kind roster');
++// Repeated taps must still reach every overlapping body, not wander to distant units.
++tap(80,140);const overlap=new Set(read('crowdCandidateKeys')),visitedTaps=new Set();
++for(let i=0;i<5;i++){const s=expectOrdinal(38);assert(overlap.has(s.focus.key));visitedTaps.add(s.focus.key);tap(80,140);}
++assert.equal(visitedTaps.size,5);
++// Buttons must use exactly the denominator roster, including distant bodies.
++const visitedButtons=new Set();for(let i=0;i<38;i++){const s=expectOrdinal(38);visitedButtons.add(s.focus.key);run('crowdInspectorUI.next.onclick()');}
++assert.equal(visitedButtons.size,38);const beforePrevious=state();run('crowdInspectorUI.previous.onclick()');expectOrdinal(38,(beforePrevious.ordinal.index+37)%38);
++run("setCrowdFocus('left-38');draw();cycleCrowdSelection(1)");expectOrdinal(38,0);run('cycleCrowdSelection(-1)');expectOrdinal(38,37);
++assert.equal(run('JSON.stringify(units)'),untouched,'inspection must not write combat units');
++console.log('PASS repeated overlap taps, full-roster previous/next, forward/back wrap, and read-only unit data');
++// Team and kind boundaries are explicit even when the other army has the same kind.
++tap(250,290);expectOrdinal(7);assert.equal(state().focus.side,1);run('cycleCrowdSelection(1)');expectOrdinal(7);
++tap(60,290);expectOrdinal(1,0);assert.equal(state().focus.kind,'archer');assert(state().previousDisabled&&state().nextDisabled);
++console.log('PASS opposing same-kind soldiers stay separate; singleton shows 1/1 with disabled previous/next');
++// A missing, dead, zero-HP, hidden or invalidly positioned body is not selectable.
++run(`setCrowdFocus('left-20');draw();units.find(u=>u.token==='left-01').dead=true;units.find(u=>u.token==='left-02').hp=0;units.find(u=>u.token==='left-03').presentationFlags=2;units.find(u=>u.token==='left-04').x=NaN;draw()`);
++expectOrdinal(34,15);
++run(`units.push({id:39,token:'left-39',ownerToken:'left-20',k:'sword',side:0,hp:TYPES.sword.hp,dead:false,x:380,y:300,originForward:1});draw()`);
++expectOrdinal(35,15);assert(state().pool.includes('string:left-39'));
++run(`units.find(u=>u.token==='left-03').presentationFlags=0;draw()`);expectOrdinal(36,16);
++console.log('PASS death, zero HP, existing underground visibility rule, invalid coordinates, return to visibility and same-kind summons update immediately');
++// Replay may reconstruct all objects and reorder the array each frame. Keys keep focus stable.
++const beforeReplace=state();run('units=units.map(u=>({...u})).reverse();draw()');const afterReplace=expectOrdinal(36,16);assert.equal(afterReplace.focus.key,beforeReplace.focus.key);
++run('multiSession={};multiPlayback={};draw()');expectOrdinal(36,16);run('multiPlayback=null;syncCrowdInspector()');assert.equal(run('crowdInspectorUI.root.hidden'),true);
++run('multiPlayback={};syncCrowdInspector()');assert.equal(run('crowdInspectorUI.root.hidden'),false);expectOrdinal(36,16);
++run('multiRecording=true;syncCrowdInspector()');assert.equal(run('crowdInspectorUI.root.hidden'),true);run('multiRecording=false;multiSession=null;multiPlayback=null;draw()');
++console.log('PASS replacement/reordering keeps focus, multiplayer playback uses the same roster and host recording stays hidden');
++// A selected death keeps the existing explicit cleared-state notice, not a stale index.
++run("units.find(u=>u.token==='left-20').dead=true;draw()");assert.equal(state().focus,null);assert.equal(state().ordinal,null);assert(state().label.includes('表示が終了'));
++run('cycleCrowdSelection(1)');expectOrdinal(35,0); // The first surviving body starts a fresh same-kind roster.
++run('clearCrowdSelection()');assert.equal(state().focus,null);assert(!state().label.includes('（'));
++run("setCrowdFocus('left-39');draw();state='result';draw()");expectOrdinal(35);
++run('resetCrowdPresentation();draw()');assert.equal(state().focus,null);assert.equal(run('crowdCandidateKeys.length'),0);
++run('units=[];draw()');assert(state().previousDisabled&&state().nextDisabled);assert.equal(state().focus,null);
++console.log('PASS selected death, clear, results, round reset and empty battlefield cannot retain a stale counter');
++
++// Clear must preserve keyboard-only access to every kind, not trap it on the first kind.
++run(`state='fight';resetCrowdPresentation();units=['sword','archer','shield'].map((k,i)=>({id:i+1,token:'global-'+i,k,side:0,hp:TYPES[k].hp,x:100+100*i,y:200,dead:false,originForward:1}));draw()`);
++const key=k=>{assert(events['#field:keydown']?.length);for(const fn of events['#field:keydown'])fn({key:k,preventDefault:noop});};
++const kinds=new Set();key('Enter');for(let i=0;i<3;i++){const s=expectOrdinal(1,0);assert.equal(s.mode,'all');assert.equal(s.pool.length,3);kinds.add(s.focus.kind);key('ArrowRight');}
++assert.deepStrictEqual([...kinds].sort(),['archer','shield','sword']);key('ArrowLeft');assert.equal(state().focus.kind,'shield');key('Escape');assert.equal(state().focus,null);
++// Pointer down/up uses the same tap flow; a drag/cancel must not change focus.
++run(`cameraCanvas.onpointerdown({pointerId:1,clientX:100,clientY:180,button:0});cameraCanvas.onpointerup({pointerId:1,clientX:100,clientY:180,button:0})`);expectOrdinal(1,0);assert.equal(state().mode,'tap');
++const pointerFocus=state().focus.key;run(`cameraCanvas.onpointerdown({pointerId:2,clientX:200,clientY:180,button:0});cameraCanvas.onpointermove({pointerId:2,clientX:230,clientY:180,button:0});cameraCanvas.onpointerup({pointerId:2,clientX:230,clientY:180,button:0})`);assert.equal(state().focus.key,pointerFocus);
++run(`cameraCanvas.onpointerdown({pointerId:3,clientX:200,clientY:180,button:0});cameraCanvas.onpointercancel({pointerId:3});cameraCanvas.onpointerup({pointerId:3,clientX:200,clientY:180,button:0})`);assert.equal(state().focus.key,pointerFocus);
++console.log('PASS clear/global keyboard mode reaches all kinds; pointer tap, drag and cancel keep the same inspected identity');
++
++// One overlap may contain both armies and several kinds. Each selected body uses its own roster.
++run(`resetCrowdPresentation();units=[];for(const [side,k,n,prefix] of [[0,'sword',4,'a'],[1,'sword',2,'b'],[0,'archer',3,'c']])for(let i=0;i<n;i++)units.push({id:units.length+1,token:prefix+i,k,side,hp:TYPES[k].hp,x:200,y:200,dead:false,originForward:side?-1:1});draw()`);
++tap(200,180);const mixedSelected=new Set();for(let i=0;i<9;i++){const s=state();const expected=s.focus.side===1?2:s.focus.kind==='sword'?4:3;expectOrdinal(expected);mixedSelected.add(s.focus.key);tap(200,180);}assert.equal(mixedSelected.size,9);
++console.log('PASS a mixed overlap cycles all bodies while each label and previous/next pool use only the selected army and kind');
++console.log('PASS all crowd-counter regression scenarios');
++
++
+--- /dev/null
++++ b/tests/gold-ledger-static.cjs
+@@ -0,0 +1,15 @@
++const fs=require('fs'),assert=require('assert');
++const html=fs.readFileSync('index.html','utf8');
++const css=html.slice(html.indexOf('/* A quiet tavern ledger:'),html.indexOf('</style>'));
++for(const rule of ['#gameScreen > .game-topline {','#gameScreen > .game-topline .wallet-pill {']){
++ const a=css.indexOf(rule),b=css.indexOf('}',a);const body=css.slice(a,b);
++ assert(body.includes('border:0;'));assert(body.includes('box-shadow:none;'));assert(!body.includes('gradient('));
++}
++assert(css.includes('padding:6px 8px;'));assert(css.includes('margin-block:4px 6px;'));assert(css.includes('flex-basis:auto;'));
++assert(css.includes('min-width:64px;'));assert(css.includes('max-width:48%;'));assert(css.includes('overflow-wrap:anywhere;'));
++assert(html.includes('<span class="wallet-caption" aria-hidden="true">所持金</span>'));
++assert.equal((html.match(/id="balance"/g)||[]).length,1);
++assert.equal((html.match(/class="wallet-caption"/g)||[]).length,1);
++function lum(h){const a=h.match(/../g).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return a[0]*.2126+a[1]*.7152+a[2]*.0722}
++for(const fg of ['eee0c3','c9b28d','f2e5c8']){const ratio=(lum(fg)+.05)/(lum('3b2a20')+.05);assert(ratio>=4.5);console.log(`PASS ${fg} contrast ${ratio.toFixed(2)}:1`)}
++console.log('PASS unframed counter, no HUD shadows or gradients, spacing, narrow-width rules and single label. Browser layout remains unverified.');
+--- /dev/null
++++ b/tests/header-slot.cjs
+@@ -0,0 +1,27 @@
++const fs=require('fs'),assert=require('assert');
++const source=fs.readFileSync('index.html','utf8');
++assert(!/id="(?:battleControls|speedUp|speedDown|speed)"/.test(source),'old footer controls must stay removed');
++assert.equal((source.match(/id="pause"/g)||[]).length,1,'one pause control');
++assert(/class="game-topline"[\s\S]*?class="wallet-pill"[\s\S]*?id="pause"[\s\S]*?<h2 id="phaseTitle"/.test(source),'pause remains beside the wallet');
++const rule=source.match(/#gameScreen\s*>\s*\.game-topline\s*>\s*#pause\[hidden\]\s*\{([^}]*)\}/)?.[1];
++assert(rule,'hidden pause slot rule required');
++assert(/display:\s*grid\s*!important/.test(rule),'override the generic hidden display rule');
++assert(/visibility:\s*hidden/.test(rule),'invisible and excluded from pointer/focus targeting');
++assert(/pointer-events:\s*none/.test(rule),'non-interactive');
++assert(!/height|width|margin|padding|position/.test(rule),'same geometry as visible pause, no duplicate dimensions');
++assert(/\.game-topline\s*>\s*#pause\s*\{[^}]*flex:\s*0 0 44px[^}]*height:\s*44px/s.test(source),'stable 44px control slot');
++console.log('PASS scoped CSS keeps the same 44px slot across prediction, fight and result');
++const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
++new Function('require','assert',h+`
++const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
++assert.equal(elem('#pause').hidden,true,'prediction pause is hidden');
++click('#red');click('#confirm');assert.equal(elem('#pause').hidden,false,'fight pause is visible');
++click('#pause');assert.equal(run('paused'),true);click('#pauseResume');assert.equal(run('paused'),false);
++run("walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:1,outcome:'A',now:0});state='result';winner=0;update();syncPersonalResult(1000)");
++assert.equal(elem('#pause').hidden,true,'result pause remains semantically hidden');
++assert.equal(elem('#gameScreen').getAttribute('data-personal-result'),'true');
++assert.equal(elem('#battle').hidden,false,'canonical final field retained');
++run('nextPrediction()');assert.equal(elem('#pause').hidden,true);assert.equal(run('state'),'choose');
++click('#blue');click('#confirm');assert.equal(elem('#pause').hidden,false);
++console.log('PASS pause/resume, result and next-round visibility paths retain their behavior');
++`)(require,assert);
+--- /dev/null
++++ b/tests/integrated-browser.cjs
+@@ -0,0 +1,43 @@
++// Optional real-browser rendering QA on an authorized browser-capable executor.
++// Never run against a live user session. This loads a disposable local source copy.
++// Synthetic RAF/settlement fixtures test rendering, not actual device FPS or SDK transport.
++const fs=require('fs'),path=require('path'),assert=require('assert');
++const {chromium}=require('playwright');
++const source=fs.readFileSync(path.resolve(process.argv[2]||'index.html'),'utf8');
++const out=path.resolve(process.argv[3]||'../evidence/browser');fs.mkdirSync(out,{recursive:true});
++const viewports=[[320,568],[375,667],[390,844],[430,932],[844,390],[1180,760]];
++const launch={headless:true};if(process.env.CHROMIUM_PATH)launch.executablePath=process.env.CHROMIUM_PATH;
++const tolerance=1;
++function noOverlap(a,b,label){assert(a.right<=b.left+tolerance||b.right<=a.left+tolerance||a.bottom<=b.top+tolerance||b.bottom<=a.top+tolerance,label+': '+JSON.stringify({a,b}));}
++(async()=>{
++ const browser=await chromium.launch(launch);const results=[];
++ try{for(const [width,height] of viewports){
++  const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1});const page=await context.newPage(),errors=[];
++  page.on('pageerror',e=>errors.push(e.message));await page.route('**/*',route=>route.abort());
++  await page.setContent(source.replace('<head>','<head><script>window.requestAnimationFrame=()=>1;window.cancelAnimationFrame=()=>{};<\/script>'),{waitUntil:'load'});
++  await page.waitForFunction(()=>typeof openSoloScreen==='function');await page.click('#soloStart');
++  for(const id of ['formationToggle','formationBack','previewClock','speedDown','speedUp','speed','battleControls'])assert.equal(await page.locator('#'+id).count(),0,id+' should be removed');
++  await page.click('#red');await page.click('#confirm');
++  await page.evaluate(()=>{syncCrowdInspector();syncBattleLog(1000);draw();});
++  await page.click('#pause');assert(await page.locator('#pausePanel').isVisible());assert(await page.evaluate(()=>paused));
++  await page.click('#pauseResume');assert(!(await page.evaluate(()=>paused)));
++  await page.evaluate(()=>{syncCrowdInspector();syncBattleLog(1500);draw();});
++  const geometry=()=>page.evaluate(()=>{
++   const box=selector=>{const n=document.querySelector(selector),r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height,hidden:n.hidden,visibility:getComputedStyle(n).visibility};};
++   return {header:box('.game-topline'),wallet:box('.wallet-pill'),pause:box('#pause'),field:box('#field'),map:box('#fieldMap'),inspector:box('#crowdInspector'),log:box('#battleLog'),scrollWidth:document.documentElement.scrollWidth,phase:state};
++  });
++  const fight=await geometry();assert.equal(fight.phase,'fight');assert(fight.field.width>0&&fight.field.height>0);
++  assert(fight.scrollWidth<=width,'horizontal overflow');noOverlap(fight.wallet,fight.pause,'wallet/pause overlap');noOverlap(fight.field,fight.inspector,'map/detail overlap');noOverlap(fight.inspector,fight.log,'detail/log overlap');
++  assert(Math.abs(fight.pause.width-44)<tolerance&&Math.abs(fight.pause.height-44)<tolerance,'pause is not 44x44');
++  assert(Math.abs((fight.field.width-2)/(fight.field.height-2)-480/538)<.01,'fitted map ratio');
++  await page.screenshot({path:path.join(out,`fight-${width}x${height}.png`)});
++  // A controlled, settled first-round result preserves the real result presentation path.
++  await page.evaluate(()=>{walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:1,outcome:'A',now:0});state='result';winner=0;update();syncPersonalResult(2000);syncCrowdInspector();syncBattleLog(2000);draw();});
++  const result=await geometry();assert.equal(result.phase,'result');assert(result.pause.hidden&&result.pause.visibility==='hidden');assert(result.log.hidden&&result.log.visibility==='hidden');
++  for(const k of ['left','top','width','height'])assert(Math.abs(result.field[k]-fight.field[k])<=tolerance,`battle/result map changed ${k}: ${width}x${height}`);
++  await page.screenshot({path:path.join(out,`result-${width}x${height}.png`)});
++  assert.deepEqual(errors,[]);results.push({width,height,fight,result,errors,fixture:'synthetic rendering only'});await context.close();
++ }
++ fs.writeFileSync(path.join(out,'integrated-browser-results.json'),JSON.stringify(results,null,2));console.log('PASS actual browser rendering at '+results.map(x=>x.width+'x'+x.height).join(', '));
++ }finally{await browser.close();}
++})().catch(e=>{console.error(e);process.exitCode=1;});
+--- /dev/null
++++ b/tests/map-emote-frame.cjs
+@@ -0,0 +1,23 @@
++const assert=require('assert'),fs=require('fs');
++const html=fs.readFileSync('index.html','utf8');
++assert(html.includes('.field-stage {\n  container-type: size;'));
++assert(html.includes('width: min(100cqw, calc((100cqh - 2px) * 480 / 538 + 2px));'));
++assert(html.includes('height: min(100cqh, calc((100cqw - 2px) * 538 / 480 + 2px));'));
++const toolbar=html.slice(html.indexOf('<div class="battle-toolbar">'),html.indexOf('<div id="fieldStage"'));
++assert(!toolbar.includes('id="reaction-feedback"'));
++const map=html.match(/<div id="fieldMap" class="field-map">([\s\S]*?)<\/div>/)[1];
++assert(map.includes('<canvas id="field" width="480" height="538"'));
++assert(map.includes('id="reaction-feedback"'));
++assert(!html.includes('#gameScreen[data-field-view="true"] .reaction-feedback {'));
++const reactionCSS=html.match(/\.reaction-feedback \{([\s\S]*?)\}/)[1];
++assert(reactionCSS.includes('top: 12px;')&&reactionCSS.includes('left: 12px;'));
++assert(reactionCSS.includes('pointer-events: none;'));
++let checked=0;
++for(let W=100;W<=1400;W+=7)for(let H=100;H<=1200;H+=7){
++ const fw=Math.min(W,(H-2)*480/538+2),fh=Math.min(H,(W-2)*538/480+2),scale=Math.min((W-2)/480,(H-2)/538);
++ assert(fw<=W+1e-9&&fh<=H+1e-9);
++ assert(Math.abs((fw-2)/480-(fh-2)/538)<1e-9);
++ assert(Math.abs((fw-2)/480-scale)<1e-9);
++ checked++;
++}
++console.log('PASS fitted frame equation across '+checked+' stage dimensions, native canvas ratio, map-owned reaction, non-interactive overlay');
+--- /dev/null
++++ b/tests/map-emote-layout-browser.cjs
+@@ -0,0 +1,34 @@
++const {chromium}=require('playwright');
++const fs=require('fs'),path=require('path'),assert=require('assert');
++const htmlPath=path.resolve(process.argv[2]||'index.html'),out=path.resolve(process.argv[3]||'../artifacts');
++fs.mkdirSync(out,{recursive:true});
++const html=fs.readFileSync(htmlPath,'utf8');
++const viewports=[[320,568],[375,667],[390,664],[430,740],[844,390],[768,1024],[1280,720]];
++(async()=>{const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox'],env:{...process.env,XDG_CONFIG_HOME:out+'/browser-config'}});const results=[];try{
++ for(const [width,height] of viewports){
++  const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,isMobile:width<900,hasTouch:width<900}),page=await context.newPage(),errors=[];
++  page.on('pageerror',e=>errors.push(e.message));await page.route('**/*',r=>r.abort());
++  await page.setContent(html.replace('<head>','<head><script>window.__raf=requestAnimationFrame.bind(window);window.requestAnimationFrame=()=>1;</script>'));
++  await page.waitForFunction(()=>typeof openSoloScreen==='function');
++  await page.click('#soloStart');await page.click('#red');await page.click('#confirm');
++  await page.evaluate(()=>{for(let i=0;i<90&&state==='fight';i++)step(1/60);draw();update();});
++  await page.click('#reactionToggle');await page.click('#reactionCheer');
++  const rects=await page.evaluate(()=>{
++   const rect=id=>{const r=document.querySelector(id).getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};};
++   const f=rect('#field'),stage=rect('#fieldStage'),reaction=rect('#reaction-feedback'),s=getComputedStyle(document.querySelector('#field'));
++   const bw=parseFloat(s.borderLeftWidth)+parseFloat(s.borderRightWidth),bh=parseFloat(s.borderTopWidth)+parseFloat(s.borderBottomWidth),cw=f.width-bw,ch=f.height-bh,scale=Math.min(cw/480,ch/538);
++   const content={left:f.left+bw/2+(cw-480*scale)/2,top:f.top+bh/2+(ch-538*scale)/2,width:480*scale,height:538*scale};content.right=content.left+content.width;content.bottom=content.top+content.height;
++   return {f,stage,reaction,content,letterboxX:(cw-content.width)/2,letterboxY:(ch-content.height)/2,objectFit:s.objectFit,canvasSize:[document.querySelector('#field').width,document.querySelector('#field').height],reactionParent:document.querySelector('#reaction-feedback').parentElement.id,reactionVisible:!document.querySelector('#reaction-feedback').hidden,scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,phase:state,stagePoint:stagePosition(240,269,0),cssContainerSupport:CSS.supports('width','1cqw')};
++  });
++  assert.equal(rects.phase,'fight');assert.deepEqual(rects.canvasSize,[480,538]);assert.equal(rects.objectFit,'contain');assert.equal(rects.reactionVisible,true);assert.equal(rects.reactionParent,'fieldMap');
++  assert(rects.letterboxX<.05&&rects.letterboxY<.05,`frame has excess internal space ${width}x${height}: ${JSON.stringify(rects)}`);
++  assert(rects.reaction.left>=rects.content.left&&rects.reaction.top>=rects.content.top&&rects.reaction.right<=rects.content.right&&rects.reaction.bottom<=rects.content.bottom,`reaction outside bitmap ${width}x${height}`);
++  assert(rects.f.left>=rects.stage.left-.1&&rects.f.right<=rects.stage.right+.1&&rects.f.top>=rects.stage.top-.1&&rects.f.bottom<=rects.stage.bottom+.1,'field outside stage');assert(rects.scrollWidth<=width,'horizontal viewport overflow');
++  await page.screenshot({path:out+`/battle-${width}x${height}.png`});
++  await page.click('#reactionToggle');assert.equal(await page.locator('#reaction-bar').isVisible(),true);await page.keyboard.press('Escape');assert.equal(await page.locator('#reaction-bar').isVisible(),false);
++  await page.setViewportSize({width:height,height:width});await page.waitForTimeout(40);await page.setViewportSize({width,height});await page.waitForTimeout(40);
++  const postResize=await page.locator('#field').boundingBox();assert(Math.abs(postResize.width-rects.f.width)<.1&&Math.abs(postResize.height-rects.f.height)<.1,'resize recovery');
++  assert.deepEqual(errors,[]);results.push({width,height,...rects,errors});await context.close();
++ }
++ fs.writeFileSync(out+'/map-emote-layout-results.json',JSON.stringify(results,null,2));console.log('PASS',results.map(r=>`${r.width}x${r.height}: map ${r.content.width.toFixed(1)}x${r.content.height.toFixed(1)}, letterbox ${r.letterboxX.toFixed(3)}/${r.letterboxY.toFixed(3)}`).join('\n'));
++}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1});
+--- a/tests/multi-timer.cjs
++++ b/tests/multi-timer.cjs
+@@ -1,5 +1,5 @@
+ const fs=require('fs'),assert=require('assert');const h=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split("for(const id of ['#red'")[0];new Function('require','assert',h+`
+-assert(html.includes('durationMs:60000,matchup:publicMatchup()'));assert(!html.includes('s.deadline-Date.now()'));assert(html.includes('配置中も時間は進みます'));
++assert(html.includes('durationMs:60000,matchup:publicMatchup()'));assert(!html.includes('s.deadline-Date.now()'));assert(!html.includes('id="formationToggle"'),'formation-preview route was removed');
+ vm.runInContext(\`{let time=1000,q=[],host,guest;const opts={roomId:'timer',sessionId:'timer-s',hostId:'host',members:['host','guest']};host=MultiBinding.createWalletSession({...opts,userId:'host',now:()=>time,send:w=>q.push(['guest','host',w])});function makeGuest(){return MultiProtocol.createSession({...opts,userId:'guest',now:()=>time+20000,send:w=>q.push(['host','guest',w])})}guest=makeGuest();function flush(){let n=0;while(q.length&&n++<10000){const [to,from,w]=q.shift();(to==='host'?host:guest).receive(from,w)}if(q.length)throw Error('queue')};guest.hello();host.hello();flush();host.openRound({roundId:1,durationMs:60000,matchup:{units:[]}});flush();if(host.getState().deadline!==61000||guest.getState().deadline!==61000)throw Error('deadline not shared');let g=guest.getPlaybackClock();if(!g.known||g.estimatedHostNow!==time)throw Error('host clock estimate '+JSON.stringify(g));host.predict('A',25);flush();time+=59000;guest.close();guest=makeGuest();guest.hello();flush();if(guest.getState().deadline!==61000)throw Error('reconnect deadline changed');if(guest.getState().phase!=='predict')throw Error('expired too early');time=61000;host.tick();flush();if(host.getState().phase!=='locked'||guest.getState().phase!=='locked')throw Error('deadline not applied');console.log('PASS 60s deadline, clock offset and reconnect');}\`,context);
+ vm.runInContext(\`{let time=2000,q=[],host,guest;const opts={roomId:'early',sessionId:'early-s',hostId:'host',members:['host','guest'],now:()=>time};host=MultiBinding.createWalletSession({...opts,userId:'host',send:w=>q.push(['guest','host',w])});guest=MultiProtocol.createSession({...opts,userId:'guest',send:w=>q.push(['host','guest',w])});function flush(){let n=0;while(q.length&&n++<10000){const [to,from,w]=q.shift();(to==='host'?host:guest).receive(from,w)}if(q.length)throw Error('queue')};guest.hello();host.hello();flush();for(let n=1;n<=10;n++){host.openRound({roundId:n,durationMs:60000,matchup:{units:[]}});flush();host.predict('A',25);guest.predict('B',25);flush();if(host.getState().phase!=='locked'||time>=host.getState().deadline)throw Error('early lock failed');host.startBattle({engineVersion:'test',ticks:1,winner:'draw',events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush()}host.requestContinue();guest.requestContinue();flush();host.openRound({roundId:11,durationMs:60000,matchup:{units:[]}});flush();if(host.getState().deadline!==time+60000)throw Error('round11 deadline');host.predict('A',100);guest.predict('B',100);flush();if(host.getState().phase!=='locked')throw Error('round11 early lock');console.log('PASS early lock and 60s all-in round 11');}\`,context);
+ `)(require,assert);
+--- /dev/null
++++ b/tests/multiplayer-speed-sync.cjs
+@@ -0,0 +1,29 @@
++const fs=require('fs'),vm=require('vm'),assert=require('assert');
++const h=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split("for(const id of ['#red'")[0];
++const factory=new Function('require',h+';return {context,nodes,doc};');
++const host=factory(require),guest=factory(require);for(const g of [host,guest])Object.assign(g.context,{btoa,atob});let time=100000;const q=[];
++const run=(g,s)=>vm.runInContext(s,g.context,{timeout:30000});
++function make(g,id,offset){g.context.clockNow=()=>time+offset;g.context.sendWire=wire=>q.push({to:id==='host'?guest:host,from:id,wire});run(g,`globalThis.netSession=${id==='host'?'MultiBinding.createWalletSession':'MultiProtocol.createSession'}({roomId:'speed-test',sessionId:'speed-s',hostId:'host',userId:'${id}',now:clockNow,send:sendWire});`)}
++make(host,'host',0);make(guest,'guest',20000);
++function flush(){let n=0;while(q.length&&n++<10000){const m=q.shift();m.to.context.netSession.receive(m.from,m.wire)}assert(n<10000)}
++const H=host.context.netSession,G=guest.context.netSession;G.hello();H.hello();flush();
++// Valid 60-second compact record, sampled from stationary fighters. Used to isolate clock/UI, not battle balance.
++const replay=run(host,`(()=>{const u=[{id:1,k:'sword',side:0,x:100,y:200,hp:100,dead:false},{id:2,k:'shield',side:1,x:300,y:200,hp:100,dead:false}],r=CompactReplay.createCompactRecorder();r.capture(0,{units:u,shots:[]});r.capture(3600,{units:u,shots:[]},true);return r.finish({ticks:3600,winner:'draw'});})()`);
++H.openRound({roundId:1,durationMs:60000,matchup:{units:[]}});flush();H.predict('A',25);G.predict('B',25);flush();H.startBattle(replay);flush();
++assert(G.getReplay());const start=H.getState().replayStartAt;
++for(const [g,id] of [[host,'host'],[guest,'guest']])run(g,`multiSession=netSession;multiHost=${id==='host'};multiUser='${id}';multiSnapshot=netSession.getState();multiRoundSeen=1;screenMode='game';state='fight';paused=false;`);
++const rows=[];
++for(let ms=0;ms<=36000;ms+=100){time=start+ms;H.tick();G.tick();flush();if(ms%5000===0){H.heartbeat();flush()}
++ if(ms===5000)run(guest,'openPausePanel()');
++ if(ms===7000){assert.equal(run(guest,'paused'),false);run(guest,'closePausePanel();toggleUnits(true)')}
++ if(ms===9000){assert.equal(run(guest,'paused'),false);run(guest,'toggleUnits(false)')}
++ if(ms===10000&&run(guest,'typeof speed')!=='undefined'){const b=run(guest,'speed');run(guest,'document.querySelector("#speedUp").onclick()');assert.equal(run(guest,'speed'),b)}
++ run(host,`pumpMulti(${time})`);run(guest,`pumpMulti(${time+20000})`);flush();
++ const hc=H.getPlaybackClock(),gc=G.getPlaybackClock();assert.equal(hc.sceneTick,gc.sceneTick);assert.equal(run(host,'multiLastSceneTick'),run(guest,'multiLastSceneTick'));
++ if([0,5000,7000,9000,10000,20000,25000,30000,35000].includes(ms))rows.push({wall:ms/1000,hostScene:hc.sceneTick/60,guestScene:gc.sceneTick/60,clock:run(guest,'document.querySelector("#battleClock").textContent')});
++}
++assert(!run(host,'multiError')&&!run(guest,'multiError'));console.log('PASS independent host/guest contexts, 20-second device-clock offset, speed button no-op (baseline), menu and details do not pause',JSON.stringify(rows));
++// Simulate one suspended viewer while host continues: the viewer catches up locally, without moving host's clock.
++time=start+36500;H.tick();G.tick();flush();const before=H.getPlaybackClock().sceneTick;run(guest,`pumpMulti(${time+20000})`);assert.equal(H.getPlaybackClock().sceneTick,before);assert.equal(run(guest,'multiLastSceneTick'),before);
++console.log('PASS resumed viewer catches up locally; no effect on host');
++fs.writeFileSync('multiplayer-speed-sync-results.json',JSON.stringify(rows,null,2));
+--- /dev/null
++++ b/tests/mvp-result-copy.cjs
+@@ -0,0 +1,26 @@
++const fs=require('fs'),vm=require('vm'),assert=require('assert');
++const html=fs.readFileSync('index.html','utf8');
++const script=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
++new Function('require','assert',script+`
++const run=s=>vm.runInContext(s,context,{timeout:60000});
++run(\`multiSession=null;state='result';winner=0;units=[{token:'sword-1',k:'sword',side:0,hp:100,dead:false},{token:'sword-2',k:'sword',side:0,hp:100,dead:false},{token:'shield',k:'shield',side:0,hp:170,dead:false},{token:'enemy',k:'spear',side:1,hp:0,dead:true}];BattleInsights.start(units);BattleInsights.hit('sword-1',1,20);BattleInsights.hit('sword-2',1,20);BattleInsights.hit('shield',1,25);BattleInsights.hit('enemy',0,100);syncBattleInsights();\`);
++const label=nodes.get('#battleInsights');
++assert.equal(label.textContent,"MVP："+run("TYPES.shield.name")+"\\n勝ったチームで、敵に一番ダメージを与えたキャラ\\n（最初からいたキャラで比較）");
++assert.equal(label.hidden,false);
++assert(!label.textContent.includes('25'),'MVP accounting number is not user-facing');
++assert(!label.textContent.includes('初期兵の敵HP減少'),'old unclear label removed');
++assert.equal(run('BattleInsights.finish(units,winner).mvp.value'),25,'accounting is preserved');
++assert.equal(run('BattleInsights.finish(units,winner).mvp.kind'),'shield','winner-side individual, not same-kind sum');
++run("BattleInsights.hit('sword-1',1,5);syncBattleInsights()");
++assert.equal(label.hidden,true,'top tie remains hidden');assert.equal(label.textContent,'');
++run("BattleInsights.hit('shield',1,1);BattleInsights.markIncomplete();syncBattleInsights()");
++assert.equal(label.hidden,true,'uncertain attribution remains hidden');
++run("BattleInsights.start(units);BattleInsights.hit('shield',1,25);units.forEach(u=>{u.dead=true;u.hp=0});units[2].dead=false;units[2].hp=1;syncBattleInsights()");
++assert(label.textContent.includes('\\n接戦 · 勝利軍の初期兵残HP '),'existing close result is on its own line');
++run("winner=null;syncBattleInsights()");assert.equal(label.hidden,true,'draw hides MVP');
++console.log('PASS exact MVP copy, no raw number, individual winner-only selection, ties, ambiguous attribution, close result and draw');
++`)(require,assert);
++const center=html.match(/#resultPanel > \.result-title, #resultPanel > \.result-winner\s*\{([^}]*)\}/)?.[1];assert(center,'same selector owns both outcome labels');
++for(const rule of ['display:block','width:100%','margin-inline:0','text-align:center','text-indent:0'])assert(center.includes(rule),rule);
++assert(/\.battle-insights\s*\{[^}]*white-space:pre-line;/.test(html));
++console.log('PASS shared centering rule and intentional MVP line break');
+--- /dev/null
++++ b/tests/no-formation-preview.cjs
+@@ -0,0 +1,27 @@
++const fs=require('fs'),assert=require('assert');
++const source=fs.readFileSync('index.html','utf8');
++for(const id of ['formationToggle','formationBack','previewClock'])assert(!source.includes('id="'+id+'"'),'removed preview element '+id);
++assert(!source.includes('配置を見る'),'removed entry label');
++assert(!source.includes('function setPredictionPreview('),'removed preview setter');
++assert(!source.includes('previewOpening'),'removed preview snapshot');
++assert(!/querySelector\('#formationToggle'\)/.test(source),'no dangling button listener');
++for(const id of ['red','blue','redStats','blueStats','armyPreviewRed','armyPreviewBlue','confirm','unitsToggle','pause'])assert(source.includes('id="'+id+'"'),'preserved gameplay control '+id);
++const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
++new Function('require','assert',h+`
++context.TextEncoder=require('util').TextEncoder;
++const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
++assert.equal(run('predictionPreview'),false);assert.equal(elem('#comparison').hidden,false);assert.equal(elem('#battle').hidden,true);
++assert.equal(elem('#confirm').disabled,true);click('#stake50');click('#blue');
++assert.equal(run('state'),'choose');assert.equal(run('selectedSide'),1);assert.equal(run('selectedStake'),50);
++assert.equal(run('walletState.currentRound.commits.length'),0,'army click alone does not start a fight');
++click('#confirm');assert.equal(run('state'),'fight');assert.equal(run('walletState.currentRound.commits.length'),1);
++click('#confirm');assert.equal(run('walletState.currentRound.commits.length'),1,'repeated Start cannot double commit');
++click('#unitsToggle');assert.equal(run('unitsOpen'),true);click('#unitsClose');assert.equal(run('unitsOpen'),false);
++console.log('PASS solo still requires army choice + Start; battle units dialog survives');
++run("state='choose';beginMock();openMultiRound()");assert.equal(run('multiSession.getState().phase'),'predict');
++assert.equal(elem('#comparison').hidden,false);assert.equal(elem('#battle').hidden,true);
++click('#red');assert.equal(run('multiSession.getState().readyIds.includes(multiUser)'),false);
++click('#confirm');assert.equal(run('multiSession.getState().readyIds.includes(multiUser)'),true);
++assert.equal(run('predictionPreview'),false);
++console.log('PASS multiplayer prediction still commits through Start without a preview route');
++`)(require,assert);
+--- a/tests/participant-rail.cjs
++++ b/tests/participant-rail.cjs
+@@ -1 +1 @@
+-const fs=require('fs'),vm=require('vm'),assert=require('assert');const html=fs.readFileSync('index.html','utf8'),i=html.indexOf("let participantRailKey=''") ,j=html.indexOf('function reactionRender()',i);assert(i>=0&&j>i);class Elem{constructor(tag='div'){this.tag=tag;this.children=[];this.hidden=false;this.attrs={};this.textContent='';this.scrollLeft=0;this.parent=null}setAttribute(k,v){this.attrs[k]=String(v)}getAttribute(k){return this.attrs[k]??null}appendChild(x){x.parent=this;this.children.push(x);return x}replaceChildren(...xs){this.children=[];for(const x of xs)this.appendChild(x)}getBoundingClientRect(){if(this===rail)return {left:0,right:128,width:128};let index=this.parent===rail?rail.children.indexOf(this):0,left=index*46-rail.scrollLeft;return {left,right:left+43,width:43}}}const rail=new Elem(),wrap=new Elem(),outside=new Elem();const nodes={'#participantRailWrap':wrap,'#participantRail':rail,'#reactionOutside':outside};const document={querySelector:s=>nodes[s],createElement:t=>new Elem(t)};const profiles={u1:{name:'花子',avatarUrl:'https://example.test/avatar.png'},u2:{name:'太郎',avatarUrl:null}};const snapshot={participants:Array.from({length:8},(_,i)=>'u'+(i+1)),spectators:['u9','u10','u1']};const sandbox={document,multiSession:{},multiSnapshot:snapshot,multiUser:'u1',multiAdapter:{getProfile:id=>profiles[id]||null},NATIVE_REACTION_VIEW:{wow:{glyph:'😮',label:'驚き'},cheer:{glyph:'😄',label:'喜び'},applause:{glyph:'👏',label:'応援'}}};vm.createContext(sandbox);vm.runInContext(html.slice(i,j),sandbox);let entries=sandbox.participantEntries(snapshot,'u1',id=>profiles[id]);assert.equal(entries.length,10);assert.equal(entries[0].name,'花子');assert.equal(entries[2].name,'参加者3');assert.equal(entries[8].name,'観戦1');sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'},{sender:'u1',emoji:'cheer'},{sender:'u7',emoji:'applause'}]);assert.equal(rail.children.length,10);assert.equal(rail.children[0].children[2].textContent,'😄');assert.equal(rail.children[6].children[2].textContent,'👏');assert.equal(outside.hidden,false);assert(outside.textContent.includes('参加者7'));const img=rail.children[0].children[0].children[1],fallback=rail.children[0].children[0].children[0];assert.equal(img.hidden,true);img.onload();assert.equal(img.hidden,false);assert.equal(fallback.hidden,true);img.onerror();assert.equal(fallback.hidden,false);const old=rail.children[0];sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'}]);assert.strictEqual(rail.children[0],old);assert.equal(rail.children[6].children[2].hidden,true);rail.scrollLeft=270;sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'},{sender:'u7',emoji:'applause'}]);assert(outside.textContent.includes('花子'));sandbox.syncParticipantRail(false,[]);assert.equal(wrap.hidden,true);assert.equal(rail.children.length,0);assert(html.includes('overflow-x:auto; overflow-y:hidden')&&html.includes('flex:0 0 43px; width:43px; height:42px')&&html.includes('right:0; top:calc(100% + 4px)'));assert(html.includes('min-height:44px')&&html.includes('max(env(safe-area-inset-top, 0px), var(--gravity-top-inset, 0px))'));console.log('PASS eight players plus spectators, names and image fallback, bounded simultaneous reactions and offscreen sender');console.log('PASS scroll position preserved and mobile strip stays inside existing toolbar');
++const fs=require('fs'),vm=require('vm'),assert=require('assert');const html=fs.readFileSync('index.html','utf8'),i=html.indexOf("let participantRailKey=''") ,j=html.indexOf('function reactionRender()',i);assert(i>=0&&j>i);class Elem{constructor(tag='div'){this.tag=tag;this.children=[];this.hidden=false;this.attrs={};this.textContent='';this.scrollLeft=0;this.parent=null}setAttribute(k,v){this.attrs[k]=String(v)}getAttribute(k){return this.attrs[k]??null}appendChild(x){x.parent=this;this.children.push(x);return x}replaceChildren(...xs){this.children=[];for(const x of xs)this.appendChild(x)}getBoundingClientRect(){if(this===rail)return {left:0,right:128,width:128};let index=this.parent===rail?rail.children.indexOf(this):0,left=index*46-rail.scrollLeft;return {left,right:left+43,width:43}}}const rail=new Elem(),wrap=new Elem(),outside=new Elem();const nodes={'#participantRailWrap':wrap,'#participantRail':rail,'#reactionOutside':outside};const document={querySelector:s=>nodes[s],createElement:t=>new Elem(t)};const profiles={u1:{name:'花子',avatarUrl:'https://example.test/avatar.png'},u2:{name:'太郎',avatarUrl:null}};const snapshot={participants:Array.from({length:8},(_,i)=>'u'+(i+1)),spectators:['u9','u10','u1']};const sandbox={document,multiSession:{},multiSnapshot:snapshot,multiUser:'u1',multiAdapter:{getProfile:id=>profiles[id]||null},NATIVE_REACTION_VIEW:{wow:{glyph:'😮',label:'驚き'},cheer:{glyph:'😄',label:'喜び'},applause:{glyph:'👏',label:'応援'}}};vm.createContext(sandbox);vm.runInContext(html.slice(i,j),sandbox);let entries=sandbox.participantEntries(snapshot,'u1',id=>profiles[id]);assert.equal(entries.length,10);assert.equal(entries[0].name,'花子');assert.equal(entries[2].name,'参加者3');assert.equal(entries[8].name,'観戦1');sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'},{sender:'u1',emoji:'cheer'},{sender:'u7',emoji:'applause'}]);assert.equal(rail.children.length,10);assert.equal(rail.children[0].children[2].textContent,'😄');assert.equal(rail.children[6].children[2].textContent,'👏');assert.equal(outside.hidden,false);assert(outside.textContent.includes('参加者7'));const img=rail.children[0].children[0].children[1],fallback=rail.children[0].children[0].children[0];assert.equal(img.hidden,true);img.onload();assert.equal(img.hidden,false);assert.equal(fallback.hidden,true);img.onerror();assert.equal(fallback.hidden,false);const old=rail.children[0];sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'}]);assert.strictEqual(rail.children[0],old);assert.equal(rail.children[6].children[2].hidden,true);rail.scrollLeft=270;sandbox.syncParticipantRail(true,[{sender:'u1',emoji:'wow'},{sender:'u7',emoji:'applause'}]);assert(outside.textContent.includes('花子'));sandbox.syncParticipantRail(false,[]);assert.equal(wrap.hidden,true);assert.equal(rail.children.length,0);assert(html.includes('overflow-x:auto; overflow-y:hidden')&&html.includes('width:calc((100% - 21px) / 8); min-width:29px; max-width:43px; height:39px')&&html.includes('right:0; top:calc(100% + 4px)'));assert(html.includes('min-height:44px')&&html.includes('max(env(safe-area-inset-top, 0px), var(--gravity-top-inset, 0px))'));console.log('PASS eight players plus spectators, names and image fallback, bounded simultaneous reactions and offscreen sender');console.log('PASS scroll position preserved and independent mobile strip avoids the toolbar');
+--- /dev/null
++++ b/tests/pause-exit.cjs
+@@ -0,0 +1,60 @@
++const fs=require('fs'),assert=require('assert');
++// Existing VM/DOM harness: synthetic control-flow tests, not real-browser visual QA.
++const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
++new Function('require','assert',h+`
++context.TextEncoder=require('util').TextEncoder;context.TextDecoder=require('util').TextDecoder;
++const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
++run("globalThis.scoreCalls=0;submitFinalScore=()=>{scoreCalls++;return Promise.resolve()};");
++click('#red');click('#confirm');
++const originalId=run('walletState.sessionId');
++click('#pause');assert.equal(run('paused'),true);click('#pauseResume');
++assert.equal(run('paused'),false);assert.equal(run('walletState.sessionId'),originalId);assert.equal(run('state'),'fight');
++console.log('PASS pause/resume retains the active run');
++run('returnHome()');assert.equal(elem('#soloStart').textContent,'つづきから');
++click('#soloStart');assert.equal(run('walletState.sessionId'),originalId);assert.equal(run('paused'),false);
++console.log('PASS ordinary home navigation still resumes');
++
++// Controlled second-round fixture reproduces the public case: one win, 125 G, round 2.
++run("walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:1,outcome:'A',now:0});state='result';winner=0;nextPrediction();showScreen('game')");
++click('#blue');click('#confirm');const secondId=run('walletState.sessionId');
++assert.equal(run('currentWallet().balance'),125);assert.equal(run('round'),2);
++click('#pause');click('#pauseExit');
++assert.equal(run('screenMode'),'home');assert.equal(run('soloRunEnded'),true);
++assert.equal(elem('#soloStart').textContent,'ひとりで遊ぶ');assert.equal(run('pausePanelOpen'),false);
++assert.notEqual(run('state'),'fight');assert.equal(run('homePausedSolo'),false);
++const exitedElapsed=run('elapsed');run('loop(1000);loop(5000)');assert.equal(run('elapsed'),exitedElapsed);
++assert.equal(run('scoreCalls'),0);
++click('#soloStart');
++assert.notEqual(run('walletState.sessionId'),secondId);assert.equal(run('round'),1);
++assert.equal(run('currentWallet().balance'),100);assert.equal(run('walletState.completedRounds'),0);
++assert.equal(run('state'),'choose');assert.equal(run('paused'),false);assert.equal(run('selectedSide'),null);assert.equal(run('pendingCarryKinds'),null);
++assert.equal(run('carryStreak'),0);assert.equal(run('soloRunEnded'),false);assert.equal(elem('#confirm').disabled,true);
++click('#red');click('#confirm');assert.equal(run('paused'),false);assert.equal(run('state'),'fight');
++console.log('PASS explicit exit stops the run, sends no score, and starts a fresh round 1 / 100 G');
++
++// The non-combat phase also permits moving directly from Exit into an offline mock room.
++click('#pause');click('#pauseExit');run('beginMock()');assert.equal(run('!!multiSession'),true);
++console.log('PASS exit does not leave the room-entry fight guard stuck');
++run('multiSession.close();mockGuest.close();multiSession=null;mockGuest=null;multiSnapshot=null;mockQueue=[];');
++
++for(const terminal of ['cashout','bankrupt']){
++ run(\"walletState=SoloWallet.createSession({sessionId:'terminal-\"+terminal+\"',playerIds:[PLAYER],config:{initialBalance:\"+(terminal==='bankrupt'?0:100)+\"}});for(let n=1;n<=10;n++){walletState=SoloWallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:n,deadline:100});walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:n,playerId:PLAYER,side:'A',stake:\"+(terminal==='bankrupt'?0:10)+\",now:0});walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:n,outcome:'draw',now:0})}round=10;state='result';soloRunEnded=false;screenMode='game';\");
++ if(terminal==='cashout')click('#cashOut');click('#next');
++ assert.equal(run('screenMode'),'home');assert.equal(elem('#soloStart').textContent,'ひとりで遊ぶ');
++ click('#soloStart');assert.equal(run('round'),1);assert.equal(run('currentWallet().balance'),100);assert.equal(run('state'),'choose');
++}
++console.log('PASS normal cashout and bankruptcy endings still restart cleanly');
++
++run("walletState=SoloWallet.createSession({sessionId:'extension-exit',playerIds:[PLAYER]});for(let n=1;n<=10;n++){walletState=SoloWallet.openRound(walletState,{sessionId:walletState.sessionId,roundId:n,deadline:100});walletState=SoloWallet.commitPrediction(walletState,{sessionId:walletState.sessionId,roundId:n,playerId:PLAYER,side:'A',stake:10,now:0});walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:n,outcome:'draw',now:0})}round=10;state='result';winner=null;soloRunEnded=false;screenMode='game';");
++click('#continueRun');assert.equal(run('round'),11);click('#red');click('#confirm');
++const scoreBeforeExit=run('scoreCalls');click('#pause');click('#pauseExit');
++assert.equal(run('scoreCalls'),scoreBeforeExit);assert.equal(elem('#soloStart').textContent,'ひとりで遊ぶ');
++click('#soloStart');assert.equal(run('round'),1);assert.equal(run('currentWallet().balance'),100);
++console.log('PASS extension battle exit also restarts at round 1 without submitting a score');
++
++run("globalThis.leaveCalls=0;leaveMulti=()=>{leaveCalls++;multiSession=null;return Promise.resolve()};multiSession={};state='fight';pausePanelOpen=false;");
++const soloEndedBeforeMultiExit=run('soloRunEnded');click('#pause');click('#pauseExit');
++assert.equal(run('leaveCalls'),1);assert.equal(run('soloRunEnded'),soloEndedBeforeMultiExit);
++console.log('PASS multiplayer exit still calls the existing leave path');
++
++`)(require,assert);
+--- a/tests/prediction-picks-ui.cjs
++++ b/tests/prediction-picks-ui.cjs
+@@ -1 +1 @@
+-const fs=require('fs'),vm=require('vm'),assert=require('assert'),html=fs.readFileSync('index.html','utf8'),a=html.indexOf('function syncOwnBattleChoice()'),b=html.indexOf('function displayMultiState()',a);assert(a>=0&&b>a);class Elem{constructor(){this.children=[];this.hidden=false;this.attrs={};this.textContent=''}setAttribute(k,v){this.attrs[k]=v}appendChild(c){this.children.push(c)}replaceChildren(...c){this.children=c}}const nodes={'#redPicks':new Elem(),'#bluePicks':new Elem(),'#battleChoice':new Elem()},sandbox={document:{querySelector:id=>nodes[id],createElement:()=>new Elem()},URL,state:'fight',predictionPreview:false,choice:0,multiSession:null,multiUser:'u1',multiSnapshot:null,multiAdapter:{getProfile:id=>id==='u1'?{name:'花子',avatarUrl:'https://example.test/ok.png'}:null}};vm.createContext(sandbox);vm.runInContext(html.slice(a,b),sandbox);sandbox.syncOwnBattleChoice();assert.equal(nodes['#battleChoice'].textContent,'予想：左');sandbox.multiSession={};sandbox.multiSnapshot={phase:'battle',confirmedSides:[{userId:'u1',side:'B'}]};sandbox.syncOwnBattleChoice();assert.equal(nodes['#battleChoice'].textContent,'予想：右');sandbox.multiUser='observer';sandbox.syncOwnBattleChoice();assert(nodes['#battleChoice'].hidden);sandbox.multiUser='u1';sandbox.multiSnapshot={phase:'predict',confirmedSides:Array.from({length:8},(_,i)=>({userId:'u'+(i+1),side:i<4?'A':'B'}))};sandbox.syncPredictionPicks(sandbox.multiSnapshot);assert.equal(nodes['#redPicks'].children.length,4);assert.equal(nodes['#bluePicks'].children.length,4);const first=nodes['#redPicks'].children[0];assert.equal(first.attrs['aria-label'],'花子');assert.equal(first.children.length,2);first.children[1].onerror();assert.equal(first.children[0].hidden,false);assert.equal(nodes['#redPicks'].children[1].children[0].textContent,'参');sandbox.syncPredictionPicks({phase:'result',confirmedSides:sandbox.multiSnapshot.confirmedSides});assert(nodes['#redPicks'].hidden&&nodes['#bluePicks'].hidden);console.log('PASS own choice, observer fallback, eight profile icons and failed image fallback');
++const fs=require('fs'),vm=require('vm'),assert=require('assert'),html=fs.readFileSync('index.html','utf8'),a=html.indexOf('function syncOwnBattleChoice()'),b=html.indexOf('function displayMultiState()',a);assert(a>=0&&b>a);class Elem{constructor(){this.children=[];this.hidden=false;this.attrs={};this.textContent=''}setAttribute(k,v){this.attrs[k]=v}appendChild(c){this.children.push(c)}replaceChildren(...c){this.children=c}}const nodes={'#redPicks':new Elem(),'#bluePicks':new Elem(),'#battleChoice':new Elem()},sandbox={document:{querySelector:id=>nodes[id],createElement:()=>new Elem()},URL,state:'fight',predictionPreview:false,choice:0,multiSession:null,multiUser:'u1',multiSnapshot:null,multiAdapter:{getProfile:id=>id==='u1'?{name:'花子',avatarUrl:'https://example.test/ok.png'}:null}};vm.createContext(sandbox);vm.runInContext(html.slice(a,b),sandbox);sandbox.syncOwnBattleChoice();assert.equal(nodes['#battleChoice'].textContent,'予想：左');sandbox.multiSession={};sandbox.multiSnapshot={phase:'battle',confirmedSides:[{userId:'u1',side:'B'}]};sandbox.syncOwnBattleChoice();assert.equal(nodes['#battleChoice'].textContent,'予想：右');sandbox.multiUser='observer';sandbox.syncOwnBattleChoice();assert(nodes['#battleChoice'].hidden);sandbox.multiUser='u1';sandbox.multiSnapshot={phase:'predict',confirmedSides:Array.from({length:8},(_,i)=>({userId:'u'+(i+1),side:i<4?'A':'B'}))};sandbox.syncPredictionPicks(sandbox.multiSnapshot);assert.equal(nodes['#redPicks'].children.length,4);assert.equal(nodes['#bluePicks'].children.length,4);const first=nodes['#redPicks'].children[0];assert.equal(first.attrs['aria-label'],'花子（確定）');assert.equal(first.children.length,2);first.children[1].onerror();assert.equal(first.children[0].hidden,false);assert.equal(nodes['#redPicks'].children[1].children[0].textContent,'参');sandbox.syncPredictionPicks({phase:'result',confirmedSides:sandbox.multiSnapshot.confirmedSides});assert(nodes['#redPicks'].hidden&&nodes['#bluePicks'].hidden);console.log('PASS own choice, observer fallback, eight profile icons and failed image fallback');
+--- a/tests/selection-hierarchy.cjs
++++ b/tests/selection-hierarchy.cjs
+@@ -1 +1 @@
+-const fs=require('fs'),assert=require('assert'),s=fs.readFileSync('index.html','utf8'),a=s.indexOf('/* Selection hierarchy:'),b=s.indexOf('</style></head><body>',a);assert(a>=0&&b>a);const css=s.slice(a,b);for(const rule of ['.comparison-scroll { min-height:0; scroll-padding-block:12px; padding-block:10px 18px; }','.army-preview { flex:0 0 auto; }','.prediction-footer { flex:0 0 auto; position:relative; z-index:1; }','.comparison-name { color:#3d2a1b; font-size:13px; font-weight:900;','.comparison-quantity { color:#fff4dd; background:#59412d;','.comparison-stat-value { color:#3b2c21; font-size:16px; font-weight:900;','.comparison-trait,#comparison .comparison-trait-key { color:#304b39;'])assert(css.includes(rule),rule);assert(s.indexOf('id="comparisonScroll"')<s.indexOf('id="formationToggle"'));assert(s.indexOf('id="formationToggle"')<s.indexOf('id="predictionFooter"'));assert(s.includes('min-height: var(--tap)')&&s.includes('--tap: 44px'));function lum(c){return [...c.matchAll(/[0-9a-f]{2}/gi)].map(x=>parseInt(x[0],16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0)}for(const [f,bg] of [['#3d2a1b','#f2dfb8'],['#fff4dd','#59412d'],['#3b2c21','#ead5aa'],['#304b39','#e1e7ce']]){const a=lum(f),b=lum(bg),r=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);assert(r>=4.5,f+' '+r)}console.log('PASS hierarchy, contrast, 44px buttons and scroll/footer structure (static)');
++const fs=require('fs'),assert=require('assert'),s=fs.readFileSync('index.html','utf8'),a=s.indexOf('/* Selection hierarchy:'),b=s.indexOf('</style></head><body>',a);assert(a>=0&&b>a);const css=s.slice(a,b);for(const rule of ['.comparison-scroll { min-height:0; scroll-padding-block:12px; padding-block:10px 18px; }','.army-preview { flex:0 0 auto; }','.prediction-footer { flex:0 0 auto; position:relative; z-index:1; }','.comparison-name { color:#3d2a1b; font-size:13px; font-weight:900;','.comparison-quantity { color:#fff4dd; background:#59412d;','.comparison-stat-value { color:#3b2c21; font-size:16px; font-weight:900;','.comparison-trait,#comparison .comparison-trait-key { color:#304b39;'])assert(css.includes(rule),rule);assert(!s.includes('id="formationToggle"'));assert(s.indexOf('id="comparisonScroll"')<s.indexOf('id="predictionFooter"'));assert(s.includes('min-height: var(--tap)')&&s.includes('--tap: 44px'));function lum(c){return [...c.matchAll(/[0-9a-f]{2}/gi)].map(x=>parseInt(x[0],16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0)}for(const [f,bg] of [['#3d2a1b','#f2dfb8'],['#fff4dd','#59412d'],['#3b2c21','#ead5aa'],['#304b39','#e1e7ce']]){const a=lum(f),b=lum(bg),r=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);assert(r>=4.5,f+' '+r)}console.log('PASS hierarchy, contrast, 44px buttons and scroll/footer structure (static)');
+--- /dev/null
++++ b/tests/selection-preview-ui.cjs
+@@ -0,0 +1,30 @@
++const fs=require('fs'),vm=require('vm'),assert=require('assert'),html=fs.readFileSync('index.html','utf8');
++const a=html.indexOf('let selectionPreviewTimer=null;'),b=html.indexOf('function selectStake(',a);
++const timers=new Map(),sent=[];let timerId=0,updates=0,renders=0;
++const snapshot={phase:'predict',roundId:1,participants:['me','other'],readyIds:[],departedIds:[],cashedOutIds:[]};
++const session={previewSelection:s=>sent.push(s)};
++const sandbox={setTimeout:fn=>{timers.set(++timerId,fn);return timerId},clearTimeout:id=>timers.delete(id),state:'choose',selectedSide:null,multiSession:session,multiSnapshot:snapshot,multiPredictionPending:false,multiUser:'me',update:()=>updates++,syncPredictionPicks:()=>renders++};
++vm.createContext(sandbox);vm.runInContext(html.slice(a,b),sandbox);
++const flush=()=>{for(const [id,fn] of [...timers]){timers.delete(id);fn()}};
++sandbox.selectSide(0);sandbox.selectSide(1);assert.equal(sandbox.selectedSide,1);assert.equal(renders,2);assert.equal(timers.size,1);assert.deepEqual(sent,[]);flush();assert.deepEqual(sent,['B']);
++sandbox.selectSide(null);flush();assert.deepEqual(sent,['B',null]);
++sandbox.selectSide(0);sandbox.multiPredictionPending=true;flush();assert.equal(sent.length,2);sandbox.multiPredictionPending=false;
++sandbox.selectSide(0);snapshot.readyIds=['me'];flush();assert.equal(sent.length,2);snapshot.readyIds=[];
++sandbox.selectSide(1);snapshot.roundId=2;flush();assert.equal(sent.length,2);
++sandbox.selectSide(0);sandbox.multiSession={};flush();assert.equal(sent.length,2);
++console.log('PASS local preview is immediate; rapid changes coalesce; clear, confirmation, round and session guards');
++const c=html.indexOf('function predictionPickEntries('),d=html.indexOf('function displayMultiState()',c);
++class E{constructor(){this.children=[];this.hidden=false;this.attrs={};this.textContent=''}setAttribute(k,v){this.attrs[k]=v}appendChild(x){this.children.push(x)}replaceChildren(...xs){this.children=xs}}
++const nodes={'#redPicks':new E(),'#bluePicks':new E()},ui={URL,document:{querySelector:id=>nodes[id],createElement:()=>new E()},multiUser:'me',selectedSide:0,multiAdapter:{getProfile:id=>({name:id,avatarUrl:id==='me'?'https://example.test/me.png':null})}};
++vm.createContext(ui);vm.runInContext(html.slice(c,d),ui);
++const snap={phase:'predict',participants:['me','other','third'],readyIds:['other'],confirmedSides:[{userId:'other',side:'B'}],selectedSides:[{userId:'me',side:'B'},{userId:'other',side:'A'},{userId:'third',side:'A'}],departedIds:[],cashedOutIds:[]};
++ui.syncPredictionPicks(snap);assert.equal(nodes['#redPicks'].children.length,2);assert.equal(nodes['#bluePicks'].children.length,1);const self=nodes['#redPicks'].children[1];assert.equal(self.attrs['aria-label'],'me（選択中）');assert.equal(nodes['#bluePicks'].children[0].attrs['aria-label'],'other（確定）');
++ui.syncPredictionPicks(snap);assert.strictEqual(nodes['#redPicks'].children[1],self);self.children[1].onerror();assert.equal(self.children[0].hidden,false);
++ui.selectedSide=null;ui.syncPredictionPicks(snap);assert.equal(nodes['#redPicks'].children.length,1);assert.equal(nodes['#bluePicks'].children.length,1);
++ui.syncPredictionPicks({...snap,phase:'battle'});assert(nodes['#redPicks'].hidden&&nodes['#bluePicks'].hidden);
++console.log('PASS local latest side overrides delayed preview; confirmed side wins; labels/fallback, stable image DOM and phase cleanup');
++// Static layout contract. Real browser/GRAVITY verification is reported separately.
++const railStart=html.indexOf('<div id="participantRailWrap"'),toolbarEnd=html.indexOf('      </div>\n        <div id="participantRailWrap"'),stage=html.indexOf('<div id="fieldStage"');
++assert(toolbarEnd>=0&&railStart>toolbarEnd&&railStart<stage);assert(html.includes('flex:0 0 40px;'));assert(html.includes('width:calc((100% - 21px) / 8);'));
++for(const width of [280,320,375,393,430]){const inner=width-(width<=350?16:24),chip=Math.max(29,Math.min(43,(inner-21)/8)),occupied=chip*8+21;assert(occupied<=inner+.001,`${width}: ${occupied}>${inner}`)}
++console.log('PASS independent 40px row and eight-seat width arithmetic for 280–430px (not browser rendering)');
+--- /dev/null
++++ b/tests/selection-preview.cjs
+@@ -0,0 +1,34 @@
++const fs=require('fs'),assert=require('assert');
++const harness=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split("for(const id of ['#red'")[0];
++const checks=`{
++let q=[],host,guests={},now=1000;
++const options={roomId:'selection-room',sessionId:'selection-session',hostId:'p0',now:()=>now};
++host=MultiBinding.createWalletSession({...options,userId:'p0',send:w=>q.push(['all','p0',w])});
++function mk(id){return MultiProtocol.createSession({...options,userId:id,send:w=>q.push(['host',id,w])})}
++for(let i=1;i<8;i++)guests['p'+i]=mk('p'+i);
++function flush(){let n=0;while(q.length&&n++<10000){const [to,from,w]=q.shift();if(to==='host')host.receive(from,w);else for(const guest of Object.values(guests))guest.receive(from,w)}if(q.length)throw Error('queue overflow')}
++for(const guest of Object.values(guests))guest.hello();host.hello();flush();host.openRound({roundId:1,durationMs:10000,matchup:{units:[]}});flush();
++const initialLedger=JSON.stringify(host.getLedger());
++for(let i=0;i<8;i++){const peer=i===0?host:guests['p'+i];assert(peer.previewSelection(i%2?'B':'A'))}flush();
++assert.equal(host.getState().selectedSides.length,8);assert.equal(guests.p7.getState().selectedSides.length,8);
++assert.deepEqual(host.getState().readyIds,[]);assert.deepEqual(host.getState().bets,[]);assert.equal(JSON.stringify(host.getLedger()),initialLedger);
++assert(!JSON.stringify(host.getState().selectedSides).includes('stake'));
++assert(guests.p1.previewSelection('A'));flush();assert.equal(host.getState().selectedSides.find(x=>x.userId==='p1').side,'A');
++assert(guests.p1.previewSelection(null));flush();assert(!host.getState().selectedSides.some(x=>x.userId==='p1'));assert.equal(JSON.stringify(host.getLedger()),initialLedger);
++function wire(sender,patch={}){return MultiProtocol.encode({protocol:MultiProtocol.PROTOCOL,version:1,roomId:options.roomId,sessionId:options.sessionId,type:'select-side',roundId:1,seq:100,epoch:host.getState().selectionEpochs.find(x=>x.userId===sender)?.epoch,side:'B',...patch})}
++assert(!host.receive('outsider',wire('p1')));assert(!host.receive('p1',wire('p1',{userId:'p2'})));assert(!host.receive('p1',wire('p1',{stake:25})));assert(!host.receive('p1',wire('p1',{roundId:2})));assert(!host.receive('p1',wire('p1',{epoch:0})));assert(!host.receive('p1',wire('p1',{side:'C'})));
++assert(host.receive('p1',wire('p1')));assert(!host.receive('p1',wire('p1')));assert(!host.receive('p1',wire('p1',{seq:99})));flush();
++const staleWire=wire('p1',{seq:101});host.memberLeft('p1');flush();assert(!host.getState().selectedSides.some(x=>x.userId==='p1'));assert(!host.receive('p1',staleWire));
++guests.p1.close();guests.p1=mk('p1');guests.p1.hello();flush();assert(!host.receive('p1',staleWire));assert(guests.p1.previewSelection('A'));flush();assert.equal(host.getState().selectedSides.find(x=>x.userId==='p1').side,'A');
++assert(guests.p1.predict('B',25));flush();assert(!host.getState().selectedSides.some(x=>x.userId==='p1'));assert.equal(host.getState().confirmedSides.find(x=>x.userId==='p1').side,'B');assert(!guests.p1.previewSelection('A'));
++const snapshot=host.getState();const ledger=JSON.stringify(host.getLedger());assert.equal(snapshot.readyIds.length,1);
++const malformed=JSON.parse(JSON.stringify(snapshot));malformed.revision++;malformed.selectedSides=[{userId:'p1',side:'A'}];assert(!guests.p2.receive('p0',MultiProtocol.encode({protocol:MultiProtocol.PROTOCOL,version:1,roomId:options.roomId,sessionId:options.sessionId,type:'snapshot',state:malformed})));
++const observer=mk('observer');guests.observer=observer;observer.hello();flush();assert(!observer.previewSelection('A'));assert(!host.receive('observer',wire('observer')));
++for(let i=0;i<8;i++){if(i===1)continue;(i===0?host:guests['p'+i]).predict('A',25)}flush();assert.equal(host.getState().phase,'locked');assert.equal(host.getState().selectedSides.length,0);assert(!host.previewSelection('B'));
++host.startBattle({engineVersion:'test',ticks:1,winner:'A',events:[],unavailable:'replay-byte-cap'});host.settleRound();host.showResult();flush();host.openRound({roundId:2,durationMs:10000,matchup:{units:[]}});flush();assert.equal(host.getState().selectedSides.length,0);assert(!host.receive('p2',wire('p2')));assert(guests.p2.previewSelection('B'));flush();
++guests.p2.memberLeft('p0');assert.equal(guests.p2.getState().phase,'stopped');assert(!guests.p2.previewSelection('A'));assert.equal(host.getState().participants[0],'p0');
++console.log('PASS selection previews for 8 players; no BET or wallet mutation; switching and clearing');
++console.log('PASS sender, epoch, round, duplicate, stale, malformed and spectator rejection');
++console.log('PASS departure/reconnect stale-packet rejection, confirmation, next-round reset and host-loss stop');
++}`;
++new Function('require','assert',harness+'sandbox.assert=assert;vm.runInContext('+JSON.stringify(checks)+',context);')(require,assert);
+--- /dev/null
++++ b/tests/speed-investigation.cjs
+@@ -0,0 +1,28 @@
++const fs=require('fs'),vm=require('vm'),assert=require('assert');
++let h=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split("for(const id of ['#red'")[0];
++function create(){return new Function('require',h+';return {context,nodes,doc,events};')(require)}
++const game=create();const run=s=>vm.runInContext(s,game.context,{timeout:30000});
++const baseline=run('typeof speed')!=='undefined';
++console.log('BASELINE_MANUAL_SPEED',baseline?run('speed'):'removed');
++function setup(manual){run(`multiSession=null; screenMode='game';round=1;freshWallet();openPrediction(712);choose(0);units.forEach(u=>{u.hp=1e8;u.cd=1e8});${baseline?'setSpeed('+manual+');':''}resetSoloClock();`)}
++const results=[];
++for(const fps of [30,60,120])for(const manual of baseline?[1,2]:[1]){
++ setup(manual);let sample=[];
++ run('soloLoop(0)');
++ for(let n=1;n<=fps*35;n++){
++  run(`soloLoop(${n*1000/fps})`);
++  if(n%fps===0&&[5,10,19,20,21,25,30,35].includes(n/fps))sample.push({wall:n/fps,...run('({scene:+elapsed.toFixed(4),state,clock:document.querySelector("#battleClock").textContent})')});
++ }
++ for(const x of sample){let want=run(`ReplayClock.advanceSceneSeconds(0,${x.wall},${manual})`);want=Math.min(60,want);assert(Math.abs(x.scene-want)<=.034,JSON.stringify({fps,manual,x,want}));}
++ results.push({fps,manual,sample});
++}
++console.log('PASS actual solo step, 30/60/120 fps',JSON.stringify(results));
++if(baseline){
++ setup(1);run('elapsed=25;setSpeed(2);document.querySelector("#speedDown").onclick();');
++ assert.equal(run('speed'),1);assert.equal(run('ReplayClock.effectiveSpeed(elapsed,speed)'),2);
++ console.log('PASS baseline decrease button still has actual 2x at scene 25 seconds');
++}
++setup(1);run('soloLoop(0);soloLoop(1000);openPausePanel();soloLoop(2000)');assert(Math.abs(run('elapsed')-1)<.001);run('closePausePanel();soloLoop(3000);soloLoop(4000)');assert(Math.abs(run('elapsed')-2)<.001);
++run('toggleUnits(true);soloLoop(5000)');assert(Math.abs(run('elapsed')-2)<.001);run('toggleUnits(false);soloLoop(6000);soloLoop(7000)');assert(Math.abs(run('elapsed')-3)<.001);
++console.log('PASS solo pause and character details stop physics and resume without a catch-up jump');
++fs.writeFileSync(baseline?'baseline-solo-measurements.json':'candidate-solo-measurements.json',JSON.stringify(results,null,2));
+--- /dev/null
++++ b/tools/integration/comparison-browser-fixture.js
+@@ -0,0 +1,19 @@
++// Run only on the local candidate after opening the solo comparison screen.
++// It replaces a preview in memory; reload to restore normal play. Never run on a live room.
++(function () {
++  if (multiSession) throw new Error('Use a fresh local solo preview, not a multiplayer room.');
++  if (screenMode !== 'game' || state !== 'choose') throw new Error('Open the solo comparison screen first.');
++  const groups = [
++    ['crimson_mender', 'shield', 'gauntlet_combo_guard'],
++    ['siege_crab', 'frostmage', 'bone_crown_lich']
++  ];
++  const template = units[0];
++  units = groups.flatMap((kinds,side) => kinds.map((k,i) => ({...template, id:100+side*10+i, k, side, dead:false, hp:TYPES[k].hp, x:side?700:100, y:120+i*100})));
++  initialUnits = units.map(u => ({...u}));
++  initialKinds = groups;
++  selectedSide = null;
++  fillUnitStats();
++  drawArmyPreviews();
++  update();
++  return 'Preview fixture: healing, defense, combo, high HP/damage/range, control, summon. Reload afterward.';
++})();
+--- /dev/null
++++ b/tools/integration/refresh-candidate.py
+@@ -0,0 +1,27 @@
++"""Refresh an unpublished combined candidate. Never modifies published metadata.
++Run from the directory containing index.html. The fingerprint is idempotent:
++SHA256(prefix + LF HTML with CONTENT_REVISION normalized to 64 zeroes).
++After merging more source changes, run again before compatibility/replay tests.
++"""
++from pathlib import Path
++import hashlib, json, re
++root=Path.cwd(); p=root/'index.html'; html=p.read_text()
++pattern=r'const CONTENT_REVISION="[a-f0-9]{64}";'
++assert len(re.findall(pattern,html))==1, 'Expected exactly one content revision'
++normalized=re.sub(pattern,'const CONTENT_REVISION="'+'0'*64+'";',html,count=1)
++revision=hashlib.sha256(b'docchi-integrated-candidate-v1\0'+normalized.encode()).hexdigest()
++html=re.sub(pattern,f'const CONTENT_REVISION="{revision}";',html,count=1)
++p.write_text(html)
++published=json.loads((root/'CURRENT_PREVIEW_MANIFEST.json').read_text())
++manifest={
++ 'status':'unpublished',
++ 'baseCommit':'029846150bef21e703025f795895b58300b3bb89',
++ 'publishedIndexSHA256':published['indexSHA256'],
++ 'candidateIndexSHA256':hashlib.sha256(html.encode()).hexdigest(),
++ 'contentRevision':revision,
++ 'revisionMethod':'SHA256(docchi-integrated-candidate-v1\\0 + LF HTML with CONTENT_REVISION normalized to 64 zeroes)',
++ 'compatibility':'New selection snapshot fields are required; all room participants must use this same final build.',
++ 'validation':'See ../INTEGRATION_REVIEW.md and ../evidence. This is not a deployment record.'
++}
++(root/'INTEGRATION_CANDIDATE_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
++print(json.dumps(manifest,ensure_ascii=False,indent=2))
