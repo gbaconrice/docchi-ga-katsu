@@ -1,0 +1,20 @@
+{
+  "status": "unpublished",
+  "baseCommit": "029846150bef21e703025f795895b58300b3bb89",
+  "publishedIndexSHA256": "2a7a05a56dee92858bcb7ffa69e06f6f5dd05528d79ae5c7dde32678982df929",
+  "candidateIndexSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "contentRevision": "8d081dd7343c174142cec4a65e674260230b3723f735905aba6e67a0211e1597",
+  "revisionMethod": "SHA256(docchi-integrated-candidate-v1\\0 + LF HTML with CONTENT_REVISION normalized to 64 zeroes)",
+  "compatibility": "Generation, boss scaling and optional log metadata differ from the prior UI base. Every room participant must use this exact final build.",
+  "validation": "See REVIEW_UI_COMPLETE.md, VALIDATION_UI_COMPLETE.json and reports/ui-complete. This is not a deployment record.",
+  "sources": {
+    "uiBaseCommit": "374f834a76831434b03b077c17dbd4dcd9583bfe",
+    "uiBaseIndexSHA256": "c93421a7afc2b0d24715fc831172ff20ab9496d29eeeacfd635877ff19c496e7",
+    "mechanicsBranch": "claude/boss-balance",
+    "mechanicsCommit": "346ec2d43bf6fbf705cc47ced997e104265d2ba4",
+    "mechanicsConfirmedUTC": "2026-11-05T18:52:15Z",
+    "largeBalanceVariant": "Claude 46 bosses only; independent 36-unit candidate not applied",
+    "newAbilityBranchIncluded": false,
+    "publication": "unpublished local combined review only"
+  }
+}

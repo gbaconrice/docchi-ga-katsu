@@ -1,0 +1,27 @@
+const fs=require('fs'),assert=require('assert');
+const source=fs.readFileSync('index.html','utf8');
+for(const id of ['formationToggle','formationBack','previewClock'])assert(!source.includes('id="'+id+'"'),'removed preview element '+id);
+assert(!source.includes('配置を見る'),'removed entry label');
+assert(!source.includes('function setPredictionPreview('),'removed preview setter');
+assert(!source.includes('previewOpening'),'removed preview snapshot');
+assert(!/querySelector\('#formationToggle'\)/.test(source),'no dangling button listener');
+for(const id of ['red','blue','redStats','blueStats','armyPreviewRed','armyPreviewBlue','confirm','unitsToggle','pause'])assert(source.includes('id="'+id+'"'),'preserved gameplay control '+id);
+const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
+new Function('require','assert',h+`
+context.TextEncoder=require('util').TextEncoder;
+const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
+assert.equal(run('predictionPreview'),false);assert.equal(elem('#comparison').hidden,false);assert.equal(elem('#battle').hidden,true);
+assert.equal(elem('#confirm').disabled,true);click('#stake50');click('#blue');
+assert.equal(run('state'),'choose');assert.equal(run('selectedSide'),1);assert.equal(run('selectedStake'),50);
+assert.equal(run('walletState.currentRound.commits.length'),0,'army click alone does not start a fight');
+click('#confirm');assert.equal(run('state'),'fight');assert.equal(run('walletState.currentRound.commits.length'),1);
+click('#confirm');assert.equal(run('walletState.currentRound.commits.length'),1,'repeated Start cannot double commit');
+click('#unitsToggle');assert.equal(run('unitsOpen'),true);click('#unitsClose');assert.equal(run('unitsOpen'),false);
+console.log('PASS solo still requires army choice + Start; battle units dialog survives');
+run("state='choose';beginMock();openMultiRound()");assert.equal(run('multiSession.getState().phase'),'predict');
+assert.equal(elem('#comparison').hidden,false);assert.equal(elem('#battle').hidden,true);
+click('#red');assert.equal(run('multiSession.getState().readyIds.includes(multiUser)'),false);
+click('#confirm');assert.equal(run('multiSession.getState().readyIds.includes(multiUser)'),true);
+assert.equal(run('predictionPreview'),false);
+console.log('PASS multiplayer prediction still commits through Start without a preview route');
+`)(require,assert);

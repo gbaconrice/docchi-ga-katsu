@@ -1,9 +1,9 @@
 {
-  "scope": "300-species preview HTML; LF-normalized Git blob",
+  "scope": "External-file entry for the reconstructed 2026-11-06 release. Source-validation fixtures are separate.",
   "index": "index.html",
-  "indexSHA256": "2a7a05a56dee92858bcb7ffa69e06f6f5dd05528d79ae5c7dde32678982df929",
-  "validation": "tests/current-manifest.cjs",
-  "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md",
+  "indexSHA256": "756e0cd15ef0b1f00c23457be14ee88494630b6580fc83f39680cb7213362001",
+  "validation": "node tools/external-release/test.cjs",
+  "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
   "balance": "BALANCE_STUDY.md",
   "reachability": "REACHABILITY_STUDY.md",
   "legacyRecords": [
@@ -11,9 +11,10 @@
     "VALIDATION.json"
   ],
   "limitations": [
-    "Smartphone and GRAVITY multi-device behavior, profile fields and audio not verified on actual devices.",
-    "A pathological single-flying-unit balance case remains unresolved and later-round reachability is unknown.",
-    "Deployment status requires separate verification."
+    "The canonical reconstructed-source suite contains 127 Node tests. It is not a direct-root inline test result.",
+    "Nine original historical tests have different expectations and are preserved unchanged; the supported runner reports their diagnostic failures separately.",
+    "Real browser, GRAVITY SDK/multiplayer, CSP, iOS, device layout and audio playback verification remain separate.",
+    "This manifest describes build identity, not proof of remote deployment or browser success."
   ],
   "prSources": [
     {
@@ -27,5 +28,10 @@
       "integrated": "change adapted with additional fixes; PR not merged"
     }
   ],
-  "previousValidation": "PREDICTION_REWARD_WORKTREE.md"
+  "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
+  "release": "releases/reconstructed-20261106/manifest.json",
+  "releaseManifestSHA256": "d36d2cde6c8e38cd29709453aa175f71d41316b47ce46381de66fefaeff64af8",
+  "reconstructedSourceSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "reconstructedSourceBytes": 48368569,
+  "readme": "EXTERNAL_RELEASE.md"
 }

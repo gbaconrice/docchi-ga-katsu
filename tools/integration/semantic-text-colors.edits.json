@@ -1,0 +1,62 @@
+{
+  "schema": "anchor-checked-semantic-text-colors-v1",
+  "baseSHA256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+  "resultSHA256": "00e90713a731d7f35ed915e28f118cea7dcf1cd9a7212748a364839fbf666545",
+  "edits": [
+    {
+      "name": "semantic log text CSS",
+      "before": "#battleLog [data-side=\"0\"],#battleLogHistory [data-side=\"0\"] { color:#9ed2ff; }",
+      "after": "/* Semantic action text only: actor identity keeps its left/right color. */\n#battleLog [data-tone=\"attack\"],#battleLogHistory [data-tone=\"attack\"] { color:#ffaaa0; }\n#battleLog [data-tone=\"support\"],#battleLogHistory [data-tone=\"support\"] { color:#83e39b; }\n#battleLog [data-tone=\"defense\"],#battleLogHistory [data-tone=\"defense\"] { color:#97c7ff; }\n#battleLog [data-tone=\"control\"],#battleLogHistory [data-tone=\"control\"] { color:#dab0ff; }\n#battleLog [data-tone=\"mobility\"],#battleLogHistory [data-tone=\"mobility\"] { color:#83dce2; }\n#battleLog [data-tone=\"summon\"],#battleLogHistory [data-tone=\"summon\"] { color:#ffd095; }\n#battleLog [data-tone=\"neutral\"],#battleLogHistory [data-tone=\"neutral\"] { color:#eee0c3; }\n#battleLog [data-side=\"0\"],#battleLogHistory [data-side=\"0\"] { color:#9ed2ff; }"
+    },
+    {
+      "name": "explicit action-tone mapping",
+      "before": "// Display-only event history. It never changes unit state or consumes RNG.",
+      "after": "// Presentation-only colors; recorded events, mechanics and replay payloads are unchanged.\nconst BATTLE_LOG_EVENT_TONES=Object.freeze(Object.fromEntries([\n ['attack','resolved_hit terrain_damage counter_bolt_release counter_bolt_end contact_retaliation haste_changed followup_marked followup_strike charge_impact charge_counter priority_strike bomb_explode death_explode chain_link projectile_release flight_projectile_end projectile_end orb_projectile_end moon_projectile_end moon_pierce_contact melee_action_start melee_action_end combo_melee_start combo_melee_contact combo_melee_end charged_shot_start charged_shot_end moon_action_start moon_action_end orb_action_start orb_action_end pillar_action_start pillar_release pillar_action_end corner_pillar_start corner_pillar_release corner_pillar_end guard_warning guard_contact high_action_start high_action_end shockwave_release high_breath_release high_cleave_swing wave4_action_start wave4_action_end ground_burst cleave_release breath_release golem_ground_contact'],\n ['support','heal slow_cleansed healing_pulse self_repair ration_given revive_start revive_complete revive_cancel exposure_cleansed'],\n ['defense','guard_intercept parry_block counter_barrier_block aegis_block ward_block ward_consumed ward_granted ward_group_granted defense_action_start defense_action_end counter_barrier_activated aegis_action_start aegis_activated aegis_target_acquired aegis_action_end stability_aura_activated knockback_resisted'],\n ['control','repulsion_push dispel_action_start buff_dispelled dispel_action_end slow_applied cadence_delayed poison_applied poison_cloud healing_block_applied trap_triggered trap_placed trap_armed trap_expired exposure_applied'],\n ['mobility','move_boost_applied move_pulse burrow_warning burrow_start burrow_emerge retreat_start'],\n ['summon','summon_spawn split_spawn slime_split book_action_start book_batch_committed book_action_end summon_expired'],\n ['neutral','status_expired unit_defeated battle_finished log_gap']\n].flatMap(([tone,events])=>events.split(' ').map(type=>[type,tone]))));\nconst BATTLE_LOG_STATUS_TONES=Object.freeze({slowImmunity:'defense',poisonImmunity:'defense',cadenceImmunity:'defense',exposureImmunity:'defense',poison:'control',slow:'control',root:'control',exposure:'control',ward:'defense',moveBoost:'mobility',followup:'attack',healingBlock:'control',barrier:'defense',aegis:'defense',stability:'defense',burrow:'mobility',retreat:'mobility'});\nfunction battleLogActionTone(row){\n const type=row?.type,data=row?.data||{};\n if(type==='status_expired')return Object.hasOwn(BATTLE_LOG_STATUS_TONES,data.status)?BATTLE_LOG_STATUS_TONES[data.status]:'neutral';\n if(type==='defense_action_start'||type==='defense_action_end')return data.kind==='repair'?'support':'defense';\n if(type==='wave4_action_start'||type==='wave4_action_end')return data.kind==='stability'?'defense':'attack';\n return Object.hasOwn(BATTLE_LOG_EVENT_TONES,type)?BATTLE_LOG_EVENT_TONES[type]:'neutral';\n}\n// Display-only event history. It never changes unit state or consumes RNG."
+    },
+    {
+      "name": "revival outcome labels",
+      "before": "'normal-priority':'通常攻撃へ切替'",
+      "after": "'normal-priority':'通常攻撃へ切替','ineligible':'復活対象外','no-space':'出現場所なし','battle-ended':'戦闘終了'"
+    },
+    {
+      "name": "exposure status labels",
+      "before": "healingBlock:'回復阻害',barrier:'反撃結界'",
+      "after": "healingBlock:'回復阻害',exposure:'被ダメージ増加',exposureImmunity:'被ダメージ増加への耐性',barrier:'反撃結界'"
+    },
+    {
+      "name": "color non-actor action fragments",
+      "before": "  const parts=[];let end=0;const template=spec.text;for(const m of template.matchAll(/\\{\\s*([^}]+?)\\s*\\}/g)){if(m.index>end)parts.push({text:template.slice(end,m.index)});const k=m[1].trim();parts.push(Object.hasOwn(roles,k)?{text:actorText(roles[k]),side:roles[k]?.side}:{text:typeof args[k]==='number'?number(args[k]):String(args[k]??'不明')});end=m.index+m[0].length;}if(end<template.length)parts.push({text:template.slice(end)});",
+      "after": "  const tone=battleLogActionTone(row),parts=[];let end=0;const template=spec.text;for(const m of template.matchAll(/\\{\\s*([^}]+?)\\s*\\}/g)){if(m.index>end)parts.push({text:template.slice(end,m.index),tone});const k=m[1].trim();parts.push(Object.hasOwn(roles,k)?{text:actorText(roles[k]),side:roles[k]?.side}:{text:typeof args[k]==='number'?number(args[k]):String(args[k]??'不明'),tone});end=m.index+m[0].length;}if(end<template.length)parts.push({text:template.slice(end),tone});"
+    },
+    {
+      "name": "expose tone on description",
+      "before": "  return {parts,sentence:parts.map(p=>p.text).join(''),kind:",
+      "after": "  return {parts,tone,sentence:parts.map(p=>p.text).join(''),kind:"
+    },
+    {
+      "name": "export action tone reader",
+      "before": "createPlayback,describe,actorText};",
+      "after": "createPlayback,describe,actorText,actionTone:battleLogActionTone};"
+    },
+    {
+      "name": "render action tone in summary and history",
+      "before": "if(part.side===0||part.side===1)span.setAttribute('data-side',String(part.side));return span;});node.replaceChildren(...children);}",
+      "after": "if(part.side===0||part.side===1)span.setAttribute('data-side',String(part.side));else if(part.tone)span.setAttribute('data-tone',part.tone);return span;});node.replaceChildren(...children);}"
+    },
+    {
+      "name": "show flying priority before trait limit",
+      "before": "  if (type.dmg > 0 && mask.includes('air')) addTrait(type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');\n  if (type.pullDistance)",
+      "after": "  if (type.dmg > 0 && mask.includes('air')) addTrait(type.targetPriority === 'air' ? `飛行を優先${type.airDamageMultiplier ? `・飛行に${comparisonNumber(type.airDamageMultiplier)}倍` : 'して攻撃'}` : type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');\n  if (type.pullDistance)"
+    },
+    {
+      "name": "avoid duplicate air summary inside attacker traits",
+      "before": "    if (type.dmg > 0 && mask.includes('air')) addTrait(type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');\n    if (type.targetPriority === 'air' && !traits.includes('対空優先')) addTrait('対空優先', 'mobility');",
+      "after": "    if (type.dmg > 0 && mask.includes('air') && type.targetPriority !== 'air') addTrait(type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');"
+    },
+    {
+      "name": "avoid duplicate air summary after attacker traits",
+      "before": "  if (type.dmg > 0 && mask.includes('air')) addTrait(type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');\n  if (!timing)",
+      "after": "  if (type.dmg > 0 && mask.includes('air') && type.targetPriority !== 'air') addTrait(type.airDamageMultiplier ? `対空${comparisonNumber(type.airDamageMultiplier)}倍` : '対空', 'mobility');\n  if (!timing)"
+    }
+  ]
+}
