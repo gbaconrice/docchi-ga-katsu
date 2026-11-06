@@ -1,0 +1,265 @@
+<div id="bootStatus" role="status" style="padding:12px;background:#3c3224;color:#fff4d1;font:14px/1.5 system-ui">ゲームを起動しています。プレビューでは操作できない場合があります。この表示が残る場合は、案内された試遊 URL から開いてください。</div>
+<noscript><p>この表示環境では JavaScript が無効です。ゲームを実行できるブラウザで HTML を開いてください。</p></noscript>
+
+
+<!-- Candidate UI shell only. Keep battle, wallet, room, and sprite logic in the existing controller. -->
+<main id="app">
+  <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
+    <div id="homeAmbience" class="home-ambience" aria-hidden="true" hidden>
+      <div class="home-ambience-plane">
+        <i class="home-light home-light--near"></i>
+        <i class="home-light home-light--middle"></i>
+        <i class="home-light home-light--back"></i>
+        <i class="home-light home-light--table"></i>
+        <i class="home-light home-light--candle"></i>
+        <i class="home-light home-light--mantel-left"></i>
+        <i class="home-light home-light--mantel-right"></i>
+        <i class="home-light home-light--hearth"></i>
+      </div>
+    </div>
+    <h1 id="homeTitle" class="home-title"><img alt="どっちが勝つ？" width="2172" height="724" src="https://gbaconrice.github.io/docchi-ga-katsu/releases/reconstructed-20261106/assets/87cad6a5de30c0e20eb795423fee38a46ee68f66aa0a4a8319f81019db0ad5e5.png"></h1>
+    <button id="soloStart" class="home-choice cta-primary" type="button">ひとりで遊ぶ</button>
+    <button id="showMultiplayer" class="home-choice cta-secondary" type="button">みんなで遊ぶ</button>
+  </section>
+
+  <div id="menuAudioDock" class="menu-audio-dock" aria-label="サウンド設定"></div>
+
+  <button id="mockRoom" type="button" hidden aria-hidden="true" tabindex="-1"></button>
+
+  <section id="roomScreen" class="screen room-screen" hidden aria-labelledby="roomTitle">
+    <h2 id="roomTitle">みんなで遊ぶ</h2>
+    <button id="createRoom" class="cta cta-primary" type="button">部屋をつくる</button>
+    <button id="beginRound" class="cta cta-primary" type="button" hidden>第1戦へ</button>
+    <label class="room-code-label" for="roomId">部屋コードで参加</label>
+    <div class="room-join-row">
+      <input id="roomId" type="text" autocomplete="off" maxlength="128" placeholder="部屋コード" />
+      <button id="joinRoom" class="cta cta-secondary" type="button">参加</button>
+    </div>
+    <section id="publicRooms" class="public-rooms" aria-labelledby="publicRoomsTitle">
+      <div class="public-rooms-heading"><h3 id="publicRoomsTitle">公開ルーム</h3><button id="refreshPublicRooms" type="button">更新</button></div>
+      <p id="publicRoomsStatus" aria-live="polite">取得中…</p>
+      <div id="publicRoomsList" class="public-rooms-list"></div>
+    </section>
+    <button id="backHome" class="text-button" type="button">戻る</button>
+  </section>
+
+  <div id="multiStatusRow" class="multi-status-row" hidden>
+    <div class="multi-status-content">
+      <p id="multiSummary" class="multi-summary"></p>
+      <p id="roomStatus" class="status-line" aria-live="polite"></p>
+    </div>
+    <button id="exitRoom" class="text-button" type="button" hidden>退出</button>
+  </div>
+
+  <section id="gameScreen" class="screen game-screen" hidden aria-label="ゲーム">
+    <div id="gameTopline" class="game-topline">
+      <p id="fieldStatus" class="field-status">地図未定</p>
+      <p id="status" class="round-status" aria-live="polite">第1／10戦</p>
+      <div class="wallet-pill" aria-label="所持ゴールド">
+        <img class="wallet-coin" src="https://gbaconrice.github.io/docchi-ga-katsu/releases/reconstructed-20261106/assets/9b5895311d431c529597230751b0d4a5a39dd9df9d53832a114c96a90ccc8880.png" width="26" height="26" alt="" aria-hidden="true" decoding="async">
+        <span class="wallet-caption" aria-hidden="true">所持金</span>
+        <strong id="balance" role="region" tabindex="0" aria-label="所持ゴールド" aria-describedby="headerScrollHelp">100</strong>
+      </div>
+      <button id="soundToggle" class="battle-icon-button sound-toggle" type="button" aria-label="音を切り替える" title="音"><svg class="sound-glyph" data-audio-icon viewBox="0 0 24 24" aria-hidden="true"><path class="speaker-shape" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="sound-wave" d="M15 9a5 5 0 0 1 0 6M17 6a9 9 0 0 1 0 12"/><path class="sound-mute" d="m15 9 6 6m0-6-6 6"/></svg></button>
+    </div>
+    <span id="headerScrollHelp" class="sr-only">長い所持ゴールドは左右にスクロールすると全文を確認できます。</span>
+    <h2 id="phaseTitle" class="sr-only"></h2>
+
+      <div id="gameToolbar" class="battle-toolbar"><div id="assetNoticeBattle" hidden role="status" style="font-size:12px;line-height:1.35;color:#3c2817;background:#f4e2b9;padding:4px 6px"><span id="assetTextBattle"></span> <button id="assetRetryBattle" type="button" hidden>再試行</button> <button id="assetContinueBattle" type="button" hidden>代替表示で続ける</button></div>
+        <span id="battleChoice" class="battle-choice" hidden></span>
+        <p id="battleClock" class="battle-clock" aria-live="off"></p>
+        <button id="unitsToggle" class="battle-icon-button units-toggle" type="button" aria-label="キャラ一覧" title="キャラ一覧" aria-haspopup="dialog" aria-controls="unitsPanel"><span class="icon-slot icon-units" data-icon-slot="units" aria-hidden="true"></span></button>
+        <button id="reactionToggle" class="battle-icon-button reaction-toggle" type="button" aria-label="リアクション" title="リアクション" aria-controls="reaction-bar" aria-expanded="false" hidden><span class="reaction-toggle-emoji" aria-hidden="true">😄</span></button>
+        <button id="pause" class="battle-icon-button control-button pause-toggle" type="button" aria-label="一時停止" aria-haspopup="dialog" aria-controls="pausePanel" hidden>⏸</button>
+        <div id="reaction-bar" class="reaction-bar" role="group" aria-label="リアクション" hidden>
+          <button id="reactionCheer" type="button" aria-label="喜び"><span class="reaction-emoji" data-stamp-slot="cheer" aria-hidden="true">😄</span></button>
+          <button id="reactionWow" type="button" aria-label="驚き"><span class="reaction-emoji" data-stamp-slot="wow" aria-hidden="true">😮</span></button>
+          <button id="reactionFrustrated" type="button" aria-label="残念"><span class="reaction-emoji" data-stamp-slot="frustrated" aria-hidden="true">😭</span></button>
+          <button id="reactionApplause" type="button" aria-label="応援"><span class="reaction-emoji" data-stamp-slot="applause" aria-hidden="true">👏</span></button>
+        </div>
+      </div>
+        <div id="participantRailWrap" class="participant-rail-wrap" hidden>
+          <span id="soloReactionLabel" class="solo-reaction-label" hidden>あなた</span>
+          <div id="reaction-feedback" class="reaction-feedback" aria-live="polite" aria-atomic="true" hidden></div>
+          <div id="participantRail" class="participant-rail" tabindex="0" role="list" aria-label="参加者。横にスクロールできます"></div>
+          <span id="reactionOutside" class="reaction-outside" aria-live="polite" hidden></span>
+        </div>
+
+    <section id="comparison" class="comparison" aria-label="対戦予想">
+      <section class="stake-card" aria-labelledby="stakeTitle">
+        <h3 id="stakeTitle">BET</h3>
+        <div class="stake-options" role="group" aria-label="BET額">
+          <button id="stake0" class="stake-option" type="button" aria-pressed="true">0 G</button>
+          <button id="stake10" class="stake-option" type="button" aria-pressed="false">10%</button>
+          <button id="stake25" class="stake-option" type="button" aria-pressed="false">25 G</button>
+          <button id="stake50" class="stake-option" type="button" aria-pressed="false">50 G</button>
+          <button id="stake75" class="stake-option" type="button" aria-pressed="false">75%</button>
+          <button id="stake90" class="stake-option" type="button" aria-pressed="false">90%</button>
+          <button id="stake100" class="stake-option" type="button" aria-pressed="false">全額</button>
+        </div>
+        <p id="stakeHint" class="stake-hint" aria-live="polite">的中 +10 G · 外れ −10 G · 引分 ±0 G</p>
+      </section>
+      <div id="comparisonScroll" class="comparison-scroll">
+        <div class="army-grid" role="group" aria-label="勝つ方">
+          <button id="red" class="army-card army-red" type="button" aria-pressed="false" aria-label="左の軍" aria-describedby="redStats">
+            <span class="army-title sr-only" id="redTitle">左</span>
+            <canvas id="armyPreviewRed" class="army-preview" width="280" height="168" aria-label="左チームのキャラ"></canvas>
+            <span id="redList" class="army-summary sr-only" aria-live="off"></span>
+            <span id="redPicks" class="prediction-picks" aria-label="選択中・確定した参加者" hidden></span>
+            <span id="redStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
+          </button>
+          <button id="blue" class="army-card army-blue" type="button" aria-pressed="false" aria-label="右の軍" aria-describedby="blueStats">
+            <span class="army-title sr-only" id="blueTitle">右</span>
+            <canvas id="armyPreviewBlue" class="army-preview" width="280" height="168" aria-label="右チームのキャラ"></canvas>
+            <span id="blueList" class="army-summary sr-only" aria-live="off"></span>
+            <span id="bluePicks" class="prediction-picks" aria-label="選択中・確定した参加者" hidden></span>
+            <span id="blueStats" class="unit-stats comparison-list" role="list" aria-live="off"></span>
+          </button>
+        </div>
+
+
+        <!-- Legacy selector hooks remain hidden; matchup stats/traits are already visible above. -->
+        <div class="compatibility-hooks" hidden aria-hidden="true">
+          <label for="unitKind">キャラの特徴</label><select id="unitKind"></select>
+          <p id="unitTrait"></p>
+        </div>
+      </div>
+      <div id="predictionFooter" class="prediction-footer"><div id="assetNoticeChoose" hidden role="status" style="font-size:12px;line-height:1.35;color:#3c2817;background:#f4e2b9;padding:4px 6px"><span id="assetTextChoose"></span> <button id="assetRetryChoose" type="button" hidden>再試行</button> <button id="assetContinueChoose" type="button" hidden>代替表示で続ける</button></div>
+        <button id="confirm" class="cta cta-primary prediction-start" type="button" disabled>対戦開始</button>
+      </div>
+    </section>
+
+    <section id="battle" class="battle" hidden aria-label="戦闘">
+      <div id="fieldStage" class="field-stage">
+      <div id="fieldMap" class="field-map">
+        <canvas id="field" width="480" height="538" aria-label="左と右の軍の戦闘"></canvas>
+      </div>
+      <span id="openingCue" class="opening-cue" aria-hidden="true" hidden>対戦開始</span>
+      <span id="combatSpectacle" class="combat-spectacle" aria-hidden="true" hidden>
+        <i id="combatSpectacleRing" class="combat-spectacle-ring"></i>
+        <i id="combatSpectacleRays" class="combat-spectacle-rays"></i>
+        <i id="combatSpectacleCore" class="combat-spectacle-core"></i>
+      </span>
+      <span id="finalImpact" class="combat-spectacle final-impact" aria-hidden="true" hidden>
+        <i id="finalImpactRing" class="combat-spectacle-ring"></i>
+        <i id="finalImpactRays" class="combat-spectacle-rays"></i>
+        <i id="finalImpactCore" class="combat-spectacle-core"></i>
+      </span>
+      </div>
+      <section id="crowdInspector" class="crowd-inspector" aria-label="選択したキャラ" hidden>
+        <div class="crowd-inspector-copy">
+          <span id="crowdFocusName" role="status" aria-live="polite" aria-atomic="true">タップで詳細確認</span>
+          <span id="crowdFocusHP" aria-live="off" hidden></span>
+        </div>
+        <button id="crowdPrevious" type="button" aria-label="前のキャラを選ぶ" title="前のキャラ">‹</button>
+        <button id="crowdNext" type="button" aria-label="次のキャラを選ぶ" title="次のキャラ">›</button>
+        <button id="crowdClear" type="button" aria-label="キャラの選択を解除" title="選択を解除" disabled>×</button>
+      </section>
+      
+      <button id="battleLog" class="battle-log" type="button" hidden aria-live="off" aria-expanded="false" aria-controls="battleLogHistory" aria-label="戦闘ログ。タップで履歴を開く">
+        <span id="battleLogSource" class="battle-log-name"></span><span id="battleLogArrow" aria-hidden="true"></span><span id="battleLogTarget" class="battle-log-name"></span><span id="battleLogAction" class="battle-log-action">履歴 ▾</span>
+      </button>
+      <section id="battleLogHistory" class="battle-log-history" hidden aria-labelledby="battleLogHistoryTitle">
+        <div class="battle-log-history-heading"><strong id="battleLogHistoryTitle">戦闘ログ</strong><button id="battleLogClose" type="button" aria-label="戦闘ログを閉じる">閉じる</button></div>
+        <p id="battleLogStatus"></p>
+        <ol id="battleLogHistoryList" class="battle-log-history-list" aria-label="開始からの時刻順の出来事" aria-live="off" tabindex="0"></ol>
+        <div class="battle-log-history-navigation"><button id="battleLogPrevious" type="button">前の120件</button><button id="battleLogLatest" type="button">最新へ</button><span id="battleLogRange"></span></div>
+      </section>
+      <div id="reaction-backdrop" class="reaction-backdrop" hidden aria-hidden="true"></div>
+    </section>
+
+    <section id="resultPanel" class="result-panel" hidden aria-live="polite" aria-atomic="true">
+      <p id="resultWinner" class="result-winner"></p>
+      <h3 id="message" class="result-title"></h3>
+      <span id="doubleUpBadge" class="double-up-badge" aria-hidden="true" hidden>×2</span>
+      <span id="finalBlowCaption" class="final-blow-caption" aria-hidden="true" hidden>決着</span>
+      <p id="breakdown" class="result-summary" aria-live="off"></p>
+      <p id="battleInsights" class="battle-insights" hidden></p>
+      <p id="bankruptNotice" class="bankrupt-notice" hidden></p>
+      <p id="resultRanking" class="result-ranking" hidden></p>
+      <p id="checkpointNet" class="checkpoint-net" hidden></p>
+      <details id="multiResults" class="multi-results" open hidden>
+        <summary>参加者の結果</summary>
+        <div id="multiResultsList" class="multi-results-list"></div>
+      </details>
+      <div class="compatibility-hooks" hidden aria-hidden="true">
+        <span id="profit"></span><span id="hits"></span>
+      </div>
+      <button id="next" class="cta cta-primary result-next" type="button" hidden>次の戦いへ</button>
+      <div id="extensionChoices" class="extension-choices" hidden><button id="cashOut" type="button"><span class="extension-choice-main">ここで終了</span>
+<span class="extension-choice-note">(ランキングに記録)</span></button><button id="continueRun" type="button">全額を賭けて挑戦</button></div>
+      <button id="battleLogResult" type="button" hidden aria-expanded="false" aria-controls="battleLogHistory">戦闘ログ</button>
+      <p id="cashoutReceipt" class="cashout-receipt" aria-live="polite" aria-atomic="true" hidden></p>
+      <div id="resultProgress" class="result-progress" hidden aria-label="次の対戦まで"><span id="resultProgressFill"></span></div>
+      <p id="scoreStatus" class="score-status" aria-live="polite"></p>
+      <button id="scoreRetry" class="control-button" type="button" hidden>記録を再試行</button>
+    </section>
+    <div id="earnedFlightLayer" class="earned-flight-layer" aria-hidden="true" hidden>
+      <span id="earnedBurst" class="earned-burst" hidden></span>
+            <span id="resultScatter0" class="earned-coin result-scatter"></span>
+      <span id="resultScatter1" class="earned-coin result-scatter"></span>
+      <span id="resultScatter2" class="earned-coin result-scatter"></span>
+      <span id="resultScatter3" class="earned-coin result-scatter"></span>
+      <span id="resultScatter4" class="earned-coin result-scatter"></span>
+      <span id="resultScatter5" class="earned-coin result-scatter"></span>
+      <span id="resultScatter6" class="earned-coin result-scatter"></span>
+      <span id="resultScatter7" class="earned-coin result-scatter"></span>
+      <span id="resultScatter8" class="earned-coin result-scatter"></span>
+      <span id="resultScatter9" class="earned-coin result-scatter"></span>
+      <span id="resultScatter10" class="earned-coin result-scatter"></span>
+      <span id="resultScatter11" class="earned-coin result-scatter"></span>
+      <span id="resultScatter12" class="earned-coin result-scatter"></span>
+      <span id="resultScatter13" class="earned-coin result-scatter"></span>
+      <span id="resultScatter14" class="earned-coin result-scatter"></span>
+      <span id="resultScatter15" class="earned-coin result-scatter"></span>
+      <span id="resultScatter16" class="earned-coin result-scatter"></span>
+      <span id="resultScatter17" class="earned-coin result-scatter"></span>
+      <span id="resultScatter18" class="earned-coin result-scatter"></span>
+      <span id="resultScatter19" class="earned-coin result-scatter"></span>
+      <span id="resultScatter20" class="earned-coin result-scatter"></span>
+      <span id="resultScatter21" class="earned-coin result-scatter"></span>
+      <span id="resultScatter22" class="earned-coin result-scatter"></span>
+      <span id="resultScatter23" class="earned-coin result-scatter"></span>
+      <span id="resultScatter24" class="earned-coin result-scatter"></span>
+      <span id="resultScatter25" class="earned-coin result-scatter"></span>
+      <span id="resultScatter26" class="earned-coin result-scatter"></span>
+      <span id="resultScatter27" class="earned-coin result-scatter"></span>
+      <span id="resultScatter28" class="earned-coin result-scatter"></span>
+      <span id="resultScatter29" class="earned-coin result-scatter"></span>
+      <span id="resultScatter30" class="earned-coin result-scatter"></span>
+      <span id="resultScatter31" class="earned-coin result-scatter"></span>
+    </div>
+  </section>
+
+  <section id="pausePanel" class="units-panel pause-panel" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" hidden>
+    <div class="units-dialog pause-dialog">
+      <h2 id="pauseTitle">一時停止</h2>
+      <p id="multiPauseNotice" hidden>メニューを開いている間も対戦は進みます。</p>
+      <button id="pauseResume" class="cta cta-primary" type="button">再開</button>
+      <button id="pauseExit" class="text-button" type="button">終了</button>
+    </div>
+  </section>
+
+  <!-- The original has one UNITS action. This read-only overlay never changes the simulation. -->
+  <section id="unitsPanel" class="units-panel" role="dialog" aria-modal="true" aria-labelledby="unitsTitle" hidden>
+    <div class="units-dialog">
+      <div class="units-heading">
+        <h2 id="unitsTitle">キャラ一覧</h2>
+        <button id="unitsClose" class="text-button" type="button">閉じる</button>
+      </div>
+      <div class="units-grid">
+        <section class="units-side units-side-red" aria-labelledby="unitsRedTitle">
+          <h3 id="unitsRedTitle">左</h3>
+          <div id="unitsRedStats" class="unit-stats units-stat-list comparison-list" role="list"></div>
+        </section>
+        <section class="units-side units-side-blue" aria-labelledby="unitsBlueTitle">
+          <h3 id="unitsBlueTitle">右</h3>
+          <div id="unitsBlueStats" class="unit-stats units-stat-list comparison-list" role="list"></div>
+        </section>
+      </div>
+      <p class="units-note">ソロ: 停止 / オンライン: 続行</p>
+    </div>
+  </section>
+</main>
+
+
