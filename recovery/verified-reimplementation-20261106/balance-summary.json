@@ -1,0 +1,90 @@
+{
+  "baseline-targets": {
+    "sha256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+    "count": 64,
+    "wins": {
+      "B": 24,
+      "A": 40
+    },
+    "maxSeconds": 48.67,
+    "maxLivingPerTeam": 24,
+    "maxHistory": 32,
+    "invariantFailures": 0
+  },
+  "final-targets": {
+    "sha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+    "count": 64,
+    "wins": {
+      "B": 17,
+      "A": 46,
+      "draw": 1
+    },
+    "maxSeconds": 48.67,
+    "maxLivingPerTeam": 30,
+    "maxHistory": 36,
+    "invariantFailures": 0
+  },
+  "baseline-sessions": {
+    "sha256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+    "count": 80,
+    "wins": {
+      "A": 40,
+      "B": 40
+    },
+    "maxSeconds": 21.43,
+    "maxLivingPerTeam": 24,
+    "maxHistory": 40,
+    "invariantFailures": 0
+  },
+  "final-sessions": {
+    "sha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+    "count": 80,
+    "wins": {
+      "A": 40,
+      "B": 40
+    },
+    "maxSeconds": 21.22,
+    "maxLivingPerTeam": 24,
+    "maxHistory": 35,
+    "invariantFailures": 0
+  },
+  "final-matched-baseline-sessions": {
+    "sha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+    "count": 80,
+    "wins": {
+      "A": 40,
+      "B": 40
+    },
+    "maxSeconds": 21.43,
+    "maxLivingPerTeam": 24,
+    "maxHistory": 44,
+    "invariantFailures": 0
+  },
+  "baseline-density": {
+    "sha256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+    "count": 3,
+    "wins": {
+      "A": 1,
+      "B": 2
+    },
+    "maxSeconds": 23.72,
+    "maxLivingPerTeam": 32,
+    "maxHistory": 60,
+    "invariantFailures": 0
+  },
+  "final-density": {
+    "sha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+    "count": 3,
+    "wins": {
+      "B": 2,
+      "A": 1
+    },
+    "maxSeconds": 23.87,
+    "maxLivingPerTeam": 32,
+    "maxHistory": 62,
+    "invariantFailures": 0
+  },
+  "targetedWinnerChanges": 7,
+  "matchedSessionWinnerChanges": 0,
+  "limits": "Fresh VM simulations, not real-browser FPS or statistical balance calibration. Fixed rosters are not equal-budget comparisons after wraith cost changed. 80-round sessions do not adequately sample every affected ability."
+}

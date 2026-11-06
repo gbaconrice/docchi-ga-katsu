@@ -1,0 +1,39 @@
+{
+  "reviewedSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "status": "No remaining source-level finding after verified P2 fix",
+  "fixedFinding": {
+    "severity": "P2",
+    "field": "cornerStudyNormalPillarUsed",
+    "scope": [
+      "pillar_hammerer",
+      "spectralhand_wizard",
+      "colossal_hornfist"
+    ],
+    "description": "Historical normal-pillar eligibility lock was omitted by revival and is now preserved."
+  },
+  "freshChecks": {
+    "independentInvariantGroups": 5,
+    "eligibleTypesResourceMatrix": 265,
+    "modelPredictionsUnchanged": 300,
+    "recoveredCrossGroups": 7,
+    "abilityBoundaryGroups": 53,
+    "capacityDisclosureGroups": 7,
+    "generationCases": 160,
+    "overCap": 0,
+    "maxNewReservation": 32,
+    "carryCasesPreserved": 128
+  },
+  "sourceReview": [
+    "death burst finite simultaneous waves before split/revival/winner",
+    "revival pending-summon active/history capacity checks",
+    "exposure next-tick snapshot and delivery filtering",
+    "replay physical identity and log lineage",
+    "wallet, ledger and score bridge byte preservation",
+    "no persistent-storage API reference changes"
+  ],
+  "limitations": [
+    "No actual browser, iOS, GRAVITY network, or FPS evidence",
+    "Nominal estimator remains uncalibrated; metadata disclosure only",
+    "Publication overlay retention and remote commit/CI verification remain publisher responsibility"
+  ]
+}
