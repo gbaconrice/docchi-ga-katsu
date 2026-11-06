@@ -1,13 +1,13 @@
 {
-  "scope": "User-requested typeface and one-row header correction, shared gold numerals, concise log/result/inspector text, miss-only motion and stable field reservation.",
+  "scope": "User-requested common gold numerals, toolbar inner padding preserving layout, round-counter balance and complete removal of result appraisal text.",
   "index": "index.html",
-  "indexSHA256": "d5830d9b8d56f94411bfe90c588630930fe68b6867fb6006d4d67b592f85fe22",
+  "indexSHA256": "b2a091a5f0055320c87650f1bac037f37892a24d184d26c4e780f6b2541db9cf",
   "validation": {
-    "canonicalTests": 153,
-    "canonicalPassed": 153,
+    "canonicalTests": 154,
+    "canonicalPassed": 154,
     "entryLoaderFaultCases": 32,
     "actualScriptRecoveryCases": 7,
-    "browser": "Desktop Chrome: 320/375/390/430 widths, solo/multiplayer and automatic 74/98px GRAVITY-inset header rendering (16 cases, 64 states), inherited emphasis typeface, long-name scrolling, empty hit/miss heading, real-time miss coin motion at 320/390px, and real 390px solo battle/result field rectangle equality.",
+    "browser": "Desktop Chrome: 320/375/390/430 widths \u00d7 normal/automatic GRAVITY insets \u00d7 solo/multiplayer, 16 cases and 64 choose/fight/result/long-value states. All checks passed. Screenshots verified toolbar inner padding, natural gold numerals and earned +25G. Normal 390px solo battle, result with appraisals absent, history open/close and second round passed.",
     "physicalIOS": false,
     "liveGravitySDK": false,
     "hostCashoutCases": 14,
@@ -18,9 +18,10 @@
     "publicFilesVerified": 36,
     "browserLimitations": [
       "Physical iOS, native touch gestures and live GRAVITY SDK/multiplayer are not verified.",
-      "Header tests use automatic 74px inset at 320/375 and 98px at 390/430; not all widths with both insets.",
-      "Original large reference video was not downloaded again; no pixel-identical animation claim."
-    ]
+      "Automatic GRAVITY inset is 74px at320/375 and98px at390/430; other combinations and bottom34px not browser-tested.",
+      "Double-up result style is covered by source tests; double-up=true was not browser-tested."
+    ],
+    "canonicalResourceRetry": "153 passed in the 512 MiB run. One heap-limited test passed with identical source and inputs at 768 MiB."
   },
   "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
   "balance": "BALANCE_STUDY.md",
@@ -46,11 +47,11 @@
     }
   ],
   "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/screen-refinement-20261106/manifest.json",
-  "releaseManifestSHA256": "615646959cfcbaf9fe3940b60c3892ccb9bef7658589818617953ebc67273fc9",
-  "reconstructedSourceSHA256": "2687079d8b3a770ac89a4734a14b476672738b2f589ca9a030bff4d6206f6499",
-  "reconstructedSourceBytes": 49327358,
+  "release": "releases/wallet-header-20261106/manifest.json",
+  "releaseManifestSHA256": "236a7f875785f83e4efc1e322702d37106b82e5c1b276bba0c677a0f7c05b81b",
+  "reconstructedSourceSHA256": "ebb58d07100837100c38a97d7c16459ea549ad01ec467cdcbd4b8e49820997ed",
+  "reconstructedSourceBytes": 49326858,
   "readme": "README.md",
-  "gravityEntrySHA256": "51328417b0a8f93eed84db338c8a9feb08aa400064b9c78fb261529fc021b6c7",
-  "previousRelease": "releases/screen-correction-20261106/manifest.json"
+  "gravityEntrySHA256": "82186c92e353f1b06e826184a4d526913c9355f139a351b319fe9983fe986483",
+  "previousRelease": "releases/screen-refinement-20261106/manifest.json"
 }
