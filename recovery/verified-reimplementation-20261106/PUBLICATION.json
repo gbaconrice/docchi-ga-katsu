@@ -1,0 +1,48 @@
+{
+  "verifiedAt": "2026-11-06T05:12:12.480Z",
+  "mainCommit": "30ac48a25a8e0d288e9bb13c10ef076a8750043b",
+  "preservedCandidateCommit": "9b7d11bdb492d16c0046e4ec2a688dbfca5d2806",
+  "url": "https://gbaconrice.github.io/docchi-ga-katsu/",
+  "releaseUrl": "https://gbaconrice.github.io/docchi-ga-katsu/releases/reconstructed-20261106/",
+  "gravityEntryUrl": "https://gbaconrice.github.io/docchi-ga-katsu/GRAVITY_EXTERNAL_ENTRY.html",
+  "pagesRun": {
+    "id": 42166683636,
+    "conclusion": "success"
+  },
+  "sourceSha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "sourceIdentity": "New evidence-based reconstruction; not exact recovery of lost 210708a26ca86f70af4909c1fffe9dff82c740909e74d2b568454338a8e3c3fd",
+  "rootEntrySha256": "756e0cd15ef0b1f00c23457be14ee88494630b6580fc83f39680cb7213362001",
+  "retention": {
+    "originalPaths": 752,
+    "allRetained": true,
+    "finalFiles": 846,
+    "changedExistingPaths": [
+      "index.html",
+      "README.md",
+      "CURRENT_PREVIEW_MANIFEST.json"
+    ],
+    "originalTestFilesUnchanged": 94
+  },
+  "verification": {
+    "canonicalTests": 127,
+    "canonicalPassed": 127,
+    "historicalDiagnosticFailures": 9,
+    "rebuiltDeployFilesExact": 31,
+    "remoteDeployFilesExact": 31,
+    "newDeployLargestFileBytes": 5833832,
+    "realBrowser": [
+      "Published release home, solo selection, prediction, battle, settlement and second round",
+      "GRAVITY entry loaded over HTTPS with gravity host-shell and visible images",
+      "Normal public URL loaded new runtime and eight external bundles, then solo prediction UI"
+    ],
+    "realDevice": false,
+    "gravityAppSDK": false,
+    "audioPlayback": false,
+    "fpsMeasured": false
+  },
+  "remaining": [
+    "Broader distinct abilities and identity across all 300 unit types",
+    "Recalibrate and validate formation prediction model and wider balance coverage",
+    "Actual GRAVITY application/SDK/multiplayer and mobile device layout, audio and performance verification"
+  ]
+}
