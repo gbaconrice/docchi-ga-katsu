@@ -1,15 +1,19 @@
 {
-  "scope": "Current home-preserving UI-polish and demand-loaded game entry. Prior release validation is historical.",
+  "scope": "A1 materials, verified native insets, bounded public-room lookup, synchronized host cashout and serialized room exit.",
   "index": "index.html",
-  "indexSHA256": "01c187794176dd1140b603822d59e97e5b9b034a01033bc359f730b568c7b66c",
+  "indexSHA256": "a67d69f4f774e51ad15fca2e4395e6561bf8ad460d5a8753f17f90d4ce34c443",
   "validation": {
-    "canonicalTests": 137,
-    "canonicalPassed": 137,
+    "canonicalTests": 143,
+    "canonicalPassed": 143,
     "entryLoaderFaultCases": 32,
     "actualScriptRecoveryCases": 7,
-    "browser": "Desktop Chromium mobile-size frames: home preservation, pause, prediction, shorter field note, solo/multiplayer result labels and layout; no physical iOS or live SDK.",
+    "browser": "Desktop Chromium at 320/375/390/430: A1 presentation, participant fixtures, Gravity insets, result geometry, real solo start/pause/exit and public-room timeout/retry/back navigation. Live SDK and physical iOS not verified.",
     "physicalIOS": false,
-    "liveGravitySDK": false
+    "liveGravitySDK": false,
+    "hostCashoutCases": 14,
+    "roomExitCases": 6,
+    "publicRoomRecoveryCases": 14,
+    "hostInsetCases": 15
   },
   "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
   "balance": "BALANCE_STUDY.md",
@@ -20,7 +24,8 @@
   ],
   "limitations": [
     "Browser checks used desktop Chromium with mobile-size frames, not physical iOS or live GRAVITY multiplayer.",
-    "Historical validation scripts and reports describe their pinned earlier releases, not this current entry."
+    "Historical validation scripts and reports describe their pinned earlier releases, not this current entry.",
+    "Frozen multiplayer rendering fixtures are not a full native multiplayer session; narrow-frame final layout needs real-device confirmation."
   ],
   "prSources": [
     {
@@ -35,11 +40,11 @@
     }
   ],
   "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/ui-polish-20261106/manifest.json",
-  "releaseManifestSHA256": "5627983e5a3ace9e2735b676b7c31e48c28b593e428670f70b230be0d28d6971",
-  "reconstructedSourceSHA256": "8de48f6e2c2f445b6caaf7935316157505ff2a42dd0e003b320d6d982de9dde5",
-  "reconstructedSourceBytes": 48390422,
+  "release": "releases/a1-material-v2-20261106/manifest.json",
+  "releaseManifestSHA256": "6f1e3c535c0bab95e6c595a22aa6e6f12aa5729ac4e07196968436f0e44b57a6",
+  "reconstructedSourceSHA256": "bad06af9ad1ef43fa54db48412c70a26f0dcd1a2f0572f0458e962b6764319a4",
+  "reconstructedSourceBytes": 48400053,
   "readme": "README.md",
-  "gravityEntrySHA256": "f0b223bba4cbec6f2e1df67024f417eebdf01d440dc7c2ae6842800fa392f367",
-  "previousRelease": "releases/demand-loaded-20261106/manifest.json"
+  "gravityEntrySHA256": "0c5b8deba03505d4b6ab38091311266748879333281ccf437438b4a0b17d28dc",
+  "previousRelease": "releases/ui-polish-20261106/manifest.json"
 }
