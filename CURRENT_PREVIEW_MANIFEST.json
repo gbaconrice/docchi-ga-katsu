@@ -1,13 +1,13 @@
 {
-  "scope": "Current demand-loaded game entry. Prior release validation is historical.",
+  "scope": "Current home-preserving UI-polish and demand-loaded game entry. Prior release validation is historical.",
   "index": "index.html",
-  "indexSHA256": "9ac9a1e78b6fdf9fd65e66dc93420b0e5de35ff78d603b8df0e5c800fe788e77",
+  "indexSHA256": "01c187794176dd1140b603822d59e97e5b9b034a01033bc359f730b568c7b66c",
   "validation": {
     "canonicalTests": 137,
     "canonicalPassed": 137,
     "entryLoaderFaultCases": 32,
     "actualScriptRecoveryCases": 7,
-    "browser": "Published candidate checked at 320/375/390/430 CSS pixels, including GRAVITY spacing, real solo play, stat/detail/log layouts and HTTP404 retry.",
+    "browser": "Desktop Chromium mobile-size frames: home preservation, pause, prediction, shorter field note, solo/multiplayer result labels and layout; no physical iOS or live SDK.",
     "physicalIOS": false,
     "liveGravitySDK": false
   },
@@ -35,11 +35,11 @@
     }
   ],
   "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/demand-loaded-20261106/manifest.json",
-  "releaseManifestSHA256": "a5c4c017fce153ee44686f491b25e3d1f439d4867705ad1babcedb346774fdfe",
-  "reconstructedSourceSHA256": "cf52cf8e8bcefeedc24b44c604e264fb56cc014cab88aca2a3f5fd53ec5055e3",
-  "reconstructedSourceBytes": 48388598,
+  "release": "releases/ui-polish-20261106/manifest.json",
+  "releaseManifestSHA256": "5627983e5a3ace9e2735b676b7c31e48c28b593e428670f70b230be0d28d6971",
+  "reconstructedSourceSHA256": "8de48f6e2c2f445b6caaf7935316157505ff2a42dd0e003b320d6d982de9dde5",
+  "reconstructedSourceBytes": 48390422,
   "readme": "README.md",
-  "gravityEntrySHA256": "f3de7afcb90e934984acc2f1c00c90ff2b7383918d8c2a137c1bd95efe0610ab",
-  "previousRelease": "releases/reconstructed-20261106/manifest.json"
+  "gravityEntrySHA256": "f0b223bba4cbec6f2e1df67024f417eebdf01d440dc7c2ae6842800fa392f367",
+  "previousRelease": "releases/demand-loaded-20261106/manifest.json"
 }

@@ -1,6 +1,6 @@
 # どっちが勝つ？ 開発途中の確認用版（300種）
 
-現行の入口は必要な画像を対戦ごとに読み込む版です。現行入口と復元ソースの識別情報は [CURRENT_PREVIEW_MANIFEST.json](CURRENT_PREVIEW_MANIFEST.json) を参照してください。137件のソース回帰と読み込み失敗からの復帰、320〜430pxの表示を確認しました。実機iOS・実GRAVITY SDKは未検証です。
+現行の入口は必要な画像を対戦ごとに読み込む版です。ホームの2ボタンを維持し、一時停止の記号・文字階層・「外れ」表記・地形注記を整理しました。現行入口と復元ソースの識別情報は [CURRENT_PREVIEW_MANIFEST.json](CURRENT_PREVIEW_MANIFEST.json) を参照してください。137件のソース回帰と読み込み失敗からの復帰、320〜430pxの表示を確認しました。実機iOS・実GRAVITY SDKは未検証です。
 
 `tools/external-release/test.cjs` と [EXTERNAL_RELEASE.md](EXTERNAL_RELEASE.md) は以前の固定リリース向けです。これらや以下の旧版検証記録を、現行版の合格結果として扱わないでください。
 
