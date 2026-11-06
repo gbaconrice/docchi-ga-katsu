@@ -1,6 +1,8 @@
 # どっちが勝つ？ 開発途中の確認用版（300種）
 
-現行の入口は外部ファイル読み込み版です。検証は `node tools/external-release/test.cjs` を使ってください。入口と復元ソースのハッシュ、127件の正規テストと旧9件の差分、再構築手順は [EXTERNAL_RELEASE.md](EXTERNAL_RELEASE.md) にまとめています。以下の旧版検証記録を現行版の合格結果として扱わないでください。
+現行の入口は必要な画像を対戦ごとに読み込む版です。現行入口と復元ソースの識別情報は [CURRENT_PREVIEW_MANIFEST.json](CURRENT_PREVIEW_MANIFEST.json) を参照してください。137件のソース回帰と読み込み失敗からの復帰、320〜430pxの表示を確認しました。実機iOS・実GRAVITY SDKは未検証です。
+
+`tools/external-release/test.cjs` と [EXTERNAL_RELEASE.md](EXTERNAL_RELEASE.md) は以前の固定リリース向けです。これらや以下の旧版検証記録を、現行版の合格結果として扱わないでください。
 
 [GRAVITY内で遊ぶためのUI・SDK方針](GRAVITY_INTEGRATION.md)（実装済みの範囲と実機未検証事項）
 
@@ -10,7 +12,7 @@
 最初の10戦は残高の10%・25%・50%・75%・90%・全額から選択。端数は四捨五入し、残高があれば最低1G、残高を超えない。的中時の残高純増はBET額と同額、外れはBET額を減算、引分は増減なし。最初の10戦は残高0Gでも0Gで予想でき、的中で10G回復、外れ・引分は0Gのまま。10戦終了時以降に0Gなら予想終了です。
 10戦終了後は毎戦「記録して終了」か全額ダブルアップ。的中で残高2倍、外れで0G終了、引分は残高維持です。ランキング用スコアは終了時の残高1つだけです。
 
-旧版の PUBLIC_MANIFEST.json と VALIDATION.json は200種プレビュー当時の履歴であり、現在の300種版のハッシュや検証を保証しません。現行の外部入口と復元ソースのハッシュは CURRENT_PREVIEW_MANIFEST.json、現行版の検証手順と範囲は EXTERNAL_RELEASE.md を参照してください。AMOUNT_BACKGROUND_WORKTREE.md と VALIDATION_CURRENT.md は旧版の検証記録です。
+旧版の PUBLIC_MANIFEST.json と VALIDATION.json は200種プレビュー当時の履歴であり、現在の300種版のハッシュや検証を保証しません。現行の外部入口と復元ソースのハッシュは CURRENT_PREVIEW_MANIFEST.json、旧版の検証手順と範囲は EXTERNAL_RELEASE.md に保存しています。AMOUNT_BACKGROUND_WORKTREE.md と VALIDATION_CURRENT.md は旧版の検証記録です。
 
 以下は200種版の検証時点の記録です。200種は通常生成へ仮採用。新しい個体係数100種分は未学習で、実能力を表す共有特徴から比較します。失敗した再学習モデルは採用していません。12組の固定セッション検査では機能違反0ですが、150種比較では接戦数55→57、左勝利80→75、圧勝1→2。バランス改善完了とはいえません。
 

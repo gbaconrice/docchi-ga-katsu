@@ -1,8 +1,16 @@
 {
-  "scope": "External-file entry for the reconstructed 2026-11-06 release. Source-validation fixtures are separate.",
+  "scope": "Current demand-loaded game entry. Prior release validation is historical.",
   "index": "index.html",
-  "indexSHA256": "756e0cd15ef0b1f00c23457be14ee88494630b6580fc83f39680cb7213362001",
-  "validation": "node tools/external-release/test.cjs",
+  "indexSHA256": "9ac9a1e78b6fdf9fd65e66dc93420b0e5de35ff78d603b8df0e5c800fe788e77",
+  "validation": {
+    "canonicalTests": 137,
+    "canonicalPassed": 137,
+    "entryLoaderFaultCases": 32,
+    "actualScriptRecoveryCases": 7,
+    "browser": "Published candidate checked at 320/375/390/430 CSS pixels, including GRAVITY spacing, real solo play, stat/detail/log layouts and HTTP404 retry.",
+    "physicalIOS": false,
+    "liveGravitySDK": false
+  },
   "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
   "balance": "BALANCE_STUDY.md",
   "reachability": "REACHABILITY_STUDY.md",
@@ -11,10 +19,8 @@
     "VALIDATION.json"
   ],
   "limitations": [
-    "The canonical reconstructed-source suite contains 127 Node tests. It is not a direct-root inline test result.",
-    "Nine original historical tests have different expectations and are preserved unchanged; the supported runner reports their diagnostic failures separately.",
-    "Real browser, GRAVITY SDK/multiplayer, CSP, iOS, device layout and audio playback verification remain separate.",
-    "This manifest describes build identity, not proof of remote deployment or browser success."
+    "Browser checks used desktop Chromium with mobile-size frames, not physical iOS or live GRAVITY multiplayer.",
+    "Historical validation scripts and reports describe their pinned earlier releases, not this current entry."
   ],
   "prSources": [
     {
@@ -29,9 +35,11 @@
     }
   ],
   "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/reconstructed-20261106/manifest.json",
-  "releaseManifestSHA256": "d36d2cde6c8e38cd29709453aa175f71d41316b47ce46381de66fefaeff64af8",
-  "reconstructedSourceSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
-  "reconstructedSourceBytes": 48368569,
-  "readme": "EXTERNAL_RELEASE.md"
+  "release": "releases/demand-loaded-20261106/manifest.json",
+  "releaseManifestSHA256": "a5c4c017fce153ee44686f491b25e3d1f439d4867705ad1babcedb346774fdfe",
+  "reconstructedSourceSHA256": "cf52cf8e8bcefeedc24b44c604e264fb56cc014cab88aca2a3f5fd53ec5055e3",
+  "reconstructedSourceBytes": 48388598,
+  "readme": "README.md",
+  "gravityEntrySHA256": "f3de7afcb90e934984acc2f1c00c90ff2b7383918d8c2a137c1bd95efe0610ab",
+  "previousRelease": "releases/reconstructed-20261106/manifest.json"
 }
