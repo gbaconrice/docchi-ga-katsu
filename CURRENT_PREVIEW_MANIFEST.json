@@ -1,25 +1,25 @@
 {
-  "scope": "Screen corrections, stable upper controls, readable labels and emphasis, result feedback and log placement, synchronized multiplayer countdown, allied selection follow, all boss display sizes and prediction-only boss mark.",
+  "scope": "User-requested typeface and one-row header correction, shared gold numerals, concise log/result/inspector text, miss-only motion and stable field reservation.",
   "index": "index.html",
-  "indexSHA256": "2148a09b118f345a5bcc637de955e41684f2bc11fab6c0e18b715e5ce3a5ee4c",
+  "indexSHA256": "d5830d9b8d56f94411bfe90c588630930fe68b6867fb6006d4d67b592f85fe22",
   "validation": {
-    "canonicalTests": 151,
-    "canonicalPassed": 151,
+    "canonicalTests": 153,
+    "canonicalPassed": 153,
     "entryLoaderFaultCases": 32,
     "actualScriptRecoveryCases": 7,
-    "browser": "Desktop Chrome: 320/375/390/430px normal and GRAVITY-inset solo/multiplayer phase rendering (16 combinations), names and scrolling, image 404/retry recovery, entry runtime 404/retry recovery, standalone solo selection/start/pause/resume/result/history/next, and unchanged live battle/result field geometry verified.",
+    "browser": "Desktop Chrome: 320/375/390/430 widths, solo/multiplayer and automatic 74/98px GRAVITY-inset header rendering (16 cases, 64 states), inherited emphasis typeface, long-name scrolling, empty hit/miss heading, real-time miss coin motion at 320/390px, and real 390px solo battle/result field rectangle equality.",
     "physicalIOS": false,
     "liveGravitySDK": false,
     "hostCashoutCases": 14,
     "roomExitCases": 6,
     "publicRoomRecoveryCases": 14,
     "hostInsetCases": 15,
-    "independentReapplication": "16 patches match exact candidate; old 590 inline image/audio references preserved; one approved PNG added.",
-    "publicFilesVerified": 33,
+    "independentReapplication": "Prior release 16-patch preservation was verified separately. Current refinement preserves 590 old assets plus the approved marker, frozen hit coin frames and sequence hashes, and score/wallet blocks.",
+    "publicFilesVerified": 36,
     "browserLimitations": [
-      "Rendering fixtures do not exercise live multiplayer transport.",
-      "Physical iOS, native touch swipes and live GRAVITY SDK are unverified.",
-      "Purple impairment text was covered by source/cascade tests, not directly observed in this browser run."
+      "Physical iOS, native touch gestures and live GRAVITY SDK/multiplayer are not verified.",
+      "Header tests use automatic 74px inset at 320/375 and 98px at 390/430; not all widths with both insets.",
+      "Original large reference video was not downloaded again; no pixel-identical animation claim."
     ]
   },
   "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
@@ -46,11 +46,11 @@
     }
   ],
   "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/screen-correction-20261106/manifest.json",
-  "releaseManifestSHA256": "10558ac6b133ab50d7a465cbd42e87582f836d3762941989c27116cedaba5c18",
-  "reconstructedSourceSHA256": "02caa6544e6e9fdfda856ce47e6db63b4f53fac2a1065361e8ed76659df175df",
-  "reconstructedSourceBytes": 49323355,
+  "release": "releases/screen-refinement-20261106/manifest.json",
+  "releaseManifestSHA256": "615646959cfcbaf9fe3940b60c3892ccb9bef7658589818617953ebc67273fc9",
+  "reconstructedSourceSHA256": "2687079d8b3a770ac89a4734a14b476672738b2f589ca9a030bff4d6206f6499",
+  "reconstructedSourceBytes": 49327358,
   "readme": "README.md",
-  "gravityEntrySHA256": "79d80b8259857a7619f3bf757055eefac428caa66722f33f40bc9a9ec6b88c15",
-  "previousRelease": "releases/a1-material-v2-20261106/manifest.json"
+  "gravityEntrySHA256": "51328417b0a8f93eed84db338c8a9feb08aa400064b9c78fb261529fc021b6c7",
+  "previousRelease": "releases/screen-correction-20261106/manifest.json"
 }
