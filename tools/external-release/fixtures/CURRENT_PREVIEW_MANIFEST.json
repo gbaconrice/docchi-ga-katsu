@@ -1,0 +1,31 @@
+{
+  "scope": "300-species preview HTML; LF-normalized Git blob",
+  "index": "index.html",
+  "indexSHA256": "2a7a05a56dee92858bcb7ffa69e06f6f5dd05528d79ae5c7dde32678982df929",
+  "validation": "tests/current-manifest.cjs",
+  "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md",
+  "balance": "BALANCE_STUDY.md",
+  "reachability": "REACHABILITY_STUDY.md",
+  "legacyRecords": [
+    "PUBLIC_MANIFEST.json",
+    "VALIDATION.json"
+  ],
+  "limitations": [
+    "Smartphone and GRAVITY multi-device behavior, profile fields and audio not verified on actual devices.",
+    "A pathological single-flying-unit balance case remains unresolved and later-round reachability is unknown.",
+    "Deployment status requires separate verification."
+  ],
+  "prSources": [
+    {
+      "number": 2,
+      "head": "3d1d257cb8fc8730b6ae3200a202c2b4ad58b83c",
+      "integrated": "change applied; PR not merged"
+    },
+    {
+      "number": 3,
+      "head": "48f761acc2be48f62d6954c1a681671cf1abfa99",
+      "integrated": "change adapted with additional fixes; PR not merged"
+    }
+  ],
+  "previousValidation": "PREDICTION_REWARD_WORKTREE.md"
+}

@@ -1,0 +1,11 @@
+const fs=require('fs'),assert=require('assert'),vm=require('vm');const html=fs.readFileSync('index.html','utf8'),code=html.match(/<script id="home-ambience-controller">([\s\S]*?)<\/script>/)[1];
+function target(props={}){const events=new Map();return Object.assign(props,{addEventListener(k,f){const set=events.get(k)||new Set();set.add(f);events.set(k,set)},removeEventListener(k,f){events.get(k)?.delete(f)},fire(k){for(const f of [...(events.get(k)||[])])f()},size(){return [...events.values()].reduce((n,s)=>n+s.size,0)}});}
+const home=target({hidden:false,clientWidth:390,clientHeight:690,scrollWidth:390,scrollHeight:690,scrollTop:0,scrollLeft:0}),layer={hidden:true,dataset:{},style:{setProperty(){}}},doc=target({hidden:false,getElementById:id=>id==='homeScreen'?home:layer}),queries=[];
+const win=target({navigator:{},matchMedia(){const q=target({matches:false});queries.push(q);return q;}});vm.runInNewContext(code,{window:win,document:doc});
+const mode=want=>{assert.equal(layer.dataset.motion,want);assert.equal(layer.hidden,want!=='running');};mode('running');
+for(const prop of ['scrollHeight','scrollWidth']){home[prop]++;win.fire('resize');mode('overflow');home[prop]--;win.fire('resize');mode('running');}
+for(const prop of ['scrollTop','scrollLeft'])for(const offset of [-5,1,90]){home[prop]=offset;home.fire('scroll');mode('overflow');home[prop]=0;home.fire('scroll');mode('running');}
+home.scrollHeight=900;home.hidden=true;win.DocchiHomeAmbience.sync();mode('hidden');home.hidden=false;win.DocchiHomeAmbience.sync();mode('overflow');home.scrollHeight=690;win.DocchiHomeAmbience.sync();mode('running');
+queries[0].matches=true;queries[0].fire('change');mode('reduced-motion');home.scrollTop=10;home.fire('scroll');mode('overflow');home.scrollTop=0;home.fire('scroll');mode('reduced-motion');queries[0].matches=false;queries[0].fire('change');mode('running');
+win.DocchiHomeAmbience.destroy();mode('disposed');assert.equal(home.size()+win.size()+doc.size()+queries.reduce((n,q)=>n+q.size(),0),0);home.scrollHeight=900;home.fire('scroll');win.fire('resize');mode('disposed');
+console.log('PASS home overflow/scroll offsets pause lights, fitting layout resumes, hidden/reduced-motion remain guarded, destroy removes scroll listener.');

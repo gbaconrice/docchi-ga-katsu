@@ -1,0 +1,27 @@
+const fs=require('fs'),assert=require('assert');
+const source=fs.readFileSync('index.html','utf8');
+assert(!/id="(?:battleControls|speedUp|speedDown|speed)"/.test(source),'old footer controls must stay removed');
+assert.equal((source.match(/id="pause"/g)||[]).length,1,'one pause control');
+assert(/class="game-topline"[\s\S]*?class="wallet-pill"[\s\S]*?id="pause"[\s\S]*?<h2 id="phaseTitle"/.test(source),'pause remains beside the wallet');
+const rule=source.match(/#gameScreen\s*>\s*\.game-topline\s*>\s*#pause\[hidden\]\s*\{([^}]*)\}/)?.[1];
+assert(rule,'hidden pause slot rule required');
+assert(/display:\s*grid\s*!important/.test(rule),'override the generic hidden display rule');
+assert(/visibility:\s*hidden/.test(rule),'invisible and excluded from pointer/focus targeting');
+assert(/pointer-events:\s*none/.test(rule),'non-interactive');
+assert(!/height|width|margin|padding|position/.test(rule),'same geometry as visible pause, no duplicate dimensions');
+assert(/\.game-topline\s*>\s*#pause\s*\{[^}]*flex:\s*0 0 44px[^}]*height:\s*44px/s.test(source),'stable 44px control slot');
+console.log('PASS scoped CSS keeps the same 44px slot across prediction, fight and result');
+const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
+new Function('require','assert',h+`
+const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
+assert.equal(elem('#pause').hidden,true,'prediction pause is hidden');
+click('#red');click('#confirm');assert.equal(elem('#pause').hidden,false,'fight pause is visible');
+click('#pause');assert.equal(run('paused'),true);click('#pauseResume');assert.equal(run('paused'),false);
+run("walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:1,outcome:'A',now:0});state='result';winner=0;update();syncPersonalResult(1000)");
+assert.equal(elem('#pause').hidden,true,'result pause remains semantically hidden');
+assert.equal(elem('#gameScreen').getAttribute('data-personal-result'),'true');
+assert.equal(elem('#battle').hidden,false,'canonical final field retained');
+run('nextPrediction()');assert.equal(elem('#pause').hidden,true);assert.equal(run('state'),'choose');
+click('#blue');click('#confirm');assert.equal(elem('#pause').hidden,false);
+console.log('PASS pause/resume, result and next-round visibility paths retain their behavior');
+`)(require,assert);

@@ -1,0 +1,708 @@
+{
+  "format": "docchi-external-release-verification-v1",
+  "verifiedDate": "2026-11-06",
+  "sourceSha256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "rootEntrySha256": "756e0cd15ef0b1f00c23457be14ee88494630b6580fc83f39680cb7213362001",
+  "releaseManifestSha256": "d36d2cde6c8e38cd29709453aa175f71d41316b47ce46381de66fefaeff64af8",
+  "command": "node tools/external-release/test.cjs --report-dir verification-report --rebuild-to rebuilt-release",
+  "inputScope": "A reduced local workflow fixture using actual main 029846150bef21e703025f795895b58300b3bb89 tests and tools, the 31 deploy files, and this supplemental overlay. This is not a full 752-path repository preservation check.",
+  "status": "PASS_CURRENT_RELEASE_WITH_HISTORICAL_DIFFERENCES",
+  "externalChecks": {
+    "status": "pass",
+    "coverage": [
+      "Entry and asset hashes",
+      "Root current manifest distinguishes external entry and reconstructed source",
+      "Exact source reassembly",
+      "JavaScript syntax",
+      "All four entry URL targets and ordered defer",
+      "Original script order and host-shell values",
+      "Exact DOM shell insertion",
+      "Image and audio byte integrity",
+      "Audio license hash match",
+      "Actual external runtime boot through battle and delayed image callbacks in the original stub-DOM harness"
+    ]
+  },
+  "canonical": {
+    "total": 127,
+    "passed": 127,
+    "failed": 0,
+    "inputManifest": "tools/external-release/regression-inputs.json",
+    "tests": [
+      {
+        "test": "a1-bounded-text.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "a1-header-wallet.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "ability-integration-cross.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "audio-events.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "auto-speed-controls.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "balance-blink.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "balance.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "battle-insights.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "battle-log-history.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "battle-log-semantic-tones.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "battle-log-slot.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "battle-log.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "bet-selection.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "bet-ui-smoke.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "boot-smoke.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "boot-storage-denied.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "boss-display-values.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "camera-visibility.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "capacity-disclosure-reimplemented.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "carry-side.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "character-loading.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "comparison-air-priority.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "comparison-color-cascade.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "comparison-legibility.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "confirmed-picks.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "countup.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "crowd-counter.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "current-manifest.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "facing-equivalence.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "first-variation.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "game-ui-polish.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "gold-ledger-static.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "gravity-home-build.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-cancellation-drift.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-corner-final.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-crowd-drift.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-description-actual.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-draw-drift.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-linear-ties.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-priority-drift.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "guard-version.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "header-slot.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "healblock.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "home-ambience.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "home-overflow-guard.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "impact-cue.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "inline-image-play.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "integrated-revision.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "legacy-payout.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "lifesteal.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "lobby-theme.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "map-emote-frame.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "melee-combo-replay.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "melee-combo-transition.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "melee-scan-large.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "melee-scan-small.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multi-menu.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multi-personal-outcome.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multi-status-integration.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multi-status-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multi-timer.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multiplayer-bankruptcy.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multiplayer-reconnect.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "multiplayer-speed-sync.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "mvp-accounting.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "mvp-result-copy.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "names-katakana.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "new-ability-boundaries.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "new-ability-preservation.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "no-formation-preview.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "opening-reachability.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "participant-notice-column.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "participant-rail.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "pause-exit.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "prediction-picks-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "public-rooms.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "pull.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "reaction-game-integration.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "reaction-protocol.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "reconstruction-preservation.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "reflect-cascade.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "result-audio.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "result-contrast.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "result-field.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "result-scatter.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "result-scroll-regression.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "review-air.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "review-extra.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "reward-position.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-audio.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-cleanse.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-death.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-immunity.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-mechanics.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-presentation-flags.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-replay.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "root-summon.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "score-preflight-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "score-preflight.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "score-retry-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "score-retry.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "score-storage.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "selection-hierarchy.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "selection-preview-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "selection-preview.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "semantic-tone-cascade.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "solo-fresh-entry.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "speed-investigation.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "summoner-capacity-suite.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "summoner-capacity.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "summoner-intrinsic-replay.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "summoner-movement-suite.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "summoner-movement.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "tavern-host-layout.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "terrain-card-note.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "terrain-combat-revision.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "terrain-new.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "theme-static.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-candidates.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-capacity.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-flight-expiry.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-mechanics.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-replay.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-stress.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "trap-terrain-suite.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "zero-balance.cjs",
+        "status": "pass",
+        "exit": 0
+      },
+      {
+        "test": "zero-result-ui.cjs",
+        "status": "pass",
+        "exit": 0
+      }
+    ]
+  },
+  "preservedHistorical": {
+    "filesRetainedByteIdentical": 94,
+    "nodeTests": 91,
+    "passedAgainstReconstructedSource": 82,
+    "failedAgainstReconstructedSource": 9,
+    "failedTests": [
+      "balance.cjs",
+      "game-ui-polish.cjs",
+      "guard-description-actual.cjs",
+      "multi-timer.cjs",
+      "names-katakana.cjs",
+      "opening-reachability.cjs",
+      "participant-rail.cjs",
+      "prediction-picks-ui.cjs",
+      "selection-hierarchy.cjs"
+    ],
+    "explanation": "These nine unchanged tests target historical expectations and are separately reported as failures, never included in the canonical pass count. Reviewed variants are staged only in a temporary source worktree.",
+    "exactDiff": "tools/external-release/historical-test-differences.patch"
+  },
+  "deterministicRebuild": {
+    "status": "pass",
+    "byteIdenticalDeployFiles": 31
+  },
+  "repositoryInputsUnchanged": true,
+  "browserVerified": false,
+  "browserTestsNotRun": [
+    "integrated-browser.cjs",
+    "map-emote-layout-browser.cjs"
+  ],
+  "limitations": [
+    "The VM harness uses DOM stubs and is not a real browser.",
+    "GRAVITY SDK/multiplayer, CSP/network loading, iOS/device layout and audio playback remain unverified here.",
+    "This report does not prove remote publication or full existing-path preservation."
+  ],
+  "runnerSha256": "911ce84dc1c5de1806c3f774efeb867176e82b4a069f7dde72662bd85b121140",
+  "regressionInputsSha256": "b1e72bb640e058925c1258b3d9657b93384b19fcd8f1cdf22039fe13e4db8110",
+  "firstReadDigestGuard": {
+    "status": "PASS",
+    "check": "An altered repeated input read is rejected and cannot replace the first stored digest."
+  }
+}

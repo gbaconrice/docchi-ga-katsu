@@ -1,0 +1,24 @@
+{
+  "provenance": "Freshly measured from hash-verified 119-test baseline; not lost final candidate",
+  "baseIndexSHA256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+  "blocks": {
+    "wallets": {
+      "start": "const DoubleUpLedger=",
+      "end": "const GrowthGenerator=",
+      "sha256": "9311593f67acaf367ffc662cd1ebdd413cf7208ee8d64b1b64cec961e9587791"
+    },
+    "scoreBridge": {
+      "start": "const ScoreBridge=",
+      "end": "const ReplayTransfer=",
+      "sha256": "5cee3809a78663bb9ec0c60b710d5964f46d2276c02a073bae91e1a852582f6e"
+    }
+  },
+  "unchangedScripts": {
+    "0": "32a4d71cdaaba56132543c4fcd96cd9a8c5653d5c55e16273ccf0cec415ea5ba",
+    "1": "dcd496d3b3bd749c3b6c1bbbc84a2443c73266c9f1310158903bad0b4e0a81dd",
+    "2": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf",
+    "4": "16d2af7bb92ddb2c322f7ce1f847af91a7d5077080a913132d78c78d2bfb1f3f"
+  },
+  "inlineAssetCount": 587,
+  "inlineAssetsSHA256": "ef424d3f18934247d73250478344eddad9c9b63c9a647a9404dd662fa5ad43d7"
+}
