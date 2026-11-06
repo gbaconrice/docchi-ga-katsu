@@ -1,0 +1,38 @@
+{
+  "sourceSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "candidateSHA256": "ce41c3c9c78c77b6a5d2d19f7015b0c2986e5936981731a44b41a1752a515d4b",
+  "rosterPairs": 20,
+  "seeds": [
+    4242,
+    9137
+  ],
+  "mirrored": true,
+  "battlesPerBuild": 80,
+  "candidateRuntimeOverrides": null,
+  "fields": [
+    "icefield",
+    "rockfield"
+  ],
+  "equalBudgets": [
+    6,
+    12
+  ],
+  "winnerChanges": 0,
+  "durationChangedBattles": 28,
+  "remainingHpChangedBattles": 28,
+  "maxAbsoluteDurationDeltaSeconds": 2.4,
+  "rhinoPushEvents": 360,
+  "rhinoLivingPushEvents": 191,
+  "rhinoSlowEvents": 89,
+  "battlesWithLiveEffects": 40,
+  "slowTargetKinds": {
+    "shield": 24,
+    "repair_pylon": 8,
+    "thornback_beast": 29,
+    "willyee_stone_golem": 20,
+    "spore_toad": 8
+  },
+  "invalidBattles": 0,
+  "preexistingDraws": 4,
+  "limitations": "Fixed same-budget VM scenarios, not 300-species balance calibration, browser/mobile FPS, or real-network QA."
+}

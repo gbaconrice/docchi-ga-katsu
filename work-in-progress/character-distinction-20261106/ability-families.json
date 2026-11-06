@@ -1,0 +1,915 @@
+{
+  "sourceSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "selectable": 300,
+  "bosses": 46,
+  "familyCount": 70,
+  "singletonFamilies": 41,
+  "warning": "Qualitative grouping excludes attack geometry, timing and numeric magnitude. A shared family is not evidence of identical behavior.",
+  "families": [
+    {
+      "features": {},
+      "count": 68,
+      "types": [
+        "sword",
+        "spear",
+        "rider",
+        "goblin",
+        "saberspine_tiger",
+        "maw_beast",
+        "longtail_lizard",
+        "common_orc",
+        "shadow_runner",
+        "palmstrike_adept",
+        "boulder_slammer",
+        "poleblade_dancer",
+        "vortex_adept",
+        "tumbling_critter",
+        "curved_blade_raider",
+        "coiltail_halberdier",
+        "redmask_duelist",
+        "finback_clawbeast",
+        "goldmask_pugilist",
+        "azure_bear_brawler",
+        "rosewhirl_critter",
+        "sootclaw_critter",
+        "redblade_strider",
+        "brownblade_scout",
+        "ghostclaw_lynx",
+        "bluewhip_minion",
+        "wavebody_adept",
+        "drumhammer_sister",
+        "bluewhip_hunter",
+        "cyanribbon_weaver",
+        "dawnblade_fencer",
+        "curled_jackal",
+        "aurora_thrustmage",
+        "flameaxe_dweller",
+        "smoke_thrustfighter",
+        "spiral_polecaster",
+        "windslice_fighter",
+        "frostthrust_lancer",
+        "crystalback_rae",
+        "whirlsilk_cat",
+        "redtail_whipper",
+        "ochre_antlerclaw",
+        "ashbone_swordsman",
+        "ooze_slammer",
+        "jawchest_mimic",
+        "crownblade_king",
+        "spearcut_huntress",
+        "bluecoat_blader",
+        "redtunic_swordsman",
+        "scarfhat_swordsman",
+        "wrapped_mummy",
+        "plume_swordknight",
+        "clubnose_forest_troll",
+        "forkbill_strider",
+        "copperbrow_bristle_ram",
+        "willyee_hellhound",
+        "willyee_ogre",
+        "willyee_goblin",
+        "willyee_lizardman",
+        "willyee_scorpion",
+        "willyee_knight",
+        "willyee_rogue",
+        "willyee_monk",
+        "willyee_robed_fighter",
+        "willyee_ribbon_dancer",
+        "willyee_char_47",
+        "willyee_char_51",
+        "willyee_char_43_redgauntlet_brawler"
+      ]
+    },
+    {
+      "features": {
+        "comboWindupTicks": true
+      },
+      "count": 27,
+      "types": [
+        "azure_blade_trio",
+        "scarlet_bladebeast",
+        "crestblade_sentinel",
+        "greenflame_triad",
+        "locust_pulsefighter",
+        "hatblade_hsuku",
+        "ivoryspike_scarab",
+        "cyanarm_mystic",
+        "ribwraith_tripler",
+        "klaxon_windup_blader",
+        "greenlash_hatmaster",
+        "rex_clawtripler",
+        "cyan_tripleblade",
+        "goldstroke_rotator",
+        "dusk_triplewarden",
+        "flipthrust_legend",
+        "baast_handtripler",
+        "redshield_tripler",
+        "ringblade_maehv",
+        "shade_trislasher",
+        "komodo_fiveclaw",
+        "quadcut_swordmaster",
+        "latecut_staffblade",
+        "archclapper_walker",
+        "duskbrown_rat",
+        "floatinghelm_tripler",
+        "willyee_char_03_axe_wayfarer"
+      ]
+    },
+    {
+      "features": {
+        "twoHitTicks": true
+      },
+      "count": 20,
+      "types": [
+        "azure_mane_lion",
+        "feral_fistfighter",
+        "windcloth_duelist",
+        "wheelblade_knight",
+        "spinthrust_grincher",
+        "bluepole_mogwai",
+        "specterclaw_shuffler",
+        "whiteburst_pugilist",
+        "shieldmace_companion",
+        "twinmoon_pontiff",
+        "redpole_warrior",
+        "fenrir_dualguard",
+        "goldring_brawler",
+        "cyanspike_commander",
+        "cyan_multiblade",
+        "goldgreatsword_duelist",
+        "goldtrident_duelist",
+        "metaltooth_duelist",
+        "deathknell_cutpillar",
+        "twinpulse_mage"
+      ]
+    },
+    {
+      "features": {
+        "burstWindupTicks": true
+      },
+      "count": 13,
+      "types": [
+        "sweep_acolyte",
+        "tendril_revenant",
+        "shellpulse_beast",
+        "gilded_hopper",
+        "thornspin_ooze",
+        "inkorb_caster",
+        "whitehair_spinblade",
+        "antlerwhirl_myriad",
+        "golden_whirlshaper",
+        "greenneck_burster",
+        "redcore_burstshrine",
+        "redbud_blightbeast",
+        "willyee_char_52_spiked_hammerer"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true
+      },
+      "count": 12,
+      "types": [
+        "archer",
+        "crystal_tailbeast",
+        "emberstring_archer",
+        "tigermask_archer",
+        "willyee_skel_archer",
+        "willyee_alchemist",
+        "willyee_char_02",
+        "willyee_char_08",
+        "willyee_char_42",
+        "willyee_char_54",
+        "willyee_char_10_lute_bard",
+        "willyee_char_34_goldring_caster"
+      ]
+    },
+    {
+      "features": {
+        "flying": true
+      },
+      "count": 10,
+      "types": [
+        "drake",
+        "fireclaw_hawk",
+        "silver_wingbird",
+        "dusk_winglet",
+        "goldwing_skirmisher",
+        "bloodmoon_crescent",
+        "voltwing_scarab",
+        "fangeye_flier",
+        "clawring_bat",
+        "duskflutter_bat"
+      ]
+    },
+    {
+      "features": {
+        "groupHealAmount": true
+      },
+      "count": 10,
+      "types": [
+        "crimson_mender",
+        "ashstaff_healer",
+        "disc_crown_mender",
+        "bubble_shadow_mender",
+        "gemswirl_mender",
+        "goldring_shadow_mender",
+        "golden_tuft_mender",
+        "bobble_mender",
+        "bellgill_mender",
+        "puffcap_mender"
+      ]
+    },
+    {
+      "features": {
+        "burstWindupTicks": true,
+        "armor": true
+      },
+      "count": 9,
+      "types": [
+        "basalt_titan",
+        "bluehorn_invoker",
+        "flamering_magus",
+        "spikeburst_grinder",
+        "silverarm_vanguard",
+        "fiery_coil_inceptor",
+        "stonepulse_kolossus",
+        "cyanrise_silithar",
+        "flameburst_mythron"
+      ]
+    },
+    {
+      "features": {
+        "singleWardRadius": true
+      },
+      "count": 8,
+      "types": [
+        "choir_friar",
+        "ward_bastion",
+        "wandering_warder",
+        "triangle_warder",
+        "snowdisk_warder",
+        "rune_cube_warder",
+        "dreamflash_oracle",
+        "bonecolumn_warder"
+      ]
+    },
+    {
+      "features": {
+        "coneRadius": true
+      },
+      "count": 8,
+      "types": [
+        "breath_imp",
+        "spinning_tailbeast",
+        "crescent_blade_dancer",
+        "desert_flarebeast",
+        "redcrescent_sentinel",
+        "abyssal_palmweaver",
+        "branchsweep_treant",
+        "willyee_char_22_crescent_reaper"
+      ]
+    },
+    {
+      "features": {
+        "highKind": "breath",
+        "armor": true
+      },
+      "count": 8,
+      "types": [
+        "frostbreath_lizard",
+        "thunderhorn_beast",
+        "roarfang_beast",
+        "bluefist_colossus",
+        "cinder_tailbeast",
+        "bonefan_reaper",
+        "iceclaw_legend",
+        "willyee_frost_dragon"
+      ]
+    },
+    {
+      "features": {
+        "twoHitTicks": true,
+        "armor": true
+      },
+      "count": 8,
+      "types": [
+        "triad_chimera",
+        "razorclaw_reaver",
+        "moonclaw_werewolf",
+        "veteran_flamewing",
+        "stormhorn_tripler",
+        "darkfan_clawlord",
+        "plated_dualdragon",
+        "redhorn_dualbeast"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "trackedProjectile": true
+      },
+      "count": 7,
+      "types": [
+        "gilded_shooter",
+        "cinderbow_archer",
+        "antler_archer",
+        "light_bowman",
+        "silverflare_archer",
+        "golden_bowling",
+        "brass_flareslinger"
+      ]
+    },
+    {
+      "features": {
+        "armor": true
+      },
+      "count": 5,
+      "types": [
+        "shield",
+        "frosthorn_rhino",
+        "crownshield_guard",
+        "spectral_scale_dragon",
+        "willyee_char_48_horned_heavy"
+      ]
+    },
+    {
+      "features": {
+        "comboWindupTicks": true,
+        "armor": true
+      },
+      "count": 5,
+      "types": [
+        "gauntlet_combo_guard",
+        "carapace_slashbeast",
+        "ringneck_prowler",
+        "kilnback_pincerbeast",
+        "skullflare_triad"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "comboWindupTicks": true
+      },
+      "count": 5,
+      "types": [
+        "crystal_glint_wisp",
+        "sunhalo_polyhedron",
+        "daemonflash_tripler",
+        "crimson_levitator",
+        "duskgargoyle_clawer"
+      ]
+    },
+    {
+      "features": {
+        "pillarOffset": true
+      },
+      "count": 5,
+      "types": [
+        "groundprism_windmiller",
+        "sunbreak_pillar_guardian",
+        "twinflare_fox",
+        "spectralhand_wizard",
+        "ringfall_chakkram"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "groupHealAmount": true
+      },
+      "count": 4,
+      "types": [
+        "halo_healer",
+        "sol_harp_mender",
+        "suspended_prism_mender",
+        "hooded_ghost"
+      ]
+    },
+    {
+      "features": {
+        "aegisRadius": true
+      },
+      "count": 3,
+      "types": [
+        "aegis_warden",
+        "domeback_colossus",
+        "ringhold_guardian"
+      ]
+    },
+    {
+      "features": {
+        "selfRepairCharges": true,
+        "reflectionRatio": true
+      },
+      "count": 3,
+      "types": [
+        "repair_pylon",
+        "embergrille_monument",
+        "eggshell_repairpod"
+      ]
+    },
+    {
+      "features": {
+        "pillarOffset": true,
+        "armor": true
+      },
+      "count": 3,
+      "types": [
+        "pillar_hammerer",
+        "emberfist_pillarer",
+        "colossal_hornfist"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "burstWindupTicks": true
+      },
+      "count": 3,
+      "types": [
+        "oni_wavelet",
+        "goldring_core",
+        "origami_wingburst"
+      ]
+    },
+    {
+      "features": {
+        "touchOffset": true
+      },
+      "count": 3,
+      "types": [
+        "vex_touchbeast",
+        "bloodsurge_pillarist",
+        "orbslam_zyx"
+      ]
+    },
+    {
+      "features": {
+        "armor": true,
+        "mass": true
+      },
+      "count": 2,
+      "types": [
+        "golem",
+        "willyee_stone_golem"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "flying": true
+      },
+      "count": 2,
+      "types": [
+        "voltaic_beetle",
+        "froststing_hornet"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "flying": true,
+        "trackedProjectile": true
+      },
+      "count": 2,
+      "types": [
+        "spark_bird",
+        "ribbed_fanclam"
+      ]
+    },
+    {
+      "features": {
+        "highKind": "breath"
+      },
+      "count": 2,
+      "types": [
+        "moonplunge_lancer",
+        "wavepole_adept"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "twoHitTicks": true
+      },
+      "count": 2,
+      "types": [
+        "pteryx_tailwing",
+        "icy_dualslasher"
+      ]
+    },
+    {
+      "features": {
+        "lifestealRatio": true
+      },
+      "count": 2,
+      "types": [
+        "darkclaw_harbinger",
+        "willyee_ghoul"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "splash": true
+      },
+      "count": 1,
+      "types": [
+        "cannon"
+      ]
+    },
+    {
+      "features": {
+        "heal": true
+      },
+      "count": 1,
+      "types": [
+        "healer"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "summonCharges": true
+      },
+      "count": 1,
+      "types": [
+        "wraith"
+      ]
+    },
+    {
+      "features": {
+        "chargeBonus": true,
+        "knockback": true
+      },
+      "count": 1,
+      "types": [
+        "boar"
+      ]
+    },
+    {
+      "features": {
+        "explosionDamage": true
+      },
+      "count": 1,
+      "types": [
+        "bombbug"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "slowDuration": true
+      },
+      "count": 1,
+      "types": [
+        "frostmage"
+      ]
+    },
+    {
+      "features": {
+        "chainCount": true
+      },
+      "count": 1,
+      "types": [
+        "stormmage"
+      ]
+    },
+    {
+      "features": {
+        "burrowWarning": true
+      },
+      "count": 1,
+      "types": [
+        "burrower"
+      ]
+    },
+    {
+      "features": {
+        "splitCount": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "slime"
+      ]
+    },
+    {
+      "features": {
+        "cadenceDelay": true
+      },
+      "count": 1,
+      "types": [
+        "screech_cricket"
+      ]
+    },
+    {
+      "features": {
+        "parryReduction": true
+      },
+      "count": 1,
+      "types": [
+        "reaper_mantis"
+      ]
+    },
+    {
+      "features": {
+        "poisonDps": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "spore_toad"
+      ]
+    },
+    {
+      "features": {
+        "wardRadius": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "rootwarden_treant"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "targetPriority": "air",
+        "airDamageMultiplier": true
+      },
+      "count": 1,
+      "types": [
+        "sky_harpooner"
+      ]
+    },
+    {
+      "features": {
+        "targetPriority": "child"
+      },
+      "count": 1,
+      "types": [
+        "bounty_hound"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "siege_crab"
+      ]
+    },
+    {
+      "features": {
+        "rootOnHitDuration": true
+      },
+      "count": 1,
+      "types": [
+        "onyx_scorpion"
+      ]
+    },
+    {
+      "features": {
+        "cleanseRadius": true
+      },
+      "count": 1,
+      "types": [
+        "rune_exorcist"
+      ]
+    },
+    {
+      "features": {
+        "retreatDuration": true
+      },
+      "count": 1,
+      "types": [
+        "knife_skirmisher"
+      ]
+    },
+    {
+      "features": {
+        "targetPriority": "heavy",
+        "heavyDamageMultiplier": true
+      },
+      "count": 1,
+      "types": [
+        "stone_mason"
+      ]
+    },
+    {
+      "features": {
+        "guardRadius": true
+      },
+      "count": 1,
+      "types": [
+        "toll_squire"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "fanCount": true
+      },
+      "count": 1,
+      "types": [
+        "spirit_fan_wolf"
+      ]
+    },
+    {
+      "features": {
+        "contactCounterDamage": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "thornback_beast"
+      ]
+    },
+    {
+      "features": {
+        "bookBatchCount": true
+      },
+      "count": 1,
+      "types": [
+        "bone_crown_lich"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "orbFollowTicks": true,
+        "priorityTargetKinds": true
+      },
+      "count": 1,
+      "types": [
+        "orb_hunter"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "movePulseRadius": true
+      },
+      "count": 1,
+      "types": [
+        "glimmer_sprite"
+      ]
+    },
+    {
+      "features": {
+        "followupMultiplier": true
+      },
+      "count": 1,
+      "types": [
+        "followup_cub"
+      ]
+    },
+    {
+      "features": {
+        "highKind": "cleave",
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "cleaver_brute"
+      ]
+    },
+    {
+      "features": {
+        "repulsionDistance": true
+      },
+      "count": 1,
+      "types": [
+        "repulsion_eye"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "twoHitTicks": true,
+        "targetPriority": "air"
+      },
+      "count": 1,
+      "types": [
+        "wingblade_duelist"
+      ]
+    },
+    {
+      "features": {
+        "highKind": "shock",
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "shockplate_drake"
+      ]
+    },
+    {
+      "features": {
+        "projectile": true,
+        "trackedProjectile": true,
+        "chargedShotWindupTicks": true
+      },
+      "count": 1,
+      "types": [
+        "lumen_charger"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "highKind": "breath",
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "emberwing_drake"
+      ]
+    },
+    {
+      "features": {
+        "touchOffset": true,
+        "pullDistance": true
+      },
+      "count": 1,
+      "types": [
+        "tetherlash_adept"
+      ]
+    },
+    {
+      "features": {
+        "twoHitTicks": true,
+        "healingBlockFactor": true
+      },
+      "count": 1,
+      "types": [
+        "bubbleclaw_plaguer"
+      ]
+    },
+    {
+      "features": {
+        "deathExplosionDamage": true,
+        "burstWindupTicks": true
+      },
+      "count": 1,
+      "types": [
+        "shellburst_arcade"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "burstWindupTicks": true,
+        "armor": true
+      },
+      "count": 1,
+      "types": [
+        "accretion_burstcore"
+      ]
+    },
+    {
+      "features": {
+        "reviveRadius": true,
+        "groupHealAmount": true
+      },
+      "count": 1,
+      "types": [
+        "candle_archdeacon"
+      ]
+    },
+    {
+      "features": {
+        "mushroomTrapCharges": true
+      },
+      "count": 1,
+      "types": [
+        "punchcap_mushroom"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "singleWardRadius": true
+      },
+      "count": 1,
+      "types": [
+        "opalfin_sky_ray"
+      ]
+    },
+    {
+      "features": {
+        "flying": true,
+        "exposureMultiplier": true
+      },
+      "count": 1,
+      "types": [
+        "glasswing_sting_moth"
+      ]
+    }
+  ]
+}

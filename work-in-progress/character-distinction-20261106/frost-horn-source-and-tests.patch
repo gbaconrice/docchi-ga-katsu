@@ -1,0 +1,153 @@
+--- a/index.html
++++ b/index.html
+@@ -4329,3 +4329,3 @@
+ // Build-generated semantic content revision; no runtime hashing or network.
+-const CONTENT_REVISION="8d081dd7343c174142cec4a65e674260230b3723f735905aba6e67a0211e1597";;
++const CONTENT_REVISION="e4526346e63da6d0489ebf0ec289a3ceed5a346e52a5bb712aa5045e5e7a7fde";;
+ const validContentRevision=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
+@@ -6101,3 +6101,3 @@
+ (()=>{
+- const affectedIds=new Set(['candle_archdeacon','glasswing_sting_moth','shellburst_arcade','wraith','rune_exorcist']);
++ const affectedIds=new Set(['candle_archdeacon','glasswing_sting_moth','shellburst_arcade','wraith','rune_exorcist','frosthorn_rhino']);
+  const bossIds=new Set(BOSS_KINDS);
+@@ -6119,2 +6119,4 @@
+ TYPES.tetherlash_adept.pullDistance=12;
++// Frost horn: a ground melee hit briefly slows movement; existing slow immunity/cleanse applies.
++Object.assign(TYPES.frosthorn_rhino,{meleeSlowFactor:.6,meleeSlowDuration:1.2,meleeSlowImmunity:2.4,repulsionDistance:18,repulsionRecoveryTicks:30});
+ // NEW reconstruction from retained ability evidence; baseline boss values unchanged.
+@@ -6226,2 +6228,4 @@
+ function update(){}
++
++for(const k of keys){const t=TYPES[k];if(t.meleeSlowDuration!==undefined&&(!(t.meleeSlowDuration>0&&t.meleeSlowDuration<=2)||!(t.meleeSlowFactor>0&&t.meleeSlowFactor<1)||!(t.meleeSlowImmunity>=t.meleeSlowDuration&&t.meleeSlowImmunity<=10)||t.dmg<=0||t.projectile||t.collisionLayer!=='ground'||t.attackTargetMask.join(',')!=='ground'||t.rootOnHitDuration))throw Error('invalid-melee-slow:'+k);}
+ 
+@@ -6604,2 +6608,3 @@
+   if(amount>0&&remainingHpBeforeHit>0&&delivery==='melee'&&targetLayers.get(u)==='ground'&&TYPES[sourceKind]?.rootOnHitDuration)slowIntents.push({target:u,sourceToken,factor:0,duration:TYPES[sourceKind].rootOnHitDuration,immunity:TYPES[sourceKind].rootOnHitImmunity});
++  if(amount>0&&remainingHpBeforeHit>0&&delivery==='melee'&&targetLayers.get(u)==='ground'&&TYPES[sourceKind]?.meleeSlowDuration)slowIntents.push({target:u,sourceToken,factor:TYPES[sourceKind].meleeSlowFactor,duration:TYPES[sourceKind].meleeSlowDuration,immunity:TYPES[sourceKind].meleeSlowImmunity});
+   if(amount>0&&remainingHpBeforeHit>0&&delivery==='melee'&&TYPES[sourceKind]?.exposureTicks&&(u.exposureImmuneUntilTick??0)<=contactTick){const attacker=alive.find(v=>tokenOf(v)===sourceToken);if(attacker&&attacker.side!==u.side){const t=TYPES[sourceKind],old=exposureIntents.get(u),candidate={source:attacker,multiplier:t.exposureMultiplier,ticks:t.exposureTicks,lockTicks:t.exposureLockTicks};if(!old||candidate.multiplier>old.multiplier||candidate.multiplier===old.multiplier&&(candidate.ticks>old.ticks||candidate.ticks===old.ticks&&stableOrder(attacker,old.source)<0))exposureIntents.set(u,candidate);}}
+@@ -8520,2 +8525,3 @@
+     if (type.rootOnHitDuration) addTrait(`地上を${comparisonSeconds(type.rootOnHitDuration)}足止め（鈍足解除可・耐性${comparisonSeconds(type.rootOnHitImmunity)}）`, 'control');
++    if (type.meleeSlowDuration) addTrait(`氷角：地上を速度${comparisonNumber(type.meleeSlowFactor)}倍・${comparisonSeconds(type.meleeSlowDuration)}（解除可・耐性${comparisonSeconds(type.meleeSlowImmunity)}）`, 'control');
+     if (type.mushroomTrapCharges) addTrait('開始時に地上罠最大1個（準備0.75秒・10秒で消滅・12ダメージ）', 'control');
+--- a/INTEGRATION_CANDIDATE_MANIFEST.json
++++ b/INTEGRATION_CANDIDATE_MANIFEST.json
+@@ -4,7 +4,7 @@
+   "publishedIndexSHA256": "2a7a05a56dee92858bcb7ffa69e06f6f5dd05528d79ae5c7dde32678982df929",
+-  "candidateIndexSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+-  "contentRevision": "8d081dd7343c174142cec4a65e674260230b3723f735905aba6e67a0211e1597",
++  "candidateIndexSHA256": "ce41c3c9c78c77b6a5d2d19f7015b0c2986e5936981731a44b41a1752a515d4b",
++  "contentRevision": "e4526346e63da6d0489ebf0ec289a3ceed5a346e52a5bb712aa5045e5e7a7fde",
+   "revisionMethod": "SHA256(docchi-integrated-candidate-v1\\0 + LF HTML with CONTENT_REVISION normalized to 64 zeroes)",
+   "compatibility": "Generation, boss scaling and optional log metadata differ from the prior UI base. Every room participant must use this exact final build.",
+-  "validation": "See REVIEW_UI_COMPLETE.md, VALIDATION_UI_COMPLETE.json and reports/ui-complete. This is not a deployment record.",
++  "validation": "128 Node regression scripts passed; final focused frost-horn suite strengthened to25 cases and independently rerun. See ../REPORT.md and ../final-regressions. Unpublished; browser/mobile/real-network interrupted reconnect QA not performed.",
+   "sources": {
+@@ -16,4 +16,10 @@
+     "largeBalanceVariant": "Claude 46 bosses only; independent 36-unit candidate not applied",
+-    "newAbilityBranchIncluded": false,
+-    "publication": "unpublished local combined review only"
++    "publication": "New reconstruction awaiting final verification; not the lost historical artifact.",
++    "newAbilityReimplementation": true,
++    "recoveredBaselineIndexSHA256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
++    "recoveredEvidenceCommit": "37764476ee0763770298cb3dcdfaf71c49017e4a",
++    "historicalLostFinalSHA256": "210708a26ca86f70af4909c1fffe9dff82c740909e74d2b568454338a8e3c3fd",
++    "historicalExactRecovery": false,
++    "reviewCorrection": "Preserve spent normal-pillar corner fallback state through revival.",
++    "frostHornBaseSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0"
+   }
+--- a/tests/names-katakana.cjs
++++ b/tests/names-katakana.cjs
+@@ -1,2 +1,2 @@
+-const fs=require('fs'),assert=require('assert');let h=fs.readFileSync('tests/bet-ui-smoke.cjs','utf8').split("for(const id of ['#red'")[0];function extract(){let body=h;let result;new Function('require','collect',body+';collect(vm.runInContext("JSON.stringify(CONTENT_ROSTER.selectable.map(id=>({id,...TYPES[id]})))",context))')(require,s=>result=JSON.parse(s));return result}const before=JSON.parse(fs.readFileSync('tests/fixtures/names-baseline.json','utf8')),after=extract();assert.equal(after.length,300);assert.deepStrictEqual(after.map(x=>x.id),before.map(x=>x.id));assert.equal(new Set(after.map(x=>x.name)).size,300);for(let i=0;i<after.length;i++){assert(/^[ァ-ヺー・]+$/.test(after[i].name),after[i].id);let x={...after[i]},y={...before[i]};delete x.name;delete y.name;if(["repair_pylon","embergrille_monument","eggshell_repairpod"].includes(x.id))delete x.reflectionRatio;if(["willyee_ghoul","darkclaw_harbinger"].includes(x.id))delete x.lifestealRatio;if(x.id==="bone_crown_lich"){delete x.bookSpawnKind;delete x.bookSpawnLifetimeTicks}if(x.id==="bubbleclaw_plaguer"){delete x.healingBlockFactor;delete x.healingBlockTicks}if(x.id==="onyx_scorpion"){delete x.rootOnHitDuration;delete x.rootOnHitImmunity}if(x.id==="tetherlash_adept")delete x.pullDistance;if(x.id==="punchcap_mushroom"){for(const k of ["mushroomTrapCharges","mushroomTrapDurationTicks","mushroomTrapArmingTicks","mushroomTrapRadius","mushroomTrapDamage"])delete x[k]}if(x.id==='wraith'){assert.equal(y.summonCharges,3);assert.equal(y.summonCooldown,1.5);Object.assign(y,{summonCharges:4,summonCooldown:1})}if(x.id==='candle_archdeacon'){assert.equal(y.groupHealAmount,18);assert.equal(y.groupHealCap,2);Object.assign(y,{groupHealAmount:12,groupHealCap:1,reviveRadius:90,reviveWindupTicks:90,reviveHpRatio:.25,reviveHpCap:60})}if(x.id==='shellburst_arcade')Object.assign(y,{deathExplosionDamage:30,deathExplosionRadius:36,deathExplosionTargetCap:4});if(x.id==='glasswing_sting_moth')Object.assign(y,{exposureMultiplier:1.2,exposureTicks:120,exposureLockTicks:210});if(x.boss===true){/* Boss tuning (BOSS_TUNING): hp x5, ranged damage taken <=0.5, damage x3. */assert.equal(x.hp,Math.round(y.hp*5),x.id);assert.equal(x.armor,Math.min(y.armor||1,.5),x.id);assert.equal(x.bossDamageScale,3,x.id);for(const k of ["boss","bossDamageScale","hp","armor"]){delete x[k];delete y[k]}}assert.deepStrictEqual(x,y,after[i].id)}console.log('PASS 300 unique katakana names, unchanged IDs and existing combat properties except deliberate reflection, lifesteal, summoner, heal-block, root, pull, trap and newly reconstructed revival, death burst, exposure and wraith changes');
++const fs=require('fs'),assert=require('assert');let h=fs.readFileSync('tests/bet-ui-smoke.cjs','utf8').split("for(const id of ['#red'")[0];function extract(){let body=h;let result;new Function('require','collect',body+';collect(vm.runInContext("JSON.stringify(CONTENT_ROSTER.selectable.map(id=>({id,...TYPES[id]})))",context))')(require,s=>result=JSON.parse(s));return result}const before=JSON.parse(fs.readFileSync('tests/fixtures/names-baseline.json','utf8')),after=extract();assert.equal(after.length,300);assert.deepStrictEqual(after.map(x=>x.id),before.map(x=>x.id));assert.equal(new Set(after.map(x=>x.name)).size,300);for(let i=0;i<after.length;i++){assert(/^[ァ-ヺー・]+$/.test(after[i].name),after[i].id);let x={...after[i]},y={...before[i]};delete x.name;delete y.name;if(["repair_pylon","embergrille_monument","eggshell_repairpod"].includes(x.id))delete x.reflectionRatio;if(["willyee_ghoul","darkclaw_harbinger"].includes(x.id))delete x.lifestealRatio;if(x.id==="bone_crown_lich"){delete x.bookSpawnKind;delete x.bookSpawnLifetimeTicks}if(x.id==="bubbleclaw_plaguer"){delete x.healingBlockFactor;delete x.healingBlockTicks}if(x.id==="onyx_scorpion"){delete x.rootOnHitDuration;delete x.rootOnHitImmunity}if(x.id==="tetherlash_adept")delete x.pullDistance;if(x.id==="punchcap_mushroom"){for(const k of ["mushroomTrapCharges","mushroomTrapDurationTicks","mushroomTrapArmingTicks","mushroomTrapRadius","mushroomTrapDamage"])delete x[k]}if(x.id==='wraith'){assert.equal(y.summonCharges,3);assert.equal(y.summonCooldown,1.5);Object.assign(y,{summonCharges:4,summonCooldown:1})}if(x.id==='candle_archdeacon'){assert.equal(y.groupHealAmount,18);assert.equal(y.groupHealCap,2);Object.assign(y,{groupHealAmount:12,groupHealCap:1,reviveRadius:90,reviveWindupTicks:90,reviveHpRatio:.25,reviveHpCap:60})}if(x.id==='shellburst_arcade')Object.assign(y,{deathExplosionDamage:30,deathExplosionRadius:36,deathExplosionTargetCap:4});if(x.id==='glasswing_sting_moth')Object.assign(y,{exposureMultiplier:1.2,exposureTicks:120,exposureLockTicks:210});if(x.id==='frosthorn_rhino')Object.assign(y,{meleeSlowFactor:.6,meleeSlowDuration:1.2,meleeSlowImmunity:2.4,repulsionDistance:18,repulsionRecoveryTicks:30});if(x.boss===true){/* Boss tuning (BOSS_TUNING): hp x5, ranged damage taken <=0.5, damage x3. */assert.equal(x.hp,Math.round(y.hp*5),x.id);assert.equal(x.armor,Math.min(y.armor||1,.5),x.id);assert.equal(x.bossDamageScale,3,x.id);for(const k of ["boss","bossDamageScale","hp","armor"]){delete x[k];delete y[k]}}assert.deepStrictEqual(x,y,after[i].id)}console.log('PASS 300 unique katakana names, unchanged IDs and existing combat properties except deliberate reflection, lifesteal, summoner, heal-block, root, pull, trap and newly reconstructed revival, death burst, exposure and wraith changes');
+ 
+--- a/tests/new-ability-preservation.cjs
++++ b/tests/new-ability-preservation.cjs
+@@ -13,2 +13,3 @@
+ Object.assign(expected.types.glasswing_sting_moth,{exposureMultiplier:1.2,exposureTicks:120,exposureLockTicks:210});
++Object.assign(expected.types.frosthorn_rhino,{meleeSlowFactor:.6,meleeSlowDuration:1.2,meleeSlowImmunity:2.4,repulsionDistance:18,repulsionRecoveryTicks:30});
+ expected.cost.wraith=9;
+@@ -17,3 +18,3 @@
+ assert.deepStrictEqual(actual.bossKinds,expected.bossKinds,'boss membership unchanged');
+-for(const k of actual.bossKinds)assert.deepStrictEqual(actual.types[k],baseline.types[k],k+' boss values unchanged');
++for(const k of actual.bossKinds)assert.deepStrictEqual(actual.types[k],expected.types[k],k+' boss values unchanged except explicit frost-horn status fields');
+ const html=fs.readFileSync(game,'utf8'),marker='const growthGenerator=TypedGrowthGenerator.createTypedGenerator(',tail=html.slice(html.indexOf(marker)+marker.length);
+@@ -25,2 +26,2 @@
+ assert.deepStrictEqual(catalog,expected.growthCatalog,'frozen growth catalog changes only wraith cost and estimateCost');
+-console.log('PASS all 301 type records, 46 boss records, all prices and frozen growth catalog preserved except explicit four-ability deltas and wraith cost 9');
++console.log('PASS all 301 type records, 46 boss records, all prices and frozen growth catalog preserved except explicit four-ability deltas, five frost-horn fields and wraith cost 9');
+--- a/tests/capacity-disclosure-reimplemented.cjs
++++ b/tests/capacity-disclosure-reimplemented.cjs
+@@ -10,3 +10,3 @@
+ const generate=args=>run(`growthGenerator.generate(${JSON.stringify(args)})`),deployment=ks=>run(`growthGenerator.deploymentCount(${JSON.stringify(ks)})`),fit=ks=>run(`growthGenerator.fit(${JSON.stringify(ks)})!==null`);
+-const changed=['candle_archdeacon','glasswing_sting_moth','shellburst_arcade','wraith','rune_exorcist'],bosses=run('[...BOSS_KINDS]');
++const changed=['candle_archdeacon','glasswing_sting_moth','shellburst_arcade','wraith','rune_exorcist','frosthorn_rhino'],bosses=run('[...BOSS_KINDS]');
+ const metadata=pair=>run(`compositionEstimator.metadataFor(${JSON.stringify(pair)})`),compose=ks=>Object.fromEntries([...new Set(ks)].map(k=>[k,ks.filter(x=>x===k).length]));
+@@ -30,3 +30,12 @@
+  assert(/^[a-f0-9]{64}$/.test(fixture.provenance.preCapacitySHA256));
+- for(const [expression,expected] of Object.entries(fixture.hashes))assert.equal(sha(run(expression)),expected,expression);
++ // Preserve historical fixture hashes after removing only the five validated new fields
++ // and the one explicitly authorized combat hook. All other mechanics remain byte checked.
++ assert.deepEqual(run('({meleeSlowFactor:TYPES.frosthorn_rhino.meleeSlowFactor,meleeSlowDuration:TYPES.frosthorn_rhino.meleeSlowDuration,meleeSlowImmunity:TYPES.frosthorn_rhino.meleeSlowImmunity,repulsionDistance:TYPES.frosthorn_rhino.repulsionDistance,repulsionRecoveryTicks:TYPES.frosthorn_rhino.repulsionRecoveryTicks})'),{meleeSlowFactor:.6,meleeSlowDuration:1.2,meleeSlowImmunity:2.4,repulsionDistance:18,repulsionRecoveryTicks:30});
++ const iceHook="  if(amount>0&&remainingHpBeforeHit>0&&delivery==='melee'&&targetLayers.get(u)==='ground'&&TYPES[sourceKind]?.meleeSlowDuration)slowIntents.push({target:u,sourceToken,factor:TYPES[sourceKind].meleeSlowFactor,duration:TYPES[sourceKind].meleeSlowDuration,immunity:TYPES[sourceKind].meleeSlowImmunity});";
++ for(const [expression,expected] of Object.entries(fixture.hashes)){
++  let actual=run(expression);
++  if(expression==='JSON.stringify(TYPES)'){const types=JSON.parse(actual);for(const k of ['meleeSlowFactor','meleeSlowDuration','meleeSlowImmunity','repulsionDistance','repulsionRecoveryTicks'])delete types.frosthorn_rhino[k];actual=JSON.stringify(types);}
++  if(expression==='combatStep.toString()'){assert.equal(actual.split(iceHook).length,2,'exactly one ice-horn hook');actual=actual.replace('\n'+iceHook,'');}
++  assert.equal(sha(actual),expected,expression);
++ }
+  assert.equal(sha(fs.readFileSync(game,'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'')),fixture.htmlOutsideScriptsSHA256,'HTML/CSS outside scripts changed');
+@@ -44,3 +53,3 @@
+ });
+-test('five changed abilities, all 46 bosses, mixed geometry/tail preserve provenance',()=>{
++test('six changed abilities, all 46 bosses, mixed geometry/tail preserve provenance',()=>{
+  assert.equal(bosses.length,46);
+--- /dev/null
++++ b/tests/frost-rhino-identity.cjs
+@@ -0,0 +1,40 @@
++// New, focused VM checks for an unpublished character-identity candidate. Not browser QA.
++const fs=require('fs'),path=require('path'),assert=require('assert');
++const game=path.resolve(process.argv[2]||path.join(__dirname,'../index.html'));
++const harness=fs.readFileSync(path.join(__dirname,'reflect-cascade.cjs'),'utf8').split("for(const id of ['#red'")[0].replace("fs.readFileSync('index.html','utf8')",`fs.readFileSync(${JSON.stringify(game)},'utf8')`);
++const {context,vm}=new Function('require',harness+'\nreturn {context,vm};')(require);
++Object.assign(context,{TextEncoder,TextDecoder,btoa,atob});
++const run=s=>JSON.parse(JSON.stringify(vm.runInContext(s,context,{timeout:60000}))??'null');
++run(`globalThis.identityOriginal=JSON.parse(JSON.stringify(TYPES));
++globalThis.body=(token,k,side,x=200,y=220,hp=TYPES[k].hp,extra={})=>({id:token,token,k,side,x,y,hp,cd:999,priority:token.charCodeAt(0)/100,dead:hp<=0,originForward:side?-1:1,...extra});
++globalThis.restore=()=>{for(const k of Object.keys(TYPES)){for(const p of Object.keys(TYPES[k]))delete TYPES[k][p];Object.assign(TYPES[k],identityOriginal[k]);}};
++globalThis.reset=roster=>{restore();for(const t of Object.values(TYPES))t.speed=0;units=roster;shots=[];pendingSummons=[];combatEvents=[];elapsed=0;state='fight';winner=null;choice=null;battleEnvironment=null;initialUnits=JSON.parse(JSON.stringify(units));BattleInsights.start(initialUnits);resetBattleLogObservation();};
++globalThis.setup=()=>{reset([body('rhino','frosthorn_rhino',0,200,220,1350,{cd:0}),body('victim','shield',1,230,220,10000),body('reserve','sword',1,420)]);TYPES.shield.hp=10000;};
++globalThis.tick=()=>{combatEvents=[];resetBattleLogObservation();combatStep(1/60);return {events:combatEvents,observed:battleLogObserved,units,state,tick:Math.round(elapsed*60)};};`);
++let passed=0,failed=0;const test=(name,fn)=>{try{fn();passed++;console.log('PASS',name);}catch(e){failed++;console.error('FAIL',name,e.stack);}};const near=(a,b)=>assert(Math.abs(a-b)<1e-7,`${a} != ${b}`);
++test('effective boss hit remains 102; slow is 0.6 movement for 1.2s, with 2.4s post-effect immunity',()=>{const r=run(`(()=>{setup();return tick();})()`),s=r.events.find(e=>e.type==='slow_applied');assert(s);assert.equal(s.sourceToken,'rhino');assert.equal(s.targetToken,'victim');assert.equal(s.factor,.6);near(r.units[1].slowUntil,1/60+1.2);near(r.units[1].slowImmuneUntil,1/60+3.6);near(r.events.find(e=>e.type==='resolved_hit').amount,102);});
++test('same victim cannot be refreshed or stacked by repeated hits or multiple rhinos',()=>{const r=run(`(()=>{setup();tick();const until=units[1].slowUntil;units[1].x=230;units[0].cd=0;units.push(body('rhino2','frosthorn_rhino',0,200,230,1350,{cd:0}));const out=tick();return {out,until};})()`);assert(r.out.events.some(e=>e.type==='resolved_hit'&&e.targetToken==='victim'&&e.sourceToken==='rhino'));assert(!r.out.events.some(e=>e.type==='slow_applied'));near(r.out.units[1].slowUntil,r.until);assert.equal(r.out.units[1].slowFactor,.6);});
++test('effect expires, immunity remains, then another hit can apply after lockout',()=>{const r=run(`(()=>{setup();tick();units[0].cd=999;for(let i=0;i<73;i++)tick();const expired=units[1].slowUntil<=elapsed;units[0].cd=0;units[1].x=230;const during=tick();units[0].cd=999;for(let i=0;i<145;i++)tick();units[0].cd=0;units[1].x=230;return {expired,during,after:tick()};})()`);assert(r.expired);assert(r.during.events.some(e=>e.type==='resolved_hit'&&e.sourceToken==='rhino'));assert(r.after.events.some(e=>e.type==='resolved_hit'&&e.sourceToken==='rhino'));assert(!r.during.events.some(e=>e.type==='slow_applied'));assert(r.after.events.some(e=>e.type==='slow_applied'));});
++test('rune cleanses next tick, without removing immunity or allowing immediate reappliance',()=>{const r=run(`(()=>{setup();units.push(body('rune','rune_exorcist',1,270,220,1000,{cleanseCd:0}));const first=tick(),second=tick();units[1].x=230;units[0].cd=0;return {first,second,third:tick()};})()`);assert(r.first.events.some(e=>e.type==='slow_applied'));assert(!r.first.events.some(e=>e.type==='slow_cleansed'));assert(r.second.events.some(e=>e.type==='slow_cleansed'));assert.equal(r.second.units[1].slowFactor,1);assert(r.third.events.some(e=>e.type==='resolved_hit'&&e.sourceToken==='rhino'));assert(!r.third.events.some(e=>e.type==='slow_applied'));});
++test('existing root immunity prevents ice slow overwriting root',()=>{const r=run(`(()=>{setup();Object.assign(units[1],{slowFactor:0,slowUntil:1,slowImmuneUntil:3.4});return tick();})()`);assert(!r.events.some(e=>e.type==='slow_applied'));assert.equal(r.units[1].slowFactor,0);});
++test('full parry blocks slow; later unblocked hit can apply',()=>{const r=run(`(()=>{setup();TYPES.shield.parryReduction=1;const blocked=tick();units[0].cd=0;return {blocked,unblocked:tick()};})()`);assert(r.blocked.events.some(e=>e.type==='parry_block'));assert(!r.blocked.events.some(e=>e.type==='slow_applied'));assert(r.unblocked.events.some(e=>e.type==='slow_applied'));});
++test('lethal attack does not leave a slow or live effect on the corpse',()=>{const r=run(`(()=>{setup();units[1].hp=100;return tick();})()`);assert(r.units[1].dead);assert(!r.events.some(e=>e.type==='slow_applied'));assert(!(run(`CompactReplay.fourSpeciesPresentationFlags(units[1],elapsed)`)&1));});
++test('guard interception applies slow to actual guard, not protected target',()=>{const r=run(`(()=>{setup();units.push(body('guard','toll_squire',1,245,240,1000));return tick();})()`);const guard=r.events.find(e=>e.type==='guard_intercept'),slow=r.events.find(e=>e.type==='slow_applied');assert(guard);assert.equal(slow.targetToken,'guard');assert.equal(r.units[1].slowUntil,undefined);});
++test('no friendly or nearby splash application',()=>{const r=run(`(()=>{setup();units.push(body('friend','sword',0,230,250),body('nearby','shield',1,235,250));return tick();})()`);assert.deepEqual(r.events.filter(e=>e.type==='slow_applied').map(e=>e.targetToken),['victim']);});
++test('ground-only rhino cannot hit air or apply slow to air',()=>{const r=run(`(()=>{reset([body('rhino','frosthorn_rhino',0,200,220,1350,{cd:0}),body('air','drake',1,230,220,10000)]);return tick();})()`);assert(!r.events.some(e=>['resolved_hit','slow_applied'].includes(e.type)));});
++test('projectile delivery cannot activate the melee-only property',()=>{const r=run(`(()=>{setup();TYPES.frosthorn_rhino.projectile=true;const events=[];for(let i=0;i<30;i++)events.push(...tick().events);return events;})()`);assert(r.some(e=>e.type==='resolved_hit'&&e.delivery==='projectile'));assert(!r.some(e=>e.type==='slow_applied'));});
++test('reflected damage cannot spread ice slow back onto the attacker',()=>{const r=run(`(()=>{setup();TYPES.shield.reflectionRatio=.5;return tick();})()`);assert(r.events.some(e=>e.type==='resolved_hit'&&e.delivery==='counter'));assert.equal(r.units[0].slowUntil,undefined);assert.equal(r.events.filter(e=>e.type==='slow_applied').length,1);});
++test('slow changes movement, not attack timer',()=>{const r=run(`(()=>{setup();tick();units[0].x=80;units[0].cd=999;TYPES.shield.speed=60;units[1].x=320;units[1].cd=10;const before=units[1].x;tick();return {distance:before-units[1].x,cd:units[1].cd};})()`);assert(Math.abs(r.distance-.6)<.001);near(r.cd,10-1/60);});
++test('nonlethal same-tick retaliation preserves existing simultaneous resolution',()=>{const r=run(`(()=>{setup();units[0].hp=1;units[1].cd=0;return tick();})()`);assert(r.units[0].dead);assert(r.events.some(e=>e.type==='slow_applied'),'delivered attack stays valid when source dies in same tick');});
++test('comparison names ice horn and exact limits with control tone',()=>{const r=run(`buildUnitComparisonFacts(identityOriginal.frosthorn_rhino)`),i=r.traits.indexOf('氷角：地上を速度0.6倍・1.2秒（解除可・耐性2.4秒）');assert(i>=0);assert.equal(r.traitTones[i],'control');assert.equal(r.value,'102');assert.equal(r.hp,'1350');});
++test('ice horn visibly displaces an ordinary ground target by 18px with existing push event',()=>{const r=run(`(()=>{setup();return tick();})()`),e=r.events.find(e=>e.type==='repulsion_push');assert(e&&e.moved);near(e.requestedX,18);near(e.appliedX,18);assert(e.netX>=18-1e-7);assert.equal(e.targetToken,'victim');assert(r.events.some(e=>e.type==='slow_applied'&&e.targetToken==='victim'));assert(run('buildUnitComparisonFacts(identityOriginal.frosthorn_rhino).traits').includes('接触で押し返す'));});
++test('massive golem resists shove by actual mass ratio, not a fixed full distance',()=>{const r=run(`(()=>{reset([body('rhino','frosthorn_rhino',0,200,220,1350,{cd:0}),body('heavy','golem',1,245,220,1950)]);return tick();})()`),e=r.events.find(e=>e.type==='repulsion_push');assert(e);near(e.requestedX,18*400/2600);assert(e.requestedX<3);});
++test('arena wall bounds final shove without wrapping or leaving the playfield',()=>{const r=run(`(()=>{setup();units[0].x=430;units[1].x=462;units[2].x=100;return tick();})()`),e=r.events.find(e=>e.type==='repulsion_push');assert(e);assert(r.units[1].x<=480-12);assert(e.netX>=0&&e.netX<=6.001);});
++test('two simultaneous rhinos cannot stack shove distance on the same target',()=>{const r=run(`(()=>{setup();units.push(body('second','frosthorn_rhino',0,200,220,1350,{cd:0}));return tick();})()`);assert.equal(r.events.filter(e=>e.type==='repulsion_push'&&e.targetToken==='victim').length,1);assert.equal(r.events.filter(e=>e.type==='slow_applied'&&e.targetToken==='victim').length,1);});
++test('actual ice-hit event enters the existing frost visual effect at the affected target',()=>{const r=run(`(()=>{setup();const out=tick();activeEffects=[];consumeCombatEvents(out.events);return {effects:newEffects,slow:out.events.find(e=>e.type==='slow_applied')};})()`),fx=r.effects.find(e=>e.kind==='frost_hit');assert(fx);near(fx.x,r.slow.x);near(fx.y,r.slow.y-16);});
++test('actual scorpion root and rhino slow respect first accepted intent in both deterministic orders',()=>{for(const rootFirst of [true,false]){const r=run(`(()=>{reset([body('scorpion','onyx_scorpion',0,200,220,1000,{cd:0,priority:${rootFirst?'.1':'.2'}}),body('rhino','frosthorn_rhino',0,200,230,1350,{cd:0,priority:${rootFirst?'.2':'.1'}}),body('victim','shield',1,230,220,10000)]);TYPES.shield.hp=10000;return tick();})()`);assert(r.events.some(e=>e.type==='resolved_hit'&&e.sourceToken==='scorpion'));assert(r.events.some(e=>e.type==='resolved_hit'&&e.sourceToken==='rhino'));const rows=r.events.filter(e=>e.type==='slow_applied');assert.equal(rows.length,1);assert.equal(rows[0].factor,rootFirst?0:.6);}});
++test('revival clears ice slow and shared immunity while retaining the actual new physical identity',()=>{const r=run(`(()=>{setup();tick();const before={slowFactor:units[1].slowFactor,slowUntil:units[1].slowUntil,slowImmuneUntil:units[1].slowImmuneUntil};units[1].hp=0;units[1].dead=true;const child=revivalLife(units[1],{x:260,y:220},60);return {before,child};})()`);assert.equal(r.before.slowFactor,.6);assert(r.before.slowUntil>0&&r.before.slowImmuneUntil>r.before.slowUntil);assert.equal(r.child.token,'victim/revive:1');for(const key of ['slowFactor','slowUntil','slowImmuneUntil'])assert.equal(r.child[key],undefined);});
++test('metadata includes new changed ability but explicitly does not claim calibrated win rates',()=>{const m=run(`compositionEstimator.metadataFor([{frosthorn_rhino:1},{sword:2}])`);assert(m.changedAbilityTypeIds.includes('frosthorn_rhino'));assert.equal(m.calibrated,false);assert.equal(m.confidenceClaim,false);});
++test('canonical replay is deterministic; ice slow log and flags survive compact playback',()=>{const r=run(`(()=>{restore();battleEnvironment=null;multiInitial=[body('rhino','frosthorn_rhino',0,200,220,1350,{cd:0}),body('shield','shield',1,233,220,170,{cd:0}),body('archer','archer',1,400,220,70,{cd:0})];const a=buildCanonicalReplay(),b=buildCanonicalReplay(),log=BattleLog.createPlayback(a),slow=log.rowsAt(a.ticks).filter(e=>e.type==='slow_applied');globalThis.identityReplay=a;return {same:JSON.stringify(a)===JSON.stringify(b),slow,unknown:log.stats().unknown,flags:slow.map(e=>CompactReplay.createPlayback(a).at(e.tick).units.map(u=>({token:u.token,flags:u.presentationFlags}))),catalog:log.catalog};})()`);assert(r.same);assert(r.slow.length>0);assert.equal(r.unknown,0);assert(r.flags.flat().some(u=>u.flags&1));});
++test('two fresh in-memory replay receivers preserve logs and poses',()=>{const r=run(`(()=>{const packed=ReplayTransfer.packReplay(identityReplay,'ice-test');let ms=1000;const receive=()=>{let result,sender;const receiver=ReplayTransfer.createReceiver({meta:packed.meta,sendAck:m=>sender.ack('guest',m),onComplete:r=>result=r});sender=ReplayTransfer.createSender({packed,recipients:['guest'],send:m=>receiver.receive(m),now:()=>ms});for(let i=0;i<10000&&!sender.ready();i++){ms+=150;sender.pump();}if(!sender.ready()||!result)throw Error('transfer incomplete');return result;};const a=receive(),b=receive();return {same:JSON.stringify(a)===JSON.stringify(b)&&JSON.stringify(a)===JSON.stringify(identityReplay),logs:JSON.stringify(BattleLog.createPlayback(a).rowsAt(a.ticks))===JSON.stringify(BattleLog.createPlayback(identityReplay).rowsAt(identityReplay.ticks))};})()`);assert(r.same&&r.logs);});
++console.log(`SUMMARY ${passed} passed, ${failed} failed. VM checks only; browser/mobile and real-network QA not performed.`);process.exitCode=failed?1:0;
+--- a/tools/integration/run-node-tests.py
++++ b/tools/integration/run-node-tests.py
+@@ -10,3 +10,3 @@
+  try:
+-  p=subprocess.run(['node',str(f.relative_to(root))],cwd=root,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=180)
++  p=subprocess.run(['node',str(f.relative_to(root))],cwd=root,text=True,errors='replace',stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=180)
+   status='pass' if p.returncode==0 else 'fail'; log=p.stdout; code=p.returncode
