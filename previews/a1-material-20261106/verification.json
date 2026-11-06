@@ -1,0 +1,15 @@
+{
+  "scope": "Isolated material CSS and move two selection-avatar spans above stats; runtime reused unchanged in preview. Root entry not changed.",
+  "canonicalTests": 137,
+  "canonicalPassed": 137,
+  "canonicalFailures": [],
+  "sourceSha256": "62fd1355b12347114fc07134f991ee4ba98de11daa5557b80f4a2f7969e9513f",
+  "originalRasterAndAudioBytesUnchanged": true,
+  "gameplayAndWalletBytesUnchanged": true,
+  "homeButtonsUnchanged": true,
+  "newSvgDecorations": 3,
+  "browserVerified": false,
+  "realGravitySDKVerified": false,
+  "realIOSVerified": false,
+  "baseCommit": "0d41f7eab38cb6e4058df27373df6cdcd4a715f0"
+}

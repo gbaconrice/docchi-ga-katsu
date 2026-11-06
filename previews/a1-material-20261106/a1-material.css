@@ -1,0 +1,95 @@
+/* A1 material pass. Paint only: preserve the approved home, all real DOM,
+   hit targets, field fitting, host insets, four-player rail and game rules. */
+#app #gameScreen {
+  --a1-grain:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%20viewBox%3D%220%200%20160%20160%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.73%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%20.36%200%200%200%200%20.23%200%200%200%200%20.10%200%200%200%20.16%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20filter%3D%22url(%23n)%22%20opacity%3D%22.6%22%2F%3E%3C%2Fsvg%3E");
+  --a1-paper-edge:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22120%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cpath%20d%3D%22M11%202%2024%204%2038%202%2059%203%2078%201%2097%203%20111%202%20118%2010%20116%2026%20119%2042%20117%2060%20119%2078%20117%2098%20119%20109%20110%20118%2096%20116%2079%20119%2060%20117%2043%20119%2026%20116%2010%20118%202%20109%204%2094%201%2077%203%2059%201%2040%204%2024%202%2012Z%22%20fill%3D%22%23ead09d%22%20stroke%3D%22%239b713f%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M13%207%2027%208%2042%206%2061%208%2082%206%20106%207%20112%2013%20111%2030%20114%2046%20112%2062%20114%2079%20112%20104%20106%20112%2088%20111%2072%20114%2053%20112%2034%20114%2014%20112%208%20105%209%2085%207%2068%209%2049%207%2032%208%2015Z%22%20fill%3D%22%23f5e3bb%22%20stroke%3D%22%23c49e63%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22m5%2015%209%203-4%209m104-13-9%204%204%209M6%20104l9-3-4-9m104%2014-10-4%204-8%22%20fill%3D%22none%22%20stroke%3D%22%23b58b51%22%20stroke-width%3D%22.8%22%2F%3E%3C%2Fsvg%3E");
+  --a1-brass-edge:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%3E%3Cpath%20d%3D%22M10%202H70L78%2010V70L70%2078H10L2%2070V10Z%22%20fill%3D%22none%22%20stroke%3D%22%23bfa16d%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M13%206H67L74%2013V67L67%2074H13L6%2067V13Z%22%20fill%3D%22none%22%20stroke%3D%22%23ead5a8%22%20stroke-opacity%3D%22.65%22%20stroke-width%3D%22.8%22%2F%3E%3Cg%20fill%3D%22%23d2af6b%22%20stroke%3D%22%2373542c%22%20stroke-width%3D%22.8%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%229%22%20r%3D%222.3%22%2F%3E%3Ccircle%20cx%3D%2271%22%20cy%3D%229%22%20r%3D%222.3%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2271%22%20r%3D%222.3%22%2F%3E%3Ccircle%20cx%3D%2271%22%20cy%3D%2271%22%20r%3D%222.3%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  --a1-wood:repeating-linear-gradient(2deg,transparent 0 7px,rgba(226,179,109,.055) 8px,transparent 9px 17px),linear-gradient(94deg,#513621,#6b482a 46%,#4a321f);
+  --a1-paper:var(--a1-grain),linear-gradient(rgba(255,238,195,.68),rgba(255,238,195,.68)),var(--tavern-table-art);
+}
+/* A continuous, irregular parchment mat connects the header, people and field.
+   It cannot capture taps, create scroll space or cover any child controls. */
+#app #gameScreen { isolation:isolate; }
+#app #gameScreen::before {
+  content:""; position:absolute; z-index:-1; inset:-3px -4px -4px;
+  pointer-events:none; background:var(--a1-paper); background-size:160px 160px,100% 100%,180% 300%; background-position:0 0,0 0,center 48%;
+  border:1px solid #a9804e; border-radius:2px;
+  clip-path:polygon(1% 0,7% .35%,16% 0,27% .3%,39% 0,52% .25%,64% 0,76% .4%,88% 0,99% .2%,100% 3%,99.6% 13%,100% 25%,99.7% 39%,100% 53%,99.6% 68%,100% 82%,99.7% 98%,97% 100%,87% 99.5%,75% 100%,63% 99.7%,50% 100%,38% 99.6%,25% 100%,12% 99.7%,1% 100%,0 96%,.3% 83%,0 69%,.4% 54%,0 40%,.3% 26%,0 12%);
+}
+#app #gameScreen::after {
+  content:""; position:absolute; z-index:-1; inset:3px 1px 1px;
+  pointer-events:none; border:1px solid #bb965d; border-radius:7px;
+}
+/* Dark carved rails, warm brass outlines and no raised-card shadows. */
+#app #gameScreen #gameTopline,
+#app #gameScreen .battle-toolbar {
+  background:var(--a1-grain),var(--a1-wood); background-size:160px 160px,auto,auto;
+  border-radius:5px; outline:1px solid #af8c54; outline-offset:-2px;
+  box-shadow:none; text-shadow:none;
+}
+#app #gameScreen .wallet-pill { background:none; border:0; outline:0; box-shadow:none; }
+#app #gameScreen .wallet-coin { filter:none; }
+/* Every card is a piece of the same paper, rather than a flat color panel. */
+#app #gameScreen #comparison .stake-card,
+#app #gameScreen #resultPanel,
+#app #gameScreen #comparison .army-card {
+  background-image:var(--a1-grain),radial-gradient(ellipse at 50% 40%,rgba(255,249,226,.8),rgba(227,192,133,.20));
+  background-size:160px 160px,100% 100%; border-radius:3px;
+  box-shadow:none; text-shadow:none;
+}
+#app #gameScreen #comparison .stake-card,
+#app #gameScreen #resultPanel {
+  border-image:var(--a1-paper-edge) 18 / 13px / 0 stretch;
+  background-color:#f2dfb7;
+}
+#app #gameScreen #comparison .army-preview {
+  background-image:var(--a1-grain),radial-gradient(ellipse at 50% 65%,rgba(255,249,221,.42),rgba(120,123,78,.12));
+  background-size:160px 160px,100% 100%;
+}
+#app #gameScreen #comparison .comparison-stat {
+  background-color:#f4e5c8; background-image:var(--a1-grain); background-size:160px 160px;
+}
+#app #gameScreen #comparison .stake-option {
+  background-image:var(--a1-grain); background-size:160px 160px; border-color:#ae8a50;
+}
+/* The four actual GRAVITY portraits stay scrollable; only the rail is painted. */
+#app #gameScreen .participant-rail-wrap { background:transparent; }
+#app #gameScreen .participant-chip { color:#4d3520; }
+#app #gameScreen .participant-portrait { border-color:#8d6b3b; background-color:#725331; }
+#app #gameScreen .participant-emote,
+#app #gameScreen .reaction-outside { background:#fff3d2; border-color:#9e7943; color:#3d2d1e; }
+/* Restrained green enamel utilities, independent of their header/toolbar slot. */
+#app #gameScreen #pause,
+#app #gameScreen #unitsToggle,
+#app #gameScreen #reactionToggle,
+#app #gameScreen #soundToggle,
+#app #gameScreen .crowd-inspector button {
+  color:#fff0cc; background-color:#2e4935;
+  background-image:var(--a1-grain),linear-gradient(180deg,rgba(255,241,196,.09),transparent 60%);
+  background-size:160px 160px,100% 100%; border-color:#b89a61; border-radius:4px;
+  outline:1px solid rgba(232,209,153,.56); outline-offset:-4px;
+  box-shadow:none; text-shadow:none;
+}
+#app #gameScreen #unitsToggle .icon-units { --ink:#f7e6bc; --walnut:#d9c592; }
+#app #gameScreen .crowd-inspector,
+#app #gameScreen .battle-log,
+#app #gameScreen .reaction-bar { background:#2d4232; border-color:#a28b56; box-shadow:none; }
+#app #gameScreen .battle-log { background-image:var(--a1-grain); background-size:160px 160px; }
+#app #gameScreen .battle-log #battleLogSource { color:#f9e8bf; }
+#app #gameScreen #confirm,
+#app #gameScreen #next,
+#app #gameScreen #doubleUp,
+#app #gameScreen #cashout {
+  border-image:var(--a1-brass-edge) 14 / 9px / 0 stretch;
+  background-color:#2e4935; background-image:var(--a1-grain),linear-gradient(180deg,#38573d,#2a4431);
+  background-size:160px 160px,100% 100%; color:#fff0d0;
+  box-shadow:none; text-shadow:none;
+}
+#app #gameScreen #confirm:disabled,
+#app #gameScreen #next:disabled,
+#app #gameScreen #doubleUp:disabled,
+#app #gameScreen #cashout:disabled { background:#d4c7a9; color:#685b45; border-image:none; border-color:#ac9570; }
+#app #gameScreen #pause:focus-visible,
+#app #gameScreen #unitsToggle:focus-visible,
+#app #gameScreen #reactionToggle:focus-visible,
+#app #gameScreen #soundToggle:focus-visible { outline:2px solid #ffe5a1; outline-offset:2px; }
