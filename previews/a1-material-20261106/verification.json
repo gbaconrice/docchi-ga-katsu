@@ -3,7 +3,7 @@
   "canonicalTests": 137,
   "canonicalPassed": 137,
   "canonicalFailures": [],
-  "sourceSha256": "62fd1355b12347114fc07134f991ee4ba98de11daa5557b80f4a2f7969e9513f",
+  "sourceSha256": "ca1dfda123a8de1a864284267708aa6cd9301934fc8590252fae9e47b0b3f7ca",
   "originalRasterAndAudioBytesUnchanged": true,
   "gameplayAndWalletBytesUnchanged": true,
   "homeButtonsUnchanged": true,
@@ -11,5 +11,19 @@
   "browserVerified": false,
   "realGravitySDKVerified": false,
   "realIOSVerified": false,
-  "baseCommit": "0d41f7eab38cb6e4058df27373df6cdcd4a715f0"
+  "baseCommit": "0d41f7eab38cb6e4058df27373df6cdcd4a715f0",
+  "initialBrowserVerified": {
+    "phoneWidthFrames": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "gravityEntryFrames": [
+      320,
+      390,
+      430
+    ],
+    "scope": "Initial material candidate. Final color/self-marker/empty-toolbar CSS requires final browser check."
+  }
 }

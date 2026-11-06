@@ -2347,10 +2347,10 @@ html[data-host-shell="gravity"][data-host-viewport-inset="true"] #bootStatus { p
 #app #gameScreen .participant-emote,
 #app #gameScreen .reaction-outside { background:#fff3d2; border-color:#9e7943; color:#3d2d1e; }
 /* Restrained green enamel utilities, independent of their header/toolbar slot. */
-#app #gameScreen #pause,
-#app #gameScreen #unitsToggle,
-#app #gameScreen #reactionToggle,
-#app #gameScreen #soundToggle,
+#app #gameScreen.game-screen #pause,
+#app #gameScreen.game-screen #unitsToggle,
+#app #gameScreen.game-screen #reactionToggle,
+#app #gameScreen.game-screen #soundToggle,
 #app #gameScreen .crowd-inspector button {
   color:#fff0cc; background-color:#2e4935;
   background-image:var(--a1-grain),linear-gradient(180deg,rgba(255,241,196,.09),transparent 60%);
@@ -2381,3 +2381,11 @@ html[data-host-shell="gravity"][data-host-viewport-inset="true"] #bootStatus { p
 #app #gameScreen #unitsToggle:focus-visible,
 #app #gameScreen #reactionToggle:focus-visible,
 #app #gameScreen #soundToggle:focus-visible { outline:2px solid #ffe5a1; outline-offset:2px; }
+/* Readable names and a non-color-only self marker, within the existing rail. */
+#app #gameScreen .participant-chip { font-size:10px; }
+#app #gameScreen .participant-chip.is-self .participant-portrait { outline:2px solid #b08429; outline-offset:0; }
+#app #gameScreen .participant-chip.is-self .participant-name::before { content:"あなた・"; }
+/* Result controls already hide. Keep the tested field position, but do not
+   paint an empty wooden bar above the result. */
+#app #gameScreen[data-personal-result="true"] .battle-toolbar { background:transparent; outline:none; border-color:transparent; }
+
