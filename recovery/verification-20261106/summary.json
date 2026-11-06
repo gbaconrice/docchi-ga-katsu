@@ -1,0 +1,33 @@
+{
+  "verifiedAtUTC": "2026-11-06T03:26:40.894740+00:00",
+  "recoveredCandidateSHA256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+  "knownLaterCandidateSHA256": "210708a26ca86f70af4909c1fffe9dff82c740909e74d2b568454338a8e3c3fd",
+  "matchesLaterCandidate": false,
+  "fullArchiveSHA256": "8e108f84ebd2bc5a43a8106832730344912dc08a217be65aa7c24a26dca8c14f",
+  "compactArchiveSHA256": "04270fc81dcada44e3ec8bc7eab2240a9891f85a33a9e6752cb1a8ae72d0e283",
+  "independentReconstruction": {
+    "baseCommit": "374f834a76831434b03b077c17dbd4dcd9583bfe",
+    "comparedFiles": 166,
+    "differentFiles": 0
+  },
+  "nodeRegression": {
+    "pass": 119,
+    "fail": 0,
+    "timeout": 0,
+    "nodeVersion": "v24.22.1"
+  },
+  "browser": {
+    "status": "blocked-before-page-load",
+    "reason": "Chromium process_singleton_posix.cc socket() failed: Operation not permitted. No page or rendering checks executed.",
+    "attempts": 2
+  },
+  "realIOS": "not-run",
+  "realGravity": "not-run",
+  "mainUpdated": false,
+  "rootIndexUpdated": false,
+  "whitespaceCheck": {
+    "status": "known-existing-whitespace-in-preserved-source",
+    "affectedFiles": 7,
+    "note": "Original archived files retained byte-for-byte; no source cleanup applied."
+  }
+}

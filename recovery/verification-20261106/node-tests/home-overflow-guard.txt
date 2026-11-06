@@ -1,0 +1,1 @@
+PASS home overflow/scroll offsets pause lights, fitting layout resumes, hidden/reduced-motion remain guarded, destroy removes scroll listener.

@@ -1,0 +1,73 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+[
+  {
+    "mirror": false,
+    "scenario": "normal",
+    "started": true,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": false
+  },
+  {
+    "mirror": false,
+    "scenario": "move",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": false,
+    "scenario": "death",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": false,
+    "scenario": "knock",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": true,
+    "scenario": "normal",
+    "started": true,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": false
+  },
+  {
+    "mirror": true,
+    "scenario": "move",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": true,
+    "scenario": "death",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": true,
+    "scenario": "knock",
+    "started": true,
+    "cancelled": true,
+    "hit": false,
+    "unsafe": false
+  }
+]
+PASS move/death/displacement cancellation both directions

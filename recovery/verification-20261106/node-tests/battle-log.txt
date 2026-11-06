@@ -1,0 +1,12 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS every recorded event in tick order; stable same-kind ordinals survive death/new spawn; exact actor roles and push/dispel normalization
+PASS fixed 2000-row retention and per-tick burst bound with explicit loss record
+PASS host log, outcome/death observation, time seek, late join/reconnect chunk transport, legacy/corrupt/missing logs, byte cap
+PASS result-only reconnect gets matching canonical history without a scene; next battle never reveals future events
+PASS tap/re-tap/Escape, live 250ms painting, 120-row DOM window, old-page hold/latest, result and next-round cleanup
+PASS translucent bounded panel, touch-size buttons, side text plus colors, safe nested layout contracts (not browser pixel QA)

@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS replay marker, expiry, reconnect, determinism and draw commands

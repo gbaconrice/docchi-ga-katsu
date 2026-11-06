@@ -1,0 +1,5 @@
+PASS: all scripts parse; trusted gesture, stake/resume cues, unknown cue rejection, mute and cleanup
+PASS: win and loss use distinct cues
+PASS melody advances while active and does not generate notes while muted
+snare audio 1 [380,660]
+PASS distinct bounded snare synthesis

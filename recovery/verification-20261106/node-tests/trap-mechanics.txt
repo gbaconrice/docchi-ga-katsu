@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS one visible bounded ground trap, arming, one trigger, no re-placement {"created":1,"pre":100000,"preShots":1,"post":99988,"postShots":0,"final":99988,"shots":0,"facts":{"hp":"100000","label":"攻撃","value":"20","wide":false,"timing":"基本間隔1.8秒","movement":"","distanceLabel":"間合い","distanceAriaLabel":"攻撃開始距離","distance":"9","traits":["開始時に地上罠最大1個（準備0.75秒・10秒で消滅・12ダメージ）"],"traitTones":["control"],"actionTone":"attack","attackable":true}}

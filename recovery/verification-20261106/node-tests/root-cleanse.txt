@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment rockfield
+PASS deferred image callbacks
+PASS cleansing countermeasure {"seen":true,"cleansed":true}

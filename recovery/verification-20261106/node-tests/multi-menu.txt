@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo pause, multiplayer menu, phase change closes units

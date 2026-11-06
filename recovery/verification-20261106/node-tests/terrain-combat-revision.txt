@@ -1,0 +1,12 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+boar [
+  { hp: 48, x: 245 },
+  { hp: 48, x: 246.760009765625 },
+  { hp: 50.56, x: 245 }
+]
+eye [ { hp: 94, x: 229.4814453125 }, { hp: 94, x: 230.239990234375 } ]
+PASS ice charge push for both sides and repulsion, rock only charge bonus, old exact revision rejected when changed

@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+RESULT {"count":6,"charges":0,"live":7}

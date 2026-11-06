@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS replay skeleton spawn, timed removal, reconnect frame 6 6
+PASS deterministic canonical replay
+PASS ordinary skeleton unchanged, summon description {"facts":{"hp":"120","label":"召喚","value":"スケルトン最大6体","wide":false,"timing":"1回","movement":"20","distanceLabel":"間合い","distanceAriaLabel":"攻撃開始距離","distance":"","traits":["1回","持続10秒","召喚体は移動が速い"],"traitTones":["neutral","summon","mobility"],"actionTone":"summon","attackable":false},"ordinarySpeed":30}

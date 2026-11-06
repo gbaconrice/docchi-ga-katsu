@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 300 unique katakana names, unchanged IDs and existing combat properties except deliberate reflection, lifesteal, summoner, heal-block, root, pull and trap abilities

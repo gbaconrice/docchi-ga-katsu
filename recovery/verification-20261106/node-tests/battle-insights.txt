@@ -1,0 +1,11 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+replay A 271 {"version":2,"winner":"A","mvp":{"kind":"boar","value":100},"close":null}
+PASS multiplayer replay chunk transfer and fresh guest reconnect preserve same facts
+PASS static result text in reduced-motion mode and wrapping style
+PASS overkill cap and restored-result UI; missing replay hides facts
+PASS ties and missing evidence, friendly/source exclusion, close HP, canonical replay metadata JSON and validation

@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS initial carry on winning side; draw retains left

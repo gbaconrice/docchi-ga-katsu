@@ -1,0 +1,1 @@
+PASS 12 emphasized numeric color cases and 12 trait color cases, prediction/detail scopes; ordinary values retain their own neutral colors.

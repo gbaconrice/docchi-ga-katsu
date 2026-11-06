@@ -1,0 +1,13 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS multiplayer 0 G recovery: host
+PASS multiplayer 0 G recovery: guest
+PASS old-version client rejected before joining
+PASS host validates percentage stakes above former cap
+PASS simulated guest reconnect recovers host match and wallets
+PASS same seed and restored host history produce same next matchup
+PASS right winner survives guest reconnect, actual next-round opening, and second reconnect

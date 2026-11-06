@@ -1,0 +1,195 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment rockfield
+PASS deferred image callbacks
+[
+  {
+    "k": "pillar_hammerer",
+    "mirror": false,
+    "warn": 1,
+    "contact": 31,
+    "damage": 21,
+    "expected": 21,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後21ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 180,
+        "y": 269,
+        "radius": 23
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 180,
+        "y": 269,
+        "radius": 23
+      }
+    ]
+  },
+  {
+    "k": "pillar_hammerer",
+    "mirror": true,
+    "warn": 1,
+    "contact": 31,
+    "damage": 21,
+    "expected": 21,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後21ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 300,
+        "y": 269,
+        "radius": 23
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 300,
+        "y": 269,
+        "radius": 23
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": false,
+    "warn": 1,
+    "contact": 31,
+    "damage": 7,
+    "expected": 7,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 180,
+        "y": 269,
+        "radius": 17
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 180,
+        "y": 269,
+        "radius": 17
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": true,
+    "warn": 1,
+    "contact": 31,
+    "damage": 7,
+    "expected": 7,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 300,
+        "y": 269,
+        "radius": 17
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 300,
+        "y": 269,
+        "radius": 17
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": false,
+    "warn": 1,
+    "contact": 31,
+    "damage": 15,
+    "expected": 15,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後15ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 180,
+        "y": 269,
+        "radius": 29
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 180,
+        "y": 269,
+        "radius": 29
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": true,
+    "warn": 1,
+    "contact": 31,
+    "damage": 15,
+    "expected": 15,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後15ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 300,
+        "y": 269,
+        "radius": 29
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 300,
+        "y": 269,
+        "radius": 29
+      }
+    ]
+  }
+]
+PASS descriptions vs actual timing/damage/cooldown

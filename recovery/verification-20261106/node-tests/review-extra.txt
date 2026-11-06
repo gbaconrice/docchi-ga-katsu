@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 80 sampled carries avoid repeats and reproduce from same seed

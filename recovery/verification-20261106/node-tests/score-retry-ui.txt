@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo/multi visible retry after sync failure, success then no repeat

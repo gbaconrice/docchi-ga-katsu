@@ -1,0 +1,1 @@
+PASS public rooms success, full, empty, failure, invalid data, stale request, join

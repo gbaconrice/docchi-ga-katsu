@@ -1,0 +1,2 @@
+PASS eight players plus spectators, names and image fallback, bounded simultaneous reactions and offscreen sender
+PASS scroll position preserved and independent mobile strip avoids the toolbar

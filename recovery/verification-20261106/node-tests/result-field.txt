@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS finished fight retains living and dead units and field behind result panel

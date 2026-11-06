@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS pause/resume retains the active run
+PASS home navigation ends the run and the solo action starts fresh
+PASS explicit exit stops the run, sends no score, and starts a fresh round 1 / 100 G
+PASS exit does not leave the room-entry fight guard stuck
+PASS normal cashout and bankruptcy endings still restart cleanly
+PASS extension battle exit also restarts at round 1 without submitting a score
+PASS multiplayer exit still calls the existing leave path

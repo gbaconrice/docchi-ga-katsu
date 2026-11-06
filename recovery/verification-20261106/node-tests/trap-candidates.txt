@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+[{"k":"bombbug","name":"ボムビートル","hp":55,"dmg":0,"speed":48,"radius":9,"reach":5,"traits":["explosionDamage","explosionRadius"]},{"k":"spore_toad","name":"ミストリングメイジ","hp":725,"dmg":6,"speed":18,"radius":17,"reach":65,"traits":["poisonRadius","poisonDuration","poisonDps","poisonImmunity","boss","bossDamageScale","armor"]},{"k":"punchcap_mushroom","name":"パンチマッシュルーム","hp":85,"dmg":20,"speed":24,"radius":7,"reach":9,"traits":["mushroomTrapCharges","mushroomTrapDurationTicks","mushroomTrapArmingTicks","mushroomTrapRadius","mushroomTrapDamage"]},{"k":"eggshell_repairpod","name":"リペアエッグ","hp":35,"dmg":0,"speed":0,"radius":8,"reach":0,"traits":["cadenceClass","hasteExcluded","supportOnly","selfRepairCharges","selfRepairAmount","selfRepairWindupTicks","selfRepairCooldownTicks","reflectionRatio"]}]

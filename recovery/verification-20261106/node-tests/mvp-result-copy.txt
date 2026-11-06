@@ -1,0 +1,8 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+PASS exact MVP copy, no raw number, individual winner-only selection, ties, ambiguous attribution, close result and draw
+PASS shared centering rule and intentional MVP line break

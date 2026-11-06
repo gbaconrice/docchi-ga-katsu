@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS deterministic canonical replay, seek and reconnect frame; bytes 77565

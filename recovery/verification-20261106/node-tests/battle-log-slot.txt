@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+PASS solo/guest fight and result reservation; prediction/home/precomputation/missing replay exclusion; no repeated attribute writes
+PASS hidden row retains geometry without interaction and desktop has separate field/details/log bands
+PASS reserved log overrides the generic important hidden rule

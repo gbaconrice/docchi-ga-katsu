@@ -1,0 +1,8 @@
+PASS grassland
+PASS desert
+PASS icefield
+PASS highland
+PASS rockfield
+PASS volcano
+PASS shallow_ford
+PASS crosswind_ridge

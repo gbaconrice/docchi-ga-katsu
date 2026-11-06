@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+PASS target damage in tested zero/eight-ally fixtures and mirrored event counts; two-ally attack remains unresolved

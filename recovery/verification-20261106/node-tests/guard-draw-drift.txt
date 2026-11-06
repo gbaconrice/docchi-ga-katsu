@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+PASS warning and contact rings use source coordinate and exact logical radius for three kinds

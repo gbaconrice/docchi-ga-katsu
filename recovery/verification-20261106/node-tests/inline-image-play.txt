@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS pending art does not block the game; actual image-error notice and Retry remain available during fight

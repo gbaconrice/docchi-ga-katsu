@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS target kinds, condition/base labels, field changes and reconnect-style redraw; no note for absent types; wrapping and tap sizes

@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS all 45 starters: >=2 left (round-1 cap 8 units), >=7 normal budget, <=6 non-boss flying cost and nonflying fallback

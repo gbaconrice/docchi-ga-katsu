@@ -1,0 +1,5 @@
+PASS cap64 {"count":0,"charges":1,"live":64}
+PASS cap63 {"count":1,"charges":0,"live":64}
+PASS dead-early {"count":0,"live":0}
+PASS blocked {"count":0,"charges":1,"live":1}
+PASS dead-late {"count":6,"active":6,"expired":6}

@@ -1,0 +1,1 @@
+PASS home ambience: cover alignment at 7 phone/landscape/desktop sizes; navigation, hidden, page lifecycle, motion preferences, power signals, battery failure, teardown and source guards

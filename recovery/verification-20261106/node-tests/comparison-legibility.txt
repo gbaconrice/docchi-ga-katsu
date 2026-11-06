@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+PASS all 300 facts: combo identity retained, micro-timing/geometry hidden, per-metric peer groups, multiple highlights, healing value and no redundant markers
+PASS meaning-based text colors and contrast, minimum 4.72:1
+PASS 280–430px width arithmetic, zero grid minima, wrapping names/traits/metrics (not browser pixel QA)

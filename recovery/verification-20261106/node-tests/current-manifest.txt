@@ -1,0 +1,1 @@
+PASS published metadata and LF-normalized current or explicitly unpublished candidate

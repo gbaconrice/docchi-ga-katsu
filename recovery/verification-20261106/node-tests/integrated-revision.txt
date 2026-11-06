@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS full-source fingerprint, fixed mechanics provenance and rejection of old UI/unrefreshed boss revision before room participation

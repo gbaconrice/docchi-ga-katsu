@@ -1,0 +1,4 @@
+PASS scoped CSS keeps the same 44px slot across prediction, fight and result
+PASS boot 5 scripts
+PASS solo start
+PASS pause/resume, result and next-round visibility paths retain their behavior

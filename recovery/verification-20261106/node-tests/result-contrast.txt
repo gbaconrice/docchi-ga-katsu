@@ -1,0 +1,4 @@
+PASS contrast #70450c 6.29
+PASS contrast #432e1d 9.73
+PASS contrast #51300f 9.00
+PASS contrast #6d342e 7.35

@@ -1,0 +1,111 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+[
+  {
+    "k": "pillar_hammerer",
+    "mirror": false,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "pillar_hammerer",
+    "mirror": true,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": false,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": true,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": false,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": true,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  }
+]
+PASS guard canceled and normal pillar starts

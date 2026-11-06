@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS all 300 display facts, effective-damage thresholds/highlights, unscaled healing and source properties, actual poison12/s and retaliation15, future scaled explosion/charge

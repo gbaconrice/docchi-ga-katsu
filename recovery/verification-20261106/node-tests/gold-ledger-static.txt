@@ -1,0 +1,4 @@
+PASS eee0c3 contrast 10.46:1
+PASS c9b28d contrast 6.66:1
+PASS f2e5c8 contrast 10.93:1
+PASS unframed counter, no HUD shadows or gradients, spacing, narrow-width rules and single label. Browser layout remains unverified.

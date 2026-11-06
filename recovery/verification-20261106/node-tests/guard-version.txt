@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS exact previous revision rejected before room participation

@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo/multi transient preflight retry and no retry for unsupported precision

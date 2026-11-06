@@ -1,0 +1,155 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment desert
+PASS deferred image callbacks
+[
+  {
+    "k": "pillar_hammerer",
+    "mirror": false,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      }
+    ]
+  },
+  {
+    "k": "pillar_hammerer",
+    "mirror": true,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": false,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": true,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": false,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      },
+      {
+        "type": "pillar_action_start",
+        "tick": 122
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": true,
+    "cd": -0.08333333333333122,
+    "events": [
+      {
+        "type": "guard_warning",
+        "tick": 1
+      },
+      {
+        "type": "guard_warning",
+        "tick": 33
+      },
+      {
+        "type": "guard_warning",
+        "tick": 63
+      },
+      {
+        "type": "guard_warning",
+        "tick": 94
+      },
+      {
+        "type": "pillar_action_start",
+        "tick": 122
+      }
+    ]
+  }
+]
+PASS canceled warning rate limit and no contact

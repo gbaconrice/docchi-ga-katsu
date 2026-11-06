@@ -1,0 +1,10 @@
+PASS boot 5 scripts
+PASS solo start
+PASS heal block actual attack begins next tick; 2 second expiry, nonstacking 50%, desert combination, UI, status and replay flag {"g":{"hp":59,"enemy":964,"flags":0,"traits":["命中後2秒の間、相手の回復を半減","追撃は中断あり"]},"b":{"hp":54.5,"enemy":964,"flags":2048,"traits":["命中後2秒の間、相手の回復を半減","追撃は中断あり"]},"d":{"hp":54.31999999999999,"enemy":964,"flags":2048,"traits":["命中後2秒の間、相手の回復を半減","追撃は中断あり"]},"actual":{"seen":true,"start":2,"end":122,"from":0.016666666666666666,"flags":0},"replay":2048}
+PASS chunk encoding, validated reception and fresh reconnect preserve flag
+PASS missing sprite fallback draws heal-block mark
+PASS lifesteal uses post-parry damage and cannot hit air {"parry":{"hp":56.75,"enemy":973,"parrySpent":true},"flight":{"hp":50,"enemy":1000}}
+PASS lethal reflection does not revive attacker or permit a later attack {"hp":-9.5,"dead":true,"enemy":982}
+PASS ordinary ally healing reduced while active and normal otherwise
+PASS group healing, ration and self repair each halved
+PASS same-tick heal unaffected; later heal halved, hits refresh without stacking, dead status cleared {"a":53,"b":59.5,"first":122,"second":146,"factor":0.5,"cleared":true}

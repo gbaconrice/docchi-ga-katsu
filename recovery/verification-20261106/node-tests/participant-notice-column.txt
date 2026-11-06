@@ -1,0 +1,1 @@
+PASS fixed 64px offscreen-notice column, four rail-relative slots, separate emote/name bounds, long aria-live text, visibility-independent width and scroll preservation at six widths (static/VM, not pixel QA).

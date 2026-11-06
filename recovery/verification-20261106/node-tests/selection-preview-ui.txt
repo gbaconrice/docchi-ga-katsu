@@ -1,0 +1,3 @@
+PASS local preview is immediate; rapid changes coalesce; clear, confirmation, round and session guards
+PASS local latest side overrides delayed preview; confirmed side wins; labels/fallback, stable image DOM and phase cleanup
+PASS independent 40px row and eight-seat width arithmetic for 280–430px (not browser rendering)

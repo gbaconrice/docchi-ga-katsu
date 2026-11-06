@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS summoned skeleton rooted and expires in shallow ford after summoner death {"found":true,"factor":1.8,"dead":true,"elapsed":12.016666666666843,"until":721,"environment":"shallow_ford"}

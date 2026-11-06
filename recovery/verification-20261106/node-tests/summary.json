@@ -1,0 +1,716 @@
+[
+  {
+    "test": "a1-bounded-text.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.9
+  },
+  {
+    "test": "a1-header-wallet.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.83
+  },
+  {
+    "test": "audio-events.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.21
+  },
+  {
+    "test": "auto-speed-controls.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.92
+  },
+  {
+    "test": "balance-blink.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "balance.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.95
+  },
+  {
+    "test": "battle-insights.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.9
+  },
+  {
+    "test": "battle-log-history.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 2.41
+  },
+  {
+    "test": "battle-log-slot.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.76
+  },
+  {
+    "test": "battle-log.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 2.38
+  },
+  {
+    "test": "bet-selection.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.2
+  },
+  {
+    "test": "bet-ui-smoke.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.7
+  },
+  {
+    "test": "boot-smoke.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.7
+  },
+  {
+    "test": "boot-storage-denied.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.69
+  },
+  {
+    "test": "boss-display-values.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.82
+  },
+  {
+    "test": "camera-visibility.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.77
+  },
+  {
+    "test": "carry-side.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.68
+  },
+  {
+    "test": "character-loading.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.83
+  },
+  {
+    "test": "comparison-color-cascade.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.4
+  },
+  {
+    "test": "comparison-legibility.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 2.93
+  },
+  {
+    "test": "confirmed-picks.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "countup.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.68
+  },
+  {
+    "test": "crowd-counter.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.69
+  },
+  {
+    "test": "current-manifest.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.27
+  },
+  {
+    "test": "facing-equivalence.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.36
+  },
+  {
+    "test": "first-variation.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.48
+  },
+  {
+    "test": "game-ui-polish.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "test": "gold-ledger-static.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "test": "gravity-home-build.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.04
+  },
+  {
+    "test": "guard-cancellation-drift.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.68
+  },
+  {
+    "test": "guard-corner-final.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.09
+  },
+  {
+    "test": "guard-crowd-drift.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 8.3
+  },
+  {
+    "test": "guard-description-actual.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.65
+  },
+  {
+    "test": "guard-draw-drift.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.62
+  },
+  {
+    "test": "guard-linear-ties.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.57
+  },
+  {
+    "test": "guard-priority-drift.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "guard-version.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.63
+  },
+  {
+    "test": "header-slot.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.8
+  },
+  {
+    "test": "healblock.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.85
+  },
+  {
+    "test": "home-ambience.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "home-overflow-guard.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.2
+  },
+  {
+    "test": "impact-cue.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.56
+  },
+  {
+    "test": "inline-image-play.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "integrated-revision.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.77
+  },
+  {
+    "test": "legacy-payout.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "test": "lifesteal.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.67
+  },
+  {
+    "test": "lobby-theme.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.32
+  },
+  {
+    "test": "map-emote-frame.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "test": "melee-combo-replay.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.61
+  },
+  {
+    "test": "melee-combo-transition.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.79
+  },
+  {
+    "test": "melee-scan-large.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.57
+  },
+  {
+    "test": "melee-scan-small.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.52
+  },
+  {
+    "test": "multi-menu.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.52
+  },
+  {
+    "test": "multi-personal-outcome.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "multi-status-integration.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.69
+  },
+  {
+    "test": "multi-status-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "multi-timer.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.67
+  },
+  {
+    "test": "multiplayer-bankruptcy.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.73
+  },
+  {
+    "test": "multiplayer-reconnect.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.84
+  },
+  {
+    "test": "multiplayer-speed-sync.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.57
+  },
+  {
+    "test": "mvp-accounting.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.75
+  },
+  {
+    "test": "mvp-result-copy.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.78
+  },
+  {
+    "test": "names-katakana.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.63
+  },
+  {
+    "test": "no-formation-preview.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.86
+  },
+  {
+    "test": "opening-reachability.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.65
+  },
+  {
+    "test": "participant-notice-column.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "participant-rail.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "test": "pause-exit.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.83
+  },
+  {
+    "test": "prediction-picks-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "public-rooms.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.58
+  },
+  {
+    "test": "pull.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.73
+  },
+  {
+    "test": "reaction-game-integration.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "reaction-protocol.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "test": "reflect-cascade.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.7
+  },
+  {
+    "test": "result-audio.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.2
+  },
+  {
+    "test": "result-contrast.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.14
+  },
+  {
+    "test": "result-field.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.31
+  },
+  {
+    "test": "result-scatter.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "result-scroll-regression.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.76
+  },
+  {
+    "test": "review-air.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 2.7
+  },
+  {
+    "test": "review-extra.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 5.11
+  },
+  {
+    "test": "reward-position.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.22
+  },
+  {
+    "test": "root-audio.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.46
+  },
+  {
+    "test": "root-cleanse.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.61
+  },
+  {
+    "test": "root-death.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.61
+  },
+  {
+    "test": "root-immunity.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.63
+  },
+  {
+    "test": "root-mechanics.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.56
+  },
+  {
+    "test": "root-presentation-flags.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.64
+  },
+  {
+    "test": "root-replay.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.49
+  },
+  {
+    "test": "root-summon.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.17
+  },
+  {
+    "test": "score-preflight-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.55
+  },
+  {
+    "test": "score-preflight.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "test": "score-retry-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.57
+  },
+  {
+    "test": "score-retry.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "test": "score-storage.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.19
+  },
+  {
+    "test": "selection-hierarchy.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "selection-preview-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "test": "selection-preview.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.57
+  },
+  {
+    "test": "solo-fresh-entry.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.72
+  },
+  {
+    "test": "speed-investigation.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 6.26
+  },
+  {
+    "test": "summoner-capacity-suite.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 4.24
+  },
+  {
+    "test": "summoner-capacity.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.57
+  },
+  {
+    "test": "summoner-intrinsic-replay.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 3.15
+  },
+  {
+    "test": "summoner-movement-suite.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 3.74
+  },
+  {
+    "test": "summoner-movement.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.65
+  },
+  {
+    "test": "tavern-host-layout.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.18
+  },
+  {
+    "test": "terrain-card-note.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.59
+  },
+  {
+    "test": "terrain-combat-revision.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "test": "terrain-new.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.68
+  },
+  {
+    "test": "theme-static.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.14
+  },
+  {
+    "test": "trap-candidates.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.62
+  },
+  {
+    "test": "trap-capacity.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.79
+  },
+  {
+    "test": "trap-flight-expiry.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.64
+  },
+  {
+    "test": "trap-mechanics.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.61
+  },
+  {
+    "test": "trap-replay.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 1.49
+  },
+  {
+    "test": "trap-stress.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 4.49
+  },
+  {
+    "test": "trap-terrain-suite.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 4.74
+  },
+  {
+    "test": "zero-balance.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.15
+  },
+  {
+    "test": "zero-result-ui.cjs",
+    "status": "pass",
+    "exit": 0,
+    "seconds": 0.56
+  }
+]

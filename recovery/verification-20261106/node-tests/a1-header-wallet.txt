@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS A1 field/round/coin/pause order; numeric wallet, BigInt formatting, unchanged G labels elsewhere, pause/result/new-round updates

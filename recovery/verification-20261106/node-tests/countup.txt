@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS multi personal, reduced motion, late frame, 0G recovery, huge integers, cancellation/reconnect, no ledger mutation
