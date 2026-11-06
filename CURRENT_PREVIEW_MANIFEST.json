@@ -1,57 +1,61 @@
 {
-  "scope": "User-requested common gold numerals, toolbar inner padding preserving layout, round-counter balance and complete removal of result appraisal text.",
+  "scope": "Approved44 natural names plus terrain reference two-row header/detail dialog, reference gold typography and left wallet alignment, result utility controls, overtime choice copy/layout and battle-log team/semantic colors.",
   "index": "index.html",
-  "indexSHA256": "b2a091a5f0055320c87650f1bac037f37892a24d184d26c4e780f6b2541db9cf",
-  "validation": {
-    "canonicalTests": 154,
-    "canonicalPassed": 154,
-    "entryLoaderFaultCases": 32,
-    "actualScriptRecoveryCases": 7,
-    "browser": "Desktop Chrome: 320/375/390/430 widths \u00d7 normal/automatic GRAVITY insets \u00d7 solo/multiplayer, 16 cases and 64 choose/fight/result/long-value states. All checks passed. Screenshots verified toolbar inner padding, natural gold numerals and earned +25G. Normal 390px solo battle, result with appraisals absent, history open/close and second round passed.",
-    "physicalIOS": false,
-    "liveGravitySDK": false,
-    "hostCashoutCases": 14,
-    "roomExitCases": 6,
-    "publicRoomRecoveryCases": 14,
-    "hostInsetCases": 15,
-    "independentReapplication": "Prior release 16-patch preservation was verified separately. Current refinement preserves 590 old assets plus the approved marker, frozen hit coin frames and sequence hashes, and score/wallet blocks.",
-    "publicFilesVerified": 36,
-    "browserLimitations": [
-      "Physical iOS, native touch gestures and live GRAVITY SDK/multiplayer are not verified.",
-      "Automatic GRAVITY inset is 74px at320/375 and98px at390/430; other combinations and bottom34px not browser-tested.",
-      "Double-up result style is covered by source tests; double-up=true was not browser-tested."
-    ],
-    "canonicalResourceRetry": "153 passed in the 512 MiB run. One heap-limited test passed with identical source and inputs at 768 MiB."
-  },
-  "historicalValidation": "AMOUNT_BACKGROUND_WORKTREE.md (historical, not the current external entry)",
-  "balance": "BALANCE_STUDY.md",
-  "reachability": "REACHABILITY_STUDY.md",
-  "legacyRecords": [
-    "PUBLIC_MANIFEST.json",
-    "VALIDATION.json"
-  ],
-  "limitations": [
-    "Physical iOS, native touch swipes and live GRAVITY SDK/multiplayer are not verified.",
-    "Historical expectations and older incomplete QA fixtures are not counted as current source passes."
-  ],
-  "prSources": [
-    {
-      "number": 2,
-      "head": "3d1d257cb8fc8730b6ae3200a202c2b4ad58b83c",
-      "integrated": "change applied; PR not merged"
-    },
-    {
-      "number": 3,
-      "head": "48f761acc2be48f62d6954c1a681671cf1abfa99",
-      "integrated": "change adapted with additional fixes; PR not merged"
-    }
-  ],
-  "previousValidation": "PREDICTION_REWARD_WORKTREE.md",
-  "release": "releases/wallet-header-20261106/manifest.json",
-  "releaseManifestSHA256": "236a7f875785f83e4efc1e322702d37106b82e5c1b276bba0c677a0f7c05b81b",
-  "reconstructedSourceSHA256": "ebb58d07100837100c38a97d7c16459ea549ad01ec467cdcbd4b8e49820997ed",
-  "reconstructedSourceBytes": 49326858,
+  "indexSHA256": "761f5a7079202507761ad48b6ce7871d9b7a2e0da9c6709134c340ec7da6ce00",
+  "release": "releases/terrain-gold-20261106/manifest.json",
+  "releaseManifestSHA256": "755e0fe3e0b49c1c9dfe556443c5ab991ea67209751943a52024a9519ebc0174",
+  "reconstructedSourceSHA256": "5160ff600ee08d1688abb4a9967fb8e6b29954f8124c2bff9ac283b2b042988b",
+  "reconstructedSourceBytes": 49338919,
+  "contentRevision": "9b65ebb2bc58c7fe6a4cf6b8c45133ec194c7c83893558749055516d6743591c",
+  "gravityEntrySHA256": "a4e70025f0bd9d9e7a45569eb855a23fe18b1d6fd1b4b498deaf5309bf8344fa",
+  "previousRelease": "releases/wallet-header-20261106/manifest.json",
   "readme": "README.md",
-  "gravityEntrySHA256": "82186c92e353f1b06e826184a4d526913c9355f139a351b319fe9983fe986483",
-  "previousRelease": "releases/screen-refinement-20261106/manifest.json"
+  "validation": {
+    "canonicalTests": 160,
+    "canonicalPassed": 160,
+    "freshFullRun": true,
+    "sourceSHA256": "5160ff600ee08d1688abb4a9967fb8e6b29954f8124c2bff9ac283b2b042988b",
+    "focusedTests": 22,
+    "externalChecks": 9,
+    "entryLoaderFaultCases": 32,
+    "actualSixScriptRecoveryCases": 7,
+    "sourceReconstructionExact": true,
+    "releaseHTTPFiles": 36,
+    "releaseHTTPExact": 36,
+    "browserHeaderCases": 16,
+    "browserHeaderStates": 64,
+    "browserOvertimeCases": 56,
+    "browserNameUnits": 44,
+    "browserTerrainCases": 24,
+    "browserLogCases": 10,
+    "productionSoloResultAndExit": true,
+    "physicalIOSVerified": false,
+    "liveGravitySDKVerified": false,
+    "liveRoomNetworkVerified": false
+  },
+  "preservation": {
+    "approvedDisplayNames": 44,
+    "runtimeDefinitions": 301,
+    "selectableTypes": 300,
+    "uniqueNames": 300,
+    "bossKinds": 46,
+    "inlineImageAudioData": 591,
+    "sharedImageReferences": 567,
+    "releaseLocalImagesByteIdentical": 6,
+    "gameplayDefinitionsWalletScoreAssets": "Preserved; detailed independent source checks accompany this candidate."
+  },
+  "compatibility": {
+    "fullSourceRevisionChanged": true,
+    "oldNewVersionsCanJoinSameRoom": false,
+    "idAbilityImageWalletScoreMigrationRequired": false
+  },
+  "qa": {
+    "page": "releases/terrain-gold-20261106/qa.html",
+    "scope": "Terrain/gold, result controls, overtime choices, log team colors, and22 pairs covering44 approved names. QA fixtures remain outside production entry."
+  },
+  "limitations": [
+    "Physical iOS rendering and the live GRAVITY SDK/room transport are not verified.",
+    "QA-only frozen-frame and incomplete dedicated multiplayer fixtures are not production runtime evidence; stable fixtures plus an unmodified live solo match were used.",
+    "The archived release manifest records pre-publication freeze status; this root manifest records completed verification."
+  ]
 }
