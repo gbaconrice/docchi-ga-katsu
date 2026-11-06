@@ -1,35 +1,48 @@
 {
-  "scope": "Approved44 natural names plus terrain reference two-row header/detail dialog, reference gold typography and left wallet alignment, result utility controls, overtime choice copy/layout and battle-log team/semantic colors.",
+  "scope": "Inline terrain without the added info UI, removal of the prebattle label, exact long-wallet-amount layout, upper solo reaction lane, clarified overtime loss copy, and removal of ground army markers. Retain character list, approved44 names, selected typefaces, result controls, log colors, HP/selection/ability indicators and all mechanics/assets/wallet/score.",
   "index": "index.html",
-  "indexSHA256": "761f5a7079202507761ad48b6ce7871d9b7a2e0da9c6709134c340ec7da6ce00",
-  "release": "releases/terrain-gold-20261106/manifest.json",
-  "releaseManifestSHA256": "755e0fe3e0b49c1c9dfe556443c5ab991ea67209751943a52024a9519ebc0174",
-  "reconstructedSourceSHA256": "5160ff600ee08d1688abb4a9967fb8e6b29954f8124c2bff9ac283b2b042988b",
-  "reconstructedSourceBytes": 49338919,
-  "contentRevision": "9b65ebb2bc58c7fe6a4cf6b8c45133ec194c7c83893558749055516d6743591c",
-  "gravityEntrySHA256": "a4e70025f0bd9d9e7a45569eb855a23fe18b1d6fd1b4b498deaf5309bf8344fa",
-  "previousRelease": "releases/wallet-header-20261106/manifest.json",
+  "indexSHA256": "d8c9ff3cec492e60759705a2ae1459caab5ded225c24ba6d47dec645350ed2df",
+  "release": "releases/terrain-inline-20261106/manifest.json",
+  "releaseManifestSHA256": "e7670b6012807fc8b4937c8d484509da8a35a136d33250ebc806b72675aff188",
+  "reconstructedSourceSHA256": "6611f76de9602cc468a34795e105ad11af2be900842d3ef0be6f6091366b32ab",
+  "reconstructedSourceBytes": 49334209,
+  "contentRevision": "460af6ca04b48e72e8413428bcc5a90f0c4d17196df086ee936fd04b11c9a80d",
+  "gravityEntrySHA256": "cb6c670949a612ccadffba7bf7d5e88e10408513bc78cf18b8d8072c86cf368d",
+  "previousRelease": "releases/terrain-gold-20261106/manifest.json",
   "readme": "README.md",
   "validation": {
-    "canonicalTests": 160,
-    "canonicalPassed": 160,
+    "sourceSHA256": "6611f76de9602cc468a34795e105ad11af2be900842d3ef0be6f6091366b32ab",
+    "canonicalTests": 165,
+    "canonicalPassed": 165,
+    "canonicalFailed": 0,
     "freshFullRun": true,
-    "sourceSHA256": "5160ff600ee08d1688abb4a9967fb8e6b29954f8124c2bff9ac283b2b042988b",
-    "focusedTests": 22,
+    "resultReuse": false,
+    "canonicalInputFiles": 188,
+    "focusedTests": 26,
+    "focusedPassed": 26,
     "externalChecks": 9,
+    "sourceReconstructionExact": true,
     "entryLoaderFaultCases": 32,
     "actualSixScriptRecoveryCases": 7,
-    "sourceReconstructionExact": true,
     "releaseHTTPFiles": 36,
     "releaseHTTPExact": 36,
-    "browserHeaderCases": 16,
-    "browserHeaderStates": 64,
-    "browserOvertimeCases": 56,
-    "browserNameUnits": 44,
-    "browserTerrainCases": 24,
-    "browserLogCases": 10,
-    "productionSoloResultAndExit": true,
+    "browserVerificationStatus": "PARTIAL_WITH_DOCUMENTED_BOUNDARY_AND_UNFINISHED_LIVE_FLOWS",
+    "browserChecksPerformed": true,
+    "allRequestedBrowserChecksComplete": false,
+    "browserTerrainStandardCases": 48,
+    "browserTerrainGravityVolcano12Cases": 4,
+    "browserWalletCycles": 16,
+    "browserWalletAmountCases": 96,
+    "browserEmoteCases": 56,
+    "browserMatrixRecords": 72,
+    "browserMatrixRecordsPassed": 72,
+    "productionSoloBootSelectionBattleStart": true,
+    "productionBattleClockObservedSeconds": 0.2,
+    "productionPostSettlementFlowVerified": false,
+    "actualOvertimeInteractionVerified": false,
+    "enlargedFootMarkerVisualVerified": false,
     "physicalIOSVerified": false,
+    "physicalTouchVerified": false,
     "liveGravitySDKVerified": false,
     "liveRoomNetworkVerified": false
   },
@@ -42,7 +55,7 @@
     "inlineImageAudioData": 591,
     "sharedImageReferences": 567,
     "releaseLocalImagesByteIdentical": 6,
-    "gameplayDefinitionsWalletScoreAssets": "Preserved; detailed independent source checks accompany this candidate."
+    "gameplayDefinitionsWalletScoreAssets": "Byte/data preservation verified independently."
   },
   "compatibility": {
     "fullSourceRevisionChanged": true,
@@ -50,12 +63,79 @@
     "idAbilityImageWalletScoreMigrationRequired": false
   },
   "qa": {
-    "page": "releases/terrain-gold-20261106/qa.html",
-    "scope": "Terrain/gold, result controls, overtime choices, log team colors, and22 pairs covering44 approved names. QA fixtures remain outside production entry."
+    "page": "releases/terrain-inline-20261106/qa.html",
+    "scope": "Inline terrain, prebattle label absence, retained character list and all inherited result/overtime/log/naming fixtures. QA stays outside production entries."
   },
   "limitations": [
-    "Physical iOS rendering and the live GRAVITY SDK/room transport are not verified.",
-    "QA-only frozen-frame and incomplete dedicated multiplayer fixtures are not production runtime evidence; stable fixtures plus an unmodified live solo match were used.",
-    "The archived release manifest records pre-publication freeze status; this root manifest records completed verification."
-  ]
+    "Production play after the battle settles has not been completed in this browser pass.",
+    "Additional actual overtime interaction and rendered explanation check remain incomplete.",
+    "Additional enlarged visual inspection of removed ground army markers and preserved overhead HP remains incomplete; VM drawing checks pass.",
+    "320x568 GRAVITY multiplayer confirm full vertical-scroll reachability and prior-release comparison remain unverified.",
+    "430px GRAVITY multiplayer and standard-entry start-button geometry were not separately completed.",
+    "Physical iOS/touch, real GRAVITY SDK, and real network multiplayer remain unverified.",
+    "Known QA expectation mismatch retained; not counted as a passed assertion.",
+    "The immutable release manifest retains the verification state recorded when it was frozen; this root metadata records the later scoped results."
+  ],
+  "metadataStatus": "FINALIZED_FOR_PROMOTION_DECISION_WITH_DOCUMENTED_LIMITATIONS",
+  "browserScope": {
+    "environment": "Chromium; standard and simulated GRAVITY layouts. Not a physical device or real SDK session.",
+    "widths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "heights": [
+      568,
+      667,
+      844,
+      932
+    ],
+    "terrain": "48 standalone cases: all eight terrains at strength12 on four widths, plus strengths4 and8 at320; additional GRAVITY volcano strength12 at four widths.",
+    "wallet": "12,800 and123,456 entirely visible throughout the matrix;20- and600-digit strings retain exact text and reach the final digit by horizontal scrolling;26px/system-ui/600/left alignment confirmed.",
+    "emote": "Solo32px upper strip with28px emoji outside map; multiplayer four complete slots and end-of-rail scrolling; no horizontal overflow or result/header/reaction-strip overlap in covered fixtures.",
+    "productionSmoke": "Production entry boot, solo selection and battle start through a0.2-second game clock verified; no claim of completed live battle/result/overtime flow.",
+    "screenshots": "Representative full-frame screenshots inspected; no additional enlarged ground-marker visual pass completed."
+  },
+  "knownBoundary": {
+    "entry": "GRAVITY rendering fixture",
+    "viewport": [
+      320,
+      568
+    ],
+    "mode": "multi",
+    "control": "confirm",
+    "y": 524,
+    "height": 64,
+    "bottom": 588,
+    "geometricVisibleHeight": 44,
+    "outsideViewportBottom": 20,
+    "centerHitTarget": "confirm",
+    "fixtureDisabled": true,
+    "successfulStartClickVerified": false,
+    "fullVerticalScrollAccessVerified": false,
+    "oldReleaseComparisonVerified": false,
+    "classification": "Observed fixture boundary; production regression status undetermined."
+  },
+  "qaExpectationNote": {
+    "status": "KNOWN_QA_EXPECTATION_MISMATCH",
+    "note": "One terrain QA wallet-position check differs from the current layout. Independent centering and collision measurements passed. The immutable QA file remains unchanged.",
+    "action": "Known QA expectation mismatch retained; not counted as a passed assertion."
+  },
+  "remainingVerification": [
+    "Production play after the battle settles has not been completed in this browser pass.",
+    "Additional actual overtime interaction and rendered explanation check remain incomplete.",
+    "Additional enlarged visual inspection of removed ground army markers and preserved overhead HP remains incomplete; VM drawing checks pass.",
+    "320x568 GRAVITY multiplayer confirm full vertical-scroll reachability and prior-release comparison remain unverified.",
+    "430px GRAVITY multiplayer and standard-entry start-button geometry were not separately completed.",
+    "Physical iOS/touch, real GRAVITY SDK, and real network multiplayer remain unverified."
+  ],
+  "browserEnvironmentLimitation": "The browser validation environment became unavailable; remaining items are unverified.",
+  "releaseDeployment": {
+    "stageCommit": "4eb4de1b3903dc35c7eede919b927196960b67f1",
+    "pagesRun": 42241995045,
+    "pagesConclusion": "success",
+    "HTTPFilesExact": 36,
+    "normalRootPromotionVerification": "Checked separately after these four root files are applied."
+  }
 }
