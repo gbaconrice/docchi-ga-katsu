@@ -8,8 +8,8 @@
   background: #503925;
   border-color: #b19461;
   border-radius: 3px;
-  box-shadow: none;
-  text-shadow: none;
+  box-shadow:none;
+  text-shadow:none;
 }
 #app #gameScreen .battle-toolbar > #pause {
   display: grid;
@@ -44,4 +44,9 @@
 #app #gameScreen .battle-toolbar > #pause:focus-visible {
   outline: 2px solid #ffe7ad;
   outline-offset: 2px;
+}
+/* The smallest layout keeps the terrain effect on its existing single line. */
+@media (max-width:350px) {
+  #app #gameScreen #gameTopline #fieldStatus { font-size:12px; }
+  #app #gameScreen #comparison .stake-option { font-size:14px; }
 }
