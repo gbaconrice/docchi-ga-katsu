@@ -1,6 +1,6 @@
 {
   "scope": "Restore mobile layout, controls, loading copy, loss animation and pixel effects; replace three capture abilities with contact combos, pincer strike and frontal claw counter.",
-  "metadataStatus": "AUTOMATED_AND_SCOPED_BROWSER_VERIFIED_READY_FOR_DEPLOYMENT",
+  "metadataStatus": "DEPLOYED_BYTES_AND_SCOPED_PUBLIC_BROWSER_VERIFIED",
   "index": "index.html",
   "indexSHA256": "7d26a0f51e08061c005e505cdfbe82beab14e1c18f9577cffad02877b0eb3aaf",
   "release": "releases/ui-world-restore-20261107/manifest.json",
@@ -17,7 +17,7 @@
     "realGravitySDKVerified": false,
     "physicalTouchVerified": false,
     "realNetworkMultiplayerVerified": false,
-    "deploymentVerified": false,
+    "deploymentVerified": true,
     "canonicalTests": 173,
     "canonicalPassed": 134,
     "canonicalFailed": 39,
@@ -52,6 +52,13 @@
     "currentAggregate": "verification/ui-world-restore-20261107/replacements/aggregate-final.json",
     "canonicalFailureTraceability": "verification/ui-world-restore-20261107/replacements/canonical-failure-classification.json",
     "historicalFailureTraceability": "verification/ui-world-restore-20261107/replacements/historical-failure-classification.json",
-    "countingNote": "Counts overlap. Historical2572 battle samples belong to649a36, not a new full49 rerun. Approved3 deliberately change mechanics;46 exact preserved."
+    "countingNote": "Counts overlap. Historical2572 battle samples belong to649a36, not a new full49 rerun. Approved3 deliberately change mechanics;46 exact preserved.",
+    "deploymentSourceCommit": "bb9120905b6ff7f8e5c075f188ba5d91ca3924ee",
+    "deploymentFileCount": 610,
+    "deploymentAllHashesMatch": true,
+    "deploymentEvidence": "verification/ui-world-restore-20261107/deployment-verification.json",
+    "publicBrowserEvidence": "verification/ui-world-restore-20261107/browser/postdeploy-final.json",
+    "publicLossMotionFixture": true,
+    "naturalPublicLossObserved": false
   }
 }

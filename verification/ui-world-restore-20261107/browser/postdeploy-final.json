@@ -1,0 +1,486 @@
+{
+  "schema": "postdeploy-final-browser-qa-v1",
+  "date": "2026-11-07",
+  "result": "PASS within observed scope",
+  "deployment": {
+    "commit": "bb9120905b6ff7f8e5c075f188ba5d91ca3924ee",
+    "pagesRun": "42374627039",
+    "sourceSha256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+    "runtime": "game-runtime.2d172fef62c3fa987cf3.js"
+  },
+  "exactEntries": {
+    "root": "https://gbaconrice.github.io/docchi-ga-katsu/",
+    "gravity": "https://gbaconrice.github.io/docchi-ga-katsu/releases/ui-world-restore-20261107/gravity-entry.html",
+    "boss": "https://gbaconrice.github.io/docchi-ga-katsu/releases/ui-world-restore-20261107/boss-preview.html"
+  },
+  "root": {
+    "loader": "Exact public root reached usable home and loaded final runtime2d172fef.",
+    "home": {
+      "art": {
+        "x": 380,
+        "y": 8,
+        "width": 420,
+        "height": 739
+      },
+      "sound": {
+        "x": 568,
+        "y": 525.5,
+        "width": 44,
+        "height": 44
+      },
+      "observed": "Sound centered atx590 below both play choices inside the art. Toggle changed mute state."
+    },
+    "prediction": {
+      "header": {
+        "x": 12,
+        "y": 12,
+        "width": 1156,
+        "height": 56
+      },
+      "sound": {
+        "x": 1116,
+        "y": 18,
+        "width": 44,
+        "height": 44
+      },
+      "toolbarHeight": 44,
+      "observed": "One horizontal terrain/round/coin+number/sound row. Menu opened/closed; info panel lists attack values labelled 攻撃; reaction picker opened and cheer showed32x32 😄 at20,80."
+    },
+    "naturalRounds": [
+      {
+        "round": 1,
+        "choice": "right",
+        "elapsedSeconds": 11.6,
+        "result": "right win",
+        "delta": 25,
+        "wallet": 125
+      },
+      {
+        "round": 2,
+        "choice": "right",
+        "elapsedSeconds": 10.7,
+        "result": "right win",
+        "delta": 31,
+        "wallet": 156
+      }
+    ],
+    "nextPrediction": "Actual next button reached round2 with125G and selection reset. No artificial result imposed on root."
+  },
+  "gravity": {
+    "loader": "Exact public Gravity URL loaded same finalruntime, no localbase substitution.",
+    "homeTop": 82,
+    "headerTop": 86,
+    "headerHeight": 56,
+    "soundTop": 92,
+    "soundSize": [
+      44,
+      44
+    ],
+    "hostTopReserve": 74,
+    "observed": "Home and choosing layout retain74px host reserve. Standalone URL test only, not live GravitySDK."
+  },
+  "replacements": [
+    {
+      "id": "gauntlet_combo_guard",
+      "setup": "Select; enable enemy attacks; advance67ticks",
+      "live": {
+        "tick": 67,
+        "hits": 7,
+        "hp": 1076,
+        "event": "双拳の衝撃波 / boss_fist_wave"
+      },
+      "replay": {
+        "tick": 67,
+        "hits": 7,
+        "hp": 1076,
+        "observed": "Corrected recorded replay visibly matches live attack frame and status at67."
+      },
+      "visual": "Fist attack and expanding forward impact, no captured/lifted target observed."
+    },
+    {
+      "id": "kilnback_pincerbeast",
+      "setup": "Select; default fixed matchup; advance81 then96",
+      "live": {
+        "tick": 81,
+        "hits": 1,
+        "hp": 1450,
+        "event": "巨鋏断ち / boss_pincer_snap"
+      },
+      "visual": "Claw closes at81, returns to grounded stance by96; no lift/capture observed."
+    },
+    {
+      "id": "razorclaw_reaver",
+      "setup": "Select; enable enemy attacks; advance82 then94",
+      "live": [
+        {
+          "tick": 82,
+          "hits": 3,
+          "hp": 1618,
+          "event": "爪で防御 / boss_claw_block"
+        },
+        {
+          "tick": 94,
+          "hits": 5,
+          "hp": 1618,
+          "event": "双爪の反撃 / boss_claw_counter"
+        }
+      ],
+      "visual": "Frontal raised-claw guard followed by visible broad claw sweep."
+    }
+  ],
+  "effectReadiness": {
+    "ready": 8,
+    "total": 8,
+    "failed": 0
+  },
+  "publicLoss": {
+    "route": "https://gbaconrice.github.io/docchi-ga-katsu/releases/ui-world-restore-20261107/qa.html",
+    "entry": "qa-motion-entry.html",
+    "method": "Forced loss settlement in QA entry, actual production result DOM/CSS/WAAPI measured over native real-rAF. Not a natural battle loss.",
+    "evidence": {
+      "correct": false,
+      "viewport": [
+        390,
+        660
+      ],
+      "sampleCount": 157,
+      "trajectories": [
+        {
+          "id": "#resultScatter0",
+          "visibleFrames": 80,
+          "first": {
+            "atMs": 549,
+            "rect": [
+              239,
+              34.285789489746094,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1898,
+            "rect": [
+              399.9290466308594,
+              647.4456787109375,
+              12,
+              12
+            ]
+          },
+          "yTravel": 613.1598892211914
+        },
+        {
+          "id": "#resultScatter1",
+          "visibleFrames": 79,
+          "first": {
+            "atMs": 549,
+            "rect": [
+              239,
+              34.02895736694336,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1881,
+            "rect": [
+              410.944091796875,
+              648.9987182617188,
+              12,
+              12
+            ]
+          },
+          "yTravel": 614.9697608947754
+        },
+        {
+          "id": "#resultScatter2",
+          "visibleFrames": 77,
+          "first": {
+            "atMs": 566,
+            "rect": [
+              239,
+              34.05905532836914,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1865,
+            "rect": [
+              421.2123107910156,
+              649.591552734375,
+              12,
+              12
+            ]
+          },
+          "yTravel": 615.5324974060059
+        },
+        {
+          "id": "#resultScatter3",
+          "visibleFrames": 78,
+          "first": {
+            "atMs": 582,
+            "rect": [
+              239,
+              34.08804702758789,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1898,
+            "rect": [
+              445.2784423828125,
+              655.430908203125,
+              12,
+              12
+            ]
+          },
+          "yTravel": 621.3428611755371
+        },
+        {
+          "id": "#resultScatter4",
+          "visibleFrames": 76,
+          "first": {
+            "atMs": 598,
+            "rect": [
+              239,
+              34.11948013305664,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1881,
+            "rect": [
+              395.4052734375,
+              655.5206909179688,
+              12,
+              12
+            ]
+          },
+          "yTravel": 621.4012107849121
+        },
+        {
+          "id": "#resultScatter5",
+          "visibleFrames": 76,
+          "first": {
+            "atMs": 615,
+            "rect": [
+              239,
+              34.14981460571289,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1898,
+            "rect": [
+              414.8630676269531,
+              645.7161865234375,
+              12,
+              12
+            ]
+          },
+          "yTravel": 611.5663719177246
+        },
+        {
+          "id": "#resultScatter6",
+          "visibleFrames": 74,
+          "first": {
+            "atMs": 632,
+            "rect": [
+              239,
+              34.182674407958984,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1881,
+            "rect": [
+              425.2763671875,
+              646.3078002929688,
+              12,
+              12
+            ]
+          },
+          "yTravel": 612.1251258850098
+        },
+        {
+          "id": "#resultScatter7",
+          "visibleFrames": 72,
+          "first": {
+            "atMs": 649,
+            "rect": [
+              239,
+              34.2162971496582,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1865,
+            "rect": [
+              433.8819885253906,
+              645.9192504882812,
+              12,
+              12
+            ]
+          },
+          "yTravel": 611.702953338623
+        },
+        {
+          "id": "#resultScatter8",
+          "visibleFrames": 73,
+          "first": {
+            "atMs": 665,
+            "rect": [
+              239,
+              34.24883270263672,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1898,
+            "rect": [
+              399.1723937988281,
+              653.5811767578125,
+              12,
+              12
+            ]
+          },
+          "yTravel": 619.3323440551758
+        },
+        {
+          "id": "#resultScatter9",
+          "visibleFrames": 71,
+          "first": {
+            "atMs": 682,
+            "rect": [
+              239,
+              34.284034729003906,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1881,
+            "rect": [
+              409.70556640625,
+              652.587158203125,
+              12,
+              12
+            ]
+          },
+          "yTravel": 618.3031234741211
+        },
+        {
+          "id": "#resultScatter10",
+          "visibleFrames": 71,
+          "first": {
+            "atMs": 699,
+            "rect": [
+              239,
+              34.31816482543945,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1898,
+            "rect": [
+              429.669189453125,
+              643.7791137695312,
+              12,
+              12
+            ]
+          },
+          "yTravel": 609.4609489440918
+        },
+        {
+          "id": "#resultScatter11",
+          "visibleFrames": 70,
+          "first": {
+            "atMs": 699,
+            "rect": [
+              239,
+              34.0305290222168,
+              12,
+              12
+            ]
+          },
+          "last": {
+            "atMs": 1881,
+            "rect": [
+              438.4300231933594,
+              643.2900390625,
+              12,
+              12
+            ]
+          },
+          "yTravel": 609.2595100402832
+        }
+      ],
+      "samples": [
+        {
+          "atMs": 6,
+          "stage": 0,
+          "hidden": true,
+          "coins": 0
+        },
+        {
+          "atMs": 615,
+          "stage": 2,
+          "hidden": false,
+          "coins": 6
+        },
+        {
+          "atMs": 1015,
+          "stage": 2,
+          "hidden": false,
+          "coins": 12
+        },
+        {
+          "atMs": 1416,
+          "stage": 2,
+          "hidden": false,
+          "coins": 12
+        },
+        {
+          "atMs": 1814,
+          "stage": 2,
+          "hidden": false,
+          "coins": 12
+        },
+        {
+          "atMs": 2215,
+          "stage": 2,
+          "hidden": true,
+          "coins": 0
+        },
+        {
+          "atMs": 2614,
+          "stage": 2,
+          "hidden": true,
+          "coins": 0
+        }
+      ]
+    },
+    "observed": "All12 coins have positive opacity over multiple changing positions, from walletx239/y34 to over600px lower; visible at1.0,1.4,1.8seconds and hidden/cleared after2.2seconds. Screenshot attempts returned after the short animation ended, so movement proof is timed real-rendered DOM geometry rather than peak screenshot."
+  },
+  "console": {
+    "rootSampledErrors": 33,
+    "gravitySampledErrors": 3,
+    "bossSampledErrors": 32,
+    "lossSampledErrors": 13,
+    "gameSourceErrors": [],
+    "note": "All sampled errors came from chrome-extension metadata transport."
+  },
+  "limitations": [
+    "Public root/Gravity/boss observations were Chrome desktop viewport1180xapproximately755. Public loss fixture used actual390x660 iframe content size, not iOS Safari/device.",
+    "Two ordinary root rounds both won. Loss motion is separately labelled synthetic settlement plus real rendering/timing.",
+    "No real GravitySDK session or multiplayer network/emote delivery tested.",
+    "Three replacements and gauntlet replay sampled; not exhaustive49 motion retest or every replay frame."
+  ]
+}

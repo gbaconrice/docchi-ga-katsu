@@ -36,3 +36,13 @@ Private browser UI checks cover320–430px widths,390×660 ordinary/GRAVITY layo
 Final-source browser observations cover Gauntlet and Shell in both directions, mirrored Crab, actual contact/guard/counter timing, and the corrected QA live/replay Gauntlet tick67 with matching visible swing/wave, HP1076 and7 hits. QA-only replay now supplies frameFor/facingFor and selects replay rendering; normal production replay already used those paths.
 
 Exact postdeployment root/GRAVITY URLs require a separate public smoke and byte-hash check. Physical phone/touch, iOS WebView, real GRAVITY SDK score acceptance and real network multiplayer remain unverified. Canvas and synthetic SDK fixtures are not substitutes for those checks.
+
+## Exact public deployment
+
+GitHub source commit `bb9120905b6ff7f8e5c075f188ba5d91ca3924ee`, Pages run42374627039 succeeded. All610 fetched public files (including573 original images;39,374,305 bytes) match the tested file hashes. Reassembly from downloaded public bytes yields the exact final source SHA above. [Full hash evidence](deployment-verification.json).
+
+The exact public root and unmodified GRAVITY entry load runtime `2d172fef62c3fa987cf3`. Home sound placement, prediction menu/info/emote and next-round flow pass. Two natural solo rounds won, ending with125 and156 gold. The Gravity entry retains the74px host reserve. Public replacement contacts and corrected live/replay match: fist wave67, pincer snap81, claw block82/counter94. Effects ready8/8, failures0.
+
+Public390×660 loss QA uses a forced settlement and real requestAnimationFrame/WAAPI animation measurements: all12 coins remain visible70–80 sampled frames, move609–621px downward, and the layer clears. This is not a naturally lost round or a saved peak screenshot. Both natural public rounds happened to win. [Browser scope and observations](browser/postdeploy-final.json).
+
+A following metadata-only commit records this evidence; the game source, loader and assets remain unchanged. The physical-device, real SDK and real multiplayer limits above still apply.
