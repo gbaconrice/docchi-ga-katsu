@@ -1,0 +1,15 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment rockfield
+PASS deferred image callbacks
+contested {"winner":0,"targetHp":-5,"attackerDead":false,"score":null} {"winner":0,"targetHp":-5,"attackerDead":false,"score":null}
+dead contributor {"winner":0,"targetHp":0,"attackerDead":true,"score":{"version":2,"winner":"A","mvp":{"kind":"sword","value":10},"close":null}}
+armor {"hp":162.3,"score":{"version":2,"winner":"A","mvp":{"kind":"archer","value":7.7},"close":null}}
+summon {"hp":-5,"score":null}
+PASS summoned hits consume HP without credit or double count; contested overkill hides MVP
+heal false {"hp":103,"score":null} {"hp":93,"score":{"version":2,"winner":"A","mvp":{"kind":"sword","value":7},"close":null}}
+heal true {"hp":103,"score":null} {"hp":93,"score":{"version":2,"winner":"A","mvp":{"kind":"sword","value":7},"close":null}}
+PASS terrain/attack/heal overlap hides ambiguous attribution
+PASS simultaneous deterministic allocation, armor and summon exclusion

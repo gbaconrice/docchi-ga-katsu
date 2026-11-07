@@ -1,0 +1,5 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo result/log stays for ten minutes, no countdown or mutation; one click advances once
+PASS shared 30-second normal multiplayer countdown, host-only timed start and duplicate protection
+PASS lowered bounded card, independent amount row and hidden battle-only history entry CSS contract (not a browser geometry test)

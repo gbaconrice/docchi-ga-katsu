@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS opening search finds fresh admitted count after every nearest-count species is exhausted.
+PASS exhausted sampled pool triggers bounded single-substitution search: 897 attempts, 189 ms; fresh card, same incumbent, both cost bands, deterministic.

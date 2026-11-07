@@ -1,0 +1,24 @@
+PASS boot 5 scripts
+PASS solo start
+PASS exposed victim still receives exactly 30 death-burst damage
+PASS revived summoner spends only remaining charges with unique physical child tokens
+PASS three burst waves log each defeated physical unit exactly once
+PASS exposure duration and immunity each emit one expiry observation
+PASS canonical revival log preserves child identity through replay and fresh transfer receivers
+PASS canonical frameFor captures revival channel, completion and cancellation poses tick for tick
+LIMITATION: Node pose/transport checks do not validate actual browser rendering or real-network reconnects.
+SUMMARY 6 passed, 1 failed
+FAIL boss attack and exposure multiply exactly once AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(r.scale>1)
+
+    at /tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/ability-integration-cross.cjs:34:3
+    at test (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/ability-integration-cross.cjs:27:9)
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/ability-integration-cross.cjs:32:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47

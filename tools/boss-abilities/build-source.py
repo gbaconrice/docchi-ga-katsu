@@ -60,6 +60,15 @@ if (base/'patch-boss-delivery.py').exists():
 if (base/'patch-boss-status-interop.py').exists():
  import runpy
  s=runpy.run_path(str(base/'patch-boss-status-interop.py'))['patch'](s)
+# Reproduce the reviewed UI/copy/result/pixel-effect correction after the ability modules.
+if (base/'ui-restoration/apply.py').exists():
+ import runpy
+ s=runpy.run_path(str(base/'ui-restoration/apply.py'))['patch'](s)
+# Approved replacement mechanics and their production sprite/pixel presentation.
+if (base/'approved-replacements/apply-mechanics.py').exists():
+ import runpy
+ s=runpy.run_path(str(base/'approved-replacements/apply-mechanics.py'))['patch'](s)
+ s=runpy.run_path(str(base/'approved-replacements/presentation/apply.py'))['patch'](s)
 # Freeze unique content revision; existing old clients cannot join this altered simulation.
 s=re.sub(r'const CONTENT_REVISION="[a-f0-9]{64}";', 'const CONTENT_REVISION="'+'0'*64+'";',s)
 revision=hashlib.sha256(('docchi-boss-abilities-v1\0'+s).encode()).hexdigest()

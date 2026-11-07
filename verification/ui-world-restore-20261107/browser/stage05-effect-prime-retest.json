@@ -1,0 +1,34 @@
+{
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "effectAssets": {
+    "ready": 8,
+    "total": 8,
+    "failed": 0
+  },
+  "deathBurst": {
+    "eventTick": 2,
+    "sampleTicks": [
+      4,
+      10,
+      20,
+      50
+    ],
+    "observed": "At4 compact authored onset; at10 orange lobed blast visibly surrounds corpse and is distinct from prior unprimed sample; at20 outward debris with primary burst faded; at50 overlay cleared while original corpse flame remains."
+  },
+  "reusedClawContact": {
+    "id": "iceclaw_legend",
+    "sampleTicks": [
+      60,
+      75
+    ],
+    "observed": "Claw/contact and ice details visibly advance between samples; later frost shards scatter. No runtime error."
+  },
+  "reusedGround": {
+    "id": "stonepulse_kolossus",
+    "sampleTicks": [
+      67,
+      82
+    ],
+    "observed": "Ground impact arc and rubble line visible at67; arc clears by82, fissure/rubble remains. Preserved source attack art also changes."
+  }
+}

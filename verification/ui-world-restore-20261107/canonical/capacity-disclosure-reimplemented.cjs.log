@@ -1,0 +1,26 @@
+PASS boot 5 scripts
+PASS solo start
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: JSON.stringify(TYPES)
+    at /tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:31:75
+    at test (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:9:24)
+    at Object.<anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:28:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '089d569a6320871b279bdce30c4af64dc770aee9565e97f6bb2bfaf7b810356b',
+  expected: '06e4de058f234863e6a57797d693c063e2e779ec31cb801f77f5ef098fda422c',
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

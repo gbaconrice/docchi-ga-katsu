@@ -8,7 +8,14 @@
  const report=host.createElement('pre');report.id='lossMotionAuditReport';
  report.style.maxHeight='180px';report.style.overflow='auto';
  let captureToken=0,last=null;
- const compact=r=>r&&({correct:r.correct,viewport:r.viewport,began:r.began,sampleCount:r.samples.length,samples:[r.samples[0],r.samples.find(x=>x.now-r.began>=1000),r.samples.at(-1)].filter(Boolean)});
+ const compact=r=>{
+  if(!r)return r;
+  const pick=(s,id)=>s.nodes.find(n=>n?.id===id),coins=s=>s.nodes.filter(n=>n?.id?.startsWith('#resultScatter'));
+  const visible=(s,n)=>{const layer=pick(s,'#earnedFlightLayer');return layer&&!layer.hidden&&layer.display!=='none'&&n&&Number(n.opacity)>0&&n.rect[2]>0&&n.rect[3]>0&&n.rect[1]+n.rect[3]>0&&n.rect[1]<r.viewport[1];};
+  const samples=[r.samples[0],...[600,1000,1400,1800,2200].map(t=>r.samples.find(s=>s.now-r.began>=t)),r.samples.at(-1)].filter(Boolean).map(s=>({atMs:Math.round(s.now-r.began),stage:s.stage,animations:s.animations,layer:pick(s,'#earnedFlightLayer'),coins:coins(s).map(n=>({id:n.id,rect:n.rect.map(v=>Math.round(v*10)/10),opacity:Number(n.opacity)}))}));
+  const trajectories=Array.from({length:12},(_,i)=>{const id='#resultScatter'+i,frames=r.samples.map(s=>({s,n:pick(s,id)})).filter(x=>visible(x.s,x.n));return {id,visibleFrames:frames.length,first:frames[0]&&{atMs:Math.round(frames[0].s.now-r.began),rect:frames[0].n.rect},last:frames.at(-1)&&{atMs:Math.round(frames.at(-1).s.now-r.began),rect:frames.at(-1).n.rect},yTravel:frames.length?Math.max(...frames.map(x=>x.n.rect[1]))-Math.min(...frames.map(x=>x.n.rect[1])):0};});
+  return {correct:r.correct,viewport:r.viewport,began:r.began,sampleCount:r.samples.length,trajectories,samples};
+ };
  const read=()=>{
   const box=id=>{const n=document.querySelector(id);if(!n)return null;const r=n.getBoundingClientRect(),s=getComputedStyle(n);return {id,text:n.textContent.slice(0,50),rect:[r.x,r.y,r.width,r.height],hidden:n.hidden,display:s.display,visibility:s.visibility,zIndex:s.zIndex,opacity:s.opacity};};
   return {now:performance.now(),stage:personalResultScene?.stage,stage2At:personalResultScene?.stage2At,animations:personalResultScene?.animations.length,nodes:['#balance','#breakdown','#field','#fieldStage','#battle','#battleLog','#gameToolbar','#assetNoticeBattle','#resultPanel','#earnedFlightLayer',...Array.from({length:12},(_,i)=>'#resultScatter'+i)].map(box)};

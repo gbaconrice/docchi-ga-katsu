@@ -1,0 +1,18 @@
+PASS a1-bounded-text.cjs
+PASS a1-header-wallet.cjs
+PASS auto-speed-controls.cjs
+PASS gold-full-amount.cjs
+PASS header-log-readability.cjs
+PASS header-slot.cjs
+PASS horizontal-game-header.cjs
+PASS map-emote-frame.cjs
+PASS multi-menu.cjs
+PASS readable-controls.cjs
+PASS solo-fresh-entry.cjs
+PASS stable-upper-ui.cjs
+PASS terrain-header.cjs
+PASS test-result-controls.cjs
+PASS upper-reaction-area.cjs
+PASS test-prediction-entry.cjs
+PASS test-choose-controls.cjs
+{"sourceSha256":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","canonicalTestsModified":false,"browserVerified":false,"equivalentCount":15,"focusedCount":2,"results":[{"test":"a1-bounded-text.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.844},{"test":"a1-header-wallet.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.763},{"test":"auto-speed-controls.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.902},{"test":"gold-full-amount.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.199},{"test":"header-log-readability.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.512},{"test":"header-slot.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":1.062},{"test":"horizontal-game-header.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.747},{"test":"map-emote-frame.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.199},{"test":"multi-menu.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.737},{"test":"readable-controls.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.668},{"test":"solo-fresh-entry.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.626},{"test":"stable-upper-ui.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.843},{"test":"terrain-header.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.271},{"test":"test-result-controls.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":1.026},{"test":"upper-reaction-area.cjs","kind":"explicit-historical-equivalent","status":"pass","code":0,"signal":null,"seconds":0.943},{"test":"test-prediction-entry.cjs","kind":"focused-real-handler-regression","status":"pass","code":0,"signal":null,"seconds":0.854},{"test":"test-choose-controls.cjs","kind":"focused-real-handler-regression","status":"pass","code":0,"signal":null,"seconds":0.741}],"sourceUnchanged":true,"all173OriginalTestsUnchanged":true,"passed":17,"failed":0,"completed":true}

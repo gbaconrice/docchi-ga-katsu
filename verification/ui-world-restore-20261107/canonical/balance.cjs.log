@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS first-round 0.96 multiplier used
+PASS boost tiers, recalibrated costs, rematch avoidance 40/40, mean challenger/champion cost 1.027

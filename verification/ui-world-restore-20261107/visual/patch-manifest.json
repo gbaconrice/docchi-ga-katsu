@@ -1,0 +1,17 @@
+{
+  "baseline_sha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "candidate_sha256": "2914d6fa43757337baabc231199c1204df42de9cf3ec8754329cee309062b509",
+  "original_renderer_sha256": "cfe19a56aabe0818278173ce290f8b1aee1fd0eb0f96a983e54f8a9a6dc6e66e",
+  "replacement_renderer_sha256": "77882c3d3baa5353e2bd846536b0fa0187d827aeab3092a939f96a66c89949d8",
+  "changed_regions": [
+    "new boss presentation renderer only"
+  ],
+  "external_assets_added": 0,
+  "canonical_modified": false,
+  "mechanics_before_after_identical": true,
+  "renderer_module_file_sha256": "18036d1aebf935a913c95117d3cf22d2efcb0a160d6e8b48144b0f2be728f0c6",
+  "renderer_module_file_bytes": 28135,
+  "replacement_embedded_region_sha256": "77882c3d3baa5353e2bd846536b0fa0187d827aeab3092a939f96a66c89949d8",
+  "replacement_embedded_region_bytes": 28136,
+  "renderer_hash_note": "replacement_renderer_sha256 is the exact embedded region, presentation.js plus one trailing LF. renderer_module_file_sha256 is the exact file; neither hash uses whitespace normalization."
+}

@@ -1,0 +1,315 @@
+{
+  "source": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/integration/full-03/source/index.html",
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "reflection": {
+    "raw": {
+      "type": "boss_effect",
+      "kind": "boss_throw",
+      "sourceToken": "test:1",
+      "tick": 19,
+      "x": 180.024169921875,
+      "y": 240.02392578125,
+      "targetX": 245.024169921875,
+      "targetY": 240.02392578125,
+      "face": 1,
+      "radius": 65,
+      "duration": 40,
+      "color": "#83e2ff"
+    },
+    "decoded": {
+      "kind": "boss_throw",
+      "x": 180,
+      "y": 240,
+      "face": 1,
+      "tick": 19,
+      "targetX": 245,
+      "targetY": 240,
+      "radius": 65,
+      "duration": 40,
+      "color": 8643327
+    },
+    "tick": 19,
+    "variant": "reflection_shards",
+    "shardCount": 9
+  },
+  "beams": [
+    {
+      "setup": {
+        "sx": 24,
+        "sy": 269,
+        "tx": 120,
+        "ty": 269
+      },
+      "raw": {
+        "type": "boss_effect",
+        "kind": "boss_beam",
+        "sourceToken": "test:1",
+        "tick": 103,
+        "x": -693.0020804408265,
+        "y": 269,
+        "targetX": 749.0020804408265,
+        "targetY": 269,
+        "face": 1,
+        "radius": 24,
+        "duration": 36,
+        "color": "#ffdaa1"
+      },
+      "decoded": {
+        "kind": "boss_beam",
+        "x": -693,
+        "y": 269,
+        "face": 1,
+        "tick": 103,
+        "targetX": 749,
+        "targetY": 269,
+        "radius": 24,
+        "duration": 36,
+        "color": 16767649
+      },
+      "tick": 103,
+      "paint": [
+        {
+          "form": "raw",
+          "paintedEnds": [
+            {
+              "x": 0,
+              "y": 252,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 252,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1503
+        },
+        {
+          "form": "replay",
+          "paintedEnds": [
+            {
+              "x": 0,
+              "y": 252,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 252,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1503
+        }
+      ]
+    },
+    {
+      "setup": {
+        "sx": 456,
+        "sy": 269,
+        "tx": 360,
+        "ty": 269
+      },
+      "raw": {
+        "type": "boss_effect",
+        "kind": "boss_beam",
+        "sourceToken": "test:1",
+        "tick": 103,
+        "x": 1173.0020804408264,
+        "y": 269,
+        "targetX": -269.0020804408265,
+        "targetY": 269,
+        "face": 1,
+        "radius": 24,
+        "duration": 36,
+        "color": "#ffdaa1"
+      },
+      "decoded": {
+        "kind": "boss_beam",
+        "x": 1173,
+        "y": 269,
+        "face": -1,
+        "tick": 103,
+        "targetX": -269,
+        "targetY": 269,
+        "radius": 24,
+        "duration": 36,
+        "color": 16767649
+      },
+      "tick": 103,
+      "paint": [
+        {
+          "form": "raw",
+          "paintedEnds": [
+            {
+              "x": 0,
+              "y": 252,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 252,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1503
+        },
+        {
+          "form": "replay",
+          "paintedEnds": [
+            {
+              "x": 0,
+              "y": 252,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 252,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1503
+        }
+      ]
+    },
+    {
+      "setup": {
+        "sx": 24,
+        "sy": 24,
+        "tx": 120,
+        "ty": 120
+      },
+      "raw": {
+        "type": "boss_effect",
+        "kind": "boss_beam",
+        "sourceToken": "test:1",
+        "tick": 103,
+        "x": -481.8254603293171,
+        "y": -481.8254603293171,
+        "targetX": 537.8254603293171,
+        "targetY": 537.8254603293171,
+        "face": 1,
+        "radius": 24,
+        "duration": 36,
+        "color": "#ffdaa1"
+      },
+      "decoded": {
+        "kind": "boss_beam",
+        "x": -482,
+        "y": -482,
+        "face": 1,
+        "tick": 103,
+        "targetX": 538,
+        "targetY": 538,
+        "radius": 24,
+        "duration": 36,
+        "color": 16767649
+      },
+      "tick": 103,
+      "paint": [
+        {
+          "form": "raw",
+          "paintedEnds": [
+            {
+              "x": 17,
+              "y": 0,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 462,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1453
+        },
+        {
+          "form": "replay",
+          "paintedEnds": [
+            {
+              "x": 17,
+              "y": 0,
+              "painted": true
+            },
+            {
+              "x": 479,
+              "y": 462,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1453
+        }
+      ]
+    },
+    {
+      "setup": {
+        "sx": 456,
+        "sy": 24,
+        "tx": 360,
+        "ty": 120
+      },
+      "raw": {
+        "type": "boss_effect",
+        "kind": "boss_beam",
+        "sourceToken": "test:1",
+        "tick": 103,
+        "x": 961.8254603293171,
+        "y": -481.8254603293171,
+        "targetX": -57.82546032931708,
+        "targetY": 537.8254603293171,
+        "face": 1,
+        "radius": 24,
+        "duration": 36,
+        "color": "#ffdaa1"
+      },
+      "decoded": {
+        "kind": "boss_beam",
+        "x": 962,
+        "y": -482,
+        "face": -1,
+        "tick": 103,
+        "targetX": -58,
+        "targetY": 538,
+        "radius": 24,
+        "duration": 36,
+        "color": 16767649
+      },
+      "tick": 103,
+      "paint": [
+        {
+          "form": "raw",
+          "paintedEnds": [
+            {
+              "x": 463,
+              "y": 0,
+              "painted": true
+            },
+            {
+              "x": 0,
+              "y": 463,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1453
+        },
+        {
+          "form": "replay",
+          "paintedEnds": [
+            {
+              "x": 463,
+              "y": 0,
+              "painted": true
+            },
+            {
+              "x": 0,
+              "y": 463,
+              "painted": true
+            }
+          ],
+          "pixelRectangles": 1453
+        }
+      ]
+    }
+  ],
+  "limits": "Real production simulation and compact codec; real renderer operations in instrumented Canvas fixture, not browser proof.",
+  "passed": true
+}

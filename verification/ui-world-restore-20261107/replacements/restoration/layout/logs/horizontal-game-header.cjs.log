@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS reference stacked round/terrain and wallet/audio contract; 13px terrain, 26px reference gold and 44px audio; complete inline terrain without extra controls; 32 static guard cases; solo/multi phase/pause/result/next VM coverage. Browser and real SDK are separate checks.

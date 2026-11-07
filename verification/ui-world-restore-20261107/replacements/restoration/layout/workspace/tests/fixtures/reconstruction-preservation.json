@@ -1,0 +1,25 @@
+{
+  "provenance": "Reviewed 2026-11-06 demand release. Wallet/score changes are exactly API compatibility syntax; diagnostic script is exactly the reviewed startup patch. Other helpers and all image/audio data remain byte-identical. Reviewed A1 adds three authored SVG decorations, with all prior image/audio bytes unchanged. Host script exactly matches reviewed native verification notification; gameplay and wallet blocks unchanged. Prediction-only marker adds one approved PNG; all 590 earlier inline assets remain byte-identical.",
+  "baseIndexSHA256": "040ff2037e7ba6760a22b174b0d742224e45fc242cbce8731c3a98f8473b1d95",
+  "blocks": {
+    "wallets": {
+      "start": "const DoubleUpLedger=",
+      "end": "const GrowthGenerator=",
+      "sha256": "402360ea19bdefa4d523be56ac328f2c92f737f2ee0bea4b096b3c80defd9a20"
+    },
+    "scoreBridge": {
+      "start": "const ScoreBridge=",
+      "end": "const ReplayTransfer=",
+      "sha256": "5cee3809a78663bb9ec0c60b710d5964f46d2276c02a073bae91e1a852582f6e"
+    }
+  },
+  "unchangedScripts": {
+    "0": "0b679d98d044de1154e46ca194a85a83485a2963ee80225b6fcac89771566de6",
+    "1": "8d53d8813532e8cd453319d769cbc94eb81cb7884f132db0973a1456de47bcd2",
+    "2": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf",
+    "4": "16d2af7bb92ddb2c322f7ce1f847af91a7d5077080a913132d78c78d2bfb1f3f"
+  },
+  "inlineAssetCount": 591,
+  "inlineAssetsSHA256": "5a9257ef57e977a04513d61303e62fa78a61425a36e063d1f5d4156ce221be19",
+  "baselineReconstructedSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0"
+}

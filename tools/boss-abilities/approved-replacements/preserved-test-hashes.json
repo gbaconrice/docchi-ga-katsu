@@ -1,0 +1,15 @@
+{
+  "tests/boss-delivery.test.cjs": "99ef9021c9fc8c78d3db92817fcab2f668f036944f280b0738f099d51c743ed4",
+  "tests/boss-status-interop.test.cjs": "b635d3c7967f59eb213a6bb864e0d968bfc1bf0c7a95aa5b81940e871bf8f3bb",
+  "tests/control.test.cjs": "d33cd9e2c279f8761b283246d82dfe8b09d24386efd822fe25c51534e899ea54",
+  "tests/current-contract.test.cjs": "60a1c706f3d78ca3fc24649cec0fbd7924a2cebf7c47bcb3b5bd958006964745",
+  "tests/elemental.test.cjs": "cb5a03298b6e3958112ce73bd42f0b24df042ec2e5bd7ddaba5413778dff4032",
+  "tests/fidelity-mechanics.test.cjs": "0d675ae838a16623b620a4b0303abc2cdc5e0e9b453ebb1a53b013c6d335999d",
+  "tests/harness.cjs": "7d612d58341cd186ab62f79180b0109eb35c947a549feff40cd7f09c3da31c84",
+  "tests/integrated-bosses.cjs": "99dce94bcda9832096666042816a434cad1397f015ba02b56ec10018865c7cc6",
+  "tests/legacy-equivalents.test.cjs": "9c8789d21a9078e8751490778bf57281da86385dee2168d0db258e31b2b0d8b9",
+  "tests/presentation.test.cjs": "3c6d80fd4be301939f78298a00ee8d367eb4ebfb7faa925996acae876e7d2f67",
+  "tests/render-canvas.cjs": "e16622480af066dc12d489d17e65cde0f82f1411637656488a8612e27ed15df9",
+  "tests/resilience.test.cjs": "3d24dd327ab6fda482b4cacb6dc2ff644af2212d0595879cca6470bb7b006718",
+  "tests/round-lifecycle.test.cjs": "0f52960bc5ad6c8c69b63900df433f7532ed9b3a07879f2e29a95dc95b356897"
+}

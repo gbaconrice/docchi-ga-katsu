@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "eventTemplates": 108,
+  "contrastMinimums": {
+    "pauseExit": {
+      "normal": 6.98,
+      "hover": 8.69,
+      "active": 10.63,
+      "disabled": 4.78
+    },
+    "comparison": {
+      "health": 5.38,
+      "attack": 5,
+      "support": 4.88,
+      "defense": 5.38,
+      "control": 5.03,
+      "mobility": 4.79,
+      "summon": 5.01,
+      "neutral": 8.25
+    },
+    "detail": {
+      "health": 4.8,
+      "attack": 4.58,
+      "support": 5.29,
+      "defense": 4.8,
+      "control": 4.68,
+      "mobility": 5.13,
+      "summon": 5.36,
+      "neutral": 7.66
+    },
+    "log": {
+      "health": 6.93,
+      "attack": 6.62,
+      "support": 7.63,
+      "defense": 6.93,
+      "control": 6.76,
+      "mobility": 7.41,
+      "summon": 7.74,
+      "neutral": 11.05
+    }
+  },
+  "notes": "Static CSS contract + VM only. Browser 320px/GRAVITY geometry still requires rendered QA."
+}

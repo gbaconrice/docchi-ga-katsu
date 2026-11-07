@@ -1,0 +1,312 @@
+PASS Exact 49 boss registrations plus one bounded split-child spec
+PASS Entire roster metadata and all costs unchanged
+PASS Core production combat and target selection source unchanged
+PASS Release content revisions valid and explicitly recorded
+PASS Exact registered ability specification: thornback_beast
+PASS Exact registered ability specification: roarfang_beast
+PASS Exact registered ability specification: spectral_scale_dragon
+PASS Exact registered ability specification: iceclaw_legend
+PASS Exact registered ability specification: rootwarden_treant
+PASS Exact registered ability specification: frosthorn_rhino
+PASS Exact registered ability specification: pillar_hammerer
+PASS Exact registered ability specification: colossal_hornfist
+PASS Exact registered ability specification: carapace_slashbeast
+PASS Exact registered ability specification: stonepulse_kolossus
+PASS Exact registered ability specification: bluefist_colossus
+PASS Exact registered ability specification: spikeburst_grinder
+PASS Exact registered ability specification: redhorn_dualbeast
+PASS Exact registered ability specification: bluehorn_invoker
+PASS Exact registered ability specification: emberwing_drake
+PASS Exact registered ability specification: skullflare_triad
+PASS Exact registered ability specification: flamering_magus
+PASS Exact registered ability specification: shockplate_drake
+PASS Exact registered ability specification: thunderhorn_beast
+PASS Exact registered ability specification: stormhorn_tripler
+PASS Exact registered ability specification: darkfan_clawlord
+PASS Exact registered ability specification: plated_dualdragon
+PASS Exact registered ability specification: flameburst_mythron
+PASS Exact registered ability specification: willyee_frost_dragon
+PASS Exact registered ability specification: frostbreath_lizard
+PASS Exact registered ability specification: triad_chimera
+PASS Exact registered ability specification: cinder_tailbeast
+PASS Exact registered ability specification: emberfist_pillarer
+PASS Exact registered ability specification: veteran_flamewing
+PASS Exact registered ability specification: spore_toad
+PASS Exact registered ability specification: siege_crab
+PASS Exact registered ability specification: resilience_split_eye
+PASS Exact registered ability specification: slime
+PASS Exact registered ability specification: accretion_burstcore
+PASS Exact registered ability specification: domeback_colossus
+PASS Exact registered ability specification: ringhold_guardian
+PASS Exact registered ability specification: silverarm_vanguard
+PASS Exact registered ability specification: fiery_coil_inceptor
+PASS Exact registered ability specification: golem
+PASS Exact registered ability specification: bonefan_reaper
+PASS Exact registered ability specification: moonclaw_werewolf
+PASS Exact registered ability specification: willyee_stone_golem
+PASS Exact registered ability specification: basalt_titan
+PASS Exact registered ability specification: cyanrise_silithar
+PASS Exact registered ability specification: cleaver_brute
+PASS Exact registered ability specification: ringneck_prowler
+PASS Exact registered ability specification: bone_crown_lich
+PASS Exact cost, base HP, target layer and facts: thornback_beast
+PASS Exact cost, base HP, target layer and facts: roarfang_beast
+PASS Exact cost, base HP, target layer and facts: spectral_scale_dragon
+PASS Exact cost, base HP, target layer and facts: iceclaw_legend
+PASS Exact cost, base HP, target layer and facts: gauntlet_combo_guard
+PASS Exact cost, base HP, target layer and facts: rootwarden_treant
+PASS Exact cost, base HP, target layer and facts: frosthorn_rhino
+PASS Exact cost, base HP, target layer and facts: pillar_hammerer
+PASS Exact cost, base HP, target layer and facts: colossal_hornfist
+PASS Exact cost, base HP, target layer and facts: kilnback_pincerbeast
+PASS Exact cost, base HP, target layer and facts: carapace_slashbeast
+PASS Exact cost, base HP, target layer and facts: stonepulse_kolossus
+PASS Exact cost, base HP, target layer and facts: bluefist_colossus
+PASS Exact cost, base HP, target layer and facts: spikeburst_grinder
+PASS Exact cost, base HP, target layer and facts: redhorn_dualbeast
+PASS Exact cost, base HP, target layer and facts: bluehorn_invoker
+PASS Exact cost, base HP, target layer and facts: emberwing_drake
+PASS Exact cost, base HP, target layer and facts: skullflare_triad
+PASS Exact cost, base HP, target layer and facts: flamering_magus
+PASS Exact cost, base HP, target layer and facts: shockplate_drake
+PASS Exact cost, base HP, target layer and facts: thunderhorn_beast
+PASS Exact cost, base HP, target layer and facts: stormhorn_tripler
+PASS Exact cost, base HP, target layer and facts: darkfan_clawlord
+PASS Exact cost, base HP, target layer and facts: plated_dualdragon
+PASS Exact cost, base HP, target layer and facts: flameburst_mythron
+PASS Exact cost, base HP, target layer and facts: willyee_frost_dragon
+PASS Exact cost, base HP, target layer and facts: frostbreath_lizard
+PASS Exact cost, base HP, target layer and facts: triad_chimera
+PASS Exact cost, base HP, target layer and facts: cinder_tailbeast
+PASS Exact cost, base HP, target layer and facts: emberfist_pillarer
+PASS Exact cost, base HP, target layer and facts: veteran_flamewing
+PASS Exact cost, base HP, target layer and facts: spore_toad
+PASS Exact cost, base HP, target layer and facts: siege_crab
+PASS Exact cost, base HP, target layer and facts: slime
+PASS Exact cost, base HP, target layer and facts: accretion_burstcore
+PASS Exact cost, base HP, target layer and facts: domeback_colossus
+PASS Exact cost, base HP, target layer and facts: ringhold_guardian
+PASS Exact cost, base HP, target layer and facts: silverarm_vanguard
+PASS Exact cost, base HP, target layer and facts: fiery_coil_inceptor
+PASS Exact cost, base HP, target layer and facts: golem
+PASS Exact cost, base HP, target layer and facts: bonefan_reaper
+PASS Exact cost, base HP, target layer and facts: moonclaw_werewolf
+PASS Exact cost, base HP, target layer and facts: willyee_stone_golem
+PASS Exact cost, base HP, target layer and facts: basalt_titan
+PASS Exact cost, base HP, target layer and facts: cyanrise_silithar
+PASS Exact cost, base HP, target layer and facts: razorclaw_reaver
+PASS Exact cost, base HP, target layer and facts: cleaver_brute
+PASS Exact cost, base HP, target layer and facts: ringneck_prowler
+PASS Exact cost, base HP, target layer and facts: bone_crown_lich
+PASS 420-tick exact production fight normal thornback_beast
+PASS 420-tick exact production fight normal roarfang_beast
+PASS 420-tick exact production fight normal spectral_scale_dragon
+PASS 420-tick exact production fight normal iceclaw_legend
+PASS 420-tick exact production fight normal rootwarden_treant
+PASS 420-tick exact production fight normal frosthorn_rhino
+PASS 420-tick exact production fight normal pillar_hammerer
+PASS 420-tick exact production fight normal colossal_hornfist
+PASS 420-tick exact production fight normal carapace_slashbeast
+PASS 420-tick exact production fight normal stonepulse_kolossus
+PASS 420-tick exact production fight normal bluefist_colossus
+PASS 420-tick exact production fight normal spikeburst_grinder
+PASS 420-tick exact production fight normal redhorn_dualbeast
+PASS 420-tick exact production fight normal bluehorn_invoker
+PASS 420-tick exact production fight normal emberwing_drake
+PASS 420-tick exact production fight normal skullflare_triad
+PASS 420-tick exact production fight normal flamering_magus
+PASS 420-tick exact production fight normal shockplate_drake
+PASS 420-tick exact production fight normal thunderhorn_beast
+PASS 420-tick exact production fight normal stormhorn_tripler
+PASS 420-tick exact production fight normal darkfan_clawlord
+PASS 420-tick exact production fight normal plated_dualdragon
+PASS 420-tick exact production fight normal flameburst_mythron
+PASS 420-tick exact production fight normal willyee_frost_dragon
+PASS 420-tick exact production fight normal frostbreath_lizard
+PASS 420-tick exact production fight normal triad_chimera
+PASS 420-tick exact production fight normal cinder_tailbeast
+PASS 420-tick exact production fight normal emberfist_pillarer
+PASS 420-tick exact production fight normal veteran_flamewing
+PASS 420-tick exact production fight normal spore_toad
+PASS 420-tick exact production fight normal siege_crab
+PASS 420-tick exact production fight normal slime
+PASS 420-tick exact production fight normal accretion_burstcore
+PASS 420-tick exact production fight normal domeback_colossus
+PASS 420-tick exact production fight normal ringhold_guardian
+PASS 420-tick exact production fight normal silverarm_vanguard
+PASS 420-tick exact production fight normal fiery_coil_inceptor
+PASS 420-tick exact production fight normal golem
+PASS 420-tick exact production fight normal bonefan_reaper
+PASS 420-tick exact production fight normal moonclaw_werewolf
+PASS 420-tick exact production fight normal willyee_stone_golem
+PASS 420-tick exact production fight normal basalt_titan
+PASS 420-tick exact production fight normal cyanrise_silithar
+PASS 420-tick exact production fight normal cleaver_brute
+PASS 420-tick exact production fight normal ringneck_prowler
+PASS 420-tick exact production fight normal bone_crown_lich
+PASS 420-tick exact production fight mirrored thornback_beast
+PASS 420-tick exact production fight mirrored roarfang_beast
+PASS 420-tick exact production fight mirrored spectral_scale_dragon
+PASS 420-tick exact production fight mirrored iceclaw_legend
+PASS 420-tick exact production fight mirrored rootwarden_treant
+PASS 420-tick exact production fight mirrored frosthorn_rhino
+PASS 420-tick exact production fight mirrored pillar_hammerer
+PASS 420-tick exact production fight mirrored colossal_hornfist
+PASS 420-tick exact production fight mirrored carapace_slashbeast
+PASS 420-tick exact production fight mirrored stonepulse_kolossus
+PASS 420-tick exact production fight mirrored bluefist_colossus
+PASS 420-tick exact production fight mirrored spikeburst_grinder
+PASS 420-tick exact production fight mirrored redhorn_dualbeast
+PASS 420-tick exact production fight mirrored bluehorn_invoker
+PASS 420-tick exact production fight mirrored emberwing_drake
+PASS 420-tick exact production fight mirrored skullflare_triad
+PASS 420-tick exact production fight mirrored flamering_magus
+PASS 420-tick exact production fight mirrored shockplate_drake
+PASS 420-tick exact production fight mirrored thunderhorn_beast
+PASS 420-tick exact production fight mirrored stormhorn_tripler
+PASS 420-tick exact production fight mirrored darkfan_clawlord
+PASS 420-tick exact production fight mirrored plated_dualdragon
+PASS 420-tick exact production fight mirrored flameburst_mythron
+PASS 420-tick exact production fight mirrored willyee_frost_dragon
+PASS 420-tick exact production fight mirrored frostbreath_lizard
+PASS 420-tick exact production fight mirrored triad_chimera
+PASS 420-tick exact production fight mirrored cinder_tailbeast
+PASS 420-tick exact production fight mirrored emberfist_pillarer
+PASS 420-tick exact production fight mirrored veteran_flamewing
+PASS 420-tick exact production fight mirrored spore_toad
+PASS 420-tick exact production fight mirrored siege_crab
+PASS 420-tick exact production fight mirrored slime
+PASS 420-tick exact production fight mirrored accretion_burstcore
+PASS 420-tick exact production fight mirrored domeback_colossus
+PASS 420-tick exact production fight mirrored ringhold_guardian
+PASS 420-tick exact production fight mirrored silverarm_vanguard
+PASS 420-tick exact production fight mirrored fiery_coil_inceptor
+PASS 420-tick exact production fight mirrored golem
+PASS 420-tick exact production fight mirrored bonefan_reaper
+PASS 420-tick exact production fight mirrored moonclaw_werewolf
+PASS 420-tick exact production fight mirrored willyee_stone_golem
+PASS 420-tick exact production fight mirrored basalt_titan
+PASS 420-tick exact production fight mirrored cyanrise_silithar
+PASS 420-tick exact production fight mirrored cleaver_brute
+PASS 420-tick exact production fight mirrored ringneck_prowler
+PASS 420-tick exact production fight mirrored bone_crown_lich
+PASS 240-tick exact compact replay normal thornback_beast
+PASS 240-tick exact compact replay normal roarfang_beast
+PASS 240-tick exact compact replay normal spectral_scale_dragon
+PASS 240-tick exact compact replay normal iceclaw_legend
+PASS 240-tick exact compact replay normal rootwarden_treant
+PASS 240-tick exact compact replay normal frosthorn_rhino
+PASS 240-tick exact compact replay normal pillar_hammerer
+PASS 240-tick exact compact replay normal colossal_hornfist
+PASS 240-tick exact compact replay normal carapace_slashbeast
+PASS 240-tick exact compact replay normal stonepulse_kolossus
+PASS 240-tick exact compact replay normal bluefist_colossus
+PASS 240-tick exact compact replay normal spikeburst_grinder
+PASS 240-tick exact compact replay normal redhorn_dualbeast
+PASS 240-tick exact compact replay normal bluehorn_invoker
+PASS 240-tick exact compact replay normal emberwing_drake
+PASS 240-tick exact compact replay normal skullflare_triad
+PASS 240-tick exact compact replay normal flamering_magus
+PASS 240-tick exact compact replay normal shockplate_drake
+PASS 240-tick exact compact replay normal thunderhorn_beast
+PASS 240-tick exact compact replay normal stormhorn_tripler
+PASS 240-tick exact compact replay normal darkfan_clawlord
+PASS 240-tick exact compact replay normal plated_dualdragon
+PASS 240-tick exact compact replay normal flameburst_mythron
+PASS 240-tick exact compact replay normal willyee_frost_dragon
+PASS 240-tick exact compact replay normal frostbreath_lizard
+PASS 240-tick exact compact replay normal triad_chimera
+PASS 240-tick exact compact replay normal cinder_tailbeast
+PASS 240-tick exact compact replay normal emberfist_pillarer
+PASS 240-tick exact compact replay normal veteran_flamewing
+PASS 240-tick exact compact replay normal spore_toad
+PASS 240-tick exact compact replay normal siege_crab
+PASS 240-tick exact compact replay normal slime
+PASS 240-tick exact compact replay normal accretion_burstcore
+PASS 240-tick exact compact replay normal domeback_colossus
+PASS 240-tick exact compact replay normal ringhold_guardian
+PASS 240-tick exact compact replay normal silverarm_vanguard
+PASS 240-tick exact compact replay normal fiery_coil_inceptor
+PASS 240-tick exact compact replay normal golem
+PASS 240-tick exact compact replay normal bonefan_reaper
+PASS 240-tick exact compact replay normal moonclaw_werewolf
+PASS 240-tick exact compact replay normal willyee_stone_golem
+PASS 240-tick exact compact replay normal basalt_titan
+PASS 240-tick exact compact replay normal cyanrise_silithar
+PASS 240-tick exact compact replay normal cleaver_brute
+PASS 240-tick exact compact replay normal ringneck_prowler
+PASS 240-tick exact compact replay normal bone_crown_lich
+PASS 240-tick exact compact replay mirrored thornback_beast
+PASS 240-tick exact compact replay mirrored roarfang_beast
+PASS 240-tick exact compact replay mirrored spectral_scale_dragon
+PASS 240-tick exact compact replay mirrored iceclaw_legend
+PASS 240-tick exact compact replay mirrored rootwarden_treant
+PASS 240-tick exact compact replay mirrored frosthorn_rhino
+PASS 240-tick exact compact replay mirrored pillar_hammerer
+PASS 240-tick exact compact replay mirrored colossal_hornfist
+PASS 240-tick exact compact replay mirrored carapace_slashbeast
+PASS 240-tick exact compact replay mirrored stonepulse_kolossus
+PASS 240-tick exact compact replay mirrored bluefist_colossus
+PASS 240-tick exact compact replay mirrored spikeburst_grinder
+PASS 240-tick exact compact replay mirrored redhorn_dualbeast
+PASS 240-tick exact compact replay mirrored bluehorn_invoker
+PASS 240-tick exact compact replay mirrored emberwing_drake
+PASS 240-tick exact compact replay mirrored skullflare_triad
+PASS 240-tick exact compact replay mirrored flamering_magus
+PASS 240-tick exact compact replay mirrored shockplate_drake
+PASS 240-tick exact compact replay mirrored thunderhorn_beast
+PASS 240-tick exact compact replay mirrored stormhorn_tripler
+PASS 240-tick exact compact replay mirrored darkfan_clawlord
+PASS 240-tick exact compact replay mirrored plated_dualdragon
+PASS 240-tick exact compact replay mirrored flameburst_mythron
+PASS 240-tick exact compact replay mirrored willyee_frost_dragon
+PASS 240-tick exact compact replay mirrored frostbreath_lizard
+PASS 240-tick exact compact replay mirrored triad_chimera
+PASS 240-tick exact compact replay mirrored cinder_tailbeast
+PASS 240-tick exact compact replay mirrored emberfist_pillarer
+PASS 240-tick exact compact replay mirrored veteran_flamewing
+PASS 240-tick exact compact replay mirrored spore_toad
+PASS 240-tick exact compact replay mirrored siege_crab
+PASS 240-tick exact compact replay mirrored slime
+PASS 240-tick exact compact replay mirrored accretion_burstcore
+PASS 240-tick exact compact replay mirrored domeback_colossus
+PASS 240-tick exact compact replay mirrored ringhold_guardian
+PASS 240-tick exact compact replay mirrored silverarm_vanguard
+PASS 240-tick exact compact replay mirrored fiery_coil_inceptor
+PASS 240-tick exact compact replay mirrored golem
+PASS 240-tick exact compact replay mirrored bonefan_reaper
+PASS 240-tick exact compact replay mirrored moonclaw_werewolf
+PASS 240-tick exact compact replay mirrored willyee_stone_golem
+PASS 240-tick exact compact replay mirrored basalt_titan
+PASS 240-tick exact compact replay mirrored cyanrise_silithar
+PASS 240-tick exact compact replay mirrored cleaver_brute
+PASS 240-tick exact compact replay mirrored ringneck_prowler
+PASS 240-tick exact compact replay mirrored bone_crown_lich
+PASS No game or test input files changed during verification
+{
+  "result": "PASS",
+  "report": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-results/restoration/combat-invariance.json",
+  "sha256": {
+    "baseline": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "candidate": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+    "harness": "7d612d58341cd186ab62f79180b0109eb35c947a549feff40cd7f09c3da31c84",
+    "fixture": "99dce94bcda9832096666042816a434cad1397f015ba02b56ec10018865c7cc6"
+  },
+  "counts": {
+    "checks": 285,
+    "passed": 285,
+    "failed": 0,
+    "assertionsAttempted": 39184,
+    "assertionsPassed": 39184,
+    "pairedCombatExecutions": 92,
+    "combatExecutions": 184,
+    "pairedReplayExecutions": 92,
+    "replayExecutions": 184,
+    "combatTicksExecuted": 77280,
+    "replayTicksExecuted": 44160,
+    "combatFrameComparisons": 38732,
+    "unitObservationsCompared": 193660,
+    "eventObservationsCompared": 4738,
+    "replayBytesCompared": 881380
+  }
+}

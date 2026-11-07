@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS finished mock room restarts with fresh identity/wallet/history and keeps previous score retry
+PASS lobby start button opens fresh round 1 without leaving room
+PASS failed scores from two games remain independently retryable and deduplicated
+PASS rematch start waits for participant confirmation
+PASS recovery observes pending manual cashout before clearing prior session state

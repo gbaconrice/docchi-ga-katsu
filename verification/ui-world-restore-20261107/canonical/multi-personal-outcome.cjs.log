@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS same battle winner gives each player their own prediction result

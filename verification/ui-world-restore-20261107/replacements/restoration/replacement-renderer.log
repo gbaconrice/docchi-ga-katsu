@@ -1,0 +1,19 @@
+{
+  "checks": 88,
+  "frames": 68,
+  "errors": [],
+  "replaySample": {
+    "id": 1,
+    "side": 1,
+    "k": "razorclaw_reaver",
+    "x": 300,
+    "y": 240,
+    "hp": 9943.5,
+    "dead": false,
+    "pose": 44,
+    "face": -1,
+    "token": "test:1",
+    "ownerToken": null,
+    "presentationFlags": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "kinds": 301,
+  "idleChecks": 336,
+  "scenarios": [
+    "initial/repeated render",
+    "pointer/keyboard/buttons",
+    "clear/empty tap/Escape",
+    "death/zero HP/underground/invalid position/removal",
+    "reinforcements",
+    "stale notice",
+    "solo/multi fight/result/replay replacement",
+    "reset",
+    "hidden phases and return",
+    "empty battlefield",
+    "canceled/interrupted gestures",
+    "operation labels and combat-unit preservation"
+  ]
+}

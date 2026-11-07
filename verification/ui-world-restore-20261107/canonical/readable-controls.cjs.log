@@ -1,0 +1,73 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Expected "actual" to be reference-equal to "expected":
++ actual - expected
+
++ <ref *1> Node {
+- Node {
+    attrs: {},
++   children: [
++     Node {
++       attrs: {},
++       children: [],
++       hidden: false,
++       id: '#soundToggle',
++       listener: [Function (anonymous)],
++       mute: true,
++       parentNode: [Circular *1],
++       textContent: ''
++     }
++   ],
++   hidden: false,
++   id: '#homeScreen',
+-   children: [],
+-   hidden: true,
+-   id: '#menuAudioDock',
+    parentNode: null,
+    textContent: ''
+  }
+
+    at Object.<anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/readable-controls.cjs:17:124)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: <ref *1> Node {
+    id: '#homeScreen',
+    children: [
+      Node {
+        id: '#soundToggle',
+        children: [],
+        attrs: {},
+        hidden: false,
+        parentNode: [Circular *1],
+        textContent: '',
+        mute: true,
+        listener: [Function (anonymous)]
+      }
+    ],
+    attrs: {},
+    hidden: false,
+    parentNode: null,
+    textContent: ''
+  },
+  expected: Node {
+    id: '#menuAudioDock',
+    children: [],
+    attrs: {},
+    hidden: true,
+    parentNode: null,
+    textContent: ''
+  },
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

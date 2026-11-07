@@ -1,0 +1,3 @@
+PASS complete native entry success notifies and immediately applies inset
+PASS native profile failure cannot activate inset
+PASS deliberate standalone wins over native verification

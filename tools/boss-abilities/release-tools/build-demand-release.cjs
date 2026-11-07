@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert');
 const {makeEntry}=require('./entry-loader.cjs');
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
-const RELEASE='releases/boss-abilities-20261107';
+const RELEASE='releases/ui-world-restore-20261107';
 const BASE='https://gbaconrice.github.io/docchi-ga-katsu/'+RELEASE+'/';
 const SOURCE=path.resolve(process.argv[2]||'');
 const OUT=path.resolve(process.argv[3]||'');

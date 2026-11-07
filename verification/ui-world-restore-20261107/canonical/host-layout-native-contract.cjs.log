@@ -1,0 +1,13 @@
+PASS ordinary and SDK-only browser retain standalone
+PASS all explicit native-entry signals activate fallback
+PASS fallback changes only at 812px, including orientation
+PASS measured values override profiles and fallback, including zero
+PASS invalid measurement falls back to profile, then default
+PASS input and contenteditable keyboard shrink keep the reserved band
+PASS pre-inset overrides measurements; restoring inset config works
+PASS verified native profile activates ordinary entry without resize
+PASS explicit standalone still overrides verified native profile
+PASS late measured host config applies on explicit host event
+PASS native completion emits its event only after adapter installation
+PASS CSS maxes device/native and avoids preinset double padding
+TOTAL 12 contract tests passed. VM/CSS-source verification, not real GRAVITY or iOS.

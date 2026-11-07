@@ -1,0 +1,1546 @@
+TAP version 13
+# PASS actual treant/thornback roots cleanse on next tick; replacement razor never applies root
+# PASS cleansing is tick-end: rooted movement stays blocked that tick and resumes next tick
+# PASS legacy slow/root and exposure cleanse still retain immunity and poison
+# PASS new root coexists with legacy root; cleanse removes both with one event and preserves both immunities
+# PASS cleanser cannot remove a root freshly applied later in the same tick
+# PASS tick-start root identity prevents cleansing a replacement status
+# PASS cleanse does not broaden to stun/freeze/airborne/poison/burn/curse/armorbreak
+# PASS root cleanse obeys range, cooldown, self exclusion and one-target reservation
+# PASS root preserves closest-target selection then longest-duration tie-break
+# PASS boss root stops voluntary charging and retreating from next tick through exact expiry
+# PASS root does not suppress in-range attacks or queued knockback
+# PASS root does not suppress body separation for overlapped units
+# PASS delayed hostile damage and statuses reject phased targets but allied buffs remain legal
+# PASS hostile status applies again once phase ends
+# PASS real glimmer pulse accelerates eligible boss movement from next tick and ends exactly
+# PASS real glimmer still selects only ground allies, two targets maximum
+# PASS all 16 actual ordinary healers heal grown boss HP above old maximum and cap correctly
+# PASS ordinary healer uses actual max-HP ratio for targeting grown allies
+# PASS grown-HP healing still combines ordinary healing block and boss curse exactly once
+# PASS ordinary onyx root immunity blocks subsequent new boss root through exact expiry
+# PASS boss root immunity blocks ordinary onyx root and frost slow even after cleanse
+# PASS fresh boss root immunity is not retroactive to the same tick ordinary root intent
+# PASS boss stun/freeze do not invent ordinary root immunity
+# PASS real screech cadence delays boss pending cooldown and windup by exactly 21 ticks
+# PASS real screech cadence respects immunity and does not stack on every forced attack
+# PASS cadence delays cyanrise continuous pulse but never already released iceclaw contacts
+# PASS current roster has no surviving legacy haste aura or stability/dispel provider
+# PASS active ordinary aegis redirects only its two assigned boss sources before windup
+# PASS aegis active-time/range/target-layer boundaries remain unchanged for boss sources
+# PASS real aegis activation begins redirecting bosses only on the following tick
+# PASS new aegis activation never retargets an already locked boss windup
+# PASS aegis default windup aim does not overwrite ringneck custom rear-line release targeting
+# PASS ordinary aegis redirection stays numerically identical to baseline
+# PASS cyanrise blocked pulses are skipped rather than caught up when no cadence delay exists
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","passed":34,"failed":0}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/boss-status-interop.test.cjs
+ok 1 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/boss-status-interop.test.cjs
+  ---
+  duration_ms: 1454.412692
+  type: 'test'
+  ...
+# PASS exact approved49 registration and bounded descendant exception
+# PASS all301 type records change only approved ability metadata and retired legacy passives
+# PASS all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline
+# PASS explicit four approved tuning values and preserved lich lifecycle constants
+# PASS source fingerprint and incompatible-client rejection
+# PASS boot 5 scripts
+# PASS solo start
+# PASS fresh fixture provenance and unchanged mechanics, prices, complete model
+# PASS all 300 pre-cap scores unchanged and ordinary metadata retained
+# PASS five changed abilities, all 46 bosses, mixed geometry/tail preserve provenance
+# PASS summon/split boundaries, frozen catalog, ordinary/boss/headcount/packing rules
+# PASS sorted-signature over-cap carry is immutable; replacements and fresh rounds reset
+# PASS 72 fresh pinned cap-only choices/margins match and all metadata propagates
+# PASS 160 new generation cases: zero over-cap, finite positions, unchanged carries
+# {"PASS":true,"groups":7,"fixtureKind":"fresh-nonhistorical-reimplementation-fixture","abilityStatus":"ability-integrated-input","gameSHA256":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","generatedCount":160,"maxNewReservation":32,"carryPreserved":128,"overCap":0,"limits":"Fresh VM checks only; not exact historical recovery, browser/mobile/FPS evidence or model recalibration."}
+# PASS capacity/model regression: preserved hashes,300 scores,72 generation fixtures and reviewed UI snapshot
+# PASS boot 5 scripts
+# PASS solo start
+# PASS exposed victim still receives exactly 30 death-burst damage
+# PASS revived summoner spends only remaining charges with unique physical child tokens
+# PASS three burst waves log each defeated physical unit exactly once
+# PASS exposure duration and immunity each emit one expiry observation
+# PASS canonical revival log preserves child identity through replay and fresh transfer receivers
+# PASS canonical frameFor captures revival channel, completion and cancellation poses tick for tick
+# LIMITATION: Node pose/transport checks do not validate actual browser rendering or real-network reconnects.
+# SUMMARY 6 passed, 0 failed
+# PASS retained ability-integration-cross
+# PASS boot 5 scripts
+# PASS solo start
+# PASS all 300 types: 265 eligible and 35 excluded with explicit predicate matrix
+# PASS revival rejects live, enemy, summoned, owned, revived and claimed corpses
+# PASS fresh physical revival preserves finite resources and discards transient state
+# PASS 90-tick windup and exactly one successful revival per army across two casters
+# PASS revival HP ratio/cap terrain 100/false
+# PASS revival HP ratio/cap terrain 1000/false
+# PASS revival HP ratio/cap terrain 1000/true
+# PASS revival commit boundary source-dead
+# PASS revival commit boundary claimed
+# PASS revival commit boundary out-of-range
+# PASS revival commit boundary army-used
+# PASS revival commit boundary living-cap
+# PASS revival commit boundary pending-cap
+# PASS revival commit boundary history-cap
+# PASS revival commit boundary no-space
+# PASS revival commit boundary timeout
+# PASS battle ending during channel cancels before a revival can rescue result
+# PASS bounded placement finds clear corpse location and returns null in an obstructed arena
+# PASS death burst selects nearest four ground enemies including body edge, excludes air/friend
+# PASS body edge beyond center radius remains eligible and just outside edge does not
+# PASS death burst initial-body guard {"ownerToken":"parent"}
+# PASS death burst initial-body guard {"summoned":true}
+# PASS death burst initial-body guard {"revived":true}
+# PASS death burst initial-body guard {"deathExplosionSpent":true}
+# PASS burst does not trigger reflect/lifesteal/follow-up or repeatedly fire
+# PASS moth applies next tick and neither refreshes nor stacks while immune
+# PASS tick-start cleanse removes root and exposure, leaves poison and immunity
+# PASS new exposure is not cleansed on applying tick; lockout survives later cleanse
+# PASS exposure clear helper preserves immunity; dead tick removes it
+# PASS presentation exposure bit is time bounded and replay validates extended range
+# PASS effect ID append-only: all old FX kinds preserve indices
+# PASS death burst consumes one-hit ward once across simultaneous sources
+# PASS burst resolves before revival completion and can cancel due caster
+# PASS same-tick summon reservation takes last slot before revival
+# PASS expiry observations retain original expiry ticks and emit once
+# PASS MVP credits revived direct hits to original but excludes summoned descendants
+# PASS revival history boundary 255
+# PASS revival history boundary 511
+# PASS revival history boundary 512
+# PASS revival acquisition cutoff 58.46666666666667
+# PASS revival acquisition cutoff 58.483333333333334
+# PASS revival acquisition cutoff 58.5
+# PASS placement obstruction evaluates exactly 25 bounded probes
+# PASS burst stable tie ordering survives reversed roster
+# PASS simultaneous moth exposure source selection is stable under reversed roster
+# PASS same-tick normal ally attack is not amplified by newly reserved exposure
+# PASS exposure excludes poison damage
+# PASS exposure excludes terrain damage
+# PASS exposure excludes counter damage
+# PASS revival preserves normal-pillar lifetime lock pillar_hammerer
+# PASS revival preserves normal-pillar lifetime lock spectralhand_wizard
+# PASS revival preserves normal-pillar lifetime lock colossal_hornfist
+# PASS rune comparison states slow root and exposure cleanse with support tone
+# SUMMARY 53 passed, 0 failed. Node VM checks only; no browser or real-network claim.
+# PASS retained new-ability-boundaries
+# PASS 107 event types, every source/target binding and payload byte unchanged; readable phase endings, full counts kept once, solo label hidden.
+# PASS retained readability-preservation
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment grassland
+# PASS deferred image callbacks
+# PASS all 300 facts: only two real air-priority descriptions change; numerical values, action tones and 298 other descriptions preserved
+# PASS both characters on both sides select a flying enemy over nearer ground and fall back to ground when no flying enemy exists (8 real combat cases)
+# PASS retained comparison-air-priority
+# PASS 14 neutral category cases, 4 actor-color and 6 recovery/winner cases, minimum 7.58:1 static contrast; no real browser rendering claim
+# PASS anchor application, idempotence, missing-anchor refusal, independent ability insertion, unchanged combat/events and color-only CSS
+# PASS retained semantic-tone-cascade
+# PASS 300 safe facts,49 compact cards, uniform attack label/numbers and retained airborne markers
+# PASS lich requires new natural nearby corpse, rejects stale/friendly/owned/far bodies
+# PASS real lich corpse spawn: HP65, bounded3, unique identity, root, expiry after parent death, replay seek
+# PASS lich maximum3 and living cap64 versus63 with eligible enemy corpse
+# PASS new boss direct damage receives exposure exactly once, DoT is not amplified
+# PASS real replay validator accepts prior plain frames and rejects boss extensions under older versions
+# PASS 47 baseline sprite crops/scales, HP anchors and tap selection preserved
+# PASS cleaver independent roar grants1.35x180ticks, no direct hit,300tick cadence
+# PASS lich reserves at most3 concurrent across repeated ticks and stops after6 lifetime corpses
+# PASS cleaver normal cone contacts at most3 with independent approved power
+# PASS lich concurrent cap deduplicates same token present in live and pending lists
+# PASS shield break clears same-tick single-ward snapshot before direct damage
+# PASS all original tests used by supplements remain byte-identical
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","passed":24,"failed":0}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/current-contract.test.cjs
+ok 2 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/current-contract.test.cjs
+  ---
+  duration_ms: 20970.937727
+  type: 'test'
+  ...
+# PASS shield break numeric snapshot {"hits":[{"target":"audit:2","amount":101.25,"delivery":"boss_melee"}],"expected":101.25}
+# PASS phase actual rear insertion {"before":180,"after":366.0224609375,"y":226.1044921875,"layer":"ground","infiltrated":true}
+# PASS control expiry and immunity {"applied":[true,false],"repeated":false,"start":269.466552734375,"rooted":269.466552734375,"after":266.265869140625}
+# PASS ring shield absorbs pool and break pushes {"damage":[30,34,50,50],"pool":0,"moved":36.0000393398719}
+# PASS shell intercept then wave {"protectedLoss":0,"guardLoss":65,"enemyLoss":24,"enemyMoved":42.00002212750896}
+# PASS silver arm actual doubled counter {"protectedLoss":20,"guardLoss":30,"counterLoss":60}
+# PASS curse blocks actual healing while alive and after source death {"returned":0,"before":400,"after":400,"curse":0}
+# PASS lava center damage exceeds outer, remains stationary {"inner":54.72000000000003,"outer":21.888000000000147,"moved":0}
+# PASS growth capped and replay max HP reconstructed {"growth":5,"scale":1.4,"maxHp":1380,"hp":898.3377567260322,"replayMaxHp":1380,"base":1150,"replayScale":1.4}
+# PASS reaper execute threshold and growth {"hits":[{"target":"audit:2","amount":168.75,"delivery":"boss_melee"},{"target":"audit:3","amount":67.5,"delivery":"boss_melee"}],"dead":true,"harvest":1,"scale":1.06}
+# PASS moon doubles only movement and keeps active {"delta":24.00146484375,"expected":24,"moon":true,"speed":2,"attack":1}
+# PASS crystal reflection and collateral real hp {"guard":100,"attacker":35,"collateral":10}
+# PASS all-ally fury changes damage {"damage":135,"allyFury":true,"initialBossHits":0,"allyStrength":1.35}
+# PASS edge beam hits both battlefield sides but not offline {"hits":[{"target":"audit:2","amount":114.4,"delivery":"boss"},{"target":"audit:3","amount":114.4,"delivery":"boss"},{"target":"audit:4","amount":114.4,"delivery":"boss"}]}
+# PASS poison fog expands into previously unhit ground target {"early":[998.8,1000,1000],"late":[968.1999999999998,988.5999999999999,1000],"poison":{"start":124,"until":259,"strength":7.800000000000001,"sourceToken":"audit:1","sourceKind":"spore_toad","next":214}}
+# PASS slime exact three then nine children, no third generation {"first":3,"second":9,"total":12,"gens":[1,1,1,2,2,2,2,2,2,2,2,2]}
+# PASS thornback pins and damages enemies all around [{"damage":30.600000000000023,"root":true,"movement":0},{"damage":30.600000000000023,"root":true,"movement":0},{"damage":30.600000000000023,"root":true,"movement":0},{"damage":30.600000000000023,"root":true,"movement":0},{"damage":0,"root":false,"movement":0}]
+# PASS roarfang stun cancels enemy windup and creates shake cue {"loss":[35,35],"blocked":[true,true],"quake":true}
+# PASS iceclaw three hits freeze and final shatter collateral {"hits":[{"target":"audit:2","amount":18.27,"delivery":"boss_melee"},{"target":"audit:2","amount":18.27,"delivery":"boss_melee"},{"target":"audit:2","amount":18.27,"delivery":"boss_melee"},{"target":"audit:3","amount":19.575,"delivery":"boss_projectile"}],"frozen":true,"early":1000,"late":980.425}
+# PASS gauntlet wave pushes and damages the actual forward cluster {"hits":[{"target":"audit:2","amount":11.2,"delivery":"boss_melee"},{"target":"audit:2","amount":11.2,"delivery":"boss_melee"},{"target":"audit:2","amount":25.6,"delivery":"boss"},{"target":"audit:3","amount":25.6,"delivery":"boss"}],"distance":45,"collateral":[25.600000000000023,0]}
+# PASS emberwing orbits and repeated rain damages current target {"hits":[{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"},{"target":"audit:2","amount":5.760000000000001,"delivery":"boss"}],"positions":[{"x":207.056884765625,"y":239.88427734375},{"x":229.79833984375,"y":224.864501953125},{"x":249.781005859375,"y":215.9208984375},{"x":273.245849609375,"y":216.56787109375},{"x":291.651123046875,"y":226.165283203125},{"x":297.966552734375,"y":241.046875},{"x":289.7802734375,"y":255.52880859375},{"x":270.218994140625,"y":264.0791015625},{"x":246.754150390625,"y":263.43212890625},{"x":228.348876953125,"y":253.834716796875},{"x":222.033447265625,"y":238.953125},{"x":230.2197265625,"y":224.47119140625}],"ended":true,"started":true,"startGap":29.80615234375,"range":30,"angle":7.339478480921871}
+# PASS skullflare selects three different enemies and burn ticks {"status":[true,true,true,false],"hits":[{"target":"audit:2","amount":28.8,"delivery":"boss"},{"target":"audit:3","amount":28.8,"delivery":"boss"},{"target":"audit:4","amount":28.8,"delivery":"boss"},{"target":"audit:2","amount":2.8800000000000003,"delivery":"boss_dot"},{"target":"audit:3","amount":2.8800000000000003,"delivery":"boss_dot"},{"target":"audit:4","amount":2.8800000000000003,"delivery":"boss_dot"}]}
+# PASS treant roots distant cluster but not isolated enemy [{"hp":970,"root":true},{"hp":970,"root":true},{"hp":970,"root":true},{"hp":1000,"root":false}]
+# PASS rhino charge freezes surrounding enemies and retreats for next run {"hits":[{"target":"audit:2","amount":61.625,"delivery":"boss_melee"},{"target":"audit:2","amount":27.115000000000002,"delivery":"boss"},{"target":"audit:3","amount":27.115000000000002,"delivery":"boss"},{"target":"audit:3","amount":61.625,"delivery":"boss_melee"},{"target":"audit:3","amount":27.115000000000002,"delivery":"boss"},{"target":"audit:2","amount":27.115000000000002,"delivery":"boss"}],"firstImpact":95,"retreatDistance":34.649658203125,"freezes":[500,512]}
+# PASS light pillars progress forward and do not double-hit {"hits":[{"target":"audit:2","amount":74.75,"delivery":"boss"},{"target":"audit:3","amount":74.75,"delivery":"boss"},{"target":"audit:4","amount":74.75,"delivery":"boss"}],"first":19,"second":31,"third":43,"off":1000,"stuns":[true,true,true]}
+# PASS fire ring reaches increasing radii once per target {"hits":[{"target":"audit:2","amount":61.199999999999996,"delivery":"boss"},{"target":"audit:3","amount":61.199999999999996,"delivery":"boss"},{"target":"audit:4","amount":61.199999999999996,"delivery":"boss"}],"first":0,"second":23,"third":35,"off":1000}
+# PASS fiery coil swells at low hp and death blast bounded once {"scale":1.375,"hits":[{"target":"audit:2","amount":106.92000000000002,"delivery":"boss"},{"target":"audit:3","amount":106.92000000000002,"delivery":"boss"}],"repeat":0,"far":1000}
+# PASS uppercut disables target then landing damages neighbours {"air":true,"early":1000,"late":954.76,"airEnded":true}
+# PASS golem leaves collision wall and two finite minions {"children":[{"k":"stone_mason","hp":110,"expires":602},{"k":"stone_mason","hp":110,"expires":602}],"enemyX":218.998046875,"wallRight":219,"wallFx":true}
+# PASS shockplate chain hops with falloff and armor reduces damage {"hits":[{"target":"audit:2","amount":34.56000000000001,"delivery":"boss"},{"target":"audit:3","amount":27.648000000000007,"delivery":"boss"},{"target":"audit:4","amount":22.118400000000012,"delivery":"boss"}],"received":82}
+# PASS thunderhorn first thrust then delayed area lightning {"hits":[{"target":"audit:2","amount":53.760000000000005,"delivery":"boss_melee"},{"target":"audit:2","amount":42.24000000000001,"delivery":"boss"},{"target":"audit:3","amount":42.24000000000001,"delivery":"boss"}],"early":1000,"late":957.76}
+# PASS stormhorn third strike adds collateral lightning {"hits":[{"target":"audit:2","amount":16.64,"delivery":"boss_melee"},{"target":"audit:2","amount":16.64,"delivery":"boss_melee"},{"target":"audit:2","amount":16.64,"delivery":"boss_melee"},{"target":"audit:2","amount":18.720000000000002,"delivery":"boss"},{"target":"audit:3","amount":18.720000000000002,"delivery":"boss"}],"early":1000,"late":981.28}
+# PASS stonepulse launches only enemies on forward crack [{"hp":946,"air":true},{"hp":946,"air":true},{"hp":1000,"air":false},{"hp":1000,"air":false}]
+# PASS dual dragon fire ice simultaneous, delayed intersection explosion {"flags":{"burn":true,"freeze":true},"early":1000,"late":973.6,"hits":[{"target":"audit:2","amount":26.400000000000002,"delivery":"boss"},{"target":"audit:4","amount":26.400000000000002,"delivery":"boss"},{"target":"audit:2","amount":26.400000000000002,"delivery":"boss"},{"target":"audit:3","amount":26.400000000000002,"delivery":"boss"}]}
+# PASS white dragon freezes forward cone but not rear [{"hp":938.56,"freeze":true,"blocked":true},{"hp":938.56,"freeze":true,"blocked":true},{"hp":1000,"freeze":false,"blocked":false}]
+# PASS basalt death lightning multiple targets and stun exactly once {"hits":[{"target":"audit:2","amount":95,"delivery":"boss"},{"target":"audit:3","amount":95,"delivery":"boss"}],"stuns":[true,true,false],"repeat":0}
+# PASS frost breath delays attack cooldown and stops movement {"p":239.466552734375,"cd":9.983333333333333,"mid":{"x":239.466552734375,"cd":9.983333333333333,"blocked":true},"lateCd":9.883333333333328,"lateBlocked":false}
+# PASS chimera separate bite fire poison targets {"hits":[{"target":"audit:2","amount":38.400000000000006,"delivery":"boss_melee"},{"target":"audit:3","amount":24.960000000000004,"delivery":"boss"},{"target":"audit:4","amount":17.280000000000005,"delivery":"boss"}],"status":[{"burn":false,"poison":false},{"burn":true,"poison":false},{"burn":false,"poison":true},{"burn":false,"poison":false}],"hp":[961.6,971.584,978.304,1000]}
+# PASS bluefist radial ground pound damages stuns both sides [{"hp":943.3,"stun":true},{"hp":943.3,"stun":true},{"hp":943.3,"stun":true},{"hp":1000,"stun":false}]
+# PASS cinder tail damages and burns all around {"hp":[938,938,938,1000],"burn":[true,true,true,false],"dots":3}
+# PASS fire pillars follow target between sequential warnings {"hits":[{"target":"audit:2","amount":37.120000000000005,"delivery":"boss"},{"target":"audit:2","amount":37.120000000000005,"delivery":"boss"},{"target":"audit:2","amount":37.120000000000005,"delivery":"boss"}],"warnings":[{"x":260,"y":240},{"x":260,"y":330},{"x":260,"y":410}]}
+# PASS spikeburst rolls and fires three distinct radial pulses {"hits":[{"target":"audit:2","amount":22.08,"delivery":"boss_projectile"},{"target":"audit:3","amount":22.08,"delivery":"boss_projectile"},{"target":"audit:2","amount":22.08,"delivery":"boss_projectile"},{"target":"audit:3","amount":22.08,"delivery":"boss_projectile"},{"target":"audit:2","amount":22.08,"delivery":"boss_projectile"},{"target":"audit:3","amount":22.08,"delivery":"boss_projectile"}],"moved":48.404296875,"rolling":true}
+# PASS twin firebirds delay explosion at crossing, hit area only {"early":[1000,1000,1000],"late":[944.8,944.8,1000],"birds":2,"hits":[{"target":"audit:2","amount":55.199999999999996,"delivery":"boss"},{"target":"audit:3","amount":55.199999999999996,"delivery":"boss"}]}
+# PASS redhorn actual charge scoops target behind body {"hits":[{"target":"audit:2","amount":56.160000000000004,"delivery":"boss_melee"}],"bossX":281.3974609375,"targetX":234.447509765625,"air":true}
+# PASS cyanrise stationary spin pushes and projectile damage reduced {"x":180,"after":180,"enemyShift":16,"hits":[{"target":"audit:2","amount":14.688000000000002,"delivery":"boss_melee"}],"losses":[27.5,100]}
+# PASS ringneck chooses rear archer over front and pulls after warning {"early":1000,"hits":[{"target":"audit:3","amount":92.225,"delivery":"boss_melee"}],"front":1000,"rear":907.775,"pull":45}
+# PASS meteor chooses dense cluster rather than nearest target {"early":[1000,1000,1000,1000],"late":[1000,924.6,924.6,924.6],"hits":[{"target":"audit:3","amount":75.39999999999999,"delivery":"boss"},{"target":"audit:4","amount":75.39999999999999,"delivery":"boss"},{"target":"audit:5","amount":75.39999999999999,"delivery":"boss"}]}
+# PASS lich resurrects three new natural enemies and excludes child corpses {"count":3,"raised":3,"children":[{"k":"ashbone_swordsman","side":0,"hp":65,"damageMultiplier":1,"expires":722},{"k":"ashbone_swordsman","side":0,"hp":65,"damageMultiplier":1,"expires":722},{"k":"ashbone_swordsman","side":0,"hp":65,"damageMultiplier":1,"expires":722}],"total":3}
+# PASS lich conversion spawns skeleton at corpse not at caster {"exists":true,"corpseDistance":0,"casterDistance":180}
+# PASS all delayed direct payloads cancel on source death [{"id":"iceclaw_legend","hits":[]},{"id":"gauntlet_combo_guard","hits":[]},{"id":"pillar_hammerer","hits":[]},{"id":"colossal_hornfist","hits":[]},{"id":"kilnback_pincerbeast","hits":[]},{"id":"bluehorn_invoker","hits":[]},{"id":"flamering_magus","hits":[]},{"id":"thunderhorn_beast","hits":[]},{"id":"stormhorn_tripler","hits":[]},{"id":"plated_dualdragon","hits":[]},{"id":"emberfist_pillarer","hits":[]},{"id":"veteran_flamewing","hits":[]},{"id":"ringneck_prowler","hits":[]}]
+# PASS phase displacement cancels on death {"x":180,"y":240,"afterX":180,"afterY":240}
+# PASS persistent zones survive death but expire finitely [{"id":"darkfan_clawlord","first":7,"after":0},{"id":"spore_toad","first":4,"after":0},{"id":"flameburst_mythron","first":4,"after":0}]
+# PASS both growth ladders reconstruct each replay stage and max HP [{"kind":"accretion_burstcore","stages":[{"tick":1,"maxHp":1196,"scale":1.08,"replayMax":1196,"replayScale":1.1},{"tick":2,"maxHp":1242,"scale":1.16,"replayMax":1242,"replayScale":1.15},{"tick":3,"maxHp":1288.0000000000002,"scale":1.24,"replayMax":1288.0000000000002,"replayScale":1.25},{"tick":4,"maxHp":1334,"scale":1.32,"replayMax":1334,"replayScale":1.3},{"tick":5,"maxHp":1380,"scale":1.4,"replayMax":1380,"replayScale":1.4}]},{"kind":"bonefan_reaper","stages":[{"tick":1,"maxHp":1178.75,"scale":1.06,"replayMax":1178.75,"replayScale":1.05},{"tick":2,"maxHp":1207.5,"scale":1.12,"replayMax":1207.5,"replayScale":1.1},{"tick":3,"maxHp":1236.25,"scale":1.18,"replayMax":1236.25,"replayScale":1.2},{"tick":4,"maxHp":1265,"scale":1.24,"replayMax":1265,"replayScale":1.25},{"tick":5,"maxHp":1293.75,"scale":1.3,"replayMax":1293.75,"replayScale":1.3}]}]
+# PASS cleaver independent roar lasts 180 ticks and repeats after 300 without dealing damage {"roars":[1,301],"hits":[],"snap":[{"tick":181,"active":true},{"tick":182,"active":false},{"tick":300,"active":false},{"tick":301,"active":false},{"tick":302,"active":true}],"next":601}
+# PASS cleaver natural close cleave hits cap three on independent cadence {"groups":[{"tick":43,"hits":[{"target":"audit:2","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:3","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:4","amount":45.5625,"delivery":"boss_melee"}]},{"tick":181,"hits":[{"target":"audit:2","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:3","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:4","amount":45.5625,"delivery":"boss_melee"}]},{"tick":319,"hits":[{"target":"audit:2","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:3","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:4","amount":45.5625,"delivery":"boss_melee"}]},{"tick":457,"hits":[{"target":"audit:2","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:3","amount":45.5625,"delivery":"boss_melee"},{"target":"audit:4","amount":45.5625,"delivery":"boss_melee"}]}],"roars":[301],"backHp":1000,"unhit":1,"range":35,"windup":30,"cooldown":108,"power":1.35}
+# PASS lich caps three live including pending, six lifetime, never recycles a corpse {"samples":[{"tick":2,"live":3,"pending":3,"total":3,"raised":3},{"tick":3,"live":3,"pending":0,"total":3,"raised":3},{"tick":13,"live":3,"pending":0,"total":3,"raised":3},{"tick":14,"live":3,"pending":3,"total":6,"raised":6},{"tick":15,"live":3,"pending":0,"total":6,"raised":6},{"tick":30,"live":0,"pending":0,"total":6,"raised":6}],"origins":["audit:3","audit:4","audit:5","audit:6","audit:7","audit:8"],"first":3,"second":3,"total":6,"raised":6,"ignored":"audit:2","stats":[{"hp":65,"multiplier":1,"life":722},{"hp":65,"multiplier":1,"life":722},{"hp":65,"multiplier":1,"life":722},{"hp":65,"multiplier":1,"life":734},{"hp":65,"multiplier":1,"life":734},{"hp":65,"multiplier":1,"life":734}]}
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","checks":56,"pass":56,"fail":[]}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/fidelity-mechanics.test.cjs
+ok 3 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/fidelity-mechanics.test.cjs
+  ---
+  duration_ms: 1551.069517
+  type: 'test'
+  ...
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment shallow_ford
+# PASS deferred image callbacks
+# PASS all three attackers damage and defeat a stationary target in four corners
+# PASS unchanged spectralhand_wizard guard-corner-final
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment desert
+# PASS deferred image callbacks
+# PASS target damage in tested zero/eight-ally fixtures and mirrored event counts; two-ally attack remains unresolved
+# PASS unchanged spectralhand_wizard guard-crowd-drift
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment desert
+# PASS deferred image callbacks
+# [
+#   {
+#     "k": "spectralhand_wizard",
+#     "mirror": false,
+#     "warn": 1,
+#     "contact": 31,
+#     "damage": 7,
+#     "expected": 7,
+#     "readyAt": 3.5166666666666666,
+#     "elapsed": 0.5166666666666666,
+#     "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+#     "events": [
+#       {
+#         "type": "guard_warning",
+#         "sourceToken": "p",
+#         "targetToken": "g",
+#         "tick": 1,
+#         "x": 180,
+#         "y": 269,
+#         "radius": 17
+#       },
+#       {
+#         "type": "guard_contact",
+#         "sourceToken": "p",
+#         "targetToken": "g",
+#         "tick": 31,
+#         "x": 180,
+#         "y": 269,
+#         "radius": 17
+#       }
+#     ]
+#   },
+#   {
+#     "k": "spectralhand_wizard",
+#     "mirror": true,
+#     "warn": 1,
+#     "contact": 31,
+#     "damage": 7,
+#     "expected": 7,
+#     "readyAt": 3.5166666666666666,
+#     "elapsed": 0.5166666666666666,
+#     "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+#     "events": [
+#       {
+#         "type": "guard_warning",
+#         "sourceToken": "p",
+#         "targetToken": "g",
+#         "tick": 1,
+#         "x": 300,
+#         "y": 269,
+#         "radius": 17
+#       },
+#       {
+#         "type": "guard_contact",
+#         "sourceToken": "p",
+#         "targetToken": "g",
+#         "tick": 31,
+#         "x": 300,
+#         "y": 269,
+#         "radius": 17
+#       }
+#     ]
+#   }
+# ]
+# PASS descriptions vs actual timing/damage/cooldown
+# PASS unchanged spectralhand_wizard guard-description-actual
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment rockfield
+# PASS deferred image callbacks
+# [
+#   {
+#     "k": "spectralhand_wizard",
+#     "mirror": false,
+#     "injected": true,
+#     "ev": [
+#       {
+#         "type": "guard_warning",
+#         "target": "g",
+#         "tick": 1
+#       },
+#       {
+#         "type": "pillar_action_start",
+#         "target": "far",
+#         "tick": 2
+#       }
+#     ]
+#   },
+#   {
+#     "k": "spectralhand_wizard",
+#     "mirror": true,
+#     "injected": true,
+#     "ev": [
+#       {
+#         "type": "guard_warning",
+#         "target": "g",
+#         "tick": 1
+#       },
+#       {
+#         "type": "pillar_action_start",
+#         "target": "far",
+#         "tick": 2
+#       }
+#     ]
+#   }
+# ]
+# PASS guard canceled and normal pillar starts
+# PASS unchanged spectralhand_wizard guard-priority-drift
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment desert
+# PASS deferred image callbacks
+# PASS all three attackers damage and defeat a stationary target in four corners
+# PASS current boss guard-corner-final geometry, damage and mirrored contacts
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment highland
+# PASS deferred image callbacks
+# PASS target damage in tested zero/eight-ally fixtures and mirrored event counts; two-ally attack remains unresolved
+# PASS current boss guard-crowd-drift geometry, damage and mirrored contacts
+# PASS current pillar and uppercut description matches independent timing/damage/status expectations
+# PASS current boss target arrival during windup does not bypass cast or duplicate first contact
+# PASS current skullflare target death cancels windup without damage to corpse
+# PASS all600 cards retain numerical columns, compact copy, roles and no type mutation
+# PASS boot 5 scripts
+# PASS solo start
+# PASS unchanged wolf and three repair roles, numeric first-contact display, reflection and healing
+# PASS ordinary wolf and three repair roles retain real hit/heal/display semantics
+# PASS synthetic explosion charge and healing retain damage-only scaling
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment shallow_ford
+# PASS deferred image callbacks
+# PASS all 300 facts: combo identity retained, micro-timing/geometry hidden, per-metric peer groups, multiple highlights, healing value and no redundant markers
+# PASS meaning-based text colors and contrast, minimum 4.72:1
+# PASS 280–430px width arithmetic, zero grid minima, wrapping names/traits/metrics (not browser pixel QA)
+# PASS comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths
+# PASS current packaged manifest and release scripts match final source provenance
+# PASS current skullflare target movement and caster displacement revalidate contact range in both directions
+# PASS boot 5 scripts
+# PASS solo start
+# PASS click \#red
+# PASS click \#confirm
+# PASS reached battle with environment shallow_ford
+# PASS deferred image callbacks
+# PASS summoned skeleton rooted and expires in shallow ford after summoner death {"found":true,"factor":1,"dead":true,"elapsed":12.03333333333351,"until":722,"environment":"shallow_ford"}
+# PASS corpse-triggered lich child is rooted by actual scorpion and expires in shallow ford after owner death
+# PASS all184 boss corner camera bounds retain complete sprite framing
+# PASS lich blocked placement spends no lifetime count and dead owner cannot convert later corpse
+# PASS original files remain byte-identical
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","passed":19,"failed":0}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/legacy-equivalents.test.cjs
+ok 4 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/approved-replacements/qa/equivalents/legacy-equivalents.test.cjs
+  ---
+  duration_ms: 15626.821648
+  type: 'test'
+  ...
+# Subtest: boss_warning draws bounded finite geometry and expires
+ok 5 - boss_warning draws bounded finite geometry and expires
+  ---
+  duration_ms: 4.951627
+  type: 'test'
+  ...
+# Subtest: boss_ring draws bounded finite geometry and expires
+ok 6 - boss_ring draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.540231
+  type: 'test'
+  ...
+# Subtest: boss_burst draws bounded finite geometry and expires
+ok 7 - boss_burst draws bounded finite geometry and expires
+  ---
+  duration_ms: 5.624259
+  type: 'test'
+  ...
+# Subtest: boss_beam draws bounded finite geometry and expires
+ok 8 - boss_beam draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.657354
+  type: 'test'
+  ...
+# Subtest: boss_chain draws bounded finite geometry and expires
+ok 9 - boss_chain draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.716093
+  type: 'test'
+  ...
+# Subtest: boss_claw draws bounded finite geometry and expires
+ok 10 - boss_claw draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.955313
+  type: 'test'
+  ...
+# Subtest: boss_throw draws bounded finite geometry and expires
+ok 11 - boss_throw draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.713058
+  type: 'test'
+  ...
+# Subtest: boss_rain draws bounded finite geometry and expires
+ok 12 - boss_rain draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.727263
+  type: 'test'
+  ...
+# Subtest: boss_frost draws bounded finite geometry and expires
+ok 13 - boss_frost draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.119102
+  type: 'test'
+  ...
+# Subtest: boss_fire draws bounded finite geometry and expires
+ok 14 - boss_fire draws bounded finite geometry and expires
+  ---
+  duration_ms: 4.938397
+  type: 'test'
+  ...
+# Subtest: boss_poison draws bounded finite geometry and expires
+ok 15 - boss_poison draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.385897
+  type: 'test'
+  ...
+# Subtest: boss_shield draws bounded finite geometry and expires
+ok 16 - boss_shield draws bounded finite geometry and expires
+  ---
+  duration_ms: 5.25788
+  type: 'test'
+  ...
+# Subtest: boss_quake draws bounded finite geometry and expires
+ok 17 - boss_quake draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.953162
+  type: 'test'
+  ...
+# Subtest: boss_skull draws bounded finite geometry and expires
+ok 18 - boss_skull draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.012501
+  type: 'test'
+  ...
+# Subtest: boss_grow draws bounded finite geometry and expires
+ok 19 - boss_grow draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.278381
+  type: 'test'
+  ...
+# Subtest: boss_moon draws bounded finite geometry and expires
+ok 20 - boss_moon draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.935294
+  type: 'test'
+  ...
+# Subtest: boss_wall draws bounded finite geometry and expires
+ok 21 - boss_wall draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.353697
+  type: 'test'
+  ...
+# Subtest: boss_summon draws bounded finite geometry and expires
+ok 22 - boss_summon draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.982493
+  type: 'test'
+  ...
+# Subtest: boss_stun draws bounded finite geometry and expires
+ok 23 - boss_stun draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.101433
+  type: 'test'
+  ...
+# Subtest: boss_slash draws bounded finite geometry and expires
+ok 24 - boss_slash draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.401437
+  type: 'test'
+  ...
+# Subtest: boss_thorn draws bounded finite geometry and expires
+ok 25 - boss_thorn draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.656432
+  type: 'test'
+  ...
+# Subtest: boss_beam_fire draws bounded finite geometry and expires
+ok 26 - boss_beam_fire draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.332835
+  type: 'test'
+  ...
+# Subtest: boss_beam_ice draws bounded finite geometry and expires
+ok 27 - boss_beam_ice draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.107507
+  type: 'test'
+  ...
+# Subtest: boss_firebird draws bounded finite geometry and expires
+ok 28 - boss_firebird draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.731036
+  type: 'test'
+  ...
+# Subtest: boss_column_light draws bounded finite geometry and expires
+ok 29 - boss_column_light draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.751176
+  type: 'test'
+  ...
+# Subtest: boss_column_fire draws bounded finite geometry and expires
+ok 30 - boss_column_fire draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.355221
+  type: 'test'
+  ...
+# Subtest: boss_meteor draws bounded finite geometry and expires
+ok 31 - boss_meteor draws bounded finite geometry and expires
+  ---
+  duration_ms: 1.771694
+  type: 'test'
+  ...
+# Subtest: boss_fissure draws bounded finite geometry and expires
+ok 32 - boss_fissure draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.738376
+  type: 'test'
+  ...
+# Subtest: boss_breath_ice draws bounded finite geometry and expires
+ok 33 - boss_breath_ice draws bounded finite geometry and expires
+  ---
+  duration_ms: 2.480641
+  type: 'test'
+  ...
+# Subtest: boss_tail_sweep draws bounded finite geometry and expires
+ok 34 - boss_tail_sweep draws bounded finite geometry and expires
+  ---
+  duration_ms: 0.651184
+  type: 'test'
+  ...
+# Subtest: boss serializer preserves radius duration and numeric color; legacy stays seven
+ok 35 - boss serializer preserves radius duration and numeric color; legacy stays seven
+  ---
+  duration_ms: 1.96449
+  type: 'test'
+  ...
+# Subtest: status flags capture active control, growth and phase, then clear
+ok 36 - status flags capture active control, growth and phase, then clear
+  ---
+  duration_ms: 0.391011
+  type: 'test'
+  ...
+# Subtest: status indicators use actual flags only
+ok 37 - status indicators use actual flags only
+  ---
+  duration_ms: 2.98293
+  type: 'test'
+  ...
+# Subtest: recorder and playback roundtrip full boss geometry and lifetime
+ok 38 - recorder and playback roundtrip full boss geometry and lifetime
+  ---
+  duration_ms: 2.356953
+  type: 'test'
+  ...
+# Subtest: new recorder version and previous corner schema both accepted
+ok 39 - new recorder version and previous corner schema both accepted
+  ---
+  duration_ms: 0.452514
+  type: 'test'
+  ...
+# Subtest: all older replay engines reject boss flags and effect extensions
+ok 40 - all older replay engines reject boss flags and effect extensions
+  ---
+  duration_ms: 2.25515
+  type: 'test'
+  ...
+# Subtest: previous corner schema accepts legacy seven-value effects
+ok 41 - previous corner schema accepts legacy seven-value effects
+  ---
+  duration_ms: 0.230068
+  type: 'test'
+  ...
+# Subtest: live fallback shows active statuses and exact growth scale without flags
+ok 42 - live fallback shows active statuses and exact growth scale without flags
+  ---
+  duration_ms: 2.1494
+  type: 'test'
+  ...
+# Subtest: growth HP ladder and split descendants avoid false full bars
+ok 43 - growth HP ladder and split descendants avoid false full bars
+  ---
+  duration_ms: 0.650274
+  type: 'test'
+  ...
+# Subtest: quake shake is bounded, brief, deterministic, reduced-motion safe
+ok 44 - quake shake is bounded, brief, deterministic, reduced-motion safe
+  ---
+  duration_ms: 0.382017
+  type: 'test'
+  ...
+# Subtest: draw wrapper restores canvas and never mutates unit or effect state
+ok 45 - draw wrapper restores canvas and never mutates unit or effect state
+  ---
+  duration_ms: 0.521899
+  type: 'test'
+  ...
+# Subtest: three targeted skulls separate and approach distinct targets
+ok 46 - three targeted skulls separate and approach distinct targets
+  ---
+  duration_ms: 1.662394
+  type: 'test'
+  ...
+# Subtest: two firebirds travel through a shared crossing point with feathered silhouettes
+ok 47 - two firebirds travel through a shared crossing point with feathered silhouettes
+  ---
+  duration_ms: 2.831201
+  type: 'test'
+  ...
+# Subtest: light and fire columns rise vertically instead of horizontal beams
+ok 48 - light and fire columns rise vertically instead of horizontal beams
+  ---
+  duration_ms: 9.064035
+  type: 'test'
+  ...
+# Subtest: one meteor descends on the recorded impact point
+ok 49 - one meteor descends on the recorded impact point
+  ---
+  duration_ms: 3.037413
+  type: 'test'
+  ...
+# Subtest: fissure progressively extends along target direction with branching cracks
+ok 50 - fissure progressively extends along target direction with branching cracks
+  ---
+  duration_ms: 1.444344
+  type: 'test'
+  ...
+# Subtest: ice breath faces target and tail sweeps rather than generic rings
+ok 51 - ice breath faces target and tail sweeps rather than generic rings
+  ---
+  duration_ms: 10.097688
+  type: 'test'
+  ...
+# Subtest: lich boss child HP is65 after compact roundtrip, legacy ashbone remains65
+ok 52 - lich boss child HP is65 after compact roundtrip, legacy ashbone remains65
+  ---
+  duration_ms: 0.485344
+  type: 'test'
+  ...
+# Subtest: all35 boss cue kinds registered including five approved replacement cues
+ok 53 - all35 boss cue kinds registered including five approved replacement cues
+  ---
+  duration_ms: 0.12532
+  type: 'test'
+  ...
+# Subtest: actual crystal reflection emits and replays shaded shards, never generic blue throw trails
+ok 54 - actual crystal reflection emits and replays shaded shards, never generic blue throw trails
+  ---
+  duration_ms: 626.487698
+  type: 'test'
+  ...
+# Subtest: real full-field beams cover both visible ends after replay at edges, mirror and diagonals
+ok 55 - real full-field beams cover both visible ends after replay at edges, mirror and diagonals
+  ---
+  duration_ms: 88.891205
+  type: 'test'
+  ...
+# PASS physical boss melee receives ordinary parry once; magic does not consume parry
+# PASS ordinary guard redirects one physical boss contact and preserves intended-target attribution
+# PASS actual iceclaw contact freezes the intercepting guard rather than the protected target
+# PASS physical boss projectiles use target armor; magic and melee do not
+# PASS ordinary active aegis reduces physical boss projectiles after armor
+# PASS dormant ward/barrier defenses accept boss projectiles and ignore retired splash metadata
+# PASS ordinary reflection applies once to boss direct/melee/projectile, never periodic or counter damage
+# PASS dormant contact counter triggers only on physical boss melee and cannot recurse
+# PASS physical boss contacts can mark ordinary followup support without using a retired boss multiplier
+# PASS legacy source root/exposure/healing block/lifesteal/repulsion/followup cannot stack on boss contacts
+# PASS exposure amplifies boss direct and physical contacts exactly once, excluding periodic/counters
+# PASS cyanrise checks actual projectile delivery, not old source projectile metadata
+# PASS actual production ability casts preserve mixed physical/magic delivery distinctions
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","passed":13,"failed":0}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/tests/boss-delivery.test.cjs
+ok 6 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/tests/boss-delivery.test.cjs
+  ---
+  duration_ms: 1101.420874
+  type: 'test'
+  ...
+# Subtest: exact 16 roster registrations and bounded tuning
+ok 57 - exact 16 roster registrations and bounded tuning
+  ---
+  duration_ms: 2.745462
+  type: 'test'
+  ...
+# Subtest: thornback_beast performs distinctive bounded behavior
+ok 58 - thornback_beast performs distinctive bounded behavior
+  ---
+  duration_ms: 0.83352
+  type: 'test'
+  ...
+# Subtest: thornback_beast safely handles absent targets
+ok 59 - thornback_beast safely handles absent targets
+  ---
+  duration_ms: 0.188126
+  type: 'test'
+  ...
+# Subtest: thornback_beast cancels delayed damage after source death
+ok 60 - thornback_beast cancels delayed damage after source death
+  ---
+  duration_ms: 0.360278
+  type: 'test'
+  ...
+# Subtest: roarfang_beast performs distinctive bounded behavior
+ok 61 - roarfang_beast performs distinctive bounded behavior
+  ---
+  duration_ms: 0.241027
+  type: 'test'
+  ...
+# Subtest: roarfang_beast safely handles absent targets
+ok 62 - roarfang_beast safely handles absent targets
+  ---
+  duration_ms: 0.162648
+  type: 'test'
+  ...
+# Subtest: roarfang_beast cancels delayed damage after source death
+ok 63 - roarfang_beast cancels delayed damage after source death
+  ---
+  duration_ms: 0.185944
+  type: 'test'
+  ...
+# Subtest: spectral_scale_dragon performs distinctive bounded behavior
+ok 64 - spectral_scale_dragon performs distinctive bounded behavior
+  ---
+  duration_ms: 0.479981
+  type: 'test'
+  ...
+# Subtest: spectral_scale_dragon safely handles absent targets
+ok 65 - spectral_scale_dragon safely handles absent targets
+  ---
+  duration_ms: 0.173885
+  type: 'test'
+  ...
+# Subtest: spectral_scale_dragon cancels delayed damage after source death
+ok 66 - spectral_scale_dragon cancels delayed damage after source death
+  ---
+  duration_ms: 0.192112
+  type: 'test'
+  ...
+# Subtest: iceclaw_legend performs distinctive bounded behavior
+ok 67 - iceclaw_legend performs distinctive bounded behavior
+  ---
+  duration_ms: 0.331145
+  type: 'test'
+  ...
+# Subtest: iceclaw_legend safely handles absent targets
+ok 68 - iceclaw_legend safely handles absent targets
+  ---
+  duration_ms: 0.108395
+  type: 'test'
+  ...
+# Subtest: iceclaw_legend cancels delayed damage after source death
+ok 69 - iceclaw_legend cancels delayed damage after source death
+  ---
+  duration_ms: 0.100182
+  type: 'test'
+  ...
+# Subtest: gauntlet_combo_guard performs distinctive bounded behavior
+ok 70 - gauntlet_combo_guard performs distinctive bounded behavior
+  ---
+  duration_ms: 0.618953
+  type: 'test'
+  ...
+# Subtest: gauntlet_combo_guard safely handles absent targets
+ok 71 - gauntlet_combo_guard safely handles absent targets
+  ---
+  duration_ms: 1.263795
+  type: 'test'
+  ...
+# Subtest: gauntlet_combo_guard cancels delayed damage after source death
+ok 72 - gauntlet_combo_guard cancels delayed damage after source death
+  ---
+  duration_ms: 0.087003
+  type: 'test'
+  ...
+# Subtest: rootwarden_treant performs distinctive bounded behavior
+ok 73 - rootwarden_treant performs distinctive bounded behavior
+  ---
+  duration_ms: 0.185843
+  type: 'test'
+  ...
+# Subtest: rootwarden_treant safely handles absent targets
+ok 74 - rootwarden_treant safely handles absent targets
+  ---
+  duration_ms: 0.071029
+  type: 'test'
+  ...
+# Subtest: rootwarden_treant cancels delayed damage after source death
+ok 75 - rootwarden_treant cancels delayed damage after source death
+  ---
+  duration_ms: 0.121025
+  type: 'test'
+  ...
+# Subtest: frosthorn_rhino performs distinctive bounded behavior
+ok 76 - frosthorn_rhino performs distinctive bounded behavior
+  ---
+  duration_ms: 0.389443
+  type: 'test'
+  ...
+# Subtest: frosthorn_rhino safely handles absent targets
+ok 77 - frosthorn_rhino safely handles absent targets
+  ---
+  duration_ms: 0.074914
+  type: 'test'
+  ...
+# Subtest: frosthorn_rhino cancels delayed damage after source death
+ok 78 - frosthorn_rhino cancels delayed damage after source death
+  ---
+  duration_ms: 0.079982
+  type: 'test'
+  ...
+# Subtest: pillar_hammerer performs distinctive bounded behavior
+ok 79 - pillar_hammerer performs distinctive bounded behavior
+  ---
+  duration_ms: 0.261768
+  type: 'test'
+  ...
+# Subtest: pillar_hammerer safely handles absent targets
+ok 80 - pillar_hammerer safely handles absent targets
+  ---
+  duration_ms: 0.057868
+  type: 'test'
+  ...
+# Subtest: pillar_hammerer cancels delayed damage after source death
+ok 81 - pillar_hammerer cancels delayed damage after source death
+  ---
+  duration_ms: 0.136188
+  type: 'test'
+  ...
+# Subtest: colossal_hornfist performs distinctive bounded behavior
+ok 82 - colossal_hornfist performs distinctive bounded behavior
+  ---
+  duration_ms: 0.255999
+  type: 'test'
+  ...
+# Subtest: colossal_hornfist safely handles absent targets
+ok 83 - colossal_hornfist safely handles absent targets
+  ---
+  duration_ms: 0.056826
+  type: 'test'
+  ...
+# Subtest: colossal_hornfist cancels delayed damage after source death
+ok 84 - colossal_hornfist cancels delayed damage after source death
+  ---
+  duration_ms: 0.064098
+  type: 'test'
+  ...
+# Subtest: kilnback_pincerbeast performs distinctive bounded behavior
+ok 85 - kilnback_pincerbeast performs distinctive bounded behavior
+  ---
+  duration_ms: 0.213505
+  type: 'test'
+  ...
+# Subtest: kilnback_pincerbeast safely handles absent targets
+ok 86 - kilnback_pincerbeast safely handles absent targets
+  ---
+  duration_ms: 0.050777
+  type: 'test'
+  ...
+# Subtest: kilnback_pincerbeast cancels delayed damage after source death
+ok 87 - kilnback_pincerbeast cancels delayed damage after source death
+  ---
+  duration_ms: 0.083918
+  type: 'test'
+  ...
+# Subtest: carapace_slashbeast performs distinctive bounded behavior
+ok 88 - carapace_slashbeast performs distinctive bounded behavior
+  ---
+  duration_ms: 0.240816
+  type: 'test'
+  ...
+# Subtest: carapace_slashbeast safely handles absent targets
+ok 89 - carapace_slashbeast safely handles absent targets
+  ---
+  duration_ms: 0.049085
+  type: 'test'
+  ...
+# Subtest: carapace_slashbeast cancels delayed damage after source death
+ok 90 - carapace_slashbeast cancels delayed damage after source death
+  ---
+  duration_ms: 0.097288
+  type: 'test'
+  ...
+# Subtest: stonepulse_kolossus performs distinctive bounded behavior
+ok 91 - stonepulse_kolossus performs distinctive bounded behavior
+  ---
+  duration_ms: 0.182297
+  type: 'test'
+  ...
+# Subtest: stonepulse_kolossus safely handles absent targets
+ok 92 - stonepulse_kolossus safely handles absent targets
+  ---
+  duration_ms: 0.047823
+  type: 'test'
+  ...
+# Subtest: stonepulse_kolossus cancels delayed damage after source death
+ok 93 - stonepulse_kolossus cancels delayed damage after source death
+  ---
+  duration_ms: 0.066792
+  type: 'test'
+  ...
+# Subtest: bluefist_colossus performs distinctive bounded behavior
+ok 94 - bluefist_colossus performs distinctive bounded behavior
+  ---
+  duration_ms: 0.166324
+  type: 'test'
+  ...
+# Subtest: bluefist_colossus safely handles absent targets
+ok 95 - bluefist_colossus safely handles absent targets
+  ---
+  duration_ms: 0.044969
+  type: 'test'
+  ...
+# Subtest: bluefist_colossus cancels delayed damage after source death
+ok 96 - bluefist_colossus cancels delayed damage after source death
+  ---
+  duration_ms: 0.087003
+  type: 'test'
+  ...
+# Subtest: spikeburst_grinder performs distinctive bounded behavior
+ok 97 - spikeburst_grinder performs distinctive bounded behavior
+  ---
+  duration_ms: 0.793608
+  type: 'test'
+  ...
+# Subtest: spikeburst_grinder safely handles absent targets
+ok 98 - spikeburst_grinder safely handles absent targets
+  ---
+  duration_ms: 0.121395
+  type: 'test'
+  ...
+# Subtest: spikeburst_grinder cancels delayed damage after source death
+ok 99 - spikeburst_grinder cancels delayed damage after source death
+  ---
+  duration_ms: 1.088077
+  type: 'test'
+  ...
+# Subtest: redhorn_dualbeast performs distinctive bounded behavior
+ok 100 - redhorn_dualbeast performs distinctive bounded behavior
+  ---
+  duration_ms: 0.345486
+  type: 'test'
+  ...
+# Subtest: redhorn_dualbeast safely handles absent targets
+ok 101 - redhorn_dualbeast safely handles absent targets
+  ---
+  duration_ms: 0.070097
+  type: 'test'
+  ...
+# Subtest: redhorn_dualbeast cancels delayed damage after source death
+ok 102 - redhorn_dualbeast cancels delayed damage after source death
+  ---
+  duration_ms: 0.093132
+  type: 'test'
+  ...
+# Subtest: bluehorn_invoker performs distinctive bounded behavior
+ok 103 - bluehorn_invoker performs distinctive bounded behavior
+  ---
+  duration_ms: 0.348511
+  type: 'test'
+  ...
+# Subtest: bluehorn_invoker safely handles absent targets
+ok 104 - bluehorn_invoker safely handles absent targets
+  ---
+  duration_ms: 0.056926
+  type: 'test'
+  ...
+# Subtest: bluehorn_invoker cancels delayed damage after source death
+ok 105 - bluehorn_invoker cancels delayed damage after source death
+  ---
+  duration_ms: 0.217151
+  type: 'test'
+  ...
+# Subtest: radial thorn roots; roar stuns and quakes; roots entangle
+ok 106 - radial thorn roots; roar stuns and quakes; roots entangle
+  ---
+  duration_ms: 0.489025
+  type: 'test'
+  ...
+# Subtest: infiltration phases and teleports only once to rear center
+ok 107 - infiltration phases and teleports only once to rear center
+  ---
+  duration_ms: 0.309251
+  type: 'test'
+  ...
+# Subtest: ice combo freezes primary and scatters to other enemies
+ok 108 - ice combo freezes primary and scatters to other enemies
+  ---
+  duration_ms: 0.141085
+  type: 'test'
+  ...
+# Subtest: grab throws collateral, uppercut lands, pincer lifts then crushes
+ok 109 - grab throws collateral, uppercut lands, pincer lifts then crushes
+  ---
+  duration_ms: 1.034055
+  type: 'test'
+  ...
+# Subtest: rhino runs, freezes, retreats and remains repeatable
+ok 110 - rhino runs, freezes, retreats and remains repeatable
+  ---
+  duration_ms: 0.179464
+  type: 'test'
+  ...
+# Subtest: four ordered pillars do not multiply-hit a single target
+ok 111 - four ordered pillars do not multiply-hit a single target
+  ---
+  duration_ms: 0.395473
+  type: 'test'
+  ...
+# Subtest: cleave breaks shields, fissure launches, fists stun, spikes pulse three times
+ok 112 - cleave breaks shields, fissure launches, fists stun, spikes pulse three times
+  ---
+  duration_ms: 0.50543
+  type: 'test'
+  ...
+# Subtest: redhorn charges and throws target behind; meteor selects cluster rather than nearest
+ok 113 - redhorn charges and throws target behind; meteor selects cluster rather than nearest
+  ---
+  duration_ms: 0.303923
+  type: 'test'
+  ...
+# Subtest: gauntlet aims off-axis into enemy group and collides at actual landing
+ok 114 - gauntlet aims off-axis into enemy group and collides at actual landing
+  ---
+  duration_ms: 0.241628
+  type: 'test'
+  ...
+# Subtest: 17 complete card specs and bounded tuning
+ok 115 - 17 complete card specs and bounded tuning
+  ---
+  duration_ms: 1.394674
+  type: 'test'
+  ...
+# Subtest: emberwing_drake produces bounded payload, tolerates missing target and source death
+ok 116 - emberwing_drake produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 1.984262
+  type: 'test'
+  ...
+# Subtest: skullflare_triad produces bounded payload, tolerates missing target and source death
+ok 117 - skullflare_triad produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.237321
+  type: 'test'
+  ...
+# Subtest: flamering_magus produces bounded payload, tolerates missing target and source death
+ok 118 - flamering_magus produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.422123
+  type: 'test'
+  ...
+# Subtest: shockplate_drake produces bounded payload, tolerates missing target and source death
+ok 119 - shockplate_drake produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.258444
+  type: 'test'
+  ...
+# Subtest: thunderhorn_beast produces bounded payload, tolerates missing target and source death
+ok 120 - thunderhorn_beast produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.193134
+  type: 'test'
+  ...
+# Subtest: stormhorn_tripler produces bounded payload, tolerates missing target and source death
+ok 121 - stormhorn_tripler produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.266696
+  type: 'test'
+  ...
+# Subtest: darkfan_clawlord produces bounded payload, tolerates missing target and source death
+ok 122 - darkfan_clawlord produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.181767
+  type: 'test'
+  ...
+# Subtest: plated_dualdragon produces bounded payload, tolerates missing target and source death
+ok 123 - plated_dualdragon produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.324574
+  type: 'test'
+  ...
+# Subtest: flameburst_mythron produces bounded payload, tolerates missing target and source death
+ok 124 - flameburst_mythron produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.339247
+  type: 'test'
+  ...
+# Subtest: willyee_frost_dragon produces bounded payload, tolerates missing target and source death
+ok 125 - willyee_frost_dragon produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.211632
+  type: 'test'
+  ...
+# Subtest: frostbreath_lizard produces bounded payload, tolerates missing target and source death
+ok 126 - frostbreath_lizard produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.121986
+  type: 'test'
+  ...
+# Subtest: triad_chimera produces bounded payload, tolerates missing target and source death
+ok 127 - triad_chimera produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.140013
+  type: 'test'
+  ...
+# Subtest: cinder_tailbeast produces bounded payload, tolerates missing target and source death
+ok 128 - cinder_tailbeast produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.150009
+  type: 'test'
+  ...
+# Subtest: emberfist_pillarer produces bounded payload, tolerates missing target and source death
+ok 129 - emberfist_pillarer produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.59127
+  type: 'test'
+  ...
+# Subtest: veteran_flamewing produces bounded payload, tolerates missing target and source death
+ok 130 - veteran_flamewing produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.17717
+  type: 'test'
+  ...
+# Subtest: spore_toad produces bounded payload, tolerates missing target and source death
+ok 131 - spore_toad produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.1116
+  type: 'test'
+  ...
+# Subtest: siege_crab produces bounded payload, tolerates missing target and source death
+ok 132 - siege_crab produces bounded payload, tolerates missing target and source death
+  ---
+  duration_ms: 0.16363
+  type: 'test'
+  ...
+# Subtest: firewing circles tracked foe and rains repeatedly
+ok 133 - firewing circles tracked foe and rains repeatedly
+  ---
+  duration_ms: 0.554064
+  type: 'test'
+  ...
+# Subtest: three skulls bite separate targets and burn
+ok 134 - three skulls bite separate targets and burn
+  ---
+  duration_ms: 0.156077
+  type: 'test'
+  ...
+# Subtest: expanding ring never hits same target twice and caps total at8
+ok 135 - expanding ring never hits same target twice and caps total at8
+  ---
+  duration_ms: 1.254852
+  type: 'test'
+  ...
+# Subtest: lightning armor and chain cap
+ok 136 - lightning armor and chain cap
+  ---
+  duration_ms: 0.190951
+  type: 'test'
+  ...
+# Subtest: horn impact followed by warned lightning area
+ok 137 - horn impact followed by warned lightning area
+  ---
+  duration_ms: 0.110799
+  type: 'test'
+  ...
+# Subtest: three horn hits then final lightning
+ok 138 - three horn hits then final lightning
+  ---
+  duration_ms: 0.158381
+  type: 'test'
+  ...
+# Subtest: dark claw persistent damage blocks all healing
+ok 139 - dark claw persistent damage blocks all healing
+  ---
+  duration_ms: 0.086392
+  type: 'test'
+  ...
+# Subtest: dual dragon emits two simultaneous breath colors then explosion
+ok 140 - dual dragon emits two simultaneous breath colors then explosion
+  ---
+  duration_ms: 0.125941
+  type: 'test'
+  ...
+# Subtest: lava holds position and overlaps stronger inner damage
+ok 141 - lava holds position and overlaps stronger inner damage
+  ---
+  duration_ms: 0.132371
+  type: 'test'
+  ...
+# Subtest: blizzard freezes a group and lizard gives longer attack interruption
+ok 142 - blizzard freezes a group and lizard gives longer attack interruption
+  ---
+  duration_ms: 0.139753
+  type: 'test'
+  ...
+# Subtest: chimera simultaneous distinct bite/fire/poison victims
+ok 143 - chimera simultaneous distinct bite/fire/poison victims
+  ---
+  duration_ms: 0.519361
+  type: 'test'
+  ...
+# Subtest: tail scatters six embers around full circle
+ok 144 - tail scatters six embers around full circle
+  ---
+  duration_ms: 0.344415
+  type: 'test'
+  ...
+# Subtest: pillars chase moving target with three separately warned impacts
+ok 145 - pillars chase moving target with three separately warned impacts
+  ---
+  duration_ms: 0.281639
+  type: 'test'
+  ...
+# Subtest: two crossing birds explode at same fixed crossing
+ok 146 - two crossing birds explode at same fixed crossing
+  ---
+  duration_ms: 0.192053
+  type: 'test'
+  ...
+# Subtest: fog expands, poisons, and expires before another cast
+ok 147 - fog expands, poisons, and expires before another cast
+  ---
+  duration_ms: 0.117619
+  type: 'test'
+  ...
+# Subtest: beam uses arena diagonal length and two opposite rays with shared cap
+ok 148 - beam uses arena diagonal length and two opposite rays with shared cap
+  ---
+  duration_ms: 0.226015
+  type: 'test'
+  ...
+# Subtest: delayed effects cancel on source death
+ok 149 - delayed effects cancel on source death
+  ---
+  duration_ms: 0.199434
+  type: 'test'
+  ...
+# Subtest: emberwing_drake runs through production scheduler and emits combat events
+ok 150 - emberwing_drake runs through production scheduler and emits combat events
+  ---
+  duration_ms: 23.489605
+  type: 'test'
+  ...
+# Subtest: skullflare_triad runs through production scheduler and emits combat events
+ok 151 - skullflare_triad runs through production scheduler and emits combat events
+  ---
+  duration_ms: 21.181321
+  type: 'test'
+  ...
+# Subtest: flamering_magus runs through production scheduler and emits combat events
+ok 152 - flamering_magus runs through production scheduler and emits combat events
+  ---
+  duration_ms: 19.883864
+  type: 'test'
+  ...
+# Subtest: shockplate_drake runs through production scheduler and emits combat events
+ok 153 - shockplate_drake runs through production scheduler and emits combat events
+  ---
+  duration_ms: 19.573661
+  type: 'test'
+  ...
+# Subtest: thunderhorn_beast runs through production scheduler and emits combat events
+ok 154 - thunderhorn_beast runs through production scheduler and emits combat events
+  ---
+  duration_ms: 18.861778
+  type: 'test'
+  ...
+# Subtest: stormhorn_tripler runs through production scheduler and emits combat events
+ok 155 - stormhorn_tripler runs through production scheduler and emits combat events
+  ---
+  duration_ms: 22.538787
+  type: 'test'
+  ...
+# Subtest: darkfan_clawlord runs through production scheduler and emits combat events
+ok 156 - darkfan_clawlord runs through production scheduler and emits combat events
+  ---
+  duration_ms: 25.384482
+  type: 'test'
+  ...
+# Subtest: plated_dualdragon runs through production scheduler and emits combat events
+ok 157 - plated_dualdragon runs through production scheduler and emits combat events
+  ---
+  duration_ms: 21.387885
+  type: 'test'
+  ...
+# Subtest: flameburst_mythron runs through production scheduler and emits combat events
+ok 158 - flameburst_mythron runs through production scheduler and emits combat events
+  ---
+  duration_ms: 12.210186
+  type: 'test'
+  ...
+# Subtest: willyee_frost_dragon runs through production scheduler and emits combat events
+ok 159 - willyee_frost_dragon runs through production scheduler and emits combat events
+  ---
+  duration_ms: 20.52448
+  type: 'test'
+  ...
+# Subtest: frostbreath_lizard runs through production scheduler and emits combat events
+ok 160 - frostbreath_lizard runs through production scheduler and emits combat events
+  ---
+  duration_ms: 19.588444
+  type: 'test'
+  ...
+# Subtest: triad_chimera runs through production scheduler and emits combat events
+ok 161 - triad_chimera runs through production scheduler and emits combat events
+  ---
+  duration_ms: 20.367612
+  type: 'test'
+  ...
+# Subtest: cinder_tailbeast runs through production scheduler and emits combat events
+ok 162 - cinder_tailbeast runs through production scheduler and emits combat events
+  ---
+  duration_ms: 21.356227
+  type: 'test'
+  ...
+# Subtest: emberfist_pillarer runs through production scheduler and emits combat events
+ok 163 - emberfist_pillarer runs through production scheduler and emits combat events
+  ---
+  duration_ms: 19.972859
+  type: 'test'
+  ...
+# Subtest: veteran_flamewing runs through production scheduler and emits combat events
+ok 164 - veteran_flamewing runs through production scheduler and emits combat events
+  ---
+  duration_ms: 18.843119
+  type: 'test'
+  ...
+# Subtest: spore_toad runs through production scheduler and emits combat events
+ok 165 - spore_toad runs through production scheduler and emits combat events
+  ---
+  duration_ms: 21.389017
+  type: 'test'
+  ...
+# Subtest: siege_crab runs through production scheduler and emits combat events
+ok 166 - siege_crab runs through production scheduler and emits combat events
+  ---
+  duration_ms: 19.026007
+  type: 'test'
+  ...
+# Subtest: production freeze interrupts ordinary actions and expires
+ok 167 - production freeze interrupts ordinary actions and expires
+  ---
+  duration_ms: 2.340284
+  type: 'test'
+  ...
+# Subtest: production repeating poison fog keeps poison damage cadence on refresh
+ok 168 - production repeating poison fog keeps poison damage cadence on refresh
+  ---
+  duration_ms: 4.407523
+  type: 'test'
+  ...
+# Subtest: production refreshed dark claw never briefly re-enables healing
+ok 169 - production refreshed dark claw never briefly re-enables healing
+  ---
+  duration_ms: 4.286689
+  type: 'test'
+  ...
+# Subtest: all sixteen have truthful metadata and bounded scheduler defaults
+ok 170 - all sixteen have truthful metadata and bounded scheduler defaults
+  ---
+  duration_ms: 1.005461
+  type: 'test'
+  ...
+# Subtest: slime has three daughters and only one repeat generation
+ok 171 - slime has three daughters and only one repeat generation
+  ---
+  duration_ms: 0.44674
+  type: 'test'
+  ...
+# Subtest: core heals actual drained life and caps growth
+ok 172 - core heals actual drained life and caps growth
+  ---
+  duration_ms: 0.40009
+  type: 'test'
+  ...
+# Subtest: shell intercepts nearby ally attacks then releases wave
+ok 173 - shell intercepts nearby ally attacks then releases wave
+  ---
+  duration_ms: 0.345276
+  type: 'test'
+  ...
+# Subtest: rings protect every ally until break pushes enemies
+ok 174 - rings protect every ally until break pushes enemies
+  ---
+  duration_ms: 0.265895
+  type: 'test'
+  ...
+# Subtest: silver counters twice absorbed with cooldown and cap
+ok 175 - silver counters twice absorbed with cooldown and cap
+  ---
+  duration_ms: 0.309441
+  type: 'test'
+  ...
+# Subtest: coil swells and capped death blast reaches 240
+ok 176 - coil swells and capped death blast reaches 240
+  ---
+  duration_ms: 0.289191
+  type: 'test'
+  ...
+# Subtest: golem leaves real wall and two small dolls
+ok 177 - golem leaves real wall and two small dolls
+  ---
+  duration_ms: 0.192684
+  type: 'test'
+  ...
+# Subtest: reaper grows on a low health kill only and caps growth
+ok 178 - reaper grows on a low health kill only and caps growth
+  ---
+  duration_ms: 0.304884
+  type: 'test'
+  ...
+# Subtest: wolf gets instant double movement under half health
+ok 179 - wolf gets instant double movement under half health
+  ---
+  duration_ms: 0.373078
+  type: 'test'
+  ...
+# Subtest: crystal queues capped reflection, chips and ignores counters
+ok 180 - crystal queues capped reflection, chips and ignores counters
+  ---
+  duration_ms: 0.251994
+  type: 'test'
+  ...
+# Subtest: basalt death uses lightning and short stun
+ok 181 - basalt death uses lightning and short stun
+  ---
+  duration_ms: 0.204491
+  type: 'test'
+  ...
+# Subtest: cyan remains stationary and deflects arrows only
+ok 182 - cyan remains stationary and deflects arrows only
+  ---
+  duration_ms: 0.17738
+  type: 'test'
+  ...
+# Subtest: razor holds two foes and splits absorbed damage between them
+ok 183 - razor holds two foes and splits absorbed damage between them
+  ---
+  duration_ms: 0.308199
+  type: 'test'
+  ...
+# Subtest: cleaver buffs every ally including self by thirty-five percent independently of cleave
+ok 184 - cleaver buffs every ally including self by thirty-five percent independently of cleave
+  ---
+  duration_ms: 0.273206
+  type: 'test'
+  ...
+# Subtest: ringneck targets ranged foe with warning and delayed capped bite
+ok 185 - ringneck targets ranged foe with warning and delayed capped bite
+  ---
+  duration_ms: 0.271244
+  type: 'test'
+  ...
+# Subtest: lich raises new nearby enemy corpses once, maximum three
+ok 186 - lich raises new nearby enemy corpses once, maximum three
+  ---
+  duration_ms: 0.412007
+  type: 'test'
+  ...
+# Subtest: missing attack source is safe for every incoming hook
+ok 187 - missing attack source is safe for every incoming hook
+  ---
+  duration_ms: 0.444086
+  type: 'test'
+  ...
+# Subtest: lich rejects summoned and owned corpses
+ok 188 - lich rejects summoned and owned corpses
+  ---
+  duration_ms: 0.126923
+  type: 'test'
+  ...
+# PASS all49 actual setup resets pending summons, unit status/growth and global zones/walls/delays without manual boss reset
+# PASS same plan replayed after an interrupted fight is deterministic without manual boss reset
+# {"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","passed":2,"failed":0}
+# Subtest: /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/tests/round-lifecycle.test.cjs
+ok 10 - /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-integration-02/tests/round-lifecycle.test.cjs
+  ---
+  duration_ms: 6946.74113
+  type: 'test'
+  ...
+1..189
+# tests 189
+# suites 0
+# pass 189
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49584.260994

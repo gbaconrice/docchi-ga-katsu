@@ -1,0 +1,92 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+PASS host creates an absolute 30-second normal result deadline
+PASS different local clocks display common remaining seconds
+PASS delayed result delivery uses remaining time, not a fresh timer
+PASS rejoining guest retains original deadline and result wallet
+PASS heartbeat and duplicate result call do not reset countdown
+PASS unknown or stale guest clock does not use local time
+PASS host cannot manually skip countdown and actual pump advances once
+PASS guest sees countdown but cannot start a round at zero
+PASS suspended host catches up once after deadline
+PASS departures preserve timer, host loss cancels it
+PASS round 9 advances to 10, round 10 waits for decisions within 30 seconds
+PASS extension timeout cashes out undecided players and returns everyone to lobby
+PASS extension timeout preserves a continuer and makes the undecided guest a spectator
+PASS zero balances in normal rounds still advance and recover
+PASS malformed deadline rejected without replacing valid result
+PASS solo ordinary results stay manual
+{
+  "total": 16,
+  "passed": 16,
+  "results": [
+    {
+      "name": "host creates an absolute 30-second normal result deadline",
+      "passed": true
+    },
+    {
+      "name": "different local clocks display common remaining seconds",
+      "passed": true
+    },
+    {
+      "name": "delayed result delivery uses remaining time, not a fresh timer",
+      "passed": true
+    },
+    {
+      "name": "rejoining guest retains original deadline and result wallet",
+      "passed": true
+    },
+    {
+      "name": "heartbeat and duplicate result call do not reset countdown",
+      "passed": true
+    },
+    {
+      "name": "unknown or stale guest clock does not use local time",
+      "passed": true
+    },
+    {
+      "name": "host cannot manually skip countdown and actual pump advances once",
+      "passed": true
+    },
+    {
+      "name": "guest sees countdown but cannot start a round at zero",
+      "passed": true
+    },
+    {
+      "name": "suspended host catches up once after deadline",
+      "passed": true
+    },
+    {
+      "name": "departures preserve timer, host loss cancels it",
+      "passed": true
+    },
+    {
+      "name": "round 9 advances to 10, round 10 waits for decisions within 30 seconds",
+      "passed": true
+    },
+    {
+      "name": "extension timeout cashes out undecided players and returns everyone to lobby",
+      "passed": true
+    },
+    {
+      "name": "extension timeout preserves a continuer and makes the undecided guest a spectator",
+      "passed": true
+    },
+    {
+      "name": "zero balances in normal rounds still advance and recover",
+      "passed": true
+    },
+    {
+      "name": "malformed deadline rejected without replacing valid result",
+      "passed": true
+    },
+    {
+      "name": "solo ordinary results stay manual",
+      "passed": true
+    }
+  ]
+}

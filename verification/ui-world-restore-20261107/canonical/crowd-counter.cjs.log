@@ -1,0 +1,9 @@
+PASS five-body and twelve-body overlaps both display the full 38-body same-army, same-kind live count with stable identity
+PASS repeated overlap taps, full-roster previous/next, forward/back wrap, and read-only unit data
+PASS opposing same-kind soldiers stay separate; singleton shows 1/1 with disabled previous/next
+PASS death, zero HP, existing underground visibility rule, invalid coordinates, return to visibility and same-kind summons update immediately
+PASS replacement/reordering keeps focus, multiplayer playback uses the same roster and host recording stays hidden
+PASS selected death, clear, results, round reset and empty battlefield cannot retain a stale counter
+PASS clear/global keyboard mode reaches all kinds; pointer tap, drag and cancel keep the same inspected identity
+PASS a mixed overlap cycles all bodies while each label and previous/next pool use only the selected army and kind
+PASS all crowd-counter regression scenarios

@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS 108 event types rendered in summary/history, unchanged text/actor identity/records and internal event classifications; visible color limited to identity/recovery/winner

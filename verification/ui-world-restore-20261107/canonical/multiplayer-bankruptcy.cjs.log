@@ -1,0 +1,10 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS multiplayer 0 G recovery: host
+PASS multiplayer 0 G recovery: guest
+PASS old-version client rejected before joining
+PASS host validates percentage stakes above former cap

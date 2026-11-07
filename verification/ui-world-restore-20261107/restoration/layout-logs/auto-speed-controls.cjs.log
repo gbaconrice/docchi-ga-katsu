@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS no manual speed hooks, audio beside wallet and pause after emotes, choose/result/preparation visibility, solo pause and resume

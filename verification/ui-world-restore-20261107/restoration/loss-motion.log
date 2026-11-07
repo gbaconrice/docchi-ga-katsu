@@ -1,0 +1,15 @@
+{
+  "baselineSourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "sourceSHA256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "scope": "Loss geometry, guards, cleanup and parse. Other authorized changes are verified separately.",
+  "sourceScriptsParsed": 5,
+  "realBrowserFailureReproductions": 4,
+  "measuredGeometryRestorations": 4,
+  "legacyPathsExact": 4,
+  "coinsPerLoss": 12,
+  "durationMs": 1400,
+  "monotonicDownRight": true,
+  "digitCollisionChecks": true,
+  "guardsAndCleanupPassed": true,
+  "postPatchBrowserVerified": false
+}

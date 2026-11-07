@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS actual solo choose menu/open/close/info/emote/render/exit/re-enter handlers; multiplayer predict menu/info/send/receive+portrait rendering; sender/room/session/round/duplicate/lobby/closed validation; authoritative phase/deadline unchanged; controls visible while temporarily disabled by panels. Real SDK transport/browser geometry remain separate.

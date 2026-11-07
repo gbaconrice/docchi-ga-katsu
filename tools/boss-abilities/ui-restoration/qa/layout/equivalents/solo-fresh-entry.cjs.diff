@@ -1,0 +1,11 @@
+--- preserved/solo-fresh-entry.cjs
++++ equivalent/solo-fresh-entry.cjs
+@@ -28,7 +28,7 @@
+ console.log('PASS home from prediction, paused battle and result always starts round 1 / 100 G with no score submission');
+ 
+ // A live room remains a live room, including the ability to return to spectating.
+-run("showScreen('home');globalThis.roomSentinel={};multiSession=roomSentinel;multiSnapshot={phase:'battle'};globalThis.savedWallet=walletState;");
++run("showScreen('home');globalThis.roomSentinel={getState:()=>multiSnapshot};multiSession=roomSentinel;multiSnapshot={phase:'battle'};globalThis.savedWallet=walletState;");
+ click('#soloStart');
+ assert.equal(run('multiSession===roomSentinel'),true);assert.equal(run('walletState===savedWallet'),true);assert.equal(run('screenMode'),'room');
+ assert.equal(elem('#backHome').textContent,'観戦に戻る');assert.match(elem('#roomStatus').textContent,/先に部屋から退出/);

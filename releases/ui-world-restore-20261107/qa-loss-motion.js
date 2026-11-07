@@ -1,0 +1,46 @@
+/* QA entry only. Visible parent controls drive real animation frames.
+   Never add this file to the public game's production entry. */
+(()=>{
+ if(window.parent===window)return;
+ let host;try{host=window.parent.document;}catch(_){return;}
+ const section=host.createElement('div');section.id='lossMotionAuditControls';
+ host.querySelector('#lossMotionAuditControls')?.remove();
+ const report=host.createElement('pre');report.id='lossMotionAuditReport';
+ report.style.maxHeight='180px';report.style.overflow='auto';
+ let captureToken=0,last=null;
+ const compact=r=>{
+  if(!r)return r;
+  const pick=(s,id)=>s.nodes.find(n=>n?.id===id),coins=s=>s.nodes.filter(n=>n?.id?.startsWith('#resultScatter'));
+  const visible=(s,n)=>{const layer=pick(s,'#earnedFlightLayer');return layer&&!layer.hidden&&layer.display!=='none'&&n&&Number(n.opacity)>0&&n.rect[2]>0&&n.rect[3]>0&&n.rect[1]+n.rect[3]>0&&n.rect[1]<r.viewport[1];};
+  const samples=[r.samples[0],...[600,1000,1400,1800,2200].map(t=>r.samples.find(s=>s.now-r.began>=t)),r.samples.at(-1)].filter(Boolean).map(s=>({atMs:Math.round(s.now-r.began),stage:s.stage,animations:s.animations,layer:pick(s,'#earnedFlightLayer'),coins:coins(s).map(n=>({id:n.id,rect:n.rect.map(v=>Math.round(v*10)/10),opacity:Number(n.opacity)}))}));
+  const trajectories=Array.from({length:12},(_,i)=>{const id='#resultScatter'+i,frames=r.samples.map(s=>({s,n:pick(s,id)})).filter(x=>visible(x.s,x.n));return {id,visibleFrames:frames.length,first:frames[0]&&{atMs:Math.round(frames[0].s.now-r.began),rect:frames[0].n.rect},last:frames.at(-1)&&{atMs:Math.round(frames.at(-1).s.now-r.began),rect:frames.at(-1).n.rect},yTravel:frames.length?Math.max(...frames.map(x=>x.n.rect[1]))-Math.min(...frames.map(x=>x.n.rect[1])):0};});
+  return {correct:r.correct,viewport:r.viewport,began:r.began,sampleCount:r.samples.length,trajectories,samples};
+ };
+ const read=()=>{
+  const box=id=>{const n=document.querySelector(id);if(!n)return null;const r=n.getBoundingClientRect(),s=getComputedStyle(n);return {id,text:n.textContent.slice(0,50),rect:[r.x,r.y,r.width,r.height],hidden:n.hidden,display:s.display,visibility:s.visibility,zIndex:s.zIndex,opacity:s.opacity};};
+  return {now:performance.now(),stage:personalResultScene?.stage,stage2At:personalResultScene?.stage2At,animations:personalResultScene?.animations.length,nodes:['#balance','#breakdown','#field','#fieldStage','#battle','#battleLog','#gameToolbar','#assetNoticeBattle','#resultPanel','#earnedFlightLayer',...Array.from({length:12},(_,i)=>'#resultScatter'+i)].map(box)};
+ };
+ const start=correct=>{
+  const token=++captureToken;
+  multiSession=null;multiReplay=null;multiPlayback=null;multiRecording=false;predictionPreview=false;
+  showScreen('home');openSoloScreen();document.querySelector('#red').click();document.querySelector('#confirm').click();
+  for(let n=0;n<30;n++)step(1/60);
+  const outcome=correct?'A':'B';
+  walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:round,outcome,now:0});
+  winner=correct?0:1;state='result';personalResultScene=null;personalResultSeen.clear();update();syncCrowdInspector();syncBattleLog(performance.now(),true);draw();
+  // Use the same high-resolution clock as the production requestAnimationFrame
+  // loop. Do not jump from sync(0) directly to an arbitrary test timestamp.
+  const began=performance.now();syncPersonalResult(began);
+  last={correct,viewport:[innerWidth,innerHeight],began,samples:[]};report.textContent='実時間で記録中';
+  const sample=()=>{
+   if(token!==captureToken)return;
+   last.samples.push(read());
+   if(performance.now()-began<2600)requestAnimationFrame(sample);
+   else report.textContent=JSON.stringify(compact(last),null,2);
+  };requestAnimationFrame(sample);
+ };
+ for(const [title,fn] of [['外れを実時間再生',()=>start(false)],['的中を実時間再生',()=>start(true)],['演出記録を表示',()=>{report.textContent=JSON.stringify(compact(last),null,2);} ]]){
+  const b=host.createElement('button');b.type='button';b.textContent=title;b.onclick=fn;section.appendChild(b);
+ }
+ section.appendChild(report);(host.querySelector('header')||host.body).appendChild(section);
+})();

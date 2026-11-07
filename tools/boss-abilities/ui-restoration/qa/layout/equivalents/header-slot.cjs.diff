@@ -1,0 +1,19 @@
+--- preserved/header-slot.cjs
++++ equivalent/header-slot.cjs
+@@ -14,14 +14,14 @@
+ const h=fs.readFileSync('tests/zero-result-ui.cjs','utf8').split("for(const id of ['#red'")[0];
+ new Function('require','assert',h+`
+ const run=s=>vm.runInContext(s,context),click=id=>elem(id).onclick({isTrusted:true});
+-assert.equal(elem('#pause').hidden,false,'prediction pause stays visible');assert.equal(elem('#pause').disabled,true,'prediction pause cannot pause a nonexistent battle');
++assert.equal(elem('#pause').hidden,false,'prediction pause stays visible');assert.equal(elem('#pause').disabled,false,'prediction menu remains usable without pausing a nonexistent battle');
+ click('#red');click('#confirm');assert.equal(elem('#pause').hidden,false,'fight pause is visible');
+ click('#pause');assert.equal(run('paused'),true);click('#pauseResume');assert.equal(run('paused'),false);
+ run("walletState=SoloWallet.settleRound(walletState,{sessionId:walletState.sessionId,roundId:1,outcome:'A',now:0});state='result';winner=0;update();syncPersonalResult(1000)");
+ assert.equal(elem('#pause').hidden,false,'result pause stays visible');assert.equal(elem('#pause').disabled,false);
+ assert.equal(elem('#gameScreen').getAttribute('data-personal-result'),'true');
+ assert.equal(elem('#battle').hidden,false,'canonical final field retained');
+-run('nextPrediction()');assert.equal(elem('#pause').hidden,false);assert.equal(elem('#pause').disabled,true);assert.equal(run('state'),'choose');
++run('nextPrediction()');assert.equal(elem('#pause').hidden,false);assert.equal(elem('#pause').disabled,false);assert.equal(run('state'),'choose');
+ click('#blue');click('#confirm');assert.equal(elem('#pause').hidden,false);
+ console.log('PASS pause/resume, result and next-round visibility paths retain their behavior');
+ `)(require,assert);

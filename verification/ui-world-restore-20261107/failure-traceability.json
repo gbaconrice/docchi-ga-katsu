@@ -1,0 +1,631 @@
+{
+  "testedSourceSha256": "1a97881dc3358458f0677d370e85a3c0e01708ae0bdf780e292d921d6fa2dbcf",
+  "canonical": {
+    "total": 173,
+    "passed": 134,
+    "failed": 39,
+    "originalsUnchanged": true
+  },
+  "priorCanonical": {
+    "total": 173,
+    "passed": 149,
+    "failed": 24,
+    "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7"
+  },
+  "priorFailuresRetained": 24,
+  "resolvedPriorFailures": [],
+  "newFailures": 15,
+  "newFailureNames": [
+    "a1-bounded-text.cjs",
+    "a1-header-wallet.cjs",
+    "auto-speed-controls.cjs",
+    "gold-full-amount.cjs",
+    "header-log-readability.cjs",
+    "header-slot.cjs",
+    "horizontal-game-header.cjs",
+    "map-emote-frame.cjs",
+    "multi-menu.cjs",
+    "readable-controls.cjs",
+    "solo-fresh-entry.cjs",
+    "stable-upper-ui.cjs",
+    "terrain-header.cjs",
+    "test-result-controls.cjs",
+    "upper-reaction-area.cjs"
+  ],
+  "followupSourceSha256": "f3c8234359119ba1b720fab8f31ed73b92ca111f611bfdaf45e514a96045afa4",
+  "followupEquivalentTests": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0
+  },
+  "rows": [
+    {
+      "test": "a1-bounded-text.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!/tabindex|role=\"button\"|aria-haspopup|aria-controls/.test(fieldTag))\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/a1-bounded-text.cjs:9:1)",
+      "reason": "Terrain is a focusable named horizontal scroll region rather than an unscrollable second line. Full wallet/terrain and all 0–600 digit formatting checks retained.",
+      "equivalent": "equivalents-followup/a1-bounded-text.cjs",
+      "diff": "equivalents-followup/a1-bounded-text.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/a1-bounded-text.cjs.log",
+      "canonicalLog": "logs/a1-bounded-text.cjs.log"
+    },
+    {
+      "test": "a1-header-wallet.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(amountRules.includes('grid-template-columns:max-content minmax(0,1fr) 44px;'))\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/a1-header-wallet.cjs:5:308)",
+      "reason": "Replace old 3-column/40+20px stacked rule with one44px row; retain DOM order, coin, no shadows, exact money, ledger immutability and next-round checks.",
+      "equivalent": "equivalents-followup/a1-header-wallet.cjs",
+      "diff": "equivalents-followup/a1-header-wallet.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/a1-header-wallet.cjs.log",
+      "canonicalLog": "logs/a1-header-wallet.cjs.log"
+    },
+    {
+      "test": "ability-integration-cross.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "FAIL boss attack and exposure multiply exactly once AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(r.scale>1)\n\n    at /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/ability-integration-cross.cjs:34:3",
+      "priorFailingAssertion": "line34: assert(r.scale>1)",
+      "priorContractRationale": "Six unchanged integration cases retained. Replaced obsolete one-tick rhino hit/3x with production direct-hit exposure once; periodic/secondary exclusions tested.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/ability-integration-cross.cjs.log"
+    },
+    {
+      "test": "attack-role-damage.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: shockplate_drake first real hit matches shown attack\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/attack-role-damage.cjs:3:1), <anonymous>:19:147)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/attack-role-damage.cjs:24:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "priorFailingAssertion": "line19 inside evaluated harness: attackValue equals first resolved hit; later fixed72/96 and30/84 checks",
+      "priorContractRationale": "Wolf7/projectile, three exact repair reflection/heal roles, no type mutation retained. Shockplate decay/armor and gauntlet throw collateral replace old72/96 and30/84 combos. Boss numeric label now reference power.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/attack-role-damage.cjs.log"
+    },
+    {
+      "test": "auto-speed-controls.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: false == true\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/auto-speed-controls.cjs:10:164)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "reason": "Choose pause is an enabled menu; retain absence of manual speed hooks, preparation gate, battle pause and resume.",
+      "equivalent": "equivalents-followup/auto-speed-controls.cjs",
+      "diff": "equivalents-followup/auto-speed-controls.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/auto-speed-controls.cjs.log",
+      "canonicalLog": "logs/auto-speed-controls.cjs.log"
+    },
+    {
+      "test": "boss-display-values.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: boss poison trait includes source multiplier\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/boss-display-values.cjs:6:1), <anonymous>:10:1)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/boss-display-values.cjs:45:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "priorFailingAssertion": "first remaining failure: poison.f.traits.includes(毒12/秒・3秒)",
+      "priorContractRationale": "300 cloned comparisons safe; source-only damage scaling for synthetic explosion/charge, unscaled healing; ordinary peer groups/highlights; new poison fog and thorn root/damage replace old poison12/s/counter15.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/boss-display-values.cjs.log"
+    },
+    {
+      "test": "capacity-disclosure-reimplemented.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: JSON.stringify(TYPES)\n    at /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/capacity-disclosure-reimplemented.cjs:31:75\n    at test (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/capacity-disclosure-reimplemented.cjs:9:24)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/capacity-disclosure-reimplemented.cjs:28:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)",
+      "priorFailingAssertion": "line31: sha(run(expression)) === fixture.hashes[expression], first JSON.stringify(TYPES)",
+      "priorContractRationale": "All7 original substantive groups run beyond obsolete TYPES/combatStep hashes:300 scores,72 pinned choices,160 generated cases,32 reservation cap, carry immutability, live64/created512 constants, model and price hashes.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/capacity-disclosure-reimplemented.cjs.log"
+    },
+    {
+      "test": "comparison-air-priority.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: explicit action-tone mapping\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-air-priority.cjs:19:61)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line19 rollback: assert(original.includes(e.after), e.name), explicit action-tone mapping",
+      "priorContractRationale": "Only installer anchor updated in memory. All300 fact comparisons and8 actual side/air/fallback priority cases pass.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/comparison-air-priority.cjs.log"
+    },
+    {
+      "test": "comparison-attack-stats.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: golem source-scaled first-hit damage\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-attack-stats.cjs:4:1), <anonymous>:12:9)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-attack-stats.cjs:30:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "priorFailingAssertion": "golem source-scaled first-hit damage: actual67.5, expected50",
+      "priorContractRationale": "Explicit attackable booleans and reference-power labels replace obsolete source-damage formula on49; ordinary numerical stats, support roles, peer emphasis and600 two-column cards pass.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/comparison-attack-stats.cjs.log"
+    },
+    {
+      "test": "comparison-legibility.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: '紅蓮の咆哮' == '2連撃'\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-legibility.cjs:3:1), <anonymous>:16:553)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-legibility.cjs:26:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "priorFailingAssertion": "line8: if(t.twoHitTicks/highSecondTicks) f.value === 2連撃",
+      "priorContractRationale": "All ordinary combo/micro-timing, peer groups, multiple highlights, support emphasis, contrast>=4.5 and280–430px arithmetic retained;49 new ability names replace old two-hit strings. No browser pixel claim.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/comparison-legibility.cjs.log"
+    },
+    {
+      "test": "comparison-short-features.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: silverarm_vanguard detailed parameter leaked: 倍返しの銀腕\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-short-features.cjs:3:1), <anonymous>:14:82)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/comparison-short-features.cjs:34:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "priorFailingAssertion": "silverarm_vanguard detailed parameter leaked: 倍返しの銀腕",
+      "priorContractRationale": "All49 new feature sets <=18 characters and unique, full descriptions retained, flying markers preserved; all600 rendered traits <=18. Old fixed ability strings replaced; 倍 in the named ability is not a numeric parameter.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/comparison-short-features.cjs.log"
+    },
+    {
+      "test": "current-manifest.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: candidate manifest must match candidate HTML\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/current-manifest.cjs:7:140)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line7: actual === c.candidateIndexSHA256",
+      "priorContractRationale": "Final package index hash, release-manifest hash,5 transformed script hashes, source SHA and content revision checked. Old copied candidate metadata is not used as final provenance.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/current-manifest.cjs.log"
+    },
+    {
+      "test": "gold-full-amount.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(p>0&&end>p)\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/gold-full-amount.cjs:4:110)",
+      "reason": "Replace obsolete CSS marker/3-column override with four-column row and bounded88px wallet. Retain26px system600 numerals, scrollbars, no ellipsis, no abbreviation and44px sound.",
+      "equivalent": "equivalents-followup/gold-full-amount.cjs",
+      "diff": "equivalents-followup/gold-full-amount.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/gold-full-amount.cjs.log",
+      "canonicalLog": "logs/gold-full-amount.cjs.log"
+    },
+    {
+      "test": "guard-corner-final.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: {\"k\":\"pillar_hammerer\",\"side\":\"left\",\"edge\":\"top\",\"state\":\"result\",\"winner\":1,\"elapsed\":1.2500000000000004,\"counts\":{\"guard_warning\":0,\"guard_contact\":0,\"pillar_release\":0},\"attacker\":[34,20],\"target\":[7,7],\"targetHP\":-24.75}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/guard-corner-final.cjs:10:238)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line10: counts.guard_contact+counts.pillar_release>0",
+      "priorContractRationale": "Wizard retains4 original corner winner/death/event assertions; two changed bosses retain8 original corner victory/HP invariants with real resolved-hit events replacing removed guard/pillar event names.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/guard-corner-final.cjs.log"
+    },
+    {
+      "test": "guard-crowd-drift.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: {\"k\":\"pillar_hammerer\",\"mirror\":false,\"n\":0,\"elapsed\":20.000000000000146,\"counts\":{\"guard_warning\":0,\"guard_contact\":0,\"pillar_release\":0},\"x\":446,\"y\":518,\"targetHP\":999626.25}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/guard-crowd-drift.cjs:10:109)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line10: counts.guard_contact+counts.pillar_release>0 and mirrored counts",
+      "priorContractRationale": "All18 original crowd geometries retained, with exact mirrored contact counts. Zero/eight ally fixtures require damage; changed boss event categories updated.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/guard-crowd-drift.cjs.log"
+    },
+    {
+      "test": "guard-description-actual.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: {\"k\":\"pillar_hammerer\",\"mirror\":false,\"damage\":74.75,\"expected\":7,\"elapsed\":1.9999999999999978,\"text\":\"ハンマーから前方へ光の柱が順番に立ち上がり、命中した敵を気絶させる。\",\"events\":[]}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/guard-description-actual.cjs:9:1387)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line9: 30-tick guard warning, dmg*.10, 3-second cooldown and old pillar-priority prose",
+      "priorContractRationale": "Wizard exact30tick warning,7 damage,3sec cooldown and prose preserved. New column first contact75/74.75/stun; uppercut49/55.68,landing91/24.36/airborne; descriptions match actual current ability definitions.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/guard-description-actual.cjs.log"
+    },
+    {
+      "test": "guard-priority-drift.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: {\"k\":\"pillar_hammerer\",\"mirror\":false,\"injected\":false,\"ev\":[]}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/guard-priority-drift.cjs:9:1379)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line9: guardAction injected, no guard contact, pillar_action_start targets far",
+      "priorContractRationale": "Wizard still cancels contact guard in favor of newly available pillar target. New bosses retain acquired cast target and cannot hit before due tick or duplicate first contact; source-death windups cancel. Removed guard-to-pillar arbitration is not imposed on new mechanics.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/guard-priority-drift.cjs.log"
+    },
+    {
+      "test": "header-log-readability.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(terrainRule.includes('font-size:13px')&&terrainRule.includes('white-space:nowrap')&&terrainRule.includes('overflow:visible'))\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/header-log-readability.cjs:14:290)",
+      "reason": "Terrain scroll and sound column4 replace the overflow-visible stacked row. Every log-template, semantic contrast and pause-exit contrast assertion retained.",
+      "equivalent": "equivalents-followup/header-log-readability.cjs",
+      "diff": "equivalents-followup/header-log-readability.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/header-log-readability.cjs.log",
+      "canonicalLog": "logs/header-log-readability.cjs.log"
+    },
+    {
+      "test": "header-slot.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: prediction pause cannot pause a nonexistent battle\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/header-slot.cjs:15:1), <anonymous>:7:83)\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/header-slot.cjs:27:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "reason": "Choose and next-round menu are enabled. Stable44px sound slot, pause/resume, result field and round transitions retained.",
+      "equivalent": "equivalents-followup/header-slot.cjs",
+      "diff": "equivalents-followup/header-slot.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/header-slot.cjs.log",
+      "canonicalLog": "logs/header-slot.cjs.log"
+    },
+    {
+      "test": "horizontal-game-header.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: Reference-image stacked header rule block exists\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/horizontal-game-header.cjs:5:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "reason": "One44px metadata row, compact44px utilities, terrain/wallet scrolling and126/170px result reserve replace the old stacked design. All solo/multi phases, pause/results, participants, gold formatting and typography retained.",
+      "equivalent": "equivalents-followup/horizontal-game-header.cjs",
+      "diff": "equivalents-followup/horizontal-game-header.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/horizontal-game-header.cjs.log",
+      "canonicalLog": "logs/horizontal-game-header.cjs.log"
+    },
+    {
+      "test": "integrated-revision.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: '86ac58e301ef807da96a08be6d8d1d4bc4ca4f212d8d3a13c6974a2b94661230' == 'e2b903a6739a9cd65ae0f01ecdb724508b65f113503308fb4aac7c69feedff2c'\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/integrated-revision.cjs:7:8)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line7: SHA256(docchi-integrated-candidate-v1\\0 + normalized source) equals CONTENT_REVISION",
+      "priorContractRationale": "New versioned normalized-source fingerprint, package source/release hashes and rejection of prior-revision peers replace obsolete prefix/provenance constants.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/integrated-revision.cjs.log"
+    },
+    {
+      "test": "large-body-presentation.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: all 301 TYPES unchanged except approved 44 names\n+ actual - expected\n... Skipped lines\n\n  {",
+      "priorFailingAssertion": "line9: all301 TYPES unchanged except approved44 names",
+      "priorContractRationale": "Exact47 sprite draw/crop/scale/HP/tap cases,184 corner camera bounds, unchanged asset/large-body metadata and ordinary combat preserved. New boss combat cannot equal obsolete baseline;49 production/replay scenarios substitute.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/large-body-presentation.cjs.log"
+    },
+    {
+      "test": "map-emote-frame.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!toolbar.includes('id=\"reaction-feedback\"'))\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/map-emote-frame.cjs:7:1)",
+      "reason": "Existing feedback node moved from separate solo lane into utility slot. Entire map/canvas ratio sweep retained; feedback remains outside map and non-interactive.",
+      "equivalent": "equivalents-followup/map-emote-frame.cjs",
+      "diff": "equivalents-followup/map-emote-frame.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/map-emote-frame.cjs.log",
+      "canonicalLog": "logs/map-emote-frame.cjs.log"
+    },
+    {
+      "test": "melee-combo-transition.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: failed {\"mirror\":false,\"scenario\":\"normal\",\"started\":false,\"cancelled\":false,\"hit\":true,\"unsafe\":true}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/melee-combo-transition.cjs:9:1334)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line8 final loop: started via comboActionToken, no hit before that token, move/death/knock cancellation",
+      "priorContractRationale": "New independent-head damage and burn replace comboActionToken. Target death, moved-out-of-range target, caster displacement and both horizontal directions tested. Source death covered for all49.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/melee-combo-transition.cjs.log"
+    },
+    {
+      "test": "multi-menu.cjs",
+      "classification": "actual-defect-repaired",
+      "currentObservation": "Error: overlay survived prediction\n    at evalmachine.<anonymous>:31:56\n    at Script.runInContext (node:vm:149:12)\n    at Object.runInContext (node:vm:301:6)\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/multi-menu.cjs:3:1), <anonymous>:6:4)",
+      "reason": "An open result overlay survived next-prediction entry. Entry-only reset repaired it. Equivalent retains every overlay-closure invariant and updates only the obsolete disabled-choose expectation.",
+      "equivalent": "equivalents-followup/multi-menu.cjs",
+      "diff": "equivalents-followup/multi-menu.cjs.diff",
+      "initialEquivalentStatus": "fail",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/multi-menu.cjs.log",
+      "canonicalLog": "logs/multi-menu.cjs.log"
+    },
+    {
+      "test": "names-katakana.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: golem\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/names-katakana.cjs:1:2235)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line1: assert.equal(x.bossDamageScale,3,x.id), first golem",
+      "priorContractRationale": "Every type/name/ID compared to preserved baseline; only explicit49 metadata/passive changes allowed. All prices, HP enlargement, armor/layers/roster unchanged; 3x is deliberately replaced1x.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/names-katakana.cjs.log"
+    },
+    {
+      "test": "new-ability-boundaries.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "FAIL presentation exposure bit is time bounded and replay validates extended range AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(/validFlags[^\\n]*<=65535/.test(html))\n\n    at /workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/new-ability-boundaries.cjs:35:463",
+      "priorFailingAssertion": "line35: /validFlags[^\\n]*<=65535/.test(html)",
+      "priorContractRationale": "All53 original behavioral groups run; only obsolete global65535 regex updated to extended current-version ceiling plus legacy gate check. Prior engines reject high boss flags/effects.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/new-ability-boundaries.cjs.log"
+    },
+    {
+      "test": "new-ability-preservation.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: all 301 TYPES must match baseline except the explicit recovered ability changes\n+ actual - expected\n... Skipped lines\n\n  {",
+      "priorFailingAssertion": "line17 all301 TYPES equality; line20 boss values unchanged",
+      "priorContractRationale": "Exact301 records use explicit49 change allowlist, ordinary252 unchanged. Costs, original46 boss membership, growth catalog and previous recovered revival/death-burst/exposure/wraith semantics preserved.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/new-ability-preservation.cjs.log"
+    },
+    {
+      "test": "readability-preservation.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: No event category removed or added\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/readability-preservation.cjs:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line6: exact equality of BATTLE_LOG_CATALOG keys; No event category removed or added",
+      "priorContractRationale": "All107 previous catalog entries, source/target bindings, recorded payload bytes, readable phase endings and visible count rules retained; boss_ability is the sole intentional extra category.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/readability-preservation.cjs.log"
+    },
+    {
+      "test": "readable-controls.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: Expected \"actual\" to be reference-equal to \"expected\":\n+ actual - expected\n\n+ <ref *1> Node {\n- Node {",
+      "reason": "Home sound now belongs inside home artwork; room retains dock; choose controls enabled. Retain unique sound identity/listener/mute state, readiness gates, contrast and script parsing; isolated function harness supplies newly called dependencies.",
+      "equivalent": "equivalents-followup/readable-controls.cjs",
+      "diff": "equivalents-followup/readable-controls.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/readable-controls.cjs.log",
+      "canonicalLog": "logs/readable-controls.cjs.log"
+    },
+    {
+      "test": "root-summon.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: {\"missing\":true}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/root-summon.cjs:8:1142)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line8: unconditional lich skeleton by tick130, summonMoveFactor1.8, timed expiry",
+      "priorContractRationale": "Natural corpse replaces free batch fixture. Actual scorpion root in shallow ford, owner death,1x modifier and720tick expiry pass; exact no voluntary motion and replay lifecycle checked separately.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/root-summon.cjs.log"
+    },
+    {
+      "test": "semantic-tone-cascade.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: explicit action-tone mapping installed once\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/semantic-tone-cascade.cjs:39:75)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line39: baseline.split(e.after).length-1 ===1, explicit action-tone mapping installed once",
+      "priorContractRationale": "Only neutral boss_ability installer anchor changes. Full color cascade/contrast, rollback/reapply/idempotence, unsafe-anchor rejection, unrelated catalog preservation and unchanged combat checks pass.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/semantic-tone-cascade.cjs.log"
+    },
+    {
+      "test": "solo-fresh-entry.cjs",
+      "classification": "incomplete-test-fixture",
+      "currentObservation": "TypeError: multiSession?.getState is not a function\n    at syncFlowControls (script-3.js:7382:57)\n    at showScreen (script-3.js:6469:39)\n    at showScreen (script-3.js:6707:66)\n    at showScreen (script-3.js:7683:57)",
+      "reason": "The old roomSentinel={} lacks the getState method required by a real session. showScreen now refreshes controls immediately. Equivalent adds only getState:()=>multiSnapshot; every fresh-entry, duplicate-tap, spectator and wallet assertion retained.",
+      "equivalent": "equivalents-followup/solo-fresh-entry.cjs",
+      "diff": "equivalents-followup/solo-fresh-entry.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/solo-fresh-entry.cjs.log",
+      "canonicalLog": "logs/solo-fresh-entry.cjs.log"
+    },
+    {
+      "test": "stable-upper-ui.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(n('pause').disabled&&n('reactionToggle').disabled&&n('unitsToggle').disabled)\n\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/stable-upper-ui.cjs:6:1), <anonymous>:12:2)",
+      "reason": "Enabled choose controls and updated126/170px clearance. All phase/clock/choice/delayed-result/tenth-round/spectator checks retained.",
+      "equivalent": "equivalents-followup/stable-upper-ui.cjs",
+      "diff": "equivalents-followup/stable-upper-ui.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/stable-upper-ui.cjs.log",
+      "canonicalLog": "logs/stable-upper-ui.cjs.log"
+    },
+    {
+      "test": "summoner-capacity-suite.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: cap63{\"count\":0,\"live\":63}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/summoner-capacity-suite.cjs:1:405)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "suite line1: cap63 count1, dead-late active/expired6",
+      "priorContractRationale": "Eligible corpse fixtures test live63=>one/live64=>none, pending counts, max3 live/max6 lifetime, deduplicated physical tokens, invalid corpse exclusions, blocked-placement preservation of lifetime budget, owner death before corpse, and survival/expiry after owner death.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/summoner-capacity-suite.cjs.log"
+    },
+    {
+      "test": "summoner-intrinsic-replay.cjs",
+      "classification": "prior-known-failure",
+      "currentObservation": "Error: {\"spawn\":[],\"expired\":[],\"joined\":[]}\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/summoner-intrinsic-replay.cjs:8:964)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "priorFailingAssertion": "line8: tick130 has6 ashbone_swordsman, expired by721, fresh playback equality",
+      "priorContractRationale": "Actual corpse-driven skeleton birth/720tick expiry and sequential-versus-fresh seek equality replace empty-free-batch tick130/721 expectation. Boss effects/status roundtrip across49 scenarios and prior schema gates pass.",
+      "priorTraceability": "../../final-repo/verification/boss-abilities-20261107/legacy-failure-traceability.md",
+      "currentReplacementSuiteStatus": "Current supplementary contract passed on final6130 source; see current/reports/current-contract.json. The preserved historical test still fails and is not relabeled as passing.",
+      "canonicalLog": "logs/summoner-intrinsic-replay.cjs.log"
+    },
+    {
+      "test": "terrain-header.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(/<p id=\"fieldStatus\" class=\"field-status\">地図未定<\\/p>/.test(src))\n\n    at Object.<anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/terrain-header.cjs:8:1)",
+      "reason": "Terrain is accessible and horizontally scrollable inside one row. Preserve all terrain IDs/strengths/complete labels and pure formatter checks; replace impossible230px terrain slot assertion with bounded independent tracks.",
+      "equivalent": "equivalents-followup/terrain-header.cjs",
+      "diff": "equivalents-followup/terrain-header.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/terrain-header.cjs.log",
+      "canonicalLog": "logs/terrain-header.cjs.log"
+    },
+    {
+      "test": "test-result-controls.cjs",
+      "classification": "actual-defect-repaired",
+      "currentObservation": "      \"error\": \"AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\\n\\n  assert(!pausePanelOpen&&!unitsOpen&&!reactionOpen)\\n\\n    at evalmachine.<anonymous>:17:287\\n    at check (evalmachine.<anonymous>:2:58)\\n    at evalmachine.<anonymous>:17:8\\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\"\n    },\n    {\n      \"name\": \"result exit sends one native exit on repeated taps\",\n      \"passed\": true",
+      "reason": "Same next-prediction overlay regression; repaired with one-time entry reset. All12 result utility groups retained. Prediction can reopen controls; recording/busy/background/exit gates remain.",
+      "equivalent": "equivalents-followup/test-result-controls.cjs",
+      "diff": "equivalents-followup/test-result-controls.cjs.diff",
+      "initialEquivalentStatus": "fail",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/test-result-controls.cjs.log",
+      "canonicalLog": "logs/test-result-controls.cjs.log"
+    },
+    {
+      "test": "upper-reaction-area.cjs",
+      "classification": "intentional-contract-change",
+      "currentObservation": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(n('reactionToggle').disabled)\n\n    at eval (eval at <anonymous> (/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-fixes-20261107/canonical-01/workspace/tests/upper-reaction-area.cjs:5:1), <anonymous>:9:356)",
+      "reason": "Choose reactions enabled; existing feedback occupies utility slot instead of extra32px lane. Retain feed rendering/expiry, pause, solo/multi/home phase checks, four-player scroll and result clearance arithmetic.",
+      "equivalent": "equivalents-followup/upper-reaction-area.cjs",
+      "diff": "equivalents-followup/upper-reaction-area.cjs.diff",
+      "initialEquivalentStatus": "pass",
+      "followupEquivalentStatus": "pass",
+      "evidence": "equivalent-logs-followup/upper-reaction-area.cjs.log",
+      "canonicalLog": "logs/upper-reaction-area.cjs.log"
+    }
+  ],
+  "limits": [
+    "The frozen canonical result remains134/173, not173/173.",
+    "Fifteen adapted equivalents are separate evidence; all original173 tests remain untouched.",
+    "Full173 canonical suite was not rerun on the unsealed follow-up artifact.",
+    "Browser font pixels, actual iOS and real-network transport remain separate checks.",
+    "Follow-up must be composed into final source and resealed before packaging."
+  ],
+  "latestPortableVerification": {
+    "sourceSha256": "41985ec24ee67f7332994d359af144610ff86adeefa1fff3cc77b4eec6f59b1a",
+    "canonicalTestsModified": false,
+    "browserVerified": false,
+    "equivalentCount": 15,
+    "focusedCount": 2,
+    "results": [
+      {
+        "test": "a1-bounded-text.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 1.722
+      },
+      {
+        "test": "a1-header-wallet.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.712
+      },
+      {
+        "test": "auto-speed-controls.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.853
+      },
+      {
+        "test": "gold-full-amount.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.164
+      },
+      {
+        "test": "header-log-readability.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.458
+      },
+      {
+        "test": "header-slot.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 1.065
+      },
+      {
+        "test": "horizontal-game-header.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.871
+      },
+      {
+        "test": "map-emote-frame.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.161
+      },
+      {
+        "test": "multi-menu.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.58
+      },
+      {
+        "test": "readable-controls.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.676
+      },
+      {
+        "test": "solo-fresh-entry.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.705
+      },
+      {
+        "test": "stable-upper-ui.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.761
+      },
+      {
+        "test": "terrain-header.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.275
+      },
+      {
+        "test": "test-result-controls.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 1.076
+      },
+      {
+        "test": "upper-reaction-area.cjs",
+        "kind": "explicit-historical-equivalent",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.664
+      },
+      {
+        "test": "test-prediction-entry.cjs",
+        "kind": "focused-real-handler-regression",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.784
+      },
+      {
+        "test": "test-choose-controls.cjs",
+        "kind": "focused-real-handler-regression",
+        "status": "pass",
+        "code": 0,
+        "signal": null,
+        "seconds": 0.607
+      }
+    ],
+    "sourceUnchanged": true,
+    "all173OriginalTestsUnchanged": true,
+    "passed": 17,
+    "failed": 0,
+    "completed": true
+  },
+  "finalSourceSHA256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "finalCanonicalReport": "canonical/canonical-summary.json",
+  "finalEquivalentReport": "restoration/layout-regression-summary.json",
+  "finalStatus": "134 of173 preserved historical tests pass; all39 failures retained and classified. The actual overlay-transition defect is fixed and17 explicit UI regressions pass.",
+  "initialNewFailureClassification": {
+    "intentionalContractChange": 12,
+    "incompleteFixture": 1,
+    "actualDefect": 1,
+    "testsExposingActualDefect": 2
+  },
+  "identifiedOverlayDefectFixed": true
+}

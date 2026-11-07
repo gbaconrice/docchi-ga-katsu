@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 3 actual solo nextPrediction paths; 3 actual multiplayer displayMultiState paths; same-phase new round reset; every menu/info/emote can reopen and survives repeated choose refresh; deadline, phase and wallets unchanged by controls.

@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+PASS opposing reflectors remain finite [{"k":"sword","hp":919,"dead":false},{"k":"shield","hp":919,"dead":false}]

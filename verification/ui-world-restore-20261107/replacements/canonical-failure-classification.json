@@ -1,0 +1,403 @@
+{
+  "sourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "canonical": {
+    "total": 173,
+    "passed": 134,
+    "failed": 39,
+    "inputsUnchanged": true
+  },
+  "failureNamesUnchangedFrom6130": true,
+  "rows": [
+    {
+      "test": "a1-bounded-text.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Terrain is a focusable named horizontal scroll region rather than an unscrollable second line. Full wallet/terrain and all 0–600 digit formatting checks retained.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!/tabindex|role=\"button\"|aria-haspopup|aria-controls/.test(fieldTag))\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/a1-bounded-text.cjs:9:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/a1-bounded-text.cjs.log",
+      "currentEvidence": "restoration/layout/logs/a1-bounded-text.cjs.log"
+    },
+    {
+      "test": "a1-header-wallet.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Replace old 3-column/40+20px stacked rule with one44px row; retain DOM order, coin, no shadows, exact money, ledger immutability and next-round checks.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(amountRules.includes('grid-template-columns:max-content minmax(0,1fr) 44px;'))\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/a1-header-wallet.cjs:5:308)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/a1-header-wallet.cjs.log",
+      "currentEvidence": "restoration/layout/logs/a1-header-wallet.cjs.log"
+    },
+    {
+      "test": "ability-integration-cross.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Six unchanged integration cases retained. Replaced obsolete one-tick rhino hit/3x with production direct-hit exposure once; periodic/secondary exclusions tested.",
+      "failingAssertion": "line34: assert(r.scale>1)",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS exposed victim still receives exactly 30 death-burst damage\nPASS revived summoner spends only remaining charges with unique physical child tokens\nPASS three burst waves log each defeated physical unit exactly once\nPASS exposure duration and immunity each emit one expiry observation\nPASS canonical revival log preserves child identity through replay and fresh transfer receivers\nPASS canonical frameFor captures revival channel, completion and cancellation poses tick for tick\nLIMITATION: Node pose/transport checks do not validate actual browser rendering or real-network reconnects.\nSUMMARY 6 passed, 1 failed\nFAIL boss attack and exposure multiply exactly once AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/ability-integration-cross.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "attack-role-damage.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Wolf7/projectile, three exact repair reflection/heal roles, no type mutation retained. Shockplate decay/armor and gauntlet throw collateral replace old72/96 and30/84 combos. Boss numeric label now reference power.",
+      "failingAssertion": "line19 inside evaluated harness: attackValue equals first resolved hit; later fixed72/96 and30/84 checks",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: shockplate_drake first real hit matches shown attack\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/attack-role-damage.cjs:3:1), <anonymous>:19:147)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/attack-role-damage.cjs:24:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/attack-role-damage.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "auto-speed-controls.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Choose pause is an enabled menu; retain absence of manual speed hooks, preparation gate, battle pause and resume.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: false == true\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/auto-speed-controls.cjs:10:164)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/auto-speed-controls.cjs.log",
+      "currentEvidence": "restoration/layout/logs/auto-speed-controls.cjs.log"
+    },
+    {
+      "test": "boss-display-values.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "300 cloned comparisons safe; source-only damage scaling for synthetic explosion/charge, unscaled healing; ordinary peer groups/highlights; new poison fog and thorn root/damage replace old poison12/s/counter15.",
+      "failingAssertion": "first remaining failure: poison.f.traits.includes(毒12/秒・3秒)",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: boss poison trait includes source multiplier\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/boss-display-values.cjs:6:1), <anonymous>:10:1)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/boss-display-values.cjs:45:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/boss-display-values.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "capacity-disclosure-reimplemented.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "All7 original substantive groups run beyond obsolete TYPES/combatStep hashes:300 scores,72 pinned choices,160 generated cases,32 reservation cap, carry immutability, live64/created512 constants, model and price hashes.",
+      "failingAssertion": "line31: sha(run(expression)) === fixture.hashes[expression], first JSON.stringify(TYPES)",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: JSON.stringify(TYPES)\n    at /tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:31:75\n    at test (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:9:24)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/capacity-disclosure-reimplemented.cjs:28:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/capacity-disclosure-reimplemented.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "comparison-air-priority.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Only installer anchor updated in memory. All300 fact comparisons and8 actual side/air/fallback priority cases pass.",
+      "failingAssertion": "line19 rollback: assert(original.includes(e.after), e.name), explicit action-tone mapping",
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: explicit action-tone mapping\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-air-priority.cjs:19:61)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/comparison-air-priority.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "comparison-attack-stats.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Explicit attackable booleans and reference-power labels replace obsolete source-damage formula on49; ordinary numerical stats, support roles, peer emphasis and600 two-column cards pass.",
+      "failingAssertion": "golem source-scaled first-hit damage: actual67.5, expected50",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: golem source-scaled first-hit damage\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-attack-stats.cjs:4:1), <anonymous>:12:9)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-attack-stats.cjs:30:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/comparison-attack-stats.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "comparison-legibility.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "All ordinary combo/micro-timing, peer groups, multiple highlights, support emphasis, contrast>=4.5 and280–430px arithmetic retained;49 new ability names replace old two-hit strings. No browser pixel claim.",
+      "failingAssertion": "line8: if(t.twoHitTicks/highSecondTicks) f.value === 2連撃",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment icefield\nPASS deferred image callbacks\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: '紅蓮の咆哮' == '2連撃'\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-legibility.cjs:3:1), <anonymous>:16:553)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/comparison-legibility.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "comparison-short-features.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "All49 new feature sets <=18 characters and unique, full descriptions retained, flying markers preserved; all600 rendered traits <=18. Old fixed ability strings replaced; 倍 in the named ability is not a numeric parameter.",
+      "failingAssertion": "silverarm_vanguard detailed parameter leaked: 倍返しの銀腕",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: silverarm_vanguard detailed parameter leaked: 倍返しの銀腕\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-short-features.cjs:3:1), <anonymous>:14:82)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/comparison-short-features.cjs:34:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/comparison-short-features.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "current-manifest.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Final package index hash, release-manifest hash,5 transformed script hashes, source SHA and content revision checked. Old copied candidate metadata is not used as final provenance.",
+      "failingAssertion": "line7: actual === c.candidateIndexSHA256",
+      "currentObservation": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: candidate manifest must match candidate HTML\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/current-manifest.cjs:7:140)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/current-manifest.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "gold-full-amount.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Replace obsolete CSS marker/3-column override with four-column row and bounded88px wallet. Retain26px system600 numerals, scrollbars, no ellipsis, no abbreviation and44px sound.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(p>0&&end>p)\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/gold-full-amount.cjs:4:110)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/gold-full-amount.cjs.log",
+      "currentEvidence": "restoration/layout/logs/gold-full-amount.cjs.log"
+    },
+    {
+      "test": "guard-corner-final.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Wizard retains4 original corner winner/death/event assertions; two changed bosses retain8 original corner victory/HP invariants with real resolved-hit events replacing removed guard/pillar event names.",
+      "failingAssertion": "line10: counts.guard_contact+counts.pillar_release>0",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment rockfield\nPASS deferred image callbacks\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: {\"k\":\"pillar_hammerer\",\"side\":\"left\",\"edge\":\"top\",\"state\":\"result\",\"winner\":1,\"elapsed\":1.2500000000000004,\"counts\":{\"guard_warning\":0,\"guard_contact\":0,\"pillar_release\":0},\"attacker\":[34,20],\"target\":[7,7],\"targetHP\":-24.75}\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/guard-corner-final.cjs:10:238)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/guard-corner-final.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "guard-crowd-drift.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "All18 original crowd geometries retained, with exact mirrored contact counts. Zero/eight ally fixtures require damage; changed boss event categories updated.",
+      "failingAssertion": "line10: counts.guard_contact+counts.pillar_release>0 and mirrored counts",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment shallow_ford\nPASS deferred image callbacks\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: {\"k\":\"pillar_hammerer\",\"mirror\":false,\"n\":0,\"elapsed\":20.000000000000146,\"counts\":{\"guard_warning\":0,\"guard_contact\":0,\"pillar_release\":0},\"x\":446,\"y\":518,\"targetHP\":999626.25}\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/guard-crowd-drift.cjs:10:109)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/guard-crowd-drift.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "guard-description-actual.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Wizard exact30tick warning,7 damage,3sec cooldown and prose preserved. New column first contact75/74.75/stun; uppercut49/55.68,landing91/24.36/airborne; descriptions match actual current ability definitions.",
+      "failingAssertion": "line9: 30-tick guard warning, dmg*.10, 3-second cooldown and old pillar-priority prose",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment rockfield\nPASS deferred image callbacks\n[\n  {\n    \"k\": \"pillar_hammerer\",\n    \"mirror\": false,\n    \"damage\": 74.75,\n    \"expected\": 7,",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/guard-description-actual.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "guard-priority-drift.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Wizard still cancels contact guard in favor of newly available pillar target. New bosses retain acquired cast target and cannot hit before due tick or duplicate first contact; source-death windups cancel. Removed guard-to-pillar arbitration is not imposed on new mechanics.",
+      "failingAssertion": "line9: guardAction injected, no guard contact, pillar_action_start targets far",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment rockfield\nPASS deferred image callbacks\n[\n  {\n    \"k\": \"pillar_hammerer\",\n    \"mirror\": false,\n    \"injected\": false,\n    \"ev\": []",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/guard-priority-drift.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "header-log-readability.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Terrain scroll and sound column4 replace the overflow-visible stacked row. Every log-template, semantic contrast and pause-exit contrast assertion retained.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(terrainRule.includes('font-size:13px')&&terrainRule.includes('white-space:nowrap')&&terrainRule.includes('overflow:visible'))\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/header-log-readability.cjs:14:290)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/header-log-readability.cjs.log",
+      "currentEvidence": "restoration/layout/logs/header-log-readability.cjs.log"
+    },
+    {
+      "test": "header-slot.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Choose and next-round menu are enabled. Stable44px sound slot, pause/resume, result field and round transitions retained.",
+      "failingAssertion": null,
+      "currentObservation": "PASS scoped CSS keeps the same 44px slot across prediction, fight and result\nPASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: prediction pause cannot pause a nonexistent battle\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/header-slot.cjs:15:1), <anonymous>:7:83)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/header-slot.cjs:27:3)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/header-slot.cjs.log",
+      "currentEvidence": "restoration/layout/logs/header-slot.cjs.log"
+    },
+    {
+      "test": "horizontal-game-header.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "One44px metadata row, compact44px utilities, terrain/wallet scrolling and126/170px result reserve replace the old stacked design. All solo/multi phases, pause/results, participants, gold formatting and typography retained.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: Reference-image stacked header rule block exists\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/horizontal-game-header.cjs:5:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/horizontal-game-header.cjs.log",
+      "currentEvidence": "restoration/layout/logs/horizontal-game-header.cjs.log"
+    },
+    {
+      "test": "integrated-revision.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "New versioned normalized-source fingerprint, package source/release hashes and rejection of prior-revision peers replace obsolete prefix/provenance constants.",
+      "failingAssertion": "line7: SHA256(docchi-integrated-candidate-v1\\0 + normalized source) equals CONTENT_REVISION",
+      "currentObservation": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: '69ec667a9873dfc787026ab3314a79156d03736a4667a98cf0c39cdb776bbac2' == 'ba1548220924ceabd1db86f1b3d0bdf56fa645efa362913655eeb35bc3565ca5'\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/integrated-revision.cjs:7:8)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/integrated-revision.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "large-body-presentation.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Exact47 sprite draw/crop/scale/HP/tap cases,184 corner camera bounds, unchanged asset/large-body metadata and ordinary combat preserved. New boss combat cannot equal obsolete baseline;49 production/replay scenarios substitute.",
+      "failingAssertion": "line9: all301 TYPES unchanged except approved44 names",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: all 301 TYPES unchanged except approved 44 names\n+ actual - expected\n... Skipped lines\n",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/large-body-presentation.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "map-emote-frame.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Existing feedback node moved from separate solo lane into utility slot. Entire map/canvas ratio sweep retained; feedback remains outside map and non-interactive.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!toolbar.includes('id=\"reaction-feedback\"'))\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/map-emote-frame.cjs:7:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/map-emote-frame.cjs.log",
+      "currentEvidence": "restoration/layout/logs/map-emote-frame.cjs.log"
+    },
+    {
+      "test": "melee-combo-transition.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "New independent-head damage and burn replace comboActionToken. Target death, moved-out-of-range target, caster displacement and both horizontal directions tested. Source death covered for all49.",
+      "failingAssertion": "line8 final loop: started via comboActionToken, no hit before that token, move/death/knock cancellation",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment grassland\nPASS deferred image callbacks\n[\n  {\n    \"mirror\": false,\n    \"scenario\": \"normal\",\n    \"started\": false,\n    \"cancelled\": false,",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/melee-combo-transition.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "multi-menu.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "actual-defect-repaired",
+      "reason": "An open result overlay survived next-prediction entry. Entry-only reset repaired it. Equivalent retains every overlay-closure invariant and updates only the obsolete disabled-choose expectation.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nevalmachine.<anonymous>:33\n  for(const id of ['#pause','#unitsToggle','#reactionToggle'])if(document.querySelector(id).hidden || !document.querySelector(id).disabled)throw Error('prediction utility gate: '+id);\n                                                                                                                                           ^\n\nError: prediction utility gate: #pause\n    at evalmachine.<anonymous>:33:146\n    at Script.runInContext (node:vm:149:12)\n    at Object.runInContext (node:vm:301:6)\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/multi-menu.cjs:3:1), <anonymous>:6:4)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/multi-menu.cjs:40:3)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/multi-menu.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "names-katakana.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Every type/name/ID compared to preserved baseline; only explicit49 metadata/passive changes allowed. All prices, HP enlargement, armor/layers/roster unchanged; 3x is deliberately replaced1x.",
+      "failingAssertion": "line1: assert.equal(x.bossDamageScale,3,x.id), first golem",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: golem\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/names-katakana.cjs:1:2235)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/names-katakana.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "new-ability-boundaries.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Original <=65535 flags ceiling is obsolete. The new guard state extends the valid current-version ceiling from1073741823 to2147483647. Current equivalent asserts that ceiling, keeps older-version rejection, and now propagates nested historical exit failures instead of silently resetting them.",
+      "failingAssertion": "line35: /validFlags[^\\n]*<=65535/.test(html)",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS all 300 types: 265 eligible and 35 excluded with explicit predicate matrix\nPASS revival rejects live, enemy, summoned, owned, revived and claimed corpses\nPASS fresh physical revival preserves finite resources and discards transient state\nPASS 90-tick windup and exactly one successful revival per army across two casters\nPASS revival HP ratio/cap terrain 100/false\nPASS revival HP ratio/cap terrain 1000/false\nPASS revival HP ratio/cap terrain 1000/true\nPASS revival commit boundary source-dead\nPASS revival commit boundary claimed\nPASS revival commit boundary out-of-range",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/new-ability-boundaries.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "new-ability-preservation.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Exact301 records use explicit49 change allowlist, ordinary252 unchanged. Costs, original46 boss membership, growth catalog and previous recovered revival/death-burst/exposure/wraith semantics preserved.",
+      "failingAssertion": "line17 all301 TYPES equality; line20 boss values unchanged",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: all 301 TYPES must match baseline except the explicit recovered ability changes\n+ actual - expected\n... Skipped lines\n\n  {\n    abyssal_palmweaver: {",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/new-ability-preservation.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "readability-preservation.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "All107 previous catalog entries, source/target bindings, recorded payload bytes, readable phase endings and visible count rules retained; boss_ability is the sole intentional extra category.",
+      "failingAssertion": "line6: exact equality of BATTLE_LOG_CATALOG keys; No event category removed or added",
+      "currentObservation": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: No event category removed or added\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/readability-preservation.cjs:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/readability-preservation.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "readable-controls.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Home sound now belongs inside home artwork; room retains dock; choose controls enabled. Retain unique sound identity/listener/mute state, readiness gates, contrast and script parsing; isolated function harness supplies newly called dependencies.",
+      "failingAssertion": null,
+      "currentObservation": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected \"actual\" to be reference-equal to \"expected\":\n+ actual - expected\n\n+ <ref *1> Node {\n- Node {\n    attrs: {},\n+   children: [\n+     Node {",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/readable-controls.cjs.log",
+      "currentEvidence": "restoration/layout/logs/readable-controls.cjs.log"
+    },
+    {
+      "test": "root-summon.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Natural corpse replaces free batch fixture. Actual scorpion root in shallow ford, owner death,1x modifier and720tick expiry pass; exact no voluntary motion and replay lifecycle checked separately.",
+      "failingAssertion": "line8: unconditional lich skeleton by tick130, summonMoveFactor1.8, timed expiry",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment highland\nPASS deferred image callbacks\n/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/root-summon.cjs:8\nconst r=vm.runInContext(`(()=>{elapsed=0;state='fight';winner=null;pendingSummons=[];for(let z=1;z<1000;z++){let e=BattleFields.selectRunEnvironment(z,12);if(e.fieldId==='shallow_ford'){battleEnvironment=e;break}}TYPES.onyx_scorpion.speed=0;TYPES.onyx_scorpion.dmg=1;TYPES.onyx_scorpion.hp=100000;let lich={id:1,token:'lich',k:'bone_crown_lich',side:0,x:80,y:200,hp:120,cd:0,priority:.1,dead:false,originForward:1},enemy={id:2,token:'scorp',k:'onyx_scorpion',side:1,x:440,y:200,hp:100000,cd:0,priority:.2,dead:false,originForward:-1};units=[lich,enemy];for(let i=0;i<130;i++)step(1/60);let s=units.find(u=>u.k==='ashbone_swordsman'&&u.summoned);if(!s)return {missing:true};lich.dead=true;lich.hp=0;enemy.x=s.x+20;enemy.y=s.y;enemy.cd=0;let found=false;for(let i=0;i<90;i++){step(1/60);if(s.slowUntil>elapsed&&s.slowFactor===0){found=true;break}}let factor=s.summonMoveFactor,until=s.summonExpiresTick;while(Math.round(elapsed*60)<until+1&&state==='fight')step(1/60);return {found,factor,dead:s.dead,elapsed,until,environment:battleEnvironment.fieldId}})()`,context);if(!r.found||r.factor!==1.8||!r.dead||r.environment!=='shallow_ford')throw Error(JSON.stringify(r));console.log('PASS summoned skeleton rooted and expires in shallow ford after summoner death',JSON.stringify(r));\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            \n\nError: {\"missing\":true}\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/root-summon.cjs:8:1142)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/root-summon.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "semantic-tone-cascade.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Only neutral boss_ability installer anchor changes. Full color cascade/contrast, rollback/reapply/idempotence, unsafe-anchor rejection, unrelated catalog preservation and unchanged combat checks pass.",
+      "failingAssertion": "line39: baseline.split(e.after).length-1 ===1, explicit action-tone mapping installed once",
+      "currentObservation": "PASS 14 neutral category cases, 4 actor-color and 6 recovery/winner cases, minimum 7.58:1 static contrast; no real browser rendering claim\nnode:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: explicit action-tone mapping installed once\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/semantic-tone-cascade.cjs:39:75)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/semantic-tone-cascade.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "solo-fresh-entry.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "incomplete-test-fixture",
+      "reason": "The old roomSentinel={} lacks the getState method required by a real session. showScreen now refreshes controls immediately. Equivalent adds only getState:()=>multiSnapshot; every fresh-entry, duplicate-tap, spectator and wallet assertion retained.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS duplicate start taps are ignored once in game\nPASS home from prediction, paused battle and result always starts round 1 / 100 G with no score submission\nscript-3.js:7568\n const q=id=>document.querySelector(id),s=multiSession?.getState();\n                                                        ^\n\nTypeError: multiSession?.getState is not a function\n    at syncFlowControls (script-3.js:7568:57)\n    at showScreen (script-3.js:6653:39)\n    at showScreen (script-3.js:6891:66)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/solo-fresh-entry.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "stable-upper-ui.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Enabled choose controls and updated126/170px clearance. All phase/clock/choice/delayed-result/tenth-round/spectator checks retained.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(n('pause').disabled&&n('reactionToggle').disabled&&n('unitsToggle').disabled)\n\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/stable-upper-ui.cjs:6:1), <anonymous>:12:2)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/stable-upper-ui.cjs:41:3)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/stable-upper-ui.cjs.log",
+      "currentEvidence": "restoration/layout/logs/stable-upper-ui.cjs.log"
+    },
+    {
+      "test": "summoner-capacity-suite.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Eligible corpse fixtures test live63=>one/live64=>none, pending counts, max3 live/max6 lifetime, deduplicated physical tokens, invalid corpse exclusions, blocked-placement preservation of lifetime budget, owner death before corpse, and survival/expiry after owner death.",
+      "failingAssertion": "suite line1: cap63 count1, dead-late active/expired6",
+      "currentObservation": "PASS cap64 {\"count\":0,\"live\":64}\n/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-capacity-suite.cjs:1\nconst cp=require('child_process');for(const [scenario,expected] of [['cap64',0],['cap63',1],['dead-early',0],['blocked',0],['dead-late',6]]){let out=cp.execFileSync(process.execPath,['tests/summoner-capacity.cjs',scenario],{encoding:'utf8'}),r=JSON.parse(out.match(/RESULT (.*)/)[1]);if(r.count!==expected||scenario==='blocked'&&r.charges!==1||scenario==='dead-late'&&(r.active!==6||r.expired!==6))throw Error(scenario+JSON.stringify(r));console.log('PASS',scenario,JSON.stringify(r))}\n                                                                                                                                                                                                                                                                                                                                                                                                              ^\n\nError: cap63{\"count\":0,\"live\":63}\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-capacity-suite.cjs:1:405)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/summoner-capacity-suite.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "summoner-intrinsic-replay.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "prior-known-failure",
+      "reason": "Actual corpse-driven skeleton birth/720tick expiry and sequential-versus-fresh seek equality replace empty-free-batch tick130/721 expectation. Boss effects/status roundtrip across49 scenarios and prior schema gates pass.",
+      "failingAssertion": "line8: tick130 has6 ashbone_swordsman, expired by721, fresh playback equality",
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment highland\nPASS deferred image callbacks\n/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-intrinsic-replay.cjs:8\ncontext.TextEncoder=TextEncoder;const r=vm.runInContext(`(()=>{TYPES.shield.hp=100000;TYPES.shield.speed=0;TYPES.shield.dmg=0;multiInitial=[{id:1,token:'lich',k:'bone_crown_lich',side:0,x:90,y:200,hp:TYPES.bone_crown_lich.hp,cd:0,priority:.1,dead:false,originForward:1},{id:2,token:'dummy',k:'shield',side:1,x:420,y:200,hp:100000,cd:0,priority:.2,dead:false,originForward:-1}];return buildCanonicalReplay()})()`,context);context.replay=r;const summary=vm.runInContext(`(()=>{let a=CompactReplay.createPlayback(replay),spawn=a.at(130),expired=a.at(721),joined=CompactReplay.createPlayback(replay).at(721);return {spawn:spawn.units.filter(u=>u.k==='ashbone_swordsman'),expired:expired.units.filter(u=>u.k==='ashbone_swordsman'),joined:joined.units.filter(u=>u.k==='ashbone_swordsman')}})()`,context);if(summary.spawn.length!==6||summary.spawn.some(u=>u.dead)||summary.expired.some(u=>!u.dead)||JSON.stringify(summary.expired)!==JSON.stringify(summary.joined))throw Error(JSON.stringify(summary));console.log('PASS replay skeleton spawn, timed removal, reconnect frame',summary.spawn.length,summary.expired.length);\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^\n\nError: {\"spawn\":[],\"expired\":[],\"joined\":[]}\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-intrinsic-replay.cjs:8:964)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/summoner-intrinsic-replay.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "terrain-header.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Terrain is accessible and horizontally scrollable inside one row. Preserve all terrain IDs/strengths/complete labels and pure formatter checks; replace impossible230px terrain slot assertion with bounded independent tracks.",
+      "failingAssertion": null,
+      "currentObservation": "node:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(/<p id=\"fieldStatus\" class=\"field-status\">地図未定<\\/p>/.test(src))\n\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/terrain-header.cjs:8:1)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/terrain-header.cjs.log",
+      "currentEvidence": "restoration/layout/logs/terrain-header.cjs.log"
+    },
+    {
+      "test": "test-result-controls.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "actual-defect-repaired",
+      "reason": "Same next-prediction overlay regression; repaired with one-time entry reset. All12 result utility groups retained. Prediction can reopen controls; recording/busy/background/exit gates remain.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nPASS click #red\nPASS click #confirm\nPASS reached battle with environment highland\nPASS deferred image callbacks\nPASS normal result enables all utilities without moving audio or changing ledger\nPASS repeated battle pause cannot overwrite resume state\nPASS result log, emote, pause and info do not stack\nPASS opening result panels cancels coins but preserves exact final amount\nPASS solo result exit returns home and duplicate tap does not reset wallet\nPASS tenth-round choices remain unchanged by result utilities",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/test-result-controls.cjs.log",
+      "currentEvidence": "current-contract, legacy-equivalents and production integration reports"
+    },
+    {
+      "test": "upper-reaction-area.cjs",
+      "historicalStatus": "FAIL",
+      "classification": "intentional-contract-change",
+      "reason": "Choose reactions enabled; existing feedback occupies utility slot instead of extra32px lane. Retain feed rendering/expiry, pause, solo/multi/home phase checks, four-player scroll and result clearance arithmetic.",
+      "failingAssertion": null,
+      "currentObservation": "PASS boot 5 scripts\nPASS solo start\nnode:internal/assert/utils:77\n    throw err;\n    ^\n\nAssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(n('reactionToggle').disabled)\n\n    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/upper-reaction-area.cjs:5:1), <anonymous>:9:356)\n    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/upper-reaction-area.cjs:26:3)",
+      "canonicalLog": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/approved-canonical-01/upper-reaction-area.cjs.log",
+      "currentEvidence": "restoration/layout/logs/upper-reaction-area.cjs.log"
+    }
+  ],
+  "note": "All original historical failures remain reported as failures; separately maintained current contracts cover intentional changed behavior. Current aggregate evidence is reported separately."
+}

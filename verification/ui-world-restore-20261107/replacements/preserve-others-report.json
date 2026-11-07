@@ -1,0 +1,789 @@
+{
+  "baseline": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "candidate": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "checks": [
+    {
+      "id": "thornback_beast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "58e382c2106e25457c5437ed8f778eee5dd9cf7c68a3fb8aa46b555878a9f10c"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "3e5085d512cb4e500eabd538377c12f4439678d61edb0e9d10bf9aa9770625ff"
+        }
+      ]
+    },
+    {
+      "id": "roarfang_beast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d690a20045d3eb74dc542bddcc62f7f16f8eaca8f7561f5b8748da6aa5edde5e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "e112488ce5028b393994a49de5196fdf60d8555284966e6f89a7c901994b815d"
+        }
+      ]
+    },
+    {
+      "id": "spectral_scale_dragon",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "66340e728bb348e95ccff8060d59a45819b39bad1c62f911b247b835f42542a5"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "3665133f74d46d0127697f38536221429a30eb22c27ce81803886934fbb35861"
+        }
+      ]
+    },
+    {
+      "id": "iceclaw_legend",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "326528816321345026dae57dbbc25dce5149b0cf9c9715a27be87c4f7b2c7dc3"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "a3161f99f7db0f6726ecc1d2c2b9bfd987f83052d4397af430d0f10e67e31dfb"
+        }
+      ]
+    },
+    {
+      "id": "rootwarden_treant",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "cabb57a0a786751e427ed53215d7614040bc578606672f04ee12c11794378640"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "7fe43087bd5751b71f262ef1ce13aacf8ef931979be4638e9f61db1a3619508e"
+        }
+      ]
+    },
+    {
+      "id": "frosthorn_rhino",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "27079f2a8a886da300cda7719b7fe93c695884de429eb31a09f50685160da7bf"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "464e9dbde0d58dd0f51e9951aff495a49c982e29e7d10aa9ac71056f69140569"
+        }
+      ]
+    },
+    {
+      "id": "pillar_hammerer",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "5e88ffd80c4796c76fa057e6eaec06f28097f194eba450fa696c4290bed322cc"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "07004ad5f8da2c14ede4dafd2563b50f82136781d6656175c95f1a119a737d3c"
+        }
+      ]
+    },
+    {
+      "id": "colossal_hornfist",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "64ee8e9ad51124910b8a4c2e6f6caeac0e8f7d2e87911c16eb109b3cba54fca6"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "86e67d232ae29ffa02acf39bd4a7ba9728509da33c2521159ad091325ca6ac41"
+        }
+      ]
+    },
+    {
+      "id": "carapace_slashbeast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "982386b817590a4da95eed1184ddcb24635fb3b1804170954f1c564274b8b80e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "0c0d94f5de76a8b9791e320e900cc7ec560a0e6019b74dd08bbf669b2c66665f"
+        }
+      ]
+    },
+    {
+      "id": "stonepulse_kolossus",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d028f2b5826a1479265b76cf1d02577ead13f2ad7fc012e5faff9953e60fcc45"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "9c47f10eba8c49f4760bd36f7dfcbd1504669de978b7860323a806e5753e1116"
+        }
+      ]
+    },
+    {
+      "id": "bluefist_colossus",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "e3eca39fd1076040c6aa5aace123cfa83342777c10bd63891102661380b740f3"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "eb8c08c3d256d28d9ed5708a1a1795a405a51dc3b95bf450bc3092191b6482c8"
+        }
+      ]
+    },
+    {
+      "id": "spikeburst_grinder",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "da6d0b6491a89a71add7a6e52ddf6aa70d0de050e7c27787c60862ffd46a80f7"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "2a3c8333acc5e8fe6411de7c4f39014ea3ea4ba06ce1788c8628b5850194f36d"
+        }
+      ]
+    },
+    {
+      "id": "redhorn_dualbeast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d5a247bad2bd0f50f9f34c026ccab195a6577ea55006e1c2d7cc2680e2db40d0"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "67332c8e840b0160173d1b4539c8a5ac63ea779156dc1dee29ffa5466be4618c"
+        }
+      ]
+    },
+    {
+      "id": "bluehorn_invoker",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "31d02c0da5464b388e97bc19b5b67a2344b198baa8f787d7ba3c70c49758b2bd"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "9c172b5f192cbfa96ee4e90d9fb6287c4a59dd719732c3ae3cc3b3660b2b7206"
+        }
+      ]
+    },
+    {
+      "id": "emberwing_drake",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "ce801134205f17b23386c9cdff6ad2d7538e3f7d2b32566a77fd3542a20aba0d"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "fe1fb3d17a34531d1667e0068f34a0619730926e267f47f5aae721b19e81139e"
+        }
+      ]
+    },
+    {
+      "id": "skullflare_triad",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "2e2754eb9b585c87fb344c62f8684fcbeb04053776eb6dceec59e4925da6e4b8"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "b14a432bdc271145ba21923fbd53a6f67500a8911e8fc86d8292bbba1a40454c"
+        }
+      ]
+    },
+    {
+      "id": "flamering_magus",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "aa03bde9f07c67d89e1cab120f380155549d0a61bec09d40890558c07c4f1347"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "7c6af3b7df4a3b7167f9247c671ac5a71bc2653b7b0740b2260bacfca3041a97"
+        }
+      ]
+    },
+    {
+      "id": "shockplate_drake",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "ba9edb6b97510a5ccef8d53c8295e4c594964b0359852fa51170f38b1757a612"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "dc236b78e2a155abba22b3f0e725d1b396d91a3db5a1e5d8b339cf37375bc581"
+        }
+      ]
+    },
+    {
+      "id": "thunderhorn_beast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "279a8fc9c1686d3a716c2ec04f0ad0355b9ebf460caa942e33f0d4f3d2c0405e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "5ef33d3017f5939ff0d9d38361743f1b6952ff1fe5d9786388cc2bf5c9cffff0"
+        }
+      ]
+    },
+    {
+      "id": "stormhorn_tripler",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d91cc9af2a0691f0ecb7a3ae2c97ec9678e3931a5eb9da74d0486517df705878"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d8114f882001c1cb65333e1175190c0eed3c2a9f9f1ed447a4fc78535e32d9e1"
+        }
+      ]
+    },
+    {
+      "id": "darkfan_clawlord",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "3605ba7721676abf5e863c13569f13f60969bf9e1daba2802f4cc5bf28642577"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "1c842d31700a8c4ec6421ddf7c63236523f9d73974c3bc208ccc29113246a4ee"
+        }
+      ]
+    },
+    {
+      "id": "plated_dualdragon",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "1c293b6a25792564d751f805476ae8aa8a818b01ae97a64c3a2037b59b7ca377"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "3fe6fd6b4d3c8f3d1488b8b3bbf647dfb6a7e43f7393ea9bc8cd79bc3c5ca5d8"
+        }
+      ]
+    },
+    {
+      "id": "flameburst_mythron",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "0178f58e49c5f8a25c4131da328bd00671da2860d562775d3855d29f71b2893b"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d0597a3b8e13bc8dce4c2dd132d95a589b8a7dccefc6d998fab040919b1f6356"
+        }
+      ]
+    },
+    {
+      "id": "willyee_frost_dragon",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "2e7440ff49fc8ff022d38573ada52d41de1b0158c4bb521c25b2b282634c1484"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "7873879f937f52a35e0cd511ecc9d2136906a3f856fd4b5b9b7a49c4b3095a59"
+        }
+      ]
+    },
+    {
+      "id": "frostbreath_lizard",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "b9d14b39a53016440a94ccd5e18d9a547c255763cb2965bffb7d5292d3a486c5"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "ab0477ebc97e5ed708f7031e79509203eb102bd6f2404f911cee877573279103"
+        }
+      ]
+    },
+    {
+      "id": "triad_chimera",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "74c055e5a0f2aed2dbbd092df8335aa71d2299bff34ca0627554906c2b9ad688"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "e3a476073de91d6d134d4a35084bb74dbf941cd7619553ba8b44f1889fed1cd7"
+        }
+      ]
+    },
+    {
+      "id": "cinder_tailbeast",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "66aa31ad3713a8106b3d47d9e3e7767cf9709735959654f9f07ff5491646e05c"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "29e0d663d9736338e7c164cc11ae112f29db5b3dc482c01bc0864beb4cf0091f"
+        }
+      ]
+    },
+    {
+      "id": "emberfist_pillarer",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "36a3378ea38ad51aa832a09337dba2d7675e4690e58429642d9fe3f500f0bdd7"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "c1a8b3114899280652b776d9d80afeef30939db5a3a3192a88fe6e0e0865a6aa"
+        }
+      ]
+    },
+    {
+      "id": "veteran_flamewing",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "de154b72416f49b94166240289c19ec73bbeeb5f1a9bb24bfcafab9f6231767e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "b2bdfc67f82e0ea6cdd68221098e318d080d44142e1c1a69324086ffe99132be"
+        }
+      ]
+    },
+    {
+      "id": "spore_toad",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "84e522c4da017a9b83e1f20c3f30527a6e9eeeb0df8f4d1d6c75dbce0519e03a"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "cb6a4a3ae481b575f292fdeff573f28fd21ab92957264a6a02f54a65824f51b7"
+        }
+      ]
+    },
+    {
+      "id": "siege_crab",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "53e4ac2365423aa4a1bca3bb060a84bb25c888f3f725ac638195dc7367ab496b"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "3108e892bc94679f330d4fae9a5f7494407a3522f1f7a6c9eb2b74efd3dc722c"
+        }
+      ]
+    },
+    {
+      "id": "slime",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "4853f2e76420f92e796b80b4d2d0ca8497133620d2810bd0aaf61f8a23ac6a9e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "c7d18195157b8f168efe2a9c41b05188c6fe4d7199adc6ce57880aa1f685dfbb"
+        }
+      ]
+    },
+    {
+      "id": "accretion_burstcore",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "2e13e7e7db865bec7fdfea60d858f1ae33440b38c8844a3dbbfb9171326da547"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "99fca43da64c37bb666938b99617fd61a318cc585dfc075146792ceba695c12d"
+        }
+      ]
+    },
+    {
+      "id": "domeback_colossus",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d407377a3d97abc6c0dc31e8a20d1612ff10a9f339183c12496766df0aedc1e6"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "cda5fe2811dcfdfafe71c2911e9ca0094fc3ca6dc8b073cbbf140d5a54c0c7d9"
+        }
+      ]
+    },
+    {
+      "id": "ringhold_guardian",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "bc0f0902cda36bbcb9ea2de7031271af9d6600786cb38a0ce51c14ec9d3d0a98"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "2daf7bde0a57bf3924d0d15c6157a363f8d3d162c60fe251177b800804940fcb"
+        }
+      ]
+    },
+    {
+      "id": "silverarm_vanguard",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "7aecc869b2bd1b0b637696edc257d16a24d69fabd2f37df39695bddb0d2910c3"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d07bb416aa92e56ede1cb17bbef51ded7c4fbb56e97f806eab68233c79751dae"
+        }
+      ]
+    },
+    {
+      "id": "fiery_coil_inceptor",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "438196bce64a7b6bcd806c315bb1b156849ce78e36094ca0c574d09beb2c66db"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "a11372c602211173a73d2c5173744efa318c9172e05d2fb653922e97a417cc2a"
+        }
+      ]
+    },
+    {
+      "id": "golem",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "f4725e08ffdcdb3c11dfdc57664111dd7b88a51193b1208ceba8aa1362bce0f0"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "cdc438c4aaf02047ae4f1b9cfdf222e7dc115d4bd70df6cd0c1e9e48e51885bb"
+        }
+      ]
+    },
+    {
+      "id": "bonefan_reaper",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "48c3d46fcfd548ced650705d4bb1f6f4261305438a3fe20f541690b4064e111e"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "6a9c5374304f3b9b80a03754859417b39d2facedffa973d903a759bc9254c267"
+        }
+      ]
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d4cfe6c7bec653d51191916be33b76bf48558fe70ba1869a89564d2f70c878ce"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "bba602d1932075289b46b09b369055360553505e4b4a7cf6e10819cf3ba29f45"
+        }
+      ]
+    },
+    {
+      "id": "willyee_stone_golem",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "9835da79785bf5fbc55af7e55344fc1f2c737fc6a9697ac50f6173da30212025"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "8c7faa535f5352346efd18ebc2295022f1041fb8d6fbebc725744b9c97e684da"
+        }
+      ]
+    },
+    {
+      "id": "basalt_titan",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "660da61824a32e0d4aa140fd49bd8992c11d302ed3f6b9573a7326b63f56572b"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "e006fd257073723d60e8a6c23f31fed6bc8259ff94ec2aca09329b3aec2b0b45"
+        }
+      ]
+    },
+    {
+      "id": "cyanrise_silithar",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "c8c7ae6e2ea682a38753e1e78d7b6617bc90d3d1000f9c4b409099e6a746c396"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "a32feda1ccc10e7ee5d8dc3e752c47243abd582f7c67ad4d0fae63712a18b8e6"
+        }
+      ]
+    },
+    {
+      "id": "cleaver_brute",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "97fe0eb160ae081a6ad6c0a93e8dab4986af8933b75c6d4d2807481e0d4390ef"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "41da1a6cea6f696fa07cc72abb42e8da6705098a87f80154103b7280cb4b1b96"
+        }
+      ]
+    },
+    {
+      "id": "ringneck_prowler",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "82a84325ec5f49726db26cf4d1b3c48924badfe2d0d17d80c180ab156fcb20c5"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "6a0714b93e223628e21ce68e2dbf3b3536619d20e9909a9d8c17f8b2ce029f5a"
+        }
+      ]
+    },
+    {
+      "id": "bone_crown_lich",
+      "orientations": [
+        {
+          "mirror": false,
+          "combat": true,
+          "replay": true,
+          "traceHash": "fcaebbdf480dc35119f97c7ecba1e2bb14752b22a92e32c34cf6cd7186b83fe9"
+        },
+        {
+          "mirror": true,
+          "combat": true,
+          "replay": true,
+          "traceHash": "d91011ede4d78477e1cc91ea47ce00d126717475f97d890276fb2d0f9c5892ff"
+        }
+      ]
+    }
+  ],
+  "method": "Exact JSON snapshots of full units, events, shots, pendingSummons, elapsed, state, winner each production step for420ticks; paired replay JSON equality for240ticks. Both orientations. Only the explicitly replaced3 bosses excluded."
+}

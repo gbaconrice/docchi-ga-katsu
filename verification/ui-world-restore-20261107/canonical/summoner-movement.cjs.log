@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment desert
+PASS deferred image callbacks
+RESULT {"start":50,"half":63.49853515625,"end":76.9970703125,"factor":1.8,"typeSpeed":30}

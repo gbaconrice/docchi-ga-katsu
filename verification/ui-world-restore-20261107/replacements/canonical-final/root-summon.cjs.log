@@ -1,0 +1,21 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/root-summon.cjs:8
+const r=vm.runInContext(`(()=>{elapsed=0;state='fight';winner=null;pendingSummons=[];for(let z=1;z<1000;z++){let e=BattleFields.selectRunEnvironment(z,12);if(e.fieldId==='shallow_ford'){battleEnvironment=e;break}}TYPES.onyx_scorpion.speed=0;TYPES.onyx_scorpion.dmg=1;TYPES.onyx_scorpion.hp=100000;let lich={id:1,token:'lich',k:'bone_crown_lich',side:0,x:80,y:200,hp:120,cd:0,priority:.1,dead:false,originForward:1},enemy={id:2,token:'scorp',k:'onyx_scorpion',side:1,x:440,y:200,hp:100000,cd:0,priority:.2,dead:false,originForward:-1};units=[lich,enemy];for(let i=0;i<130;i++)step(1/60);let s=units.find(u=>u.k==='ashbone_swordsman'&&u.summoned);if(!s)return {missing:true};lich.dead=true;lich.hp=0;enemy.x=s.x+20;enemy.y=s.y;enemy.cd=0;let found=false;for(let i=0;i<90;i++){step(1/60);if(s.slowUntil>elapsed&&s.slowFactor===0){found=true;break}}let factor=s.summonMoveFactor,until=s.summonExpiresTick;while(Math.round(elapsed*60)<until+1&&state==='fight')step(1/60);return {found,factor,dead:s.dead,elapsed,until,environment:battleEnvironment.fieldId}})()`,context);if(!r.found||r.factor!==1.8||!r.dead||r.environment!=='shallow_ford')throw Error(JSON.stringify(r));console.log('PASS summoned skeleton rooted and expires in shallow ford after summoner death',JSON.stringify(r));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+Error: {"missing":true}
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/root-summon.cjs:8:1142)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.22.1

@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #stake25
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+PASS 25 G selected and committed
+PASS 25 G hint matches +25 G / −25 G

@@ -1,0 +1,48 @@
+{
+  "sha": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "limits": "Node Skia Canvas2D only, not mobile browser performance",
+  "results": [
+    {
+      "kind": "fiery_coil_inceptor",
+      "tick": 12,
+      "median": 1.296311,
+      "p95": 2.649988,
+      "max": 4.565975
+    },
+    {
+      "kind": "emberfist_pillarer",
+      "tick": 99,
+      "median": 1.830057,
+      "p95": 2.143771,
+      "max": 2.622936
+    },
+    {
+      "kind": "frostbreath_lizard",
+      "tick": 113,
+      "median": 2.900366,
+      "p95": 3.45868,
+      "max": 3.514604
+    },
+    {
+      "kind": "flamering_magus",
+      "tick": 80,
+      "median": 1.359976,
+      "p95": 1.849636,
+      "max": 2.22827
+    },
+    {
+      "kind": "stormhorn_tripler",
+      "tick": 80,
+      "median": 1.48787,
+      "p95": 2.06302,
+      "max": 2.200608
+    },
+    {
+      "kind": "slime",
+      "tick": 56,
+      "median": 2.788366,
+      "p95": 3.119247,
+      "max": 3.318898
+    }
+  ]
+}

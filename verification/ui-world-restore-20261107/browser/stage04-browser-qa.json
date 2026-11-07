@@ -1,0 +1,632 @@
+{
+  "schema": "browser-qa-stage04-v1",
+  "date": "2026-11-07",
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "runtime": "game-runtime.118650012ca1e9364ae6.js",
+  "result": "PASS within tested scope after stage05 QA-only effect-image priming correction",
+  "preview": "Local HTTP preview; not a public release URL",
+  "method": "Chromium, private HTTP preview; supported visible QA controls, screenshots and read-only DOM measurements. Production source/staging unchanged.",
+  "layout": {
+    "home": {
+      "viewport": {
+        "width": 390,
+        "height": 660
+      },
+      "homeScreen": {
+        "text": "\n    \n      \n        \n        \n        \n        \n        \n        \n        \n        \n      \n    \n    \n    ひとりで遊ぶ\n    みんなで遊ぶ\n  ",
+        "hidden": false,
+        "disabled": false,
+        "parent": "app",
+        "tabIndex": -1,
+        "x": 12,
+        "y": 8,
+        "width": 366,
+        "height": 642,
+        "right": 378,
+        "bottom": 650,
+        "scrollWidth": 366,
+        "clientWidth": 366,
+        "display": "grid",
+        "overflowX": "auto",
+        "textOverflow": "clip",
+        "fontSize": "16px"
+      },
+      "sound": {
+        "text": "",
+        "hidden": false,
+        "disabled": false,
+        "parent": "homeScreen",
+        "tabIndex": 0,
+        "x": 173,
+        "y": 468,
+        "width": 44,
+        "height": 44,
+        "right": 217,
+        "bottom": 512,
+        "scrollWidth": 42,
+        "clientWidth": 42,
+        "display": "grid",
+        "overflowX": "visible",
+        "textOverflow": "clip",
+        "fontSize": "0px"
+      }
+    },
+    "choose": {
+      "viewport": {
+        "width": 390,
+        "height": 660
+      },
+      "checks": {
+        "oneHeaderRow": true,
+        "orderedSlots": true,
+        "sound44": true,
+        "toolbar44": true,
+        "utilitiesVisible": true,
+        "terrainKeyboard": true,
+        "fullGoldRetained": true,
+        "fullTerrainRetained": true,
+        "longGoldScrollable": true,
+        "longTerrainScrollable": true,
+        "noPageOverflow": true
+      },
+      "header": {
+        "text": "\n      砂漠 · 回復量−8%\n      第1／10戦\n      \n        \n        所持金\n        100\n      \n      \n    ",
+        "hidden": false,
+        "disabled": false,
+        "parent": "gameScreen",
+        "tabIndex": -1,
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 56,
+        "right": 378,
+        "bottom": 68,
+        "scrollWidth": 366,
+        "clientWidth": 366,
+        "display": "grid",
+        "overflowX": "visible",
+        "textOverflow": "clip",
+        "fontSize": "16px"
+      },
+      "terrain": {
+        "text": "砂漠 · 回復量−8%",
+        "hidden": false,
+        "disabled": false,
+        "parent": "gameTopline",
+        "tabIndex": 0,
+        "x": 20,
+        "y": 30,
+        "width": 141.5,
+        "height": 20,
+        "right": 161.5,
+        "bottom": 50,
+        "scrollWidth": 142,
+        "clientWidth": 142,
+        "display": "block",
+        "overflowX": "auto",
+        "textOverflow": "clip",
+        "fontSize": "13px"
+      },
+      "sound": {
+        "text": "",
+        "hidden": false,
+        "disabled": false,
+        "parent": "gameTopline",
+        "tabIndex": 0,
+        "x": 326,
+        "y": 18,
+        "width": 44,
+        "height": 44,
+        "right": 370,
+        "bottom": 62,
+        "scrollWidth": 42,
+        "clientWidth": 42,
+        "display": "grid",
+        "overflowX": "visible",
+        "textOverflow": "clip",
+        "fontSize": "0px"
+      }
+    },
+    "gravity": {
+      "viewport": {
+        "width": 390,
+        "height": 660
+      },
+      "checks": {
+        "oneHeaderRow": true,
+        "orderedSlots": true,
+        "sound44": true,
+        "toolbar44": true,
+        "utilitiesVisible": true,
+        "terrainKeyboard": true,
+        "fullGoldRetained": true,
+        "fullTerrainRetained": true,
+        "longGoldScrollable": true,
+        "longTerrainScrollable": true,
+        "noPageOverflow": true
+      },
+      "header": {
+        "text": "\n      浅瀬 · 地上移動−4%\n      第1／10戦\n      \n        \n        所持金\n        100\n      \n      \n    ",
+        "hidden": false,
+        "disabled": false,
+        "parent": "gameScreen",
+        "tabIndex": -1,
+        "x": 12,
+        "y": 86,
+        "width": 366,
+        "height": 56,
+        "right": 378,
+        "bottom": 142,
+        "scrollWidth": 366,
+        "clientWidth": 366,
+        "display": "grid",
+        "overflowX": "visible",
+        "textOverflow": "clip",
+        "fontSize": "16px"
+      },
+      "sound": {
+        "text": "",
+        "hidden": false,
+        "disabled": false,
+        "parent": "gameTopline",
+        "tabIndex": 0,
+        "x": 326,
+        "y": 92,
+        "width": 44,
+        "height": 44,
+        "right": 370,
+        "bottom": 136,
+        "scrollWidth": 42,
+        "clientWidth": 42,
+        "display": "grid",
+        "overflowX": "visible",
+        "textOverflow": "clip",
+        "fontSize": "0px"
+      }
+    }
+  },
+  "selectionSmoke": [
+    {
+      "id": "thornback_beast",
+      "label": "1/49 ソーンバック ｜ 八方棘縛",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1050",
+      "events": "43: boss_thorn / 43: 束縛 / 43: boss_thorn / 43: 束縛"
+    },
+    {
+      "id": "roarfang_beast",
+      "label": "2/49 ロアファング ｜ 震天咆哮",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 6件 ｜ HP 700",
+      "events": "55: boss_stun / 55: 気絶 / 55: boss_stun / 55: 気絶"
+    },
+    {
+      "id": "spectral_scale_dragon",
+      "label": "3/49 ファントムスケイルドラゴン ｜ 幽体潜行",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 5件 ｜ HP 850",
+      "events": "43: boss_warning"
+    },
+    {
+      "id": "iceclaw_legend",
+      "label": "4/49 アイスクローファイター ｜ 砕氷三連爪",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 850",
+      "events": "49: boss_claw"
+    },
+    {
+      "id": "gauntlet_combo_guard",
+      "label": "5/49 ガントレットガード ｜ 敵投げ",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 2回 ｜ 効果 3件 ｜ HP 1100",
+      "events": "43: 敵投げ / 43: boss_stun / 43: 気絶 / 43: boss_claw"
+    },
+    {
+      "id": "rootwarden_treant",
+      "label": "6/49 トレント ｜ 群縛根",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1750",
+      "events": "55: boss_thorn / 55: 束縛 / 55: boss_thorn / 55: 束縛"
+    },
+    {
+      "id": "frosthorn_rhino",
+      "label": "7/49 フロストライノ ｜ 氷角反復突進",
+      "status": "ライブ tick 60 ｜ 命中 4件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1350",
+      "events": "44: 凍結 / 44: boss_frost / 44: 凍結 / 44: boss_frost"
+    },
+    {
+      "id": "pillar_hammerer",
+      "label": "8/49 ライトピラーハンマー ｜ 進撃光柱",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1500",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "colossal_hornfist",
+      "label": "9/49 ジャイアントホーンフィスト ｜ 巨拳打ち上げ",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 2回 ｜ 効果 3件 ｜ HP 1500",
+      "events": "49: 巨拳打ち上げ / 49: boss_throw / 49: 打ち上げ / 49: boss_throw"
+    },
+    {
+      "id": "kilnback_pincerbeast",
+      "label": "10/49 ブルークラブジャイアント ｜ 挟撃粉砕",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 1450",
+      "events": "49: boss_throw / 49: 打ち上げ / 49: boss_claw / 49: boss_throw"
+    },
+    {
+      "id": "carapace_slashbeast",
+      "label": "11/49 アーマースラッシャー ｜ 破盾大薙ぎ",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1550",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "stonepulse_kolossus",
+      "label": "12/49 ストーンウェーブジャイアント ｜ 直線地裂",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 3回 ｜ 効果 4件 ｜ HP 1650",
+      "events": "55: boss_throw / 55: 打ち上げ / 55: boss_throw / 55: 打ち上げ"
+    },
+    {
+      "id": "bluefist_colossus",
+      "label": "13/49 ブルーフィストジャイアント ｜ 双拳地震",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1500",
+      "events": "55: boss_stun / 55: 気絶 / 55: boss_stun / 55: 気絶"
+    },
+    {
+      "id": "spikeburst_grinder",
+      "label": "14/49 スパイクバースト ｜ 丸まり連棘",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1200",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "redhorn_dualbeast",
+      "label": "15/49 アカツノ ｜ 双角背面投げ",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 1600",
+      "events": "44: boss_throw / 44: 打ち上げ / 44: boss_throw"
+    },
+    {
+      "id": "bluehorn_invoker",
+      "label": "16/49 ブルーホーンメイジ ｜ 密集隕石",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1300",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "emberwing_drake",
+      "label": "17/49 フレイムウィング ｜ 旋回火雨",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 900",
+      "events": "43: 旋回火雨 / 43: boss_rain"
+    },
+    {
+      "id": "skullflare_triad",
+      "label": "18/49 スカルソーサラー ｜ 三骸炎牙",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1250",
+      "events": "41: 炎上 / 41: boss_skull / 41: boss_fire / 41: 炎上"
+    },
+    {
+      "id": "flamering_magus",
+      "label": "19/49 フレイムリングメイジ ｜ 拡大火輪",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1050",
+      "events": "50: boss_ring"
+    },
+    {
+      "id": "shockplate_drake",
+      "label": "20/49 ショックアーマードラゴン ｜ 雷鎧連鎖",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1900",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "thunderhorn_beast",
+      "label": "21/49 サンダーホーン ｜ 落雷角撃",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 1500",
+      "events": "55: 落雷角撃 / 55: boss_slash / 55: boss_warning"
+    },
+    {
+      "id": "stormhorn_tripler",
+      "label": "22/49 ホーンタイタン ｜ 三連雷角",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 1100",
+      "events": "55: boss_slash"
+    },
+    {
+      "id": "darkfan_clawlord",
+      "label": "23/49 ダークファンクロー ｜ 治癒封じの爪痕",
+      "status": "ライブ tick 60 ｜ 命中 6件 ｜ 能力 7回 ｜ 効果 11件 ｜ HP 1300",
+      "events": "59: 回復封じ / 59: boss_claw / 59: 回復封じ / 59: boss_claw"
+    },
+    {
+      "id": "plated_dualdragon",
+      "label": "24/49 ヨロイドラゴン ｜ 炎氷交差ブレス",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 5回 ｜ 効果 7件 ｜ HP 1500",
+      "events": "55: boss_fire / 55: 炎上 / 55: boss_frost / 55: 凍結"
+    },
+    {
+      "id": "flameburst_mythron",
+      "label": "25/49 フレイムリングジャイアント ｜ 灼熱溶岩域",
+      "status": "ライブ tick 60 ｜ 命中 4件 ｜ 能力 2回 ｜ 効果 7件 ｜ HP 1300",
+      "events": "56: boss_fire / 56: boss_fire / 56: 炎上 / 56: boss_fire"
+    },
+    {
+      "id": "willyee_frost_dragon",
+      "label": "26/49 フロストホワイトドラゴン ｜ 白竜の吹雪",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1900",
+      "events": "58: boss_frost / 58: 凍結 / 58: boss_frost / 58: 凍結"
+    },
+    {
+      "id": "frostbreath_lizard",
+      "label": "27/49 フロストブレスリザード ｜ 遅滞氷息",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1500",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "triad_chimera",
+      "label": "28/49 トリオキメラ ｜ 三頭独立攻撃",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 3回 ｜ 効果 6件 ｜ HP 1500",
+      "events": "37: 炎上 / 37: boss_poison / 37: boss_poison / 37: 毒"
+    },
+    {
+      "id": "cinder_tailbeast",
+      "label": "29/49 シンダーテイル ｜ 旋尾火散らし",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 11件 ｜ HP 1650",
+      "events": "43: boss_fire / 43: 炎上 / 43: boss_fire / 43: 炎上"
+    },
+    {
+      "id": "emberfist_pillarer",
+      "label": "30/49 フレイムフィストピラー ｜ 追撃火柱",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1250",
+      "events": "50: boss_warning"
+    },
+    {
+      "id": "veteran_flamewing",
+      "label": "31/49 マグマドレイク ｜ 双鳥交差爆炎",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 4件 ｜ HP 1200",
+      "events": "49: 双鳥交差爆炎 / 49: boss_firebird / 49: boss_firebird / 49: boss_warning"
+    },
+    {
+      "id": "spore_toad",
+      "label": "32/49 ミストリングメイジ ｜ 拡散毒霧",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 3回 ｜ 効果 5件 ｜ HP 725",
+      "events": "54: 毒 / 54: boss_poison / 54: 毒 / 54: boss_poison"
+    },
+    {
+      "id": "siege_crab",
+      "label": "33/49 リングスタッフメイジ ｜ 全域貫通光線",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1500",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "slime",
+      "label": "34/49 スプリットアイ ｜ 三眼分裂",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 575",
+      "events": "43: 三眼分裂"
+    },
+    {
+      "id": "accretion_burstcore",
+      "label": "35/49 ダークライトコア ｜ 吸命光線",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 1196",
+      "events": "55: 吸命光線 / 55: boss_beam / 55: boss_grow"
+    },
+    {
+      "id": "domeback_colossus",
+      "label": "36/49 ブルーシェルジャイアント ｜ 誘引甲殻",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 2回 ｜ 効果 3件 ｜ HP 400",
+      "events": "37: 誘引甲殻 / 37: boss_shield / 37: 挑発 / 37: boss_shield"
+    },
+    {
+      "id": "ringhold_guardian",
+      "label": "37/49 リングウォーデン ｜ 守光輪",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 320",
+      "events": "37: 守光輪 / 37: boss_ring"
+    },
+    {
+      "id": "silverarm_vanguard",
+      "label": "38/49 シルバーアームガード ｜ 倍返しの銀腕",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1400",
+      "events": "43: 倍返しの銀腕"
+    },
+    {
+      "id": "fiery_coil_inceptor",
+      "label": "39/49 フレイムコイルスピリット ｜ 終炎膨張",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1200",
+      "events": "43: 終炎膨張"
+    },
+    {
+      "id": "golem",
+      "label": "40/49 ロックゴーレム ｜ 瓦礫の継承",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1950",
+      "events": "43: 瓦礫の継承"
+    },
+    {
+      "id": "bonefan_reaper",
+      "label": "41/49 ボーンファンリーパー ｜ 刈魂の大鎌",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1150",
+      "events": "43: 刈魂の大鎌 / 43: boss_slash"
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "label": "42/49 ムーンクローウルフ ｜ 血月疾走",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1500",
+      "events": "43: 血月疾走"
+    },
+    {
+      "id": "willyee_stone_golem",
+      "label": "43/49 クリスタルハンマーガード ｜ 水晶反射",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 2150",
+      "events": "43: 水晶反射"
+    },
+    {
+      "id": "basalt_titan",
+      "label": "44/49 サンダーアーマービースト ｜ 雷葬",
+      "status": "ライブ tick 60 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 2100",
+      "events": "43: 雷葬"
+    },
+    {
+      "id": "cyanrise_silithar",
+      "label": "45/49 ブルースピンアーマー ｜ 不動旋風",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1300",
+      "events": "36: boss_ring"
+    },
+    {
+      "id": "razorclaw_reaver",
+      "label": "46/49 シェルリッパー ｜ 双爪の盾",
+      "status": "ライブ tick 60 ｜ 命中 2件 ｜ 能力 3回 ｜ 効果 5件 ｜ HP 1650",
+      "events": "43: boss_claw / 43: boss_thorn / 43: 束縛 / 43: boss_claw"
+    },
+    {
+      "id": "cleaver_brute",
+      "label": "47/49 ホーンドブレイバー ｜ 紅蓮の咆哮",
+      "status": "ライブ tick 60 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1650",
+      "events": "43: 紅蓮の咆哮 / 43: boss_slash"
+    },
+    {
+      "id": "ringneck_prowler",
+      "label": "48/49 リングネック ｜ 後衛呑み",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 1400",
+      "events": "13: boss_warning"
+    },
+    {
+      "id": "bone_crown_lich",
+      "label": "49/49 リッチスクライブ ｜ 屍骨徴集",
+      "status": "ライブ tick 60 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 120",
+      "events": "43: 屍骨徴集 / 43: boss_skull"
+    }
+  ],
+  "observedSequences": [
+    {
+      "id": "fiery_coil_inceptor",
+      "setup": "QA kill at tick2",
+      "ticks": [
+        2,
+        6,
+        10,
+        17,
+        32,
+        92
+      ],
+      "observed": "Small ground burst/debris expands and disperses below preserved source death flame. At92 the ground overlay is gone; corpse flame remains. Effect counter is cumulative, not active count.",
+      "supersededBy": "stage05Retest.deathBurst; earlier samples lacked authored effect-sheet priming in QA fixture only"
+    },
+    {
+      "id": "emberwing_drake",
+      "ticks": [
+        60,
+        90
+      ],
+      "observed": "Production source attack art changes, small rain/ember details change around targets. Native play separately advanced13→421 ticks,28 hits,18 cumulative effects and paused successfully."
+    },
+    {
+      "id": "veteran_flamewing",
+      "ticks": [
+        60,
+        75
+      ],
+      "observed": "Two separate orange pixel birds visibly move around target; source bright attack art also changes."
+    },
+    {
+      "id": "willyee_stone_golem",
+      "setup": "Actual melee attack arrangement",
+      "ticks": [
+        27,
+        42,
+        57,
+        72
+      ],
+      "eventTick": 47,
+      "observed": "Reflection hit reduces HP2150→2133; blue crystal shards visible at57 and dispersed farther down/outward at72. Large white attack arc is preserved source character art, not the new shards."
+    },
+    {
+      "id": "siege_crab",
+      "ticks": [
+        105,
+        111
+      ],
+      "eventTick": 103,
+      "observed": "Thin stepped gold beam spans across combat group; no opaque rectangular new overlay. This is central fixture only, not exhaustive edge-clipping verification."
+    },
+    {
+      "id": "rootwarden_treant",
+      "ticks": [
+        60,
+        75
+      ],
+      "eventTick": 55,
+      "observed": "Green root clusters encase target feet and persist as the attack sprite finishes."
+    },
+    {
+      "id": "frostbreath_lizard",
+      "ticks": [
+        75,
+        105
+      ],
+      "eventTick": 73,
+      "observed": "Blue ice clusters encase target feet; upward frost particles change/fade while feet remain frozen."
+    },
+    {
+      "id": "gauntlet_combo_guard",
+      "ticks": [
+        75,
+        90
+      ],
+      "eventTick": 67,
+      "observed": "Production throw cue and animated attack advance without exception. Dense overlap limits visual attribution of individual thrown target in this fixture."
+    },
+    {
+      "id": "ringhold_guardian",
+      "setup": "Attack near ally arrangement",
+      "ticks": [
+        60,
+        75
+      ],
+      "eventTick": 37,
+      "observed": "Fine muted gold ward arcs near ally feet decay as source attack sprite finishes; hits advance1→2."
+    },
+    {
+      "id": "bone_crown_lich",
+      "setup": "QA kill one enemy",
+      "ticks": [
+        2,
+        17,
+        122
+      ],
+      "eventTick": 2,
+      "observed": "Two summon cues emit; new bone unit and subtle ground detail appear and remain in combat, with later skull attack at43."
+    }
+  ],
+  "console": "Sampled error logs show only chrome-extension metadata transport messages. No game-sourced exception observed in tested fixture/status outputs.",
+  "priorUiRegression": "Stage03 same UI previously verified: all3 result overlays close on nextPrediction and reopen, terrain slot fixed141.5px at390, full long labels keyboard-scroll,8-player+watcher portrait rail scroll reaches380px, choosing controls function, short320/430 layouts, natural solo round transition, all12 loss coins visibly move and clean up. The stage04 UI code is unchanged.",
+  "limitations": [
+    "49 selections each reset and advance60ticks is basic runtime smoke, not exhaustive ability activation or visual motion coverage.",
+    "Representative VFX sequences use actual production step/draw inside a synthetic fixed matchup. Native live animation separately tested.",
+    "QA kill/wound/settlement triggers are synthetic; loss rAF observation is real rendering/timing, not a naturally lost round.",
+    "Phone dimensions are actual iframe content sizes in Chrome, not an iOS Safari/device run.",
+    "Gravity private entry changes base to './' only; host layout is verified, not a real Gravity SDK session.",
+    "Multiplayer fixture includes sendReaction returning false; real multiplayer emote/network delivery not verified.",
+    "No production smoke performed yet; awaits deployment.",
+    "Screenshots visually inspected through CUA. No retry of prior denied screenshot persistence/file routes."
+  ],
+  "qaFixtureFinding": "Resolved: QA reset now primes effect images like production setup. Browser confirmed8/8 ready,0failed before sampling. Source and runtime unchanged.",
+  "stage05Retest": {
+    "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+    "effectAssets": {
+      "ready": 8,
+      "total": 8,
+      "failed": 0
+    },
+    "deathBurst": {
+      "eventTick": 2,
+      "sampleTicks": [
+        4,
+        10,
+        20,
+        50
+      ],
+      "observed": "At4 compact authored onset; at10 orange lobed blast visibly surrounds corpse and is distinct from prior unprimed sample; at20 outward debris with primary burst faded; at50 overlay cleared while original corpse flame remains."
+    },
+    "reusedClawContact": {
+      "id": "iceclaw_legend",
+      "sampleTicks": [
+        60,
+        75
+      ],
+      "observed": "Claw/contact and ice details visibly advance between samples; later frost shards scatter. No runtime error."
+    },
+    "reusedGround": {
+      "id": "stonepulse_kolossus",
+      "sampleTicks": [
+        67,
+        82
+      ],
+      "observed": "Ground impact arc and rubble line visible at67; arc clears by82, fissure/rubble remains. Preserved source attack art also changes."
+    }
+  }
+}

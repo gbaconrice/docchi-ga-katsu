@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+128 unit stress, 360 ticks, wall milliseconds 4536 {"count":128,"elapsed":5.999999999999984}

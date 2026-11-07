@@ -1,0 +1,72 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+PASS normal result enables all utilities without moving audio or changing ledger
+PASS repeated battle pause cannot overwrite resume state
+PASS result log, emote, pause and info do not stack
+PASS opening result panels cancels coins but preserves exact final amount
+PASS solo result exit returns home and duplicate tap does not reset wallet
+PASS tenth-round choices remain unchanged by result utilities
+PASS host, guest and spectator can react in result without a replay
+PASS settlement waiting enables menu and info without writing settlement
+PASS next-round transition closes panels and allows newly opened prediction utilities
+PASS result exit sends one native exit on repeated taps
+PASS failed result exit retains room and reopens menu for explicit retry
+PASS recording, background and active exit remain gated; prediction remains usable
+{
+  "total": 12,
+  "passed": 12,
+  "results": [
+    {
+      "name": "normal result enables all utilities without moving audio or changing ledger",
+      "passed": true
+    },
+    {
+      "name": "repeated battle pause cannot overwrite resume state",
+      "passed": true
+    },
+    {
+      "name": "result log, emote, pause and info do not stack",
+      "passed": true
+    },
+    {
+      "name": "opening result panels cancels coins but preserves exact final amount",
+      "passed": true
+    },
+    {
+      "name": "solo result exit returns home and duplicate tap does not reset wallet",
+      "passed": true
+    },
+    {
+      "name": "tenth-round choices remain unchanged by result utilities",
+      "passed": true
+    },
+    {
+      "name": "host, guest and spectator can react in result without a replay",
+      "passed": true
+    },
+    {
+      "name": "settlement waiting enables menu and info without writing settlement",
+      "passed": true
+    },
+    {
+      "name": "next-round transition closes panels and allows newly opened prediction utilities",
+      "passed": true
+    },
+    {
+      "name": "result exit sends one native exit on repeated taps",
+      "passed": true
+    },
+    {
+      "name": "failed result exit retains room and reopens menu for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "recording, background and active exit remain gated; prediction remains usable",
+      "passed": true
+    }
+  ]
+}

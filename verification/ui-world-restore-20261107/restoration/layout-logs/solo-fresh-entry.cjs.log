@@ -1,0 +1,5 @@
+PASS boot 5 scripts
+PASS solo start
+PASS duplicate start taps are ignored once in game
+PASS home from prediction, paused battle and result always starts round 1 / 100 G with no score submission
+PASS multiplayer guard, spectator return and explicit exit guard preserve the existing session

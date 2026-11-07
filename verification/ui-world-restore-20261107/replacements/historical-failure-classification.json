@@ -1,0 +1,197 @@
+{
+  "sourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "initialRawRun": {
+    "tests": 194,
+    "passed": 187,
+    "failed": 7,
+    "extraFailure": "Package provenance lookup lacked GAME_REPOSITORY and ran before manifest update. Final raw run below uses the correct repository and final manifest, so provenance passes."
+  },
+  "finalHistorical": {
+    "exitCode": 1,
+    "counts": {
+      "tests": 194,
+      "pass": 188,
+      "fail": 6
+    },
+    "failed": [
+      "boss-status-interop.test.cjs",
+      "fidelity-mechanics.test.cjs",
+      "boss_fist_strike draws bounded finite geometry and expires",
+      "boss_pincer_snap draws bounded finite geometry and expires",
+      "boss_claw_counter draws bounded finite geometry and expires",
+      "all30 boss cue kinds registered including specific trajectories"
+    ],
+    "nestedKnownFailure": "Old <=1073741823 replay-flags assertion prints a failure despite the historical runner subsequently resetting its exit status. The current equivalent corrects the range and enforces nested exit failures.",
+    "allPassed": false
+  },
+  "current": {
+    "exitCode": 0,
+    "counts": {
+      "tests": 189,
+      "pass": 189,
+      "fail": 0
+    },
+    "failed": []
+  },
+  "rows": [
+    {
+      "test": "boss-status-interop.test.cjs",
+      "historicalStatus": "FAIL",
+      "reason": "The old fixture expects razorclaw_reaver to root a hostage. The approved claw guard/counter has no root or hostage. All other status/cleanse assertions are retained.",
+      "currentEvidence": "34 current interop checks and replacement-mechanics no-capture/cancellation checks"
+    },
+    {
+      "test": "fidelity-mechanics.test.cjs",
+      "historicalStatus": "FAIL",
+      "reason": "Two old production contracts require held enemies absorbing damage and a lifted victim taking delayed crush damage. They are intentionally replaced by claw guard/counter and a single pincer closing strike. The56 unaffected fidelity checks remain.",
+      "currentEvidence": "56 current fidelity checks plus25 replacement production checks"
+    },
+    {
+      "test": "boss_fist_strike draws bounded finite geometry and expires",
+      "historicalStatus": "FAIL",
+      "reason": "The historical generic fixture samples age15, after the new fist accent intentionally stops at age6. Actual strike events and licensed sprite frames are verified at contact.",
+      "currentEvidence": "88 real renderer checks including exact contact/replay pixels"
+    },
+    {
+      "test": "boss_pincer_snap draws bounded finite geometry and expires",
+      "historicalStatus": "FAIL",
+      "reason": "The historical generic fixture samples age15, after the new pincer accent intentionally stops at age8. Actual closing frame15 and single hit are verified.",
+      "currentEvidence": "88 real renderer checks and25 production mechanics checks"
+    },
+    {
+      "test": "boss_claw_counter draws bounded finite geometry and expires",
+      "historicalStatus": "FAIL",
+      "reason": "The historical generic fixture samples age15, after the new claw accent intentionally stops at age9. The source upward swing is intentionally one contact.",
+      "currentEvidence": "88 real renderer checks and25 production mechanics checks"
+    },
+    {
+      "test": "all30 boss cue kinds registered including specific trajectories",
+      "historicalStatus": "FAIL",
+      "reason": "The five approved append-only replay cue identifiers increase the count from30 to35. Existing identifiers are not renumbered.",
+      "currentEvidence": "Current35-cue registration plus all30 legacy geometry checks and production replay tests"
+    }
+  ],
+  "strictHistoricalAll49": {
+    "total": 300,
+    "passed": 281,
+    "failed": 19,
+    "rows": [
+      {
+        "test": "Core production combat and target selection source unchanged",
+        "historicalStatus": "FAIL",
+        "classification": "shared-hooks",
+        "reason": "BossAbilities.act adds only the exact approved prepare/motion/interrupt hooks; original production combatStep/layerOf/canTarget and all other API functions remain identical."
+      },
+      {
+        "test": "Exact registered ability specification: gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "specification",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "Exact registered ability specification: kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "specification",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "Exact registered ability specification: razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "specification",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "Exact cost, base HP, target layer and facts: gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "display-facts",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "Exact cost, base HP, target layer and facts: kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "display-facts",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "Exact cost, base HP, target layer and facts: razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "display-facts",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight normal gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight normal kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight normal razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight mirrored gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight mirrored kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "420-tick exact production fight mirrored razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "production-combat",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay normal gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay normal kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay normal razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay mirrored gauntlet_combo_guard",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay mirrored kilnback_pincerbeast",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      },
+      {
+        "test": "240-tick exact compact replay mirrored razorclaw_reaver",
+        "historicalStatus": "FAIL",
+        "classification": "compact-replay",
+        "reason": "Expected consequence of an explicitly approved replacement. Base HP, costs and target layers remain identical; its new production behavior and replay are independently checked."
+      }
+    ]
+  },
+  "canonicalFailureClassification": "canonical-failure-classification.json",
+  "allOriginalTestsPreserved": true
+}

@@ -1,0 +1,8 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS no MVP or close-result appraisal; individual winner-only accounting, ties, ambiguous attribution and draw remain preserved
+PASS shared outcome centering and preserved legacy wrapping style

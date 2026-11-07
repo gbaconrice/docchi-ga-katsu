@@ -1,0 +1,82 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+PASS host cashout round 10: player / A
+PASS host cashout round 10: player / B
+PASS host cashout round 10: player / draw
+PASS host cashout round 10: room-exit / A
+PASS host cashout round 10: room-exit / B
+PASS host cashout round 10: room-exit / draw
+PASS host cashout after double-up A
+PASS host cashout after double-up draw
+PASS eight-player cashout and continuing guests
+PASS all participants cash out once
+PASS cashout before round 10 remains forbidden
+PASS extension exit before committing does not debit host
+PASS extension committed host cannot escape wager
+PASS departed guest auto-cashout remains synchronized
+{
+  "total": 14,
+  "passed": 14,
+  "results": [
+    {
+      "name": "host cashout round 10: player / A",
+      "passed": true
+    },
+    {
+      "name": "host cashout round 10: player / B",
+      "passed": true
+    },
+    {
+      "name": "host cashout round 10: player / draw",
+      "passed": true
+    },
+    {
+      "name": "host cashout round 10: room-exit / A",
+      "passed": true
+    },
+    {
+      "name": "host cashout round 10: room-exit / B",
+      "passed": true
+    },
+    {
+      "name": "host cashout round 10: room-exit / draw",
+      "passed": true
+    },
+    {
+      "name": "host cashout after double-up A",
+      "passed": true
+    },
+    {
+      "name": "host cashout after double-up draw",
+      "passed": true
+    },
+    {
+      "name": "eight-player cashout and continuing guests",
+      "passed": true
+    },
+    {
+      "name": "all participants cash out once",
+      "passed": true
+    },
+    {
+      "name": "cashout before round 10 remains forbidden",
+      "passed": true
+    },
+    {
+      "name": "extension exit before committing does not debit host",
+      "passed": true
+    },
+    {
+      "name": "extension committed host cannot escape wager",
+      "passed": true
+    },
+    {
+      "name": "departed guest auto-cashout remains synchronized",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS double tap makes one native exit and one reset
+PASS pending room entry remains serialized
+PASS exit still cancels active replay preparation
+PASS failed exit retains session and permits explicit retry
+PASS late duplicate cannot close a later room
+PASS mock room exit remains immediate
+{
+  "total": 6,
+  "passed": 6,
+  "results": [
+    {
+      "name": "double tap makes one native exit and one reset",
+      "passed": true
+    },
+    {
+      "name": "pending room entry remains serialized",
+      "passed": true
+    },
+    {
+      "name": "exit still cancels active replay preparation",
+      "passed": true
+    },
+    {
+      "name": "failed exit retains session and permits explicit retry",
+      "passed": true
+    },
+    {
+      "name": "late duplicate cannot close a later room",
+      "passed": true
+    },
+    {
+      "name": "mock room exit remains immediate",
+      "passed": true
+    }
+  ]
+}

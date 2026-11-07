@@ -1,0 +1,32 @@
+{
+  "file": "/workspace/scratch/0aca2c1c1edc/boss-abilities-20261107/regression-publish-repo/tools/boss-abilities/qa-assets/qa-bosses.js",
+  "live": {
+    "tick": 67,
+    "frame": 26,
+    "clip": "attack",
+    "multi": false,
+    "fx": [
+      "hit_spark",
+      "boss_fist_wave",
+      "hit_spark",
+      "hit_spark",
+      "hit_spark"
+    ],
+    "error": ""
+  },
+  "replay": {
+    "tick": 67,
+    "frame": 26,
+    "clip": "attack",
+    "pose": 64,
+    "multi": true,
+    "fx": [
+      "hit_spark",
+      "boss_fist_wave",
+      "hit_spark",
+      "hit_spark",
+      "hit_spark"
+    ],
+    "error": ""
+  }
+}

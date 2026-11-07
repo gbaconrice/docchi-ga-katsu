@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo still requires army choice + Start; battle units dialog survives
+PASS multiplayer prediction still commits through Start without a preview route

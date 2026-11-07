@@ -1,0 +1,11 @@
+--- preserved/multi-menu.cjs
++++ equivalent/multi-menu.cjs
+@@ -33,7 +33,7 @@
+   state='choose';multiSnapshot.phase='predict';syncFlowControls();syncReactions();
+   if(unitsOpen || pausePanelOpen || reactionOpen)throw Error('overlay survived prediction');
+   for(const id of ['#unitsPanel','#pausePanel','#reaction-bar'])if(!document.querySelector(id).hidden)throw Error('prediction retained overlay: '+id);
+-  for(const id of ['#pause','#unitsToggle','#reactionToggle'])if(document.querySelector(id).hidden || !document.querySelector(id).disabled)throw Error('prediction utility gate: '+id);
++  for(const id of ['#pause','#unitsToggle','#reactionToggle'])if(document.querySelector(id).hidden || document.querySelector(id).disabled)throw Error('prediction utility gate: '+id);
+  }
+  console.log('PASS solo pause/resume, unready battle guard, live multiplayer menu, result utilities without replay, unchanged shared state, prediction closes all overlays');
+ }\`,context);

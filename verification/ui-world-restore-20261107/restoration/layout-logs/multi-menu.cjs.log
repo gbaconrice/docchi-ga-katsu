@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo pause/resume, unready battle guard, live multiplayer menu, result utilities without replay, unchanged shared state, prediction closes all overlays

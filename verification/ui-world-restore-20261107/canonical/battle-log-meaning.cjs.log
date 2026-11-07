@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS exact screenshot species reproduce inverted cause/effect; 13 original rows now show attack → retreat → defeat → result, attack kind, settled HP and surviving counts
+PASS same-tick multiple hits/healing: one final HP annotation per affected target, actual effective healing and no invented last-hit credit
+PASS live poison attribution; ten delivery types use supported Japanese labels; time-limit draws never claim elimination
+PASS canonical replay keeps log order, seek excludes future, JSON round-trip, and malformed HP/count/outcome fields are rejected

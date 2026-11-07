@@ -1,0 +1,85 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+PASS normal result enables all utilities without moving audio or changing ledger
+PASS repeated battle pause cannot overwrite resume state
+PASS result log, emote, pause and info do not stack
+PASS opening result panels cancels coins but preserves exact final amount
+PASS solo result exit returns home and duplicate tap does not reset wallet
+PASS tenth-round choices remain unchanged by result utilities
+PASS host, guest and spectator can react in result without a replay
+PASS settlement waiting enables menu and info without writing settlement
+PASS result exit sends one native exit on repeated taps
+PASS failed result exit retains room and reopens menu for explicit retry
+{
+  "total": 12,
+  "passed": 10,
+  "results": [
+    {
+      "name": "normal result enables all utilities without moving audio or changing ledger",
+      "passed": true
+    },
+    {
+      "name": "repeated battle pause cannot overwrite resume state",
+      "passed": true
+    },
+    {
+      "name": "result log, emote, pause and info do not stack",
+      "passed": true
+    },
+    {
+      "name": "opening result panels cancels coins but preserves exact final amount",
+      "passed": true
+    },
+    {
+      "name": "solo result exit returns home and duplicate tap does not reset wallet",
+      "passed": true
+    },
+    {
+      "name": "tenth-round choices remain unchanged by result utilities",
+      "passed": true
+    },
+    {
+      "name": "host, guest and spectator can react in result without a replay",
+      "passed": true
+    },
+    {
+      "name": "settlement waiting enables menu and info without writing settlement",
+      "passed": true
+    },
+    {
+      "name": "next-round transition closes panels and rejects stale result clicks",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!pausePanelOpen&&!unitsOpen&&!reactionOpen)\n\n    at evalmachine.<anonymous>:17:479\n    at check (evalmachine.<anonymous>:2:58)\n    at evalmachine.<anonymous>:17:8\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+    },
+    {
+      "name": "result exit sends one native exit on repeated taps",
+      "passed": true
+    },
+    {
+      "name": "failed result exit retains room and reopens menu for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "recording, background, choose and active exit remain gated",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: choose pause\n    at evalmachine.<anonymous>:20:327\n    at check (evalmachine.<anonymous>:2:58)\n    at evalmachine.<anonymous>:20:8\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+    }
+  ]
+}
+FAIL next-round transition closes panels and rejects stale result clicks AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(!pausePanelOpen&&!unitsOpen&&!reactionOpen)
+
+    at evalmachine.<anonymous>:17:479
+    at check (evalmachine.<anonymous>:2:58)
+    at evalmachine.<anonymous>:17:8
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+FAIL recording, background, choose and active exit remain gated AssertionError [ERR_ASSERTION]: choose pause
+    at evalmachine.<anonymous>:20:327
+    at check (evalmachine.<anonymous>:2:58)
+    at evalmachine.<anonymous>:20:8
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

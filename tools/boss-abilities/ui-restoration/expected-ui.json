@@ -1,0 +1,7 @@
+{
+  "scope": "Reviewed HTML/CSS/body restoration; script logic checked separately.",
+  "baselineSourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "baselineOutsideScriptsSHA256": "ea10e3e4f26afc73125b9037d9ad5ca3be126770d81ad0a9967bc6c5a6d8782a",
+  "sourceSHA256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "outsideScriptsSHA256": "3155b9a6f4d538df273e8ddd48837308702ab00c114c85b083c8c34b467b766a"
+}

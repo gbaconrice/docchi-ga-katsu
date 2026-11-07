@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS no army foot markers: {"kinds":301,"cases":8428,"directCases":8428,"hpCases":4816,"variants":7} ; both teams, loaded/missing art, alive/summoned/dead/claimed-dead/revived/revival-channel/hidden; HP, selected outline, purple ability cue, body placeholder colors and unit state preserved

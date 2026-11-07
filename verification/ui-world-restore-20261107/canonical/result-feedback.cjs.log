@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS winner A/B/draw, persistent hit/miss, 1.4s count, 0G, huge integer, reduced motion, cancel/reconnect/hidden/no-replay, ledger unchanged
+PASS winner/gold/loss text contrast >=4.5 on paper base and darkest gradient stop

@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS lifesteal actual hit, desert reduction, HP cap, overkill, reflection, event and deterministic replay {"g":{"hp":59,"enemy":964,"events":[4.5,4.5],"traits":["近接ダメージの25%回復"]},"d":{"hp":58.28,"enemy":964,"events":[4.140000000000001,4.140000000000001],"traits":["近接ダメージの25%回復"]},"none":{"hp":50,"enemy":964,"events":[],"traits":[]},"capped":{"hp":118,"enemy":964,"events":[],"traits":["近接ダメージの25%回復"]},"overkill":{"hp":50.25,"enemy":-17,"events":[0.25],"traits":["近接ダメージの25%回復"]},"reflect":{"hp":23,"enemy":964,"events":[4.5,4.5],"traits":["近接ダメージの25%回復"]}}

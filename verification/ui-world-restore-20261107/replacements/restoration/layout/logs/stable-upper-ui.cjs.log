@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo choose/fight/pause/result/delayed result/next; multi choose/fight/result/next; spectator; visible disabled controls and persistent participants
+PASS explicit screen/participant attributes; tenth-round solo/multi choices and log entry remain exposed
+PASS single persistent toolbar/rail outside variable content, readable header sizes and Gravity inset rules
+PASS 32 static CSS box-model cases keep result below persistent upper UI; browser geometry is separately verified

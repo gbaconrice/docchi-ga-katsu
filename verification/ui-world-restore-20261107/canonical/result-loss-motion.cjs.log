@@ -1,0 +1,1 @@
+PASS 5 hit cases exact-equivalent, 5 loss paths, 320/375/390/430px, twelve distinct delays, numeric collision checks, zero/draw/reduced/long guards, original hit and sequence code byte preservation

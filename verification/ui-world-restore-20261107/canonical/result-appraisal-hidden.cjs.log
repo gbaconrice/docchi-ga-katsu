@@ -1,0 +1,2 @@
+PASS 567 result/reset/reconnect routes: stale appraisal cleared in solo/multi, left/right/draw, 1st/10th/11th round, update and direct multiplayer display; settlement/log/winner/next untouched
+PASS absent-node handling and wrapper delegation counts

@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+PASS pause leaves authoritative 30-second deadline and one advance intact
+PASS unitsToggle leaves authoritative 30-second deadline and one advance intact
+PASS reactionToggle leaves authoritative 30-second deadline and one advance intact

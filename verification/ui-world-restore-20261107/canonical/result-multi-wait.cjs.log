@@ -1,0 +1,9 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+PASS decisions wait before 30 seconds; timeout cashes out the undecided guest and preserves host continuation
+PASS guest departure cashes out and removes continued-round blocker; host departure cleanly stops both
+PASS explicit unanimous double-up decisions initiate one host transition, not a timer

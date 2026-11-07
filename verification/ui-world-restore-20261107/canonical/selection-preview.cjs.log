@@ -1,0 +1,5 @@
+PASS boot 5 scripts
+PASS solo start
+PASS selection previews for 8 players; no BET or wallet mutation; switching and clearing
+PASS sender, epoch, round, duplicate, stale, malformed and spectator rejection
+PASS departure/reconnect stale-packet rejection, confirmation, next-round reset and host-loss stop

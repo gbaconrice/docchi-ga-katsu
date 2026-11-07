@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 301 kinds; 4816 close-fight, edge-teleport, summon and projectile camera containment fixtures
+PASS absolute cap across four overview scales, pause/background/preparation/recording freezes, reduced-motion overview, multiplayer playback and reset
+PASS exact unselected guide, hidden empty HP row, retained selected HP, clear/spawn/empty states, and unchanged combat units
+PASS 320/390 coordinate inversion at close zoom, selected identity and HP after replay object replacement/reordering
+PASS no army foot markers: {"kinds":301,"cases":8428,"directCases":8428,"hpCases":4816,"variants":7} ; both teams, loaded/missing art, alive/summoned/dead/claimed-dead/revived/revival-channel/hidden; HP, selected outline, purple ability cue, body placeholder colors and unit state preserved

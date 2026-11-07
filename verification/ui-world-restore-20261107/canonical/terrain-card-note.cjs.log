@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS target kinds, short labels with full condition/base aria descriptions, field changes and reconnect-style redraw; no note for absent types; wrapping and tap sizes

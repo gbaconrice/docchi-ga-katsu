@@ -27,6 +27,7 @@ window.addEventListener('message',event=>{if(event.origin!==location.origin||eve
  select.value=s.selected;const row=roster.find(r=>r.id===s.selected);document.getElementById('description').textContent=row?`${row.ability} ／ ${row.tag}：${row.description}`:'';
  document.getElementById('enemyattack').textContent=s.enemyAttacks?'敵の攻撃を待機に':'敵の攻撃を有効に';document.getElementById('enemyattack').disabled=s.replay;
  document.getElementById('play').textContent=s.playing?'一時停止':'再生';document.getElementById('status').textContent=s.error?`確認エラー：${s.error}`:`${s.replay?'リプレイ':'ライブ'} tick ${s.tick} ｜ 命中 ${s.hits}件 ｜ 能力 ${s.abilities}回 ｜ 効果 ${s.effects}件 ｜ HP ${Math.max(0,Math.ceil(s.bossHp||0))}${s.mirrored?' ｜ 左右反転':''}`;
+ const status=document.getElementById('status');status.dataset.effectAssetsReady=String(s.effectAssets?.ready||0);status.dataset.effectAssetsTotal=String(s.effectAssets?.total||0);status.dataset.effectAssetsFailed=String(s.effectAssets?.failed||0);
  document.getElementById('events').textContent=s.lastEvents.map(e=>`${e.tick}: ${e.name}`).join(' / ');
 });
 frame.addEventListener('load',()=>send('status'));

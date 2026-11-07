@@ -1,0 +1,21 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-intrinsic-replay.cjs:8
+context.TextEncoder=TextEncoder;const r=vm.runInContext(`(()=>{TYPES.shield.hp=100000;TYPES.shield.speed=0;TYPES.shield.dmg=0;multiInitial=[{id:1,token:'lich',k:'bone_crown_lich',side:0,x:90,y:200,hp:TYPES.bone_crown_lich.hp,cd:0,priority:.1,dead:false,originForward:1},{id:2,token:'dummy',k:'shield',side:1,x:420,y:200,hp:100000,cd:0,priority:.2,dead:false,originForward:-1}];return buildCanonicalReplay()})()`,context);context.replay=r;const summary=vm.runInContext(`(()=>{let a=CompactReplay.createPlayback(replay),spawn=a.at(130),expired=a.at(721),joined=CompactReplay.createPlayback(replay).at(721);return {spawn:spawn.units.filter(u=>u.k==='ashbone_swordsman'),expired:expired.units.filter(u=>u.k==='ashbone_swordsman'),joined:joined.units.filter(u=>u.k==='ashbone_swordsman')}})()`,context);if(summary.spawn.length!==6||summary.spawn.some(u=>u.dead)||summary.expired.some(u=>!u.dead)||JSON.stringify(summary.expired)!==JSON.stringify(summary.joined))throw Error(JSON.stringify(summary));console.log('PASS replay skeleton spawn, timed removal, reconnect frame',summary.spawn.length,summary.expired.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+
+Error: {"spawn":[],"expired":[],"joined":[]}
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/summoner-intrinsic-replay.cjs:8:964)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.22.1

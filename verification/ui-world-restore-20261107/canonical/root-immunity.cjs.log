@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS repeated and simultaneous hits respect shared immunity {"first":0.65,"imm":3.05,"later":0.65,"at":2.0499999999999976,"hp":97096}

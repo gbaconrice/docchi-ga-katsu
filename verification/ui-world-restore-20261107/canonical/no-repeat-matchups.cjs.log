@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 100 generated rounds across left/right/alternating/draw carries, extension to 25, exact no-repeat and repeated-call determinism; max 101 ms.
+PASS legal exhausted pool uses least-used/oldest seeded fallback without modifying incumbent or battle outcome.
+PASS actual solo setup/settlement/next/extension, winning side and original composition, failed generation rollback and new-run reset.
+PASS authoritative host 12 rounds/extensions, guest reconnect at 4/11, canonical identical matchups, winning side, getter isolation and rejected open rollback; no growing wire history.

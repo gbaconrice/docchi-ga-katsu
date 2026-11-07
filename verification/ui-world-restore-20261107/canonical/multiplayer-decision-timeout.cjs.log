@@ -1,0 +1,19 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+PASS shared deadline begins at result 10 and expires exactly at 30 seconds
+PASS all eight idle players lock balances and return lobby
+PASS host continues while timeout player spectates with frozen gold
+PASS guest1 continues while timeout player spectates with frozen gold
+PASS all continue before timeout remains eligible and no cashout occurs
+PASS clock offset and reconnect do not restart decision timer
+PASS host late continue at deadline loses to timeout
+PASS late guest message and forged timeout reason cannot bypass authority
+PASS manual stop plus idle player resolves without changing manual receipt
+PASS normal result timer never creates timeout cashout
+PASS bankrupt players are excluded and final overtime loss returns lobby
+PASS score bridge allows only canonical multiplayer timeout and posts local score once
+PASS 12 multiplayer overtime timeout cases

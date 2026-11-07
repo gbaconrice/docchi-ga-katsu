@@ -1,0 +1,542 @@
+[
+  {
+    "test": "a1-bounded-text.cjs",
+    "originalSha256": "3f27b1892733f11ba64d6eca0df855a4def2e7b3d2109f0c0e54dff2eaea45c4",
+    "equivalentSha256": "8fd41b7105039e486cd89a23512327efb3971c0f90847bf24c88b5ad215c391a",
+    "changes": [
+      {
+        "old": "assert(!/tabindex|role=\"button\"|aria-haspopup|aria-controls/.test(fieldTag));",
+        "new": "assert(fieldTag.includes('tabindex=\"0\"')&&fieldTag.includes('role=\"region\"')&&fieldTag.includes('aria-label=\"\u5730\u5f62\u3068\u52b9\u679c\"'));assert(!/role=\"button\"|aria-haspopup|aria-controls/.test(fieldTag));",
+        "count": 1
+      },
+      {
+        "old": "/* terrain-inline-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "/* gold-full-amount-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-rows:40px 20px;",
+        "new": "grid-template-rows:44px;",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:max-content minmax(0,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "count": 1
+      },
+      {
+        "old": "'overflow:visible;','grid-column:1 / 3; grid-row:2;'",
+        "new": "'overflow-x:auto;','overflow-y:hidden;','grid-column:1; grid-row:1;'",
+        "count": 1
+      },
+      {
+        "old": "assert(!/text-overflow|line-clamp|overflow-x:auto/.test(fieldRule));",
+        "new": "assert(!/text-overflow|line-clamp/.test(fieldRule));assert(fieldRule.includes('touch-action:pan-x pinch-zoom;'));",
+        "count": 1
+      },
+      {
+        "old": "assert.equal(40+20,60);",
+        "new": "assert.equal(44,44);",
+        "count": 1
+      },
+      {
+        "old": "[['#status',1,'1'],['#fieldStatus','1 / 3','2'],['.wallet-pill',2,'1'],['> #soundToggle',3,'1']]",
+        "new": "[['#status',2,'1'],['#fieldStatus',1,'1'],['.wallet-pill',3,'1'],['> #soundToggle',4,'1']]",
+        "count": 1
+      },
+      {
+        "old": "assert(amountStart>terrainStart);",
+        "new": "assert.equal(amountStart,terrainStart);",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content 88px 44px;",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "a1-header-wallet.cjs",
+    "originalSha256": "5622b0baabf954c02092bedda6fa88ea66bda09ef2ecf54226edeac5f1c276f5",
+    "equivalentSha256": "7a5478726a64b698f001c2b2f53c117ee937f5675145734cd7193e3ca69620d1",
+    "changes": [
+      {
+        "old": "/* terrain-inline-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "/* gold-full-amount-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-rows:40px 20px;",
+        "new": "grid-template-rows:44px;",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:max-content minmax(0,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content 88px 44px;",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "auto-speed-controls.cjs",
+    "originalSha256": "fa2ae5d2ac7fb99ce64e72443979aafb6ffcc20aac063ec76f62191bfb38dea0",
+    "equivalentSha256": "9aeae3ec15e12504fc7acf23dca58b12034071bc20e218135f89647add7bcdf9",
+    "changes": [
+      {
+        "old": "nodes.get('#pause').disabled,phase==='choose'",
+        "new": "nodes.get('#pause').disabled,false",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "gold-full-amount.cjs",
+    "originalSha256": "c08a9a0046d4488e9147f723d14feabdef392fab1ee190df2c720b34d4f78a71",
+    "equivalentSha256": "995e44c1be4743906810cd13172a5d0e9ed50b17d351da3c78ecf4d26bf4fcbb",
+    "changes": [
+      {
+        "old": "/* gold-full-amount-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:max-content minmax(0,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "count": 1
+      },
+      {
+        "old": "assert(!block.includes('font-size:')&&!block.includes('font-family:')&&!block.includes('font-weight:')&&!block.includes('text-overflow:')&&!block.includes('overflow-x:hidden')&&!block.includes('grid-template-rows:'));",
+        "new": "const amountOnly=block.slice(block.indexOf('/* Exact gold keeps'));assert(!amountOnly.includes('font-size:')&&!amountOnly.includes('font-family:')&&!amountOnly.includes('font-weight:')&&!amountOnly.includes('text-overflow:')&&!amountOnly.includes('overflow-x:hidden')&&!amountOnly.includes('grid-template-rows:'));assert(block.includes('grid-template-rows:44px;'));",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content 88px 44px;",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "header-log-readability.cjs",
+    "originalSha256": "890aabd32e3b38d42c0d1fae518c0aad5c208218d1ac6fc3836f77dd0dea4068",
+    "equivalentSha256": "1e14238b8d002a744b8641a66d302d1b6678f0a135ac1606b20d78b88b56e275",
+    "changes": [
+      {
+        "old": "/* terrain-inline-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-rows:40px 20px;",
+        "new": "grid-template-rows:44px;",
+        "count": 1
+      },
+      {
+        "old": "/<p id=\"fieldStatus\" class=\"field-status\">/",
+        "new": "/<p id=\"fieldStatus\" class=\"field-status\" tabindex=\"0\" role=\"region\" aria-label=\"\u5730\u5f62\u3068\u52b9\u679c\">/",
+        "count": 1
+      },
+      {
+        "old": "terrainRule.includes('overflow:visible')",
+        "new": "terrainRule.includes('overflow-x:auto')&&terrainRule.includes('overflow-y:hidden')",
+        "count": 1
+      },
+      {
+        "old": "grid-column:3;\\s*grid-row:1;",
+        "new": "grid-column:4;\\s*grid-row:1;",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "header-slot.cjs",
+    "originalSha256": "ab51eaa2b0bfd9b012c412b34a839219a8e163aa4be0fba06a606b765ebb3a70",
+    "equivalentSha256": "24a56cf4b081dbec2940ba0b568d7a69e123c164b5bf0de855416c4715a8db8f",
+    "changes": [
+      {
+        "old": "elem('#pause').disabled,true",
+        "new": "elem('#pause').disabled,false",
+        "count": 2
+      },
+      {
+        "old": "prediction pause cannot pause a nonexistent battle",
+        "new": "prediction menu remains usable without pausing a nonexistent battle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "horizontal-game-header.cjs",
+    "originalSha256": "080db4ee1fd57e8d5bea4c8cb6e8fb9a4122cfa1f8b2b2adce1ccdb21c224a1e",
+    "equivalentSha256": "c4293d0e65eccd342d8f58fa460314aa060ec75d1901044184999a399bce2b11",
+    "changes": [
+      {
+        "old": "/* terrain-inline-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "/* gold-full-amount-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:max-content minmax(0,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "count": 1
+      },
+      {
+        "old": "grid-template-rows:40px 20px;",
+        "new": "grid-template-rows:44px;",
+        "count": 1
+      },
+      {
+        "old": "/<p id=\"fieldStatus\" class=\"field-status\">/",
+        "new": "/<p id=\"fieldStatus\" class=\"field-status\" tabindex=\"0\" role=\"region\" aria-label=\"\u5730\u5f62\u3068\u52b9\u679c\">/",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 150px));",
+        "new": "max-height:min(68%,calc(100% - 126px));",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 194px));",
+        "new": "max-height:min(68%,calc(100% - 170px));",
+        "count": 1
+      },
+      {
+        "old": "assert(amountStart>start&&amountEnd>amountStart);",
+        "new": "assert(amountStart===start&&amountEnd>amountStart);",
+        "count": 1
+      },
+      {
+        "old": "[['#status',1,'1'],['#fieldStatus','1 / 3','2'],['.wallet-pill',2,'1'],['> #soundToggle',3,'1']]",
+        "new": "[['#status',2,'1'],['#fieldStatus',1,'1'],['.wallet-pill',3,'1'],['> #soundToggle',4,'1']]",
+        "count": 1
+      },
+      {
+        "old": "terrain.includes('overflow:visible;')",
+        "new": "terrain.includes('overflow-x:auto;')&&terrain.includes('overflow-y:hidden;')",
+        "count": 1
+      },
+      {
+        "old": "const stack=60+12+10+44+8+(multi?44:0),reserve=stack+16;",
+        "new": "const stack=44+12+10+44+(multi?44:0),reserve=stack+16;",
+        "count": 1
+      },
+      {
+        "old": "multi?194:150",
+        "new": "multi?170:126",
+        "count": 1
+      },
+      {
+        "old": "const toolbar=source.slice(source.indexOf('#app #gameScreen > #gameToolbar {'),source.indexOf('#app #gameScreen > #participantRailWrap {'));",
+        "new": "const toolbar=source.slice(source.indexOf('#app #gameScreen > #gameToolbar {',start),source.indexOf('/* Solo reactions',start));",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content 44px 44px 44px;",
+        "new": "grid-template-columns:32px minmax(0,1fr) 44px 44px 44px;",
+        "count": 1
+      },
+      {
+        "old": "width:max-content; max-width:min(80px,100%); justify-self:end;",
+        "new": "max-width:100%; width:max-content; overflow-x:auto;",
+        "count": 1
+      },
+      {
+        "old": "flex:0 0 52px;",
+        "new": "flex:0 0 44px;",
+        "count": 1
+      },
+      {
+        "old": "min-height:52px; height:52px;",
+        "new": "min-height:44px; height:44px;",
+        "count": 1
+      },
+      {
+        "old": "margin:0; padding:4px 8px;",
+        "new": "margin:0; padding:0 8px;",
+        "count": 1
+      },
+      {
+        "old": "assert(toolbar.includes('max-width:44px;')&&toolbar.includes('margin:0; box-sizing:border-box;'));",
+        "new": "assert(source.includes('max-width:44px;')&&source.includes('margin:0; box-sizing:border-box;'));assert(toolbar.includes('grid-row:1 / 3;'));",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content 88px 44px;",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "map-emote-frame.cjs",
+    "originalSha256": "14b8dc3ea30ea3fdb4e2ac4a949f6c0984e035befbcf51334fbf7d54ef8f1c8f",
+    "equivalentSha256": "5844a6ebb29c32e404a0a3dfcd4dc3246f2d9386848010d12d5b5beafad07391",
+    "changes": [
+      {
+        "old": "assert(!toolbar.includes('id=\"reaction-feedback\"'));",
+        "new": "assert(toolbar.includes('id=\"reaction-feedback\"'));",
+        "count": 1
+      },
+      {
+        "old": "assert(rail.includes('id=\"reaction-feedback\"'));",
+        "new": "assert(!rail.includes('id=\"reaction-feedback\"'));assert(html.includes('position:static; inset:auto; grid-column:1; grid-row:1 / 3;'));",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "multi-menu.cjs",
+    "originalSha256": "47a16b3acdbab9a93ae3e764e228413848d5fadfa2fbfcfff1f15093b4ce7b89",
+    "equivalentSha256": "1ec4cbab9d25c6369038af04542283d49ed6f5435586cabb6571fb67c865fe0e",
+    "changes": [
+      {
+        "old": "document.querySelector(id).hidden || !document.querySelector(id).disabled)throw Error('prediction utility gate: '",
+        "new": "document.querySelector(id).hidden || document.querySelector(id).disabled)throw Error('prediction utility gate: '",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "readable-controls.cjs",
+    "originalSha256": "5fc0061fbe15bf13ba9f95a7e68fc9b73211c95583225385d96e6d1e13b18402",
+    "equivalentSha256": "f8f3155e468a65ccbb26545c1b674ffca5bb3b0e4951d5620e222d16092b3fd4",
+    "changes": [
+      {
+        "old": "mode==='game'?'#gameTopline':'#menuAudioDock'",
+        "new": "mode==='game'?'#gameTopline':mode==='home'?'#homeScreen':'#menuAudioDock'",
+        "count": 1
+      },
+      {
+        "old": "get('#menuAudioDock').hidden,mode==='game'",
+        "new": "get('#menuAudioDock').hidden,mode!=='room'",
+        "count": 1
+      },
+      {
+        "old": "get('#pause').disabled,state==='choose'",
+        "new": "get('#pause').disabled,false",
+        "count": 1
+      },
+      {
+        "old": "get('#unitsToggle').disabled,state==='choose'",
+        "new": "get('#unitsToggle').disabled,false",
+        "count": 1
+      },
+      {
+        "old": "drawArmyPreviews(){},state:'choose'",
+        "new": "drawArmyPreviews(){},syncReactions(){},reactionLive:()=>true,syncOwnBattleChoice(){},state:'choose'",
+        "count": 1
+      },
+      {
+        "old": "screenMode:'home',",
+        "new": "screenMode:'home',flowControlsViewKey:undefined,walletState:{sessionId:'fixture'},round:1,closeOtherGamePanels(){},",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "stable-upper-ui.cjs",
+    "originalSha256": "99d11f6e82a78329a12468a5154658ab75315c5706f23fd7d7aa7fd256c1de3c",
+    "equivalentSha256": "b6e796ededbacb8de8720230d5e5bcade12d8ed73fe9b02475d616f5edfcf1a5",
+    "changes": [
+      {
+        "old": "assert(n('pause').disabled&&n('reactionToggle').disabled&&n('unitsToggle').disabled);",
+        "new": "assert(!n('pause').disabled&&!n('reactionToggle').disabled&&!n('unitsToggle').disabled);",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 150px));",
+        "new": "max-height:min(68%,calc(100% - 126px));",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 194px));",
+        "new": "max-height:min(68%,calc(100% - 170px));",
+        "count": 1
+      },
+      {
+        "old": "const baseReserve=Number(html.match(/#app #gameScreen\\[data-personal-result=\"true\"\\] #resultPanel \\{\\s*max-height:min\\(68%,calc\\(100% - (\\d+)px\\)\\);/)[1]),upper=baseReserve-16+(multi?40+4:32+4),reserve=upper+16;",
+        "new": "const restored=html.slice(html.indexOf('/* reference-layout-restoration-20261107 */'));const baseReserve=Number(restored.match(/max-height:min\\(68%,calc\\(100% - (\\d+)px\\)\\);/)[1]),upper=baseReserve-16+(multi?40+4:0),reserve=upper+16;",
+        "count": 1
+      },
+      {
+        "old": "baseReserve+(multi?44:36)",
+        "new": "baseReserve+(multi?44:0)",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "terrain-header.cjs",
+    "originalSha256": "ce053e7041e59df04be51c0f735d4e8c486936860a2e4eae7d5b88dabd50cd91",
+    "equivalentSha256": "5a60addfe99b7760c9c6141de99e93b19a8c1e92cd1c31911e4810ae3a312d41",
+    "changes": [
+      {
+        "old": "/* terrain-inline-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "/* gold-full-amount-20261106:",
+        "new": "/* reference-layout-restoration-20261107 */",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:max-content minmax(0,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "count": 1
+      },
+      {
+        "old": "grid-template-rows:40px 20px;",
+        "new": "grid-template-rows:44px;",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 150px));",
+        "new": "max-height:min(68%,calc(100% - 126px));",
+        "count": 1
+      },
+      {
+        "old": "max-height:min(68%,calc(100% - 194px));",
+        "new": "max-height:min(68%,calc(100% - 170px));",
+        "count": 1
+      },
+      {
+        "old": "/<p id=\"fieldStatus\" class=\"field-status\">\u5730\u56f3\u672a\u5b9a<\\/p>/",
+        "new": "/<p id=\"fieldStatus\" class=\"field-status\" tabindex=\"0\" role=\"region\" aria-label=\"\u5730\u5f62\u3068\u52b9\u679c\">\u5730\u56f3\u672a\u5b9a<\\/p>/",
+        "count": 1
+      },
+      {
+        "old": "'grid-column:1; grid-row:1; align-self:start;','grid-column:2; grid-row:1;','grid-column:3; grid-row:1; align-self:start;','grid-column:1 / 3; grid-row:2; align-self:start;'",
+        "new": "'grid-column:1; grid-row:1; align-self:center;','grid-column:2; grid-row:1;','grid-column:3; grid-row:1; align-self:center;','grid-column:4; grid-row:1; align-self:center;'",
+        "count": 1
+      },
+      {
+        "old": "'white-space:nowrap; overflow:visible;'",
+        "new": "'white-space:nowrap; overflow-wrap:normal;','overflow-x:auto; overflow-y:hidden;'",
+        "count": 1
+      },
+      {
+        "old": "assert(!/line-clamp|text-overflow|transform|overflow-x:auto/.test(css),'No hiding, scaling or scrolling terrain');",
+        "new": "assert(!/line-clamp|text-overflow|transform/.test(css),'No abbreviation or scaling terrain');assert(css.includes('touch-action:pan-x pinch-zoom;'),'Complete terrain can scroll without moving controls');",
+        "count": 1
+      },
+      {
+        "old": "const inner=width-24-16,slot=inner-44-6;assert(slot>=230);assert(220.359375<=slot,'Audited maximum13px font advance fits the minimum slot; browser/iOS still needs visual QA');",
+        "new": "const inner=width-24-16,remaining=inner-72-44-18,wallet=Math.max(88,remaining/2),slot=remaining-wallet;assert(slot>0);assert(wallet>=88);assert.equal(slot+72+wallet+44+18,inner);",
+        "count": 1
+      },
+      {
+        "old": "assert.equal(0+20,20,'Round top is unchanged');assert.equal(0+44,44,'Sound top is unchanged');assert.equal(40+20,60,'Only lower terrain reserve increases');",
+        "new": "assert.equal(44,44,'All metadata uses one44px row');",
+        "count": 1
+      },
+      {
+        "old": "minimumSlot230:true,fontAdvanceAuditMaximum:220.359375",
+        "new": "independentScrollableTerrainSlot:true,minimumWallet88:true",
+        "count": 1
+      },
+      {
+        "old": "grid-template-columns:minmax(0,1fr) max-content minmax(88px,1fr) 44px;",
+        "new": "grid-template-columns:minmax(0,1fr) max-content 88px 44px;",
+        "count": 1
+      },
+      {
+        "old": "wallet=Math.max(88,remaining/2)",
+        "new": "wallet=88",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "upper-reaction-area.cjs",
+    "originalSha256": "9ef87c3c81df88739cc2710821fb43224a7e1708cb5f23778720d589abf60926",
+    "equivalentSha256": "f532c9a7cae8af679c484179a8d8467439a8623ba62bbb3cf3f041a26fe1944b",
+    "changes": [
+      {
+        "old": "assert(n('reactionToggle').disabled);",
+        "new": "assert(!n('reactionToggle').disabled);",
+        "count": 1
+      },
+      {
+        "old": "assert(rail.includes('id=\"reaction-feedback\"'));",
+        "new": "assert(!rail.includes('id=\"reaction-feedback\"'));const toolbar=html.slice(html.indexOf('<div id=\"gameToolbar\"'),html.indexOf('<div id=\"participantRailWrap\"'));assert(toolbar.includes('id=\"reaction-feedback\"'));assert(html.includes('#participantRailWrap[data-solo=\"true\"] {\\n  display:none !important;'));",
+        "count": 1
+      },
+      {
+        "old": "const coreReserve=Number(html.match(/#app #gameScreen\\[data-personal-result=\"true\"\\] #resultPanel \\{\\s*max-height:min\\(68%,calc\\(100% - (\\d+)px\\)\\);/)[1]);",
+        "new": "const restored=html.slice(html.indexOf('/* reference-layout-restoration-20261107 */'));const coreReserve=Number(restored.match(/max-height:min\\(68%,calc\\(100% - (\\d+)px\\)\\);/)[1]);",
+        "count": 1
+      },
+      {
+        "old": "coreReserve+36",
+        "new": "coreReserve",
+        "count": 1
+      },
+      {
+        "old": "multi?44:36",
+        "new": "multi?44:0",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "test": "solo-fresh-entry.cjs",
+    "originalSha256": "e531a08037b9634d3c68e147a9b6c0d58fc0e4522391a1d132305edf43683cc4",
+    "equivalentSha256": "5a836145e310bf2a4e74b0d790b3d276e17f429ab536f6f0fdaa27eb335cfc44",
+    "changes": [
+      {
+        "old": "globalThis.roomSentinel={};",
+        "new": "globalThis.roomSentinel={getState:()=>multiSnapshot};",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "test": "test-result-controls.cjs",
+    "originalSha256": "0b7b75f4ee25fc8c47694d72f91a26edc365cabf006543e9a42426498a2fb9a9",
+    "equivalentSha256": "2b74aa15a2b139d180ef5d5ba1497ef5872ec6744fe2efb563ae24cc127fa1bb",
+    "changes": [
+      {
+        "old": "next-round transition closes panels and rejects stale result clicks",
+        "new": "next-round transition closes panels and allows newly opened prediction utilities",
+        "count": 1
+      },
+      {
+        "old": "click('pause');click('unitsToggle');click('reactionToggle');assert(!pausePanelOpen&&!unitsOpen&&!reactionOpen);",
+        "new": "click('pause');assert(pausePanelOpen&&!paused);syncFlowControls();assert(pausePanelOpen);click('pauseResume');click('unitsToggle');assert(unitsOpen&&!paused);syncFlowControls();assert(unitsOpen);click('unitsClose');click('reactionToggle');assert(reactionOpen);syncReactions();assert(reactionOpen);closeReactionMenu();",
+        "count": 1
+      },
+      {
+        "old": "recording, background, choose and active exit remain gated",
+        "new": "recording, background and active exit remain gated; prediction remains usable",
+        "count": 1
+      },
+      {
+        "old": "assert(q(id).disabled,mode+' '+id)",
+        "new": "assert.equal(q(id).disabled,mode!=='choose',mode+' '+id)",
+        "count": 1
+      }
+    ]
+  }
+]

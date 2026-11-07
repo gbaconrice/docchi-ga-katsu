@@ -1,0 +1,121 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment rockfield
+PASS deferred image callbacks
+[
+  {
+    "k": "pillar_hammerer",
+    "mirror": false,
+    "damage": 74.75,
+    "expected": 7,
+    "elapsed": 1.9999999999999978,
+    "text": "ハンマーから前方へ光の柱が順番に立ち上がり、命中した敵を気絶させる。",
+    "events": []
+  },
+  {
+    "k": "pillar_hammerer",
+    "mirror": true,
+    "damage": 74.75,
+    "expected": 7,
+    "elapsed": 1.9999999999999978,
+    "text": "ハンマーから前方へ光の柱が順番に立ち上がり、命中した敵を気絶させる。",
+    "events": []
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": false,
+    "warn": 1,
+    "contact": 31,
+    "damage": 7,
+    "expected": 7,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 180,
+        "y": 269,
+        "radius": 17
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 180,
+        "y": 269,
+        "radius": 17
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": true,
+    "warn": 1,
+    "contact": 31,
+    "damage": 7,
+    "expected": 7,
+    "readyAt": 3.5166666666666666,
+    "elapsed": 0.5166666666666666,
+    "text": "密着時は地上1体へ0.5秒予告後7ダメージ（成功後3秒・柱優先）",
+    "events": [
+      {
+        "type": "guard_warning",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 1,
+        "x": 300,
+        "y": 269,
+        "radius": 17
+      },
+      {
+        "type": "guard_contact",
+        "sourceToken": "p",
+        "targetToken": "g",
+        "tick": 31,
+        "x": 300,
+        "y": 269,
+        "radius": 17
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": false,
+    "damage": 55.68,
+    "expected": 5,
+    "elapsed": 1.9999999999999978,
+    "text": "アッパーで敵を高く打ち上げ、落下した敵で周囲を巻き込む。",
+    "events": []
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": true,
+    "damage": 55.68,
+    "expected": 5,
+    "elapsed": 1.9999999999999978,
+    "text": "アッパーで敵を高く打ち上げ、落下した敵で周囲を巻き込む。",
+    "events": []
+  }
+]
+/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/guard-description-actual.cjs:9
+const out=vm.runInContext("(()=>{const out=[];for(const k of ['pillar_hammerer','spectralhand_wizard','colossal_hornfist'])for(const mirror of [false,true]){elapsed=0;state='fight';winner=null;battleEnvironment=null;pendingSummons=[];shots=[];combatEvents=[];const t=TYPES[k],d=mirror?-1:1,x=mirror?300:180,a={id:1,token:'p',k,side:mirror?1:0,x,y:269,hp:t.hp,cd:0,priority:.1,dead:false,originForward:d},b={id:2,token:'g',k:'goblin',side:1-a.side,x:x+d*(t.radius+7),y:269,hp:TYPES.goblin.hp,cd:100000,slowFactor:0,slowUntil:1000,priority:.2,dead:false,originForward:-d};units=[a,b];let es=[];for(let i=0;i<120;i++){combatEvents=[];combatStep(1/60);es.push(...combatEvents.filter(e=>['guard_warning','guard_contact'].includes(e.type)));if(es.some(e=>e.type==='guard_contact'))break}const w=es.find(e=>e.type==='guard_warning'),c=es.find(e=>e.type==='guard_contact'),text=buildUnitComparisonFacts(t).traits[0];out.push({k,mirror,warn:w?.tick,contact:c?.tick,damage:TYPES.goblin.hp-b.hp,expected:Math.max(1,Math.round(t.dmg*.10))*(t.bossDamageScale||1),readyAt:a.guardReadyAt,elapsed,text,events:es})}return out})()",context);console.log(JSON.stringify(out,null,2));for(const x of out)if(x.contact-x.warn!==30||x.damage!==x.expected||Math.abs(x.readyAt-x.elapsed-3)>1e-8||!x.text.includes(x.expected+'ダメージ')||!x.text.includes('0.5秒')||!x.text.includes('3秒')||!x.text.includes('柱優先'))throw Error(JSON.stringify(x));console.log('PASS descriptions vs actual timing/damage/cooldown');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+Error: {"k":"pillar_hammerer","mirror":false,"damage":74.75,"expected":7,"elapsed":1.9999999999999978,"text":"ハンマーから前方へ光の柱が順番に立ち上がり、命中した敵を気絶させる。","events":[]}
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/guard-description-actual.cjs:9:1387)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.22.1

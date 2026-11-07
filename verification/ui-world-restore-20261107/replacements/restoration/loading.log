@@ -1,0 +1,16 @@
+ORIGINAL_TEST inline-image-play
+PASS boot 5 scripts
+PASS solo start
+PASS pending art does not block the game; actual image-error notice and Retry remain available during fight
+ORIGINAL_TEST character-loading
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment desert
+PASS deferred image callbacks
+PASS idle frames for all licensed roles 301
+PASS affected images loaded and resolved from correct clip
+PASS every multisource role and clip resolves loaded image: 56
+PASS three reported character previews draw loaded images
+PASS contact and hit frame sampling for all licensed roles

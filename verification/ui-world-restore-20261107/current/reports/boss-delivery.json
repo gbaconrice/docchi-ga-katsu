@@ -1,0 +1,147 @@
+{
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "checks": [
+    {
+      "name": "physical boss melee receives ordinary parry once; magic does not consume parry",
+      "pass": true
+    },
+    {
+      "name": "ordinary guard redirects one physical boss contact and preserves intended-target attribution",
+      "pass": true
+    },
+    {
+      "name": "actual iceclaw contact freezes the intercepting guard rather than the protected target",
+      "pass": true
+    },
+    {
+      "name": "physical boss projectiles use target armor; magic and melee do not",
+      "pass": true
+    },
+    {
+      "name": "ordinary active aegis reduces physical boss projectiles after armor",
+      "pass": true
+    },
+    {
+      "name": "dormant ward/barrier defenses accept boss projectiles and ignore retired splash metadata",
+      "pass": true
+    },
+    {
+      "name": "ordinary reflection applies once to boss direct/melee/projectile, never periodic or counter damage",
+      "pass": true
+    },
+    {
+      "name": "dormant contact counter triggers only on physical boss melee and cannot recurse",
+      "pass": true
+    },
+    {
+      "name": "physical boss contacts can mark ordinary followup support without using a retired boss multiplier",
+      "pass": true
+    },
+    {
+      "name": "legacy source root/exposure/healing block/lifesteal/repulsion/followup cannot stack on boss contacts",
+      "pass": true
+    },
+    {
+      "name": "exposure amplifies boss direct and physical contacts exactly once, excluding periodic/counters",
+      "pass": true
+    },
+    {
+      "name": "cyanrise checks actual projectile delivery, not old source projectile metadata",
+      "pass": true
+    },
+    {
+      "name": "actual production ability casts preserve mixed physical/magic delivery distinctions",
+      "pass": true,
+      "detail": [
+        {
+          "kind": "spectral_scale_dragon",
+          "deliveries": [
+            "boss_melee"
+          ]
+        },
+        {
+          "kind": "iceclaw_legend",
+          "deliveries": [
+            "boss_melee",
+            "boss_projectile"
+          ]
+        },
+        {
+          "kind": "thornback_beast",
+          "deliveries": [
+            "boss_projectile"
+          ]
+        },
+        {
+          "kind": "spikeburst_grinder",
+          "deliveries": [
+            "boss_projectile"
+          ]
+        },
+        {
+          "kind": "thunderhorn_beast",
+          "deliveries": [
+            "boss_melee",
+            "boss"
+          ]
+        },
+        {
+          "kind": "stormhorn_tripler",
+          "deliveries": [
+            "boss_melee",
+            "boss"
+          ]
+        },
+        {
+          "kind": "triad_chimera",
+          "deliveries": [
+            "boss_melee",
+            "boss",
+            "boss_dot"
+          ]
+        },
+        {
+          "kind": "moonclaw_werewolf",
+          "deliveries": [
+            "boss_melee"
+          ]
+        },
+        {
+          "kind": "bonefan_reaper",
+          "deliveries": [
+            "boss_melee"
+          ]
+        },
+        {
+          "kind": "roarfang_beast",
+          "deliveries": [
+            "boss"
+          ]
+        },
+        {
+          "kind": "willyee_frost_dragon",
+          "deliveries": [
+            "boss"
+          ]
+        },
+        {
+          "kind": "pillar_hammerer",
+          "deliveries": [
+            "boss"
+          ]
+        },
+        {
+          "kind": "bluehorn_invoker",
+          "deliveries": [
+            "boss"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Synthetic ordinary defense properties are used only for dormant contact-counter, ward and barrier branches, which have no remaining ordinary roster provider. All damage uses production combatStep."
+  ],
+  "passed": 13,
+  "failed": 0
+}

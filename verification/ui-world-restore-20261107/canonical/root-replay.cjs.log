@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+PASS root status replay, reconnect frame and deterministic recording

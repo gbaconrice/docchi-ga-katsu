@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+examples []
+PASS 48 deterministic openings; budgets, sizes and varied single-species challengers [20,22,24,18] species 25 max armies 8 8

@@ -1,0 +1,113 @@
+{
+  "pairs": [
+    {
+      "title": "Flame rain",
+      "filename": "emberwing_drake--orbit-rain--t81.png",
+      "beforePngSha256": "16b87a1afd4948d2db7746becea06e7891728ca328a631bb2d63c1b196ceed91",
+      "afterPngSha256": "e1bba3b1effc0b012623b7d6bc131f3e2433d42099273ec1de19f679cd241d92",
+      "comparisonPngSha256": "99f165e4e923df85a4184ea8377ea9d963bc06f90577871ae5b3ee0828a15ff4"
+    },
+    {
+      "title": "Crossing firebirds",
+      "filename": "veteran_flamewing--crossing-birds--t76.png",
+      "beforePngSha256": "ed038e12ead7991a5a238aaea3e386a2d33faf930bf2f650cf71d5501c86a30b",
+      "afterPngSha256": "dc9a1d90837dcf2731c986e40cd7cd07492d011feba9869abaa33da0841a7b0e",
+      "comparisonPngSha256": "37adcf7812f4f6c9d11643e61d30639e8cfc034ef23bedb88398f8ad8f9830fc"
+    },
+    {
+      "title": "Lightning chain",
+      "filename": "shockplate_drake--family-boss_chain--t65.png",
+      "beforePngSha256": "ca68ce8a786526858b8a2e7b44497d27c1803ccf808725a9a70f72d1aee01e22",
+      "afterPngSha256": "14d9cf58bbee3d538e81f75ebf345782bb4e22e9495ef822eb08352137f68a07",
+      "comparisonPngSha256": "9c1d00f38a2cca0e77c53a1c19d166ff114be78cb6a5614ffe9af449309c313c"
+    },
+    {
+      "title": "Frozen targets",
+      "filename": "frostbreath_lizard--frozen-enemies--t113.png",
+      "beforePngSha256": "5307200a276ca271df27672f0b6d05d04bce578e8749e14c4f65a2e02d3d2e4d",
+      "afterPngSha256": "72562a08b49cfb56ab93d28a0e7cc280b66f8b8ddfcf743fb729e2269c4094e7",
+      "comparisonPngSha256": "0f71aba7bbb4b0f8ec8d01efde4845921121e4f10bb2d328f4435b55d7d86b33"
+    },
+    {
+      "title": "Grasping roots",
+      "filename": "rootwarden_treant--ability--t63.png",
+      "beforePngSha256": "69646460ec1b3a44bc2b7b1937c9754cb6d5963fe97a983f1414fc86e89cb3c6",
+      "afterPngSha256": "05159173c746caeebc23a008a3bed8cdb2b5c6907edf2b5e1a6cc70c97cfd51b",
+      "comparisonPngSha256": "0a45960cec4ee7b39efa76613a0744f0cdbe2c17feb585c29d452dd7766105e7"
+    },
+    {
+      "title": "Enemy throw",
+      "filename": "gauntlet_combo_guard--enemy-throw--t83.png",
+      "beforePngSha256": "431e8f10bd5ae80cc04f3689356f944bd5916d0bf03cf2e76ad64117b971154f",
+      "afterPngSha256": "b6617810c3d19d1dc48c648779db9450bad1c52a76e30e3d0c4b95f6994a54e9",
+      "comparisonPngSha256": "5a5914ae16c0dfb379d8e4a1f56c490c6bea65b7cd13765478056b294ec576f6"
+    },
+    {
+      "title": "Protective ward",
+      "filename": "domeback_colossus--ability--t45.png",
+      "beforePngSha256": "a933515d93ae21e4532f0dfc1db60a46cc98e2e0e0bd8aa134087f55cc85beb2",
+      "afterPngSha256": "991d3a6266658439bb0901f908e7c00374739a30f8452dc4bab2449ad633daf5",
+      "comparisonPngSha256": "b82f920b7260723875858573be5ce1e9d23a8d33e64349e2163be43339f51765"
+    },
+    {
+      "title": "Crystal reflection",
+      "filename": "willyee_stone_golem--reflection-shards--t27.png",
+      "beforePngSha256": "08aa97d3695d3af023ac4b303f52c45238c9b7f81211b37e69d16c80164c472f",
+      "afterPngSha256": "a9998d6a31c131086583cc157706c075f30da67ba193fdd551f8daa0eccb705b",
+      "comparisonPngSha256": "f77ac7b36eaf1f23a6282e7116f52aeb74c34ba87a6c199679f16edd903db4e5"
+    },
+    {
+      "title": "Split summon",
+      "filename": "slime--split-children--t56.png",
+      "beforePngSha256": "d0727264cde62a1cb09a1a8831c6c047d32178e1081703deb907265bad8f5ed3",
+      "afterPngSha256": "3713175a1cb10737a3440f4c9430f78898de681042982cdf3529b77c1fa955c1",
+      "comparisonPngSha256": "7d38bd89b247ef17e5fcc42801174d7aa411a4965460629a8eb469511edf05e9"
+    },
+    {
+      "title": "Death rubble wall",
+      "filename": "golem--wall-rock-children--t45.png",
+      "beforePngSha256": "10ae6c37c8e5cfcf688f20e7911c5b1a2e6b4262237df948663f687cc2ced1d0",
+      "afterPngSha256": "c737ce90bede75b87be225cd2064fa3d634ed498eb34e8fac28fbc1ccc985c1f",
+      "comparisonPngSha256": "5b8fdb79e6ceba0fa07e01c0fdda83f62f1c4bd609abe75dde48e49f9d104cc8"
+    },
+    {
+      "title": "Rising fire columns",
+      "filename": "emberfist_pillarer--fire-columns--t99.png",
+      "beforePngSha256": "e626329e7600139c84830860d7521754c8d412a2119cc34d4f933c83a241600a",
+      "afterPngSha256": "ac3410919e5010a9908a79b1427d8ac6d8a1110d9232dc4a32578604c77b4a60",
+      "comparisonPngSha256": "968917aaf3357cc3914c6accc3520814ccdc901aa747ea6b127d80fc21606e1d"
+    },
+    {
+      "title": "Descending meteor",
+      "filename": "bluehorn_invoker--falling-meteor--t86.png",
+      "beforePngSha256": "250bb89e5838ebb2aa37b65b752874a5e7d48f275702c7eded598c42960e5f13",
+      "afterPngSha256": "865ebb1854513ca5cf348b963c2af39196fa332efd4a02fb5e71e48a3fe6f0df",
+      "comparisonPngSha256": "aa448f0d894466a27ff60d2afd06ff5677055eb85c671de964ea54a4df4261b5"
+    },
+    {
+      "title": "Fire skulls",
+      "filename": "skullflare_triad--ability--t49.png",
+      "beforePngSha256": "c524a21eb949b43b9bb123e51422f21458a8e7076b2ea52cd7eaf9bfdfac3b4c",
+      "afterPngSha256": "9719f3305db3cbdaec08ae8a0f7fe68c4acf61491f03f56ba050e7d1b502e752",
+      "comparisonPngSha256": "eaea38c40db512aef2062d19c4c1a5c621ff87e23982f592066754625b5feae9"
+    },
+    {
+      "title": "Army fury",
+      "filename": "cleaver_brute--army-red-aura--t31.png",
+      "beforePngSha256": "070d7cc9f12364258920f8ead571e0e6747e568e3df77ab972ce415480904714",
+      "afterPngSha256": "15479b2e66c7f074a2967713836858cb7dc8ae52e7a0e683e4bb237145255744",
+      "comparisonPngSha256": "fad923a0f33f9bbe27dbfa40a2ec186af1a24accfcd4ef7636343dfe27ec4398"
+    },
+    {
+      "title": "Large death blast",
+      "filename": "fiery_coil_inceptor--ability--t12.png",
+      "beforePngSha256": "cee5e283f402baeb94334047bc2b9b9791088fff06dc03bcfe480be88be46b34",
+      "afterPngSha256": "466660e6ef36176d0f3bc6daba37ab25faae83a67cd00c9be2329aa738346c99",
+      "comparisonPngSha256": "a7acdcdab060c5951e0c7646c1e0d2975da5e7599bf6d9c98c3d17692e7c5aa8"
+    }
+  ],
+  "note": "Individual pairs preserve full original 480x538 Canvas images. Contact sheet crops are 1:1 pixels at x70 y45 w300 h230; no artwork is invented.",
+  "beforeSourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "afterSourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "rendererModuleFileSha256": "18036d1aebf935a913c95117d3cf22d2efcb0a160d6e8b48144b0f2be728f0c6"
+}

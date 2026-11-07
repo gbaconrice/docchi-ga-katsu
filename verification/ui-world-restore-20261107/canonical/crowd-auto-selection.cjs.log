@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "kinds": 301,
+  "sides": 2,
+  "checks": 644,
+  "scenarios": [
+    "same-team same/different kind",
+    "dead and zero-HP detection",
+    "continuous/simultaneous deaths",
+    "stable key next/wrap",
+    "allies exhausted without enemy selection",
+    "revival and summons",
+    "solo and multiplayer fight/result",
+    "replay replacement/reordering/removal",
+    "same-kind label/HP/number/button consistency",
+    "explicit clear/new round",
+    "read-only combat units",
+    "existing hidden/invalid eligibility"
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "sourceSha256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "historicalBossReleaseCanonicalReference": {
+    "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "passed": 149,
+    "total": 173,
+    "unchanged": true
+  },
+  "approved49": [
+    "slime",
+    "thornback_beast",
+    "roarfang_beast",
+    "spectral_scale_dragon",
+    "iceclaw_legend",
+    "accretion_burstcore",
+    "gauntlet_combo_guard",
+    "emberwing_drake",
+    "skullflare_triad",
+    "rootwarden_treant",
+    "frosthorn_rhino",
+    "pillar_hammerer",
+    "flamering_magus",
+    "domeback_colossus",
+    "ringhold_guardian",
+    "silverarm_vanguard",
+    "fiery_coil_inceptor",
+    "colossal_hornfist",
+    "kilnback_pincerbeast",
+    "golem",
+    "shockplate_drake",
+    "thunderhorn_beast",
+    "carapace_slashbeast",
+    "bonefan_reaper",
+    "moonclaw_werewolf",
+    "stormhorn_tripler",
+    "stonepulse_kolossus",
+    "darkfan_clawlord",
+    "plated_dualdragon",
+    "flameburst_mythron",
+    "willyee_frost_dragon",
+    "willyee_stone_golem",
+    "basalt_titan",
+    "frostbreath_lizard",
+    "triad_chimera",
+    "bluefist_colossus",
+    "cinder_tailbeast",
+    "emberfist_pillarer",
+    "spikeburst_grinder",
+    "veteran_flamewing",
+    "redhorn_dualbeast",
+    "cyanrise_silithar",
+    "razorclaw_reaver",
+    "cleaver_brute",
+    "ringneck_prowler",
+    "bluehorn_invoker",
+    "bone_crown_lich",
+    "spore_toad",
+    "siege_crab"
+  ],
+  "checks": [
+    {
+      "name": "exact approved49 registration and bounded descendant exception",
+      "pass": true
+    },
+    {
+      "name": "all301 type records change only approved ability metadata and retired legacy passives",
+      "pass": true,
+      "detail": {
+        "ordinaryUnchanged": 252,
+        "approved": 49
+      }
+    },
+    {
+      "name": "all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline",
+      "pass": true
+    },
+    {
+      "name": "explicit four approved tuning values and preserved lich lifecycle constants",
+      "pass": true
+    },
+    {
+      "name": "source fingerprint and incompatible-client rejection",
+      "pass": true,
+      "detail": {
+        "revision": "69ec667a9873dfc787026ab3314a79156d03736a4667a98cf0c39cdb776bbac2",
+        "source": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf"
+      }
+    },
+    {
+      "name": "capacity/model regression: preserved hashes,300 scores,72 generation fixtures and reviewed UI snapshot",
+      "pass": true
+    },
+    {
+      "name": "retained ability-integration-cross",
+      "pass": true
+    },
+    {
+      "name": "retained new-ability-boundaries",
+      "pass": true
+    },
+    {
+      "name": "retained readability-preservation",
+      "pass": true
+    },
+    {
+      "name": "retained comparison-air-priority",
+      "pass": true
+    },
+    {
+      "name": "retained semantic-tone-cascade",
+      "pass": true
+    },
+    {
+      "name": "300 safe facts,49 compact cards, uniform attack label/numbers and retained airborne markers",
+      "pass": true
+    },
+    {
+      "name": "lich requires new natural nearby corpse, rejects stale/friendly/owned/far bodies",
+      "pass": true
+    },
+    {
+      "name": "real lich corpse spawn: HP65, bounded3, unique identity, root, expiry after parent death, replay seek",
+      "pass": true,
+      "detail": {
+        "corpseAt": [
+          159.466552734375,
+          250
+        ],
+        "reservedAt": [
+          159.466552734375,
+          250
+        ],
+        "spawned": {
+          "at": [
+            159.466552734375,
+            250
+          ],
+          "multiplier": 1,
+          "hp": 65,
+          "lifetime": 720,
+          "k": "ashbone_swordsman",
+          "token": "lich/boss:1"
+        },
+        "rooted": true,
+        "dead": true,
+        "born": 1,
+        "end": [
+          {
+            "id": "lich/boss:1",
+            "side": 0,
+            "k": "ashbone_swordsman",
+            "x": 268,
+            "y": 250,
+            "hp": 0,
+            "dead": true,
+            "pose": 0,
+            "face": 1,
+            "token": "lich/boss:1",
+            "ownerToken": "lich",
+            "presentationFlags": 0
+          }
+        ],
+        "fresh": [
+          {
+            "id": "lich/boss:1",
+            "side": 0,
+            "k": "ashbone_swordsman",
+            "x": 268,
+            "y": 250,
+            "hp": 0,
+            "dead": true,
+            "pose": 0,
+            "face": 1,
+            "token": "lich/boss:1",
+            "ownerToken": "lich",
+            "presentationFlags": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "lich maximum3 and living cap64 versus63 with eligible enemy corpse",
+      "pass": true,
+      "detail": [
+        {
+          "count": 1,
+          "children": 3,
+          "live": 4
+        },
+        {
+          "count": 63,
+          "children": 1,
+          "live": 64
+        },
+        {
+          "count": 64,
+          "children": 0,
+          "live": 64
+        }
+      ]
+    },
+    {
+      "name": "new boss direct damage receives exposure exactly once, DoT is not amplified",
+      "pass": true
+    },
+    {
+      "name": "real replay validator accepts prior plain frames and rejects boss extensions under older versions",
+      "pass": true
+    },
+    {
+      "name": "47 baseline sprite crops/scales, HP anchors and tap selection preserved",
+      "pass": true,
+      "detail": 47
+    },
+    {
+      "name": "cleaver independent roar grants1.35x180ticks, no direct hit,300tick cadence",
+      "pass": true
+    },
+    {
+      "name": "lich reserves at most3 concurrent across repeated ticks and stops after6 lifetime corpses",
+      "pass": true,
+      "detail": {
+        "reserved": {
+          "live": 3,
+          "total": 3,
+          "pending": 3
+        },
+        "held": {
+          "live": 3,
+          "total": 3,
+          "pending": 0
+        },
+        "second": {
+          "live": 3,
+          "total": 6,
+          "pending": 3
+        },
+        "final": {
+          "live": 0,
+          "total": 6,
+          "pending": 0
+        },
+        "raised": 6
+      }
+    },
+    {
+      "name": "cleaver normal cone contacts at most3 with independent approved power",
+      "pass": true
+    },
+    {
+      "name": "lich concurrent cap deduplicates same token present in live and pending lists",
+      "pass": true
+    },
+    {
+      "name": "shield break clears same-tick single-ward snapshot before direct damage",
+      "pass": true
+    },
+    {
+      "name": "all original tests used by supplements remain byte-identical",
+      "pass": true,
+      "detail": 6
+    }
+  ],
+  "limitations": [
+    "Supplementary VM suite, not browser/network verification.",
+    "Does not convert canonical failures into passes.",
+    "Balance win rates and complete49 ability semantics are tested separately."
+  ],
+  "passed": 24,
+  "failed": 0
+}

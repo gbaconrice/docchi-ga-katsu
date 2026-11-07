@@ -1,0 +1,1283 @@
+{
+  "correct": false,
+  "viewport": [
+    390,
+    660
+  ],
+  "began": 837,
+  "sampleCount": 154,
+  "trajectories": [
+    {
+      "id": "#resultScatter0",
+      "visibleFrames": 82,
+      "first": {
+        "atMs": 566,
+        "rect": [
+          212.25,
+          34.284244537353516,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1916,
+        "rect": [
+          399.02880859375,
+          647.4547119140625,
+          12,
+          12
+        ]
+      },
+      "yTravel": 613.170467376709
+    },
+    {
+      "id": "#resultScatter1",
+      "visibleFrames": 81,
+      "first": {
+        "atMs": 566,
+        "rect": [
+          212.25,
+          34.02739715576172,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1899,
+        "rect": [
+          408.5548095703125,
+          648.9144897460938,
+          12,
+          12
+        ]
+      },
+      "yTravel": 614.887092590332
+    },
+    {
+      "id": "#resultScatter2",
+      "visibleFrames": 79,
+      "first": {
+        "atMs": 582,
+        "rect": [
+          212.25,
+          34.05747604370117,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1882,
+        "rect": [
+          418.1485290527344,
+          649.6956176757812,
+          12,
+          12
+        ]
+      },
+      "yTravel": 615.6381416320801
+    },
+    {
+      "id": "#resultScatter3",
+      "visibleFrames": 80,
+      "first": {
+        "atMs": 600,
+        "rect": [
+          212.25,
+          34.08822250366211,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1916,
+        "rect": [
+          444.3406982421875,
+          655.4403076171875,
+          12,
+          12
+        ]
+      },
+      "yTravel": 621.3520851135254
+    },
+    {
+      "id": "#resultScatter4",
+      "visibleFrames": 78,
+      "first": {
+        "atMs": 616,
+        "rect": [
+          212.25,
+          34.119659423828125,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1899,
+        "rect": [
+          393.8302307128906,
+          655.4320068359375,
+          12,
+          12
+        ]
+      },
+      "yTravel": 621.3123474121094
+    },
+    {
+      "id": "#resultScatter5",
+      "visibleFrames": 78,
+      "first": {
+        "atMs": 632,
+        "rect": [
+          212.25,
+          34.15180587768555,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1916,
+        "rect": [
+          413.2889404296875,
+          645.7257690429688,
+          12,
+          12
+        ]
+      },
+      "yTravel": 611.5739631652832
+    },
+    {
+      "id": "#resultScatter6",
+      "visibleFrames": 76,
+      "first": {
+        "atMs": 649,
+        "rect": [
+          212.25,
+          34.182857513427734,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1899,
+        "rect": [
+          422.734375,
+          646.21875,
+          12,
+          12
+        ]
+      },
+      "yTravel": 612.0358924865723
+    },
+    {
+      "id": "#resultScatter7",
+      "visibleFrames": 74,
+      "first": {
+        "atMs": 666,
+        "rect": [
+          212.25,
+          34.21648025512695,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1882,
+        "rect": [
+          431.6862487792969,
+          646.029296875,
+          12,
+          12
+        ]
+      },
+      "yTravel": 611.812816619873
+    },
+    {
+      "id": "#resultScatter8",
+      "visibleFrames": 75,
+      "first": {
+        "atMs": 683,
+        "rect": [
+          212.25,
+          34.249019622802734,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1916,
+        "rect": [
+          398.164306640625,
+          653.5911254882812,
+          12,
+          12
+        ]
+      },
+      "yTravel": 619.3421058654785
+    },
+    {
+      "id": "#resultScatter9",
+      "visibleFrames": 73,
+      "first": {
+        "atMs": 700,
+        "rect": [
+          212.25,
+          34.28422546386719,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1899,
+        "rect": [
+          407.06597900390625,
+          652.4932250976562,
+          12,
+          12
+        ]
+      },
+      "yTravel": 618.2089996337891
+    },
+    {
+      "id": "#resultScatter10",
+      "visibleFrames": 73,
+      "first": {
+        "atMs": 716,
+        "rect": [
+          212.25,
+          34.320274353027344,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1916,
+        "rect": [
+          427.98577880859375,
+          643.789306640625,
+          12,
+          12
+        ]
+      },
+      "yTravel": 609.4690322875977
+    },
+    {
+      "id": "#resultScatter11",
+      "visibleFrames": 72,
+      "first": {
+        "atMs": 716,
+        "rect": [
+          212.25,
+          34.03266906738281,
+          12,
+          12
+        ]
+      },
+      "last": {
+        "atMs": 1899,
+        "rect": [
+          436.69281005859375,
+          643.1956176757812,
+          12,
+          12
+        ]
+      },
+      "yTravel": 609.1629486083984
+    }
+  ],
+  "samples": [
+    {
+      "atMs": 10,
+      "stage": 0,
+      "animations": 1,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hidden": true,
+        "display": "none",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "atMs": 616,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          390,
+          660
+        ],
+        "hidden": false,
+        "display": "block",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            212.4,
+            35.4,
+            12,
+            12
+          ],
+          "opacity": 0.381034
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            212.3,
+            34.9,
+            12,
+            12
+          ],
+          "opacity": 0.298518
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            212.3,
+            34.6,
+            12,
+            12
+          ],
+          "opacity": 0.214196
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            212.3,
+            34.4,
+            12,
+            12
+          ],
+          "opacity": 0.128006
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            212.3,
+            34.1,
+            12,
+            12
+          ],
+          "opacity": 0.0398866
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            212.3,
+            34,
+            12,
+            12
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "atMs": 1016,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          390,
+          660
+        ],
+        "hidden": false,
+        "display": "block",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            234.2,
+            106,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            235.2,
+            104.9,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            235.1,
+            103.7,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            236.1,
+            97.9,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            230.7,
+            96.1,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            230.8,
+            90.6,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            230.7,
+            88.5,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            231.5,
+            87.5,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            226.7,
+            82.5,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            226.7,
+            80.4,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            226.6,
+            75.2,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            226.7,
+            73.3,
+            12,
+            12
+          ],
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "atMs": 1415,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          390,
+          660
+        ],
+        "hidden": false,
+        "display": "block",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            286.9,
+            281.2,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            292.6,
+            284.7,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            297.1,
+            287.9,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            301.9,
+            274.2,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            283.2,
+            277.1,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            287.9,
+            264.1,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            292,
+            266.7,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            296.6,
+            268.9,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            279.2,
+            255.9,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            283,
+            258.2,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            286.8,
+            245.7,
+            12,
+            12
+          ],
+          "opacity": 1
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            291.2,
+            247.6,
+            12,
+            12
+          ],
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "atMs": 1815,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          390,
+          660
+        ],
+        "hidden": false,
+        "display": "block",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            372.2,
+            561.1,
+            12,
+            12
+          ],
+          "opacity": 0.68173
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            385.2,
+            574.5,
+            12,
+            12
+          ],
+          "opacity": 0.689113
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            397.5,
+            588,
+            12,
+            12
+          ],
+          "opacity": 0.696658
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            410.6,
+            565,
+            12,
+            12
+          ],
+          "opacity": 0.70437
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            370.7,
+            578.3,
+            12,
+            12
+          ],
+          "opacity": 0.712255
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            383.5,
+            554.8,
+            12,
+            12
+          ],
+          "opacity": 0.720318
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            395.6,
+            568,
+            12,
+            12
+          ],
+          "opacity": 0.728566
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            408.7,
+            581.2,
+            12,
+            12
+          ],
+          "opacity": 0.737005
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            369.2,
+            558.2,
+            12,
+            12
+          ],
+          "opacity": 0.745642
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            381.7,
+            571.2,
+            12,
+            12
+          ],
+          "opacity": 0.754483
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            393.6,
+            547.9,
+            12,
+            12
+          ],
+          "opacity": 0.763537
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            406.5,
+            560.8,
+            12,
+            12
+          ],
+          "opacity": 0.772811
+        }
+      ]
+    },
+    {
+      "atMs": 2215,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hidden": true,
+        "display": "none",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "atMs": 2600,
+      "stage": 2,
+      "animations": 14,
+      "layer": {
+        "id": "#earnedFlightLayer",
+        "text": "\n      \n            \n      \n      \n      \n      \n ",
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "hidden": true,
+        "display": "none",
+        "visibility": "visible",
+        "zIndex": "32",
+        "opacity": "1"
+      },
+      "coins": [
+        {
+          "id": "#resultScatter0",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter1",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter2",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter3",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter4",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter5",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter6",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter7",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter8",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter9",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter10",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        },
+        {
+          "id": "#resultScatter11",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opacity": 0
+        }
+      ]
+    }
+  ]
+}

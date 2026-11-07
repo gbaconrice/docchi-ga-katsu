@@ -1,0 +1,698 @@
+{
+  "baselineSHA256": "fe91cc2808610cb6a33f7aa2696aa84c2b4009bb2f70326e7bf2aa14296710a0",
+  "candidateSHA256": "c927196fa3cfa80356d640cf4f67b95346bf9946d34c5a84a791262c6b497532",
+  "changes": {
+    "golem": {
+      "scale": 1.25,
+      "insets": [
+        55.0,
+        90.0,
+        65.0,
+        2.5
+      ],
+      "previewInsets": [
+        45.0,
+        85.0,
+        57.5,
+        2.5
+      ]
+    },
+    "frosthorn_rhino": {
+      "scale": 2.5,
+      "insets": [
+        90.0,
+        100.0,
+        95.0,
+        7.5
+      ],
+      "previewInsets": [
+        80.0,
+        95.0,
+        95.0,
+        5.0
+      ]
+    },
+    "thornback_beast": {
+      "scale": 1.5625,
+      "insets": [
+        106.25,
+        103.125,
+        81.25,
+        25.0
+      ],
+      "previewInsets": [
+        53.125,
+        78.125,
+        78.125,
+        3.125
+      ]
+    },
+    "basalt_titan": {
+      "scale": 1.25,
+      "insets": [
+        95.0,
+        105.0,
+        85.0,
+        12.5
+      ],
+      "previewInsets": [
+        80.0,
+        100.0,
+        70.0,
+        2.5
+      ]
+    },
+    "rootwarden_treant": {
+      "scale": 1.25,
+      "insets": [
+        62.5,
+        97.5,
+        77.5,
+        2.5
+      ],
+      "previewInsets": [
+        40.0,
+        90.0,
+        65.0,
+        2.5
+      ]
+    },
+    "frostbreath_lizard": {
+      "scale": 1.25,
+      "insets": [
+        97.5,
+        112.5,
+        95.0,
+        2.5
+      ],
+      "previewInsets": [
+        90.0,
+        105.0,
+        50.0,
+        2.5
+      ]
+    },
+    "cleaver_brute": {
+      "scale": 1.25,
+      "insets": [
+        127.5,
+        160.0,
+        65.0,
+        2.5
+      ],
+      "previewInsets": [
+        110.0,
+        122.5,
+        52.5,
+        2.5
+      ]
+    },
+    "gauntlet_combo_guard": {
+      "scale": 2.5,
+      "insets": [
+        110.0,
+        112.5,
+        125.0,
+        15.0
+      ],
+      "previewInsets": [
+        77.5,
+        110.0,
+        107.5,
+        12.5
+      ]
+    },
+    "shockplate_drake": {
+      "scale": 1.25,
+      "insets": [
+        70.0,
+        125.0,
+        87.5,
+        5.0
+      ],
+      "previewInsets": [
+        70.0,
+        125.0,
+        75.0,
+        5.0
+      ]
+    },
+    "thunderhorn_beast": {
+      "scale": 1.25,
+      "insets": [
+        102.5,
+        112.5,
+        97.5,
+        2.5
+      ],
+      "previewInsets": [
+        87.5,
+        110.0,
+        90.0,
+        2.5
+      ]
+    },
+    "slime": {
+      "scale": 1.25,
+      "insets": [
+        50.0,
+        80.0,
+        60.0,
+        2.5
+      ],
+      "previewInsets": [
+        47.5,
+        77.5,
+        50.0,
+        2.5
+      ]
+    },
+    "roarfang_beast": {
+      "scale": 2.5,
+      "insets": [
+        115.0,
+        122.5,
+        102.5,
+        17.5
+      ],
+      "previewInsets": [
+        92.5,
+        102.5,
+        80.0,
+        7.5
+      ]
+    },
+    "emberwing_drake": {
+      "scale": 2.5,
+      "insets": [
+        112.5,
+        192.5,
+        117.5,
+        12.5
+      ],
+      "previewInsets": [
+        95.0,
+        92.5,
+        70.0,
+        5.0
+      ]
+    },
+    "carapace_slashbeast": {
+      "scale": 1.25,
+      "insets": [
+        70.0,
+        120.0,
+        70.0,
+        5.0
+      ],
+      "previewInsets": [
+        50.0,
+        115.0,
+        62.5,
+        5.0
+      ]
+    },
+    "triad_chimera": {
+      "scale": 1.875,
+      "insets": [
+        97.5,
+        82.5,
+        86.25,
+        3.75
+      ],
+      "previewInsets": [
+        90.0,
+        71.25,
+        63.75,
+        3.75
+      ]
+    },
+    "pillar_hammerer": {
+      "scale": 1.25,
+      "insets": [
+        75.0,
+        160.0,
+        90.0,
+        2.5
+      ],
+      "previewInsets": [
+        72.5,
+        115.0,
+        82.5,
+        2.5
+      ]
+    },
+    "bluefist_colossus": {
+      "scale": 1.25,
+      "insets": [
+        57.5,
+        117.5,
+        60.0,
+        2.5
+      ],
+      "previewInsets": [
+        47.5,
+        110.0,
+        52.5,
+        2.5
+      ]
+    },
+    "cinder_tailbeast": {
+      "scale": 1.25,
+      "insets": [
+        120.0,
+        165.0,
+        77.5,
+        2.5
+      ],
+      "previewInsets": [
+        60.0,
+        160.0,
+        60.0,
+        2.5
+      ]
+    },
+    "razorclaw_reaver": {
+      "scale": 1.25,
+      "insets": [
+        95.0,
+        142.5,
+        105.0,
+        2.5
+      ],
+      "previewInsets": [
+        75.0,
+        100.0,
+        75.0,
+        2.5
+      ]
+    },
+    "ringneck_prowler": {
+      "scale": 1.25,
+      "insets": [
+        105.0,
+        140.0,
+        117.5,
+        12.5
+      ],
+      "previewInsets": [
+        72.5,
+        135.0,
+        95.0,
+        12.5
+      ]
+    },
+    "bluehorn_invoker": {
+      "scale": 1.25,
+      "insets": [
+        90.0,
+        147.5,
+        77.5,
+        15.0
+      ],
+      "previewInsets": [
+        82.5,
+        127.5,
+        52.5,
+        15.0
+      ]
+    },
+    "spore_toad": {
+      "scale": 1.5625,
+      "insets": [
+        68.75,
+        106.25,
+        46.875,
+        3.125
+      ],
+      "previewInsets": [
+        43.75,
+        106.25,
+        46.875,
+        3.125
+      ]
+    },
+    "siege_crab": {
+      "scale": 1.25,
+      "insets": [
+        80.0,
+        100.0,
+        65.0,
+        2.5
+      ],
+      "previewInsets": [
+        52.5,
+        90.0,
+        65.0,
+        2.5
+      ]
+    },
+    "bonefan_reaper": {
+      "scale": 1.25,
+      "insets": [
+        65.0,
+        140.0,
+        50.0,
+        10.0
+      ],
+      "previewInsets": [
+        52.5,
+        135.0,
+        32.5,
+        5.0
+      ]
+    },
+    "flamering_magus": {
+      "scale": 1.25,
+      "insets": [
+        100.0,
+        145.0,
+        45.0,
+        2.5
+      ],
+      "previewInsets": [
+        35.0,
+        125.0,
+        40.0,
+        -15.0
+      ]
+    },
+    "emberfist_pillarer": {
+      "scale": 1.25,
+      "insets": [
+        72.5,
+        172.5,
+        140.0,
+        2.5
+      ],
+      "previewInsets": [
+        70.0,
+        162.5,
+        137.5,
+        2.5
+      ]
+    },
+    "moonclaw_werewolf": {
+      "scale": 1.25,
+      "insets": [
+        82.5,
+        140.0,
+        95.0,
+        5.0
+      ],
+      "previewInsets": [
+        52.5,
+        117.5,
+        70.0,
+        5.0
+      ]
+    },
+    "spikeburst_grinder": {
+      "scale": 1.25,
+      "insets": [
+        72.5,
+        140.0,
+        67.5,
+        2.5
+      ],
+      "previewInsets": [
+        45.0,
+        135.0,
+        67.5,
+        2.5
+      ]
+    },
+    "silverarm_vanguard": {
+      "scale": 1.25,
+      "insets": [
+        62.5,
+        87.5,
+        67.5,
+        2.5
+      ],
+      "previewInsets": [
+        60.0,
+        87.5,
+        57.5,
+        2.5
+      ]
+    },
+    "veteran_flamewing": {
+      "scale": 2.5,
+      "insets": [
+        110.0,
+        182.5,
+        92.5,
+        5.0
+      ],
+      "previewInsets": [
+        85.0,
+        180.0,
+        85.0,
+        5.0
+      ]
+    },
+    "stormhorn_tripler": {
+      "scale": 2.5,
+      "insets": [
+        85.0,
+        140.0,
+        117.5,
+        5.0
+      ],
+      "previewInsets": [
+        82.5,
+        140.0,
+        82.5,
+        5.0
+      ]
+    },
+    "spectral_scale_dragon": {
+      "scale": 2.5,
+      "insets": [
+        130.0,
+        180.0,
+        85.0,
+        2.5
+      ],
+      "previewInsets": [
+        107.5,
+        170.0,
+        82.5,
+        2.5
+      ]
+    },
+    "fiery_coil_inceptor": {
+      "scale": 1.25,
+      "insets": [
+        102.5,
+        167.5,
+        65.0,
+        2.5
+      ],
+      "previewInsets": [
+        37.5,
+        142.5,
+        52.5,
+        -5.0
+      ]
+    },
+    "stonepulse_kolossus": {
+      "scale": 1.25,
+      "insets": [
+        97.5,
+        152.5,
+        87.5,
+        2.5
+      ],
+      "previewInsets": [
+        97.5,
+        150.0,
+        82.5,
+        2.5
+      ]
+    },
+    "darkfan_clawlord": {
+      "scale": 1.25,
+      "insets": [
+        97.5,
+        155.0,
+        60.0,
+        2.5
+      ],
+      "previewInsets": [
+        92.5,
+        152.5,
+        55.0,
+        2.5
+      ]
+    },
+    "plated_dualdragon": {
+      "scale": 1.25,
+      "insets": [
+        92.5,
+        140.0,
+        82.5,
+        5.0
+      ],
+      "previewInsets": [
+        82.5,
+        137.5,
+        80.0,
+        5.0
+      ]
+    },
+    "colossal_hornfist": {
+      "scale": 1.25,
+      "insets": [
+        82.5,
+        130.0,
+        70.0,
+        5.0
+      ],
+      "previewInsets": [
+        77.5,
+        122.5,
+        62.5,
+        5.0
+      ]
+    },
+    "redhorn_dualbeast": {
+      "scale": 2.5,
+      "insets": [
+        117.5,
+        122.5,
+        115.0,
+        5.0
+      ],
+      "previewInsets": [
+        107.5,
+        110.0,
+        102.5,
+        5.0
+      ]
+    },
+    "iceclaw_legend": {
+      "scale": 2.5,
+      "insets": [
+        95.0,
+        185.0,
+        100.0,
+        2.5
+      ],
+      "previewInsets": [
+        72.5,
+        157.5,
+        82.5,
+        2.5
+      ]
+    },
+    "cyanrise_silithar": {
+      "scale": 1.25,
+      "insets": [
+        82.5,
+        107.5,
+        72.5,
+        2.5
+      ],
+      "previewInsets": [
+        77.5,
+        95.0,
+        65.0,
+        2.5
+      ]
+    },
+    "flameburst_mythron": {
+      "scale": 1.25,
+      "insets": [
+        77.5,
+        150.0,
+        107.5,
+        20.0
+      ],
+      "previewInsets": [
+        67.5,
+        135.0,
+        82.5,
+        5.0
+      ]
+    },
+    "accretion_burstcore": {
+      "scale": 2.5,
+      "insets": [
+        110.0,
+        102.5,
+        100.0,
+        17.5
+      ],
+      "previewInsets": [
+        85.0,
+        95.0,
+        97.5,
+        2.5
+      ]
+    },
+    "skullflare_triad": {
+      "scale": 1.25,
+      "insets": [
+        77.5,
+        140.0,
+        62.5,
+        2.5
+      ],
+      "previewInsets": [
+        50.0,
+        130.0,
+        37.5,
+        2.5
+      ]
+    },
+    "kilnback_pincerbeast": {
+      "scale": 2.5,
+      "insets": [
+        77.5,
+        100.0,
+        75.0,
+        2.5
+      ],
+      "previewInsets": [
+        60.0,
+        87.5,
+        60.0,
+        0.0
+      ]
+    },
+    "willyee_frost_dragon": {
+      "scale": 2.5,
+      "insets": [
+        112.5,
+        122.5,
+        105.0,
+        10.0
+      ],
+      "previewInsets": [
+        82.5,
+        117.5,
+        67.5,
+        0.0
+      ]
+    },
+    "willyee_stone_golem": {
+      "scale": 2.5,
+      "insets": [
+        87.5,
+        170.0,
+        85.0,
+        0.0
+      ],
+      "previewInsets": [
+        50.0,
+        140.0,
+        52.5,
+        0.0
+      ]
+    }
+  },
+  "version": "all46-prediction-boss-marker-20261106",
+  "markerAssetSHA256": "15d85091dddbb24783cb5d8fd8cfb46558cbe1f28835aa5db4c7ea14ce5a100e"
+}

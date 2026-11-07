@@ -1,0 +1,5 @@
+PASS 84 choose/fight/result clock cases; missing node is safe; all non-choose behavior unchanged
+PASS boot 5 scripts
+PASS solo start
+PASS full-app solo choose/select/fight/pause/result/next, multi choose/confirm/wait/fight/result/next and spectator flows
+PASS exact clock-function contract, reserved toolbar layout and clock node; full-source patch scope is verified separately during integration

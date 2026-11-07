@@ -1,0 +1,15 @@
+PASS healthy SDK preserves open/full/empty room UI and clears deadline
+PASS SDK script no response recovers at 8 seconds, not infinite loading
+PASS SDK script error releases refresh; next click loads a new script and recovers
+PASS SDK missing expected globals rejects and enables retry
+PASS SDK late load after expired request must not send list call
+PASS retry reuses pending shared SDK load without duplicate script or stale list call
+PASS native bridge no response gets deadline and late success cannot overwrite retry
+PASS late bridge rejection stays handled after timeout
+PASS slow SDK and native bridge share a single total 8 second budget
+PASS navigate away while SDK loads suppresses late native list request
+PASS older failure does not unlock or overwrite a newer active request
+PASS room joined or navigation back prevents stale result replacing UI
+PASS invalid payload, absent list API, thrown API and rejected API recover normally
+PASS shared SDK remains available to room creation/join after public list timeout
+{"passed":14,"total":14,"scope":"Focused VM timer/bridge faults; not a real GRAVITY host"}

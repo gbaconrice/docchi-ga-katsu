@@ -1,0 +1,7 @@
+PASS round 11 and high safe rounds, sender verification, duplicate/limits and expiry
+PASS SDK reaction bridge validates round, room and membership
+PASS multi-sender feed is bounded and old-round reactions are cleared
+PASS reaction protocol revision differs from pre-integration release
+PASS burst rate limits remain in force beyond round ten
+PASS receive-side per-sender burst limits and recovery
+PASS optional SDK profiles, HTTPS validation, room scope and cleanup

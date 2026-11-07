@@ -1,0 +1,81 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment shallow_ford
+PASS deferred image callbacks
+[
+  {
+    "k": "pillar_hammerer",
+    "mirror": false,
+    "injected": false,
+    "ev": []
+  },
+  {
+    "k": "pillar_hammerer",
+    "mirror": true,
+    "injected": false,
+    "ev": []
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": false,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "spectralhand_wizard",
+    "mirror": true,
+    "injected": true,
+    "ev": [
+      {
+        "type": "guard_warning",
+        "target": "g",
+        "tick": 1
+      },
+      {
+        "type": "pillar_action_start",
+        "target": "far",
+        "tick": 2
+      }
+    ]
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": false,
+    "injected": false,
+    "ev": []
+  },
+  {
+    "k": "colossal_hornfist",
+    "mirror": true,
+    "injected": false,
+    "ev": []
+  }
+]
+/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/guard-priority-drift.cjs:9
+let v=vm.runInContext("(()=>{let out=[];for(const k of ['pillar_hammerer','spectralhand_wizard','colossal_hornfist'])for(const mirror of [false,true]){elapsed=0;state='fight';winner=null;battleEnvironment=null;pendingSummons=[];shots=[];combatEvents=[];let t=TYPES[k],dir=mirror?-1:1,x=mirror?300:180;let a={id:1,token:'p',k,side:mirror?1:0,x,y:269,hp:t.hp,cd:0,priority:.1,dead:false,originForward:dir},b={id:2,token:'g',k:'goblin',side:mirror?0:1,x:x+dir*(t.radius+7),y:269,hp:5000,cd:1e5,slowFactor:0,slowUntil:1000,priority:.2,dead:false,originForward:-dir};units=[a,b];let records=[],injected=false;for(let i=0;i<200;i++){combatEvents=[];combatStep(1/60);records.push(...combatEvents.filter(e=>['guard_warning','guard_contact','pillar_action_start','pillar_release'].includes(e.type)));if(a.guardAction&&!injected){injected=true;units.push({id:3,token:'far',k:'goblin',side:1-a.side,x:a.x+dir*t.pillarOffset,y:a.y,hp:5000,cd:1e5,slowFactor:0,slowUntil:1000,priority:.3,dead:false,originForward:-dir})}if(records.some(e=>e.type==='pillar_action_start'))break}out.push({k,mirror,injected,ev:records.map(e=>({type:e.type,target:e.targetToken,tick:e.tick??e.startTick}))})}return out})()",context);console.log(JSON.stringify(v,null,2));for(let r of v)if(!r.injected||r.ev.some(e=>e.type==='guard_contact')||!r.ev.some(e=>e.type==='pillar_action_start'&&e.target==='far'))throw Error(JSON.stringify(r));console.log('PASS guard canceled and normal pillar starts');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+Error: {"k":"pillar_hammerer","mirror":false,"injected":false,"ev":[]}
+    at Object.<anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/guard-priority-drift.cjs:9:1379)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.22.1

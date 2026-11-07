@@ -1,0 +1,21 @@
+PASS boot 5 scripts
+PASS solo start
+PASS duplicate start taps are ignored once in game
+PASS home from prediction, paused battle and result always starts round 1 / 100 G with no score submission
+script-3.js:7568
+ const q=id=>document.querySelector(id),s=multiSession?.getState();
+                                                        ^
+
+TypeError: multiSession?.getState is not a function
+    at syncFlowControls (script-3.js:7568:57)
+    at showScreen (script-3.js:6653:39)
+    at showScreen (script-3.js:6891:66)
+    at showScreen (script-3.js:7873:57)
+    at showScreen (script-3.js:8336:129)
+    at document.querySelector.onclick (script-3.js:6831:49)
+    at click (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/solo-fresh-entry.cjs:3:1), <anonymous>:7:60)
+    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/solo-fresh-entry.cjs:3:1), <anonymous>:37:1)
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/solo-fresh-entry.cjs:39:3)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+
+Node.js v24.22.1

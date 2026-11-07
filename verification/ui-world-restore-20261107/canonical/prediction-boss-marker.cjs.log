@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 46 boss prediction markers, 920 narrow/wide layout cases, duplicate grouping, phase guards, body-art fallback clearance, optional PNG failure/retry/stale callback, exact approved PNG

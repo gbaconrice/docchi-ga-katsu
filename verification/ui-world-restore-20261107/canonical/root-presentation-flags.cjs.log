@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment crosswind_ridge
+PASS deferred image callbacks
+PASS disjoint flags, indicator guard and both expiry paths {"both":6145,"healedOnly":2049,"expired":2048,"dead":0}

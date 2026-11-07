@@ -1,0 +1,37 @@
+{
+  "browserVerified": false,
+  "results": [
+    {
+      "label": "reproduce",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "ability-tests",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "production-integration",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "entry-loader",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "release-loader",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "restoration-regressions",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "sourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "success": true
+}

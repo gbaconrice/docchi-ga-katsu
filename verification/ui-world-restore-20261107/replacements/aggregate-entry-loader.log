@@ -1,0 +1,33 @@
+PASS Bootstrap precedes CSS, small GRAVITY entry, no execution shortcuts or production QA setting
+PASS Parallel preload, DOM/CSS gates, serial async=false anonymous scripts, exactly-once ready
+PASS Network failure/retry and double-click safety at script 1
+PASS Network failure/retry and double-click safety at script 2
+PASS Network failure/retry and double-click safety at script 3
+PASS Network failure/retry and double-click safety at script 4
+PASS Network failure/retry and double-click safety at script 5
+PASS Network failure/retry and double-click safety at script 6
+PASS CSS failure before DOM is visible and CSS alone retries
+PASS CSS timeout safely retries and ignores the expired response
+PASS syntax failure at script 1 reloads without following execution
+PASS syntax failure at script 2 reloads without following execution
+PASS syntax failure at script 3 reloads without following execution
+PASS syntax failure at script 4 reloads without following execution
+PASS syntax failure at script 5 reloads without following execution
+PASS syntax failure at script 6 reloads without following execution
+PASS runtime failure at script 1 reloads without following execution
+PASS runtime failure at script 2 reloads without following execution
+PASS runtime failure at script 3 reloads without following execution
+PASS runtime failure at script 4 reloads without following execution
+PASS runtime failure at script 5 reloads without following execution
+PASS runtime failure at script 6 reloads without following execution
+PASS Missing game boot completion requires reload
+PASS Script 1 timeout prevents retry and late response advancement
+PASS Script 2 timeout prevents retry and late response advancement
+PASS Script 3 timeout prevents retry and late response advancement
+PASS Script 4 timeout prevents retry and late response advancement
+PASS Script 5 timeout prevents retry and late response advancement
+PASS Script 6 timeout prevents retry and late response advancement
+PASS Known host and opaque errors do not falsely fail the game
+PASS Enforced CSP explains blocked own resource; report-only CSP is ignored
+PASS QA-only initial 404 retries the canonical URL without earlier re-execution
+ENTRY_LOADER_PASS 32 cases; DOM fault fixtures, not physical-device/network evidence.

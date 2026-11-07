@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS opening once, cancel, delayed/reconnect suppression, reduced motion, synced multi clock, capped contact accent

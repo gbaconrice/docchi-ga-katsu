@@ -1,0 +1,87 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+[
+  {
+    "mirror": false,
+    "scenario": "normal",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  },
+  {
+    "mirror": false,
+    "scenario": "move",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  },
+  {
+    "mirror": false,
+    "scenario": "death",
+    "started": false,
+    "cancelled": false,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": false,
+    "scenario": "knock",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  },
+  {
+    "mirror": true,
+    "scenario": "normal",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  },
+  {
+    "mirror": true,
+    "scenario": "move",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  },
+  {
+    "mirror": true,
+    "scenario": "death",
+    "started": false,
+    "cancelled": false,
+    "hit": false,
+    "unsafe": false
+  },
+  {
+    "mirror": true,
+    "scenario": "knock",
+    "started": false,
+    "cancelled": false,
+    "hit": true,
+    "unsafe": true
+  }
+]
+/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/melee-combo-transition.cjs:9
+const results=vm.runInContext("(()=>{const out=[];for(const mirror of [false,true])for(const scenario of ['normal','move','death','knock']){elapsed=0;state='fight';winner=null;pendingSummons=[];shots=[];combatEvents=[];let t=TYPES.skullflare_triad;units=[{id:1,token:'a',k:'skullflare_triad',side:mirror?1:0,x:mirror?28:452,y:531,hp:t.hp,cd:0,priority:.1,dead:false,originForward:mirror?-1:1},{id:2,token:'target',k:'goblin',side:mirror?0:1,x:mirror?7:473,y:531,hp:1e9,cd:100000,slowFactor:0,slowUntil:1000,priority:.2,dead:false,originForward:mirror?1:-1}];let started=false,cancelled=false,hit=false,unsafe=false,begin=0;for(let i=0;i<900;i++){combatStep(1/60);let [a,b]=units;if(a.comboActionToken&&!started){started=true;begin=i;if(scenario==='move'){b.x=mirror?150:330;b.y=400}if(scenario==='death'){b.dead=true;b.hp=0}if(scenario==='knock'){a.x=mirror?150:330;a.y=400}}if(started&&i>begin&&!a.comboActionToken)cancelled=true;if(b.hp<1e9&&scenario!=='death')hit=true;if(hit&&!started)unsafe=true;if((scenario==='normal'&&hit)||(scenario!=='normal'&&cancelled))break}out.push({mirror,scenario,started,cancelled,hit,unsafe});}return out})()",context);console.log(JSON.stringify(results,null,2));for(const r of results){if(!r.started||r.unsafe||(r.scenario==='normal'&&!r.hit)||(r.scenario!=='normal'&&(!r.cancelled||r.hit)))throw Error('failed '+JSON.stringify(r))}console.log('PASS move/death/displacement cancellation both directions');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+Error: failed {"mirror":false,"scenario":"normal","started":false,"cancelled":false,"hit":true,"unsafe":true}
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/melee-combo-transition.cjs:9:1334)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.22.1

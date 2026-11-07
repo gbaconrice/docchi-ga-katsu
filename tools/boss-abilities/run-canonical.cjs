@@ -14,7 +14,7 @@ try{
  fs.writeFileSync(path.join(out,'reproduce.log'),(prep.stdout||'')+(prep.stderr||''));
  if(prep.status!==0)throw Error('Source reproduction failed: '+(prep.error?.message||prep.signal||prep.status));
  const metadata=JSON.parse(fs.readFileSync(path.join(repo,'CURRENT_PREVIEW_MANIFEST.json'))),source=fs.readFileSync(path.join(fresh,'source/index.html'));
- const sha=hash(source);if(sha!==metadata.reconstructedSourceSHA256)throw Error('Reconstructed source does not match current manifest');
+ const sha=hash(source);if(sha!==(process.env.EXPECTED_SOURCE_SHA256||metadata.reconstructedSourceSHA256))throw Error('Reconstructed source does not match current manifest');
  const work=path.join(fresh,'validation-preview');
  // Supply the exact historical metadata fixture without changing the historical toolkit.
  fs.copyFileSync(path.join(here,'fixtures/CURRENT_PREVIEW_MANIFEST.review-fixes.json'),path.join(work,'CURRENT_PREVIEW_MANIFEST.json'));

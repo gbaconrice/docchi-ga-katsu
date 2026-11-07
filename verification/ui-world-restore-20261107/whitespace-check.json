@@ -1,0 +1,15 @@
+{
+  "completeDiffCheckExit": 2,
+  "warnings": [
+    "releases/ui-world-restore-20261107/body-fragment.html:160: trailing whitespace.",
+    "releases/ui-world-restore-20261107/body-fragment.html:266: new blank line at EOF.",
+    "releases/ui-world-restore-20261107/source-template.html:163: trailing whitespace.",
+    "tools/boss-abilities/ui-restoration/qa/layout/equivalents/solo-fresh-entry.cjs.diff:5: trailing whitespace.",
+    "tools/boss-abilities/ui-restoration/qa/layout/equivalents/stable-upper-ui.cjs.diff:14: trailing whitespace.",
+    "verification/ui-world-restore-20261107/canonical/guard-description-actual.cjs.log:109: trailing whitespace.",
+    "verification/ui-world-restore-20261107/canonical/guard-priority-drift.cjs.log:69: trailing whitespace.",
+    "verification/ui-world-restore-20261107/canonical/melee-combo-transition.cjs.log:75: trailing whitespace.",
+    "verification/ui-world-restore-20261107/canonical/root-summon.cjs.log:9: trailing whitespace."
+  ],
+  "explanation": "Lossless generated source preserves existing whitespace. Recorded test output and unified patch context are kept exact. No handwritten source/documentation warnings were found."
+}

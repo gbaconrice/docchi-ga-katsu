@@ -1,0 +1,244 @@
+{
+  "conditions": 156,
+  "executions": 312,
+  "note": "156 fixed fixtures per version, including mirrored duplicates. Not independent samples or global win rates. Draws run to combat timeout.",
+  "baselineSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "candidateSha256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "simulationSha256": "3968dbc2594fb42795c5e408b949bfad68291f87aee295ec7686e392c527d601",
+  "candidateRelation": "Final candidate differs from timed simulation source by one description correction and the independently preserved renderer; mechanics tests and 49-boss trace comparison pass on final candidate.",
+  "bosses": {
+    "gauntlet_combo_guard": {
+      "before": {
+        "outcomes": {
+          "win": 44,
+          "loss": 8
+        },
+        "meanTicks": 1745.576923076923,
+        "controlled": {
+          "win": 40,
+          "loss": 8
+        },
+        "mixed": {
+          "win": 4
+        }
+      },
+      "after": {
+        "outcomes": {
+          "loss": 10,
+          "win": 42
+        },
+        "meanTicks": 1983.7307692307693,
+        "controlled": {
+          "loss": 10,
+          "win": 38
+        },
+        "mixed": {
+          "win": 4
+        }
+      }
+    },
+    "kilnback_pincerbeast": {
+      "before": {
+        "outcomes": {
+          "win": 38,
+          "loss": 14
+        },
+        "meanTicks": 2161.1923076923076,
+        "controlled": {
+          "win": 34,
+          "loss": 14
+        },
+        "mixed": {
+          "win": 4
+        }
+      },
+      "after": {
+        "outcomes": {
+          "win": 38,
+          "loss": 14
+        },
+        "meanTicks": 2155.8846153846152,
+        "controlled": {
+          "win": 34,
+          "loss": 14
+        },
+        "mixed": {
+          "win": 4
+        }
+      }
+    },
+    "razorclaw_reaver": {
+      "before": {
+        "outcomes": {
+          "draw": 12,
+          "loss": 22,
+          "win": 18
+        },
+        "meanTicks": 2747.1153846153848,
+        "controlled": {
+          "draw": 12,
+          "loss": 22,
+          "win": 14
+        },
+        "mixed": {
+          "win": 4
+        }
+      },
+      "after": {
+        "outcomes": {
+          "draw": 8,
+          "loss": 22,
+          "win": 22
+        },
+        "meanTicks": 2527.0384615384614,
+        "controlled": {
+          "draw": 8,
+          "loss": 20,
+          "win": 20
+        },
+        "mixed": {
+          "loss": 2,
+          "win": 2
+        }
+      }
+    }
+  },
+  "mirroring": {
+    "before": {
+      "pairs": 78,
+      "failed": []
+    },
+    "after": {
+      "pairs": 78,
+      "failed": []
+    }
+  },
+  "changes": [
+    {
+      "boss": "gauntlet_combo_guard",
+      "ranged": "willyee_skel_archer",
+      "composition": null,
+      "mirror": false,
+      "seed": 0,
+      "before": "win",
+      "after": "loss"
+    },
+    {
+      "boss": "gauntlet_combo_guard",
+      "ranged": "willyee_skel_archer",
+      "composition": null,
+      "mirror": true,
+      "seed": 0,
+      "before": "win",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_34_goldring_caster",
+      "composition": null,
+      "mirror": false,
+      "seed": 2,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_34_goldring_caster",
+      "composition": null,
+      "mirror": true,
+      "seed": 2,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "frostmage",
+      "composition": null,
+      "mirror": false,
+      "seed": 5,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "frostmage",
+      "composition": null,
+      "mirror": true,
+      "seed": 5,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_08",
+      "composition": null,
+      "mirror": false,
+      "seed": 15,
+      "before": "draw",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_08",
+      "composition": null,
+      "mirror": true,
+      "seed": 15,
+      "before": "draw",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_08",
+      "composition": null,
+      "mirror": false,
+      "seed": 2,
+      "before": "draw",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "willyee_char_08",
+      "composition": null,
+      "mirror": true,
+      "seed": 2,
+      "before": "draw",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "tigermask_archer",
+      "composition": null,
+      "mirror": false,
+      "seed": 14,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": "tigermask_archer",
+      "composition": null,
+      "mirror": true,
+      "seed": 14,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": null,
+      "composition": "shield_archer",
+      "mirror": false,
+      "seed": 912620,
+      "before": "win",
+      "after": "loss"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "ranged": null,
+      "composition": "shield_archer",
+      "mirror": true,
+      "seed": 912620,
+      "before": "win",
+      "after": "loss"
+    }
+  ]
+}

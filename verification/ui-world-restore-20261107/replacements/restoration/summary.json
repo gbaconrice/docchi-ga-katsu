@@ -1,0 +1,52 @@
+{
+  "browserVerified": false,
+  "results": [
+    {
+      "label": "copy",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "loading",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "loss-motion",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "layout",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "combat-invariance",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "replacement-mechanics",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "replacement-renderer",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "qa-helper-replay",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "replacement-balance",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "sourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "success": true
+}

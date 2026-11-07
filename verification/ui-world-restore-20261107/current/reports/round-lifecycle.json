@@ -1,0 +1,69 @@
+{
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "checks": [
+    {
+      "name": "all49 actual setup resets pending summons, unit status/growth and global zones/walls/delays without manual boss reset",
+      "pass": true,
+      "detail": [
+        "thornback_beast",
+        "roarfang_beast",
+        "spectral_scale_dragon",
+        "iceclaw_legend",
+        "gauntlet_combo_guard",
+        "rootwarden_treant",
+        "frosthorn_rhino",
+        "pillar_hammerer",
+        "colossal_hornfist",
+        "kilnback_pincerbeast",
+        "carapace_slashbeast",
+        "stonepulse_kolossus",
+        "bluefist_colossus",
+        "spikeburst_grinder",
+        "redhorn_dualbeast",
+        "bluehorn_invoker",
+        "emberwing_drake",
+        "skullflare_triad",
+        "flamering_magus",
+        "shockplate_drake",
+        "thunderhorn_beast",
+        "stormhorn_tripler",
+        "darkfan_clawlord",
+        "plated_dualdragon",
+        "flameburst_mythron",
+        "willyee_frost_dragon",
+        "frostbreath_lizard",
+        "triad_chimera",
+        "cinder_tailbeast",
+        "emberfist_pillarer",
+        "veteran_flamewing",
+        "spore_toad",
+        "siege_crab",
+        "slime",
+        "accretion_burstcore",
+        "domeback_colossus",
+        "ringhold_guardian",
+        "silverarm_vanguard",
+        "fiery_coil_inceptor",
+        "golem",
+        "bonefan_reaper",
+        "moonclaw_werewolf",
+        "willyee_stone_golem",
+        "basalt_titan",
+        "cyanrise_silithar",
+        "razorclaw_reaver",
+        "cleaver_brute",
+        "ringneck_prowler",
+        "bone_crown_lich"
+      ]
+    },
+    {
+      "name": "same plan replayed after an interrupted fight is deterministic without manual boss reset",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Actual production setup()/step() with VM DOM; not browser or network verification."
+  ],
+  "passed": 2,
+  "failed": 0
+}

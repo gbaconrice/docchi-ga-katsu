@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "singleAudioNode": true,
+  "menuAndGamePlacement": true,
+  "soloAndMultiPhaseVisibility": true,
+  "allScriptsParse": true,
+  "statBoxContrastMinimums": {
+    "comparison": 6.83401745460221,
+    "details": 7.002849853852503
+  },
+  "renderedQA": "Pending CUA at 320px and GRAVITY; no browser pixel claim."
+}

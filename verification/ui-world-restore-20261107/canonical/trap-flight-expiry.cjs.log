@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment grassland
+PASS deferred image callbacks
+PASS flying immunity and expiration after 10 seconds {"before":1,"after":0,"hp":145,"afterHp":145,"state":"fight"}

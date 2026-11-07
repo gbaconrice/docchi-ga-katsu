@@ -1,0 +1,1 @@
+PASS exact amount uses remaining upper-row width;26px/system600/left alignment unchanged; native scroll visibility restored; no new UI, reduced size, rounding, terrain width or row-height changes. Browser fit checks are separate.

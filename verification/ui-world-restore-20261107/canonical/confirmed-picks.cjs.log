@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS confirmed sides sync without amounts for eight players and reconnect
+PASS current published version rejected after protocol change

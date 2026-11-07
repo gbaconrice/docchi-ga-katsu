@@ -1,0 +1,328 @@
+{
+  "sourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "checks": [
+    {
+      "name": "actual treant/thornback/razor casts cleanse on next tick, never their application tick",
+      "pass": true,
+      "detail": [
+        {
+          "kind": "rootwarden_treant",
+          "first": {
+            "hasRoot": true,
+            "active": false,
+            "cleanse": 0,
+            "lock": 152
+          },
+          "second": {
+            "hasRoot": false,
+            "cleanse": 1,
+            "lock": 152,
+            "cooldown": 1.5
+          }
+        },
+        {
+          "kind": "thornback_beast",
+          "first": {
+            "hasRoot": true,
+            "active": false,
+            "cleanse": 0,
+            "lock": 134
+          },
+          "second": {
+            "hasRoot": false,
+            "cleanse": 1,
+            "lock": 134,
+            "cooldown": 1.5
+          }
+        },
+        {
+          "kind": "razorclaw_reaver",
+          "first": {
+            "hasRoot": true,
+            "active": false,
+            "cleanse": 0,
+            "lock": 182
+          },
+          "second": {
+            "hasRoot": false,
+            "cleanse": 1,
+            "lock": 182,
+            "cooldown": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "cleansing is tick-end: rooted movement stays blocked that tick and resumes next tick",
+      "pass": true,
+      "detail": {
+        "before": 309.466552734375,
+        "cleaned": 309.466552734375,
+        "after": 308.93310546875
+      }
+    },
+    {
+      "name": "legacy slow/root and exposure cleanse still retain immunity and poison",
+      "pass": true
+    },
+    {
+      "name": "new root coexists with legacy root; cleanse removes both with one event and preserves both immunities",
+      "pass": true
+    },
+    {
+      "name": "cleanser cannot remove a root freshly applied later in the same tick",
+      "pass": true
+    },
+    {
+      "name": "tick-start root identity prevents cleansing a replacement status",
+      "pass": true
+    },
+    {
+      "name": "cleanse does not broaden to stun/freeze/airborne/poison/burn/curse/armorbreak",
+      "pass": true
+    },
+    {
+      "name": "root cleanse obeys range, cooldown, self exclusion and one-target reservation",
+      "pass": true
+    },
+    {
+      "name": "root preserves closest-target selection then longest-duration tie-break",
+      "pass": true
+    },
+    {
+      "name": "boss root stops voluntary charging and retreating from next tick through exact expiry",
+      "pass": true,
+      "detail": [
+        {
+          "k": "sword",
+          "x1": 329.466552734375,
+          "x2": 329.466552734375,
+          "x3": 329.466552734375,
+          "x4": 328.93310546875
+        },
+        {
+          "k": "boar",
+          "x1": 328.800048828125,
+          "x2": 328.800048828125,
+          "x3": 328.800048828125,
+          "x4": 327.60009765625
+        },
+        {
+          "k": "knife_skirmisher",
+          "x1": 330.63330078125,
+          "x2": 330.63330078125,
+          "x3": 330.63330078125,
+          "x4": 331.2666015625
+        }
+      ]
+    },
+    {
+      "name": "root does not suppress in-range attacks or queued knockback",
+      "pass": true
+    },
+    {
+      "name": "root does not suppress body separation for overlapped units",
+      "pass": true
+    },
+    {
+      "name": "delayed hostile damage and statuses reject phased targets but allied buffs remain legal",
+      "pass": true,
+      "detail": {
+        "accepted": [
+          [
+            "root",
+            false
+          ],
+          [
+            "freeze",
+            false
+          ],
+          [
+            "stun",
+            false
+          ],
+          [
+            "poison",
+            false
+          ],
+          [
+            "burn",
+            false
+          ],
+          [
+            "curse",
+            false
+          ],
+          [
+            "armorbreak",
+            false
+          ],
+          [
+            "barrier",
+            true
+          ]
+        ],
+        "before": 850,
+        "after": 850,
+        "statuses": [
+          "barrier"
+        ],
+        "layer": "underground"
+      }
+    },
+    {
+      "name": "hostile status applies again once phase ends",
+      "pass": true
+    },
+    {
+      "name": "real glimmer pulse accelerates eligible boss movement from next tick and ends exactly",
+      "pass": true,
+      "detail": {
+        "first": 0.39990234375,
+        "second": 0.5,
+        "lastActive": 0.5,
+        "expired": 0.39990234375,
+        "until": 122
+      }
+    },
+    {
+      "name": "real glimmer still selects only ground allies, two targets maximum",
+      "pass": true
+    },
+    {
+      "name": "all 16 actual ordinary healers heal grown boss HP above old maximum and cap correctly",
+      "pass": true,
+      "detail": [
+        "healer",
+        "crimson_mender",
+        "halo_healer",
+        "ashstaff_healer",
+        "disc_crown_mender",
+        "bubble_shadow_mender",
+        "gemswirl_mender",
+        "sol_harp_mender",
+        "goldring_shadow_mender",
+        "golden_tuft_mender",
+        "suspended_prism_mender",
+        "bobble_mender",
+        "candle_archdeacon",
+        "hooded_ghost",
+        "bellgill_mender",
+        "puffcap_mender"
+      ]
+    },
+    {
+      "name": "ordinary healer uses actual max-HP ratio for targeting grown allies",
+      "pass": true
+    },
+    {
+      "name": "grown-HP healing still combines ordinary healing block and boss curse exactly once",
+      "pass": true
+    },
+    {
+      "name": "ordinary onyx root immunity blocks subsequent new boss root through exact expiry",
+      "pass": true
+    },
+    {
+      "name": "boss root immunity blocks ordinary onyx root and frost slow even after cleanse",
+      "pass": true
+    },
+    {
+      "name": "fresh boss root immunity is not retroactive to the same tick ordinary root intent",
+      "pass": true
+    },
+    {
+      "name": "boss stun/freeze do not invent ordinary root immunity",
+      "pass": true
+    },
+    {
+      "name": "real screech cadence delays boss pending cooldown and windup by exactly 21 ticks",
+      "pass": true,
+      "detail": [
+        {
+          "mode": "cooldown",
+          "delayed": false,
+          "first": 60,
+          "cadence": 0
+        },
+        {
+          "mode": "cooldown",
+          "delayed": true,
+          "first": 81,
+          "cadence": 1
+        },
+        {
+          "mode": "windup",
+          "delayed": false,
+          "first": 30,
+          "cadence": 0
+        },
+        {
+          "mode": "windup",
+          "delayed": true,
+          "first": 51,
+          "cadence": 1
+        }
+      ]
+    },
+    {
+      "name": "real screech cadence respects immunity and does not stack on every forced attack",
+      "pass": true
+    },
+    {
+      "name": "cadence delays cyanrise continuous pulse but never already released iceclaw contacts",
+      "pass": true,
+      "detail": [
+        {
+          "kind": "cyanrise_silithar",
+          "hits": [
+            57,
+            93
+          ]
+        },
+        {
+          "kind": "iceclaw_legend",
+          "hits": [
+            1,
+            13,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "name": "current roster has no surviving legacy haste aura or stability/dispel provider",
+      "pass": true
+    },
+    {
+      "name": "active ordinary aegis redirects only its two assigned boss sources before windup",
+      "pass": true
+    },
+    {
+      "name": "aegis active-time/range/target-layer boundaries remain unchanged for boss sources",
+      "pass": true
+    },
+    {
+      "name": "real aegis activation begins redirecting bosses only on the following tick",
+      "pass": true
+    },
+    {
+      "name": "new aegis activation never retargets an already locked boss windup",
+      "pass": true
+    },
+    {
+      "name": "aegis default windup aim does not overwrite ringneck custom rear-line release targeting",
+      "pass": true
+    },
+    {
+      "name": "ordinary aegis redirection stays numerically identical to baseline",
+      "pass": true
+    },
+    {
+      "name": "cyanrise blocked pulses are skipped rather than caught up when no cadence delay exists",
+      "pass": true
+    }
+  ],
+  "passed": 34,
+  "failed": 0
+}

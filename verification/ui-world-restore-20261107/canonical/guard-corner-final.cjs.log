@@ -1,0 +1,28 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+node:internal/assert/utils:77
+    throw err;
+    ^
+
+AssertionError [ERR_ASSERTION]: {"k":"pillar_hammerer","side":"left","edge":"top","state":"result","winner":1,"elapsed":1.2500000000000004,"counts":{"guard_warning":0,"guard_contact":0,"pillar_release":0},"attacker":[34,20],"target":[7,7],"targetHP":-24.75}
+    at Object.<anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/guard-corner-final.cjs:10:238)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

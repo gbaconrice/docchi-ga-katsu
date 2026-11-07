@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 60s deadline, clock offset and reconnect
+PASS early lock and 60s all-in round 11

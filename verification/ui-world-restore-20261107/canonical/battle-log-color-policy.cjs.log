@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS deferred image callbacks
+PASS 216 both-side event render cases, 378 status/end/cancel cases, neutral damage/HP/prose/counts, only effective recovery green, winner-side/draw/mismatch handling; {"neutral":534,"army":314,"recovery":2,"winner":2}

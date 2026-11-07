@@ -1,0 +1,22 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: '69ec667a9873dfc787026ab3314a79156d03736a4667a98cf0c39cdb776bbac2' == 'ba1548220924ceabd1db86f1b3d0bdf56fa645efa362913655eeb35bc3565ca5'
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/integrated-revision.cjs:7:8)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: '69ec667a9873dfc787026ab3314a79156d03736a4667a98cf0c39cdb776bbac2',
+  expected: 'ba1548220924ceabd1db86f1b3d0bdf56fa645efa362913655eeb35bc3565ca5',
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

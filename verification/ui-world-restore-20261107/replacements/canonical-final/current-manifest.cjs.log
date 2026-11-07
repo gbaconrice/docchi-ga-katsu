@@ -1,0 +1,22 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: candidate manifest must match candidate HTML
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/current-manifest.cjs:7:140)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf',
+  expected: 'a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d',
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

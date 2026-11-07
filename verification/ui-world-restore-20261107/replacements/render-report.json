@@ -1,0 +1,1901 @@
+{
+  "sha": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "renderer": "Real production draw() / @napi-rs/canvas",
+  "browserTested": false,
+  "checks": [
+    "gauntlet_combo_guard right contact boss_fist_strike frame 8",
+    "gauntlet_combo_guard right contact boss_fist_strike frame 12",
+    "gauntlet_combo_guard right contact boss_fist_wave frame 26",
+    "gauntlet_combo_guard right precise replay frames/facing",
+    "gauntlet_combo_guard right replay sprite pixels tick 13",
+    "gauntlet_combo_guard right replay sprite pixels tick 23",
+    "gauntlet_combo_guard right replay sprite pixels tick 33",
+    "gauntlet_combo_guard right replay sprite pixels tick 43",
+    "gauntlet_combo_guard right replay sprite pixels tick 47",
+    "gauntlet_combo_guard right replay sprite pixels tick 53",
+    "gauntlet_combo_guard right replay sprite pixels tick 55",
+    "gauntlet_combo_guard right replay sprite pixels tick 61",
+    "gauntlet_combo_guard right replay sprite pixels tick 67",
+    "gauntlet_combo_guard right replay sprite pixels tick 73",
+    "kilnback_pincerbeast right contact boss_pincer_snap frame 15",
+    "kilnback_pincerbeast right precise replay frames/facing",
+    "kilnback_pincerbeast right replay sprite pixels tick 13",
+    "kilnback_pincerbeast right replay sprite pixels tick 23",
+    "kilnback_pincerbeast right replay sprite pixels tick 33",
+    "kilnback_pincerbeast right replay sprite pixels tick 81",
+    "kilnback_pincerbeast right replay sprite pixels tick 85",
+    "kilnback_pincerbeast right replay sprite pixels tick 91",
+    "kilnback_pincerbeast right replay sprite pixels tick 99",
+    "kilnback_pincerbeast right replay sprite pixels tick 111",
+    "razorclaw_reaver right block holds guard",
+    "razorclaw_reaver right contact boss_claw_counter frame 5",
+    "razorclaw_reaver right precise replay frames/facing",
+    "razorclaw_reaver right replay sprite pixels tick 13",
+    "razorclaw_reaver right replay sprite pixels tick 23",
+    "razorclaw_reaver right replay sprite pixels tick 33",
+    "razorclaw_reaver right replay sprite pixels tick 45",
+    "razorclaw_reaver right replay sprite pixels tick 50",
+    "razorclaw_reaver right replay sprite pixels tick 55",
+    "razorclaw_reaver right replay sprite pixels tick 60",
+    "razorclaw_reaver right replay sprite pixels tick 82",
+    "razorclaw_reaver right replay sprite pixels tick 94",
+    "razorclaw_reaver right replay sprite pixels tick 98",
+    "razorclaw_reaver right replay sprite pixels tick 104",
+    "razorclaw_reaver right replay sprite pixels tick 112",
+    "razorclaw_reaver right replay sprite pixels tick 124",
+    "gauntlet_combo_guard left contact boss_fist_strike frame 8",
+    "gauntlet_combo_guard left contact boss_fist_strike frame 12",
+    "gauntlet_combo_guard left contact boss_fist_wave frame 26",
+    "gauntlet_combo_guard left precise replay frames/facing",
+    "gauntlet_combo_guard left replay sprite pixels tick 13",
+    "gauntlet_combo_guard left replay sprite pixels tick 23",
+    "gauntlet_combo_guard left replay sprite pixels tick 33",
+    "gauntlet_combo_guard left replay sprite pixels tick 43",
+    "gauntlet_combo_guard left replay sprite pixels tick 47",
+    "gauntlet_combo_guard left replay sprite pixels tick 53",
+    "gauntlet_combo_guard left replay sprite pixels tick 55",
+    "gauntlet_combo_guard left replay sprite pixels tick 61",
+    "gauntlet_combo_guard left replay sprite pixels tick 67",
+    "gauntlet_combo_guard left replay sprite pixels tick 73",
+    "kilnback_pincerbeast left contact boss_pincer_snap frame 15",
+    "kilnback_pincerbeast left precise replay frames/facing",
+    "kilnback_pincerbeast left replay sprite pixels tick 13",
+    "kilnback_pincerbeast left replay sprite pixels tick 23",
+    "kilnback_pincerbeast left replay sprite pixels tick 33",
+    "kilnback_pincerbeast left replay sprite pixels tick 81",
+    "kilnback_pincerbeast left replay sprite pixels tick 85",
+    "kilnback_pincerbeast left replay sprite pixels tick 91",
+    "kilnback_pincerbeast left replay sprite pixels tick 99",
+    "kilnback_pincerbeast left replay sprite pixels tick 111",
+    "razorclaw_reaver left block holds guard",
+    "razorclaw_reaver left contact boss_claw_counter frame 5",
+    "razorclaw_reaver left precise replay frames/facing",
+    "razorclaw_reaver left replay sprite pixels tick 13",
+    "razorclaw_reaver left replay sprite pixels tick 23",
+    "razorclaw_reaver left replay sprite pixels tick 33",
+    "razorclaw_reaver left replay sprite pixels tick 45",
+    "razorclaw_reaver left replay sprite pixels tick 50",
+    "razorclaw_reaver left replay sprite pixels tick 55",
+    "razorclaw_reaver left replay sprite pixels tick 60",
+    "razorclaw_reaver left replay sprite pixels tick 82",
+    "razorclaw_reaver left replay sprite pixels tick 94",
+    "razorclaw_reaver left replay sprite pixels tick 98",
+    "razorclaw_reaver left replay sprite pixels tick 104",
+    "razorclaw_reaver left replay sprite pixels tick 112",
+    "razorclaw_reaver left replay sprite pixels tick 124",
+    "gauntlet_combo_guard immediate control cancellation",
+    "gauntlet_combo_guard death supersedes pose immediately",
+    "kilnback_pincerbeast immediate control cancellation",
+    "kilnback_pincerbeast death supersedes pose immediately",
+    "razorclaw_reaver immediate control cancellation",
+    "razorclaw_reaver death supersedes pose immediately",
+    "all images decode without error",
+    "all actor frames resolve licensed pixels"
+  ],
+  "frames": [
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-windup-start",
+      "file": "gauntlet_combo_guard-right-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 38,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          1210,
+          726,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-windup",
+      "file": "gauntlet_combo_guard-right-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 40,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1210,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-windup",
+      "file": "gauntlet_combo_guard-right-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 43,
+        "clip": "attack",
+        "local": 5,
+        "rect": [
+          1210,
+          121,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_005.png",
+        "startMs": 415,
+        "endMs": 498
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-boss_fist_strike",
+      "file": "gauntlet_combo_guard-right-boss_fist_strike-43.png",
+      "tick": 43,
+      "frame": {
+        "index": 46,
+        "clip": "attack",
+        "local": 8,
+        "rect": [
+          1089,
+          726,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_008.png",
+        "startMs": 664,
+        "endMs": 747
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-recovery",
+      "file": "gauntlet_combo_guard-right-recovery-47.png",
+      "tick": 47,
+      "frame": {
+        "index": 48,
+        "clip": "attack",
+        "local": 10,
+        "rect": [
+          1089,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_010.png",
+        "startMs": 830,
+        "endMs": 913
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-recovery",
+      "file": "gauntlet_combo_guard-right-recovery-53.png",
+      "tick": 53,
+      "frame": {
+        "index": 49,
+        "clip": "attack",
+        "local": 11,
+        "rect": [
+          1089,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_011.png",
+        "startMs": 913,
+        "endMs": 996
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-boss_fist_strike",
+      "file": "gauntlet_combo_guard-right-boss_fist_strike-55.png",
+      "tick": 55,
+      "frame": {
+        "index": 50,
+        "clip": "attack",
+        "local": 12,
+        "rect": [
+          1089,
+          242,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_012.png",
+        "startMs": 996,
+        "endMs": 1079
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-recovery",
+      "file": "gauntlet_combo_guard-right-recovery-61.png",
+      "tick": 61,
+      "frame": {
+        "index": 57,
+        "clip": "attack",
+        "local": 19,
+        "rect": [
+          968,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_019.png",
+        "startMs": 1577,
+        "endMs": 1660
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-boss_fist_wave",
+      "file": "gauntlet_combo_guard-right-boss_fist_wave-67.png",
+      "tick": 67,
+      "frame": {
+        "index": 64,
+        "clip": "attack",
+        "local": 26,
+        "rect": [
+          847,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_026.png",
+        "startMs": 2158,
+        "endMs": 2241
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_wave",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "right-recovery",
+      "file": "gauntlet_combo_guard-right-recovery-73.png",
+      "tick": 73,
+      "frame": {
+        "index": 67,
+        "clip": "attack",
+        "local": 29,
+        "rect": [
+          847,
+          121,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_029.png",
+        "startMs": 2407,
+        "endMs": 2490
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_wave",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-windup-start",
+      "file": "kilnback_pincerbeast-right-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 31,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          303,
+          404,
+          100,
+          100
+        ],
+        "sourceFrame": 0,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-windup",
+      "file": "kilnback_pincerbeast-right-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 33,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          606,
+          606,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-windup",
+      "file": "kilnback_pincerbeast-right-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 35,
+        "clip": "attack",
+        "local": 4,
+        "rect": [
+          606,
+          404,
+          100,
+          100
+        ],
+        "sourceFrame": 4,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 332,
+        "endMs": 415
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-boss_pincer_snap",
+      "file": "kilnback_pincerbeast-right-boss_pincer_snap-81.png",
+      "tick": 81,
+      "frame": {
+        "index": 46,
+        "clip": "attack",
+        "local": 15,
+        "rect": [
+          606,
+          101,
+          100,
+          100
+        ],
+        "sourceFrame": 15,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1245,
+        "endMs": 1328
+      },
+      "face": 1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-recovery",
+      "file": "kilnback_pincerbeast-right-recovery-85.png",
+      "tick": 85,
+      "frame": {
+        "index": 47,
+        "clip": "attack",
+        "local": 16,
+        "rect": [
+          606,
+          0,
+          100,
+          100
+        ],
+        "sourceFrame": 16,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1328,
+        "endMs": 1411
+      },
+      "face": 1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-recovery",
+      "file": "kilnback_pincerbeast-right-recovery-91.png",
+      "tick": 91,
+      "frame": {
+        "index": 48,
+        "clip": "attack",
+        "local": 17,
+        "rect": [
+          505,
+          909,
+          100,
+          100
+        ],
+        "sourceFrame": 17,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1411,
+        "endMs": 1494
+      },
+      "face": 1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-recovery",
+      "file": "kilnback_pincerbeast-right-recovery-99.png",
+      "tick": 99,
+      "frame": {
+        "index": 51,
+        "clip": "hit",
+        "local": 2,
+        "rect": [
+          303,
+          202,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "right-recovery",
+      "file": "kilnback_pincerbeast-right-recovery-111.png",
+      "tick": 111,
+      "frame": {
+        "index": 51,
+        "clip": "hit",
+        "local": 2,
+        "rect": [
+          303,
+          202,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-windup-start",
+      "file": "razorclaw_reaver-right-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 24,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          1179,
+          0,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-windup",
+      "file": "razorclaw_reaver-right-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 25,
+        "clip": "attack",
+        "local": 1,
+        "rect": [
+          1048,
+          786,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_001.png",
+        "startMs": 83,
+        "endMs": 166
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-windup",
+      "file": "razorclaw_reaver-right-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-guard",
+      "file": "razorclaw_reaver-right-guard-45.png",
+      "tick": 45,
+      "frame": {
+        "index": 25,
+        "clip": "attack",
+        "local": 1,
+        "rect": [
+          1048,
+          786,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_001.png",
+        "startMs": 83,
+        "endMs": 166
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-guard",
+      "file": "razorclaw_reaver-right-guard-50.png",
+      "tick": 50,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-guard",
+      "file": "razorclaw_reaver-right-guard-55.png",
+      "tick": 55,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-guard",
+      "file": "razorclaw_reaver-right-guard-60.png",
+      "tick": 60,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-block",
+      "file": "razorclaw_reaver-right-block-82.png",
+      "tick": 82,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_claw_block",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-boss_claw_counter",
+      "file": "razorclaw_reaver-right-boss_claw_counter-94.png",
+      "tick": 94,
+      "frame": {
+        "index": 29,
+        "clip": "attack",
+        "local": 5,
+        "rect": [
+          1048,
+          262,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_005.png",
+        "startMs": 415,
+        "endMs": 498
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-recovery",
+      "file": "razorclaw_reaver-right-recovery-98.png",
+      "tick": 98,
+      "frame": {
+        "index": 30,
+        "clip": "attack",
+        "local": 6,
+        "rect": [
+          1048,
+          131,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_006.png",
+        "startMs": 498,
+        "endMs": 581
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-recovery",
+      "file": "razorclaw_reaver-right-recovery-104.png",
+      "tick": 104,
+      "frame": {
+        "index": 40,
+        "clip": "attack",
+        "local": 16,
+        "rect": [
+          786,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_016.png",
+        "startMs": 1328,
+        "endMs": 1411
+      },
+      "face": 1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-recovery",
+      "file": "razorclaw_reaver-right-recovery-112.png",
+      "tick": 112,
+      "frame": {
+        "index": 42,
+        "clip": "attack",
+        "local": 18,
+        "rect": [
+          786,
+          393,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_018.png",
+        "startMs": 1494,
+        "endMs": 1577
+      },
+      "face": 1,
+      "fx": [
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "right-recovery",
+      "file": "razorclaw_reaver-right-recovery-124.png",
+      "tick": 124,
+      "frame": {
+        "index": 16,
+        "clip": "run",
+        "local": 0,
+        "rect": [
+          655,
+          0,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_run_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-windup-start",
+      "file": "gauntlet_combo_guard-left-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 38,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          1210,
+          726,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-windup",
+      "file": "gauntlet_combo_guard-left-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 40,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1210,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-windup",
+      "file": "gauntlet_combo_guard-left-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 43,
+        "clip": "attack",
+        "local": 5,
+        "rect": [
+          1210,
+          121,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_005.png",
+        "startMs": 415,
+        "endMs": 498
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-boss_fist_strike",
+      "file": "gauntlet_combo_guard-left-boss_fist_strike-43.png",
+      "tick": 43,
+      "frame": {
+        "index": 46,
+        "clip": "attack",
+        "local": 8,
+        "rect": [
+          1089,
+          726,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_008.png",
+        "startMs": 664,
+        "endMs": 747
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-recovery",
+      "file": "gauntlet_combo_guard-left-recovery-47.png",
+      "tick": 47,
+      "frame": {
+        "index": 48,
+        "clip": "attack",
+        "local": 10,
+        "rect": [
+          1089,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_010.png",
+        "startMs": 830,
+        "endMs": 913
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-recovery",
+      "file": "gauntlet_combo_guard-left-recovery-53.png",
+      "tick": 53,
+      "frame": {
+        "index": 49,
+        "clip": "attack",
+        "local": 11,
+        "rect": [
+          1089,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_011.png",
+        "startMs": 913,
+        "endMs": 996
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-boss_fist_strike",
+      "file": "gauntlet_combo_guard-left-boss_fist_strike-55.png",
+      "tick": 55,
+      "frame": {
+        "index": 50,
+        "clip": "attack",
+        "local": 12,
+        "rect": [
+          1089,
+          242,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_012.png",
+        "startMs": 996,
+        "endMs": 1079
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-recovery",
+      "file": "gauntlet_combo_guard-left-recovery-61.png",
+      "tick": 61,
+      "frame": {
+        "index": 57,
+        "clip": "attack",
+        "local": 19,
+        "rect": [
+          968,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_019.png",
+        "startMs": 1577,
+        "endMs": 1660
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-boss_fist_wave",
+      "file": "gauntlet_combo_guard-left-boss_fist_wave-67.png",
+      "tick": 67,
+      "frame": {
+        "index": 64,
+        "clip": "attack",
+        "local": 26,
+        "rect": [
+          847,
+          484,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_026.png",
+        "startMs": 2158,
+        "endMs": 2241
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_wave",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "left-recovery",
+      "file": "gauntlet_combo_guard-left-recovery-73.png",
+      "tick": 73,
+      "frame": {
+        "index": 67,
+        "clip": "attack",
+        "local": 29,
+        "rect": [
+          847,
+          121,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_attack_029.png",
+        "startMs": 2407,
+        "endMs": 2490
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_fist_wave",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-windup-start",
+      "file": "kilnback_pincerbeast-left-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 31,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          303,
+          404,
+          100,
+          100
+        ],
+        "sourceFrame": 0,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-windup",
+      "file": "kilnback_pincerbeast-left-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 33,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          606,
+          606,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-windup",
+      "file": "kilnback_pincerbeast-left-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 35,
+        "clip": "attack",
+        "local": 4,
+        "rect": [
+          606,
+          404,
+          100,
+          100
+        ],
+        "sourceFrame": 4,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 332,
+        "endMs": 415
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-boss_pincer_snap",
+      "file": "kilnback_pincerbeast-left-boss_pincer_snap-81.png",
+      "tick": 81,
+      "frame": {
+        "index": 46,
+        "clip": "attack",
+        "local": 15,
+        "rect": [
+          606,
+          101,
+          100,
+          100
+        ],
+        "sourceFrame": 15,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1245,
+        "endMs": 1328
+      },
+      "face": -1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-recovery",
+      "file": "kilnback_pincerbeast-left-recovery-85.png",
+      "tick": 85,
+      "frame": {
+        "index": 47,
+        "clip": "attack",
+        "local": 16,
+        "rect": [
+          606,
+          0,
+          100,
+          100
+        ],
+        "sourceFrame": 16,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1328,
+        "endMs": 1411
+      },
+      "face": -1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-recovery",
+      "file": "kilnback_pincerbeast-left-recovery-91.png",
+      "tick": 91,
+      "frame": {
+        "index": 48,
+        "clip": "attack",
+        "local": 17,
+        "rect": [
+          505,
+          909,
+          100,
+          100
+        ],
+        "sourceFrame": 17,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 1411,
+        "endMs": 1494
+      },
+      "face": -1,
+      "fx": [
+        "boss_pincer_snap",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-recovery",
+      "file": "kilnback_pincerbeast-left-recovery-99.png",
+      "tick": 99,
+      "frame": {
+        "index": 51,
+        "clip": "hit",
+        "local": 2,
+        "rect": [
+          303,
+          202,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "left-recovery",
+      "file": "kilnback_pincerbeast-left-recovery-111.png",
+      "tick": 111,
+      "frame": {
+        "index": 51,
+        "clip": "hit",
+        "local": 2,
+        "rect": [
+          303,
+          202,
+          100,
+          100
+        ],
+        "sourceFrame": 2,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-windup-start",
+      "file": "razorclaw_reaver-left-windup-start-13.png",
+      "tick": 13,
+      "frame": {
+        "index": 24,
+        "clip": "attack",
+        "local": 0,
+        "rect": [
+          1179,
+          0,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-windup",
+      "file": "razorclaw_reaver-left-windup-23.png",
+      "tick": 23,
+      "frame": {
+        "index": 25,
+        "clip": "attack",
+        "local": 1,
+        "rect": [
+          1048,
+          786,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_001.png",
+        "startMs": 83,
+        "endMs": 166
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-windup",
+      "file": "razorclaw_reaver-left-windup-33.png",
+      "tick": 33,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-guard",
+      "file": "razorclaw_reaver-left-guard-45.png",
+      "tick": 45,
+      "frame": {
+        "index": 25,
+        "clip": "attack",
+        "local": 1,
+        "rect": [
+          1048,
+          786,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_001.png",
+        "startMs": 83,
+        "endMs": 166
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-guard",
+      "file": "razorclaw_reaver-left-guard-50.png",
+      "tick": 50,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-guard",
+      "file": "razorclaw_reaver-left-guard-55.png",
+      "tick": 55,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-guard",
+      "file": "razorclaw_reaver-left-guard-60.png",
+      "tick": 60,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-block",
+      "file": "razorclaw_reaver-left-block-82.png",
+      "tick": 82,
+      "frame": {
+        "index": 26,
+        "clip": "attack",
+        "local": 2,
+        "rect": [
+          1048,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": -1,
+      "fx": [
+        "boss_claw_block",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-boss_claw_counter",
+      "file": "razorclaw_reaver-left-boss_claw_counter-94.png",
+      "tick": 94,
+      "frame": {
+        "index": 29,
+        "clip": "attack",
+        "local": 5,
+        "rect": [
+          1048,
+          262,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_005.png",
+        "startMs": 415,
+        "endMs": 498
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-recovery",
+      "file": "razorclaw_reaver-left-recovery-98.png",
+      "tick": 98,
+      "frame": {
+        "index": 30,
+        "clip": "attack",
+        "local": 6,
+        "rect": [
+          1048,
+          131,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_006.png",
+        "startMs": 498,
+        "endMs": 581
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-recovery",
+      "file": "razorclaw_reaver-left-recovery-104.png",
+      "tick": 104,
+      "frame": {
+        "index": 40,
+        "clip": "attack",
+        "local": 16,
+        "rect": [
+          786,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_016.png",
+        "startMs": 1328,
+        "endMs": 1411
+      },
+      "face": -1,
+      "fx": [
+        "hit_spark",
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-recovery",
+      "file": "razorclaw_reaver-left-recovery-112.png",
+      "tick": 112,
+      "frame": {
+        "index": 42,
+        "clip": "attack",
+        "local": 18,
+        "rect": [
+          786,
+          393,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_attack_018.png",
+        "startMs": 1494,
+        "endMs": 1577
+      },
+      "face": -1,
+      "fx": [
+        "boss_claw_counter",
+        "hit_spark",
+        "hit_spark",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "left-recovery",
+      "file": "razorclaw_reaver-left-recovery-124.png",
+      "tick": 124,
+      "frame": {
+        "index": 16,
+        "clip": "run",
+        "local": 0,
+        "rect": [
+          655,
+          0,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_run_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": -1,
+      "fx": [],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "cancelled",
+      "file": "gauntlet_combo_guard-cancelled-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 75,
+        "clip": "hit",
+        "local": 2,
+        "rect": [
+          363,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_hit_002.png",
+        "startMs": 166,
+        "endMs": 249
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "gauntlet_combo_guard",
+      "label": "death",
+      "file": "gauntlet_combo_guard-death-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 76,
+        "clip": "death",
+        "local": 0,
+        "rect": [
+          726,
+          363,
+          120,
+          120
+        ],
+        "sourceFrame": "neutral_sunsteeldefender_death_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning",
+        "hit_spark",
+        "boss_fist_strike",
+        "hit_spark"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "cancelled",
+      "file": "kilnback_pincerbeast-cancelled-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 10,
+        "clip": "idle",
+        "local": 10,
+        "rect": [
+          101,
+          202,
+          100,
+          100
+        ],
+        "sourceFrame": 10,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 830,
+        "endMs": 913
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "kilnback_pincerbeast",
+      "label": "death",
+      "file": "kilnback_pincerbeast-death-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 52,
+        "clip": "death",
+        "local": 0,
+        "rect": [
+          606,
+          808,
+          100,
+          100
+        ],
+        "sourceFrame": 0,
+        "imageId": "sha256:cbff48e4e93b1d3ec583035881a6ef2f55a8e27c0282f4badb20755e9732b977",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "cancelled",
+      "file": "razorclaw_reaver-cancelled-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 10,
+        "clip": "idle",
+        "local": 10,
+        "rect": [
+          0,
+          655,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_idle_010.png",
+        "startMs": 830,
+        "endMs": 913
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    },
+    {
+      "role": "razorclaw_reaver",
+      "label": "death",
+      "file": "razorclaw_reaver-death-51.png",
+      "tick": 51,
+      "frame": {
+        "index": 46,
+        "clip": "death",
+        "local": 0,
+        "rect": [
+          524,
+          524,
+          130,
+          130
+        ],
+        "sourceFrame": "neutral_razorcraggolem_death_000.png",
+        "startMs": 0,
+        "endMs": 83
+      },
+      "face": 1,
+      "fx": [
+        "boss_warning"
+      ],
+      "ready": true
+    }
+  ]
+}

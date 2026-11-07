@@ -1,0 +1,2 @@
+PASS old committed solo and multi ledgers preserve payout; next round uses new payout; settlement idempotent
+PASS legacy 0G recovery and partially committed multiplayer round

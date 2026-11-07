@@ -1,0 +1,17 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo exact two-line ending and challenge text
+PASS cashout keeps two semantic spans and repeated sync preserves their nodes
+PASS cashout label can switch to record only and back without a stale subtitle
+PASS solo continuation opens round 11 without changing balance
+PASS all-in choice commits exactly current balance
+PASS solo finish finalizes once and preserves honest standalone status
+PASS 0G terminal result has neither choice
+PASS 0G prediction sets singleton layout and commits zero
+PASS ordinary six options reset singleton styling
+PASS multi has exact choices and preserves selected waiting state
+PASS multi finish uses existing single cashout path
+PASS multi spectator does not get own ranking/cashout actions
+PASS unsafe numeric amount does not fabricate a ranking success
+{"dedicatedChecks":13,"passed":13}
+PASS CSS contracts

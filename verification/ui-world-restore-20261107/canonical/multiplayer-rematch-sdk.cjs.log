@@ -1,0 +1,13 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment desert
+PASS deferred image callbacks
+PASS same native room, fresh session, dropped invitation and host-timeout recovery, clean ledger/history
+PASS stale bets/cashouts and untrusted restart senders rejected
+PASS SDK discovery uses the replacement session for new arrivals
+PASS missed terminal cashout receipt recovered before guest adopts next game
+PASS delayed old-session transport failure cannot stop rematch
+PASS repeated rematch uses unique identity and ignores prior rollover replay
+PASS score dedup stays once per player per distinct game

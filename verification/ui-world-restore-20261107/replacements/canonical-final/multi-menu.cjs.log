@@ -1,0 +1,19 @@
+PASS boot 5 scripts
+PASS solo start
+evalmachine.<anonymous>:33
+  for(const id of ['#pause','#unitsToggle','#reactionToggle'])if(document.querySelector(id).hidden || !document.querySelector(id).disabled)throw Error('prediction utility gate: '+id);
+                                                                                                                                           ^
+
+Error: prediction utility gate: #pause
+    at evalmachine.<anonymous>:33:146
+    at Script.runInContext (node:vm:149:12)
+    at Object.runInContext (node:vm:301:6)
+    at eval (eval at <anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/multi-menu.cjs:3:1), <anonymous>:6:4)
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/multi-menu.cjs:40:3)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+
+Node.js v24.22.1

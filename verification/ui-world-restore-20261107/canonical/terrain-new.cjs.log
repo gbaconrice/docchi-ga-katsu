@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment highland
+PASS 8 environment labels, validation and legacy sessions; highland movement; volcano 8s symmetric ground-only pulse

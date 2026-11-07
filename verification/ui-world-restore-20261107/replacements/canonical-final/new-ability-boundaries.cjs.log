@@ -1,0 +1,69 @@
+PASS boot 5 scripts
+PASS solo start
+PASS all 300 types: 265 eligible and 35 excluded with explicit predicate matrix
+PASS revival rejects live, enemy, summoned, owned, revived and claimed corpses
+PASS fresh physical revival preserves finite resources and discards transient state
+PASS 90-tick windup and exactly one successful revival per army across two casters
+PASS revival HP ratio/cap terrain 100/false
+PASS revival HP ratio/cap terrain 1000/false
+PASS revival HP ratio/cap terrain 1000/true
+PASS revival commit boundary source-dead
+PASS revival commit boundary claimed
+PASS revival commit boundary out-of-range
+PASS revival commit boundary army-used
+PASS revival commit boundary living-cap
+PASS revival commit boundary pending-cap
+PASS revival commit boundary history-cap
+PASS revival commit boundary no-space
+PASS revival commit boundary timeout
+PASS battle ending during channel cancels before a revival can rescue result
+PASS bounded placement finds clear corpse location and returns null in an obstructed arena
+PASS death burst selects nearest four ground enemies including body edge, excludes air/friend
+PASS body edge beyond center radius remains eligible and just outside edge does not
+PASS death burst initial-body guard {"ownerToken":"parent"}
+PASS death burst initial-body guard {"summoned":true}
+PASS death burst initial-body guard {"revived":true}
+PASS death burst initial-body guard {"deathExplosionSpent":true}
+PASS burst does not trigger reflect/lifesteal/follow-up or repeatedly fire
+PASS moth applies next tick and neither refreshes nor stacks while immune
+PASS tick-start cleanse removes root and exposure, leaves poison and immunity
+PASS new exposure is not cleansed on applying tick; lockout survives later cleanse
+PASS exposure clear helper preserves immunity; dead tick removes it
+PASS effect ID append-only: all old FX kinds preserve indices
+PASS death burst consumes one-hit ward once across simultaneous sources
+PASS burst resolves before revival completion and can cancel due caster
+PASS same-tick summon reservation takes last slot before revival
+PASS expiry observations retain original expiry ticks and emit once
+PASS MVP credits revived direct hits to original but excludes summoned descendants
+PASS revival history boundary 255
+PASS revival history boundary 511
+PASS revival history boundary 512
+PASS revival acquisition cutoff 58.46666666666667
+PASS revival acquisition cutoff 58.483333333333334
+PASS revival acquisition cutoff 58.5
+PASS placement obstruction evaluates exactly 25 bounded probes
+PASS burst stable tie ordering survives reversed roster
+PASS simultaneous moth exposure source selection is stable under reversed roster
+PASS same-tick normal ally attack is not amplified by newly reserved exposure
+PASS exposure excludes poison damage
+PASS exposure excludes terrain damage
+PASS exposure excludes counter damage
+PASS revival preserves normal-pillar lifetime lock pillar_hammerer
+PASS revival preserves normal-pillar lifetime lock spectralhand_wizard
+PASS revival preserves normal-pillar lifetime lock colossal_hornfist
+PASS rune comparison states slow root and exposure cleanse with support tone
+SUMMARY 52 passed, 1 failed. Node VM checks only; no browser or real-network claim.
+FAIL presentation exposure bit is time bounded and replay validates extended range AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(/validFlags[^\n]*<=65535/.test(html))
+
+    at /tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/new-ability-boundaries.cjs:35:463
+    at test (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/new-ability-boundaries.cjs:15:46)
+    at Object.<anonymous> (/tmp/docchi-canonical-W7bfVs/source/validation-preview/tests/new-ability-boundaries.cjs:35:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47

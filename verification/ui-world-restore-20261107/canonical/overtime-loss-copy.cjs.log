@@ -1,0 +1,22 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo round 1 exact copy and all-in option
+PASS solo round 10 exact copy and all-in option
+PASS solo round 11 exact copy and all-in option
+PASS solo round 12 exact copy and all-in option
+PASS solo round 99 exact copy and all-in option
+PASS solo ordinary round clears overtime copy after repeat update
+PASS multi round 1 exact copy and all-in option
+PASS multi round 10 exact copy and all-in option
+PASS multi round 11 exact copy and all-in option
+PASS multi round 12 exact copy and all-in option
+PASS multi round 99 exact copy and all-in option
+PASS multi ordinary round clears overtime copy after repeat update
+PASS SoloWallet round 11 A settlement unchanged
+PASS SoloWallet round 11 B settlement unchanged
+PASS SoloWallet round 11 draw settlement unchanged
+PASS Wallet round 11 A settlement unchanged
+PASS Wallet round 11 B settlement unchanged
+PASS Wallet round 11 draw settlement unchanged
+{"dedicatedChecks":18,"passed":18,"scope":"VM UI and actual wallet engines; no live SDK/network"}
+PASS exact copy-only preservation, unchanged terrain and all CSS/DOM

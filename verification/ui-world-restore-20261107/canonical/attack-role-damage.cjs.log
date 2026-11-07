@@ -1,0 +1,25 @@
+PASS boot 5 scripts
+PASS solo start
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: shockplate_drake first real hit matches shown attack
+    at eval (eval at <anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/attack-role-damage.cjs:3:1), <anonymous>:19:147)
+    at Object.<anonymous> (/tmp/docchi-canonical-MUXdNJ/source/validation-preview/tests/attack-role-damage.cjs:24:3)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 38.4,
+  expected: 34.56000000000001,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

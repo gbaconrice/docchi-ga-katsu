@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS 60 synthetic single-drake late-round cases avoid errors and repeats

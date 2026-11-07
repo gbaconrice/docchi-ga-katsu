@@ -1,0 +1,135 @@
+{
+  "result": "PASS",
+  "cases": 576,
+  "labels": [
+    {
+      "id": "grassland",
+      "p": 4,
+      "text": "草原 · 補正なし"
+    },
+    {
+      "id": "shallow_ford",
+      "p": 4,
+      "text": "浅瀬 · 地上移動−4%"
+    },
+    {
+      "id": "crosswind_ridge",
+      "p": 4,
+      "text": "荒野 · 射撃間合い−4%"
+    },
+    {
+      "id": "desert",
+      "p": 4,
+      "text": "砂漠 · 回復量−4%"
+    },
+    {
+      "id": "icefield",
+      "p": 4,
+      "text": "氷原 · 押し出し距離+4%"
+    },
+    {
+      "id": "highland",
+      "p": 4,
+      "text": "高地 · 飛行移動−4%"
+    },
+    {
+      "id": "rockfield",
+      "p": 4,
+      "text": "岩場 · 突撃追加ダメージ−4%"
+    },
+    {
+      "id": "volcano",
+      "p": 4,
+      "text": "火山 · 地上に最大HP2%ダメージ/8秒"
+    },
+    {
+      "id": "grassland",
+      "p": 8,
+      "text": "草原 · 補正なし"
+    },
+    {
+      "id": "shallow_ford",
+      "p": 8,
+      "text": "浅瀬 · 地上移動−8%"
+    },
+    {
+      "id": "crosswind_ridge",
+      "p": 8,
+      "text": "荒野 · 射撃間合い−8%"
+    },
+    {
+      "id": "desert",
+      "p": 8,
+      "text": "砂漠 · 回復量−8%"
+    },
+    {
+      "id": "icefield",
+      "p": 8,
+      "text": "氷原 · 押し出し距離+8%"
+    },
+    {
+      "id": "highland",
+      "p": 8,
+      "text": "高地 · 飛行移動−8%"
+    },
+    {
+      "id": "rockfield",
+      "p": 8,
+      "text": "岩場 · 突撃追加ダメージ−8%"
+    },
+    {
+      "id": "volcano",
+      "p": 8,
+      "text": "火山 · 地上に最大HP4%ダメージ/8秒"
+    },
+    {
+      "id": "grassland",
+      "p": 12,
+      "text": "草原 · 補正なし"
+    },
+    {
+      "id": "shallow_ford",
+      "p": 12,
+      "text": "浅瀬 · 地上移動−12%"
+    },
+    {
+      "id": "crosswind_ridge",
+      "p": 12,
+      "text": "荒野 · 射撃間合い−12%"
+    },
+    {
+      "id": "desert",
+      "p": 12,
+      "text": "砂漠 · 回復量−12%"
+    },
+    {
+      "id": "icefield",
+      "p": 12,
+      "text": "氷原 · 押し出し距離+12%"
+    },
+    {
+      "id": "highland",
+      "p": 12,
+      "text": "高地 · 飛行移動−12%"
+    },
+    {
+      "id": "rockfield",
+      "p": 12,
+      "text": "岩場 · 突撃追加ダメージ−12%"
+    },
+    {
+      "id": "volcano",
+      "p": 12,
+      "text": "火山 · 地上に最大HP6%ダメージ/8秒"
+    }
+  ],
+  "canonicalFieldsUnchanged": false,
+  "walletRulesUnchanged": false,
+  "noTerrainControls": true,
+  "existingUnitsToggleRetained": true,
+  "independentScrollableTerrainSlot": true,
+  "minimumWallet88": true,
+  "renderedBrowser": false,
+  "realIOS": false,
+  "notes": "Pure formatter/static CSS/box arithmetic. Real font audit is separate evidence; final browser geometry is not claimed."
+}

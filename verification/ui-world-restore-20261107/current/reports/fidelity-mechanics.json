@@ -1,0 +1,1604 @@
+{
+  "sha": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "checks": [
+    {
+      "name": "shield break numeric snapshot",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 101.25,
+            "delivery": "boss_melee"
+          }
+        ],
+        "expected": 101.25
+      }
+    },
+    {
+      "name": "phase actual rear insertion",
+      "pass": true,
+      "detail": {
+        "before": 180,
+        "after": 366.0224609375,
+        "y": 226.1044921875,
+        "layer": "ground",
+        "infiltrated": true
+      }
+    },
+    {
+      "name": "control expiry and immunity",
+      "pass": true,
+      "detail": {
+        "applied": [
+          true,
+          false
+        ],
+        "repeated": false,
+        "start": 269.466552734375,
+        "rooted": 269.466552734375,
+        "after": 266.265869140625
+      }
+    },
+    {
+      "name": "ring shield absorbs pool and break pushes",
+      "pass": true,
+      "detail": {
+        "damage": [
+          30,
+          34,
+          50,
+          50
+        ],
+        "pool": 0,
+        "moved": 36.0000393398719
+      }
+    },
+    {
+      "name": "shell intercept then wave",
+      "pass": true,
+      "detail": {
+        "protectedLoss": 0,
+        "guardLoss": 65,
+        "enemyLoss": 24,
+        "enemyMoved": 42.00002212750896
+      }
+    },
+    {
+      "name": "silver arm actual doubled counter",
+      "pass": true,
+      "detail": {
+        "protectedLoss": 20,
+        "guardLoss": 30,
+        "counterLoss": 60
+      }
+    },
+    {
+      "name": "curse blocks actual healing while alive and after source death",
+      "pass": true,
+      "detail": {
+        "returned": 0,
+        "before": 400,
+        "after": 400,
+        "curse": 0
+      }
+    },
+    {
+      "name": "lava center damage exceeds outer, remains stationary",
+      "pass": true,
+      "detail": {
+        "inner": 54.72000000000003,
+        "outer": 21.888000000000147,
+        "moved": 0
+      }
+    },
+    {
+      "name": "growth capped and replay max HP reconstructed",
+      "pass": true,
+      "detail": {
+        "growth": 5,
+        "scale": 1.4,
+        "maxHp": 1380,
+        "hp": 898.3377567260322,
+        "replayMaxHp": 1380,
+        "base": 1150,
+        "replayScale": 1.4
+      }
+    },
+    {
+      "name": "reaper execute threshold and growth",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 168.75,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 67.5,
+            "delivery": "boss_melee"
+          }
+        ],
+        "dead": true,
+        "harvest": 1,
+        "scale": 1.06
+      }
+    },
+    {
+      "name": "moon doubles only movement and keeps active",
+      "pass": true,
+      "detail": {
+        "delta": 24.00146484375,
+        "expected": 24,
+        "moon": true,
+        "speed": 2,
+        "attack": 1
+      }
+    },
+    {
+      "name": "crystal reflection and collateral real hp",
+      "pass": true,
+      "detail": {
+        "guard": 100,
+        "attacker": 35,
+        "collateral": 10
+      }
+    },
+    {
+      "name": "two held enemies absorb damage",
+      "pass": true,
+      "detail": {
+        "held": 2,
+        "guard": 65,
+        "first": 17.5,
+        "second": 17.5
+      }
+    },
+    {
+      "name": "all-ally fury changes damage",
+      "pass": true,
+      "detail": {
+        "damage": 135,
+        "allyFury": true,
+        "initialBossHits": 0,
+        "allyStrength": 1.35
+      }
+    },
+    {
+      "name": "edge beam hits both battlefield sides but not offline",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 114.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 114.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 114.4,
+            "delivery": "boss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "poison fog expands into previously unhit ground target",
+      "pass": true,
+      "detail": {
+        "early": [
+          998.8,
+          1000,
+          1000
+        ],
+        "late": [
+          968.1999999999998,
+          988.5999999999999,
+          1000
+        ],
+        "poison": {
+          "start": 124,
+          "until": 259,
+          "strength": 7.800000000000001,
+          "sourceToken": "audit:1",
+          "sourceKind": "spore_toad",
+          "next": 214
+        }
+      }
+    },
+    {
+      "name": "slime exact three then nine children, no third generation",
+      "pass": true,
+      "detail": {
+        "first": 3,
+        "second": 9,
+        "total": 12,
+        "gens": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "thornback pins and damages enemies all around",
+      "pass": true,
+      "detail": [
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 0,
+          "root": false,
+          "movement": 0
+        }
+      ]
+    },
+    {
+      "name": "roarfang stun cancels enemy windup and creates shake cue",
+      "pass": true,
+      "detail": {
+        "loss": [
+          35,
+          35
+        ],
+        "blocked": [
+          true,
+          true
+        ],
+        "quake": true
+      }
+    },
+    {
+      "name": "iceclaw three hits freeze and final shatter collateral",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 19.575,
+            "delivery": "boss_projectile"
+          }
+        ],
+        "frozen": true,
+        "early": 1000,
+        "late": 980.425
+      }
+    },
+    {
+      "name": "gauntlet throw changes position and damages landing cluster",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 38.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 25.6,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 25.6,
+            "delivery": "boss"
+          }
+        ],
+        "distance": 74,
+        "collateral": [
+          25.600000000000023,
+          25.600000000000023
+        ]
+      }
+    },
+    {
+      "name": "emberwing orbits and repeated rain damages current target",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          }
+        ],
+        "positions": [
+          {
+            "x": 207.056884765625,
+            "y": 239.88427734375
+          },
+          {
+            "x": 229.79833984375,
+            "y": 224.864501953125
+          },
+          {
+            "x": 249.781005859375,
+            "y": 215.9208984375
+          },
+          {
+            "x": 273.245849609375,
+            "y": 216.56787109375
+          },
+          {
+            "x": 291.651123046875,
+            "y": 226.165283203125
+          },
+          {
+            "x": 297.966552734375,
+            "y": 241.046875
+          },
+          {
+            "x": 289.7802734375,
+            "y": 255.52880859375
+          },
+          {
+            "x": 270.218994140625,
+            "y": 264.0791015625
+          },
+          {
+            "x": 246.754150390625,
+            "y": 263.43212890625
+          },
+          {
+            "x": 228.348876953125,
+            "y": 253.834716796875
+          },
+          {
+            "x": 222.033447265625,
+            "y": 238.953125
+          },
+          {
+            "x": 230.2197265625,
+            "y": 224.47119140625
+          }
+        ],
+        "ended": true,
+        "started": true,
+        "startGap": 29.80615234375,
+        "range": 30,
+        "angle": 7.339478480921871
+      }
+    },
+    {
+      "name": "skullflare selects three different enemies and burn ticks",
+      "pass": true,
+      "detail": {
+        "status": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          },
+          {
+            "target": "audit:3",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          },
+          {
+            "target": "audit:4",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          }
+        ]
+      }
+    },
+    {
+      "name": "treant roots distant cluster but not isolated enemy",
+      "pass": true,
+      "detail": [
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 1000,
+          "root": false
+        }
+      ]
+    },
+    {
+      "name": "rhino charge freezes surrounding enemies and retreats for next run",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 61.625,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 61.625,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "firstImpact": 95,
+        "retreatDistance": 34.649658203125,
+        "freezes": [
+          500,
+          512
+        ]
+      }
+    },
+    {
+      "name": "light pillars progress forward and do not double-hit",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 74.75,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 74.75,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 74.75,
+            "delivery": "boss"
+          }
+        ],
+        "first": 19,
+        "second": 31,
+        "third": 43,
+        "off": 1000,
+        "stuns": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "name": "fire ring reaches increasing radii once per target",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          }
+        ],
+        "first": 0,
+        "second": 23,
+        "third": 35,
+        "off": 1000
+      }
+    },
+    {
+      "name": "fiery coil swells at low hp and death blast bounded once",
+      "pass": true,
+      "detail": {
+        "scale": 1.375,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 106.92000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 106.92000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "repeat": 0,
+        "far": 1000
+      }
+    },
+    {
+      "name": "uppercut disables target then landing damages neighbours",
+      "pass": true,
+      "detail": {
+        "air": true,
+        "early": 1000,
+        "late": 954.76,
+        "airEnded": true
+      }
+    },
+    {
+      "name": "pincer lifts then crushes one target after delay",
+      "pass": true,
+      "detail": {
+        "early": 1000,
+        "air": true,
+        "pulled": 20,
+        "late": 859.6,
+        "other": 1000
+      }
+    },
+    {
+      "name": "golem leaves collision wall and two finite minions",
+      "pass": true,
+      "detail": {
+        "children": [
+          {
+            "k": "stone_mason",
+            "hp": 110,
+            "expires": 602
+          },
+          {
+            "k": "stone_mason",
+            "hp": 110,
+            "expires": 602
+          }
+        ],
+        "enemyX": 218.998046875,
+        "wallRight": 219,
+        "wallFx": true
+      }
+    },
+    {
+      "name": "shockplate chain hops with falloff and armor reduces damage",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 34.56000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.648000000000007,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 22.118400000000012,
+            "delivery": "boss"
+          }
+        ],
+        "received": 82
+      }
+    },
+    {
+      "name": "thunderhorn first thrust then delayed area lightning",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 53.760000000000005,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 42.24000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 42.24000000000001,
+            "delivery": "boss"
+          }
+        ],
+        "early": 1000,
+        "late": 957.76
+      }
+    },
+    {
+      "name": "stormhorn third strike adds collateral lightning",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.720000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 18.720000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "early": 1000,
+        "late": 981.28
+      }
+    },
+    {
+      "name": "stonepulse launches only enemies on forward crack",
+      "pass": true,
+      "detail": [
+        {
+          "hp": 946,
+          "air": true
+        },
+        {
+          "hp": 946,
+          "air": true
+        },
+        {
+          "hp": 1000,
+          "air": false
+        },
+        {
+          "hp": 1000,
+          "air": false
+        }
+      ]
+    },
+    {
+      "name": "dual dragon fire ice simultaneous, delayed intersection explosion",
+      "pass": true,
+      "detail": {
+        "flags": {
+          "burn": true,
+          "freeze": true
+        },
+        "early": 1000,
+        "late": 973.6,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "white dragon freezes forward cone but not rear",
+      "pass": true,
+      "detail": [
+        {
+          "hp": 938.56,
+          "freeze": true,
+          "blocked": true
+        },
+        {
+          "hp": 938.56,
+          "freeze": true,
+          "blocked": true
+        },
+        {
+          "hp": 1000,
+          "freeze": false,
+          "blocked": false
+        }
+      ]
+    },
+    {
+      "name": "basalt death lightning multiple targets and stun exactly once",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 95,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 95,
+            "delivery": "boss"
+          }
+        ],
+        "stuns": [
+          true,
+          true,
+          false
+        ],
+        "repeat": 0
+      }
+    },
+    {
+      "name": "frost breath delays attack cooldown and stops movement",
+      "pass": true,
+      "detail": {
+        "p": 239.466552734375,
+        "cd": 9.983333333333333,
+        "mid": {
+          "x": 239.466552734375,
+          "cd": 9.983333333333333,
+          "blocked": true
+        },
+        "lateCd": 9.883333333333328,
+        "lateBlocked": false
+      }
+    },
+    {
+      "name": "chimera separate bite fire poison targets",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 38.400000000000006,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 24.960000000000004,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 17.280000000000005,
+            "delivery": "boss"
+          }
+        ],
+        "status": [
+          {
+            "burn": false,
+            "poison": false
+          },
+          {
+            "burn": true,
+            "poison": false
+          },
+          {
+            "burn": false,
+            "poison": true
+          },
+          {
+            "burn": false,
+            "poison": false
+          }
+        ],
+        "hp": [
+          961.6,
+          971.584,
+          978.304,
+          1000
+        ]
+      }
+    },
+    {
+      "name": "bluefist radial ground pound damages stuns both sides",
+      "pass": true,
+      "detail": [
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 1000,
+          "stun": false
+        }
+      ]
+    },
+    {
+      "name": "cinder tail damages and burns all around",
+      "pass": true,
+      "detail": {
+        "hp": [
+          938,
+          938,
+          938,
+          1000
+        ],
+        "burn": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "dots": 3
+      }
+    },
+    {
+      "name": "fire pillars follow target between sequential warnings",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          }
+        ],
+        "warnings": [
+          {
+            "x": 260,
+            "y": 240
+          },
+          {
+            "x": 260,
+            "y": 330
+          },
+          {
+            "x": 260,
+            "y": 410
+          }
+        ]
+      }
+    },
+    {
+      "name": "spikeburst rolls and fires three distinct radial pulses",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          }
+        ],
+        "moved": 48.404296875,
+        "rolling": true
+      }
+    },
+    {
+      "name": "twin firebirds delay explosion at crossing, hit area only",
+      "pass": true,
+      "detail": {
+        "early": [
+          1000,
+          1000,
+          1000
+        ],
+        "late": [
+          944.8,
+          944.8,
+          1000
+        ],
+        "birds": 2,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 55.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 55.199999999999996,
+            "delivery": "boss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "redhorn actual charge scoops target behind body",
+      "pass": true,
+      "detail": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 56.160000000000004,
+            "delivery": "boss_melee"
+          }
+        ],
+        "bossX": 281.3974609375,
+        "targetX": 234.447509765625,
+        "air": true
+      }
+    },
+    {
+      "name": "cyanrise stationary spin pushes and projectile damage reduced",
+      "pass": true,
+      "detail": {
+        "x": 180,
+        "after": 180,
+        "enemyShift": 16,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 14.688000000000002,
+            "delivery": "boss_melee"
+          }
+        ],
+        "losses": [
+          27.5,
+          100
+        ]
+      }
+    },
+    {
+      "name": "ringneck chooses rear archer over front and pulls after warning",
+      "pass": true,
+      "detail": {
+        "early": 1000,
+        "hits": [
+          {
+            "target": "audit:3",
+            "amount": 92.225,
+            "delivery": "boss_melee"
+          }
+        ],
+        "front": 1000,
+        "rear": 907.775,
+        "pull": 45
+      }
+    },
+    {
+      "name": "meteor chooses dense cluster rather than nearest target",
+      "pass": true,
+      "detail": {
+        "early": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "late": [
+          1000,
+          924.6,
+          924.6,
+          924.6
+        ],
+        "hits": [
+          {
+            "target": "audit:3",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:5",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "lich resurrects three new natural enemies and excludes child corpses",
+      "pass": true,
+      "detail": {
+        "count": 3,
+        "raised": 3,
+        "children": [
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          },
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          },
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          }
+        ],
+        "total": 3
+      }
+    },
+    {
+      "name": "lich conversion spawns skeleton at corpse not at caster",
+      "pass": true,
+      "detail": {
+        "exists": true,
+        "corpseDistance": 0,
+        "casterDistance": 180
+      }
+    },
+    {
+      "name": "all delayed direct payloads cancel on source death",
+      "pass": true,
+      "detail": [
+        {
+          "id": "iceclaw_legend",
+          "hits": []
+        },
+        {
+          "id": "gauntlet_combo_guard",
+          "hits": []
+        },
+        {
+          "id": "pillar_hammerer",
+          "hits": []
+        },
+        {
+          "id": "colossal_hornfist",
+          "hits": []
+        },
+        {
+          "id": "kilnback_pincerbeast",
+          "hits": []
+        },
+        {
+          "id": "bluehorn_invoker",
+          "hits": []
+        },
+        {
+          "id": "flamering_magus",
+          "hits": []
+        },
+        {
+          "id": "thunderhorn_beast",
+          "hits": []
+        },
+        {
+          "id": "stormhorn_tripler",
+          "hits": []
+        },
+        {
+          "id": "plated_dualdragon",
+          "hits": []
+        },
+        {
+          "id": "emberfist_pillarer",
+          "hits": []
+        },
+        {
+          "id": "veteran_flamewing",
+          "hits": []
+        },
+        {
+          "id": "ringneck_prowler",
+          "hits": []
+        }
+      ]
+    },
+    {
+      "name": "phase displacement cancels on death",
+      "pass": true,
+      "detail": {
+        "x": 180,
+        "y": 240,
+        "afterX": 180,
+        "afterY": 240
+      }
+    },
+    {
+      "name": "persistent zones survive death but expire finitely",
+      "pass": true,
+      "detail": [
+        {
+          "id": "darkfan_clawlord",
+          "first": 7,
+          "after": 0
+        },
+        {
+          "id": "spore_toad",
+          "first": 4,
+          "after": 0
+        },
+        {
+          "id": "flameburst_mythron",
+          "first": 4,
+          "after": 0
+        }
+      ]
+    },
+    {
+      "name": "both growth ladders reconstruct each replay stage and max HP",
+      "pass": true,
+      "detail": [
+        {
+          "kind": "accretion_burstcore",
+          "stages": [
+            {
+              "tick": 1,
+              "maxHp": 1196,
+              "scale": 1.08,
+              "replayMax": 1196,
+              "replayScale": 1.1
+            },
+            {
+              "tick": 2,
+              "maxHp": 1242,
+              "scale": 1.16,
+              "replayMax": 1242,
+              "replayScale": 1.15
+            },
+            {
+              "tick": 3,
+              "maxHp": 1288.0000000000002,
+              "scale": 1.24,
+              "replayMax": 1288.0000000000002,
+              "replayScale": 1.25
+            },
+            {
+              "tick": 4,
+              "maxHp": 1334,
+              "scale": 1.32,
+              "replayMax": 1334,
+              "replayScale": 1.3
+            },
+            {
+              "tick": 5,
+              "maxHp": 1380,
+              "scale": 1.4,
+              "replayMax": 1380,
+              "replayScale": 1.4
+            }
+          ]
+        },
+        {
+          "kind": "bonefan_reaper",
+          "stages": [
+            {
+              "tick": 1,
+              "maxHp": 1178.75,
+              "scale": 1.06,
+              "replayMax": 1178.75,
+              "replayScale": 1.05
+            },
+            {
+              "tick": 2,
+              "maxHp": 1207.5,
+              "scale": 1.12,
+              "replayMax": 1207.5,
+              "replayScale": 1.1
+            },
+            {
+              "tick": 3,
+              "maxHp": 1236.25,
+              "scale": 1.18,
+              "replayMax": 1236.25,
+              "replayScale": 1.2
+            },
+            {
+              "tick": 4,
+              "maxHp": 1265,
+              "scale": 1.24,
+              "replayMax": 1265,
+              "replayScale": 1.25
+            },
+            {
+              "tick": 5,
+              "maxHp": 1293.75,
+              "scale": 1.3,
+              "replayMax": 1293.75,
+              "replayScale": 1.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cleaver independent roar lasts 180 ticks and repeats after 300 without dealing damage",
+      "pass": true,
+      "detail": {
+        "roars": [
+          1,
+          301
+        ],
+        "hits": [],
+        "snap": [
+          {
+            "tick": 181,
+            "active": true
+          },
+          {
+            "tick": 182,
+            "active": false
+          },
+          {
+            "tick": 300,
+            "active": false
+          },
+          {
+            "tick": 301,
+            "active": false
+          },
+          {
+            "tick": 302,
+            "active": true
+          }
+        ],
+        "next": 601
+      }
+    },
+    {
+      "name": "cleaver natural close cleave hits cap three on independent cadence",
+      "pass": true,
+      "detail": {
+        "groups": [
+          {
+            "tick": 43,
+            "hits": [
+              {
+                "target": "audit:2",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:3",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:4",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              }
+            ]
+          },
+          {
+            "tick": 181,
+            "hits": [
+              {
+                "target": "audit:2",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:3",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:4",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              }
+            ]
+          },
+          {
+            "tick": 319,
+            "hits": [
+              {
+                "target": "audit:2",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:3",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:4",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              }
+            ]
+          },
+          {
+            "tick": 457,
+            "hits": [
+              {
+                "target": "audit:2",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:3",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              },
+              {
+                "target": "audit:4",
+                "amount": 45.5625,
+                "delivery": "boss_melee"
+              }
+            ]
+          }
+        ],
+        "roars": [
+          301
+        ],
+        "backHp": 1000,
+        "unhit": 1,
+        "range": 35,
+        "windup": 30,
+        "cooldown": 108,
+        "power": 1.35
+      }
+    },
+    {
+      "name": "lich caps three live including pending, six lifetime, never recycles a corpse",
+      "pass": true,
+      "detail": {
+        "samples": [
+          {
+            "tick": 2,
+            "live": 3,
+            "pending": 3,
+            "total": 3,
+            "raised": 3
+          },
+          {
+            "tick": 3,
+            "live": 3,
+            "pending": 0,
+            "total": 3,
+            "raised": 3
+          },
+          {
+            "tick": 13,
+            "live": 3,
+            "pending": 0,
+            "total": 3,
+            "raised": 3
+          },
+          {
+            "tick": 14,
+            "live": 3,
+            "pending": 3,
+            "total": 6,
+            "raised": 6
+          },
+          {
+            "tick": 15,
+            "live": 3,
+            "pending": 0,
+            "total": 6,
+            "raised": 6
+          },
+          {
+            "tick": 30,
+            "live": 0,
+            "pending": 0,
+            "total": 6,
+            "raised": 6
+          }
+        ],
+        "origins": [
+          "audit:3",
+          "audit:4",
+          "audit:5",
+          "audit:6",
+          "audit:7",
+          "audit:8"
+        ],
+        "first": 3,
+        "second": 3,
+        "total": 6,
+        "raised": 6,
+        "ignored": "audit:2",
+        "stats": [
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 722
+          },
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 722
+          },
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 722
+          },
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 734
+          },
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 734
+          },
+          {
+            "hp": 65,
+            "multiplier": 1,
+            "life": 734
+          }
+        ]
+      }
+    }
+  ]
+}

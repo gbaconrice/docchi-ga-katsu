@@ -1,0 +1,4 @@
+PASS boot 5 scripts
+PASS solo start
+PASS solo choose/fight/pause/result/expiry/next, multi choose/fight/result and home render paths.
+PASS one feedback node outside the map, 32px solo/40px multi lanes, retained four-player scrolling and 60 result-clearance box-model cases; pixel verification is separate.

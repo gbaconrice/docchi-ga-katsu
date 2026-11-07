@@ -1,0 +1,3 @@
+PASS boot 5 scripts
+PASS solo start
+PASS cashout contrast; solo and multiplayer reset only on new prediction

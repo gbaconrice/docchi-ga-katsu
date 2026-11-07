@@ -5,7 +5,7 @@ if(!process.argv[2]||fs.existsSync(out))throw Error('Pass a new absent output di
 fs.mkdirSync(out,{recursive:true});
 fs.mkdirSync(path.join(out,'reports'),{recursive:true});
 fs.cpSync(path.join(repo,'tools/review-fixes/input-suite'),path.join(out,'validation-preview'),{recursive:true});
-for(const name of ['modules','tests','release-tools'])fs.cpSync(path.join(here,name),path.join(out,name),{recursive:true});
+for(const name of ['modules','tests','release-tools','ui-restoration','approved-replacements'])fs.cpSync(path.join(here,name),path.join(out,name),{recursive:true});
 for(const name of ['build-source.py','patch-presentation.py','patch-regression-compat.py','patch-boss-delivery.py','patch-boss-status-interop.py','baseline-roster.json'])fs.copyFileSync(path.join(here,name),path.join(out,name));
 const release=path.join(repo,'releases/review-fixes-20261107');
 const {source}=require(path.join(repo,'tools/review-fixes/reassemble-demand-source.cjs')).reassemble(release);

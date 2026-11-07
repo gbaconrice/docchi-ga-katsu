@@ -1,0 +1,1911 @@
+{
+  "beforeSourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "afterSourceSha256": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "originalFramesPerSide": 119,
+  "frames": [
+    {
+      "side": "before",
+      "file": "before/thornback_beast--family-boss_warning--t17.png",
+      "sha256": "fd27dbcf57ffb71a23e728e091f00dff3bf418ca6d6caf6925acc513e3e5e452",
+      "kind": "thornback_beast",
+      "label": "family-boss_warning",
+      "tick": 17
+    },
+    {
+      "side": "before",
+      "file": "before/thornback_beast--family-boss_thorn--t47.png",
+      "sha256": "debbb63442a92f5190a368f8c8f5ac78186d19fa1fcac9140f7b1914547219d6",
+      "kind": "thornback_beast",
+      "label": "family-boss_thorn",
+      "tick": 47
+    },
+    {
+      "side": "before",
+      "file": "before/thornback_beast--ability--t51.png",
+      "sha256": "47aad92e2ca97794be702802eee990f0b3729256b9f517dc583f68647e254e33",
+      "kind": "thornback_beast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/roarfang_beast--family-boss_quake--t59.png",
+      "sha256": "cb247f7409fc1c898cad4e5e62318482e6e7abf8c5c3413f8815465b37eafab2",
+      "kind": "roarfang_beast",
+      "label": "family-boss_quake",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/roarfang_beast--family-boss_ring--t59.png",
+      "sha256": "cb247f7409fc1c898cad4e5e62318482e6e7abf8c5c3413f8815465b37eafab2",
+      "kind": "roarfang_beast",
+      "label": "family-boss_ring",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/roarfang_beast--family-boss_stun--t59.png",
+      "sha256": "cb247f7409fc1c898cad4e5e62318482e6e7abf8c5c3413f8815465b37eafab2",
+      "kind": "roarfang_beast",
+      "label": "family-boss_stun",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/roarfang_beast--ability--t63.png",
+      "sha256": "26cf5371cf2a1d25c300c1a60a994c31996bb0ec6d16537fcd6d6dcf73535432",
+      "kind": "roarfang_beast",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/spectral_scale_dragon--family-boss_grow--t5.png",
+      "sha256": "91c091c05dcd584a10b026082935235725b31273256d2f81e31fa1f771a3a989",
+      "kind": "spectral_scale_dragon",
+      "label": "family-boss_grow",
+      "tick": 5
+    },
+    {
+      "side": "before",
+      "file": "before/spectral_scale_dragon--family-boss_moon--t5.png",
+      "sha256": "91c091c05dcd584a10b026082935235725b31273256d2f81e31fa1f771a3a989",
+      "kind": "spectral_scale_dragon",
+      "label": "family-boss_moon",
+      "tick": 5
+    },
+    {
+      "side": "before",
+      "file": "before/spectral_scale_dragon--ability--t9.png",
+      "sha256": "3395351aa1b37c047a4d45ea713402c50a88aee289381b94b421466dad498631",
+      "kind": "spectral_scale_dragon",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "before",
+      "file": "before/iceclaw_legend--family-boss_claw--t41.png",
+      "sha256": "102926f66ebb16a8b77490b467e2060d9e93e714a6322b97bfebfb2c59a6f965",
+      "kind": "iceclaw_legend",
+      "label": "family-boss_claw",
+      "tick": 41
+    },
+    {
+      "side": "before",
+      "file": "before/iceclaw_legend--family-boss_frost--t41.png",
+      "sha256": "102926f66ebb16a8b77490b467e2060d9e93e714a6322b97bfebfb2c59a6f965",
+      "kind": "iceclaw_legend",
+      "label": "family-boss_frost",
+      "tick": 41
+    },
+    {
+      "side": "before",
+      "file": "before/iceclaw_legend--ability--t45.png",
+      "sha256": "28bf7bbfaa36c65d8965f61393b383156a6bbc83941c44f7b9a23d2b69a33161",
+      "kind": "iceclaw_legend",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/gauntlet_combo_guard--ability--t51.png",
+      "sha256": "47c8a85ed8799eb7b62a2ccf779aee24c25688fba638f13a5414ba49d51ca7a4",
+      "kind": "gauntlet_combo_guard",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/rootwarden_treant--ability--t63.png",
+      "sha256": "69646460ec1b3a44bc2b7b1937c9754cb6d5963fe97a983f1414fc86e89cb3c6",
+      "kind": "rootwarden_treant",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/frosthorn_rhino--family-boss_beam--t47.png",
+      "sha256": "6acbc8974d93485dbbad0e6367b8446a913fbefca2763ac041a5801f2629bd60",
+      "kind": "frosthorn_rhino",
+      "label": "family-boss_beam",
+      "tick": 47
+    },
+    {
+      "side": "before",
+      "file": "before/frosthorn_rhino--ability--t51.png",
+      "sha256": "90af607de42b8add4e20786ef38791237d312ae6c58214493c7aaab74ba95e47",
+      "kind": "frosthorn_rhino",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/pillar_hammerer--family-boss_column_light--t79.png",
+      "sha256": "fedcd13424569c0e92044da1da0a25a4ffe9cb071c113f04d26d3266d458fbc2",
+      "kind": "pillar_hammerer",
+      "label": "family-boss_column_light",
+      "tick": 79
+    },
+    {
+      "side": "before",
+      "file": "before/pillar_hammerer--ability--t83.png",
+      "sha256": "3d94723ad087656258a76bb99934258e11e873590ac3399aeb401720e6782f8c",
+      "kind": "pillar_hammerer",
+      "label": "ability",
+      "tick": 83
+    },
+    {
+      "side": "before",
+      "file": "before/colossal_hornfist--family-boss_throw--t53.png",
+      "sha256": "ad3838f556cccf19df1d385b1d72cd4ddc558725576bf5f2d6e3e569a0ca28d2",
+      "kind": "colossal_hornfist",
+      "label": "family-boss_throw",
+      "tick": 53
+    },
+    {
+      "side": "before",
+      "file": "before/colossal_hornfist--ability--t57.png",
+      "sha256": "25cd48cef2008e80aab78dabe31839468fcf66e817cb05398f8c90f0ad808f78",
+      "kind": "colossal_hornfist",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "before",
+      "file": "before/kilnback_pincerbeast--ability--t57.png",
+      "sha256": "c143997ad2be7dded55e08356a24324b7a2c938ca24643612ec3340cd6e34fff",
+      "kind": "kilnback_pincerbeast",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "before",
+      "file": "before/carapace_slashbeast--family-boss_slash--t83.png",
+      "sha256": "af3f9ea16e116aa65229384dd08f91ec7c55dba3d29abf2fc06ebb17f9c829bc",
+      "kind": "carapace_slashbeast",
+      "label": "family-boss_slash",
+      "tick": 83
+    },
+    {
+      "side": "before",
+      "file": "before/carapace_slashbeast--ability--t87.png",
+      "sha256": "0c725fe8f4758c88ea30a924d602efcf6970877847230a18ff1cbbba876aef07",
+      "kind": "carapace_slashbeast",
+      "label": "ability",
+      "tick": 87
+    },
+    {
+      "side": "before",
+      "file": "before/stonepulse_kolossus--family-boss_fissure--t59.png",
+      "sha256": "a5c4b522ae7e52962fe11c10618c69d9046ba43a5289a111ca61ec41caeb549a",
+      "kind": "stonepulse_kolossus",
+      "label": "family-boss_fissure",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/stonepulse_kolossus--ability--t63.png",
+      "sha256": "8e04562b4a09ae422f44df6824273909141fb9c1f4a77c2eb2fedea7f599385c",
+      "kind": "stonepulse_kolossus",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/bluefist_colossus--ability--t63.png",
+      "sha256": "f5917776ebfc956dde04acfbf989cdd734a1ed6abd53e6408e8aa306c4f605e9",
+      "kind": "bluefist_colossus",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/spikeburst_grinder--family-boss_shield--t65.png",
+      "sha256": "dfe61ec8d0e1d60d13f12db6c98d937435c0375269cb230c6f94c243c4261afa",
+      "kind": "spikeburst_grinder",
+      "label": "family-boss_shield",
+      "tick": 65
+    },
+    {
+      "side": "before",
+      "file": "before/spikeburst_grinder--ability--t69.png",
+      "sha256": "bd7c91d48692964aa4636ecf9e9517cf16cb1219cb86d275ee001c5467e98310",
+      "kind": "spikeburst_grinder",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "before",
+      "file": "before/redhorn_dualbeast--ability--t51.png",
+      "sha256": "f06210d10c010f23983d90220baa884173edc69bb78addb52eed53c44c7990d5",
+      "kind": "redhorn_dualbeast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--family-boss_meteor--t65.png",
+      "sha256": "ac8ed72eee0a49c2258cd7f96094d6a34173b21bb367be738ff4f64699f36ef0",
+      "kind": "bluehorn_invoker",
+      "label": "family-boss_meteor",
+      "tick": 65
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--ability--t69.png",
+      "sha256": "3c65d2142d37a6516e16cecfc72150ca4679c9d3c2ad0e36cc423c241f2986f1",
+      "kind": "bluehorn_invoker",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "before",
+      "file": "before/emberwing_drake--family-boss_rain--t47.png",
+      "sha256": "98e621f4ceb5f031d84029a05b8afd5c0001b6770c2ddf698ce4c53a90c7c6dc",
+      "kind": "emberwing_drake",
+      "label": "family-boss_rain",
+      "tick": 47
+    },
+    {
+      "side": "before",
+      "file": "before/emberwing_drake--ability--t51.png",
+      "sha256": "40b036de95536c0bf743c989c92f9e2453c77e27a0a254373856af8772f29ae6",
+      "kind": "emberwing_drake",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/skullflare_triad--family-boss_skull--t45.png",
+      "sha256": "80e46caa7b28c4ee34203397431ba63682aef67592b7a2be72906192cae44992",
+      "kind": "skullflare_triad",
+      "label": "family-boss_skull",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/skullflare_triad--family-boss_fire--t45.png",
+      "sha256": "80e46caa7b28c4ee34203397431ba63682aef67592b7a2be72906192cae44992",
+      "kind": "skullflare_triad",
+      "label": "family-boss_fire",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/skullflare_triad--ability--t49.png",
+      "sha256": "c524a21eb949b43b9bb123e51422f21458a8e7076b2ea52cd7eaf9bfdfac3b4c",
+      "kind": "skullflare_triad",
+      "label": "ability",
+      "tick": 49
+    },
+    {
+      "side": "before",
+      "file": "before/flamering_magus--ability--t58.png",
+      "sha256": "f7c6bc309a900f832f314a9dfd729e382612fce54a4e73f0c721f3bbe2d35fea",
+      "kind": "flamering_magus",
+      "label": "ability",
+      "tick": 58
+    },
+    {
+      "side": "before",
+      "file": "before/shockplate_drake--family-boss_chain--t65.png",
+      "sha256": "ca68ce8a786526858b8a2e7b44497d27c1803ccf808725a9a70f72d1aee01e22",
+      "kind": "shockplate_drake",
+      "label": "family-boss_chain",
+      "tick": 65
+    },
+    {
+      "side": "before",
+      "file": "before/shockplate_drake--ability--t69.png",
+      "sha256": "7e4a830b2ff2c0c96d4d6f3142189f8fe5f255491c276f3655be071551feb9ae",
+      "kind": "shockplate_drake",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "before",
+      "file": "before/thunderhorn_beast--ability--t63.png",
+      "sha256": "26c6b186d1e2d864dcee1e0a92bb6076e35d8be11dc074a673c65692ea8082d5",
+      "kind": "thunderhorn_beast",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/stormhorn_tripler--ability--t46.png",
+      "sha256": "5dc3b74a1811f6723d39ccaadbad4ab5d8f8a2451ae1b1d0eb8577e72f820897",
+      "kind": "stormhorn_tripler",
+      "label": "ability",
+      "tick": 46
+    },
+    {
+      "side": "before",
+      "file": "before/darkfan_clawlord--ability--t51.png",
+      "sha256": "cc1952c11d14e97b303b4775cb47b146fb44bc385eed0fa760ee1dd67b1f2c9e",
+      "kind": "darkfan_clawlord",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/plated_dualdragon--family-boss_beam_fire--t59.png",
+      "sha256": "c8e943dc179b07fe9795d33ee5bff0a3eeed75f15a7ec117bc0387b073de4765",
+      "kind": "plated_dualdragon",
+      "label": "family-boss_beam_fire",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/plated_dualdragon--family-boss_beam_ice--t59.png",
+      "sha256": "c8e943dc179b07fe9795d33ee5bff0a3eeed75f15a7ec117bc0387b073de4765",
+      "kind": "plated_dualdragon",
+      "label": "family-boss_beam_ice",
+      "tick": 59
+    },
+    {
+      "side": "before",
+      "file": "before/plated_dualdragon--ability--t63.png",
+      "sha256": "c0b4478d87431bb02dc7af28c5e66b6d3946ca91f103deab85284fc3721ee210",
+      "kind": "plated_dualdragon",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/flameburst_mythron--ability--t63.png",
+      "sha256": "0c23863d01cf80dfebb510566017d5722474ab0732041f20022d74e1faee52d2",
+      "kind": "flameburst_mythron",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/willyee_frost_dragon--family-boss_breath_ice--t62.png",
+      "sha256": "df0db16764fdee5d9306e01d6445531484692dbbc9133d948e9a691598f1b73c",
+      "kind": "willyee_frost_dragon",
+      "label": "family-boss_breath_ice",
+      "tick": 62
+    },
+    {
+      "side": "before",
+      "file": "before/willyee_frost_dragon--ability--t66.png",
+      "sha256": "aa437bfbed3b239f5e5702391a7ba4a8904dcd311f491cbf7bd30bcf3b38241b",
+      "kind": "willyee_frost_dragon",
+      "label": "ability",
+      "tick": 66
+    },
+    {
+      "side": "before",
+      "file": "before/frostbreath_lizard--ability--t81.png",
+      "sha256": "76d55d597940aa53b918a8a7e124d1b0761132d1a4a6afc140432d2231931702",
+      "kind": "frostbreath_lizard",
+      "label": "ability",
+      "tick": 81
+    },
+    {
+      "side": "before",
+      "file": "before/triad_chimera--family-boss_poison--t41.png",
+      "sha256": "5b0226eca44bbf1ce2a7096396992950706166a4205fd75579aafa0b4d122cbc",
+      "kind": "triad_chimera",
+      "label": "family-boss_poison",
+      "tick": 41
+    },
+    {
+      "side": "before",
+      "file": "before/triad_chimera--ability--t45.png",
+      "sha256": "84dd8c3779e4dc16e685a9998b10eac25a6a671813184dd80c5685a0724918a0",
+      "kind": "triad_chimera",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/cinder_tailbeast--family-boss_tail_sweep--t47.png",
+      "sha256": "d324e50adcb5cb95653fb080ee5f990ccf71a69cb4558502f599c305d765e0bf",
+      "kind": "cinder_tailbeast",
+      "label": "family-boss_tail_sweep",
+      "tick": 47
+    },
+    {
+      "side": "before",
+      "file": "before/cinder_tailbeast--ability--t51.png",
+      "sha256": "23cb10b6b395132401f12a9e5d81700567226aa0e2afcb3fdc43577b67332577",
+      "kind": "cinder_tailbeast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/emberfist_pillarer--family-boss_column_fire--t70.png",
+      "sha256": "8ec006c3086664ec844106ea67cf525bba9dd37e01f1d53f3917b89bbadb17b6",
+      "kind": "emberfist_pillarer",
+      "label": "family-boss_column_fire",
+      "tick": 70
+    },
+    {
+      "side": "before",
+      "file": "before/emberfist_pillarer--ability--t74.png",
+      "sha256": "31a94f850d5939d8c90a8fbd1bfb1b2e8465584cdfca89e8d331f42552d20503",
+      "kind": "emberfist_pillarer",
+      "label": "ability",
+      "tick": 74
+    },
+    {
+      "side": "before",
+      "file": "before/veteran_flamewing--family-boss_firebird--t53.png",
+      "sha256": "96d769f6724d9b5d5fab7502fe54729731b5c23c1a60a9775df67698c335bc62",
+      "kind": "veteran_flamewing",
+      "label": "family-boss_firebird",
+      "tick": 53
+    },
+    {
+      "side": "before",
+      "file": "before/veteran_flamewing--ability--t57.png",
+      "sha256": "498065c7a4ffcd99320327694f72420a18b2399af22e825d8f6b22acedacfcee",
+      "kind": "veteran_flamewing",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "before",
+      "file": "before/spore_toad--ability--t61.png",
+      "sha256": "99dea4af45b3613dbff06812abbb3a39755224b5ff95b06c2023bfdaad2796fe",
+      "kind": "spore_toad",
+      "label": "ability",
+      "tick": 61
+    },
+    {
+      "side": "before",
+      "file": "before/siege_crab--ability--t111.png",
+      "sha256": "33a85c43abbb51e48dbd386598b22f384465983d10fdfc73699859414d298231",
+      "kind": "siege_crab",
+      "label": "ability",
+      "tick": 111
+    },
+    {
+      "side": "before",
+      "file": "before/slime--family-boss_summon--t29.png",
+      "sha256": "166b41d51abd20d3ba7f65c1a17e412d1f9f7457c3e325de1eec9c85c76ef14f",
+      "kind": "slime",
+      "label": "family-boss_summon",
+      "tick": 29
+    },
+    {
+      "side": "before",
+      "file": "before/slime--ability--t33.png",
+      "sha256": "9b7ba4b534abea5851b785479d102849ec1101459a5ec433d7bb59b44e2c3e94",
+      "kind": "slime",
+      "label": "ability",
+      "tick": 33
+    },
+    {
+      "side": "before",
+      "file": "before/accretion_burstcore--ability--t63.png",
+      "sha256": "36d6c2948dd18b75e498f335f43220c296bb227bc0ea4283fc424e46cf65af56",
+      "kind": "accretion_burstcore",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/domeback_colossus--ability--t45.png",
+      "sha256": "a933515d93ae21e4532f0dfc1db60a46cc98e2e0e0bd8aa134087f55cc85beb2",
+      "kind": "domeback_colossus",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/ringhold_guardian--ability--t45.png",
+      "sha256": "ad6626561e218b404375d2902d2d0bd597882b8eebd3d0cbc888aca1f3f02e4d",
+      "kind": "ringhold_guardian",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/silverarm_vanguard--ability--t139.png",
+      "sha256": "c8919a3933746ffd046fe22ba9dad86b59bd04b53f4b9e89cdf5f419ddea70c5",
+      "kind": "silverarm_vanguard",
+      "label": "ability",
+      "tick": 139
+    },
+    {
+      "side": "before",
+      "file": "before/fiery_coil_inceptor--ability--t12.png",
+      "sha256": "cee5e283f402baeb94334047bc2b9b9791088fff06dc03bcfe480be88be46b34",
+      "kind": "fiery_coil_inceptor",
+      "label": "ability",
+      "tick": 12
+    },
+    {
+      "side": "before",
+      "file": "before/golem--family-boss_wall--t24.png",
+      "sha256": "381b0f35f56c47974356b3d833fe2c7737133364c917a90fcbd9cf7a94bae970",
+      "kind": "golem",
+      "label": "family-boss_wall",
+      "tick": 24
+    },
+    {
+      "side": "before",
+      "file": "before/golem--ability--t28.png",
+      "sha256": "08decddcb75343c000826a5427c689755d97f6a0047ab21ddd2f64e53838674d",
+      "kind": "golem",
+      "label": "ability",
+      "tick": 28
+    },
+    {
+      "side": "before",
+      "file": "before/bonefan_reaper--ability--t51.png",
+      "sha256": "ac47be8d0223c60851c70c6d5696b58bd2f872464fef71ff76db84505a6abb11",
+      "kind": "bonefan_reaper",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/moonclaw_werewolf--ability--t9.png",
+      "sha256": "29e658ed1ee4a2e8ed1b6e5542f60893225924df9a008f1eb5bc16c2107ea084",
+      "kind": "moonclaw_werewolf",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "before",
+      "file": "before/willyee_stone_golem--ability--t27.png",
+      "sha256": "08aa97d3695d3af023ac4b303f52c45238c9b7f81211b37e69d16c80164c472f",
+      "kind": "willyee_stone_golem",
+      "label": "ability",
+      "tick": 27
+    },
+    {
+      "side": "before",
+      "file": "before/basalt_titan--family-boss_burst--t22.png",
+      "sha256": "6dabab918bfa909a2ef3b2c605fe55a59b632c6d3445e1c3da1a84f1f7e13f72",
+      "kind": "basalt_titan",
+      "label": "family-boss_burst",
+      "tick": 22
+    },
+    {
+      "side": "before",
+      "file": "before/basalt_titan--ability--t26.png",
+      "sha256": "850b2aacf2a62322a698fb63bccda5270a0699649a28d777427e67ed83f70cf9",
+      "kind": "basalt_titan",
+      "label": "ability",
+      "tick": 26
+    },
+    {
+      "side": "before",
+      "file": "before/cyanrise_silithar--ability--t33.png",
+      "sha256": "c722ce4baba72f64606a50bf4cb0dbfa4e29250dcc6f78de90e26ca0dd730097",
+      "kind": "cyanrise_silithar",
+      "label": "ability",
+      "tick": 33
+    },
+    {
+      "side": "before",
+      "file": "before/razorclaw_reaver--ability--t51.png",
+      "sha256": "d2bc3a1dac62e4ebd89f88b92b971684d66192fe05f30449359566b2b73785e6",
+      "kind": "razorclaw_reaver",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/cleaver_brute--ability--t9.png",
+      "sha256": "22ef2bbca7c29ffdc3e420d2f102d26234c765c0c1c9e566269b61cd41c6d3c8",
+      "kind": "cleaver_brute",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "before",
+      "file": "before/ringneck_prowler--ability--t69.png",
+      "sha256": "65124fbfa2fd3cc0f991ecb76626fd740bd4863dc8a3553db7fd862808099c77",
+      "kind": "ringneck_prowler",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "before",
+      "file": "before/bone_crown_lich--ability--t51.png",
+      "sha256": "395ec5cc84d81d93fc3312fdb97350357e4fa5ed9f0840f2dbf7e231efd8ecaa",
+      "kind": "bone_crown_lich",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/emberwing_drake--orbit-rain--t51.png",
+      "sha256": "40b036de95536c0bf743c989c92f9e2453c77e27a0a254373856af8772f29ae6",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 51
+    },
+    {
+      "side": "before",
+      "file": "before/emberwing_drake--orbit-rain--t81.png",
+      "sha256": "16b87a1afd4948d2db7746becea06e7891728ca328a631bb2d63c1b196ceed91",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 81
+    },
+    {
+      "side": "before",
+      "file": "before/emberwing_drake--orbit-rain--t111.png",
+      "sha256": "25c0aa3b0baf1899467a38e225a50ca0118236662fe7938386f5860c8e0ca5fa",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 111
+    },
+    {
+      "side": "before",
+      "file": "before/veteran_flamewing--crossing-birds--t52.png",
+      "sha256": "6a58259dc0613c9ed777ba60a1d1bcba9031b749a0e10aa6853020d7996c2de9",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 52
+    },
+    {
+      "side": "before",
+      "file": "before/veteran_flamewing--crossing-birds--t64.png",
+      "sha256": "49b3b32f23412752f99aeab432e8c4342ba4e3d748c2c9f9b323c70c4b97c95b",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 64
+    },
+    {
+      "side": "before",
+      "file": "before/veteran_flamewing--crossing-birds--t76.png",
+      "sha256": "ed038e12ead7991a5a238aaea3e386a2d33faf930bf2f650cf71d5501c86a30b",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 76
+    },
+    {
+      "side": "before",
+      "file": "before/pillar_hammerer--light-columns--t79.png",
+      "sha256": "fedcd13424569c0e92044da1da0a25a4ffe9cb071c113f04d26d3266d458fbc2",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 79
+    },
+    {
+      "side": "before",
+      "file": "before/pillar_hammerer--light-columns--t91.png",
+      "sha256": "d3be17998fe057fed2a7b8a7cf4449db74993632d71aa12ac440e49334cdf30e",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 91
+    },
+    {
+      "side": "before",
+      "file": "before/pillar_hammerer--light-columns--t103.png",
+      "sha256": "df30de1911c804b2aec1d33773adb27932f8a97531d4b927eb8f10207223c131",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 103
+    },
+    {
+      "side": "before",
+      "file": "before/emberfist_pillarer--fire-columns--t71.png",
+      "sha256": "bb52df0fa2f844a1e1dd55e6170ce08649d0399a62909dbc21135c7d81671302",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 71
+    },
+    {
+      "side": "before",
+      "file": "before/emberfist_pillarer--fire-columns--t99.png",
+      "sha256": "e626329e7600139c84830860d7521754c8d412a2119cc34d4f933c83a241600a",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 99
+    },
+    {
+      "side": "before",
+      "file": "before/emberfist_pillarer--fire-columns--t127.png",
+      "sha256": "e9526c027076291a258f6f2efb918941f48d47c01009788be60459244f6b1947",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 127
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--falling-meteor--t66.png",
+      "sha256": "99f091eb14093e1192c3aa631a01ba3a543b2d22ac6e404e95f6e491810de50b",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 66
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--falling-meteor--t86.png",
+      "sha256": "250bb89e5838ebb2aa37b65b752874a5e7d48f275702c7eded598c42960e5f13",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 86
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--falling-meteor--t106.png",
+      "sha256": "b99def787619e87a8e4c731175e95edb01d23407468e447f0ec7d400986e962f",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 106
+    },
+    {
+      "side": "before",
+      "file": "before/bluehorn_invoker--falling-meteor--t112.png",
+      "sha256": "2a761fa117a9248c65eef9efc8b10d98cb52319683ee1138c844f8f57e9cf699",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 112
+    },
+    {
+      "side": "before",
+      "file": "before/stonepulse_kolossus--ground-fissure--t58.png",
+      "sha256": "042bf37e242c9d2c9e5b8b46e9cd6a62ef76c2fedab0d2988470d573b6583ccf",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 58
+    },
+    {
+      "side": "before",
+      "file": "before/stonepulse_kolossus--ground-fissure--t67.png",
+      "sha256": "7d3c3fb845733edd844a460ecdedfd9e980b935886d81ebdf7b756edd64be310",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 67
+    },
+    {
+      "side": "before",
+      "file": "before/stonepulse_kolossus--ground-fissure--t77.png",
+      "sha256": "baf6b6aa5cfcb356d13a3bc860cfb7a0e0b55799632fc15c7defefba589a545d",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 77
+    },
+    {
+      "side": "before",
+      "file": "before/frostbreath_lizard--frozen-enemies--t81.png",
+      "sha256": "76d55d597940aa53b918a8a7e124d1b0761132d1a4a6afc140432d2231931702",
+      "kind": "frostbreath_lizard",
+      "label": "frozen-enemies",
+      "tick": 81
+    },
+    {
+      "side": "before",
+      "file": "before/frostbreath_lizard--frozen-enemies--t113.png",
+      "sha256": "5307200a276ca271df27672f0b6d05d04bce578e8749e14c4f65a2e02d3d2e4d",
+      "kind": "frostbreath_lizard",
+      "label": "frozen-enemies",
+      "tick": 113
+    },
+    {
+      "side": "before",
+      "file": "before/accretion_burstcore--grown-body--t63.png",
+      "sha256": "36d6c2948dd18b75e498f335f43220c296bb227bc0ea4283fc424e46cf65af56",
+      "kind": "accretion_burstcore",
+      "label": "grown-body",
+      "tick": 63
+    },
+    {
+      "side": "before",
+      "file": "before/accretion_burstcore--grown-body--t83.png",
+      "sha256": "a5f80867ca2efed38cbd07baa1bf4355abaf9534835425b3157ab952f6ef297a",
+      "kind": "accretion_burstcore",
+      "label": "grown-body",
+      "tick": 83
+    },
+    {
+      "side": "before",
+      "file": "before/willyee_stone_golem--reflection-shards--t17.png",
+      "sha256": "fca9ea739c6eddf2acc9232bb66e39ca4c439a7b581a4f3338cd3c9ac0f0587f",
+      "kind": "willyee_stone_golem",
+      "label": "reflection-shards",
+      "tick": 17
+    },
+    {
+      "side": "before",
+      "file": "before/willyee_stone_golem--reflection-shards--t27.png",
+      "sha256": "08aa97d3695d3af023ac4b303f52c45238c9b7f81211b37e69d16c80164c472f",
+      "kind": "willyee_stone_golem",
+      "label": "reflection-shards",
+      "tick": 27
+    },
+    {
+      "side": "before",
+      "file": "before/slime--split-children--t30.png",
+      "sha256": "fee249db435b29ed20eda9489c56a291f013049aafeb74f1fcf875f54d6dfde0",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 30
+    },
+    {
+      "side": "before",
+      "file": "before/slime--split-children--t56.png",
+      "sha256": "d0727264cde62a1cb09a1a8831c6c047d32178e1081703deb907265bad8f5ed3",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 56
+    },
+    {
+      "side": "before",
+      "file": "before/slime--split-children--t116.png",
+      "sha256": "481090d51fa761a25943eaa9a95868eeeb43948a4f85c3faef57f3a737fd3c54",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 116
+    },
+    {
+      "side": "before",
+      "file": "before/golem--wall-rock-children--t25.png",
+      "sha256": "5dcad3687dd70b30e6637b36210380731ce3b12d96df5fc0628fa25fa2dae6c3",
+      "kind": "golem",
+      "label": "wall-rock-children",
+      "tick": 25
+    },
+    {
+      "side": "before",
+      "file": "before/golem--wall-rock-children--t45.png",
+      "sha256": "10ae6c37c8e5cfcf688f20e7911c5b1a2e6b4262237df948663f687cc2ced1d0",
+      "kind": "golem",
+      "label": "wall-rock-children",
+      "tick": 45
+    },
+    {
+      "side": "before",
+      "file": "before/bone_crown_lich--raised-skeletons--t120.png",
+      "sha256": "528272cdde0dd910932b2c08be4d183578e40bf6ab136b619d565f5b788bb850",
+      "kind": "bone_crown_lich",
+      "label": "raised-skeletons",
+      "tick": 120
+    },
+    {
+      "side": "before",
+      "file": "before/bone_crown_lich--raised-skeletons--t150.png",
+      "sha256": "2c19942ff5d40bd391946fc12ceb10da53c3e8474d11156add8df93e388efb2d",
+      "kind": "bone_crown_lich",
+      "label": "raised-skeletons",
+      "tick": 150
+    },
+    {
+      "side": "before",
+      "file": "before/cleaver_brute--army-red-aura--t9.png",
+      "sha256": "22ef2bbca7c29ffdc3e420d2f102d26234c765c0c1c9e566269b61cd41c6d3c8",
+      "kind": "cleaver_brute",
+      "label": "army-red-aura",
+      "tick": 9
+    },
+    {
+      "side": "before",
+      "file": "before/cleaver_brute--army-red-aura--t31.png",
+      "sha256": "070d7cc9f12364258920f8ead571e0e6747e568e3df77ab972ce415480904714",
+      "kind": "cleaver_brute",
+      "label": "army-red-aura",
+      "tick": 31
+    },
+    {
+      "side": "before",
+      "file": "before/gauntlet_combo_guard--enemy-throw--t71.png",
+      "sha256": "95954f3a27777c49b6150191ba0dadb28773f35d94bcdc963175a6f216313db2",
+      "kind": "gauntlet_combo_guard",
+      "label": "enemy-throw",
+      "tick": 71
+    },
+    {
+      "side": "before",
+      "file": "before/gauntlet_combo_guard--enemy-throw--t83.png",
+      "sha256": "431e8f10bd5ae80cc04f3689356f944bd5916d0bf03cf2e76ad64117b971154f",
+      "kind": "gauntlet_combo_guard",
+      "label": "enemy-throw",
+      "tick": 83
+    },
+    {
+      "side": "before",
+      "file": "before/colossal_hornfist--airborne-lift--t53.png",
+      "sha256": "ad3838f556cccf19df1d385b1d72cd4ddc558725576bf5f2d6e3e569a0ca28d2",
+      "kind": "colossal_hornfist",
+      "label": "airborne-lift",
+      "tick": 53
+    },
+    {
+      "side": "before",
+      "file": "before/colossal_hornfist--airborne-lift--t65.png",
+      "sha256": "815bd75df90f075474ba3256a4dc2ab15a9ff3ab70fcf53c0c9f63fbec47ae49",
+      "kind": "colossal_hornfist",
+      "label": "airborne-lift",
+      "tick": 65
+    },
+    {
+      "side": "before",
+      "file": "before/spectral_scale_dragon--phase-opacity--t5.png",
+      "sha256": "91c091c05dcd584a10b026082935235725b31273256d2f81e31fa1f771a3a989",
+      "kind": "spectral_scale_dragon",
+      "label": "phase-opacity",
+      "tick": 5
+    },
+    {
+      "side": "before",
+      "file": "before/spectral_scale_dragon--phase-opacity--t31.png",
+      "sha256": "59209ba20787259a2cb8248fb9bce5144a502818f6aad46f28732fa6c01be718",
+      "kind": "spectral_scale_dragon",
+      "label": "phase-opacity",
+      "tick": 31
+    },
+    {
+      "side": "after",
+      "file": "after/thornback_beast--family-boss_warning--t17.png",
+      "sha256": "c1cbdfbd04fa9ada9c099d2d74174d4d1b1e7aa2868f5272f2862dd06429b5f8",
+      "kind": "thornback_beast",
+      "label": "family-boss_warning",
+      "tick": 17
+    },
+    {
+      "side": "after",
+      "file": "after/thornback_beast--family-boss_thorn--t47.png",
+      "sha256": "e35a1fd1ae14298d90f6bc4f1ead5f2c9c0e246809dc2e2fabfe93f089b94bfd",
+      "kind": "thornback_beast",
+      "label": "family-boss_thorn",
+      "tick": 47
+    },
+    {
+      "side": "after",
+      "file": "after/thornback_beast--ability--t51.png",
+      "sha256": "7b4d86ee6f7b73c50ec71e5fdef18c261c65e6202b7e18342c0927193cbc719a",
+      "kind": "thornback_beast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/roarfang_beast--family-boss_quake--t59.png",
+      "sha256": "55f4d1b231d5d08685cd12ef1a14628bff5a456949b5bb0738c002446377ea95",
+      "kind": "roarfang_beast",
+      "label": "family-boss_quake",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/roarfang_beast--family-boss_ring--t59.png",
+      "sha256": "55f4d1b231d5d08685cd12ef1a14628bff5a456949b5bb0738c002446377ea95",
+      "kind": "roarfang_beast",
+      "label": "family-boss_ring",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/roarfang_beast--family-boss_stun--t59.png",
+      "sha256": "55f4d1b231d5d08685cd12ef1a14628bff5a456949b5bb0738c002446377ea95",
+      "kind": "roarfang_beast",
+      "label": "family-boss_stun",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/roarfang_beast--ability--t63.png",
+      "sha256": "afc5ffb73c691306835c4852bffbf82ab95d9ca9987426fac76505c65184477a",
+      "kind": "roarfang_beast",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/spectral_scale_dragon--family-boss_grow--t5.png",
+      "sha256": "e909afeaf83eb9516976fb406315847aa0732181994a2e90a13f803cd85511a2",
+      "kind": "spectral_scale_dragon",
+      "label": "family-boss_grow",
+      "tick": 5
+    },
+    {
+      "side": "after",
+      "file": "after/spectral_scale_dragon--family-boss_moon--t5.png",
+      "sha256": "e909afeaf83eb9516976fb406315847aa0732181994a2e90a13f803cd85511a2",
+      "kind": "spectral_scale_dragon",
+      "label": "family-boss_moon",
+      "tick": 5
+    },
+    {
+      "side": "after",
+      "file": "after/spectral_scale_dragon--ability--t9.png",
+      "sha256": "ee1447c5e4003fe2dadd662e43bf5a110e9c234499659191ed051dd2e90e7c76",
+      "kind": "spectral_scale_dragon",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "after",
+      "file": "after/iceclaw_legend--family-boss_claw--t41.png",
+      "sha256": "90609934f6cd549742c718aa2a5b58c6cd8f52c6063c3911fac30ce41c2dbd67",
+      "kind": "iceclaw_legend",
+      "label": "family-boss_claw",
+      "tick": 41
+    },
+    {
+      "side": "after",
+      "file": "after/iceclaw_legend--family-boss_frost--t41.png",
+      "sha256": "90609934f6cd549742c718aa2a5b58c6cd8f52c6063c3911fac30ce41c2dbd67",
+      "kind": "iceclaw_legend",
+      "label": "family-boss_frost",
+      "tick": 41
+    },
+    {
+      "side": "after",
+      "file": "after/iceclaw_legend--ability--t45.png",
+      "sha256": "a3776b1ac799903c7506277521f85cfedd7648eb496f940e1d2e14c28bebc9da",
+      "kind": "iceclaw_legend",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/gauntlet_combo_guard--ability--t51.png",
+      "sha256": "97a93d9bc5d8db6a9a22af13c24a9b3710e10cac151744c2bec986288fe3d43f",
+      "kind": "gauntlet_combo_guard",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/rootwarden_treant--ability--t63.png",
+      "sha256": "05159173c746caeebc23a008a3bed8cdb2b5c6907edf2b5e1a6cc70c97cfd51b",
+      "kind": "rootwarden_treant",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/frosthorn_rhino--family-boss_beam--t47.png",
+      "sha256": "f51b796420d4771e6e4a68d4074d0e306e947ee49290f868b26a3349e617ffe3",
+      "kind": "frosthorn_rhino",
+      "label": "family-boss_beam",
+      "tick": 47
+    },
+    {
+      "side": "after",
+      "file": "after/frosthorn_rhino--ability--t51.png",
+      "sha256": "8873070c92ee8a013a1f256958ab4db894b260107fe3caf9fb1a818afaa2f9b4",
+      "kind": "frosthorn_rhino",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/pillar_hammerer--family-boss_column_light--t79.png",
+      "sha256": "e00684e5ea24950d2547bce9bbb2ea4f78588434f33a4b564d032ce480122330",
+      "kind": "pillar_hammerer",
+      "label": "family-boss_column_light",
+      "tick": 79
+    },
+    {
+      "side": "after",
+      "file": "after/pillar_hammerer--ability--t83.png",
+      "sha256": "efda3b5c2eb98d8e3fb3782cb38c163d275347916603e420d50893b1a68c9a66",
+      "kind": "pillar_hammerer",
+      "label": "ability",
+      "tick": 83
+    },
+    {
+      "side": "after",
+      "file": "after/colossal_hornfist--family-boss_throw--t53.png",
+      "sha256": "8ede6e8cfa1c0c52df00969a0c45f4998e54ae3e4e3243d3a7bd417aafa3d27c",
+      "kind": "colossal_hornfist",
+      "label": "family-boss_throw",
+      "tick": 53
+    },
+    {
+      "side": "after",
+      "file": "after/colossal_hornfist--ability--t57.png",
+      "sha256": "4c8d1869b654ad9bd6e55da637c64da9256a81c9f9fa85389531065e187f8061",
+      "kind": "colossal_hornfist",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "after",
+      "file": "after/kilnback_pincerbeast--ability--t57.png",
+      "sha256": "021ffaa3615328a7498559636468ac9f39ebdc8ab5ee9b3e8d5fc2320083ef7d",
+      "kind": "kilnback_pincerbeast",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "after",
+      "file": "after/carapace_slashbeast--family-boss_slash--t83.png",
+      "sha256": "f05c8843b76ec2d0f5f4323394f3226b89168a97380f41a4bc1839b798e543ea",
+      "kind": "carapace_slashbeast",
+      "label": "family-boss_slash",
+      "tick": 83
+    },
+    {
+      "side": "after",
+      "file": "after/carapace_slashbeast--ability--t87.png",
+      "sha256": "2658368624ce7a6c86685373175b5e0251fcb8c5f1653207d26bb2eaad57fdc1",
+      "kind": "carapace_slashbeast",
+      "label": "ability",
+      "tick": 87
+    },
+    {
+      "side": "after",
+      "file": "after/stonepulse_kolossus--family-boss_fissure--t59.png",
+      "sha256": "8d47c6abcf4f6a510f4de45c378abb08bf31421130cd44873c9d6fe5cfb9e11d",
+      "kind": "stonepulse_kolossus",
+      "label": "family-boss_fissure",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/stonepulse_kolossus--ability--t63.png",
+      "sha256": "4cb2f46589f4f45b14d8306c53b5fd5e41077a8035f1142183676d2fcac20c2c",
+      "kind": "stonepulse_kolossus",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/bluefist_colossus--ability--t63.png",
+      "sha256": "5397cc5aaf0515c9a265030a832ee3f955d8c6d52e16659a4a65e8cfd1585493",
+      "kind": "bluefist_colossus",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/spikeburst_grinder--family-boss_shield--t65.png",
+      "sha256": "1f19d1acb35096183b963ee26b2085d73e0bdeaeff443429e82056b083d3d8f6",
+      "kind": "spikeburst_grinder",
+      "label": "family-boss_shield",
+      "tick": 65
+    },
+    {
+      "side": "after",
+      "file": "after/spikeburst_grinder--ability--t69.png",
+      "sha256": "5a9810b4f1fe2af98474dc2ec3234558bcc0e9d3c82e0eb0bc65d1a2260d0c55",
+      "kind": "spikeburst_grinder",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "after",
+      "file": "after/redhorn_dualbeast--ability--t51.png",
+      "sha256": "7e39ddbe8aeb74a168b57721c7c23f5661a7f1780d29a1d971434fa4c79a0e64",
+      "kind": "redhorn_dualbeast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--family-boss_meteor--t65.png",
+      "sha256": "bc2418c0d318fa691cacdae6c0c992155b3fd6bf372ffb3b809f2c90ab1bde64",
+      "kind": "bluehorn_invoker",
+      "label": "family-boss_meteor",
+      "tick": 65
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--ability--t69.png",
+      "sha256": "a4af92b6caf77ff8dcfeb485d0a1aa578643d9bd2de252cd6f31669ef884a14e",
+      "kind": "bluehorn_invoker",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "after",
+      "file": "after/emberwing_drake--family-boss_rain--t47.png",
+      "sha256": "05208b9e21e0ff98911350282f73497695fc3caf2d1b5c0aecfe1874aaa99d71",
+      "kind": "emberwing_drake",
+      "label": "family-boss_rain",
+      "tick": 47
+    },
+    {
+      "side": "after",
+      "file": "after/emberwing_drake--ability--t51.png",
+      "sha256": "126b92678eae1cb5973e0ab1e25774d39a7c593e6343b98632d53221bdc6f502",
+      "kind": "emberwing_drake",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/skullflare_triad--family-boss_skull--t45.png",
+      "sha256": "c1e8971222bb57c12f509a90f7d926ba1539538f75eed43d8c7043b321a3650e",
+      "kind": "skullflare_triad",
+      "label": "family-boss_skull",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/skullflare_triad--family-boss_fire--t45.png",
+      "sha256": "c1e8971222bb57c12f509a90f7d926ba1539538f75eed43d8c7043b321a3650e",
+      "kind": "skullflare_triad",
+      "label": "family-boss_fire",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/skullflare_triad--ability--t49.png",
+      "sha256": "9719f3305db3cbdaec08ae8a0f7fe68c4acf61491f03f56ba050e7d1b502e752",
+      "kind": "skullflare_triad",
+      "label": "ability",
+      "tick": 49
+    },
+    {
+      "side": "after",
+      "file": "after/flamering_magus--ability--t58.png",
+      "sha256": "ce9757f30a04a0543a32ef9f67893a8310d1a0f54b9cf6652ce61a6771dfc083",
+      "kind": "flamering_magus",
+      "label": "ability",
+      "tick": 58
+    },
+    {
+      "side": "after",
+      "file": "after/shockplate_drake--family-boss_chain--t65.png",
+      "sha256": "14d9cf58bbee3d538e81f75ebf345782bb4e22e9495ef822eb08352137f68a07",
+      "kind": "shockplate_drake",
+      "label": "family-boss_chain",
+      "tick": 65
+    },
+    {
+      "side": "after",
+      "file": "after/shockplate_drake--ability--t69.png",
+      "sha256": "60b9b5705c4b1628781dfeb280cf51d71fdad1986a7137d4d087dac20f2d14f4",
+      "kind": "shockplate_drake",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "after",
+      "file": "after/thunderhorn_beast--ability--t63.png",
+      "sha256": "190124729287a539000e99c5bf344b57421c19a7070a01ca54575a1f81e2350a",
+      "kind": "thunderhorn_beast",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/stormhorn_tripler--ability--t46.png",
+      "sha256": "4593e9a528303a8a8c66a1ee12a0c2c1e526bfa95275f4bc33346cd7952b86bc",
+      "kind": "stormhorn_tripler",
+      "label": "ability",
+      "tick": 46
+    },
+    {
+      "side": "after",
+      "file": "after/darkfan_clawlord--ability--t51.png",
+      "sha256": "052ff361f602d8299eaa57e4e4faff80020316866e99731456844aa5d9bf0b52",
+      "kind": "darkfan_clawlord",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/plated_dualdragon--family-boss_beam_fire--t59.png",
+      "sha256": "1b90410db78508d5f61dce77261006d4fd62e0d83326891d351b58a9a8df0e81",
+      "kind": "plated_dualdragon",
+      "label": "family-boss_beam_fire",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/plated_dualdragon--family-boss_beam_ice--t59.png",
+      "sha256": "1b90410db78508d5f61dce77261006d4fd62e0d83326891d351b58a9a8df0e81",
+      "kind": "plated_dualdragon",
+      "label": "family-boss_beam_ice",
+      "tick": 59
+    },
+    {
+      "side": "after",
+      "file": "after/plated_dualdragon--ability--t63.png",
+      "sha256": "ad18937738f3040ab8955e6a947c4130d618d118c0a379fc26e4eab8ef20e730",
+      "kind": "plated_dualdragon",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/flameburst_mythron--ability--t63.png",
+      "sha256": "64858a44e89cf2372751ded52c68d306914f28cad2d0861b94f3678d12d26c32",
+      "kind": "flameburst_mythron",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/willyee_frost_dragon--family-boss_breath_ice--t62.png",
+      "sha256": "220004ae3fd2407229fb8dcaa7c4a579028ae2fc92b9c4d8d6ed2a1a613d935d",
+      "kind": "willyee_frost_dragon",
+      "label": "family-boss_breath_ice",
+      "tick": 62
+    },
+    {
+      "side": "after",
+      "file": "after/willyee_frost_dragon--ability--t66.png",
+      "sha256": "faf9b2786c7864229e38c175ee48b6f012157b986c8986ea91f2e514b37fe6c8",
+      "kind": "willyee_frost_dragon",
+      "label": "ability",
+      "tick": 66
+    },
+    {
+      "side": "after",
+      "file": "after/frostbreath_lizard--ability--t81.png",
+      "sha256": "f4144e19a9433e9825549e0760158499bb8249272759aa2ce2646585098cbc7e",
+      "kind": "frostbreath_lizard",
+      "label": "ability",
+      "tick": 81
+    },
+    {
+      "side": "after",
+      "file": "after/triad_chimera--family-boss_poison--t41.png",
+      "sha256": "edb90fa1d4fc3b77175eaf416cade2a9dbcea0edf4945b515bd84a060a053884",
+      "kind": "triad_chimera",
+      "label": "family-boss_poison",
+      "tick": 41
+    },
+    {
+      "side": "after",
+      "file": "after/triad_chimera--ability--t45.png",
+      "sha256": "41f5cceacab029896b2c139711afc55d0a2733df7a5962fd1f8d201ed946fd50",
+      "kind": "triad_chimera",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/cinder_tailbeast--family-boss_tail_sweep--t47.png",
+      "sha256": "d8ea192ea20ba41c0f7e97f7e6f59c5b2219c6139029ca4f1a0a5003f3429ca8",
+      "kind": "cinder_tailbeast",
+      "label": "family-boss_tail_sweep",
+      "tick": 47
+    },
+    {
+      "side": "after",
+      "file": "after/cinder_tailbeast--ability--t51.png",
+      "sha256": "6967649d702b4e00e67e9259eb4fa793b9a4c6523436bd493711f6996c76a406",
+      "kind": "cinder_tailbeast",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/emberfist_pillarer--family-boss_column_fire--t70.png",
+      "sha256": "95035030562ba27dc7fb1abb9b5eacd19c4f5260922dd35e88c1ab0dabefeb8d",
+      "kind": "emberfist_pillarer",
+      "label": "family-boss_column_fire",
+      "tick": 70
+    },
+    {
+      "side": "after",
+      "file": "after/emberfist_pillarer--ability--t74.png",
+      "sha256": "6446946e899b7c7201d6ec7c4147b264c75644b42859b2dc33ee8b1d7b87e92e",
+      "kind": "emberfist_pillarer",
+      "label": "ability",
+      "tick": 74
+    },
+    {
+      "side": "after",
+      "file": "after/veteran_flamewing--family-boss_firebird--t53.png",
+      "sha256": "07fb20149fa72d2c60d198651cb12436eade9cfecb75a939fb2da069f118525c",
+      "kind": "veteran_flamewing",
+      "label": "family-boss_firebird",
+      "tick": 53
+    },
+    {
+      "side": "after",
+      "file": "after/veteran_flamewing--ability--t57.png",
+      "sha256": "e84294e8101b03701e2b06352eb9a28302a2970125d8b34170d0410aa97e984e",
+      "kind": "veteran_flamewing",
+      "label": "ability",
+      "tick": 57
+    },
+    {
+      "side": "after",
+      "file": "after/spore_toad--ability--t61.png",
+      "sha256": "484cfbda4c88272543187bf37d14f787782c6924e3d04a5611ec6604ad69ac45",
+      "kind": "spore_toad",
+      "label": "ability",
+      "tick": 61
+    },
+    {
+      "side": "after",
+      "file": "after/siege_crab--ability--t111.png",
+      "sha256": "10b6175441331c7182feb8ef79c5c4a178bfbf438b536192d049712abb596ca5",
+      "kind": "siege_crab",
+      "label": "ability",
+      "tick": 111
+    },
+    {
+      "side": "after",
+      "file": "after/slime--family-boss_summon--t29.png",
+      "sha256": "bd0147fe17b4d0d0e596e926b5db136a82b2d69495b1dfe4a50e7487c998a1a5",
+      "kind": "slime",
+      "label": "family-boss_summon",
+      "tick": 29
+    },
+    {
+      "side": "after",
+      "file": "after/slime--ability--t33.png",
+      "sha256": "3b1097f55aa320de7de5025ba5d8f7e14609c5e18143d3387dd20bc4ee2f5de8",
+      "kind": "slime",
+      "label": "ability",
+      "tick": 33
+    },
+    {
+      "side": "after",
+      "file": "after/accretion_burstcore--ability--t63.png",
+      "sha256": "a5f6c196ef5df65dc0e4124836cf2fbc7a186abe87613d6cd95a08038eaf0d86",
+      "kind": "accretion_burstcore",
+      "label": "ability",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/domeback_colossus--ability--t45.png",
+      "sha256": "991d3a6266658439bb0901f908e7c00374739a30f8452dc4bab2449ad633daf5",
+      "kind": "domeback_colossus",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/ringhold_guardian--ability--t45.png",
+      "sha256": "a537bdf7987f58e78f5f3ad43ccccdf211886ebd9aae3c471939706cccf019e4",
+      "kind": "ringhold_guardian",
+      "label": "ability",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/silverarm_vanguard--ability--t139.png",
+      "sha256": "e6707978c5eac70eb8d208faa7f47a8d8e0555f5c2d6580190d7b508134a79b0",
+      "kind": "silverarm_vanguard",
+      "label": "ability",
+      "tick": 139
+    },
+    {
+      "side": "after",
+      "file": "after/fiery_coil_inceptor--ability--t12.png",
+      "sha256": "466660e6ef36176d0f3bc6daba37ab25faae83a67cd00c9be2329aa738346c99",
+      "kind": "fiery_coil_inceptor",
+      "label": "ability",
+      "tick": 12
+    },
+    {
+      "side": "after",
+      "file": "after/golem--family-boss_wall--t24.png",
+      "sha256": "e35dc35afbd3b6c19d4574656f33778787a3f349fc5e50685c8d7228c075609f",
+      "kind": "golem",
+      "label": "family-boss_wall",
+      "tick": 24
+    },
+    {
+      "side": "after",
+      "file": "after/golem--ability--t28.png",
+      "sha256": "42181226c25f4bc5fabe46cc1bfe7d82ce391459c32db2ec10ea0e2acb9fcea7",
+      "kind": "golem",
+      "label": "ability",
+      "tick": 28
+    },
+    {
+      "side": "after",
+      "file": "after/bonefan_reaper--ability--t51.png",
+      "sha256": "0a5f9bbaae22cc7ea24330e95ae68a3cb264de600f7a011e7535c911c26ff424",
+      "kind": "bonefan_reaper",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/moonclaw_werewolf--ability--t9.png",
+      "sha256": "3524e5bb4653922f4810f3d0765738dc8857f4e69469e13b59c0177b645a5914",
+      "kind": "moonclaw_werewolf",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "after",
+      "file": "after/willyee_stone_golem--ability--t27.png",
+      "sha256": "a9998d6a31c131086583cc157706c075f30da67ba193fdd551f8daa0eccb705b",
+      "kind": "willyee_stone_golem",
+      "label": "ability",
+      "tick": 27
+    },
+    {
+      "side": "after",
+      "file": "after/basalt_titan--family-boss_burst--t22.png",
+      "sha256": "f89306cce7373c42802f9061d72c8eeda6a6b99ed3bde590ba48df87695579e3",
+      "kind": "basalt_titan",
+      "label": "family-boss_burst",
+      "tick": 22
+    },
+    {
+      "side": "after",
+      "file": "after/basalt_titan--ability--t26.png",
+      "sha256": "e92cb43bc8153b108addd5e25475d39cdeae06a33da79ecbd2cefd45d6b8b786",
+      "kind": "basalt_titan",
+      "label": "ability",
+      "tick": 26
+    },
+    {
+      "side": "after",
+      "file": "after/cyanrise_silithar--ability--t33.png",
+      "sha256": "7c923fe28241fab0677220f977c7cb02321d4ce51e48d294cf16747d7e86d368",
+      "kind": "cyanrise_silithar",
+      "label": "ability",
+      "tick": 33
+    },
+    {
+      "side": "after",
+      "file": "after/razorclaw_reaver--ability--t51.png",
+      "sha256": "2eac78710502412d6f44cba95d09450b02785fd6d9133018b2e259253b28f106",
+      "kind": "razorclaw_reaver",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/cleaver_brute--ability--t9.png",
+      "sha256": "50b4900d289ec5b1b7337a6c7da654458eb8a7c6ddf5de4172a4cb2676e9a1b7",
+      "kind": "cleaver_brute",
+      "label": "ability",
+      "tick": 9
+    },
+    {
+      "side": "after",
+      "file": "after/ringneck_prowler--ability--t69.png",
+      "sha256": "57b8335d11672e825cb6576c2e13051388e93f1001b874f14e4e45d4d9edce0f",
+      "kind": "ringneck_prowler",
+      "label": "ability",
+      "tick": 69
+    },
+    {
+      "side": "after",
+      "file": "after/bone_crown_lich--ability--t51.png",
+      "sha256": "ddc029a44917a6656e55325f5f22d76e9e45769e8f7a466ec90f19ccdead3c13",
+      "kind": "bone_crown_lich",
+      "label": "ability",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/emberwing_drake--orbit-rain--t51.png",
+      "sha256": "126b92678eae1cb5973e0ab1e25774d39a7c593e6343b98632d53221bdc6f502",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 51
+    },
+    {
+      "side": "after",
+      "file": "after/emberwing_drake--orbit-rain--t81.png",
+      "sha256": "e1bba3b1effc0b012623b7d6bc131f3e2433d42099273ec1de19f679cd241d92",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 81
+    },
+    {
+      "side": "after",
+      "file": "after/emberwing_drake--orbit-rain--t111.png",
+      "sha256": "0da1a3b98c990d17b9c2d143a05bcb6f75b0ff870e2d40987005f4cc92fb192f",
+      "kind": "emberwing_drake",
+      "label": "orbit-rain",
+      "tick": 111
+    },
+    {
+      "side": "after",
+      "file": "after/veteran_flamewing--crossing-birds--t52.png",
+      "sha256": "cfceffbca6c918fd250be24bc99c55caa55c9424cd50974d3bdc9d6483896b7d",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 52
+    },
+    {
+      "side": "after",
+      "file": "after/veteran_flamewing--crossing-birds--t64.png",
+      "sha256": "52bdf64c79f537241b19bcb7fa9f6e1379f735abac2677689c4847bcbe77a25b",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 64
+    },
+    {
+      "side": "after",
+      "file": "after/veteran_flamewing--crossing-birds--t76.png",
+      "sha256": "dc9a1d90837dcf2731c986e40cd7cd07492d011feba9869abaa33da0841a7b0e",
+      "kind": "veteran_flamewing",
+      "label": "crossing-birds",
+      "tick": 76
+    },
+    {
+      "side": "after",
+      "file": "after/pillar_hammerer--light-columns--t79.png",
+      "sha256": "e00684e5ea24950d2547bce9bbb2ea4f78588434f33a4b564d032ce480122330",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 79
+    },
+    {
+      "side": "after",
+      "file": "after/pillar_hammerer--light-columns--t91.png",
+      "sha256": "45d052e5d17ce44c51a2d968c53aeb7acaaa5967d656bddf5943270c514d2e53",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 91
+    },
+    {
+      "side": "after",
+      "file": "after/pillar_hammerer--light-columns--t103.png",
+      "sha256": "4b623b261568ac14133e718fe312efbdad1893c28d04b9826e1a75c13d1e4a64",
+      "kind": "pillar_hammerer",
+      "label": "light-columns",
+      "tick": 103
+    },
+    {
+      "side": "after",
+      "file": "after/emberfist_pillarer--fire-columns--t71.png",
+      "sha256": "ab5c181e2e3ba055661ab594732686a65e3f7c9d664ba2a7d1033137d004f84c",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 71
+    },
+    {
+      "side": "after",
+      "file": "after/emberfist_pillarer--fire-columns--t99.png",
+      "sha256": "ac3410919e5010a9908a79b1427d8ac6d8a1110d9232dc4a32578604c77b4a60",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 99
+    },
+    {
+      "side": "after",
+      "file": "after/emberfist_pillarer--fire-columns--t127.png",
+      "sha256": "0ebf54ed331d3631ef10d2b4daa029590b510ca9f6d8514ba82be84e562d3ff8",
+      "kind": "emberfist_pillarer",
+      "label": "fire-columns",
+      "tick": 127
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--falling-meteor--t66.png",
+      "sha256": "b7522d27a3464e31a569a9a876a325815591993c88de619d38cb50d49af2f08a",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 66
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--falling-meteor--t86.png",
+      "sha256": "865ebb1854513ca5cf348b963c2af39196fa332efd4a02fb5e71e48a3fe6f0df",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 86
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--falling-meteor--t106.png",
+      "sha256": "137708e319e53d154881b55b3e8052230d9966a42d9aea99775c05dad271dacd",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 106
+    },
+    {
+      "side": "after",
+      "file": "after/bluehorn_invoker--falling-meteor--t112.png",
+      "sha256": "6b973388b491cb6d9cbd3d95079a27be7e4136a96100470e5848cfb19fcfae07",
+      "kind": "bluehorn_invoker",
+      "label": "falling-meteor",
+      "tick": 112
+    },
+    {
+      "side": "after",
+      "file": "after/stonepulse_kolossus--ground-fissure--t58.png",
+      "sha256": "dd469d033902e59a2bfbe21cc90a32fc6ef67a81656d4e11a13a6bdfa7db9dc7",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 58
+    },
+    {
+      "side": "after",
+      "file": "after/stonepulse_kolossus--ground-fissure--t67.png",
+      "sha256": "3a984f41578c3c810c0cc1ae2242df2ff44cf93e9b5c16e2112f1ca8f6896741",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 67
+    },
+    {
+      "side": "after",
+      "file": "after/stonepulse_kolossus--ground-fissure--t77.png",
+      "sha256": "7b37f884efb554a5602c7aef186ee401f232b030471d4aba3e517bc1eb592deb",
+      "kind": "stonepulse_kolossus",
+      "label": "ground-fissure",
+      "tick": 77
+    },
+    {
+      "side": "after",
+      "file": "after/frostbreath_lizard--frozen-enemies--t81.png",
+      "sha256": "f4144e19a9433e9825549e0760158499bb8249272759aa2ce2646585098cbc7e",
+      "kind": "frostbreath_lizard",
+      "label": "frozen-enemies",
+      "tick": 81
+    },
+    {
+      "side": "after",
+      "file": "after/frostbreath_lizard--frozen-enemies--t113.png",
+      "sha256": "72562a08b49cfb56ab93d28a0e7cc280b66f8b8ddfcf743fb729e2269c4094e7",
+      "kind": "frostbreath_lizard",
+      "label": "frozen-enemies",
+      "tick": 113
+    },
+    {
+      "side": "after",
+      "file": "after/accretion_burstcore--grown-body--t63.png",
+      "sha256": "a5f6c196ef5df65dc0e4124836cf2fbc7a186abe87613d6cd95a08038eaf0d86",
+      "kind": "accretion_burstcore",
+      "label": "grown-body",
+      "tick": 63
+    },
+    {
+      "side": "after",
+      "file": "after/accretion_burstcore--grown-body--t83.png",
+      "sha256": "937ef4aa2ac4c3b1af2abd32464a508d883ed54eceabeed3dd85b260f1935ed6",
+      "kind": "accretion_burstcore",
+      "label": "grown-body",
+      "tick": 83
+    },
+    {
+      "side": "after",
+      "file": "after/willyee_stone_golem--reflection-shards--t17.png",
+      "sha256": "d6c91b99f9a4f26ffad7cd32ae734176c0d71704516d4de837802e51501aee59",
+      "kind": "willyee_stone_golem",
+      "label": "reflection-shards",
+      "tick": 17
+    },
+    {
+      "side": "after",
+      "file": "after/willyee_stone_golem--reflection-shards--t27.png",
+      "sha256": "a9998d6a31c131086583cc157706c075f30da67ba193fdd551f8daa0eccb705b",
+      "kind": "willyee_stone_golem",
+      "label": "reflection-shards",
+      "tick": 27
+    },
+    {
+      "side": "after",
+      "file": "after/slime--split-children--t30.png",
+      "sha256": "42a91f15137a29c8166db04cbca187fd14c6d4cdd9af817a561569b8ded99603",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 30
+    },
+    {
+      "side": "after",
+      "file": "after/slime--split-children--t56.png",
+      "sha256": "3713175a1cb10737a3440f4c9430f78898de681042982cdf3529b77c1fa955c1",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 56
+    },
+    {
+      "side": "after",
+      "file": "after/slime--split-children--t116.png",
+      "sha256": "481090d51fa761a25943eaa9a95868eeeb43948a4f85c3faef57f3a737fd3c54",
+      "kind": "slime",
+      "label": "split-children",
+      "tick": 116
+    },
+    {
+      "side": "after",
+      "file": "after/golem--wall-rock-children--t25.png",
+      "sha256": "58f365a5170295f06b2f64283411910516a5a4fd3061571321feb48f8589cdd6",
+      "kind": "golem",
+      "label": "wall-rock-children",
+      "tick": 25
+    },
+    {
+      "side": "after",
+      "file": "after/golem--wall-rock-children--t45.png",
+      "sha256": "c737ce90bede75b87be225cd2064fa3d634ed498eb34e8fac28fbc1ccc985c1f",
+      "kind": "golem",
+      "label": "wall-rock-children",
+      "tick": 45
+    },
+    {
+      "side": "after",
+      "file": "after/bone_crown_lich--raised-skeletons--t120.png",
+      "sha256": "8bc40113076e87664bf50721e86eb170bdbed025ed95eef795db81a3fbe7c07e",
+      "kind": "bone_crown_lich",
+      "label": "raised-skeletons",
+      "tick": 120
+    },
+    {
+      "side": "after",
+      "file": "after/bone_crown_lich--raised-skeletons--t150.png",
+      "sha256": "071581ef088466d5260c00113c0e404b379a3e32307f896fe13aae3b83a9a95c",
+      "kind": "bone_crown_lich",
+      "label": "raised-skeletons",
+      "tick": 150
+    },
+    {
+      "side": "after",
+      "file": "after/cleaver_brute--army-red-aura--t9.png",
+      "sha256": "50b4900d289ec5b1b7337a6c7da654458eb8a7c6ddf5de4172a4cb2676e9a1b7",
+      "kind": "cleaver_brute",
+      "label": "army-red-aura",
+      "tick": 9
+    },
+    {
+      "side": "after",
+      "file": "after/cleaver_brute--army-red-aura--t31.png",
+      "sha256": "15479b2e66c7f074a2967713836858cb7dc8ae52e7a0e683e4bb237145255744",
+      "kind": "cleaver_brute",
+      "label": "army-red-aura",
+      "tick": 31
+    },
+    {
+      "side": "after",
+      "file": "after/gauntlet_combo_guard--enemy-throw--t71.png",
+      "sha256": "6f5dcfa4b80eccbd5516cb4b13b81f5571486b5b5b02aa4271981f67bfee875d",
+      "kind": "gauntlet_combo_guard",
+      "label": "enemy-throw",
+      "tick": 71
+    },
+    {
+      "side": "after",
+      "file": "after/gauntlet_combo_guard--enemy-throw--t83.png",
+      "sha256": "b6617810c3d19d1dc48c648779db9450bad1c52a76e30e3d0c4b95f6994a54e9",
+      "kind": "gauntlet_combo_guard",
+      "label": "enemy-throw",
+      "tick": 83
+    },
+    {
+      "side": "after",
+      "file": "after/colossal_hornfist--airborne-lift--t53.png",
+      "sha256": "8ede6e8cfa1c0c52df00969a0c45f4998e54ae3e4e3243d3a7bd417aafa3d27c",
+      "kind": "colossal_hornfist",
+      "label": "airborne-lift",
+      "tick": 53
+    },
+    {
+      "side": "after",
+      "file": "after/colossal_hornfist--airborne-lift--t65.png",
+      "sha256": "dbd48397aeb111e7961f8cb06fa331555e56d0cb310002e04ed52e2ce06e735a",
+      "kind": "colossal_hornfist",
+      "label": "airborne-lift",
+      "tick": 65
+    },
+    {
+      "side": "after",
+      "file": "after/spectral_scale_dragon--phase-opacity--t5.png",
+      "sha256": "e909afeaf83eb9516976fb406315847aa0732181994a2e90a13f803cd85511a2",
+      "kind": "spectral_scale_dragon",
+      "label": "phase-opacity",
+      "tick": 5
+    },
+    {
+      "side": "after",
+      "file": "after/spectral_scale_dragon--phase-opacity--t31.png",
+      "sha256": "d74aab40693cf963961cf198877557052da8b87552ac5285e20d956bc42dea57",
+      "kind": "spectral_scale_dragon",
+      "label": "phase-opacity",
+      "tick": 31
+    }
+  ]
+}

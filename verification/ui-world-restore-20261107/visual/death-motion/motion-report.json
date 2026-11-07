@@ -1,0 +1,371 @@
+{
+  "sha": "6130a52363207d7128a36c75f154bfa4541a4ecca23ba5db51e0a9f78639c48f",
+  "rendererVersion": "0.1.100",
+  "renderer": "@napi-rs/canvas / Skia Canvas2D",
+  "limits": [
+    "Real production draw() and embedded decoded pixels; synthetic matchup setup.",
+    "Not browser/DOM/CSS/mobile, interaction, SDK or network verification.",
+    "No manually fabricated FX; frames selected from production step() events."
+  ],
+  "errors": [],
+  "frames": [
+    {
+      "kind": "fiery_coil_inceptor",
+      "label": "death-blast-motion",
+      "filename": "fiery_coil_inceptor--death-blast-motion--t6.png",
+      "tick": 6,
+      "effects": [
+        {
+          "kind": "boss_fire",
+          "tick": 4,
+          "x": 180,
+          "y": 240,
+          "targetX": 420,
+          "targetY": 240
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 180,
+          "y": 224,
+          "targetX": 180,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 228,
+          "y": 224,
+          "targetX": 228,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 249,
+          "y": 195,
+          "targetX": 249,
+          "targetY": 195
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 260,
+          "y": 254,
+          "targetX": 260,
+          "targetY": 254
+        }
+      ],
+      "units": [
+        {
+          "k": "fiery_coil_inceptor",
+          "token": "test:1",
+          "hp": -16,
+          "dead": true,
+          "flags": 0,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:2",
+          "hp": -6.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "shield",
+          "token": "test:3",
+          "hp": 63.079999999999984,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "archer",
+          "token": "test:4",
+          "hp": -46.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:5",
+          "hp": 100,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        }
+      ],
+      "assets": {
+        "pending": 0,
+        "failed": 0,
+        "optionalFailed": 0,
+        "late": false
+      }
+    },
+    {
+      "kind": "fiery_coil_inceptor",
+      "label": "death-blast-motion",
+      "filename": "fiery_coil_inceptor--death-blast-motion--t12.png",
+      "tick": 12,
+      "effects": [
+        {
+          "kind": "boss_fire",
+          "tick": 4,
+          "x": 180,
+          "y": 240,
+          "targetX": 420,
+          "targetY": 240
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 180,
+          "y": 224,
+          "targetX": 180,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 228,
+          "y": 224,
+          "targetX": 228,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 249,
+          "y": 195,
+          "targetX": 249,
+          "targetY": 195
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 260,
+          "y": 254,
+          "targetX": 260,
+          "targetY": 254
+        }
+      ],
+      "units": [
+        {
+          "k": "fiery_coil_inceptor",
+          "token": "test:1",
+          "hp": -16,
+          "dead": true,
+          "flags": 0,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:2",
+          "hp": -6.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "shield",
+          "token": "test:3",
+          "hp": 63.079999999999984,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "archer",
+          "token": "test:4",
+          "hp": -46.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:5",
+          "hp": 100,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        }
+      ],
+      "assets": {
+        "pending": 0,
+        "failed": 0,
+        "optionalFailed": 0,
+        "late": false
+      }
+    },
+    {
+      "kind": "fiery_coil_inceptor",
+      "label": "death-blast-motion",
+      "filename": "fiery_coil_inceptor--death-blast-motion--t22.png",
+      "tick": 22,
+      "effects": [
+        {
+          "kind": "boss_fire",
+          "tick": 4,
+          "x": 180,
+          "y": 240,
+          "targetX": 420,
+          "targetY": 240
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 180,
+          "y": 224,
+          "targetX": 180,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 228,
+          "y": 224,
+          "targetX": 228,
+          "targetY": 224
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 249,
+          "y": 195,
+          "targetX": 249,
+          "targetY": 195
+        },
+        {
+          "kind": "hit_spark",
+          "tick": 4,
+          "x": 260,
+          "y": 254,
+          "targetX": 260,
+          "targetY": 254
+        }
+      ],
+      "units": [
+        {
+          "k": "fiery_coil_inceptor",
+          "token": "test:1",
+          "hp": -16,
+          "dead": true,
+          "flags": 0,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:2",
+          "hp": -6.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "shield",
+          "token": "test:3",
+          "hp": 63.079999999999984,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "archer",
+          "token": "test:4",
+          "hp": -46.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:5",
+          "hp": 100,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        }
+      ],
+      "assets": {
+        "pending": 0,
+        "failed": 0,
+        "optionalFailed": 0,
+        "late": false
+      }
+    },
+    {
+      "kind": "fiery_coil_inceptor",
+      "label": "death-blast-motion",
+      "filename": "fiery_coil_inceptor--death-blast-motion--t34.png",
+      "tick": 34,
+      "effects": [
+        {
+          "kind": "boss_fire",
+          "tick": 4,
+          "x": 180,
+          "y": 240,
+          "targetX": 420,
+          "targetY": 240
+        }
+      ],
+      "units": [
+        {
+          "k": "fiery_coil_inceptor",
+          "token": "test:1",
+          "hp": -16,
+          "dead": true,
+          "flags": 0,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:2",
+          "hp": -6.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "shield",
+          "token": "test:3",
+          "hp": 63.079999999999984,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "archer",
+          "token": "test:4",
+          "hp": -46.920000000000016,
+          "dead": true,
+          "scale": 1,
+          "imageReady": true
+        },
+        {
+          "k": "sword",
+          "token": "test:5",
+          "hp": 100,
+          "dead": false,
+          "scale": 1,
+          "imageReady": true
+        }
+      ],
+      "assets": {
+        "pending": 0,
+        "failed": 0,
+        "optionalFailed": 0,
+        "late": false
+      }
+    }
+  ],
+  "birth": 4,
+  "additionalFrames": 4
+}

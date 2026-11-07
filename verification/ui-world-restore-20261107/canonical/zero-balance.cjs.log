@@ -1,0 +1,3 @@
+PASS early zero stake win restores 10 G; loss and draw stay at zero
+PASS multiplayer zero participant recovers while other settles independently
+PASS round 10 recovery or terminal zero and double-up boundary

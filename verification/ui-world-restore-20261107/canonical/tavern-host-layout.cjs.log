@@ -1,0 +1,5 @@
+PASS explicit shell, normal browser, SDK-only browser, 74/98 fallback, profile and measured-inset precedence
+PASS keyboard shrink keeps the native band, blur/full-height recovery and real orientation changes recalculate it
+PASS max(safe-area, native) rather than addition; preinset app/dialogs avoid double reserve and loading text is protected
+PASS game-only table background, selected-card outlines and shadow-free visual treatment are present
+PASS actual left=#red uses blue, right=#blue uses red; selection has a second line, neutral unselected borders, no shadow/layout shift, and >=3:1 outline contrast

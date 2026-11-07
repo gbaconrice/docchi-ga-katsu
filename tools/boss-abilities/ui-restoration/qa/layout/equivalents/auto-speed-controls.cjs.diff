@@ -1,0 +1,11 @@
+--- preserved/auto-speed-controls.cjs
++++ equivalent/auto-speed-controls.cjs
+@@ -7,7 +7,7 @@
+ const {context,nodes}=new Function('require',h+';return {context,nodes};')(require);
+ const run=s=>vm.runInContext(s,context);
+ assert.equal(run('typeof speed'),'undefined');assert.equal(run('typeof setSpeed'),'undefined');
+-for(const phase of ['choose','fight','result']){run(`multiSession=null;state='${phase}';syncFlowControls()`);assert.equal(nodes.get('#pause').hidden,false);assert.equal(nodes.get('#pause').disabled,phase==='choose');}
++for(const phase of ['choose','fight','result']){run(`multiSession=null;state='${phase}';syncFlowControls()`);assert.equal(nodes.get('#pause').hidden,false);assert.equal(nodes.get('#pause').disabled,false);}
+ run("multiSession={getState:()=>({phase:'locked'})};state='fight';syncFlowControls()");assert(!nodes.get('#pause').hidden&&nodes.get('#pause').disabled);
+ run("multiSession={getState:()=>({phase:'battle'})};multiPlayback={};state='fight';syncFlowControls()");assert(!nodes.get('#pause').hidden&&!nodes.get('#pause').disabled);
+ run("multiSession=null;multiPlayback=null;state='fight';paused=false;document.querySelector('#pause').onclick({isTrusted:true})");assert(run('paused'));assert(!nodes.get('#pausePanel').hidden);

@@ -16,7 +16,7 @@
   let selected = roster[0].id, mirrored = false, playing = false, ready = false;
   let abilities = 0, effects = 0, hits = 0, lastEvents = [], error = '';
   let enemyAttacks=false, scenario='default', recorder=null, playback=null, replayTick=0, recordedTicks=0;
-  const capture=()=>recorder.capture(Math.round(elapsed*60),{units,shots,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)},true);
+  const capture=()=>recorder.capture(Math.round(elapsed*60),{units,shots,frameFor:u=>baseSpriteFrame(u),facingFor:u=>visualFor(u).face,movingFor:u=>visualFor(u).moving,effects:newEffects,statusFor:u=>CompactReplay.fourSpeciesPresentationFlags(u,elapsed,visualFor(u).moving)},true);
   const style = document.createElement('style');
   style.textContent = 'html,body{margin:0!important;padding:0!important;min-width:0!important;background:#17231f!important;overflow-x:hidden}#app{display:none!important}#bossFixtureStage{width:100%;max-width:480px;margin:0 auto}#bossFixtureStage #field{display:block;width:100%!important;height:auto!important;max-width:100%;box-sizing:border-box;aspect-ratio:480/538}#bossFixtureCaption{color:#f5eacb;font:13px/1.5 system-ui;padding:10px;margin:0}';
   document.head.appendChild(style);
@@ -28,12 +28,13 @@
   function snapshot() {
     return {type:'boss-preview-state', ready, roster, selected, mirrored, playing,
       tick:Math.round(elapsed*60), abilities, effects, hits, lastEvents, error, enemyAttacks, scenario, replay:!!playback, recordedTicks,
-      bossHp:units[0]?.hp, units:units.length, activeEffects:activeEffects.map(e=>e.kind)};
+      bossHp:units[0]?.hp, units:units.length, activeEffects:activeEffects.map(e=>e.kind),
+      effectAssets:{total:Object.keys(EFFECT_ASSETS).length,ready:Object.keys(EFFECT_ASSETS).filter(k=>effectImages[k]?.complete&&effectImages[k]?.naturalWidth).length,failed:Object.keys(EFFECT_ASSETS).filter(k=>effectImages[k]===null).length}};
   }
   function report() { caption.textContent=playback?'記録した戦闘をリプレイ表示中。ライブ操作に戻すにはリセットしてください。':`能力確認用の固定配置。敵3体はHP 3000、${enemyAttacks?'攻撃可能（配置によって攻撃役を限定）':'攻撃待機'}。味方の剣士1体を配置。`;if (window.parent !== window) window.parent.postMessage(snapshot(), location.origin); }
   function reset() {
     playing = false; abilities = 0; effects = 0; hits = 0; lastEvents = []; error = '';
-    enemyAttacks=false; scenario='default'; playback=null; replayTick=0; recordedTicks=0;
+    enemyAttacks=false; scenario='default'; playback=null; multiPlayback=null; replayTick=0; recordedTicks=0;
     BossAbilities.reset();
     for(const f of [resetCrowdPresentation,resetLionPresentation,resetShockPresentation,resetComboPresentation,resetCleavePresentation,resetWingPresentation,resetWave4Presentation,resetDefensePresentation,resetHighPresentation,resetStagedPresentation,resetBombPresentation]) f();
     elapsed=0; shots=[]; activeEffects=[]; newEffects=[]; visualTime=0; effectClockTick=0;
@@ -43,7 +44,7 @@
       cd:id===1?0:999,priority:id/10,dead:false,originForward:(side===0?1:-1)*(mirrored?-1:1)});
     units=[make(1,selected,0,180,240),make(2,'sword',1,230,240),make(3,'shield',1,250,210),make(4,'archer',1,260,270),make(5,'sword',0,150,220)];
     initialUnits=units.map(u=>({...u})); initialKinds=[0,1].map(s=>units.filter(u=>u.side===s).map(u=>u.k));
-    beginLicensedOpening(units); configureFixedCamera(); recorder=CompactReplay.createCompactRecorder(); capture(); draw(); report();
+    primeEffectImages(); beginLicensedOpening(units); configureFixedCamera(); recorder=CompactReplay.createCompactRecorder(); capture(); draw(); report();
   }
   function setEnemyAttacks(enabled) {
     enemyAttacks=enabled;
@@ -60,7 +61,7 @@
     recorder=CompactReplay.createCompactRecorder();capture();draw();
   }
   function advance(count) {
-    if(playback){replayTick=Math.min(recordedTicks,replayTick+count);const frame=playback.at(replayTick);units=frame.units;shots=frame.shots;activeEffects=frame.effects||[];effectClockTick=replayTick;elapsed=visualTime=replayTick/60;for(const u of units)visualFor(u).face=u.face;if(replayTick===recordedTicks)playing=false;draw();report();return;}
+    if(playback){replayTick=Math.min(recordedTicks,replayTick+count);const frame=playback.at(replayTick);units=frame.units;shots=frame.shots;activeEffects=frame.effects||[];replayCornerCues=frame.cornerPillars||[];effectClockTick=replayTick;elapsed=visualTime=replayTick/60;for(const u of units)visualFor(u).face=u.face;if(replayTick===recordedTicks)playing=false;draw();report();return;}
     for(let i=0;i<count;i++) {
       if(state==='result'){playing=false;break;}
       combatEvents=[]; step(1/60);
@@ -81,7 +82,7 @@
         case 'reset': reset(); break;
         case 'enemyattack': if(playback)return;setEnemyAttacks(!enemyAttacks);break;
         case 'melee': case 'ally': case 'projectile': setupScenario(message.action);break;
-        case 'replay': if(playback||!recordedTicks)return;playing=false;playback=CompactReplay.createPlayback(recorder.finish({ticks:recordedTicks,winner:'draw'}));replayTick=0;advance(0);break;
+        case 'replay': if(playback||!recordedTicks)return;playing=false;playback=CompactReplay.createPlayback(recorder.finish({ticks:recordedTicks,winner:'draw'}));multiPlayback=playback;replayTick=0;advance(0);break;
         case 'advance': playing=false; advance([1,15,60].includes(message.count)?message.count:1); break;
         case 'play': playing=!playing; break;
         case 'mirror': mirrored=!mirrored; reset(); break;

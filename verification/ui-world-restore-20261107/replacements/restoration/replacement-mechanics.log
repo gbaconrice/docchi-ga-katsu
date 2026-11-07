@@ -1,0 +1,26 @@
+PASS gauntlet contact hits and final wave on exact ticks, no capture
+PASS gauntlet escaped primary is not remotely punched or held
+PASS gauntlet cancellation death
+PASS gauntlet cancellation stun
+PASS gauntlet cancellation phase
+PASS pincer single closing strike has no delayed capture or control
+PASS pincer natural windup, escape causes miss
+PASS pincer natural closing impact follows full68 tick windup
+PASS pincer windup stun cancels strike
+PASS claws guard blocks front then counter damages actual nearby enemies
+PASS claw guard excludes rear
+PASS claw guard excludes dot
+PASS claw guard excludes zone
+PASS claw guard excludes counter
+PASS claw guard excludes phase
+PASS guard at most two blocks, absorbed budget finite, third full damage
+PASS claw counter cancellation or miss death
+PASS claw counter cancellation or miss stun
+PASS claw counter cancellation or miss escape
+PASS guard timeout performs finite opening swing and releases stance
+PASS late guard block cannot extend guard beyond90tick expiry
+PASS gauntlet_combo_guard natural mirror determinism and no capture
+PASS kilnback_pincerbeast natural mirror determinism and no capture
+PASS razorclaw_reaver natural mirror determinism and no capture
+PASS guard flag and new cues survive production replay encoding
+{"sha":"fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf","tests":25,"passed":25,"failed":[]}

@@ -1,0 +1,7 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment volcano
+PASS deferred image callbacks
+PASS root duration, immunity, movement resume, replay status and UI {"hit":1,"applied":{"factor":0,"until":0.6166666666666667,"immune":3.0166666666666666,"at":0.016666666666666666,"flags":4097},"start":400,"frozen":400,"after":391.998291015625,"facts":{"hp":"100000","attackValue":"12","attackAriaLabel":"1体・1発目の基礎ダメージ。相手の防御や地形、追加効果の適用前。多段攻撃の合計ではありません","actionDetail":"","roleNote":"","label":"攻撃","value":"12","wide":false,"timing":"基本間隔1.25秒","movement":"25","distanceLabel":"間合い","distanceAriaLabel":"攻撃開始距離","distance":"11","traits":["地上を0.6秒足止め（鈍足解除可・耐性2.4秒）"],"traitTones":["control"],"actionTone":"attack","attackable":true}}

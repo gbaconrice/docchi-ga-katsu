@@ -1,0 +1,8 @@
+PASS boot 5 scripts
+PASS solo start
+PASS host timeout scores once and UI returns room lobby
+PASS guest timeout scores once and UI returns room lobby
+PASS failed automatic score remains manually retryable in finished lobby
+PASS continuing guest auto-advances; timed-out host spectates and keeps score retry
+PASS final room transition also brings a home-screen participant back
+PASS timed-out guest sees continuation as a spectator and submits only own gold

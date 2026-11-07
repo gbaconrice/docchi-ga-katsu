@@ -1,0 +1,32 @@
+{
+  "file": "/workspace/scratch/0aca2c1c1edc/grab-replacements-20261107/presentation/qa-bosses-fixed.js",
+  "live": {
+    "tick": 67,
+    "frame": 26,
+    "clip": "attack",
+    "multi": false,
+    "fx": [
+      "hit_spark",
+      "boss_fist_wave",
+      "hit_spark",
+      "hit_spark",
+      "hit_spark"
+    ],
+    "error": ""
+  },
+  "replay": {
+    "tick": 67,
+    "frame": 26,
+    "clip": "attack",
+    "pose": 64,
+    "multi": true,
+    "fx": [
+      "hit_spark",
+      "boss_fist_wave",
+      "hit_spark",
+      "hit_spark",
+      "hit_spark"
+    ],
+    "error": ""
+  }
+}
