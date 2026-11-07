@@ -1,0 +1,50 @@
+{
+  "sourceSHA256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
+  "contentRevision": "c8000006e8f24710e6db9c37dc6e2a94c5bdbfe1ac566fc6404fa7ac90ffb5bd",
+  "baseSourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf"
+}
+{
+  "output": "<reproduction>/build",
+  "sourceSha256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
+  "imageAssets": 573,
+  "imageBytes": 32277203,
+  "initialScriptBytes": 6309392,
+  "files": 16,
+  "gravityBytes": 9039
+}
+PASS boot 5 scripts
+PASS solo start
+PASS same audio node/listener moves game/home/room/game
+PASS hidden information control after choose/fight/result sync
+PASS repeated solo/multi phase transitions restore title and notice; choose has only requested buttons
+PASS all 8 stable terrain IDs plus none; full label preserved
+PASS removing only the home-scoped CSS and resealing exactly restores prior source; no node/listener/game/room logic changed
+PASS boot 5 scripts
+PASS solo start
+PASS shared audio node and listener survive home/game/room/home/game; visibility suppressed exclusively by home CSS
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS zero G hint and prediction
+PASS zero at round 10 ends with loss state
+PASS win/loss/draw state survives audio synchronization
+PASS percent controls show one selected option for small balance
+{
+  "sha": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
+  "checks": 66,
+  "passed": 66,
+  "failed": [],
+  "matrix": 49
+}
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step -1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 0
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 2
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 3
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 4
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 5
+ENTRY_LOADER_RELEASE_PASS 7 cases; actual release code in DOM fixtures.
+REPRODUCTION PASS 9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d

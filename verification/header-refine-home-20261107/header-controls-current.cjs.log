@@ -1,0 +1,6 @@
+PASS boot 5 scripts
+PASS solo start
+PASS same audio node/listener moves game/home/room/game
+PASS hidden information control after choose/fight/result sync
+PASS repeated solo/multi phase transitions restore title and notice; choose has only requested buttons
+PASS all 8 stable terrain IDs plus none; full label preserved

@@ -1,0 +1,144 @@
+{
+  "sourceSHA256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
+  "ordinary": {
+    "results": [
+      {
+        "width": 320,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      },
+      {
+        "width": 390,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      },
+      {
+        "width": 1200,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      }
+    ],
+    "allPassed": true
+  },
+  "gravity": {
+    "results": [
+      {
+        "width": 320,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      },
+      {
+        "width": 390,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      },
+      {
+        "width": 1200,
+        "before": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "game": {
+          "parent": "gameToolbar",
+          "display": "grid",
+          "width": 44,
+          "height": 44,
+          "sameNode": true
+        },
+        "after": {
+          "parent": "homeScreen",
+          "display": "none",
+          "width": 0
+        },
+        "pass": true
+      }
+    ],
+    "allPassed": true
+  },
+  "audioToggle": {
+    "before": "サウンドをミュート",
+    "after": "サウンドをオンにする"
+  },
+  "limitations": "Cloud browser fixtures; not physical devices or real Gravity SDK"
+}

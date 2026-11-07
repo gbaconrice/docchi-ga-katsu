@@ -1,0 +1,10 @@
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment icefield
+PASS deferred image callbacks
+PASS zero G hint and prediction
+PASS zero at round 10 ends with loss state
+PASS win/loss/draw state survives audio synchronization
+PASS percent controls show one selected option for small balance

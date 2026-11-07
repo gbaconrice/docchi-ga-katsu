@@ -1,0 +1,4 @@
+PASS removing only the home-scoped CSS and resealing exactly restores prior source; no node/listener/game/room logic changed
+PASS boot 5 scripts
+PASS solo start
+PASS shared audio node and listener survive home/game/room/home/game; visibility suppressed exclusively by home CSS

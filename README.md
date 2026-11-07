@@ -1,11 +1,13 @@
 # どっちが勝つ
 
+ホーム画面の音声ボタンを非表示にしました。ゲーム内とルームの音声操作は維持しています。[今回の検証](verification/header-refine-home-20261107/README.md)。
+
 スマートフォンの配置、賭け中の操作、外れのコイン演出、攻撃表記と大型能力のピクセル演出を修正した版です。掴む能力3種は、承認された別の能力へ変更しました。HP・価格・攻撃対象属性、300種の選択ID、既存のキャラクター素材は維持しています。
 
 ## 今回の上部UI修正
 
 - 地形・戦数・ゴールドの間の余白を等間隔にし、戦数を太字にしました。地形名と効果説明は地形ごとに同じ色です。
-- 情報ボタンを非表示にし、エモートをその位置、音声を旧エモート位置へ移しました。右上の音声はありません。ホームとルームの音声配置は維持しています。
+- 情報ボタンを非表示にし、エモートをその位置、音声を旧エモート位置へ移しました。右上の音声はありません。ホームの音声ボタンは非表示にし、ルームの音声配置は維持しています。
 - 賭け画面の一時停止は「閉じる」「ゲームを終了する」の2ボタンのみです。2段目の行全体の外枠は今回変更していません。
 - 通常版・GRAVITY入口で各144条件、実戦統合66、入口32、分割読込7条件を確認しました。今回の[検証記録](verification/header-refine-20261107/README.md)を参照してください。以下の能力・演出検証は前版の記録です。
 
@@ -39,7 +41,7 @@
 ## 今回のUI修正の再現
 
 ```sh
-node tools/header-refine-20261107/reproduce.cjs /tmp/docchi-header-refine
+node tools/header-refine-home-20261107/reproduce.cjs /tmp/docchi-header-home
 ```
 
 ## 前版の能力・演出検証の再現
@@ -53,6 +55,6 @@ node tools/boss-abilities/run-canonical.cjs /tmp/docchi-canonical-results
 
 ## 入口・素材
 
-[通常版](https://gbaconrice.github.io/docchi-ga-katsu/) ／ [GRAVITY用入口](https://gbaconrice.github.io/docchi-ga-katsu/releases/header-refine-20261107/gravity-entry.html) ／ [貼り付け用プロンプト](GRAVITY_PROMPT.txt)
+[通常版](https://gbaconrice.github.io/docchi-ga-katsu/) ／ [GRAVITY用入口](https://gbaconrice.github.io/docchi-ga-katsu/releases/header-refine-home-20261107/gravity-entry.html) ／ [貼り付け用プロンプト](GRAVITY_PROMPT.txt)
 
 [能力確認用ページ](releases/ui-world-restore-20261107/boss-preview.html)は独立したQA入口で、通常ゲームには含まれません。release内のARTWORKとlicensesに素材の出典を記録しています。以前のリリースは保存しています。
