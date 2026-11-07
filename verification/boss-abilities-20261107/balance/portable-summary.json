@@ -1,0 +1,3208 @@
+{
+  "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "controlled": {
+    "all": {
+      "n": 2208,
+      "win": 1616,
+      "loss": 502,
+      "draw": 90,
+      "error": 0,
+      "timeLimits": 68,
+      "mutualAnnihilations": 22,
+      "mirrorPairs": 1104,
+      "mirrorDisagreements": 0
+    },
+    "ground": {
+      "n": 1928,
+      "win": 1616,
+      "loss": 232,
+      "draw": 80,
+      "error": 0,
+      "timeLimits": 58,
+      "mutualAnnihilations": 22,
+      "mirrorPairs": 964,
+      "mirrorDisagreements": 0
+    },
+    "unreachableAir": {
+      "n": 280,
+      "win": 0,
+      "loss": 270,
+      "draw": 10,
+      "error": 0,
+      "timeLimits": 10,
+      "mutualAnnihilations": 0,
+      "mirrorPairs": 140,
+      "mirrorDisagreements": 0
+    }
+  },
+  "mixed": {
+    "n": 196,
+    "win": 154,
+    "loss": 32,
+    "draw": 10,
+    "error": 0,
+    "timeLimits": 6,
+    "mutualAnnihilations": 4,
+    "mirrorPairs": 98,
+    "mirrorDisagreements": 0
+  },
+  "support": {
+    "lich": {
+      "original_support": {
+        "lich": {
+          "n": 16,
+          "win": 4,
+          "loss": 12,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 3,
+          "maxTotalRaised": 6
+        },
+        "equal_cost_no_support": {
+          "n": 16,
+          "win": 10,
+          "loss": 6,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 0,
+          "maxTotalRaised": 0
+        }
+      },
+      "heldout_support": {
+        "lich": {
+          "n": 16,
+          "win": 6,
+          "loss": 10,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 3,
+          "maxTotalRaised": 6
+        },
+        "equal_cost_no_support": {
+          "n": 16,
+          "win": 12,
+          "loss": 4,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 0,
+          "maxTotalRaised": 0
+        }
+      },
+      "fresh_holdout_support": {
+        "lich": {
+          "n": 8,
+          "win": 2,
+          "loss": 6,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 3,
+          "maxTotalRaised": 6
+        },
+        "equal_cost_no_support": {
+          "n": 8,
+          "win": 8,
+          "loss": 0,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "maxLiveChildren": 0,
+          "maxTotalRaised": 0
+        }
+      }
+    },
+    "cleaver": {
+      "original_support": {
+        "cleaver": {
+          "n": 16,
+          "win": 10,
+          "loss": 6,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0
+        },
+        "equal_cost_no_support": {
+          "n": 16,
+          "win": 8,
+          "loss": 8,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0
+        }
+      },
+      "heldout_support": {
+        "cleaver": {
+          "n": 16,
+          "win": 8,
+          "loss": 8,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0
+        },
+        "equal_cost_no_support": {
+          "n": 16,
+          "win": 6,
+          "loss": 10,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0
+        }
+      },
+      "two_sword_mixed": {
+        "cleaver": {
+          "n": 8,
+          "win": 8,
+          "loss": 0,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0
+        }
+      },
+      "fresh_holdout_support": {
+        "cleaver": {
+          "n": 8,
+          "win": 6,
+          "loss": 2,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0
+        },
+        "equal_cost_no_support": {
+          "n": 8,
+          "win": 4,
+          "loss": 4,
+          "draw": 0,
+          "error": 0,
+          "timeLimits": 0,
+          "mutualAnnihilations": 0,
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0
+        }
+      }
+    }
+  },
+  "byType": {
+    "accretion_burstcore": {
+      "ground": {
+        "n": 48,
+        "win": 48,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 24,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "basalt_titan": {
+      "ground": {
+        "n": 44,
+        "win": 24,
+        "loss": 0,
+        "draw": 20,
+        "error": 0,
+        "timeLimits": 16,
+        "mutualAnnihilations": 4,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 0,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 2,
+        "mutualAnnihilations": 2,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "bluefist_colossus": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "bluehorn_invoker": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "bone_crown_lich": {
+      "ground": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "bonefan_reaper": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "carapace_slashbeast": {
+      "ground": {
+        "n": 36,
+        "win": 36,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 18,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 12,
+        "win": 0,
+        "loss": 12,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 6,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "cinder_tailbeast": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "cleaver_brute": {
+      "ground": {
+        "n": 44,
+        "win": 32,
+        "loss": 12,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "colossal_hornfist": {
+      "ground": {
+        "n": 40,
+        "win": 36,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "cyanrise_silithar": {
+      "ground": {
+        "n": 44,
+        "win": 0,
+        "loss": 28,
+        "draw": 16,
+        "error": 0,
+        "timeLimits": 16,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 0,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 4,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "darkfan_clawlord": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "domeback_colossus": {
+      "ground": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "emberfist_pillarer": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "emberwing_drake": {
+      "ground": {
+        "n": 44,
+        "win": 42,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "fiery_coil_inceptor": {
+      "ground": {
+        "n": 48,
+        "win": 28,
+        "loss": 0,
+        "draw": 20,
+        "error": 0,
+        "timeLimits": 2,
+        "mutualAnnihilations": 18,
+        "mirrorPairs": 24,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 0,
+        "draw": 2,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 2,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "flameburst_mythron": {
+      "ground": {
+        "n": 44,
+        "win": 10,
+        "loss": 32,
+        "draw": 2,
+        "error": 0,
+        "timeLimits": 2,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "flamering_magus": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "frostbreath_lizard": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "frosthorn_rhino": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "gauntlet_combo_guard": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "golem": {
+      "ground": {
+        "n": 40,
+        "win": 38,
+        "loss": 0,
+        "draw": 2,
+        "error": 0,
+        "timeLimits": 2,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 4,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 4,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "iceclaw_legend": {
+      "ground": {
+        "n": 40,
+        "win": 36,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "kilnback_pincerbeast": {
+      "ground": {
+        "n": 44,
+        "win": 34,
+        "loss": 10,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "moonclaw_werewolf": {
+      "ground": {
+        "n": 36,
+        "win": 26,
+        "loss": 10,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 18,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 12,
+        "win": 0,
+        "loss": 12,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 6,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "pillar_hammerer": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "plated_dualdragon": {
+      "ground": {
+        "n": 48,
+        "win": 48,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 24,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "razorclaw_reaver": {
+      "ground": {
+        "n": 44,
+        "win": 14,
+        "loss": 18,
+        "draw": 12,
+        "error": 0,
+        "timeLimits": 12,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "redhorn_dualbeast": {
+      "ground": {
+        "n": 44,
+        "win": 10,
+        "loss": 34,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "ringhold_guardian": {
+      "ground": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "ringneck_prowler": {
+      "ground": {
+        "n": 48,
+        "win": 16,
+        "loss": 28,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 4,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 24,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 0,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "roarfang_beast": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "rootwarden_treant": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 6,
+        "draw": 2,
+        "error": 0,
+        "timeLimits": 2,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "shockplate_drake": {
+      "ground": {
+        "n": 36,
+        "win": 36,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 18,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 12,
+        "win": 0,
+        "loss": 12,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 6,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "siege_crab": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "silverarm_vanguard": {
+      "ground": {
+        "n": 44,
+        "win": 30,
+        "loss": 14,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "skullflare_triad": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "slime": {
+      "ground": {
+        "n": 40,
+        "win": 32,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 4,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 4,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "spectral_scale_dragon": {
+      "ground": {
+        "n": 40,
+        "win": 38,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "spikeburst_grinder": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "spore_toad": {
+      "ground": {
+        "n": 32,
+        "win": 32,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 16,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 16,
+        "win": 0,
+        "loss": 16,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 8,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "stonepulse_kolossus": {
+      "ground": {
+        "n": 40,
+        "win": 34,
+        "loss": 2,
+        "draw": 4,
+        "error": 0,
+        "timeLimits": 4,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "stormhorn_tripler": {
+      "ground": {
+        "n": 40,
+        "win": 16,
+        "loss": 24,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 2,
+        "loss": 2,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "thornback_beast": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "thunderhorn_beast": {
+      "ground": {
+        "n": 36,
+        "win": 36,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 18,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 12,
+        "win": 0,
+        "loss": 12,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 6,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "triad_chimera": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "veteran_flamewing": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "willyee_frost_dragon": {
+      "ground": {
+        "n": 40,
+        "win": 40,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 20,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 8,
+        "win": 0,
+        "loss": 8,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 4,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    },
+    "willyee_stone_golem": {
+      "ground": {
+        "n": 44,
+        "win": 44,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 22,
+        "mirrorDisagreements": 0
+      },
+      "air": {
+        "n": 4,
+        "win": 0,
+        "loss": 4,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      },
+      "mixed": {
+        "n": 4,
+        "win": 4,
+        "loss": 0,
+        "draw": 0,
+        "error": 0,
+        "timeLimits": 0,
+        "mutualAnnihilations": 0,
+        "mirrorPairs": 2,
+        "mirrorDisagreements": 0
+      }
+    }
+  },
+  "costMismatches": [],
+  "runtimeErrors": [],
+  "timeouts": [
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 4,
+      "seed": 8,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        90,
+        525
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 4,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        2,
+        7
+      ],
+      "hp": [
+        120,
+        525
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 11,
+      "seed": 5,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        900,
+        400
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "slime",
+      "pair": 13,
+      "seed": 9,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        3,
+        3
+      ],
+      "hp": [
+        78,
+        225
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "slime",
+      "pair": 13,
+      "seed": 0,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        2,
+        3
+      ],
+      "hp": [
+        32,
+        225
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "rootwarden_treant",
+      "pair": 42,
+      "seed": 9,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        6
+      ],
+      "hp": [
+        30,
+        450
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 8,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        900,
+        190
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        910,
+        190
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        826,
+        503.3
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        847,
+        503.3
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        112.5,
+        170
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 9,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        75,
+        170
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        35,
+        130
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        49,
+        130
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 0,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        247.5499999999958,
+        640
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 5,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        9
+      ],
+      "hp": [
+        262.4249999999968,
+        720
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        55.200000000001744,
+        60.525
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        62.850000000001266,
+        63.675
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        312.75,
+        380
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 9,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        354,
+        380
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 8,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        364,
+        320
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        343,
+        320
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "fiery_coil_inceptor",
+      "pair": 387,
+      "seed": 5,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        3
+      ],
+      "hp": [
+        380.9999999999978,
+        191.4
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 0,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        1027,
+        52
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 5,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        939.5,
+        106
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 471,
+      "seed": 2,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        11
+      ],
+      "hp": [
+        9.70000000000957,
+        825
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 1,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        629.5499999999952,
+        360
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 8,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        642.1999999999953,
+        360
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 8,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        152.6999999999959,
+        475
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 15,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        137.29999999999592,
+        475
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 9,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        16
+      ],
+      "hp": [
+        416.42500000001803,
+        1221.2479999999998
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 0,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        16
+      ],
+      "hp": [
+        408.72500000001605,
+        1265.312
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 478,
+      "seed": 1,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        68.00000000000102,
+        480
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "flameburst_mythron",
+      "pair": 483,
+      "seed": 5,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        180,
+        117.03999999999995
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 4,
+      "seed": 8,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        525,
+        90
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 4,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        7,
+        2
+      ],
+      "hp": [
+        525,
+        120
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "golem",
+      "pair": 11,
+      "seed": 5,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        400,
+        900
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "slime",
+      "pair": 13,
+      "seed": 9,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        3,
+        3
+      ],
+      "hp": [
+        225,
+        78
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "slime",
+      "pair": 13,
+      "seed": 0,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        3,
+        2
+      ],
+      "hp": [
+        225,
+        32
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "rootwarden_treant",
+      "pair": 42,
+      "seed": 9,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        6,
+        1
+      ],
+      "hp": [
+        450,
+        30
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 8,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        190,
+        900
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        190,
+        910
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        503.3,
+        826
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        503.3,
+        847
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        170,
+        112.5
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 9,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        170,
+        75
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        130,
+        35
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        130,
+        49
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 0,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        640,
+        247.5499999999958
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 5,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        9,
+        1
+      ],
+      "hp": [
+        720,
+        262.4249999999968
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        60.525,
+        55.200000000001744
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        63.675,
+        62.850000000001266
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        380,
+        312.75
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 9,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        380,
+        354
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 8,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        320,
+        364
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        320,
+        343
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "fiery_coil_inceptor",
+      "pair": 387,
+      "seed": 5,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        3,
+        1
+      ],
+      "hp": [
+        191.4,
+        380.9999999999978
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 0,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        52,
+        1027
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 5,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        106,
+        939.5
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 471,
+      "seed": 2,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        11,
+        1
+      ],
+      "hp": [
+        825,
+        9.70000000000957
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 1,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        360,
+        629.5499999999952
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 8,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        360,
+        642.1999999999953
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 8,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        475,
+        152.6999999999959
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 15,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        475,
+        137.29999999999592
+      ],
+      "env": "icefield"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 9,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        16,
+        1
+      ],
+      "hp": [
+        1221.2479999999998,
+        416.42500000001803
+      ],
+      "env": "highland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 0,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        16,
+        1
+      ],
+      "hp": [
+        1265.312,
+        408.72500000001605
+      ],
+      "env": "grassland"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "cyanrise_silithar",
+      "pair": 478,
+      "seed": 1,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        480,
+        68.00000000000102
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "controlled",
+      "boss": "flameburst_mythron",
+      "pair": 483,
+      "seed": 5,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        117.03999999999995,
+        180
+      ],
+      "env": "rockfield"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "basalt_titan",
+      "pair": 3,
+      "seed": 921101,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        383.5,
+        60
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "basalt_titan",
+      "pair": 3,
+      "seed": 921101,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        60,
+        383.5
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "cyanrise_silithar",
+      "pair": 20,
+      "seed": 910971,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        91.10000000000193,
+        480
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "cyanrise_silithar",
+      "pair": 20,
+      "seed": 910971,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        480,
+        91.10000000000193
+      ],
+      "env": "desert"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "cyanrise_silithar",
+      "pair": 21,
+      "seed": 921974,
+      "mirror": false,
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        191.0750000000014,
+        437
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "cohort": "mixed",
+      "boss": "cyanrise_silithar",
+      "pair": 21,
+      "seed": 921974,
+      "mirror": true,
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        437,
+        191.0750000000014
+      ],
+      "env": "crosswind_ridge"
+    }
+  ],
+  "limits": [
+    "Selected fixed-roster deterministic fixtures, not calibrated overall win probabilities.",
+    "Mirrors are correlated; support/two-sword checks overlap other cohorts. Keep denominators separate.",
+    "Nominal damage audit may include overkill. Raw lich corpse reason tags use an inherited3-total diagnostic threshold; rely on measured live/total counts for the6-total rule."
+  ]
+}

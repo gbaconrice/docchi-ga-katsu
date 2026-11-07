@@ -1,0 +1,31 @@
+# Boss / ordinary-runtime interoperability audit
+
+Input frozen source: `46a92df7d1744651fa72ab571411c6e9efe36ff56cc67d032861fa0dcfb6d7a7`.
+Patch: `patch-boss-status-interop.py`, composed after boss delivery and before content hashing.
+Production tests: `tests/boss-status-interop.test.cjs` (34 checks).
+
+## Fixed external support and control hooks
+
+- **rune_exorcist:** cleanses tick-start boss root from rootwarden_treant, thornback_beast and razorclaw_reaver. Keeps the same range, one-target reservation, cooldown, nearest/remaining-duration ordering and self exclusion. It does not cleanse stun, freeze, airborne, poison, burn, curse or armorbreak. Tick-start object identity protects fresh/replaced root; movement for the cleansing tick is not recomputed. Existing ordinary immunity and boss control/root immunity survive cleanse.
+- **boar / knife_skirmisher:** boss root now blocks voluntary charge/retreat movement only. In-range attacks, forced knockback and body separation remain available. Other ordinary voluntary movement already used the shared movement factor.
+- **glimmer_sprite:** its existing tick-start moveBoost snapshot now reaches BossAbilities.move. Ground-only target eligibility, two-target cap and active/expiry boundaries are unchanged. Existing summonMoveFactor is preserved by that route too.
+- **healer and all 15 current group healers:** target eligibility, healing ratio and healing cap use actual entity max HP. This permits healing grown accretion_burstcore / bonefan_reaper above their original type maximum and avoids wasting heals on full HP-overridden summons. Ordinary units without an override retain identical values. Existing healing-block, curse and terrain multipliers remain in the same authoritative healingFactor. Dormant ration/self-repair/lifesteal cap helpers use the same maximum without creating a new provider.
+- **onyx_scorpion / frostmage:** existing ordinary slow/root immunity rejects new boss root. Accepted boss root retains its 90-tick post-status root immunity against ordinary root/slow, even after cleanse. The new boss-root immunity is snapshotted before the tick, so it cannot retroactively reject same-tick ordinary intents. Stun/freeze immunity is not broadened.
+- **screech_cricket:** its accepted 0.35-second cadence delay shifts unlaunched boss windup/cooldown clocks by 21 ticks; existing cadence immunity still rejects repeats. Released iceclaw contacts/projectiles/zones are not shifted or canceled. Cyanrise's continuous spin uses an explicit pulse clock; without cadence its normal 36-tick schedule and skipped pulses during stun remain exact.
+- **aegis_warden:** its existing assignment/active snapshot and two-source cap are shared with the generic boss scheduler before a new windup. Already locked windups are not retargeted. Deliberate release-time specialization, including ringneck rear-line bite and bluehorn density selection, remains in the ability handler. Ordinary aegis behavior matches baseline numerically.
+- **All hostile boss statuses:** delayed application rejects an underground/phased target, matching damage. Friendly buffs remain legal and hostile status becomes legal again at phase expiry.
+
+Current healing providers verified: healer, crimson_mender, halo_healer, ashstaff_healer, disc_crown_mender, bubble_shadow_mender, gemswirl_mender, sol_harp_mender, goldring_shadow_mender, golden_tuft_mender, suspended_prism_mender, bobble_mender, candle_archdeacon, hooded_ghost, bellgill_mender, puffcap_mender.
+
+## Complete early-continue classification
+
+Read the actor loop before/after BossAbilities.handles and enumerated the actual current type records, rather than assuming all legacy metadata was still active.
+
+1. **Global target-side pipelines remain shared:** guard interception, parry, ordinary armor, one-hit wards, reflection/contact counters, followup marks, exposure and healing-block are in hit/end-of-tick processing, outside the skipped source actor branches. The prior boss-delivery patch covers the contact classification boundaries. Aegis selection was the remaining actor-local exception and is now shared above.
+2. **External movement/control inputs:** old slow/root, new control statuses, terrain speed, glimmer moveBoost and summonMoveFactor are handled by the common movement path. The two charge/retreat exceptions are fixed above. Cadence and cleanse are fixed above. No current type has hasteRadius, stabilityRadius or dispelWindupTicks; their retired providers are not restored and no unsupported new benefit is introduced.
+3. **Ordinary support sources still run normally:** rune cleanse, glimmer pulse, all single-ward providers, healer/group healers, repair_pylon/embergrille_monument/eggshell_repairpod self repair, candle_archdeacon revival, and wraith summoning are not BossAbilities-handled and therefore are not bypassed. They continue through their existing actor branches. Their effects on bosses use the shared target-side paths and HP/movement corrections above. punchcap_mushroom's ordinary trap is likewise not bypassed.
+4. **Legacy source actions intentionally replaced:** old pillar, charged-shot, cone/high, orb, burst, combo/two-hit, old innate summon/split/book, charge and source on-hit metadata must not execute in addition to the 49 replacement abilities. No branch is re-enabled. Of the remaining generic support-hook metadata on handled types, bone_crown_lich still has old bookBatchCount; that obsolete batched summon is intentionally suppressed by the new corpse-based ability.
+5. **Target specialization:** target masks and phased/underground rejection are preserved. Generic boss selection honors boss taunt then ordinary aegis priority, matching ordinary ordering. Locked targets and explicit rear-line/cluster/area release logic are not silently rewritten.
+6. **Lifecycle and already-released work:** global projectiles, persistent zones, scheduled contacts, pending damage/healing, forced displacement, death settlement and child lifetimes still execute outside the early continue. This patch changes no spawn limits, costs, damage values, ability timing absent the actual support/control interaction, or original asset data.
+
+No additional active-provider bypass was found in this completed pass. This is a production-VM audit, not a new browser/network validation.

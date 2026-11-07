@@ -1,0 +1,18 @@
+{
+  "controlled.json": {
+    "count": 2208,
+    "sha256": "9fa7fb3e72a55fd0465fc7704c41762be7350fcdb993e3760498a9ff589fa2a2"
+  },
+  "mixed.json": {
+    "count": 196,
+    "sha256": "f0943ce35b9555a6cf59d8141915e7df7bdb0ca46c27e2330e8420ef540f610f"
+  },
+  "lich-support.json": {
+    "count": 80,
+    "sha256": "e99c8cdbb9920b4baa72963b479080c33d9824009efa06cdaec4021478497dda"
+  },
+  "cleaver-support.json": {
+    "count": 88,
+    "sha256": "bb0d5cb079f32ee61df4e51470c7af203580177ea63f81bc65f755f9a890c028"
+  }
+}

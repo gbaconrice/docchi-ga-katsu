@@ -1,0 +1,478 @@
+{
+  "rosterRuns": [
+    {
+      "id": "thornback_beast",
+      "label": "1/49 ソーンバック ｜ 八方棘縛",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1050",
+        "43: boss_thorn / 43: 束縛 / 43: boss_thorn / 43: 束縛"
+      ]
+    },
+    {
+      "id": "roarfang_beast",
+      "label": "2/49 ロアファング ｜ 震天咆哮",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 6件 ｜ HP 700",
+        "55: boss_stun / 55: 気絶 / 55: boss_stun / 55: 気絶"
+      ]
+    },
+    {
+      "id": "spectral_scale_dragon",
+      "label": "3/49 ファントムスケイルドラゴン ｜ 幽体潜行",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 2回 ｜ 効果 7件 ｜ HP 850",
+        "171: boss_warning"
+      ]
+    },
+    {
+      "id": "iceclaw_legend",
+      "label": "4/49 アイスクローファイター ｜ 砕氷三連爪",
+      "status": [
+        "ライブ tick 180 ｜ 命中 4件 ｜ 能力 2回 ｜ 効果 6件 ｜ HP 850",
+        "63: boss_claw / 63: boss_frost"
+      ]
+    },
+    {
+      "id": "gauntlet_combo_guard",
+      "label": "5/49 ガントレットガード ｜ 敵投げ",
+      "status": [
+        "ライブ tick 180 ｜ 命中 2件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 1100",
+        "67: boss_throw"
+      ]
+    },
+    {
+      "id": "rootwarden_treant",
+      "label": "6/49 トレント ｜ 群縛根",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1750",
+        "55: boss_thorn / 55: 束縛 / 55: boss_thorn / 55: 束縛"
+      ]
+    },
+    {
+      "id": "frosthorn_rhino",
+      "label": "7/49 フロストライノ ｜ 氷角反復突進",
+      "status": [
+        "ライブ tick 180 ｜ 命中 4件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1350",
+        "44: 凍結 / 44: boss_frost / 44: 凍結 / 44: boss_frost"
+      ]
+    },
+    {
+      "id": "pillar_hammerer",
+      "label": "8/49 ライトピラーハンマー ｜ 進撃光柱",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 12件 ｜ HP 1500",
+        "111: boss_column_light"
+      ]
+    },
+    {
+      "id": "colossal_hornfist",
+      "label": "9/49 ジャイアントホーンフィスト ｜ 巨拳打ち上げ",
+      "status": [
+        "ライブ tick 180 ｜ 命中 4件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 1500",
+        "91: boss_quake"
+      ]
+    },
+    {
+      "id": "kilnback_pincerbeast",
+      "label": "10/49 ブルークラブジャイアント ｜ 挟撃粉砕",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 2回 ｜ 効果 5件 ｜ HP 1450",
+        "81: boss_burst"
+      ]
+    },
+    {
+      "id": "carapace_slashbeast",
+      "label": "11/49 アーマースラッシャー ｜ 破盾大薙ぎ",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 8件 ｜ HP 1550",
+        "79: boss_slash / 79: boss_slash / 79: 盾割り / 79: boss_slash"
+      ]
+    },
+    {
+      "id": "stonepulse_kolossus",
+      "label": "12/49 ストーンウェーブジャイアント ｜ 直線地裂",
+      "status": [
+        "ライブ tick 180 ｜ 命中 2件 ｜ 能力 3回 ｜ 効果 4件 ｜ HP 1650",
+        "55: boss_throw / 55: 打ち上げ / 55: boss_throw / 55: 打ち上げ"
+      ]
+    },
+    {
+      "id": "bluefist_colossus",
+      "label": "13/49 ブルーフィストジャイアント ｜ 双拳地震",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1500",
+        "55: boss_stun / 55: 気絶 / 55: boss_stun / 55: 気絶"
+      ]
+    },
+    {
+      "id": "spikeburst_grinder",
+      "label": "14/49 スパイクバースト ｜ 丸まり連棘",
+      "status": [
+        "ライブ tick 180 ｜ 命中 9件 ｜ 能力 1回 ｜ 効果 5件 ｜ HP 1200",
+        "105: boss_thorn"
+      ]
+    },
+    {
+      "id": "redhorn_dualbeast",
+      "label": "15/49 アカツノ ｜ 双角背面投げ",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 1600",
+        "44: boss_throw / 44: 打ち上げ / 44: boss_throw"
+      ]
+    },
+    {
+      "id": "bluehorn_invoker",
+      "label": "16/49 ブルーホーンメイジ ｜ 密集隕石",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 4件 ｜ HP 1300",
+        "109: boss_quake"
+      ]
+    },
+    {
+      "id": "emberwing_drake",
+      "label": "17/49 フレイムウィング ｜ 旋回火雨",
+      "status": [
+        "ライブ tick 180 ｜ 命中 12件 ｜ 能力 1回 ｜ 効果 8件 ｜ HP 900",
+        "163: boss_rain"
+      ]
+    },
+    {
+      "id": "skullflare_triad",
+      "label": "18/49 スカルソーサラー ｜ 三骸炎牙",
+      "status": [
+        "ライブ tick 180 ｜ 命中 12件 ｜ 能力 4回 ｜ 効果 7件 ｜ HP 1250",
+        "41: 炎上 / 41: boss_skull / 41: boss_fire / 41: 炎上"
+      ]
+    },
+    {
+      "id": "flamering_magus",
+      "label": "19/49 フレイムリングメイジ ｜ 拡大火輪",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 5件 ｜ HP 1050",
+        "85: boss_ring"
+      ]
+    },
+    {
+      "id": "shockplate_drake",
+      "label": "20/49 ショックアーマードラゴン ｜ 雷鎧連鎖",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 2回 ｜ 効果 6件 ｜ HP 1900",
+        "61: boss_shield / 61: boss_chain / 61: boss_chain / 61: boss_chain"
+      ]
+    },
+    {
+      "id": "thunderhorn_beast",
+      "label": "21/49 サンダーホーン ｜ 落雷角撃",
+      "status": [
+        "ライブ tick 180 ｜ 命中 4件 ｜ 能力 1回 ｜ 効果 5件 ｜ HP 1500",
+        "73: boss_chain / 73: boss_quake"
+      ]
+    },
+    {
+      "id": "stormhorn_tripler",
+      "label": "22/49 ホーンタイタン ｜ 三連雷角",
+      "status": [
+        "ライブ tick 180 ｜ 命中 6件 ｜ 能力 1回 ｜ 効果 6件 ｜ HP 1100",
+        "73: boss_slash / 73: boss_quake / 73: boss_chain"
+      ]
+    },
+    {
+      "id": "darkfan_clawlord",
+      "label": "23/49 ダークファンクロー ｜ 治癒封じの爪痕",
+      "status": [
+        "ライブ tick 180 ｜ 命中 30件 ｜ 能力 31回 ｜ 効果 43件 ｜ HP 1300",
+        "179: 回復封じ / 179: boss_claw / 179: 回復封じ / 179: boss_claw"
+      ]
+    },
+    {
+      "id": "plated_dualdragon",
+      "label": "24/49 ヨロイドラゴン ｜ 炎氷交差ブレス",
+      "status": [
+        "ライブ tick 180 ｜ 命中 6件 ｜ 能力 5回 ｜ 効果 8件 ｜ HP 1500",
+        "79: boss_burst"
+      ]
+    },
+    {
+      "id": "flameburst_mythron",
+      "label": "25/49 フレイムリングジャイアント ｜ 灼熱溶岩域",
+      "status": [
+        "ライブ tick 180 ｜ 命中 31件 ｜ 能力 10回 ｜ 効果 23件 ｜ HP 1300",
+        "176: 炎上 / 176: boss_fire / 176: 炎上 / 176: boss_fire"
+      ]
+    },
+    {
+      "id": "willyee_frost_dragon",
+      "label": "26/49 フロストホワイトドラゴン ｜ 白竜の吹雪",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1900",
+        "58: boss_frost / 58: 凍結 / 58: boss_frost / 58: 凍結"
+      ]
+    },
+    {
+      "id": "frostbreath_lizard",
+      "label": "27/49 フロストブレスリザード ｜ 遅滞氷息",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 5件 ｜ HP 1500",
+        "73: boss_frost / 73: 凍結 / 73: boss_frost / 73: 凍結"
+      ]
+    },
+    {
+      "id": "triad_chimera",
+      "label": "28/49 トリオキメラ ｜ 三頭独立攻撃",
+      "status": [
+        "ライブ tick 180 ｜ 命中 10件 ｜ 能力 3回 ｜ 効果 6件 ｜ HP 1500",
+        "37: 炎上 / 37: boss_poison / 37: boss_poison / 37: 毒"
+      ]
+    },
+    {
+      "id": "cinder_tailbeast",
+      "label": "29/49 シンダーテイル ｜ 旋尾火散らし",
+      "status": [
+        "ライブ tick 180 ｜ 命中 9件 ｜ 能力 4回 ｜ 効果 11件 ｜ HP 1650",
+        "43: boss_fire / 43: 炎上 / 43: boss_fire / 43: 炎上"
+      ]
+    },
+    {
+      "id": "emberfist_pillarer",
+      "label": "30/49 フレイムフィストピラー ｜ 追撃火柱",
+      "status": [
+        "ライブ tick 180 ｜ 命中 6件 ｜ 能力 1回 ｜ 効果 7件 ｜ HP 1250",
+        "121: boss_column_fire"
+      ]
+    },
+    {
+      "id": "veteran_flamewing",
+      "label": "31/49 マグマドレイク ｜ 双鳥交差爆炎",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 5件 ｜ HP 1200",
+        "79: boss_burst"
+      ]
+    },
+    {
+      "id": "spore_toad",
+      "label": "32/49 ミストリングメイジ ｜ 拡散毒霧",
+      "status": [
+        "ライブ tick 180 ｜ 命中 23件 ｜ 能力 14回 ｜ 効果 20件 ｜ HP 725",
+        "174: 毒 / 174: boss_poison / 174: 毒 / 174: boss_poison"
+      ]
+    },
+    {
+      "id": "siege_crab",
+      "label": "33/49 リングスタッフメイジ ｜ 全域貫通光線",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1500",
+        "103: 全域貫通光線 / 103: boss_beam"
+      ]
+    },
+    {
+      "id": "slime",
+      "label": "34/49 スプリットアイ ｜ 三眼分裂",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 575",
+        "43: 三眼分裂"
+      ]
+    },
+    {
+      "id": "accretion_burstcore",
+      "label": "35/49 ダークライトコア ｜ 吸命光線",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 1196",
+        "55: 吸命光線 / 55: boss_beam / 55: boss_grow"
+      ]
+    },
+    {
+      "id": "domeback_colossus",
+      "label": "36/49 ブルーシェルジャイアント ｜ 誘引甲殻",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 2回 ｜ 効果 4件 ｜ HP 400",
+        "127: boss_quake"
+      ]
+    },
+    {
+      "id": "ringhold_guardian",
+      "label": "37/49 リングウォーデン ｜ 守光輪",
+      "status": [
+        "ライブ tick 180 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 320",
+        "37: 守光輪 / 37: boss_ring"
+      ]
+    },
+    {
+      "id": "silverarm_vanguard",
+      "label": "38/49 シルバーアームガード ｜ 倍返しの銀腕",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1400",
+        "43: 倍返しの銀腕"
+      ]
+    },
+    {
+      "id": "fiery_coil_inceptor",
+      "label": "39/49 フレイムコイルスピリット ｜ 終炎膨張",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1200",
+        "43: 終炎膨張"
+      ]
+    },
+    {
+      "id": "golem",
+      "label": "40/49 ロックゴーレム ｜ 瓦礫の継承",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 1950",
+        "43: 瓦礫の継承"
+      ]
+    },
+    {
+      "id": "bonefan_reaper",
+      "label": "41/49 ボーンファンリーパー ｜ 刈魂の大鎌",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1150",
+        "43: 刈魂の大鎌 / 43: boss_slash"
+      ]
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "label": "42/49 ムーンクローウルフ ｜ 血月疾走",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 1500",
+        "175: boss_warning"
+      ]
+    },
+    {
+      "id": "willyee_stone_golem",
+      "label": "43/49 クリスタルハンマーガード ｜ 水晶反射",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 2150",
+        "43: 水晶反射"
+      ]
+    },
+    {
+      "id": "basalt_titan",
+      "label": "44/49 サンダーアーマービースト ｜ 雷葬",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 1件 ｜ HP 2100",
+        "43: 雷葬"
+      ]
+    },
+    {
+      "id": "cyanrise_silithar",
+      "label": "45/49 ブルースピンアーマー ｜ 不動旋風",
+      "status": [
+        "ライブ tick 180 ｜ 命中 11件 ｜ 能力 0回 ｜ 効果 5件 ｜ HP 1300",
+        "180: boss_ring"
+      ]
+    },
+    {
+      "id": "razorclaw_reaver",
+      "label": "46/49 シェルリッパー ｜ 双爪の盾",
+      "status": [
+        "ライブ tick 180 ｜ 命中 2件 ｜ 能力 3回 ｜ 効果 5件 ｜ HP 1650",
+        "43: boss_claw / 43: boss_thorn / 43: 束縛 / 43: boss_claw"
+      ]
+    },
+    {
+      "id": "cleaver_brute",
+      "label": "47/49 ホーンドブレイバー ｜ 紅蓮の咆哮",
+      "status": [
+        "ライブ tick 180 ｜ 命中 3件 ｜ 能力 4回 ｜ 効果 8件 ｜ HP 1650",
+        "151: boss_warning"
+      ]
+    },
+    {
+      "id": "ringneck_prowler",
+      "label": "48/49 リングネック ｜ 後衛呑み",
+      "status": [
+        "ライブ tick 180 ｜ 命中 1件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 1400",
+        "61: 後衛呑み / 61: boss_warning / 61: boss_claw"
+      ]
+    },
+    {
+      "id": "bone_crown_lich",
+      "label": "49/49 リッチスクライブ ｜ 屍骨徴集",
+      "status": [
+        "ライブ tick 180 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 2件 ｜ HP 120",
+        "43: 屍骨徴集 / 43: boss_skull"
+      ]
+    }
+  ],
+  "targetedRuns": [
+    {
+      "id": "silverarm_vanguard",
+      "trigger": "味方への攻撃",
+      "status": [
+        "ライブ tick 15 ｜ 命中 3件 ｜ 能力 0回 ｜ 効果 2件 ｜ HP 1390",
+        "13: boss_warning"
+      ]
+    },
+    {
+      "id": "willyee_stone_golem",
+      "trigger": "大型への近接攻撃",
+      "status": [
+        "ライブ tick 15 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 1件 ｜ HP 2150",
+        "13: boss_warning"
+      ]
+    },
+    {
+      "id": "razorclaw_reaver",
+      "trigger": "大型への弓攻撃",
+      "status": [
+        "ライブ tick 15 ｜ 命中 0件 ｜ 能力 0回 ｜ 効果 0件 ｜ HP 1650",
+        ""
+      ]
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "trigger": "大型をHP49%へ",
+      "status": [
+        "ライブ tick 17 ｜ 命中 0件 ｜ 能力 1回 ｜ 効果 3件 ｜ HP 735",
+        "13: boss_warning"
+      ]
+    },
+    {
+      "id": "bone_crown_lich",
+      "trigger": "敵1体を倒す",
+      "status": [
+        "ライブ tick 17 ｜ 命中 1件 ｜ 能力 0回 ｜ 効果 3件 ｜ HP 120",
+        "13: boss_warning"
+      ]
+    },
+    {
+      "id": "silverarm_vanguard",
+      "trigger": "味方への攻撃",
+      "status": [
+        "ライブ tick 360 ｜ 命中 20件 ｜ 能力 2回 ｜ 効果 8件 ｜ HP 1339",
+        "307: boss_shield"
+      ]
+    },
+    {
+      "id": "willyee_stone_golem",
+      "trigger": "大型への近接攻撃",
+      "status": [
+        "ライブ tick 360 ｜ 命中 20件 ｜ 能力 2回 ｜ 効果 8件 ｜ HP 2048",
+        "347: boss_throw"
+      ]
+    },
+    {
+      "id": "razorclaw_reaver",
+      "trigger": "大型への弓攻撃",
+      "status": [
+        "ライブ tick 360 ｜ 命中 12件 ｜ 能力 5回 ｜ 効果 8件 ｜ HP 1623",
+        "311: boss_claw / 311: boss_thorn / 311: 束縛 / 311: boss_claw"
+      ]
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "trigger": "大型をHP49%へ",
+      "status": [
+        "ライブ tick 362 ｜ 命中 2件 ｜ 能力 9回 ｜ 効果 11件 ｜ HP 735",
+        "360: boss_moon / 360: 加速"
+      ]
+    },
+    {
+      "id": "bone_crown_lich",
+      "trigger": "敵1体を倒す",
+      "status": [
+        "ライブ tick 362 ｜ 命中 6件 ｜ 能力 2回 ｜ 効果 6件 ｜ HP 120",
+        "253: 屍骨徴集 / 253: boss_skull"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "browserVerified": false,
+  "results": [
+    {
+      "label": "reproduce",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "ability-tests",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "production-integration",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "entry-loader",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "release-loader",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "success": true,
+  "verificationKind": "Fresh final prepublication reproduction and automatic regression rerun",
+  "scope": "Node VM and DOM fixtures. Independent real Chromium report is separate.",
+  "nodeRunnerEntries": 187,
+  "productionIntegrationChecks": 66,
+  "entryLoaderChecks": 32,
+  "releaseLoaderChecks": 7,
+  "checkedAtUTC": "2026-11-07T06:46:17.721679+00:00"
+}

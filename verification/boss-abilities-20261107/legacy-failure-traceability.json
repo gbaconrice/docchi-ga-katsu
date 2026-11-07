@@ -1,0 +1,749 @@
+{
+  "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "canonical": {
+    "passed": 149,
+    "total": 173,
+    "failed": 24,
+    "originalsUnchanged": true
+  },
+  "rows": [
+    {
+      "originalTest": "validation-status-final/tests/ability-integration-cross.cjs",
+      "originalFailingAssertion": "line34: assert(r.scale>1)",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained ability-integration-cross",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "new boss direct damage receives exposure exactly once, DoT is not amplified",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Six unchanged integration cases retained. Replaced obsolete one-tick rhino hit/3x with production direct-hit exposure once; periodic/secondary exclusions tested.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/attack-role-damage.cjs",
+      "originalFailingAssertion": "line19 inside evaluated harness: attackValue equals first resolved hit; later fixed72/96 and30/84 checks",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "ordinary wolf and three repair roles retain real hit/heal/display semantics",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "shockplate chain hops with falloff and armor reduces damage",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "gauntlet throw changes position and damages landing cluster",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "all600 cards retain numerical columns, compact copy, roles and no type mutation",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Wolf7/projectile, three exact repair reflection/heal roles, no type mutation retained. Shockplate decay/armor and gauntlet throw collateral replace old72/96 and30/84 combos. Boss numeric label now reference power.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/boss-display-values.cjs",
+      "originalFailingAssertion": "first remaining failure: poison.f.traits.includes(毒12/秒・3秒)",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "300 safe facts,49 compact cards, explicit role/reference power and retained airborne markers",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "synthetic explosion charge and healing retain damage-only scaling",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "poison fog expands into previously unhit ground target",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "thornback pins and damages enemies all around",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "300 cloned comparisons safe; source-only damage scaling for synthetic explosion/charge, unscaled healing; ordinary peer groups/highlights; new poison fog and thorn root/damage replace old poison12/s/counter15.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/capacity-disclosure-reimplemented.cjs",
+      "originalFailingAssertion": "line31: sha(run(expression)) === fixture.hashes[expression], first JSON.stringify(TYPES)",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "capacity/model regression: preserved hashes,300 scores,72 generation fixtures and reservation boundaries",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all301 type records change only approved ability metadata and retired legacy passives",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All7 original substantive groups run beyond obsolete TYPES/combatStep hashes:300 scores,72 pinned choices,160 generated cases,32 reservation cap, carry immutability, live64/created512 constants, model and price hashes.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/comparison-air-priority.cjs",
+      "originalFailingAssertion": "line19 rollback: assert(original.includes(e.after), e.name), explicit action-tone mapping",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained comparison-air-priority",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Only installer anchor updated in memory. All300 fact comparisons and8 actual side/air/fallback priority cases pass.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/comparison-attack-stats.cjs",
+      "originalFailingAssertion": "golem source-scaled first-hit damage: actual67.5, expected50",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "300 safe facts,49 compact cards, explicit role/reference power and retained airborne markers",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "all600 cards retain numerical columns, compact copy, roles and no type mutation",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "ordinary wolf and three repair roles retain real hit/heal/display semantics",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Explicit attackable booleans and reference-power labels replace obsolete source-damage formula on49; ordinary numerical stats, support roles, peer emphasis and600 two-column cards pass.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/comparison-legibility.cjs",
+      "originalFailingAssertion": "line8: if(t.twoHitTicks/highSecondTicks) f.value === 2連撃",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "all600 cards retain numerical columns, compact copy, roles and no type mutation",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All ordinary combo/micro-timing, peer groups, multiple highlights, support emphasis, contrast>=4.5 and280–430px arithmetic retained;49 new ability names replace old two-hit strings. No browser pixel claim.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/comparison-short-features.cjs",
+      "originalFailingAssertion": "silverarm_vanguard detailed parameter leaked: 倍返しの銀腕",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "300 safe facts,49 compact cards, explicit role/reference power and retained airborne markers",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "all600 cards retain numerical columns, compact copy, roles and no type mutation",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All49 new feature sets <=18 characters and unique, full descriptions retained, flying markers preserved; all600 rendered traits <=18. Old fixed ability strings replaced; 倍 in the named ability is not a numeric parameter.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/current-manifest.cjs",
+      "originalFailingAssertion": "line7: actual === c.candidateIndexSHA256",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current packaged manifest and release scripts match final source provenance",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "source fingerprint and incompatible-client rejection",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Final package index hash, release-manifest hash,5 transformed script hashes, source SHA and content revision checked. Old copied candidate metadata is not used as final provenance.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/guard-corner-final.cjs",
+      "originalFailingAssertion": "line10: counts.guard_contact+counts.pillar_release>0",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "unchanged spectralhand_wizard guard-corner-final",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current boss guard-corner-final geometry, damage and mirrored contacts",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Wizard retains4 original corner winner/death/event assertions; two changed bosses retain8 original corner victory/HP invariants with real resolved-hit events replacing removed guard/pillar event names.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/guard-crowd-drift.cjs",
+      "originalFailingAssertion": "line10: counts.guard_contact+counts.pillar_release>0 and mirrored counts",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "unchanged spectralhand_wizard guard-crowd-drift",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current boss guard-crowd-drift geometry, damage and mirrored contacts",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All18 original crowd geometries retained, with exact mirrored contact counts. Zero/eight ally fixtures require damage; changed boss event categories updated.",
+      "remainingCoverageGaps": [
+        "The original two-ally fixture explicitly did not assert target damage. The equivalent preserves that limitation; it tests mirrored event counts but does not claim two-ally reachability."
+      ],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/guard-description-actual.cjs",
+      "originalFailingAssertion": "line9: 30-tick guard warning, dmg*.10, 3-second cooldown and old pillar-priority prose",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "unchanged spectralhand_wizard guard-description-actual",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current pillar and uppercut description matches independent timing/damage/status expectations",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "light pillars progress forward and do not double-hit",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "uppercut disables target then landing damages neighbours",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Wizard exact30tick warning,7 damage,3sec cooldown and prose preserved. New column first contact75/74.75/stun; uppercut49/55.68,landing91/24.36/airborne; descriptions match actual current ability definitions.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/guard-priority-drift.cjs",
+      "originalFailingAssertion": "line9: guardAction injected, no guard contact, pillar_action_start targets far",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "unchanged spectralhand_wizard guard-priority-drift",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current boss target arrival during windup does not bypass cast or duplicate first contact",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/integrated-bosses.cjs",
+          "testName": "all49 windups cancel after source death",
+          "report": "reports/public-final-649a36/reports/integration-combat.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Wizard still cancels contact guard in favor of newly available pillar target. New bosses retain acquired cast target and cannot hit before due tick or duplicate first contact; source-death windups cancel. Removed guard-to-pillar arbitration is not imposed on new mechanics.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/integrated-revision.cjs",
+      "originalFailingAssertion": "line7: SHA256(docchi-integrated-candidate-v1\\0 + normalized source) equals CONTENT_REVISION",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "source fingerprint and incompatible-client rejection",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current packaged manifest and release scripts match final source provenance",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "New versioned normalized-source fingerprint, package source/release hashes and rejection of prior-revision peers replace obsolete prefix/provenance constants.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/large-body-presentation.cjs",
+      "originalFailingAssertion": "line9: all301 TYPES unchanged except approved44 names",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all301 type records change only approved ability metadata and retired legacy passives",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "47 baseline sprite crops/scales, HP anchors and tap selection preserved",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "all184 boss corner camera bounds retain complete sprite framing",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/integrated-bosses.cjs",
+          "testName": "ordinary sword/shield/archer/healer combat numerically matches baseline",
+          "report": "reports/public-final-649a36/reports/integration-combat.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/integrated-bosses.cjs",
+          "testName": "all49 actual production effects and flags roundtrip replay codec",
+          "report": "reports/public-final-649a36/reports/integration-combat.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Exact47 sprite draw/crop/scale/HP/tap cases,184 corner camera bounds, unchanged asset/large-body metadata and ordinary combat preserved. New boss combat cannot equal obsolete baseline;49 production/replay scenarios substitute.",
+      "remainingCoverageGaps": [
+        "The historical four random mixed-roster seeds are not asserted byte-equal to old combat because they can contain intentionally changed bosses. Exact ordinary-team equivalence and49 new production scenarios cover the intended separation."
+      ],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/melee-combo-transition.cjs",
+      "originalFailingAssertion": "line8 final loop: started via comboActionToken, no hit before that token, move/death/knock cancellation",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current skullflare target death cancels windup without damage to corpse",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "current skullflare target movement and caster displacement revalidate contact range in both directions",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/fidelity-mechanics.test.cjs",
+          "testName": "skullflare selects three different enemies and burn ticks",
+          "report": "reports/public-final-649a36/reports/fidelity-mechanics.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/integrated-bosses.cjs",
+          "testName": "all49 windups cancel after source death",
+          "report": "reports/public-final-649a36/reports/integration-combat.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "New independent-head damage and burn replace comboActionToken. Target death, moved-out-of-range target, caster displacement and both horizontal directions tested. Source death covered for all49.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/names-katakana.cjs",
+      "originalFailingAssertion": "line1: assert.equal(x.bossDamageScale,3,x.id), first golem",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all301 type records change only approved ability metadata and retired legacy passives",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "exact approved49 registration and bounded descendant exception",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Every type/name/ID compared to preserved baseline; only explicit49 metadata/passive changes allowed. All prices, HP enlargement, armor/layers/roster unchanged; 3x is deliberately replaced1x.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/new-ability-boundaries.cjs",
+      "originalFailingAssertion": "line35: /validFlags[^\\n]*<=65535/.test(html)",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained new-ability-boundaries",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "real replay validator accepts prior plain frames and rejects boss extensions under older versions",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All53 original behavioral groups run; only obsolete global65535 regex updated to extended current-version ceiling plus legacy gate check. Prior engines reject high boss flags/effects.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/new-ability-preservation.cjs",
+      "originalFailingAssertion": "line17 all301 TYPES equality; line20 boss values unchanged",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all301 type records change only approved ability metadata and retired legacy passives",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "all costs, base HP/radius/layers, roster, names, assets and model remain exact baseline",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained new-ability-boundaries",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained ability-integration-cross",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Exact301 records use explicit49 change allowlist, ordinary252 unchanged. Costs, original46 boss membership, growth catalog and previous recovered revival/death-burst/exposure/wraith semantics preserved.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/readability-preservation.cjs",
+      "originalFailingAssertion": "line6: exact equality of BATTLE_LOG_CATALOG keys; No event category removed or added",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained readability-preservation",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "All107 previous catalog entries, source/target bindings, recorded payload bytes, readable phase endings and visible count rules retained; boss_ability is the sole intentional extra category.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/root-summon.cjs",
+      "originalFailingAssertion": "line8: unconditional lich skeleton by tick130, summonMoveFactor1.8, timed expiry",
+      "replacementTests": [
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "corpse-triggered lich child is rooted by actual scorpion and expires in shallow ford after owner death",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "real lich corpse spawn: HP65, bounded3, unique identity, root, expiry after parent death, replay seek",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Natural corpse replaces free batch fixture. Actual scorpion root in shallow ford, owner death,1x modifier and720tick expiry pass; exact no voluntary motion and replay lifecycle checked separately.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/semantic-tone-cascade.cjs",
+      "originalFailingAssertion": "line39: baseline.split(e.after).length-1 ===1, explicit action-tone mapping installed once",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "retained semantic-tone-cascade",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Only neutral boss_ability installer anchor changes. Full color cascade/contrast, rollback/reapply/idempotence, unsafe-anchor rejection, unrelated catalog preservation and unchanged combat checks pass.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/summoner-capacity-suite.cjs",
+      "originalFailingAssertion": "suite line1: cap63 count1, dead-late active/expired6",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "lich maximum3 and living cap64 versus63 with eligible enemy corpse",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "lich reserves at most3 concurrent across repeated ticks and stops after6 lifetime corpses",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "lich concurrent cap deduplicates same token present in live and pending lists",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "lich requires new natural nearby corpse, rejects stale/friendly/owned/far bodies",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "real lich corpse spawn: HP65, bounded3, unique identity, root, expiry after parent death, replay seek",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/legacy-equivalents.test.cjs",
+          "testName": "lich blocked placement spends no lifetime count and dead owner cannot convert later corpse",
+          "report": "reports/public-final-649a36/reports/legacy-equivalents.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Eligible corpse fixtures test live63=>one/live64=>none, pending counts, max3 live/max6 lifetime, deduplicated physical tokens, invalid corpse exclusions, blocked-placement preservation of lifetime budget, owner death before corpse, and survival/expiry after owner death.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    },
+    {
+      "originalTest": "validation-status-final/tests/summoner-intrinsic-replay.cjs",
+      "originalFailingAssertion": "line8: tick130 has6 ashbone_swordsman, expired by721, fresh playback equality",
+      "replacementTests": [
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "real lich corpse spawn: HP65, bounded3, unique identity, root, expiry after parent death, replay seek",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/current-contract.test.cjs",
+          "testName": "real replay validator accepts prior plain frames and rejects boss extensions under older versions",
+          "report": "reports/public-final-649a36/reports/current-contract.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        },
+        {
+          "testFile": "tests/integrated-bosses.cjs",
+          "testName": "all49 actual production effects and flags roundtrip replay codec",
+          "report": "reports/public-final-649a36/reports/integration-combat.json",
+          "sourceSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+          "pass": true
+        }
+      ],
+      "laterAssertions": "Actual corpse-driven skeleton birth/720tick expiry and sequential-versus-fresh seek equality replace empty-free-batch tick130/721 expectation. Boss effects/status roundtrip across49 scenarios and prior schema gates pass.",
+      "remainingCoverageGaps": [],
+      "allReferencedTestsPass": true
+    }
+  ],
+  "summary": {
+    "rows": 24,
+    "allReferencedTestsPass": true,
+    "rowsWithExplicitCoverageLimits": 2
+  },
+  "limits": [
+    "Supplementary tests do not turn the preserved canonical149/173 into173/173.",
+    "The recorded results apply to the stated source SHA.",
+    "Browser pixels and real-network behavior are not established by these VM tests."
+  ],
+  "publicFreshRun": {
+    "summary": "reports/public-final-649a36/composite-validation.json",
+    "passed": true,
+    "nodeRunnerEntries": 187,
+    "productionIntegrationChecks": 66,
+    "entryLoaderCases": 32,
+    "releaseLoaderCases": 7,
+    "additionalStatusInteropChecks": 34,
+    "additionalRoundLifecycleChecks": 2,
+    "countingNote": "Nested check counts are not added to Node runner entries."
+  }
+}

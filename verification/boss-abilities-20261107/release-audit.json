@@ -1,0 +1,64 @@
+{
+  "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "testedAtUTC": "2026-11-07T06:52:05.123604+00:00",
+  "independentReproduction": {
+    "browserVerified": false,
+    "results": [
+      {
+        "label": "reproduce",
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "label": "ability-tests",
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "label": "production-integration",
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "label": "entry-loader",
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "label": "release-loader",
+        "exitCode": 0,
+        "signal": null
+      }
+    ],
+    "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "success": true
+  },
+  "checks": {
+    "nodeTests": {
+      "passed": 187,
+      "total": 187
+    },
+    "productionIntegration": {
+      "passed": 66,
+      "total": 66
+    },
+    "genericLoader": 32,
+    "actualReleaseLoader": 7,
+    "reusedImageHashesAndSizes": 573,
+    "canonicalInputHashesPreserved": 173,
+    "historicalFailuresMapped": 24,
+    "releaseManifestHashesMatch": true,
+    "newPrivateOrCredentialFilesFound": false
+  },
+  "reviewedRiskAreas": [
+    "Replay version validation and prior-version gates",
+    "Corpse summon caps and round lifecycle",
+    "Windup cancellation and guard geometry",
+    "Ordinary-unit role preservation",
+    "Explicit metadata and ability type-change allowlist"
+  ],
+  "limits": [
+    "Not a replacement for browser, real SDK, physical-device or live-network testing.",
+    "Original canonical suite retains149 passes and24 explicit retired-spec failures."
+  ]
+}

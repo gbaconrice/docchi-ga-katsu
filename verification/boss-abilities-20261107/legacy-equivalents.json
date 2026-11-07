@@ -1,0 +1,263 @@
+{
+  "sha": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "checks": [
+    {
+      "name": "unchanged spectralhand_wizard guard-corner-final",
+      "pass": true
+    },
+    {
+      "name": "unchanged spectralhand_wizard guard-crowd-drift",
+      "pass": true
+    },
+    {
+      "name": "unchanged spectralhand_wizard guard-description-actual",
+      "pass": true
+    },
+    {
+      "name": "unchanged spectralhand_wizard guard-priority-drift",
+      "pass": true
+    },
+    {
+      "name": "current boss guard-corner-final geometry, damage and mirrored contacts",
+      "pass": true
+    },
+    {
+      "name": "current boss guard-crowd-drift geometry, damage and mirrored contacts",
+      "pass": true
+    },
+    {
+      "name": "current pillar and uppercut description matches independent timing/damage/status expectations",
+      "pass": true,
+      "detail": [
+        {
+          "k": "pillar_hammerer",
+          "name": "進撃光柱",
+          "first": {
+            "type": "resolved_hit",
+            "targetToken": "target",
+            "source": "actor",
+            "sourceToken": "actor",
+            "sourceKind": "pillar_hammerer",
+            "delivery": "boss",
+            "x": 220,
+            "y": 250,
+            "amount": 74.75,
+            "tick": 75
+          },
+          "hits": [
+            {
+              "type": "resolved_hit",
+              "targetToken": "target",
+              "source": "actor",
+              "sourceToken": "actor",
+              "sourceKind": "pillar_hammerer",
+              "delivery": "boss",
+              "x": 220,
+              "y": 250,
+              "amount": 74.75,
+              "tick": 75
+            }
+          ],
+          "statuses": [
+            "進撃光柱",
+            "気絶"
+          ]
+        },
+        {
+          "k": "colossal_hornfist",
+          "name": "巨拳打ち上げ",
+          "first": {
+            "type": "resolved_hit",
+            "targetToken": "target",
+            "source": "actor",
+            "sourceToken": "actor",
+            "sourceKind": "colossal_hornfist",
+            "delivery": "boss_melee",
+            "x": 220,
+            "y": 250,
+            "amount": 55.68,
+            "tick": 49
+          },
+          "hits": [
+            {
+              "type": "resolved_hit",
+              "targetToken": "target",
+              "source": "actor",
+              "sourceToken": "actor",
+              "sourceKind": "colossal_hornfist",
+              "delivery": "boss_melee",
+              "x": 220,
+              "y": 250,
+              "amount": 55.68,
+              "tick": 49
+            },
+            {
+              "type": "resolved_hit",
+              "targetToken": "target",
+              "source": "actor",
+              "sourceToken": "actor",
+              "sourceKind": "colossal_hornfist",
+              "delivery": "boss",
+              "x": 220,
+              "y": 250,
+              "amount": 24.359999999999996,
+              "tick": 91
+            }
+          ],
+          "statuses": [
+            "巨拳打ち上げ",
+            "打ち上げ"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "current boss target arrival during windup does not bypass cast or duplicate first contact",
+      "pass": true,
+      "detail": [
+        {
+          "k": "pillar_hammerer",
+          "cast": {
+            "target": "target",
+            "due": 67
+          },
+          "hits": [
+            {
+              "target": "target",
+              "tick": 75,
+              "amount": 74.75
+            },
+            {
+              "target": "arrival",
+              "tick": 87,
+              "amount": 74.75
+            }
+          ]
+        },
+        {
+          "k": "colossal_hornfist",
+          "cast": {
+            "target": "target",
+            "due": 49
+          },
+          "hits": [
+            {
+              "target": "target",
+              "tick": 49,
+              "amount": 55.68
+            },
+            {
+              "target": "target",
+              "tick": 91,
+              "amount": 24.359999999999996
+            },
+            {
+              "target": "arrival",
+              "tick": 91,
+              "amount": 45.239999999999995
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "current skullflare target death cancels windup without damage to corpse",
+      "pass": true
+    },
+    {
+      "name": "all600 cards retain numerical columns, compact copy, roles and no type mutation",
+      "pass": true,
+      "detail": {
+        "cards": 600,
+        "traits": 744
+      }
+    },
+    {
+      "name": "ordinary wolf and three repair roles retain real hit/heal/display semantics",
+      "pass": true
+    },
+    {
+      "name": "synthetic explosion charge and healing retain damage-only scaling",
+      "pass": true
+    },
+    {
+      "name": "comparison legibility retains ordinary mechanics, highlights, CSS contrast and narrow widths",
+      "pass": true
+    },
+    {
+      "name": "current packaged manifest and release scripts match final source provenance",
+      "pass": true,
+      "detail": {
+        "index": "4d4e902da57d43158a72c00b8c52d1e5b541ebc2561876366c429ea34c9c7bd3",
+        "source": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+        "scripts": 5
+      }
+    },
+    {
+      "name": "current skullflare target movement and caster displacement revalidate contact range in both directions",
+      "pass": true,
+      "detail": [
+        {
+          "mirror": false,
+          "scenario": "target-move",
+          "started": true,
+          "hits": 0
+        },
+        {
+          "mirror": false,
+          "scenario": "caster-displaced",
+          "started": true,
+          "hits": 0
+        },
+        {
+          "mirror": true,
+          "scenario": "target-move",
+          "started": true,
+          "hits": 0
+        },
+        {
+          "mirror": true,
+          "scenario": "caster-displaced",
+          "started": true,
+          "hits": 0
+        }
+      ]
+    },
+    {
+      "name": "corpse-triggered lich child is rooted by actual scorpion and expires in shallow ford after owner death",
+      "pass": true
+    },
+    {
+      "name": "all184 boss corner camera bounds retain complete sprite framing",
+      "pass": true,
+      "detail": 184
+    },
+    {
+      "name": "lich blocked placement spends no lifetime count and dead owner cannot convert later corpse",
+      "pass": true,
+      "detail": [
+        {
+          "scenario": "blocked",
+          "raised": 0,
+          "children": 0
+        },
+        {
+          "scenario": "owner-dead",
+          "raised": 0,
+          "children": 0
+        }
+      ]
+    },
+    {
+      "name": "original files remain byte-identical",
+      "pass": true,
+      "detail": 7
+    }
+  ],
+  "limits": [
+    "VM fixtures, not browser/network proof.",
+    "Original canonical test files are unchanged."
+  ],
+  "passed": 19,
+  "failed": 0
+}

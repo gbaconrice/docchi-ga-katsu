@@ -1,148 +1,109 @@
 {
-  "scope": "Approved review fixes: compact short-screen betting controls, per-game matchup history, readable complete battle events, 30-second multiplayer overtime choices, own-client safe score submission, and safe same-room rematch.",
+  "scope": "All 49 requested large-unit abilities with individual mechanics, readable effects and balance tuning. Prior UI, room and wallet fixes retained.",
+  "metadataStatus": "IMPLEMENTATION_BALANCE_AUTOMATED_AND_SCOPED_BROWSER_VERIFICATION_COMPLETE_DEPLOYMENT_PENDING",
   "index": "index.html",
-  "indexSHA256": "0772eefd132feaf6e0567219e1827b743b6aa27fa7ff70d8f1f0e1d2ffcef8cb",
-  "release": "releases/review-fixes-20261107/manifest.json",
-  "releaseManifestSHA256": "f4234e19911e0b16c62cb8e9d49fb9c1b6f4e7f6fa0ed6b13171e278becdde85",
-  "reconstructedSourceSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
-  "reconstructedSourceBytes": 49351416,
-  "contentRevision": "dd8079f49331709edecdb41fba54bc3463e8c71e3963c5a397bc50bb41ce648e",
-  "gravityEntrySHA256": "f6709336a6cb178e0bb8bb046de3d751d2e40f7383db17fd218c17be0befc792",
-  "previousRelease": "releases/terrain-inline-20261106/manifest.json",
-  "readme": "README.md",
+  "indexSHA256": "4d4e902da57d43158a72c00b8c52d1e5b541ebc2561876366c429ea34c9c7bd3",
+  "release": "releases/boss-abilities-20261107/manifest.json",
+  "releaseManifestSHA256": "32a7d7fb6761a5f173fdb79b3a534563da3ca3d46c1d4f7fad46a74571dabcdd",
+  "reconstructedSourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "reconstructedSourceBytes": 49423209,
+  "contentRevision": "1f3d8365dec4e844ab7a5eb61e9945d892bf01cbcee50fa4b0f7e1c0450e39f9",
+  "gravityEntrySHA256": "67eaa3dd503e559f8e0682831c96471a215aee74cd886c89e9cfe61411363655",
+  "previousRelease": "releases/review-fixes-20261107/manifest.json",
   "validation": {
-    "sourceSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
-    "canonicalTests": 173,
-    "canonicalPassed": 173,
-    "canonicalFailed": 0,
-    "freshFullRun": true,
-    "resultReuse": false,
-    "sourceReconstructionExact": true,
-    "browserVerificationStatus": "PARTIAL_DESKTOP_FIXED_VIEWPORT_FIXTURES",
-    "physicalIOSVerified": false,
+    "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "status": "AUTOMATED_BALANCE_CANVAS_AND_SCOPED_BROWSER_PASSED",
+    "browserVerified": true,
     "physicalTouchVerified": false,
-    "liveGravitySDKVerified": false,
-    "liveRoomNetworkVerified": false,
-    "externalChecks": 9,
-    "entryLoaderFaultCases": 32,
-    "actualSixScriptRecoveryCases": 7,
-    "inputsUnchanged": true,
-    "canonicalInputFiles": 197,
-    "releaseHTTPFiles": 39,
-    "releaseHTTPExact": 39,
-    "pagesRun": "https://github.com/gbaconrice/docchi-ga-katsu/actions/runs/42335788426",
-    "sourceCommit": "8fe168035f40eaf71b1539051262f70c4f5faba5",
-    "browserChecksPerformed": true,
-    "allRequestedBrowserChecksComplete": false,
-    "browserSmallScreen": {
-      "viewport": [
-        320,
-        568
-      ],
-      "standalone": true,
-      "gravityInsets": true,
-      "soloStartEntersBattle": true,
-      "multiSixChoiceSyntheticSubmission": true,
-      "multiAllInSyntheticSubmission": true,
-      "fullStartButtonHeight": 48,
-      "fullStartButtonYRange": [
-        502,
-        550
-      ],
-      "horizontalOverflow": false
+    "realGravitySDKVerified": false,
+    "realNetworkMultiplayerVerified": false,
+    "deploymentVerified": false,
+    "canonicalTests": 173,
+    "canonicalPassed": 149,
+    "canonicalFailed": 24,
+    "canonicalOriginalsUnchanged": true,
+    "canonicalFailureTraceability": "verification/boss-abilities-20261107/legacy-failure-traceability.md",
+    "newTestRunnerEntries": 187,
+    "newTestRunnerPassed": 187,
+    "nestedChecks": {
+      "individualAbility": 58,
+      "compatibilityContract": 24,
+      "legacyEquivalents": 19,
+      "deliveryInteraction": 13,
+      "statusInteraction": 34,
+      "roundLifecycle": 2
     },
-    "backupArchiveVersion": 19,
-    "backupDownloadVerified": true,
-    "productionSoloBootSelectionBattleStart": true,
-    "productionPostSettlementFlowVerified": false,
-    "browserReport": "verification/review-fixes-20261107/live-browser-qa.json"
+    "nestedChecksAreIncludedInRunnerCount": true,
+    "productionIntegrationChecks": 66,
+    "entryLoaderChecks": 32,
+    "actualReleaseLoaderChecks": 7,
+    "sourceReconstructionExact": true,
+    "canvasFrames": 89,
+    "canvasDecodedImages": 87,
+    "canvasMissingAssets": 0,
+    "canvasRenderErrors": 0,
+    "canvasUntriggeredScenarios": 0,
+    "evidence": "verification/boss-abilities-20261107/composite-validation.json",
+    "balance": {
+      "freshExecutions": 2572,
+      "controlled": {
+        "n": 2208,
+        "win": 1616,
+        "loss": 502,
+        "draw": 90
+      },
+      "mixed": {
+        "n": 196,
+        "win": 154,
+        "loss": 32,
+        "draw": 10
+      },
+      "supportExecutions": 168,
+      "mirrorDisagreements": 0,
+      "runtimeErrors": 0,
+      "costMismatches": 0,
+      "allResultsExactlyMatchPriorTuned46a92": true,
+      "report": "BOSS_BALANCE.md",
+      "rawEvidence": "verification/boss-abilities-20261107/balance/summary.json",
+      "scope": "Fixed roster cohorts. Newly connected ordinary support/control effects also need targeted interoperability tests; these balance cohorts do not cover all interactions."
+    },
+    "browserScope": "Chromium1180×757 and500×757. All49 synthetic scenarios run; representative effects and targeted triggers inspected, not exhaustive every-effect browser proof.",
+    "browserEvidence": "verification/boss-abilities-20261107/browser/browser-qa.json",
+    "finalPrepublicationCheck": "verification/boss-abilities-20261107/final-prepublication-check.json",
+    "independentReleaseAudit": "verification/boss-abilities-20261107/release-audit.json"
   },
   "preservation": {
-    "approvedDisplayNames": 44,
     "runtimeDefinitions": 301,
     "selectableTypes": 300,
-    "uniqueNames": 300,
+    "registeredAbilityTypes": 49,
     "bossKinds": 46,
-    "inlineImageAudioData": 591,
-    "sharedImageReferences": 567,
-    "releaseLocalImagesByteIdentical": 6,
-    "gameplayDefinitionsWalletScoreAssets": "All unit definitions, prices, stats, abilities and images/audio preserved. Wallet permits only the new canonical decision-timeout cashout reason; score posting adds only this client’s confirmed timeout cashout. Session rollover creates fresh ledgers and preserves old score receipts."
+    "unchangedCostsBaseHPAndTargetLayers": true,
+    "unchangedOriginalImageAudioData": 591,
+    "byteIdenticalReusedImages": 573,
+    "newOrReencodedImages": 0,
+    "walletScoreAndRoomLogic": "Retains prior review-fixes release; no ability patch changes wallet or score protocols."
   },
   "compatibility": {
-    "fullSourceRevisionChanged": true,
     "oldNewVersionsCanJoinSameRoom": false,
-    "idAbilityImageWalletScoreMigrationRequired": false
+    "walletOrScoreDataMigrationRequired": false,
+    "replayEngineVersion": "first300-boss49-v1",
+    "priorReplayVersionsSupportedWithOriginalValidation": true
   },
   "qa": {
-    "page": "releases/review-fixes-20261107/qa.html",
-    "scope": "Fixed-width standard/GRAVITY simulated layouts and visibly labeled synthetic state fixtures, isolated from production."
+    "page": "releases/boss-abilities-20261107/boss-preview.html",
+    "scope": "Explicit synthetic scenarios using production combat and replay; isolated from normal entry and SDK.",
+    "fixture": "releases/boss-abilities-20261107/qa-boss-entry.html"
   },
   "limitations": [
-    "Real iOS/physical touch, live GRAVITY SDK acceptance and real multiplayer network sessions remain unverified.",
-    "A client must still be connected and running to request its own timeout score submission. No other player submits it. Zero/unsafe values remain blocked.",
-    "Matchup history avoids repeats while a legal unused pair is available; bounded exhausted-candidate fallback is least-used/oldest.",
-    "Mixed content revisions cannot join the same game."
+    "Chromium browser verification covers the documented scope only; not every effect or interaction was visually inspected in-browser.",
+    "Physical touch, real GRAVITY SDK acceptance, live network multiplayer and narrower device viewport remain unverified.",
+    "The exact absolute Gravity entry and public deployment are checked separately after publication.",
+    "Production Canvas2D rendering is separate evidence from real browser interaction.",
+    "Original173-test suite remains unchanged:149 pass,24 retired-spec assertions are individually mapped, never reported as original passes."
   ],
-  "metadataStatus": "FINALIZED_FOR_PROMOTION_DECISION_WITH_DOCUMENTED_LIMITATIONS",
-  "browserScope": {
-    "environment": "Chromium; standard and simulated GRAVITY layouts. Not a physical device or real SDK session.",
-    "widths": [
-      320,
-      375,
-      390,
-      430
-    ],
-    "heights": [
-      568,
-      667,
-      844,
-      932
-    ],
-    "terrain": "48 standalone cases: all eight terrains at strength12 on four widths, plus strengths4 and8 at320; additional GRAVITY volcano strength12 at four widths.",
-    "wallet": "12,800 and123,456 entirely visible throughout the matrix;20- and600-digit strings retain exact text and reach the final digit by horizontal scrolling;26px/system-ui/600/left alignment confirmed.",
-    "emote": "Solo32px upper strip with28px emoji outside map; multiplayer four complete slots and end-of-rail scrolling; no horizontal overflow or result/header/reaction-strip overlap in covered fixtures.",
-    "productionSmoke": "Production entry boot, solo selection and battle start through a0.2-second game clock verified; no claim of completed live battle/result/overtime flow.",
-    "screenshots": "Representative full-frame screenshots inspected; no additional enlarged ground-marker visual pass completed."
-  },
-  "knownBoundary": {
-    "entry": "GRAVITY rendering fixture",
-    "viewport": [
-      320,
-      568
-    ],
-    "mode": "multi",
-    "control": "confirm",
-    "y": 524,
-    "height": 64,
-    "bottom": 588,
-    "geometricVisibleHeight": 44,
-    "outsideViewportBottom": 20,
-    "centerHitTarget": "confirm",
-    "fixtureDisabled": true,
-    "successfulStartClickVerified": false,
-    "fullVerticalScrollAccessVerified": false,
-    "oldReleaseComparisonVerified": false,
-    "classification": "Observed fixture boundary; production regression status undetermined."
-  },
-  "qaExpectationNote": {
-    "status": "KNOWN_QA_EXPECTATION_MISMATCH",
-    "note": "One terrain QA wallet-position check differs from the current layout. Independent centering and collision measurements passed. The immutable QA file remains unchanged.",
-    "action": "Known QA expectation mismatch retained; not counted as a passed assertion."
-  },
-  "remainingVerification": [
-    "Production play after the battle settles has not been completed in this browser pass.",
-    "Additional actual overtime interaction and rendered explanation check remain incomplete.",
-    "Additional enlarged visual inspection of removed ground army markers and preserved overhead HP remains incomplete; VM drawing checks pass.",
-    "320x568 GRAVITY multiplayer confirm full vertical-scroll reachability and prior-release comparison remain unverified.",
-    "430px GRAVITY multiplayer and standard-entry start-button geometry were not separately completed.",
-    "Physical iOS/touch, real GRAVITY SDK, and real network multiplayer remain unverified."
-  ],
-  "browserEnvironmentLimitation": "The browser validation environment became unavailable; remaining items are unverified.",
-  "releaseDeployment": {
-    "stageCommit": "4eb4de1b3903dc35c7eede919b927196960b67f1",
-    "pagesRun": 42241995045,
-    "pagesConclusion": "success",
-    "HTTPFilesExact": 36,
-    "normalRootPromotionVerification": "Checked separately after these four root files are applied."
+  "publication": {
+    "status": "AWAITING_POST_PUSH_DEPLOYMENT_VERIFICATION",
+    "remoteCommit": null,
+    "pagesDeploymentVerified": false
   }
 }

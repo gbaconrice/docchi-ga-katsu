@@ -1,0 +1,6456 @@
+{
+  "manifest": {
+    "candidateSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "contentRevision": "1f3d8365dec4e844ab7a5eb61e9945d892bf01cbcee50fa4b0f7e1c0450e39f9",
+    "expectedExecutions": {
+      "controlled": 2208,
+      "mixed": 196,
+      "lichSupport": 80,
+      "cleaverSupport": 88
+    }
+  },
+  "cohorts": {
+    "controlled": {
+      "all": {
+        "final": {
+          "n": 2208,
+          "win": 1616,
+          "draw": 90,
+          "loss": 502,
+          "drawReasons": {
+            "time_limit": 68,
+            "mutual_annihilation": 22
+          },
+          "mirrorPairs": 1104,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 1448,
+          "costRatioRange": [
+            0.9,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 2208,
+          "win": 1794,
+          "loss": 410,
+          "draw": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 1104,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 1448,
+          "costRatioRange": [
+            0.9,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 1540,
+          "loss->draw": 14,
+          "loss->loss": 320,
+          "win->draw": 74,
+          "win->loss": 180,
+          "draw->loss": 2,
+          "draw->draw": 2,
+          "loss->win": 76
+        }
+      },
+      "ground": {
+        "final": {
+          "n": 1928,
+          "win": 1616,
+          "draw": 80,
+          "loss": 232,
+          "drawReasons": {
+            "time_limit": 58,
+            "mutual_annihilation": 22
+          },
+          "mirrorPairs": 964,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 1168,
+          "costRatioRange": [
+            0.9,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 1928,
+          "win": 1794,
+          "loss": 134,
+          "drawReasons": {},
+          "mirrorPairs": 964,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 1168,
+          "costRatioRange": [
+            0.9,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 1540,
+          "win->draw": 74,
+          "win->loss": 180,
+          "loss->win": 76,
+          "loss->draw": 6,
+          "loss->loss": 52
+        }
+      },
+      "unreachableAir": {
+        "final": {
+          "n": 280,
+          "draw": 10,
+          "loss": 270,
+          "drawReasons": {
+            "time_limit": 10
+          },
+          "mirrorPairs": 140,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 280,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 280,
+          "loss": 276,
+          "draw": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 140,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 280,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->draw": 8,
+          "loss->loss": 268,
+          "draw->loss": 2,
+          "draw->draw": 2
+        }
+      },
+      "terrainCoverage": {
+        "grassland": 276,
+        "rockfield": 276,
+        "desert": 276,
+        "shallow_ford": 276,
+        "crosswind_ridge": 276,
+        "highland": 276,
+        "volcano": 276,
+        "icefield": 276
+      },
+      "baselineSource": "Prior original controlled audit; see baselineAuditMetadata; not pooled with local mixed baseline."
+    },
+    "mixed": {
+      "all": {
+        "final": {
+          "n": 196,
+          "win": 154,
+          "draw": 10,
+          "loss": 32,
+          "drawReasons": {
+            "mutual_annihilation": 4,
+            "time_limit": 6
+          },
+          "mirrorPairs": 98,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 196,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 196,
+          "win": 178,
+          "loss": 18,
+          "drawReasons": {},
+          "mirrorPairs": 98,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 196,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 146,
+          "win->draw": 10,
+          "loss->loss": 10,
+          "win->loss": 22,
+          "loss->win": 8
+        }
+      },
+      "terrainCoverage": {
+        "rockfield": 20,
+        "icefield": 26,
+        "shallow_ford": 22,
+        "crosswind_ridge": 36,
+        "desert": 20,
+        "highland": 20,
+        "volcano": 30,
+        "grassland": 22
+      },
+      "baselineSource": "Local pre-ability baseline.html freshly tested on these exact196jobs during mixed audit.",
+      "baselineSha256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d"
+    },
+    "lichSupport": {
+      "fresh_holdout_support": {
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 8,
+            "win": 8,
+            "drawReasons": {},
+            "mirrorPairs": 4,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 8,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 0,
+          "meanOwnHp": 303.675,
+          "meanChildNominalDamage": 0,
+          "children": 0,
+          "childrenExpired": 0,
+          "meanChildLifetimeTicks": null,
+          "raisedPerCell": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maxLiveChildren": 0
+        },
+        "lich": {
+          "outcomes": {
+            "n": 8,
+            "loss": 6,
+            "win": 2,
+            "drawReasons": {},
+            "mirrorPairs": 4,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 8,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 276.45000000000005,
+          "meanOwnHp": 80.5,
+          "meanChildNominalDamage": 93.5,
+          "children": 22,
+          "childrenExpired": 4,
+          "meanChildLifetimeTicks": 89.54545454545455,
+          "raisedPerCell": [
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            6,
+            6
+          ],
+          "maxLiveChildren": 3
+        }
+      },
+      "heldout_support": {
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 16,
+            "win": 12,
+            "loss": 4,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 31.575,
+          "meanOwnHp": 145.72500000000002,
+          "meanChildNominalDamage": 0,
+          "children": 0,
+          "childrenExpired": 0,
+          "meanChildLifetimeTicks": null,
+          "raisedPerCell": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maxLiveChildren": 0
+        },
+        "lich": {
+          "outcomes": {
+            "n": 16,
+            "win": 6,
+            "loss": 10,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 165.26250000000002,
+          "meanOwnHp": 94.45,
+          "meanChildNominalDamage": 172.125,
+          "children": 58,
+          "childrenExpired": 8,
+          "meanChildLifetimeTicks": 181.6551724137931,
+          "raisedPerCell": [
+            6,
+            6,
+            4,
+            4,
+            6,
+            6,
+            6,
+            6,
+            5,
+            5,
+            0,
+            0,
+            2,
+            2,
+            0,
+            0
+          ],
+          "maxLiveChildren": 3
+        }
+      },
+      "original_support": {
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 16,
+            "win": 10,
+            "loss": 6,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 78.0925,
+          "meanOwnHp": 122.70625,
+          "meanChildNominalDamage": 0,
+          "children": 0,
+          "childrenExpired": 0,
+          "meanChildLifetimeTicks": null,
+          "raisedPerCell": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maxLiveChildren": 0
+        },
+        "lich": {
+          "outcomes": {
+            "n": 16,
+            "loss": 12,
+            "win": 4,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 218.175,
+          "meanOwnHp": 62.0875,
+          "meanChildNominalDamage": 121.125,
+          "children": 46,
+          "childrenExpired": 6,
+          "meanChildLifetimeTicks": 118.08695652173913,
+          "raisedPerCell": [
+            2,
+            2,
+            6,
+            6,
+            1,
+            1,
+            6,
+            6,
+            2,
+            2,
+            4,
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "maxLiveChildren": 3
+        }
+      }
+    },
+    "cleaverSupport": {
+      "fresh_holdout_support": {
+        "cleaver": {
+          "outcomes": {
+            "n": 8,
+            "win": 6,
+            "loss": 2,
+            "drawReasons": {},
+            "mirrorPairs": 4,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 8,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 135.109375,
+          "meanOwnHp": 271.75,
+          "buffedHits": 250,
+          "unbuffedHits": 206,
+          "observedBuffedDamageRatios": [
+            1.35
+          ],
+          "aliveAllyTickUptime": 0.5175879396984925,
+          "nominalBuffedOutputDamage": 4842.179999999998
+        },
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 8,
+            "loss": 4,
+            "win": 4,
+            "drawReasons": {},
+            "mirrorPairs": 4,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 8,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 342.7,
+          "meanOwnHp": 106.1375,
+          "buffedHits": 0,
+          "unbuffedHits": 0,
+          "observedBuffedDamageRatios": [],
+          "aliveAllyTickUptime": null,
+          "nominalBuffedOutputDamage": 0
+        }
+      },
+      "heldout_mixed": {
+        "cleaver": {
+          "outcomes": {
+            "n": 4,
+            "win": 4,
+            "drawReasons": {},
+            "mirrorPairs": 2,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 4,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 0,
+          "meanOwnHp": 622.5,
+          "buffedHits": 2,
+          "unbuffedHits": 0,
+          "observedBuffedDamageRatios": [
+            1.35
+          ],
+          "aliveAllyTickUptime": 0.3153252480705623,
+          "nominalBuffedOutputDamage": 45.900000000000006
+        }
+      },
+      "heldout_support": {
+        "cleaver": {
+          "outcomes": {
+            "n": 16,
+            "loss": 8,
+            "win": 8,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 209.95000000000002,
+          "meanOwnHp": 276.5,
+          "buffedHits": 518,
+          "unbuffedHits": 390,
+          "observedBuffedDamageRatios": [
+            1.35
+          ],
+          "aliveAllyTickUptime": 0.51394165754395,
+          "nominalBuffedOutputDamage": 9945.719999999994
+        },
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 16,
+            "loss": 10,
+            "win": 6,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 346.55,
+          "meanOwnHp": 105.3375,
+          "buffedHits": 0,
+          "unbuffedHits": 0,
+          "observedBuffedDamageRatios": [],
+          "aliveAllyTickUptime": null,
+          "nominalBuffedOutputDamage": 0
+        }
+      },
+      "original_mixed": {
+        "cleaver": {
+          "outcomes": {
+            "n": 4,
+            "win": 4,
+            "drawReasons": {},
+            "mirrorPairs": 2,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 4,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 0,
+          "meanOwnHp": 560.25,
+          "buffedHits": 2,
+          "unbuffedHits": 0,
+          "observedBuffedDamageRatios": [
+            1.35
+          ],
+          "aliveAllyTickUptime": 0.3486910994764398,
+          "nominalBuffedOutputDamage": 45.900000000000006
+        }
+      },
+      "original_support": {
+        "cleaver": {
+          "outcomes": {
+            "n": 16,
+            "loss": 6,
+            "win": 10,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 196.546875,
+          "meanOwnHp": 394.375,
+          "buffedHits": 546,
+          "unbuffedHits": 368,
+          "observedBuffedDamageRatios": [
+            1.35
+          ],
+          "aliveAllyTickUptime": 0.5122192518997201,
+          "nominalBuffedOutputDamage": 11031.659999999994
+        },
+        "equal_cost_no_support": {
+          "outcomes": {
+            "n": 16,
+            "loss": 8,
+            "win": 8,
+            "drawReasons": {},
+            "mirrorPairs": 8,
+            "mirrorDisagreements": 0,
+            "exactCostParityCells": 16,
+            "costRatioRange": [
+              1,
+              1
+            ]
+          },
+          "meanEnemyHp": 255.5,
+          "meanOwnHp": 183.025,
+          "buffedHits": 0,
+          "unbuffedHits": 0,
+          "observedBuffedDamageRatios": [],
+          "aliveAllyTickUptime": null,
+          "nominalBuffedOutputDamage": 0
+        }
+      }
+    }
+  },
+  "byType": {
+    "accretion_burstcore": {
+      "cost": 16,
+      "groundControlled": {
+        "final": {
+          "n": 48,
+          "win": 48,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 48,
+          "win": 48,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 48
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "basalt_titan": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "draw": 20,
+          "win": 24,
+          "drawReasons": {
+            "time_limit": 16,
+            "mutual_annihilation": 4
+          },
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 38,
+          "loss": 6,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->draw": 18,
+          "win->win": 20,
+          "loss->win": 4,
+          "loss->draw": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "draw": 4,
+          "drawReasons": {
+            "mutual_annihilation": 2,
+            "time_limit": 2
+          },
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->draw": 4
+        }
+      }
+    },
+    "bluefist_colossus": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "bluehorn_invoker": {
+      "cost": 40,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.975,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 34,
+          "loss": 6,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.975,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 34,
+          "loss->win": 6
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "bone_crown_lich": {
+      "cost": 12,
+      "groundControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 2,
+          "win->loss": 2
+        }
+      }
+    },
+    "bonefan_reaper": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 32,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 32,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 44
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "carapace_slashbeast": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 36,
+          "win": 36,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 36,
+          "win": 30,
+          "loss": 6,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 30,
+          "loss->win": 6
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 12
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "cinder_tailbeast": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 44
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "cleaver_brute": {
+      "cost": 40,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 32,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.975,
+            1.05
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 32,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.975,
+            1.05
+          ]
+        },
+        "transitions": {
+          "win->win": 28,
+          "win->loss": 4,
+          "loss->loss": 8,
+          "loss->win": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "colossal_hornfist": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 36,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 36,
+          "win->loss": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "cyanrise_silithar": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "loss": 28,
+          "draw": 16,
+          "drawReasons": {
+            "time_limit": 16
+          },
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->loss": 28,
+          "win->draw": 16
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "draw": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->draw": 4
+        }
+      }
+    },
+    "darkfan_clawlord": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 40,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 40,
+          "loss->win": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "domeback_colossus": {
+      "cost": 6,
+      "groundControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      }
+    },
+    "emberfist_pillarer": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 34,
+          "loss": 10,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 34,
+          "loss->win": 10
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "emberwing_drake": {
+      "cost": 20,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 42,
+          "loss": 2,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "transitions": {
+          "win->win": 42,
+          "win->loss": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "fiery_coil_inceptor": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 48,
+          "win": 28,
+          "draw": 20,
+          "drawReasons": {
+            "mutual_annihilation": 18,
+            "time_limit": 2
+          },
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "baseline": {
+          "n": 48,
+          "win": 44,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "transitions": {
+          "win->win": 28,
+          "win->draw": 16,
+          "loss->draw": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "draw": 2,
+          "win": 2,
+          "drawReasons": {
+            "mutual_annihilation": 2
+          },
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->draw": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "flameburst_mythron": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "loss": 32,
+          "win": 10,
+          "draw": 2,
+          "drawReasons": {
+            "time_limit": 2
+          },
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 32,
+          "win->win": 10,
+          "win->draw": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 2,
+          "loss": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 2,
+          "win->loss": 2
+        }
+      }
+    },
+    "flamering_magus": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 36,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 36,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "frostbreath_lizard": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 38,
+          "loss": 6,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 38,
+          "loss->win": 6
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "frosthorn_rhino": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "gauntlet_combo_guard": {
+      "cost": 20,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "golem": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 38,
+          "draw": 2,
+          "drawReasons": {
+            "time_limit": 2
+          },
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 38,
+          "win->draw": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "draw": 4,
+          "loss": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->draw": 4,
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "iceclaw_legend": {
+      "cost": 16,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 36,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 36,
+          "win->loss": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "kilnback_pincerbeast": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 34,
+          "loss": 10,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1.0416666666666667
+          ]
+        },
+        "transitions": {
+          "win->win": 34,
+          "win->loss": 10
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "moonclaw_werewolf": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 36,
+          "loss": 10,
+          "win": 26,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 36,
+          "win": 36,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->loss": 10,
+          "win->win": 26
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 12
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "pillar_hammerer": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 44
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->win": 4
+        }
+      }
+    },
+    "plated_dualdragon": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 48,
+          "win": 48,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 48,
+          "win": 44,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 44,
+          "loss->win": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "razorclaw_reaver": {
+      "cost": 36,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "draw": 12,
+          "loss": 18,
+          "win": 14,
+          "drawReasons": {
+            "time_limit": 12
+          },
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 40,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->draw": 12,
+          "win->loss": 14,
+          "win->win": 14,
+          "loss->loss": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "redhorn_dualbeast": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "loss": 34,
+          "win": 10,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 40,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->loss": 30,
+          "win->win": 10,
+          "loss->loss": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "ringhold_guardian": {
+      "cost": 6,
+      "groundControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      }
+    },
+    "ringneck_prowler": {
+      "cost": 40,
+      "groundControlled": {
+        "final": {
+          "n": 48,
+          "draw": 4,
+          "loss": 28,
+          "win": 16,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "baseline": {
+          "n": 48,
+          "win": 26,
+          "loss": 22,
+          "drawReasons": {},
+          "mirrorPairs": 24,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "transitions": {
+          "win->draw": 4,
+          "win->loss": 8,
+          "win->win": 14,
+          "loss->loss": 20,
+          "loss->win": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "baseline": {
+          "n": 0,
+          "drawReasons": {},
+          "mirrorPairs": 0,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 0,
+          "costRatioRange": [
+            null,
+            null
+          ]
+        },
+        "transitions": {}
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 2,
+          "loss": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 2,
+          "win->loss": 2
+        }
+      }
+    },
+    "roarfang_beast": {
+      "cost": 16,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "rootwarden_treant": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 6,
+          "draw": 2,
+          "drawReasons": {
+            "time_limit": 2
+          },
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "draw": 4,
+          "loss": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "draw->loss": 2,
+          "draw->draw": 2,
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "shockplate_drake": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 36,
+          "win": 36,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 36,
+          "loss": 4,
+          "win": 32,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "loss->win": 4,
+          "win->win": 32
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 12
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "siege_crab": {
+      "cost": 36,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 32,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 32,
+          "loss->win": 12
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "silverarm_vanguard": {
+      "cost": 24,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 30,
+          "loss": 14,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 44,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 30,
+          "win->loss": 14
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "skullflare_triad": {
+      "cost": 20,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 40,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9,
+            1.05
+          ]
+        },
+        "transitions": {
+          "win->win": 40,
+          "loss->win": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->win": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "slime": {
+      "cost": 12,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 32,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 40,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 32,
+          "win->loss": 8
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "draw": 4,
+          "loss": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->draw": 4,
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 4
+        }
+      }
+    },
+    "spectral_scale_dragon": {
+      "cost": 16,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 38,
+          "loss": 2,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 38,
+          "win->loss": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "spikeburst_grinder": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 44
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "spore_toad": {
+      "cost": 12,
+      "groundControlled": {
+        "final": {
+          "n": 32,
+          "win": 32,
+          "drawReasons": {},
+          "mirrorPairs": 16,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 32,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 32,
+          "win": 32,
+          "drawReasons": {},
+          "mirrorPairs": 16,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 32,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 32
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 16,
+          "loss": 16,
+          "drawReasons": {},
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 16,
+          "loss": 16,
+          "drawReasons": {},
+          "mirrorPairs": 8,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 16
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->win": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "stonepulse_kolossus": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "loss": 2,
+          "win": 34,
+          "draw": 4,
+          "drawReasons": {
+            "time_limit": 4
+          },
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 34,
+          "win->draw": 4
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "stormhorn_tripler": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "loss": 24,
+          "win": 16,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "loss": 16,
+          "win": 24,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 28,
+          "costRatioRange": [
+            0.9642857142857143,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 16,
+          "win->win": 16,
+          "win->loss": 8
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "loss": 2,
+          "win": 2,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->loss": 2,
+          "win->win": 2
+        }
+      }
+    },
+    "thornback_beast": {
+      "cost": 16,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9375,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "thunderhorn_beast": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 36,
+          "win": 36,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 36,
+          "win": 36,
+          "drawReasons": {},
+          "mirrorPairs": 18,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 20,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 36
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 12,
+          "loss": 12,
+          "drawReasons": {},
+          "mirrorPairs": 6,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 12,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 12
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "triad_chimera": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 40
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "veteran_flamewing": {
+      "cost": 32,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 36,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9375,
+            1.03125
+          ]
+        },
+        "transitions": {
+          "win->win": 36,
+          "loss->win": 8
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "willyee_frost_dragon": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 40,
+          "win": 40,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 40,
+          "win": 38,
+          "loss": 2,
+          "drawReasons": {},
+          "mirrorPairs": 20,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 16,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 38,
+          "loss->win": 2
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 8,
+          "loss": 8,
+          "drawReasons": {},
+          "mirrorPairs": 4,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 8,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 8
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    },
+    "willyee_stone_golem": {
+      "cost": 28,
+      "groundControlled": {
+        "final": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "baseline": {
+          "n": 44,
+          "win": 44,
+          "drawReasons": {},
+          "mirrorPairs": 22,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 24,
+          "costRatioRange": [
+            0.9642857142857143,
+            1.0714285714285714
+          ]
+        },
+        "transitions": {
+          "win->win": 44
+        }
+      },
+      "unreachableAirControlled": {
+        "final": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "loss": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "loss->loss": 4
+        }
+      },
+      "mixed": {
+        "final": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "baseline": {
+          "n": 4,
+          "win": 4,
+          "drawReasons": {},
+          "mirrorPairs": 2,
+          "mirrorDisagreements": 0,
+          "exactCostParityCells": 4,
+          "costRatioRange": [
+            1,
+            1
+          ]
+        },
+        "transitions": {
+          "win->win": 4
+        }
+      }
+    }
+  },
+  "baselineAuditMetadata": {
+    "baselineCommit": "8b20cfc3cb31cb9aa498f6d935629abeceb3a14b",
+    "sourceSha256": "6611f76de9602cc468a34795e105ad11af2be900842d3ef0be6f6091366b32ab",
+    "testedPublicRuntimeSha256": "53260fabefe1473839882850c2867e009b1c1af79537455a90f5c20e5ec0ae7b"
+  },
+  "limitations": [
+    "Selected deterministic matchup cells, not calibrated win rates or unbiased global balance estimates.",
+    "Mirrors are correlated. Ground ranged cells and unreachable-air cells must remain separate.",
+    "Support two-sword checks overlap mixed jobs; cohorts are not disjoint statistical samples.",
+    "Support heldouts change seeds, not roster archetypes; replacing a support changes geometry/unit count as well as role.",
+    "Full controlled prior-audit baseline and local mixed baseline have distinct provenance; never pool their denominators.",
+    "Nominal damage includes possible overkill. Fury uptime includes precombat and post-boss-death alive ally ticks.",
+    "All final evidence in this file uses649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7 frozen source; d32 and experimental snapshots are historical only."
+  ],
+  "runtimeErrors": [],
+  "costValidation": {
+    "catalogSource": "catalog exported from exact integrated frozen VM",
+    "mismatches": []
+  },
+  "timeoutDetail": [
+    {
+      "boss": "golem",
+      "pair": 4,
+      "seed": 8,
+      "mirror": true,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        525,
+        90
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "golem",
+      "pair": 4,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        7,
+        2
+      ],
+      "hp": [
+        525,
+        120
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "golem",
+      "pair": 11,
+      "seed": 5,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        400,
+        900
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "slime",
+      "pair": 13,
+      "seed": 9,
+      "mirror": true,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        3,
+        3
+      ],
+      "hp": [
+        225,
+        78
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "slime",
+      "pair": 13,
+      "seed": 0,
+      "mirror": true,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        3,
+        2
+      ],
+      "hp": [
+        225,
+        32
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "rootwarden_treant",
+      "pair": 42,
+      "seed": 9,
+      "mirror": true,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        6,
+        1
+      ],
+      "hp": [
+        450,
+        30
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 8,
+      "mirror": true,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        190,
+        900
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        190,
+        910
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        503.3,
+        826
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        503.3,
+        847
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "frostmage",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        170,
+        112.5
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 9,
+      "mirror": true,
+      "ranged": "frostmage",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        170,
+        75
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "willyee_char_10_lute_bard",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        130,
+        35
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "willyee_char_10_lute_bard",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        130,
+        49
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 0,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        640,
+        247.5499999999958
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 5,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        9,
+        1
+      ],
+      "hp": [
+        720,
+        262.4249999999968
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "willyee_char_08",
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        60.525,
+        55.200000000001744
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "willyee_char_08",
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        63.675,
+        62.850000000001266
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        380,
+        312.75
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 9,
+      "mirror": true,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        380,
+        354
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 8,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        320,
+        364
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        4,
+        1
+      ],
+      "hp": [
+        320,
+        343
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "fiery_coil_inceptor",
+      "pair": 387,
+      "seed": 5,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        3,
+        1
+      ],
+      "hp": [
+        191.4,
+        380.9999999999978
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 0,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        52,
+        1027
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 5,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        106,
+        939.5
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 471,
+      "seed": 2,
+      "mirror": true,
+      "ranged": "willyee_alchemist",
+      "ticks": 3600,
+      "alive": [
+        11,
+        1
+      ],
+      "hp": [
+        825,
+        9.70000000000957
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 1,
+      "mirror": true,
+      "ranged": "cannon",
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        360,
+        629.5499999999952
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 8,
+      "mirror": true,
+      "ranged": "cannon",
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        360,
+        642.1999999999953
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 8,
+      "mirror": true,
+      "ranged": "tigermask_archer",
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        475,
+        152.6999999999959
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 15,
+      "mirror": true,
+      "ranged": "tigermask_archer",
+      "ticks": 3600,
+      "alive": [
+        5,
+        1
+      ],
+      "hp": [
+        475,
+        137.29999999999592
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 9,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        16,
+        1
+      ],
+      "hp": [
+        1221.2479999999998,
+        416.42500000001803
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 0,
+      "mirror": true,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        16,
+        1
+      ],
+      "hp": [
+        1265.312,
+        408.72500000001605
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 478,
+      "seed": 1,
+      "mirror": true,
+      "ranged": "archer",
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        480,
+        68.00000000000102
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "flameburst_mythron",
+      "pair": 483,
+      "seed": 5,
+      "mirror": true,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        2,
+        1
+      ],
+      "hp": [
+        117.03999999999995,
+        180
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "golem",
+      "pair": 4,
+      "seed": 8,
+      "mirror": false,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        90,
+        525
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "golem",
+      "pair": 4,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        2,
+        7
+      ],
+      "hp": [
+        120,
+        525
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "golem",
+      "pair": 11,
+      "seed": 5,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        900,
+        400
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "slime",
+      "pair": 13,
+      "seed": 9,
+      "mirror": false,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        3,
+        3
+      ],
+      "hp": [
+        78,
+        225
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "slime",
+      "pair": 13,
+      "seed": 0,
+      "mirror": false,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        2,
+        3
+      ],
+      "hp": [
+        32,
+        225
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "rootwarden_treant",
+      "pair": 42,
+      "seed": 9,
+      "mirror": false,
+      "ranged": "ribbed_fanclam",
+      "ticks": 3600,
+      "alive": [
+        1,
+        6
+      ],
+      "hp": [
+        30,
+        450
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 8,
+      "mirror": false,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        900,
+        190
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 84,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        910,
+        190
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        826,
+        503.3
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 87,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        847,
+        503.3
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "frostmage",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        112.5,
+        170
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 90,
+      "seed": 9,
+      "mirror": false,
+      "ranged": "frostmage",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        75,
+        170
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "willyee_char_10_lute_bard",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        35,
+        130
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 95,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "willyee_char_10_lute_bard",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        49,
+        130
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 0,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        247.5499999999958,
+        640
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 240,
+      "seed": 5,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        9
+      ],
+      "hp": [
+        262.4249999999968,
+        720
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "willyee_char_08",
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        55.200000000001744,
+        60.525
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 247,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "willyee_char_08",
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        62.850000000001266,
+        63.675
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        312.75,
+        380
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "razorclaw_reaver",
+      "pair": 250,
+      "seed": 9,
+      "mirror": false,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        354,
+        380
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 8,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        364,
+        320
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "ringneck_prowler",
+      "pair": 252,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        4
+      ],
+      "hp": [
+        343,
+        320
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "fiery_coil_inceptor",
+      "pair": 387,
+      "seed": 5,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        3
+      ],
+      "hp": [
+        380.9999999999978,
+        191.4
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 0,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        1027,
+        52
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "stonepulse_kolossus",
+      "pair": 400,
+      "seed": 5,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        939.5,
+        106
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 471,
+      "seed": 2,
+      "mirror": false,
+      "ranged": "willyee_alchemist",
+      "ticks": 3600,
+      "alive": [
+        1,
+        11
+      ],
+      "hp": [
+        9.70000000000957,
+        825
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 1,
+      "mirror": false,
+      "ranged": "cannon",
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        629.5499999999952,
+        360
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 473,
+      "seed": 8,
+      "mirror": false,
+      "ranged": "cannon",
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        642.1999999999953,
+        360
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 8,
+      "mirror": false,
+      "ranged": "tigermask_archer",
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        152.6999999999959,
+        475
+      ],
+      "env": "shallow_ford"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 476,
+      "seed": 15,
+      "mirror": false,
+      "ranged": "tigermask_archer",
+      "ticks": 3600,
+      "alive": [
+        1,
+        5
+      ],
+      "hp": [
+        137.29999999999592,
+        475
+      ],
+      "env": "icefield"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 9,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        16
+      ],
+      "hp": [
+        416.42500000001803,
+        1221.2479999999998
+      ],
+      "env": "highland"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 477,
+      "seed": 0,
+      "mirror": false,
+      "ranged": "spirit_fan_wolf",
+      "ticks": 3600,
+      "alive": [
+        1,
+        16
+      ],
+      "hp": [
+        408.72500000001605,
+        1265.312
+      ],
+      "env": "grassland"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 478,
+      "seed": 1,
+      "mirror": false,
+      "ranged": "archer",
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        68.00000000000102,
+        480
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "flameburst_mythron",
+      "pair": 483,
+      "seed": 5,
+      "mirror": false,
+      "ranged": "sky_harpooner",
+      "ticks": 3600,
+      "alive": [
+        1,
+        2
+      ],
+      "hp": [
+        180,
+        117.03999999999995
+      ],
+      "env": "rockfield"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 3,
+      "seed": 921101,
+      "mirror": false,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        383.5,
+        60
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "basalt_titan",
+      "pair": 3,
+      "seed": 921101,
+      "mirror": true,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        1,
+        1
+      ],
+      "hp": [
+        60,
+        383.5
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 20,
+      "seed": 910971,
+      "mirror": false,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        1,
+        8
+      ],
+      "hp": [
+        91.10000000000193,
+        480
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 20,
+      "seed": 910971,
+      "mirror": true,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        8,
+        1
+      ],
+      "hp": [
+        480,
+        91.10000000000193
+      ],
+      "env": "desert"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 21,
+      "seed": 921974,
+      "mirror": false,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        1,
+        7
+      ],
+      "hp": [
+        191.0750000000014,
+        437
+      ],
+      "env": "crosswind_ridge"
+    },
+    {
+      "boss": "cyanrise_silithar",
+      "pair": 21,
+      "seed": 921974,
+      "mirror": true,
+      "ranged": null,
+      "ticks": 3600,
+      "alive": [
+        7,
+        1
+      ],
+      "hp": [
+        437,
+        191.0750000000014
+      ],
+      "env": "crosswind_ridge"
+    }
+  ],
+  "changeIsolation": {
+    "controlledVs46a92": {
+      "pairedCells": 2208,
+      "differences": []
+    },
+    "mixedVs46a92": {
+      "pairedCells": 196,
+      "differences": []
+    },
+    "cleaverVs46a92": {
+      "pairedCells": 88,
+      "differences": []
+    },
+    "lichVs46a92": {
+      "pairedCells": 80,
+      "differences": []
+    }
+  },
+  "comparisonExplanation": {
+    "baselineSha256": "46a92df7d1744651fa72ab571411c6e9efe36ff56cc67d032861fa0dcfb6d7a7",
+    "changedOutcomeCells": 0,
+    "changedTimingHpSurvivorTerrainCells": 0,
+    "explanation": "All2572 freshly simulated executions exactly match the prior snapshot in these fixed rosters. Starting rosters omit rune_exorcist,boar,knife_skirmisher,glimmer_sprite,onyx_scorpion,screech_cricket,aegis_warden; frostmage appears in controlled and healer in mixed. Presence alone does not prove a patched interaction occurred. These balance fixtures do not replace targeted interoperability tests.",
+    "coverageArtifact": "interop-fixture-coverage.json"
+  }
+}

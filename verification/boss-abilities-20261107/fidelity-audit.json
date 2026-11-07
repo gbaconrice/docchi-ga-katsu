@@ -1,0 +1,2466 @@
+{
+  "source_sha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "generated_utc": "2026-11-07T06:09:55.613642+00:00",
+  "scope": "Independent implementation and production-runtime audit of all 49 boss mechanics. No source/module edits performed by this audit.",
+  "result": "PASS: 49 distinct boss-mechanic checks plus 9 shared/secondary checks; all 58 passed.",
+  "evidence": {
+    "mechanics": "tests/fidelity-mechanics.test.cjs",
+    "mechanics_result": "reports/fidelity-mechanics.json",
+    "integration": "tests/integrated-bosses.cjs",
+    "integration_result": "reports/integration-combat.json",
+    "mechanics_checks": 58,
+    "mechanics_passed": 58,
+    "integration_checks": 66,
+    "integration_passed": 66,
+    "integration_status": "passed",
+    "status_interop_test": "tests/boss-status-interop.test.cjs",
+    "status_interop_result": "reports/boss-status-interop.json",
+    "status_interop_checks": 34,
+    "status_interop_passed": 34
+  },
+  "resolved_findings": [
+    {
+      "id": "same_tick_ward_snapshot",
+      "affected": [
+        "carapace_slashbeast"
+      ],
+      "initial_evidence": {
+        "unwarded_expected": 101.25,
+        "actual_with_removed_ward": 25.3125
+      },
+      "resolution": "Shield break now invalidates the current hit pipeline ward/barrier snapshots and boss ring budget.",
+      "verified_by": "shield break numeric snapshot"
+    },
+    {
+      "id": "corpse_conversion_position",
+      "affected": [
+        "bone_crown_lich"
+      ],
+      "initial_evidence": {
+        "distance_to_corpse": 205.5455621405576,
+        "distance_to_caster": 33.00011231121545
+      },
+      "resolution": "Skeleton uses collision-safe placement at the defeated enemy instead of spawning around the caster.",
+      "verified_by": "lich conversion spawns skeleton at corpse not at caster"
+    },
+    {
+      "id": "orbit_not_attainable",
+      "affected": [
+        "emberwing_drake"
+      ],
+      "initial_evidence": {
+        "start_x": 181.3999,
+        "late_x": 245.196,
+        "target_x": 260,
+        "reason": "Moving orbit destination was faster than allowed flight speed; source did not reach far side."
+      },
+      "resolution": "Closer acquisition, feasible orbital speed and longer orbit; damage per pulse reduced to preserve total scheduled pulse budget.",
+      "verified_by": "emberwing orbits and repeated rain damages current target"
+    }
+  ],
+  "untested_boundaries": [
+    {
+      "scope": "crowded phase placement",
+      "exact_test_to_add": "Surround every rear-center teleport candidate with large same-layer bodies; assert success=false, no overlap or arena escape, and no second infiltration attempt."
+    },
+    {
+      "scope": "every area target cap",
+      "exact_test_to_add": "For each area ability, put cap+2 legal high-HP targets in range and one out of range; assert unique hit count at the documented per-cast/per-pulse cap and that the out-of-range target is untouched."
+    },
+    {
+      "scope": "full summon-cap exhaustion",
+      "exact_test_to_add": "Fill each team to 64 living / 256 historical records and total to 512; invoke slime/golem/lich spawn paths and assert no overrun, no duplicated tokens, and deterministic failure."
+    },
+    {
+      "scope": "simultaneous support interception",
+      "exact_test_to_add": "Place multiple shell/silver/ring defenders around one ally, queue same-tick lethal defender damage and multiple incoming hits, and assert deterministic attribution and no duplicated interception."
+    }
+  ],
+  "limitations": [
+    "Primary tests run actual combatStep and its real hit/status/movement/spawn pipeline. Most casts are invoked inside that pipeline with opposing attacks held, to isolate the distinctive effect. Emberwing, rhino and cleaver additionally run natural acquisition/cooldown scheduling.",
+    "The separate 66-check integration suite verifies auto activation, determinism, mirrored battles, production step parity, no-target handling, death hooks and replay event/flag roundtrips. It is smoke and invariance evidence, not a replacement for the 49 mechanic-specific assertions.",
+    "Numeric values are tuned implementation limits, not claims about unrestricted visual concepts. Airborne is a timed action lock plus presentation, not a change from ground to air target layer. Phase uses a bounded collision-safe relocation. Swallowing is represented by backline selection, pull and a capped finisher.",
+    "This audit does not measure balance, rendering quality or every cross-roster interaction. It does not claim exhaustive state-space coverage."
+  ],
+  "bosses": [
+    {
+      "id": "slime",
+      "mechanic": "死亡時に小目玉3体、それぞれが死亡時にさらに3体へ分裂する。",
+      "limits": "分裂は2世代、最大12子孫。第1世代52HP、第2世代26HP、各12秒。配置余地と共通召喚上限が必要。",
+      "test_prefix": "slime exact three",
+      "number": 1,
+      "character": "スプリットアイ",
+      "ability": "三眼分裂",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "slime exact three then nine children, no third generation",
+      "combat_result": "pass",
+      "observed": {
+        "first": 3,
+        "second": 9,
+        "total": 12,
+        "gens": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 12,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "thornback_beast",
+      "mechanic": "全方向へ棘を放ち、周囲の敵にダメージと移動停止を与える。",
+      "limits": "半径112、最大8体、束縛42tick。 束縛はルーンエクソシストで解除でき、通常の移動阻害と耐性を共有する。解除後も再拘束防止は残る。",
+      "test_prefix": "thornback pins",
+      "number": 2,
+      "character": "ソーンバック",
+      "ability": "八方棘縛",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "thornback pins and damages enemies all around",
+      "combat_result": "pass",
+      "observed": [
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 30.600000000000023,
+          "root": true,
+          "movement": 0
+        },
+        {
+          "damage": 0,
+          "root": false,
+          "movement": 0
+        }
+      ],
+      "range": 95,
+      "windup_ticks": 30,
+      "cooldown_ticks": 168,
+      "power_scale": 1.7,
+      "base_damage": 18,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "roarfang_beast",
+      "mechanic": "周囲を攻撃して気絶させ、画面を短く揺らす。",
+      "limits": "半径110、最大7体、気絶42tick。揺れは演出で、戦闘は別に解決。",
+      "test_prefix": "roarfang stun",
+      "number": 3,
+      "character": "ロアファング",
+      "ability": "震天咆哮",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "roarfang stun cancels enemy windup and creates shake cue",
+      "combat_result": "pass",
+      "observed": {
+        "loss": [
+          35,
+          35
+        ],
+        "blocked": [
+          true,
+          true
+        ],
+        "quake": true
+      },
+      "range": 85,
+      "windup_ticks": 42,
+      "cooldown_ticks": 210,
+      "power_scale": 1.25,
+      "base_damage": 28,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "spectral_scale_dragon",
+      "mechanic": "一度だけ幽体化し、敵後衛付近へ実際に移動する。",
+      "limits": "30tickの非標的化後、遠い敵の上位1/3の中心付近へ転位。近傍25候補が全て塞がると移動は失敗する。連続歩行による通過ではない。 幽体化中は敵からの状態異常も受けないが、味方の強化は受けられる。",
+      "test_prefix": "phase actual rear",
+      "number": 4,
+      "character": "ファントムスケイルドラゴン",
+      "ability": "幽体潜行",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "phase actual rear insertion",
+      "combat_result": "pass",
+      "observed": {
+        "before": 180,
+        "after": 366.0224609375,
+        "y": 226.1044921875,
+        "layer": "ground",
+        "infiltrated": true
+      },
+      "range": 38,
+      "windup_ticks": 18,
+      "cooldown_ticks": 110,
+      "power_scale": 1.5,
+      "base_damage": 30,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "iceclaw_legend",
+      "mechanic": "3連爪で凍結させ、最後の氷片が別の敵にも命中する。",
+      "limits": "0/12/26tickに攻撃、初撃凍結38tick、周囲48の追加被害は主対象以外最大4体。対象が死亡・遠離すると残りは中止。",
+      "test_prefix": "iceclaw three",
+      "number": 5,
+      "character": "アイスクローファイター",
+      "ability": "砕氷三連爪",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "iceclaw three hits freeze and final shatter collateral",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.27,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 19.575,
+            "delivery": "boss_projectile"
+          }
+        ],
+        "frozen": true,
+        "early": 1000,
+        "late": 980.425
+      },
+      "range": 40,
+      "windup_ticks": 24,
+      "cooldown_ticks": 174,
+      "power_scale": 1.45,
+      "base_damage": 30,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "accretion_burstcore",
+      "mechanic": "吸命光線で与えた実ダメージの一部を回復し、体と最大HPが成長する。",
+      "limits": "吸収55%。5段階、半径最大1.4倍、最大HP1.2倍。回復は上限と回復阻害を適用。 通常の回復役も成長後の最大HPまで回復できる。",
+      "test_prefix": "growth capped",
+      "number": 6,
+      "character": "ダークライトコア",
+      "ability": "吸命光線",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "growth capped and replay max HP reconstructed",
+      "combat_result": "pass",
+      "observed": {
+        "growth": 5,
+        "scale": 1.4,
+        "maxHp": 1380,
+        "hp": 898.3377567260322,
+        "replayMaxHp": 1380,
+        "base": 1150,
+        "replayScale": 1.4
+      },
+      "range": 160,
+      "windup_ticks": 42,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 48,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "gauntlet_combo_guard",
+      "mechanic": "敵を掴んで集団へ投げ、実際の着地点にいる敵へ追加ダメージと押し出しを与える。",
+      "limits": "24tick後に投げ、翌tickに着地点判定。移動最大100、周囲42の追加対象5体、押し出し45。大型対象の移動減衰あり。",
+      "test_prefix": "gauntlet throw changes",
+      "number": 7,
+      "character": "ガントレットガード",
+      "ability": "敵投げ",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "gauntlet throw changes position and damages landing cluster",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 38.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 25.6,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 25.6,
+            "delivery": "boss"
+          }
+        ],
+        "distance": 74,
+        "collateral": [
+          25.600000000000023,
+          25.600000000000023
+        ]
+      },
+      "range": 28,
+      "windup_ticks": 30,
+      "cooldown_ticks": 192,
+      "power_scale": 3.2,
+      "base_damage": 10,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "emberwing_drake",
+      "mechanic": "敵を中心に旋回し、追尾する火雨で繰り返し攻撃する。",
+      "limits": "開始距離30、180tickの旋回、20tickごとの雨8回。各雨の半径35、最大4体。対象死亡で終了。実際の座標で被害と旋回角を検証。",
+      "test_prefix": "emberwing orbits",
+      "number": 8,
+      "character": "フレイムウィング",
+      "ability": "旋回火雨",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "emberwing orbits and repeated rain damages current target",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 5.760000000000001,
+            "delivery": "boss"
+          }
+        ],
+        "positions": [
+          {
+            "x": 207.056884765625,
+            "y": 239.88427734375
+          },
+          {
+            "x": 229.79833984375,
+            "y": 224.864501953125
+          },
+          {
+            "x": 249.781005859375,
+            "y": 215.9208984375
+          },
+          {
+            "x": 273.245849609375,
+            "y": 216.56787109375
+          },
+          {
+            "x": 291.651123046875,
+            "y": 226.165283203125
+          },
+          {
+            "x": 297.966552734375,
+            "y": 241.046875
+          },
+          {
+            "x": 289.7802734375,
+            "y": 255.52880859375
+          },
+          {
+            "x": 270.218994140625,
+            "y": 264.0791015625
+          },
+          {
+            "x": 246.754150390625,
+            "y": 263.43212890625
+          },
+          {
+            "x": 228.348876953125,
+            "y": 253.834716796875
+          },
+          {
+            "x": 222.033447265625,
+            "y": 238.953125
+          },
+          {
+            "x": 230.2197265625,
+            "y": 224.47119140625
+          }
+        ],
+        "ended": true,
+        "started": true,
+        "startGap": 29.80615234375,
+        "range": 30,
+        "angle": 7.339478480921871
+      },
+      "range": 30,
+      "windup_ticks": 30,
+      "cooldown_ticks": 210,
+      "power_scale": 1.6,
+      "base_damage": 32,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "skullflare_triad",
+      "mechanic": "3個の頭蓋骨が別々の敵へ攻撃し、炎上を残す。",
+      "limits": "範囲150、最大3体。炎上120tick。敵が少ないと発射先も少ない。",
+      "test_prefix": "skullflare selects",
+      "number": 9,
+      "character": "スカルソーサラー",
+      "ability": "三骸炎牙",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "skullflare selects three different enemies and burn ticks",
+      "combat_result": "pass",
+      "observed": {
+        "status": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 28.8,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          },
+          {
+            "target": "audit:3",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          },
+          {
+            "target": "audit:4",
+            "amount": 2.8800000000000003,
+            "delivery": "boss_dot"
+          }
+        ]
+      },
+      "range": 125,
+      "windup_ticks": 28,
+      "cooldown_ticks": 165,
+      "power_scale": 1.6,
+      "base_damage": 18,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "スカルフレイムトリプル"
+    },
+    {
+      "id": "rootwarden_treant",
+      "mechanic": "離れた敵集団の足元から根を伸ばし、まとめて拘束する。",
+      "limits": "標的中心65、最大7体、束縛60tick。 束縛はルーンエクソシストで解除でき、通常の移動阻害と耐性を共有する。解除後も再拘束防止は残る。",
+      "test_prefix": "treant roots",
+      "number": 10,
+      "character": "トレント",
+      "ability": "群縛根",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "treant roots distant cluster but not isolated enemy",
+      "combat_result": "pass",
+      "observed": [
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 970,
+          "root": true
+        },
+        {
+          "hp": 1000,
+          "root": false
+        }
+      ],
+      "range": 135,
+      "windup_ticks": 42,
+      "cooldown_ticks": 216,
+      "power_scale": 1.25,
+      "base_damage": 24,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "frosthorn_rhino",
+      "mechanic": "突進の直撃と周囲凍結を発生させ、後退して再び突進する。",
+      "limits": "突進最大100tick、命中後48tick後退。直撃凍結42tick、周囲60・最大5体の凍結30tick。次の突進で標的を選び直す。",
+      "test_prefix": "rhino charge",
+      "number": 11,
+      "character": "フロストライノ",
+      "ability": "氷角反復突進",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "rhino charge freezes surrounding enemies and retreats for next run",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 61.625,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 61.625,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 27.115000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "firstImpact": 95,
+        "retreatDistance": 34.649658203125,
+        "freezes": [
+          500,
+          512
+        ]
+      },
+      "range": 135,
+      "windup_ticks": 30,
+      "cooldown_ticks": 210,
+      "power_scale": 1.45,
+      "base_damage": 34,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "pillar_hammerer",
+      "mechanic": "前方へ順番に光柱が立ち、命中した敵を気絶させる。",
+      "limits": "4柱を12tick間隔で展開、中心間45。各柱範囲24、合計8体まで、同一対象は1回。気絶32tick。",
+      "test_prefix": "light pillars",
+      "number": 12,
+      "character": "ライトピラーハンマー",
+      "ability": "進撃光柱",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "light pillars progress forward and do not double-hit",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 74.75,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 74.75,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 74.75,
+            "delivery": "boss"
+          }
+        ],
+        "first": 19,
+        "second": 31,
+        "third": 43,
+        "off": 1000,
+        "stuns": [
+          true,
+          true,
+          true
+        ]
+      },
+      "range": 155,
+      "windup_ticks": 54,
+      "cooldown_ticks": 222,
+      "power_scale": 1.15,
+      "base_damage": 65,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "flamering_magus",
+      "mechanic": "時間差で広がる火輪が、より遠い敵へ順に届く。",
+      "limits": "半径32/57/82/107、12tick間隔、合計8体まで、1発動につき同一敵1回。中心は発動位置に固定。",
+      "test_prefix": "fire ring reaches",
+      "number": 13,
+      "character": "フレイムリングメイジ",
+      "ability": "拡大火輪",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "fire ring reaches increasing radii once per target",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 61.199999999999996,
+            "delivery": "boss"
+          }
+        ],
+        "first": 0,
+        "second": 23,
+        "third": 35,
+        "off": 1000
+      },
+      "range": 70,
+      "windup_ticks": 36,
+      "cooldown_ticks": 150,
+      "power_scale": 1.6,
+      "base_damage": 45,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "domeback_colossus",
+      "mechanic": "殻にこもる間は近くの味方への被害を引き受け、殻を開くと衝撃波で押し返す。",
+      "limits": "殻90tick、庇護115。味方への被害は全量を防ぎ、65%を自分へ遅延移送。衝撃波110、最大10体、24ダメージと42押し出し。",
+      "test_prefix": "shell intercept",
+      "number": 14,
+      "character": "ブルーシェルジャイアント",
+      "ability": "誘引甲殻",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "shell intercept then wave",
+      "combat_result": "pass",
+      "observed": {
+        "protectedLoss": 0,
+        "guardLoss": 65,
+        "enemyLoss": 24,
+        "enemyMoved": 42.00002212750896
+      },
+      "range": 120,
+      "windup_ticks": 24,
+      "cooldown_ticks": 240,
+      "power_scale": 1.35,
+      "base_damage": 0,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "ringhold_guardian",
+      "mechanic": "全味方に個別の光輪を張り、使い切った輪が周囲の敵を押し返す。",
+      "limits": "自分以外、距離制限なし。120tick、各味方36吸収枠、1発40%軽減。枠消費時に周囲65・最大8体を36押す。",
+      "test_prefix": "ring shield absorbs",
+      "number": 15,
+      "character": "リングウォーデン",
+      "ability": "守光輪",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "ring shield absorbs pool and break pushes",
+      "combat_result": "pass",
+      "observed": {
+        "damage": [
+          30,
+          34,
+          50,
+          50
+        ],
+        "pool": 0,
+        "moved": 36.0000393398719
+      },
+      "range": 160,
+      "windup_ticks": 24,
+      "cooldown_ticks": 240,
+      "power_scale": 1.35,
+      "base_damage": 0,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "silverarm_vanguard",
+      "mechanic": "味方への被害を一部引き受け、その吸収量の2倍を攻撃者へ返す。",
+      "limits": "味方まで95、45tick間隔。吸収60%・最大45、反撃最大90。翌tickに移送と反撃、自身死亡なら中止。",
+      "test_prefix": "silver arm actual",
+      "number": 16,
+      "character": "シルバーアームガード",
+      "ability": "倍返しの銀腕",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "silver arm actual doubled counter",
+      "combat_result": "pass",
+      "observed": {
+        "protectedLoss": 20,
+        "guardLoss": 30,
+        "counterLoss": 60
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 38,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "fiery_coil_inceptor",
+      "mechanic": "HP減少で膨らみ、死亡時に広範囲の爆発を一度発生させる。",
+      "limits": "半径最大1.5倍。爆発240、最大24体、1体120ダメージ上限。膨張は最大HPを増やさない。",
+      "test_prefix": "fiery coil swells",
+      "number": 17,
+      "character": "フレイムコイルスピリット",
+      "ability": "終炎膨張",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "fiery coil swells at low hp and death blast bounded once",
+      "combat_result": "pass",
+      "observed": {
+        "scale": 1.375,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 106.92000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 106.92000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "repeat": 0,
+        "far": 1000
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 36,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "colossal_hornfist",
+      "mechanic": "敵を打ち上げて行動不能にし、落下時に周囲へ追加ダメージを与える。",
+      "limits": "打ち上げ42tick、落下周囲52・追加対象5体。対象が先に死亡すると落下攻撃は中止。",
+      "test_prefix": "uppercut disables",
+      "number": 18,
+      "character": "ジャイアントホーンフィスト",
+      "ability": "巨拳打ち上げ",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "uppercut disables target then landing damages neighbours",
+      "combat_result": "pass",
+      "observed": {
+        "air": true,
+        "early": 1000,
+        "late": 954.76,
+        "airEnded": true
+      },
+      "range": 30,
+      "windup_ticks": 36,
+      "cooldown_ticks": 192,
+      "power_scale": 1.45,
+      "base_damage": 48,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "kilnback_pincerbeast",
+      "mechanic": "敵1体を引き寄せて持ち上げ、遅れて握り潰す。",
+      "limits": "引き寄せ20、打ち上げ34tick、32tick後に単体粉砕。周囲への巻き込みはない。",
+      "test_prefix": "pincer lifts",
+      "number": 19,
+      "character": "ブルークラブジャイアント",
+      "ability": "挟撃粉砕",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "pincer lifts then crushes one target after delay",
+      "combat_result": "pass",
+      "observed": {
+        "early": 1000,
+        "air": true,
+        "pulled": 20,
+        "late": 859.6,
+        "other": 1000
+      },
+      "range": 34,
+      "windup_ticks": 36,
+      "cooldown_ticks": 210,
+      "power_scale": 1.5,
+      "base_damage": 72,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "golem",
+      "mechanic": "死亡地点に通行を妨げる瓦礫を残し、小型岩人形2体を生む。",
+      "limits": "壁半径30・300tick。岩人形110HP、攻撃0.85倍・600tick、配置制限あり。壁は地上の両陣営を遮る。",
+      "test_prefix": "golem leaves",
+      "number": 20,
+      "character": "ロックゴーレム",
+      "ability": "瓦礫の継承",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "golem leaves collision wall and two finite minions",
+      "combat_result": "pass",
+      "observed": {
+        "children": [
+          {
+            "k": "stone_mason",
+            "hp": 110,
+            "expires": 602
+          },
+          {
+            "k": "stone_mason",
+            "hp": 110,
+            "expires": 602
+          }
+        ],
+        "enemyX": 218.998046875,
+        "wallRight": 219,
+        "wallFx": true
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 50,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "shockplate_drake",
+      "mechanic": "雷鎧で被害を軽減し、近くの敵へ減衰しながら放電を連鎖させる。",
+      "limits": "鎧90tick・18%軽減。最大5体、次の敵まで70、連鎖威力0.8倍ずつ。同じ敵には再連鎖しない。",
+      "test_prefix": "shockplate chain",
+      "number": 21,
+      "character": "ショックアーマードラゴン",
+      "ability": "雷鎧連鎖",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "shockplate chain hops with falloff and armor reduces damage",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 34.56000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 27.648000000000007,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 22.118400000000012,
+            "delivery": "boss"
+          }
+        ],
+        "received": 82
+      },
+      "range": 85,
+      "windup_ticks": 48,
+      "cooldown_ticks": 180,
+      "power_scale": 1.6,
+      "base_damage": 24,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "thunderhorn_beast",
+      "mechanic": "角の初撃の後、その敵のいた場所に周囲を巻き込む雷を落とす。",
+      "limits": "18tick後、固定地点の周囲58・最大5体。直撃対象は雷にも巻き込まれる。",
+      "test_prefix": "thunderhorn first",
+      "number": 22,
+      "character": "サンダーホーン",
+      "ability": "落雷角撃",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "thunderhorn first thrust then delayed area lightning",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 53.760000000000005,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 42.24000000000001,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 42.24000000000001,
+            "delivery": "boss"
+          }
+        ],
+        "early": 1000,
+        "late": 957.76
+      },
+      "range": 35,
+      "windup_ticks": 42,
+      "cooldown_ticks": 165,
+      "power_scale": 1.6,
+      "base_damage": 48,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "carapace_slashbeast",
+      "mechanic": "長く構えて前方を薙ぎ、盾を壊して防御を崩す。",
+      "limits": "溜め66tick、扇状範囲110・最大6体。防御崩し120tick・被害25%増。単発の多対象薙ぎであり多段攻撃ではない。",
+      "test_prefix": "shield break numeric",
+      "number": 23,
+      "character": "アーマースラッシャー",
+      "ability": "破盾大薙ぎ",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "shield break numeric snapshot",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 101.25,
+            "delivery": "boss_melee"
+          }
+        ],
+        "expected": 101.25
+      },
+      "range": 75,
+      "windup_ticks": 66,
+      "cooldown_ticks": 240,
+      "power_scale": 1.35,
+      "base_damage": 75,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "bonefan_reaper",
+      "mechanic": "広い鎌で低HPの敵を処刑し、倒した数に応じて成長する。",
+      "limits": "前方105・最大8体。HP20%未満は2.5倍。5段階、半径1.3倍・最大HP1.125倍まで。 通常の回復役も成長後の最大HPまで回復できる。",
+      "test_prefix": "reaper execute",
+      "number": 24,
+      "character": "ボーンファンリーパー",
+      "ability": "刈魂の大鎌",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "reaper execute threshold and growth",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 168.75,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 67.5,
+            "delivery": "boss_melee"
+          }
+        ],
+        "dead": true,
+        "harvest": 1,
+        "scale": 1.06
+      },
+      "range": 85,
+      "windup_ticks": 30,
+      "cooldown_ticks": 155,
+      "power_scale": 1.35,
+      "base_damage": 50,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "mechanic": "HP半分未満で血月状態になり、移動速度が2倍になる。",
+      "limits": "発動後は生存中維持。攻撃速度は変えず、回復しても解除しない。",
+      "test_prefix": "moon doubles",
+      "number": 25,
+      "character": "ムーンクローウルフ",
+      "ability": "血月疾走",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "moon doubles only movement and keeps active",
+      "combat_result": "pass",
+      "observed": {
+        "delta": 24.00146484375,
+        "expected": 24,
+        "moon": true,
+        "speed": 2,
+        "attack": 1
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 132,
+      "power_scale": 1.65,
+      "base_damage": 28,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "stormhorn_tripler",
+      "mechanic": "角で3回攻撃し、3撃目に周囲への雷を加える。",
+      "limits": "18tick間隔、追撃距離65、最後の雷60・最大5体。主対象にも雷の追加被害。",
+      "test_prefix": "stormhorn third",
+      "number": 26,
+      "character": "ホーンタイタン",
+      "ability": "三連雷角",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "stormhorn third strike adds collateral lightning",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 16.64,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:2",
+            "amount": 18.720000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 18.720000000000002,
+            "delivery": "boss"
+          }
+        ],
+        "early": 1000,
+        "late": 981.28
+      },
+      "range": 36,
+      "windup_ticks": 24,
+      "cooldown_ticks": 180,
+      "power_scale": 1.6,
+      "base_damage": 26,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "サンダーホーンコンボ"
+    },
+    {
+      "id": "stonepulse_kolossus",
+      "mechanic": "前方の直線状の亀裂で複数の敵を打ち上げる。",
+      "limits": "長さ190・幅26、最大7体、打ち上げ36tick。後方や線外は対象外。",
+      "test_prefix": "stonepulse launches",
+      "number": 27,
+      "character": "ストーンウェーブジャイアント",
+      "ability": "直線地裂",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "stonepulse launches only enemies on forward crack",
+      "combat_result": "pass",
+      "observed": [
+        {
+          "hp": 946,
+          "air": true
+        },
+        {
+          "hp": 946,
+          "air": true
+        },
+        {
+          "hp": 1000,
+          "air": false
+        },
+        {
+          "hp": 1000,
+          "air": false
+        }
+      ],
+      "range": 160,
+      "windup_ticks": 42,
+      "cooldown_ticks": 204,
+      "power_scale": 1.5,
+      "base_damage": 36,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "darkfan_clawlord",
+      "mechanic": "残った闇の爪痕が継続ダメージを与え、その中で回復を完全に封じる。",
+      "limits": "半径46、180tick、15tickごと、最大5体。回復禁止18tickを更新するため退出直後にも短く残る。",
+      "test_prefix": "curse blocks",
+      "number": 28,
+      "character": "ダークファンクロー",
+      "ability": "治癒封じの爪痕",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "curse blocks actual healing while alive and after source death",
+      "combat_result": "pass",
+      "observed": {
+        "returned": 0,
+        "before": 400,
+        "after": 400,
+        "curse": 0
+      },
+      "range": 65,
+      "windup_ticks": 30,
+      "cooldown_ticks": 180,
+      "power_scale": 1.6,
+      "base_damage": 32,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "plated_dualdragon",
+      "mechanic": "炎と氷を同時に当て、交点を遅れて爆発させる。",
+      "limits": "長さ150・幅35・最大5体への合同判定で炎上60tickと凍結30tick。24tick後、固定交点の半径40・最大5体が爆発。二本の独立した当たり判定ではない。",
+      "test_prefix": "dual dragon fire",
+      "number": 29,
+      "character": "ヨロイドラゴン",
+      "ability": "炎氷交差ブレス",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "dual dragon fire ice simultaneous, delayed intersection explosion",
+      "combat_result": "pass",
+      "observed": {
+        "flags": {
+          "burn": true,
+          "freeze": true
+        },
+        "early": 1000,
+        "late": 973.6,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 26.400000000000002,
+            "delivery": "boss"
+          }
+        ]
+      },
+      "range": 110,
+      "windup_ticks": 42,
+      "cooldown_ticks": 180,
+      "power_scale": 1.6,
+      "base_damage": 30,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "アーマーツインドラゴン"
+    },
+    {
+      "id": "flameburst_mythron",
+      "mechanic": "その場に溶岩を広げ、内側ほど強い継続ダメージを与える。",
+      "limits": "150tickは移動・次の攻撃を休止。外周85・6体、内周40・4体。内外が重なる中心側に追加被害と炎上。",
+      "test_prefix": "lava center",
+      "number": 30,
+      "character": "フレイムリングジャイアント",
+      "ability": "灼熱溶岩域",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "lava center damage exceeds outer, remains stationary",
+      "combat_result": "pass",
+      "observed": {
+        "inner": 54.72000000000003,
+        "outer": 21.888000000000147,
+        "moved": 0
+      },
+      "range": 50,
+      "windup_ticks": 42,
+      "cooldown_ticks": 210,
+      "power_scale": 1.6,
+      "base_damage": 38,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "willyee_frost_dragon",
+      "mechanic": "前方の広い吹雪に巻き込んだ敵をまとめて凍らせる。",
+      "limits": "前方140、半角0.72rad、最大6体、凍結60tick。",
+      "test_prefix": "white dragon freezes",
+      "number": 31,
+      "character": "フロストホワイトドラゴン",
+      "ability": "白竜の吹雪",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "white dragon freezes forward cone but not rear",
+      "combat_result": "pass",
+      "observed": [
+        {
+          "hp": 938.56,
+          "freeze": true,
+          "blocked": true
+        },
+        {
+          "hp": 938.56,
+          "freeze": true,
+          "blocked": true
+        },
+        {
+          "hp": 1000,
+          "freeze": false,
+          "blocked": false
+        }
+      ],
+      "range": 110,
+      "windup_ticks": 45,
+      "cooldown_ticks": 180,
+      "power_scale": 1.6,
+      "base_damage": 48,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "willyee_stone_golem",
+      "mechanic": "受けた攻撃を一部反射し、飛び散る破片が別の敵にも当たる。",
+      "limits": "24tick間隔。被害の25%・最大35を反射、周囲65・最大4体へ各10。反撃同士は反射しない。",
+      "test_prefix": "crystal reflection",
+      "number": 32,
+      "character": "クリスタルハンマーガード",
+      "ability": "水晶反射",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "crystal reflection and collateral real hp",
+      "combat_result": "pass",
+      "observed": {
+        "guard": 100,
+        "attacker": 35,
+        "collateral": 10
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 50,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "basalt_titan",
+      "mechanic": "死亡時に放射状の雷で周囲を攻撃し、短く気絶させる。",
+      "limits": "半径175、最大12体、95ダメージと24tick気絶。死亡1回につき1回。",
+      "test_prefix": "basalt death lightning",
+      "number": 33,
+      "character": "サンダーアーマービースト",
+      "ability": "雷葬",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "basalt death lightning multiple targets and stun exactly once",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 95,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 95,
+            "delivery": "boss"
+          }
+        ],
+        "stuns": [
+          true,
+          true,
+          false
+        ],
+        "repeat": 0
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 42,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "frostbreath_lizard",
+      "mechanic": "前方へ氷の息を吐き、長めの凍結で移動と次の攻撃を遅らせる。",
+      "limits": "前方120、半角0.5rad、最大4体、凍結90tick。その間は攻撃待機時間も進まない。",
+      "test_prefix": "frost breath delays",
+      "number": 34,
+      "character": "フロストブレスリザード",
+      "ability": "遅滞氷息",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "frost breath delays attack cooldown and stops movement",
+      "combat_result": "pass",
+      "observed": {
+        "p": 239.466552734375,
+        "cd": 9.983333333333333,
+        "mid": {
+          "x": 239.466552734375,
+          "cd": 9.983333333333333,
+          "blocked": true
+        },
+        "lateCd": 9.883333333333328,
+        "lateBlocked": false
+      },
+      "range": 95,
+      "windup_ticks": 60,
+      "cooldown_ticks": 195,
+      "power_scale": 1.6,
+      "base_damage": 55,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "triad_chimera",
+      "mechanic": "別々の敵へ噛みつき、炎、毒を同時に使い分ける。",
+      "limits": "範囲140、最大3体。近い順に噛みつき/炎/毒。炎上120tick、毒150tick。敵が3体未満なら余る頭は攻撃しない。",
+      "test_prefix": "chimera separate",
+      "number": 35,
+      "character": "トリオキメラ",
+      "ability": "三頭独立攻撃",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "chimera separate bite fire poison targets",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 38.400000000000006,
+            "delivery": "boss_melee"
+          },
+          {
+            "target": "audit:3",
+            "amount": 24.960000000000004,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 17.280000000000005,
+            "delivery": "boss"
+          }
+        ],
+        "status": [
+          {
+            "burn": false,
+            "poison": false
+          },
+          {
+            "burn": true,
+            "poison": false
+          },
+          {
+            "burn": false,
+            "poison": true
+          },
+          {
+            "burn": false,
+            "poison": false
+          }
+        ],
+        "hp": [
+          961.6,
+          971.584,
+          978.304,
+          1000
+        ]
+      },
+      "range": 115,
+      "windup_ticks": 24,
+      "cooldown_ticks": 145,
+      "power_scale": 1.6,
+      "base_damage": 24,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "bluefist_colossus",
+      "mechanic": "両拳の地面攻撃で全周囲に衝撃と気絶を与える。",
+      "limits": "半径105、最大7体、気絶38tick。",
+      "test_prefix": "bluefist radial",
+      "number": 36,
+      "character": "ブルーフィストジャイアント",
+      "ability": "双拳地震",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "bluefist radial ground pound damages stuns both sides",
+      "combat_result": "pass",
+      "observed": [
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 943.3,
+          "stun": true
+        },
+        {
+          "hp": 1000,
+          "stun": false
+        }
+      ],
+      "range": 90,
+      "windup_ticks": 42,
+      "cooldown_ticks": 204,
+      "power_scale": 1.35,
+      "base_damage": 42,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "cinder_tailbeast",
+      "mechanic": "一回転する尾が全周囲へ攻撃し、火の粉による炎上を残す。",
+      "limits": "半径95、最大6体、炎上90tick。",
+      "test_prefix": "cinder tail damages",
+      "number": 37,
+      "character": "シンダーテイル",
+      "ability": "旋尾火散らし",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "cinder tail damages and burns all around",
+      "combat_result": "pass",
+      "observed": {
+        "hp": [
+          938,
+          938,
+          938,
+          1000
+        ],
+        "burn": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "dots": 3
+      },
+      "range": 75,
+      "windup_ticks": 30,
+      "cooldown_ticks": 165,
+      "power_scale": 1.6,
+      "base_damage": 50,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "emberfist_pillarer",
+      "mechanic": "標的の新しい位置を追って、3本の火柱を時間差で立てる。",
+      "limits": "28tick間隔で位置を取り直し、各地点を16tick予告後に爆発。半径30・最大3体。予告後の地点は固定。",
+      "test_prefix": "fire pillars follow",
+      "number": 38,
+      "character": "フレイムフィストピラー",
+      "ability": "追撃火柱",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "fire pillars follow target between sequential warnings",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:2",
+            "amount": 37.120000000000005,
+            "delivery": "boss"
+          }
+        ],
+        "warnings": [
+          {
+            "x": 260,
+            "y": 240
+          },
+          {
+            "x": 260,
+            "y": 330
+          },
+          {
+            "x": 260,
+            "y": 410
+          }
+        ]
+      },
+      "range": 135,
+      "windup_ticks": 36,
+      "cooldown_ticks": 195,
+      "power_scale": 1.6,
+      "base_damage": 58,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "spikeburst_grinder",
+      "mechanic": "丸まりながら実際に転がり、全方向へ3回棘を放つ。",
+      "limits": "66tick転がり、0/22/44tickに攻撃。半径105、各回最大6体。丸まりは無敵や防御上昇ではない。",
+      "test_prefix": "spikeburst rolls",
+      "number": 39,
+      "character": "スパイクバースト",
+      "ability": "丸まり連棘",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "spikeburst rolls and fires three distinct radial pulses",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:2",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          },
+          {
+            "target": "audit:3",
+            "amount": 22.08,
+            "delivery": "boss_projectile"
+          }
+        ],
+        "moved": 48.404296875,
+        "rolling": true
+      },
+      "range": 100,
+      "windup_ticks": 48,
+      "cooldown_ticks": 240,
+      "power_scale": 1.15,
+      "base_damage": 40,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "veteran_flamewing",
+      "mechanic": "二羽の炎鳥が交差する地点に爆発を起こす。",
+      "limits": "30tickの予告後に半径52・最大5体へダメージ。炎鳥の飛行経路自体には攻撃判定がない。",
+      "test_prefix": "twin firebirds",
+      "number": 40,
+      "character": "マグマドレイク",
+      "ability": "双鳥交差爆炎",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "twin firebirds delay explosion at crossing, hit area only",
+      "combat_result": "pass",
+      "observed": {
+        "early": [
+          1000,
+          1000,
+          1000
+        ],
+        "late": [
+          944.8,
+          944.8,
+          1000
+        ],
+        "birds": 2,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 55.199999999999996,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 55.199999999999996,
+            "delivery": "boss"
+          }
+        ]
+      },
+      "range": 130,
+      "windup_ticks": 36,
+      "cooldown_ticks": 170,
+      "power_scale": 1.6,
+      "base_damage": 30,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "フレイムウィングツイン"
+    },
+    {
+      "id": "redhorn_dualbeast",
+      "mechanic": "突進で敵をすくい上げ、実際に自分の背後へ投げる。",
+      "limits": "突進最大100tick、打ち上げ32tick、投げ距離最大100。大型敵は移動0.7倍のため必ず完全に背後へ回る保証はない。",
+      "test_prefix": "redhorn actual",
+      "number": 41,
+      "character": "アカツノ",
+      "ability": "双角背面投げ",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "redhorn actual charge scoops target behind body",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 56.160000000000004,
+            "delivery": "boss_melee"
+          }
+        ],
+        "bossX": 281.3974609375,
+        "targetX": 234.447509765625,
+        "air": true
+      },
+      "range": 120,
+      "windup_ticks": 30,
+      "cooldown_ticks": 156,
+      "power_scale": 1.8,
+      "base_damage": 26,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "レッドホーンツイン"
+    },
+    {
+      "id": "cyanrise_silithar",
+      "mechanic": "その場に留まって回転し、近敵を繰り返し押し出し、矢を軽減する。",
+      "limits": "36tickごと、半径70・最大8体、16押し出し。飛び道具型の攻撃者からの被害0.55倍。反射矢の発射ではない。 カースシンガーの遅延は未発生の次の回転攻撃を21tick遅らせる。",
+      "test_prefix": "cyanrise stationary",
+      "number": 42,
+      "character": "ブルースピンアーマー",
+      "ability": "不動旋風",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "cyanrise stationary spin pushes and projectile damage reduced",
+      "combat_result": "pass",
+      "observed": {
+        "x": 180,
+        "after": 180,
+        "enemyShift": 16,
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 14.688000000000002,
+            "delivery": "boss_melee"
+          }
+        ],
+        "losses": [
+          27.5,
+          100
+        ]
+      },
+      "range": 55,
+      "windup_ticks": 30,
+      "cooldown_ticks": 150,
+      "power_scale": 1.35,
+      "base_damage": 34,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "razorclaw_reaver",
+      "mechanic": "2体の敵を爪で捕らえ、受けた攻撃の一部をその敵へ流す。",
+      "limits": "範囲85・最大2体、引き寄せ35、束縛90tick。90tickの間、捕獲敵が125以内なら35%・最大40を等分移送。 束縛はルーンエクソシストで解除でき、通常の移動阻害と耐性を共有する。解除後も再拘束防止は残る。",
+      "test_prefix": "two held enemies",
+      "number": 43,
+      "character": "シェルリッパー",
+      "ability": "双爪の盾",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "two held enemies absorb damage",
+      "combat_result": "pass",
+      "observed": {
+        "held": 2,
+        "guard": 65,
+        "first": 17.5,
+        "second": 17.5
+      },
+      "range": 75,
+      "windup_ticks": 30,
+      "cooldown_ticks": 180,
+      "power_scale": 1.35,
+      "base_damage": 30,
+      "target_layers": [
+        "ground"
+      ],
+      "source_name": "シェルダブルクロー"
+    },
+    {
+      "id": "cleaver_brute",
+      "mechanic": "近くの敵へ通常の薙ぎ払いを続けながら、独立した咆哮で全味方を一時的に強化する。",
+      "limits": "薙ぎ払いは開始距離35、範囲64・半角π/3・最大3体、溜め30tick、再使用待ち108tick（静止相手への命中間隔138tick）。咆哮は敵との隙間120以内で300tickごと、全味方を180tick・攻撃1.35倍。咆哮自体はダメージを与えず、薙ぎ払いの時刻も遅らせない。",
+      "test_prefix": "all-ally fury",
+      "number": 44,
+      "character": "ホーンドブレイバー",
+      "ability": "紅蓮の咆哮",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "all-ally fury changes damage",
+      "combat_result": "pass",
+      "observed": {
+        "damage": 135,
+        "allyFury": true,
+        "initialBossHits": 0,
+        "allyStrength": 1.35
+      },
+      "range": 35,
+      "windup_ticks": 30,
+      "cooldown_ticks": 108,
+      "power_scale": 1.35,
+      "base_damage": 25,
+      "target_layers": [
+        "ground"
+      ],
+      "additional_combat_assertions": [
+        {
+          "name": "cleaver independent roar lasts 180 ticks and repeats after 300 without dealing damage",
+          "pass": true,
+          "detail": {
+            "roars": [
+              1,
+              301
+            ],
+            "hits": [],
+            "snap": [
+              {
+                "tick": 181,
+                "active": true
+              },
+              {
+                "tick": 182,
+                "active": false
+              },
+              {
+                "tick": 300,
+                "active": false
+              },
+              {
+                "tick": 301,
+                "active": false
+              },
+              {
+                "tick": 302,
+                "active": true
+              }
+            ],
+            "next": 601
+          }
+        },
+        {
+          "name": "cleaver natural close cleave hits cap three on independent cadence",
+          "pass": true,
+          "detail": {
+            "groups": [
+              {
+                "tick": 43,
+                "hits": [
+                  {
+                    "target": "audit:2",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:3",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:4",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  }
+                ]
+              },
+              {
+                "tick": 181,
+                "hits": [
+                  {
+                    "target": "audit:2",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:3",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:4",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  }
+                ]
+              },
+              {
+                "tick": 319,
+                "hits": [
+                  {
+                    "target": "audit:2",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:3",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:4",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  }
+                ]
+              },
+              {
+                "tick": 457,
+                "hits": [
+                  {
+                    "target": "audit:2",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:3",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  },
+                  {
+                    "target": "audit:4",
+                    "amount": 45.5625,
+                    "delivery": "boss_melee"
+                  }
+                ]
+              }
+            ],
+            "roars": [
+              301
+            ],
+            "backHp": 1000,
+            "unhit": 1,
+            "range": 35,
+            "windup": 30,
+            "cooldown": 108,
+            "power": 1.35
+          }
+        }
+      ]
+    },
+    {
+      "id": "ringneck_prowler",
+      "mechanic": "前衛を越えて後衛の射手を選び、長い首で噛んで引き寄せる。",
+      "limits": "射撃型か射程110以上の敵を240以内から選択。30tick後、280以内なら噛みつきと45引き寄せ。HP25%未満で追加威力、単発160上限。無条件の即死・長時間の呑み込み拘束ではない。",
+      "test_prefix": "ringneck chooses",
+      "number": 45,
+      "character": "リングネック",
+      "ability": "後衛呑み",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "ringneck chooses rear archer over front and pulls after warning",
+      "combat_result": "pass",
+      "observed": {
+        "early": 1000,
+        "hits": [
+          {
+            "target": "audit:3",
+            "amount": 92.225,
+            "delivery": "boss_melee"
+          }
+        ],
+        "front": 1000,
+        "rear": 907.775,
+        "pull": 45
+      },
+      "range": 205,
+      "windup_ticks": 48,
+      "cooldown_ticks": 180,
+      "power_scale": 1.55,
+      "base_damage": 70,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "bluehorn_invoker",
+      "mechanic": "最も密集した敵集団を選び、予告後に隕石を落とす。",
+      "limits": "半径64の敵数で狙う地点を選び、48tick後に同地点の最大8体へ攻撃。予告後は追尾しない。",
+      "test_prefix": "meteor chooses",
+      "number": 46,
+      "character": "ブルーホーンメイジ",
+      "ability": "密集隕石",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "meteor chooses dense cluster rather than nearest target",
+      "combat_result": "pass",
+      "observed": {
+        "early": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "late": [
+          1000,
+          924.6,
+          924.6,
+          924.6
+        ],
+        "hits": [
+          {
+            "target": "audit:3",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:5",
+            "amount": 75.39999999999999,
+            "delivery": "boss"
+          }
+        ]
+      },
+      "range": 600,
+      "windup_ticks": 48,
+      "cooldown_ticks": 270,
+      "power_scale": 1.45,
+      "base_damage": 52,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "bone_crown_lich",
+      "mechanic": "近くで新たに倒れた自然発生の敵を、味方の骸骨兵として死体付近に起こす。",
+      "limits": "200以内、生存・出現待ちを合算して同時3体、1戦の累計6体。65HP・通常攻撃倍率・720tick寿命。既存死体、召喚された敵、自軍死体、使用済み死体は除外。配置に余地が必要。",
+      "test_prefix": "lich resurrects",
+      "number": 47,
+      "character": "リッチスクライブ",
+      "ability": "屍骨徴集",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "lich resurrects three new natural enemies and excludes child corpses",
+      "combat_result": "pass",
+      "observed": {
+        "count": 3,
+        "raised": 3,
+        "children": [
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          },
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          },
+          {
+            "k": "ashbone_swordsman",
+            "side": 0,
+            "hp": 65,
+            "damageMultiplier": 1,
+            "expires": 722
+          }
+        ],
+        "total": 3
+      },
+      "range": 160,
+      "windup_ticks": 30,
+      "cooldown_ticks": 180,
+      "power_scale": 1.35,
+      "base_damage": 0,
+      "target_layers": [
+        "ground"
+      ],
+      "additional_combat_assertions": [
+        {
+          "name": "lich conversion spawns skeleton at corpse not at caster",
+          "pass": true,
+          "detail": {
+            "exists": true,
+            "corpseDistance": 0,
+            "casterDistance": 180
+          }
+        },
+        {
+          "name": "lich caps three live including pending, six lifetime, never recycles a corpse",
+          "pass": true,
+          "detail": {
+            "samples": [
+              {
+                "tick": 2,
+                "live": 3,
+                "pending": 3,
+                "total": 3,
+                "raised": 3
+              },
+              {
+                "tick": 3,
+                "live": 3,
+                "pending": 0,
+                "total": 3,
+                "raised": 3
+              },
+              {
+                "tick": 13,
+                "live": 3,
+                "pending": 0,
+                "total": 3,
+                "raised": 3
+              },
+              {
+                "tick": 14,
+                "live": 3,
+                "pending": 3,
+                "total": 6,
+                "raised": 6
+              },
+              {
+                "tick": 15,
+                "live": 3,
+                "pending": 0,
+                "total": 6,
+                "raised": 6
+              },
+              {
+                "tick": 30,
+                "live": 0,
+                "pending": 0,
+                "total": 6,
+                "raised": 6
+              }
+            ],
+            "origins": [
+              "audit:3",
+              "audit:4",
+              "audit:5",
+              "audit:6",
+              "audit:7",
+              "audit:8"
+            ],
+            "first": 3,
+            "second": 3,
+            "total": 6,
+            "raised": 6,
+            "ignored": "audit:2",
+            "stats": [
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 722
+              },
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 722
+              },
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 722
+              },
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 734
+              },
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 734
+              },
+              {
+                "hp": 65,
+                "multiplier": 1,
+                "life": 734
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "spore_toad",
+      "mechanic": "毒霧が広がり、後から範囲内に入った地上の敵にも毒を与える。",
+      "limits": "初期半径30から約90へ拡大、210tick、30tickごと最大6体、毒75tick更新。空中・地中は対象外。",
+      "test_prefix": "poison fog expands",
+      "number": 48,
+      "character": "ミストリングメイジ",
+      "ability": "拡散毒霧",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "poison fog expands into previously unhit ground target",
+      "combat_result": "pass",
+      "observed": {
+        "early": [
+          998.8,
+          1000,
+          1000
+        ],
+        "late": [
+          968.1999999999998,
+          988.5999999999999,
+          1000
+        ],
+        "poison": {
+          "start": 124,
+          "until": 259,
+          "strength": 7.800000000000001,
+          "sourceToken": "audit:1",
+          "sourceKind": "spore_toad",
+          "next": 214
+        }
+      },
+      "range": 100,
+      "windup_ticks": 40,
+      "cooldown_ticks": 240,
+      "power_scale": 2,
+      "base_damage": 6,
+      "target_layers": [
+        "ground"
+      ]
+    },
+    {
+      "id": "siege_crab",
+      "mechanic": "長い溜めの後、戦場を端から端へ貫く細い光線を撃つ。",
+      "limits": "溜め90tick、幅20、前後両方向の合計最大8体。同じ敵には1回。照準開始距離300だが光線自体は盤面全幅を覆う。",
+      "test_prefix": "edge beam hits",
+      "number": 49,
+      "character": "リングスタッフメイジ",
+      "ability": "全域貫通光線",
+      "implementation_review": "distinctive mechanic implemented with documented bounds",
+      "combat_assertion": "edge beam hits both battlefield sides but not offline",
+      "combat_result": "pass",
+      "observed": {
+        "hits": [
+          {
+            "target": "audit:2",
+            "amount": 114.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:3",
+            "amount": 114.4,
+            "delivery": "boss"
+          },
+          {
+            "target": "audit:4",
+            "amount": 114.4,
+            "delivery": "boss"
+          }
+        ]
+      },
+      "range": 300,
+      "windup_ticks": 90,
+      "cooldown_ticks": 240,
+      "power_scale": 1.6,
+      "base_damage": 55,
+      "target_layers": [
+        "ground"
+      ]
+    }
+  ],
+  "prior_audit_source_sha256": "46a92df7d1744651fa72ab571411c6e9efe36ff56cc67d032861fa0dcfb6d7a7",
+  "status_interoperability": {
+    "source_sha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+    "passed": 34,
+    "checks": [
+      {
+        "name": "actual treant/thornback/razor casts cleanse on next tick, never their application tick",
+        "pass": true
+      },
+      {
+        "name": "cleansing is tick-end: rooted movement stays blocked that tick and resumes next tick",
+        "pass": true
+      },
+      {
+        "name": "legacy slow/root and exposure cleanse still retain immunity and poison",
+        "pass": true
+      },
+      {
+        "name": "new root coexists with legacy root; cleanse removes both with one event and preserves both immunities",
+        "pass": true
+      },
+      {
+        "name": "cleanser cannot remove a root freshly applied later in the same tick",
+        "pass": true
+      },
+      {
+        "name": "tick-start root identity prevents cleansing a replacement status",
+        "pass": true
+      },
+      {
+        "name": "cleanse does not broaden to stun/freeze/airborne/poison/burn/curse/armorbreak",
+        "pass": true
+      },
+      {
+        "name": "root cleanse obeys range, cooldown, self exclusion and one-target reservation",
+        "pass": true
+      },
+      {
+        "name": "root preserves closest-target selection then longest-duration tie-break",
+        "pass": true
+      },
+      {
+        "name": "boss root stops voluntary charging and retreating from next tick through exact expiry",
+        "pass": true
+      },
+      {
+        "name": "root does not suppress in-range attacks or queued knockback",
+        "pass": true
+      },
+      {
+        "name": "root does not suppress body separation for overlapped units",
+        "pass": true
+      },
+      {
+        "name": "delayed hostile damage and statuses reject phased targets but allied buffs remain legal",
+        "pass": true
+      },
+      {
+        "name": "hostile status applies again once phase ends",
+        "pass": true
+      },
+      {
+        "name": "real glimmer pulse accelerates eligible boss movement from next tick and ends exactly",
+        "pass": true
+      },
+      {
+        "name": "real glimmer still selects only ground allies, two targets maximum",
+        "pass": true
+      },
+      {
+        "name": "all 16 actual ordinary healers heal grown boss HP above old maximum and cap correctly",
+        "pass": true
+      },
+      {
+        "name": "ordinary healer uses actual max-HP ratio for targeting grown allies",
+        "pass": true
+      },
+      {
+        "name": "grown-HP healing still combines ordinary healing block and boss curse exactly once",
+        "pass": true
+      },
+      {
+        "name": "ordinary onyx root immunity blocks subsequent new boss root through exact expiry",
+        "pass": true
+      },
+      {
+        "name": "boss root immunity blocks ordinary onyx root and frost slow even after cleanse",
+        "pass": true
+      },
+      {
+        "name": "fresh boss root immunity is not retroactive to the same tick ordinary root intent",
+        "pass": true
+      },
+      {
+        "name": "boss stun/freeze do not invent ordinary root immunity",
+        "pass": true
+      },
+      {
+        "name": "real screech cadence delays boss pending cooldown and windup by exactly 21 ticks",
+        "pass": true
+      },
+      {
+        "name": "real screech cadence respects immunity and does not stack on every forced attack",
+        "pass": true
+      },
+      {
+        "name": "cadence delays cyanrise continuous pulse but never already released iceclaw contacts",
+        "pass": true
+      },
+      {
+        "name": "current roster has no surviving legacy haste aura or stability/dispel provider",
+        "pass": true
+      },
+      {
+        "name": "active ordinary aegis redirects only its two assigned boss sources before windup",
+        "pass": true
+      },
+      {
+        "name": "aegis active-time/range/target-layer boundaries remain unchanged for boss sources",
+        "pass": true
+      },
+      {
+        "name": "real aegis activation begins redirecting bosses only on the following tick",
+        "pass": true
+      },
+      {
+        "name": "new aegis activation never retargets an already locked boss windup",
+        "pass": true
+      },
+      {
+        "name": "aegis default windup aim does not overwrite ringneck custom rear-line release targeting",
+        "pass": true
+      },
+      {
+        "name": "ordinary aegis redirection stays numerically identical to baseline",
+        "pass": true
+      },
+      {
+        "name": "cyanrise blocked pulses are skipped rather than caught up when no cadence delay exists",
+        "pass": true
+      }
+    ]
+  },
+  "source_name_aliases": [
+    {
+      "source_name": "スカルフレイムトリプル",
+      "current_name": "スカルソーサラー",
+      "id": "skullflare_triad"
+    },
+    {
+      "source_name": "サンダーホーンコンボ",
+      "current_name": "ホーンタイタン",
+      "id": "stormhorn_tripler"
+    },
+    {
+      "source_name": "アーマーツインドラゴン",
+      "current_name": "ヨロイドラゴン",
+      "id": "plated_dualdragon"
+    },
+    {
+      "source_name": "フレイムウィングツイン",
+      "current_name": "マグマドレイク",
+      "id": "veteran_flamewing"
+    },
+    {
+      "source_name": "レッドホーンツイン",
+      "current_name": "アカツノ",
+      "id": "redhorn_dualbeast"
+    },
+    {
+      "source_name": "シェルダブルクロー",
+      "current_name": "シェルリッパー",
+      "id": "razorclaw_reaver"
+    }
+  ]
+}

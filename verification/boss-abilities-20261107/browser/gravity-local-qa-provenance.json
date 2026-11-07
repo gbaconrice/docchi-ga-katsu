@@ -1,0 +1,12 @@
+{
+  "fixture": "gravity-local-qa.html",
+  "canonical": "gravity-entry.html",
+  "onlyChange": {
+    "from": "\"base\":\"https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/\"",
+    "to": "\"base\":\"./\""
+  },
+  "canonicalSHA256": "67eaa3dd503e559f8e0682831c96471a215aee74cd886c89e9cfe61411363655",
+  "fixtureSHA256": "b034934fef6a597501d5443227e2b70c8348c9f3bcb37a77515a614d35188c0c",
+  "productionSourceUnchanged": true,
+  "scope": "QA only; local base substitution is not deployed URL verification."
+}

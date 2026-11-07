@@ -1,0 +1,102 @@
+{
+  "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "checkedAtUTC": "2026-11-07T06:59:23.794673+00:00",
+  "browser": "Chromium",
+  "viewports": [
+    {
+      "width": 1180,
+      "height": 757
+    },
+    {
+      "width": 500,
+      "height": 757
+    }
+  ],
+  "scope": "Real browser interaction through visible controls. Synthetic ability fixtures use production combat. All49 scenario runs are not49 exhaustive behavioral proofs.",
+  "all49ScenarioRuns": {
+    "count": 49,
+    "ticksEach": 180,
+    "displayedQAErrors": 0,
+    "evidence": "scenario-results.json"
+  },
+  "normalPlay": [
+    "Home, prediction, battle, result and next-round flow passed twice.",
+    "A25G loss reduced100G to75G; the next-round25-percent amount became19G.",
+    "Menu and character-list overlays opened and closed.",
+    "At500px portrait width there was no horizontal document overflow and primary controls remained visible."
+  ],
+  "targetedChecks": [
+    {
+      "ability": "split-eye",
+      "observation": "Death produced split children."
+    },
+    {
+      "ability": "golem",
+      "observation": "Death showed rubble/wall and two summon events."
+    },
+    {
+      "ability": "flame-coil",
+      "observation": "Death showed expanding fire and three hits."
+    },
+    {
+      "ability": "basalt",
+      "observation": "Death showed lightning/stun and three hits."
+    },
+    {
+      "ability": "lich",
+      "observation": "Kill-enemy fixture spawned skeletal combatants and combat continued."
+    },
+    {
+      "ability": "silverarm/crystal-golem/razorclaw",
+      "observation": "Ally-attack, melee and projectile fixtures ran360ticks and produced reactive/effect activity without error. These observations do not independently prove every protection calculation."
+    },
+    {
+      "ability": "moonclaw",
+      "observation": "HP49-percent fixture triggered moon/haste events."
+    },
+    {
+      "ability": "throw",
+      "observation": "Normal and mirrored75tick fixtures both reported two hits, two abilities and four effects with mirrored composition."
+    },
+    {
+      "ability": "growth",
+      "observation": "At1200ticks: six hits, six abilities,19effects,HP1380. Replay at1200 matched these counters and rendered the matching enlarged sprite."
+    }
+  ],
+  "visuallyInspectedEffects": [
+    "Ghost phase",
+    "Orbiting fire rain",
+    "Crossing firebirds",
+    "Roots",
+    "Ice claws",
+    "Throws",
+    "Death rubble/wall and summons",
+    "Death fire and lightning",
+    "Growth and replay enlarged sprite"
+  ],
+  "qaControls": [
+    "Play/pause advanced and stopped the scenario.",
+    "Reset and selection recovered.",
+    "Packaged boss-preview.html select/postMessage/iframe controls worked for golem death and crossing firebirds."
+  ],
+  "loaders": {
+    "exactRelativeRoot": "Loaded and started solo.",
+    "bareQaBossEntry": "Loaded battlefield canvas. The public controls page is boss-preview.html.",
+    "gravityLocalFixture": "Only config.base was changed to ./; hostShell=gravity,74px top reservation, prediction and battle rendered at500×757.",
+    "gravityFixtureProvenance": "gravity-local-qa-provenance.json",
+    "exactAbsoluteGravityEntry": "Requires postpublication verification."
+  },
+  "console": {
+    "observedApplicationWarningsOrErrors": 0,
+    "scope": "Sampled browser console logs. Extension-only metadata noise was excluded."
+  },
+  "gameBugsFound": [],
+  "limits": [
+    "Physical phone and physical touch are unverified.",
+    "Narrower device viewport emulation was unavailable and was not pursued.",
+    "Real GRAVITY SDK score acceptance is unverified.",
+    "Live multiplayer networking is unverified.",
+    "All49 selection runs plus representative visual inspection are not exhaustive browser verification of every effect or interaction.",
+    "Public deployment and the exact absolute Gravity entry require separate postpublication checks."
+  ]
+}

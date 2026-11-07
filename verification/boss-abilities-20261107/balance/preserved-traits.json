@@ -1,0 +1,10 @@
+{
+  "types": 49,
+  "baseline": "46a92",
+  "checked": [
+    "hp",
+    "attackTargetMask",
+    "cost"
+  ],
+  "changes": []
+}

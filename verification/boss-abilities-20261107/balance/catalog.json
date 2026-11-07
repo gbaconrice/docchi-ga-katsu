@@ -1,0 +1,8698 @@
+{
+  "types": {
+    "sword": {
+      "name": "ソードマン",
+      "hp": 100,
+      "dmg": 17,
+      "range": 25,
+      "rate": 1,
+      "speed": 32,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "radius": 9,
+      "reach": 6
+    },
+    "shield": {
+      "name": "シールドガード",
+      "hp": 170,
+      "dmg": 10,
+      "range": 23,
+      "rate": 1.2,
+      "speed": 23,
+      "armor": 0.55,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "radius": 12,
+      "reach": 3
+    },
+    "spear": {
+      "name": "ロングブレイド",
+      "hp": 85,
+      "dmg": 18,
+      "range": 44,
+      "rate": 1.25,
+      "speed": 27,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "radius": 9,
+      "reach": 25
+    },
+    "archer": {
+      "name": "アーチャー",
+      "hp": 60,
+      "dmg": 14,
+      "range": 150,
+      "rate": 1.25,
+      "speed": 24,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "radius": 8,
+      "reach": 132
+    },
+    "cannon": {
+      "name": "フレイムキャスター",
+      "hp": 72,
+      "dmg": 23,
+      "range": 125,
+      "rate": 2.2,
+      "speed": 19,
+      "projectile": true,
+      "splash": 38,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "radius": 14,
+      "reach": 102
+    },
+    "rider": {
+      "name": "ランスライダー",
+      "hp": 230,
+      "dmg": 38,
+      "range": 27,
+      "rate": 1.15,
+      "speed": 45,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "radius": 15,
+      "reach": 4
+    },
+    "healer": {
+      "name": "メディック",
+      "hp": 65,
+      "dmg": 7,
+      "range": 90,
+      "rate": 1.35,
+      "speed": 24,
+      "heal": 13,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "radius": 8,
+      "reach": 72
+    },
+    "goblin": {
+      "name": "ゴブリン",
+      "hp": 50,
+      "dmg": 9,
+      "range": 16,
+      "rate": 0.62,
+      "speed": 54,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "collisionLayer": "ground",
+      "radius": 7,
+      "reach": 4
+    },
+    "golem": {
+      "name": "ロックゴーレム",
+      "hp": 1950,
+      "dmg": 50,
+      "range": 27,
+      "rate": 2.5,
+      "speed": 15,
+      "reach": 2,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "collisionLayer": "ground",
+      "mass": 2600,
+      "radius": 25,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "drake": {
+      "name": "サラマンダー",
+      "hp": 145,
+      "dmg": 25,
+      "range": 28,
+      "rate": 1.15,
+      "speed": 38,
+      "reach": 12,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "collisionLayer": "air",
+      "flying": true,
+      "radius": 13
+    },
+    "wraith": {
+      "name": "レッドローブサモナー",
+      "hp": 90,
+      "dmg": 15,
+      "range": 88,
+      "rate": 1.3,
+      "speed": 22,
+      "projectile": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "collisionLayer": "ground",
+      "summonCharges": 4,
+      "summonInitialDelay": 0.25,
+      "summonCooldown": 1,
+      "radius": 9,
+      "reach": 63
+    },
+    "boar": {
+      "name": "チャージボア",
+      "hp": 155,
+      "dmg": 20,
+      "rate": 1.2,
+      "speed": 30,
+      "radius": 14,
+      "reach": 4,
+      "range": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "chargeBonus": 32,
+      "chargeSpeed": 72,
+      "knockback": 22
+    },
+    "bombbug": {
+      "name": "ボムビートル",
+      "hp": 55,
+      "dmg": 0,
+      "rate": 60,
+      "speed": 48,
+      "radius": 9,
+      "reach": 5,
+      "range": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "explosionDamage": 115,
+      "explosionRadius": 50
+    },
+    "frostmage": {
+      "name": "フロストメイジ",
+      "hp": 85,
+      "dmg": 15,
+      "rate": 1.4,
+      "speed": 23,
+      "radius": 8,
+      "reach": 110,
+      "range": 118,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "slowFactor": 0.55,
+      "slowDuration": 1.5,
+      "slowImmunity": 0.75
+    },
+    "stormmage": {
+      "name": "サンダーメイジ",
+      "hp": 80,
+      "dmg": 24,
+      "rate": 1.4,
+      "speed": 22,
+      "radius": 8,
+      "reach": 95,
+      "range": 103,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "chainCount": 3,
+      "chainRange": 60,
+      "chainFalloff": 0.65
+    },
+    "burrower": {
+      "name": "ディグテイル",
+      "hp": 120,
+      "dmg": 25,
+      "rate": 1.1,
+      "speed": 35,
+      "radius": 11,
+      "reach": 5,
+      "range": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burrowWarning": 0.5,
+      "burrowTravel": 0.3
+    },
+    "slime": {
+      "name": "スプリットアイ",
+      "hp": 575,
+      "dmg": 12,
+      "rate": 1.4,
+      "speed": 20,
+      "radius": 16,
+      "reach": 3,
+      "range": 19,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "splitCount": 2,
+      "splitKind": "slimelet",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "slimelet": {
+      "name": "小目玉",
+      "hp": 35,
+      "dmg": 7,
+      "rate": 0.9,
+      "speed": 34,
+      "radius": 7,
+      "reach": 3,
+      "range": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "spawnOnly": true
+    },
+    "screech_cricket": {
+      "hp": 65,
+      "dmg": 8,
+      "rate": 1.3,
+      "speed": 34,
+      "radius": 8,
+      "reach": 58,
+      "cadenceDelay": 0.35,
+      "cadenceImmunity": 3.5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "カースシンガー"
+    },
+    "reaper_mantis": {
+      "hp": 125,
+      "dmg": 29,
+      "rate": 1.25,
+      "speed": 31,
+      "radius": 13,
+      "reach": 9,
+      "parryReduction": 0.7,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "マンティス"
+    },
+    "spore_toad": {
+      "hp": 725,
+      "dmg": 6,
+      "rate": 3.5,
+      "speed": 18,
+      "radius": 17,
+      "reach": 65,
+      "poisonRadius": 42,
+      "poisonDuration": 3,
+      "poisonDps": 4,
+      "poisonImmunity": 1,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ミストリングメイジ",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "rootwarden_treant": {
+      "hp": 1750,
+      "dmg": 24,
+      "rate": 2,
+      "speed": 12,
+      "radius": 27,
+      "reach": 5,
+      "wardReduction": 0.25,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "トレント",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "sky_harpooner": {
+      "hp": 95,
+      "dmg": 10,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 11,
+      "reach": 145,
+      "projectile": true,
+      "airDamageMultiplier": 2.4,
+      "targetPriority": "air",
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "name": "スカイアーチャー",
+      "range": 145
+    },
+    "bounty_hound": {
+      "hp": 110,
+      "dmg": 18,
+      "rate": 0.9,
+      "speed": 40,
+      "radius": 11,
+      "reach": 5,
+      "targetPriority": "child",
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "スノーベア",
+      "range": 5
+    },
+    "siege_crab": {
+      "hp": 1500,
+      "dmg": 55,
+      "rate": 3,
+      "speed": 12,
+      "radius": 28,
+      "reach": 150,
+      "armor": 0.5,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "リングスタッフメイジ",
+      "range": 150,
+      "boss": true,
+      "bossDamageScale": 1,
+      "bossAbilityVersion": 1
+    },
+    "voltaic_beetle": {
+      "name": "サンダービートル",
+      "hp": 55,
+      "dmg": 13,
+      "rate": 1.8,
+      "speed": 22,
+      "radius": 12,
+      "reach": 80,
+      "projectile": true,
+      "flying": true,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "crystal_tailbeast": {
+      "name": "クリスタルテイル",
+      "hp": 55,
+      "dmg": 16,
+      "rate": 1.6,
+      "speed": 25,
+      "radius": 11,
+      "reach": 88,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "froststing_hornet": {
+      "name": "フロストホーネット",
+      "hp": 30,
+      "dmg": 7,
+      "rate": 0.85,
+      "speed": 42,
+      "radius": 7,
+      "reach": 44,
+      "projectile": true,
+      "flying": true,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "onyx_scorpion": {
+      "name": "オニキススコーピオン",
+      "hp": 85,
+      "dmg": 12,
+      "rate": 1.25,
+      "speed": 25,
+      "radius": 11,
+      "reach": 11,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "rootOnHitDuration": 0.6,
+      "rootOnHitImmunity": 2.4
+    },
+    "saberspine_tiger": {
+      "name": "サーベルタイガー",
+      "hp": 85,
+      "dmg": 16,
+      "rate": 0.9,
+      "speed": 49,
+      "radius": 12,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "maw_beast": {
+      "name": "スモールジョー",
+      "hp": 32,
+      "dmg": 5,
+      "rate": 0.9,
+      "speed": 35,
+      "radius": 7,
+      "reach": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "fireclaw_hawk": {
+      "name": "フレイムクロードラゴン",
+      "hp": 135,
+      "dmg": 24,
+      "rate": 1.2,
+      "speed": 40,
+      "radius": 12,
+      "reach": 6,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "frosthorn_rhino": {
+      "name": "フロストライノ",
+      "hp": 1350,
+      "dmg": 34,
+      "rate": 1.65,
+      "speed": 22,
+      "radius": 20,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "azure_mane_lion": {
+      "name": "ブルーメインライオン",
+      "hp": 150,
+      "dmg": 15,
+      "rate": 1.6,
+      "speed": 40,
+      "radius": 14,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 10
+    },
+    "longtail_lizard": {
+      "name": "ロングテイルリザード",
+      "hp": 135,
+      "dmg": 24,
+      "rate": 1.35,
+      "speed": 28,
+      "radius": 12,
+      "reach": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "rune_exorcist": {
+      "name": "ルーンエクソシスト",
+      "hp": 55,
+      "dmg": 0,
+      "range": 0,
+      "rate": 1.5,
+      "speed": 26,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cleanseRadius": 100,
+      "cleanseCooldown": 1.5,
+      "cadenceClass": "support",
+      "hasteExcluded": true
+    },
+    "common_orc": {
+      "name": "オークソードマン",
+      "hp": 140,
+      "dmg": 24,
+      "rate": 1.6,
+      "speed": 23,
+      "radius": 14,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "stone_mason": {
+      "name": "ストーンナックル",
+      "hp": 90,
+      "dmg": 12,
+      "rate": 1.7,
+      "speed": 25,
+      "radius": 11,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "targetPriority": "heavy",
+      "heavyRadius": 20,
+      "heavyDamageMultiplier": 2
+    },
+    "knife_skirmisher": {
+      "name": "ナイフファイター",
+      "hp": 65,
+      "dmg": 13,
+      "rate": 1.15,
+      "speed": 34,
+      "radius": 9,
+      "reach": 4,
+      "retreatDuration": 0.25,
+      "retreatSpeed": 38,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "toll_squire": {
+      "name": "ゲートスクワイア",
+      "hp": 95,
+      "dmg": 8,
+      "rate": 1.4,
+      "speed": 28,
+      "radius": 11,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "guardRadius": 48,
+      "guardCharges": 1
+    },
+    "choir_friar": {
+      "name": "コーラスフライアー",
+      "hp": 50,
+      "dmg": 0,
+      "rate": 2.5,
+      "speed": 25,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 100,
+      "singleWardReduction": 0.3,
+      "singleWardDuration": 4,
+      "singleWardCooldown": 2.5,
+      "cadenceClass": "support",
+      "hasteExcluded": true
+    },
+    "spirit_fan_wolf": {
+      "name": "スピリットウルフ",
+      "hp": 80,
+      "dmg": 7,
+      "rate": 1.7,
+      "speed": 26,
+      "radius": 12,
+      "reach": 100,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "projectile": true,
+      "fanCount": 3,
+      "fanHalfAngle": 18,
+      "projectileSpeed": 200,
+      "fanLifetimeTicks": 45
+    },
+    "breath_imp": {
+      "name": "ブレスインプ",
+      "hp": 75,
+      "dmg": 12,
+      "rate": 1.7,
+      "speed": 28,
+      "radius": 10,
+      "reach": 30,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 50,
+      "coneHalfAngle": 30
+    },
+    "thornback_beast": {
+      "name": "ソーンバック",
+      "hp": 1050,
+      "dmg": 18,
+      "rate": 1.6,
+      "speed": 22,
+      "radius": 20,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "basalt_titan": {
+      "name": "サンダーアーマービースト",
+      "hp": 2100,
+      "dmg": 42,
+      "rate": 3.5,
+      "speed": 16,
+      "radius": 26,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 120,
+      "burstRadius": 58,
+      "burstDamage": 42,
+      "burstCooldownTicks": 210,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "bone_crown_lich": {
+      "name": "リッチスクライブ",
+      "hp": 120,
+      "dmg": 0,
+      "rate": 1,
+      "speed": 20,
+      "radius": 20,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "bookBatchCount": 6,
+      "bookWindupTicks": 120,
+      "bookCharges": 1,
+      "bookSpawnKind": "ashbone_swordsman",
+      "bookSpawnLifetimeTicks": 600,
+      "bossDamageScale": 1,
+      "bossAbilityVersion": 1
+    },
+    "orb_hunter": {
+      "name": "オーブハンター",
+      "hp": 90,
+      "dmg": 10,
+      "rate": 2,
+      "speed": 23,
+      "radius": 12,
+      "reach": 105,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "projectile": true,
+      "projectileSpeed": 210,
+      "orbFollowTicks": 12,
+      "orbLifetimeTicks": 90,
+      "priorityTargetKinds": [
+        "healer",
+        "frostmage",
+        "stormmage",
+        "wraith",
+        "banner_knight",
+        "ration_mouse",
+        "rune_exorcist",
+        "choir_friar",
+        "bastion_stag",
+        "bone_crown_lich",
+        "aegis_warden"
+      ]
+    },
+    "aegis_warden": {
+      "name": "イージスガード",
+      "hp": 220,
+      "dmg": 0,
+      "rate": 1,
+      "speed": 20,
+      "radius": 15,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "aegisRadius": 110,
+      "aegisLimit": 2,
+      "aegisWindupTicks": 30,
+      "aegisDurationTicks": 90,
+      "aegisCooldownTicks": 180,
+      "aegisReduction": 0.35
+    },
+    "glimmer_sprite": {
+      "name": "ランタンフェアリー",
+      "hp": 35,
+      "dmg": 0,
+      "rate": 1,
+      "speed": 28,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "movePulseRadius": 80,
+      "movePulseLimit": 2,
+      "movePulseFactor": 1.25,
+      "movePulseDurationTicks": 120,
+      "movePulseCooldownTicks": 180
+    },
+    "followup_cub": {
+      "name": "チェイスキャット",
+      "hp": 38,
+      "dmg": 5,
+      "rate": 1.2,
+      "speed": 35,
+      "radius": 8,
+      "reach": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "followupMultiplier": 1.6,
+      "followupWindowTicks": 45
+    },
+    "frostbreath_lizard": {
+      "name": "フロストブレスリザード",
+      "hp": 1500,
+      "dmg": 55,
+      "rate": 2.8,
+      "speed": 20,
+      "radius": 22,
+      "reach": 35,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highWindupTicks": 90,
+      "highRadius": 70,
+      "highHalfAngle": 30,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "cleaver_brute": {
+      "name": "ホーンドブレイバー",
+      "hp": 1650,
+      "dmg": 25,
+      "rate": 2.3,
+      "speed": 23,
+      "radius": 24,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "cleave",
+      "highWindupTicks": 30,
+      "highSecondTicks": 45,
+      "highRadius": 64,
+      "highHalfAngle": 60,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "repair_pylon": {
+      "name": "リペアピラー",
+      "hp": 180,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 0,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "selfRepairCharges": 3,
+      "selfRepairAmount": 30,
+      "selfRepairWindupTicks": 36,
+      "selfRepairCooldownTicks": 120,
+      "reflectionRatio": 0.5
+    },
+    "repulsion_eye": {
+      "name": "プッシュアイ",
+      "hp": 65,
+      "dmg": 6,
+      "rate": 1.8,
+      "speed": 28,
+      "radius": 8,
+      "reach": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "repulsionDistance": 12,
+      "repulsionRecoveryTicks": 30
+    },
+    "wingblade_duelist": {
+      "name": "ウィングブレイダー",
+      "hp": 110,
+      "dmg": 14,
+      "rate": 1.8,
+      "speed": 42,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "flying": true,
+      "targetPriority": "air",
+      "twoHitTicks": 18,
+      "twoHitFamily": "air-duelist"
+    },
+    "spinning_tailbeast": {
+      "name": "スピンテイル",
+      "hp": 40,
+      "dmg": 7,
+      "range": 29,
+      "rate": 1.7,
+      "speed": 30,
+      "radius": 12,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 32,
+      "coneHalfAngle": 45,
+      "coneTargetCap": 2
+    },
+    "silver_wingbird": {
+      "name": "シルバーウィング",
+      "hp": 42,
+      "dmg": 10,
+      "rate": 0.9,
+      "speed": 40,
+      "radius": 10,
+      "reach": 4,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "gauntlet_combo_guard": {
+      "name": "ガントレットガード",
+      "hp": 1100,
+      "dmg": 10,
+      "rate": 3,
+      "speed": 20,
+      "radius": 16,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 30,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 54,
+      "comboFinalDamage": 28,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "shadow_runner": {
+      "name": "シャドウランナー",
+      "hp": 24,
+      "dmg": 4,
+      "rate": 0.65,
+      "speed": 56,
+      "radius": 7,
+      "reach": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "palmstrike_adept": {
+      "name": "パームストライカー",
+      "hp": 80,
+      "dmg": 38,
+      "rate": 1.7,
+      "speed": 40,
+      "radius": 10,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "shockplate_drake": {
+      "name": "ショックアーマードラゴン",
+      "hp": 1900,
+      "dmg": 24,
+      "rate": 3,
+      "speed": 14,
+      "radius": 24,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "shock",
+      "highRadius": 70,
+      "highSecondRadius": 90,
+      "highHalfAngle": 30,
+      "highWindupTicks": 60,
+      "highSecondTicks": 24,
+      "highSecondDamage": 32,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "boulder_slammer": {
+      "name": "ロックスラマー",
+      "hp": 145,
+      "dmg": 50,
+      "rate": 2.8,
+      "speed": 23,
+      "radius": 11,
+      "reach": 5,
+      "range": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "crescent_blade_dancer": {
+      "name": "クレセントダンサー",
+      "hp": 100,
+      "dmg": 24,
+      "rate": 1.8,
+      "speed": 34,
+      "radius": 12,
+      "reach": 5,
+      "range": 17,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 40,
+      "coneHalfAngle": 45,
+      "coneTargetCap": 3
+    },
+    "feral_fistfighter": {
+      "name": "ワイルドパンチャー",
+      "hp": 95,
+      "dmg": 12,
+      "rate": 1.2,
+      "speed": 44,
+      "radius": 11,
+      "reach": 4,
+      "range": 15,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 10,
+      "twoHitCleanupStable": true
+    },
+    "thunderhorn_beast": {
+      "name": "サンダーホーン",
+      "hp": 1500,
+      "dmg": 48,
+      "rate": 2.7,
+      "speed": 20,
+      "radius": 24,
+      "reach": 12,
+      "range": 36,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 64,
+      "highHalfAngle": 40,
+      "highWindupTicks": 60,
+      "highTargetCap": 3,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "roarfang_beast": {
+      "name": "ロアファング",
+      "hp": 700,
+      "dmg": 28,
+      "rate": 2,
+      "speed": 26,
+      "radius": 17,
+      "reach": 12,
+      "range": 29,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 58,
+      "highHalfAngle": 35,
+      "highWindupTicks": 30,
+      "highTargetCap": 3,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "gilded_shooter": {
+      "name": "ゴールドシューター",
+      "hp": 38,
+      "dmg": 18,
+      "rate": 1.8,
+      "speed": 26,
+      "radius": 9,
+      "reach": 96,
+      "range": 105,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 210,
+      "projectileLifetimeTicks": 120
+    },
+    "lumen_charger": {
+      "name": "ライトチャージャー",
+      "hp": 105,
+      "dmg": 80,
+      "rate": 2,
+      "speed": 18,
+      "radius": 10,
+      "reach": 150,
+      "range": 160,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 210,
+      "projectileLifetimeTicks": 120,
+      "chargedShotWindupTicks": 90
+    },
+    "spark_bird": {
+      "name": "スパークバード",
+      "hp": 20,
+      "dmg": 5,
+      "rate": 1.2,
+      "speed": 34,
+      "radius": 6,
+      "reach": 36,
+      "range": 42,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 210,
+      "projectileLifetimeTicks": 120,
+      "flying": true
+    },
+    "azure_blade_trio": {
+      "name": "シルバーフェンサー",
+      "hp": 85,
+      "dmg": 8,
+      "rate": 2.4,
+      "speed": 36,
+      "radius": 8,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 15,
+      "comboThirdTicks": 27,
+      "comboFinalDamage": 14
+    },
+    "crimson_mender": {
+      "name": "クリムゾンヒーラー",
+      "hp": 55,
+      "dmg": 0,
+      "rate": 2.5,
+      "speed": 24,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 10,
+      "groupHealRadius": 85,
+      "groupHealCap": 2,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "emberwing_drake": {
+      "name": "フレイムウィング",
+      "hp": 900,
+      "dmg": 32,
+      "rate": 2.6,
+      "speed": 28,
+      "radius": 16,
+      "reach": 12,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "highKind": "breath",
+      "highWindupTicks": 45,
+      "highRadius": 50,
+      "highHalfAngle": 30,
+      "highTargetCap": 3,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "poleblade_dancer": {
+      "name": "スピンブレイドダンサー",
+      "hp": 28,
+      "dmg": 4,
+      "rate": 0.75,
+      "speed": 40,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "vortex_adept": {
+      "name": "ボルテックスメイジ",
+      "hp": 85,
+      "dmg": 24,
+      "rate": 1.25,
+      "speed": 30,
+      "radius": 10,
+      "reach": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "ward_bastion": {
+      "name": "ストーンバスティオン",
+      "hp": 120,
+      "dmg": 0,
+      "rate": 2.5,
+      "speed": 0,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 100,
+      "singleWardReduction": 0.3,
+      "singleWardDuration": 4,
+      "singleWardCooldown": 2.5,
+      "singleWardTargetCap": 2,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "carapace_slashbeast": {
+      "name": "アーマースラッシャー",
+      "hp": 1550,
+      "dmg": 75,
+      "rate": 3,
+      "speed": 18,
+      "radius": 24,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 60,
+      "comboContactCount": 1,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "sweep_acolyte": {
+      "name": "スイープメイジ",
+      "hp": 55,
+      "dmg": 18,
+      "rate": 1.6,
+      "speed": 26,
+      "radius": 8,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 45,
+      "burstRadius": 30,
+      "burstDamage": 18,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "tumbling_critter": {
+      "name": "ローリングビースト",
+      "hp": 26,
+      "dmg": 5,
+      "rate": 1,
+      "speed": 48,
+      "radius": 6,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "triad_chimera": {
+      "name": "トリオキメラ",
+      "hp": 1500,
+      "dmg": 24,
+      "rate": 2,
+      "speed": 28,
+      "radius": 18,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 42,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "pillar_hammerer": {
+      "name": "ライトピラーハンマー",
+      "hp": 1500,
+      "dmg": 65,
+      "rate": 2.7,
+      "speed": 20,
+      "radius": 20,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 92,
+      "pillarRadius": 20,
+      "pillarWindupTicks": 60,
+      "pillarTargetCap": 3,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "oni_wavelet": {
+      "name": "フローティングオニ",
+      "hp": 45,
+      "dmg": 12,
+      "rate": 1.3,
+      "speed": 34,
+      "radius": 9,
+      "reach": 5,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "burstWindupTicks": 18,
+      "burstRadius": 20,
+      "burstDamage": 12,
+      "burstCooldownTicks": 78,
+      "burstTargetCap": 2,
+      "burstCleanupStable": true
+    },
+    "vex_touchbeast": {
+      "name": "グロウホーン",
+      "hp": 60,
+      "dmg": 26,
+      "rate": 1.2,
+      "speed": 36,
+      "radius": 7,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "touchOffset": 23,
+      "touchRadius": 6
+    },
+    "wandering_warder": {
+      "name": "ワンダーガーディアン",
+      "hp": 100,
+      "dmg": 0,
+      "rate": 2.8,
+      "speed": 24,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 80,
+      "singleWardReduction": 0.3,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2.8,
+      "singleWardTargetCap": 2,
+      "singleWardSelf": true,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "supportFollowCombatants": true
+    },
+    "bluefist_colossus": {
+      "name": "ブルーフィストジャイアント",
+      "hp": 1500,
+      "dmg": 42,
+      "rate": 2.2,
+      "speed": 24,
+      "radius": 20,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 60,
+      "highHalfAngle": 35,
+      "highTargetCap": 3,
+      "highWindupTicks": 30,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "curved_blade_raider": {
+      "name": "カーブブレイド",
+      "hp": 30,
+      "dmg": 7,
+      "rate": 1.2,
+      "speed": 42,
+      "radius": 8,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "coiltail_halberdier": {
+      "name": "コイルテイルランサー",
+      "hp": 65,
+      "dmg": 10,
+      "rate": 1.25,
+      "speed": 25,
+      "radius": 9,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "cinderbow_archer": {
+      "name": "フレアハンター",
+      "hp": 65,
+      "dmg": 32,
+      "rate": 2.2,
+      "speed": 23,
+      "radius": 11,
+      "reach": 150,
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 210,
+      "projectileLifetimeTicks": 120,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ]
+    },
+    "cinder_tailbeast": {
+      "name": "シンダーテイル",
+      "hp": 1650,
+      "dmg": 50,
+      "rate": 2.4,
+      "speed": 18,
+      "radius": 24,
+      "reach": 12,
+      "highKind": "breath",
+      "highRadius": 70,
+      "highHalfAngle": 35,
+      "highTargetCap": 3,
+      "highWindupTicks": 45,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "redmask_duelist": {
+      "name": "アカズキン",
+      "hp": 27,
+      "dmg": 5,
+      "rate": 0.8,
+      "speed": 46,
+      "radius": 8,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "crownshield_guard": {
+      "name": "クラウンシールド",
+      "hp": 95,
+      "dmg": 5,
+      "rate": 1.4,
+      "speed": 22,
+      "radius": 9,
+      "reach": 4,
+      "armor": 0.65,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "goldring_core": {
+      "name": "ゴールドリングコア",
+      "hp": 85,
+      "dmg": 24,
+      "rate": 1.6,
+      "speed": 28,
+      "radius": 12,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "burstWindupTicks": 36,
+      "burstRadius": 30,
+      "burstDamage": 24,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "finback_clawbeast": {
+      "name": "フィンバッククロー",
+      "hp": 75,
+      "dmg": 12,
+      "rate": 1.2,
+      "speed": 34,
+      "radius": 7,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "tendril_revenant": {
+      "name": "テンドリルレヴナント",
+      "hp": 95,
+      "dmg": 20,
+      "rate": 1.6,
+      "speed": 30,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 12,
+      "burstRadius": 28,
+      "burstDamage": 20,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "razorclaw_reaver": {
+      "name": "シェルリッパー",
+      "hp": 1650,
+      "dmg": 30,
+      "rate": 2.3,
+      "speed": 20,
+      "radius": 24,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 18,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "dusk_winglet": {
+      "name": "ダスクウィング",
+      "hp": 24,
+      "dmg": 5,
+      "rate": 1.05,
+      "speed": 48,
+      "radius": 8,
+      "reach": 4,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "windcloth_duelist": {
+      "name": "ウィンドクロス",
+      "hp": 120,
+      "dmg": 11,
+      "rate": 1.5,
+      "speed": 36,
+      "radius": 10,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 15,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "antler_archer": {
+      "name": "ホーンアーチャー",
+      "hp": 45,
+      "dmg": 11,
+      "rate": 0.8,
+      "speed": 36,
+      "radius": 9,
+      "reach": 118,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 260,
+      "projectileLifetimeTicks": 120
+    },
+    "ringneck_prowler": {
+      "name": "リングネック",
+      "hp": 1400,
+      "dmg": 70,
+      "rate": 2.8,
+      "speed": 28,
+      "radius": 24,
+      "reach": 40,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 48,
+      "comboContactCount": 1,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "bluehorn_invoker": {
+      "name": "ブルーホーンメイジ",
+      "hp": 1300,
+      "dmg": 52,
+      "rate": 2.8,
+      "speed": 22,
+      "radius": 23,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 90,
+      "burstRadius": 64,
+      "burstDamage": 52,
+      "burstCooldownTicks": 168,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "light_bowman": {
+      "name": "ライトアーチャー",
+      "hp": 28,
+      "dmg": 24,
+      "rate": 2.4,
+      "speed": 28,
+      "radius": 7,
+      "reach": 88,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 240,
+      "projectileLifetimeTicks": 120
+    },
+    "halo_healer": {
+      "name": "ヘイローヒーラー",
+      "hp": 35,
+      "dmg": 0,
+      "rate": 1.8,
+      "speed": 28,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 12,
+      "groupHealRadius": 70,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "shellpulse_beast": {
+      "name": "シェルウェーブ",
+      "hp": 65,
+      "dmg": 13,
+      "rate": 1.4,
+      "speed": 28,
+      "radius": 8,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 12,
+      "burstRadius": 20,
+      "burstDamage": 13,
+      "burstCooldownTicks": 84,
+      "burstTargetCap": 2,
+      "burstCleanupStable": true
+    },
+    "crystal_glint_wisp": {
+      "name": "クリスタルウィスプ",
+      "hp": 38,
+      "dmg": 24,
+      "rate": 2.1,
+      "speed": 30,
+      "radius": 7,
+      "reach": 30,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 36,
+      "comboContactCount": 1,
+      "flying": true
+    },
+    "emberstring_archer": {
+      "name": "エンバーボウ",
+      "hp": 38,
+      "dmg": 12,
+      "rate": 1.5,
+      "speed": 27,
+      "radius": 7,
+      "reach": 110,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true
+    },
+    "tetherlash_adept": {
+      "name": "マジックウィップ",
+      "hp": 115,
+      "dmg": 30,
+      "rate": 1.5,
+      "speed": 24,
+      "radius": 11,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "touchOffset": 36,
+      "touchRadius": 12,
+      "pullDistance": 12
+    },
+    "tigermask_archer": {
+      "name": "タイガーマスクアーチャー",
+      "hp": 95,
+      "dmg": 28,
+      "rate": 1.65,
+      "speed": 22,
+      "radius": 11,
+      "reach": 155,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true
+    },
+    "goldwing_skirmisher": {
+      "name": "ゴールドウィングブレイド",
+      "hp": 34,
+      "dmg": 12,
+      "rate": 0.9,
+      "speed": 36,
+      "radius": 8,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "triangle_warder": {
+      "name": "トライアングルガード",
+      "hp": 35,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 32,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 75,
+      "singleWardReduction": 0.3,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "scarlet_bladebeast": {
+      "name": "スカーレットビースト",
+      "hp": 140,
+      "dmg": 12,
+      "rate": 2.2,
+      "speed": 30,
+      "radius": 10,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 36,
+      "comboSecondTicks": 15,
+      "comboThirdTicks": 15,
+      "comboFinalDamage": 20
+    },
+    "bonefan_reaper": {
+      "name": "ボーンファンリーパー",
+      "hp": 1150,
+      "dmg": 50,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 20,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 60,
+      "highHalfAngle": 40,
+      "highTargetCap": 3,
+      "highWindupTicks": 36,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "gilded_hopper": {
+      "hp": 70,
+      "dmg": 16,
+      "rate": 1.4,
+      "speed": 30,
+      "radius": 10,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 24,
+      "burstRadius": 22,
+      "burstDamage": 16,
+      "burstCooldownTicks": 84,
+      "burstTargetCap": 2,
+      "burstCleanupStable": true,
+      "name": "コガネガエル"
+    },
+    "goldmask_pugilist": {
+      "hp": 36,
+      "dmg": 7,
+      "rate": 0.95,
+      "speed": 28,
+      "radius": 7,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ゴールドマスクパンチャー"
+    },
+    "azure_bear_brawler": {
+      "hp": 170,
+      "dmg": 30,
+      "rate": 1.2,
+      "speed": 24,
+      "radius": 13,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ブルーベアファイター"
+    },
+    "flamering_magus": {
+      "hp": 1050,
+      "dmg": 45,
+      "rate": 2.2,
+      "speed": 25,
+      "radius": 18,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 42,
+      "burstRadius": 50,
+      "burstDamage": 45,
+      "burstCooldownTicks": 132,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "name": "フレイムリングメイジ",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "wheelblade_knight": {
+      "hp": 190,
+      "dmg": 18,
+      "rate": 2,
+      "speed": 28,
+      "radius": 12,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 36,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "ホイールブレイドナイト"
+    },
+    "emberfist_pillarer": {
+      "hp": 1250,
+      "dmg": 58,
+      "rate": 2.5,
+      "speed": 18,
+      "radius": 23,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 70,
+      "pillarRadius": 25,
+      "pillarWindupTicks": 45,
+      "pillarTargetCap": 2,
+      "name": "フレイムフィストピラー",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "domeback_colossus": {
+      "hp": 400,
+      "dmg": 0,
+      "rate": 1,
+      "speed": 14,
+      "radius": 24,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "aegisLimit": 2,
+      "aegisWindupTicks": 60,
+      "aegisDurationTicks": 90,
+      "aegisCooldownTicks": 180,
+      "aegisReduction": 0.35,
+      "name": "ブルーシェルジャイアント",
+      "bossDamageScale": 1,
+      "bossAbilityVersion": 1
+    },
+    "rosewhirl_critter": {
+      "name": "ローズスピナー",
+      "hp": 30,
+      "dmg": 6,
+      "rate": 0.85,
+      "speed": 38,
+      "radius": 7,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "crestblade_sentinel": {
+      "name": "クラウンブレイドガード",
+      "hp": 100,
+      "dmg": 42,
+      "rate": 1.8,
+      "speed": 32,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 30,
+      "comboContactCount": 1
+    },
+    "sootclaw_critter": {
+      "hp": 22,
+      "dmg": 7,
+      "rate": 0.85,
+      "speed": 48,
+      "name": "スートクロービースト",
+      "radius": 7,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "silverflare_archer": {
+      "hp": 50,
+      "dmg": 22,
+      "rate": 1.25,
+      "speed": 28,
+      "name": "シルバーフレイムアーチャー",
+      "radius": 9,
+      "reach": 125,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 240,
+      "projectileLifetimeTicks": 120
+    },
+    "redblade_strider": {
+      "hp": 120,
+      "dmg": 24,
+      "rate": 0.95,
+      "speed": 38,
+      "name": "レッドブレイドウォーカー",
+      "radius": 12,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "greenflame_triad": {
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "エメラルドナイト",
+      "hp": 120,
+      "dmg": 10,
+      "rate": 2.4,
+      "speed": 32,
+      "radius": 10,
+      "reach": 8,
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 24,
+      "comboFinalDamage": 22
+    },
+    "ashstaff_healer": {
+      "name": "アッシュスタッフヒーラー",
+      "hp": 25,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 26,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 8,
+      "groupHealRadius": 70,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "brownblade_scout": {
+      "name": "ブラウンブレイドスカウト",
+      "hp": 28,
+      "dmg": 6,
+      "rate": 0.8,
+      "speed": 38,
+      "radius": 8,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "ghostclaw_lynx": {
+      "name": "ブルーソーンクロー",
+      "hp": 90,
+      "dmg": 28,
+      "rate": 1.3,
+      "speed": 38,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "bluewhip_minion": {
+      "name": "ブルーテイルビースト",
+      "hp": 48,
+      "dmg": 12,
+      "rate": 0.8,
+      "speed": 40,
+      "radius": 8,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "wavebody_adept": {
+      "name": "ウォーターシェイパー",
+      "hp": 115,
+      "dmg": 20,
+      "rate": 1.2,
+      "speed": 26,
+      "radius": 9,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "moonclaw_werewolf": {
+      "name": "ムーンクローウルフ",
+      "hp": 1500,
+      "dmg": 28,
+      "rate": 2,
+      "speed": 24,
+      "radius": 24,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 30,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "ringhold_guardian": {
+      "name": "リングウォーデン",
+      "hp": 320,
+      "dmg": 0,
+      "rate": 1,
+      "speed": 18,
+      "radius": 18,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "aegisLimit": 2,
+      "aegisWindupTicks": 30,
+      "aegisDurationTicks": 90,
+      "aegisCooldownTicks": 180,
+      "aegisReduction": 0.4,
+      "bossDamageScale": 1,
+      "bossAbilityVersion": 1
+    },
+    "disc_crown_mender": {
+      "name": "ライトクラウンヒーラー",
+      "hp": 60,
+      "dmg": 0,
+      "rate": 2.6,
+      "speed": 22,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 12,
+      "groupHealRadius": 95,
+      "groupHealCap": 2,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "thornspin_ooze": {
+      "name": "ソーンボール",
+      "hp": 70,
+      "dmg": 14,
+      "rate": 1.3,
+      "speed": 28,
+      "radius": 9,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 12,
+      "burstRadius": 24,
+      "burstDamage": 14,
+      "burstCooldownTicks": 78,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "bloodmoon_crescent": {
+      "name": "ブラッドムーンブレイド",
+      "hp": 95,
+      "dmg": 18,
+      "rate": 1,
+      "speed": 40,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "drumhammer_sister": {
+      "name": "ドラムハンマーガード",
+      "hp": 140,
+      "dmg": 42,
+      "rate": 2,
+      "speed": 24,
+      "radius": 14,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "bubble_shadow_mender": {
+      "name": "バブルシャドウヒーラー",
+      "hp": 40,
+      "dmg": 0,
+      "rate": 2.2,
+      "speed": 24,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 10,
+      "groupHealRadius": 80,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "locust_pulsefighter": {
+      "name": "ブラックシェルファイター",
+      "hp": 130,
+      "dmg": 9,
+      "rate": 2.2,
+      "speed": 30,
+      "radius": 13,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 30,
+      "comboFinalDamage": 20
+    },
+    "spikeburst_grinder": {
+      "name": "スパイクバースト",
+      "hp": 1200,
+      "dmg": 40,
+      "rate": 2.4,
+      "speed": 20,
+      "radius": 20,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 60,
+      "burstRadius": 64,
+      "burstDamage": 40,
+      "burstCooldownTicks": 144,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "bubbleclaw_plaguer": {
+      "hp": 95,
+      "dmg": 10,
+      "rate": 1.5,
+      "speed": 32,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "バブルクロービースト",
+      "healingBlockFactor": 0.5,
+      "healingBlockTicks": 120
+    },
+    "spinthrust_grincher": {
+      "hp": 110,
+      "dmg": 17,
+      "rate": 1.8,
+      "speed": 36,
+      "radius": 10,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 39,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "スピンテイルソード"
+    },
+    "hatblade_hsuku": {
+      "name": "クロガサ",
+      "hp": 115,
+      "dmg": 10,
+      "rate": 2.3,
+      "speed": 34,
+      "radius": 11,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 6,
+      "comboSecondTicks": 30,
+      "comboThirdTicks": 24,
+      "comboFinalDamage": 24
+    },
+    "silverarm_vanguard": {
+      "name": "シルバーアームガード",
+      "hp": 1400,
+      "dmg": 38,
+      "rate": 2.6,
+      "speed": 18,
+      "radius": 22,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 30,
+      "burstRadius": 48,
+      "burstDamage": 38,
+      "burstCooldownTicks": 156,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "gemswirl_mender": {
+      "name": "ジェムスワールヒーラー",
+      "hp": 65,
+      "dmg": 0,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 14,
+      "groupHealRadius": 100,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "sol_harp_mender": {
+      "hp": 25,
+      "dmg": 0,
+      "rate": 2.2,
+      "speed": 30,
+      "radius": 6,
+      "reach": 0,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "flying": true,
+      "groupHealAmount": 16,
+      "groupHealRadius": 80,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "name": "ゴールドハープヒーラー"
+    },
+    "bluewhip_hunter": {
+      "hp": 100,
+      "dmg": 23,
+      "rate": 1.05,
+      "speed": 32,
+      "radius": 10,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ブルーウィップハンター"
+    },
+    "cyanribbon_weaver": {
+      "hp": 32,
+      "dmg": 6,
+      "rate": 0.95,
+      "speed": 34,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ブルーリボンウィーバー"
+    },
+    "moonplunge_lancer": {
+      "hp": 165,
+      "dmg": 40,
+      "rate": 2,
+      "speed": 32,
+      "radius": 11,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 44,
+      "highHalfAngle": 35,
+      "highTargetCap": 2,
+      "highWindupTicks": 42,
+      "name": "ムーンランサー"
+    },
+    "voltwing_scarab": {
+      "hp": 28,
+      "dmg": 14,
+      "rate": 1,
+      "speed": 42,
+      "radius": 6,
+      "reach": 10,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "name": "ボルトスカラベ"
+    },
+    "veteran_flamewing": {
+      "name": "マグマドレイク",
+      "hp": 1200,
+      "dmg": 30,
+      "rate": 2,
+      "speed": 28,
+      "radius": 16,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "ivoryspike_scarab": {
+      "name": "アイボリースカラベ",
+      "hp": 150,
+      "dmg": 12,
+      "rate": 2.2,
+      "speed": 22,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 24,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 12,
+      "comboFinalDamage": 18
+    },
+    "bluepole_mogwai": {
+      "name": "ブルーポールメイジ",
+      "hp": 105,
+      "dmg": 18,
+      "rate": 1.8,
+      "speed": 32,
+      "radius": 11,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 39,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "specterclaw_shuffler": {
+      "name": "スペクトルクローソード",
+      "hp": 110,
+      "dmg": 16,
+      "rate": 1.6,
+      "speed": 38,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 18,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "dawnblade_fencer": {
+      "hp": 75,
+      "dmg": 30,
+      "rate": 1.2,
+      "speed": 42,
+      "radius": 9,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ドーンブレイド"
+    },
+    "goldring_shadow_mender": {
+      "hp": 18,
+      "dmg": 0,
+      "rate": 2.2,
+      "speed": 28,
+      "radius": 7,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 10,
+      "groupHealRadius": 80,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "name": "ゴールドリングヒーラー"
+    },
+    "embergrille_monument": {
+      "hp": 100,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 0,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "selfRepairCharges": 3,
+      "selfRepairAmount": 30,
+      "selfRepairWindupTicks": 36,
+      "selfRepairCooldownTicks": 120,
+      "name": "エンバーグリルモニュメント",
+      "reflectionRatio": 0.75
+    },
+    "cyanarm_mystic": {
+      "hp": 110,
+      "dmg": 40,
+      "rate": 1.8,
+      "speed": 28,
+      "radius": 11,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 30,
+      "comboContactCount": 1,
+      "name": "ブルーアームメイジ"
+    },
+    "whiteburst_pugilist": {
+      "name": "マグマボクサー",
+      "hp": 125,
+      "dmg": 17,
+      "rate": 1.8,
+      "speed": 34,
+      "radius": 12,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 42,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "stormhorn_tripler": {
+      "name": "ホーンタイタン",
+      "hp": 1100,
+      "dmg": 26,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 16,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "curled_jackal": {
+      "hp": 26,
+      "dmg": 6,
+      "rate": 0.85,
+      "speed": 44,
+      "radius": 6,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "カールテイルウルフ"
+    },
+    "aurora_thrustmage": {
+      "hp": 90,
+      "dmg": 30,
+      "rate": 1.5,
+      "speed": 30,
+      "radius": 8,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "オーロラスピアメイジ"
+    },
+    "shieldmace_companion": {
+      "hp": 150,
+      "dmg": 15,
+      "rate": 1.8,
+      "speed": 30,
+      "radius": 11,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 12,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "シールドメイスガード"
+    },
+    "inkorb_caster": {
+      "name": "インクオーブメイジ",
+      "hp": 55,
+      "dmg": 18,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 10,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 18,
+      "burstRadius": 20,
+      "burstDamage": 18,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "ribwraith_tripler": {
+      "name": "ボーンレイス",
+      "hp": 75,
+      "dmg": 8,
+      "rate": 2.3,
+      "speed": 32,
+      "radius": 9,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 30,
+      "comboFinalDamage": 18
+    },
+    "klaxon_windup_blader": {
+      "name": "ホワイトヘアブレイダー",
+      "hp": 190,
+      "dmg": 65,
+      "rate": 2.6,
+      "speed": 30,
+      "radius": 11,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 54,
+      "comboContactCount": 1
+    },
+    "flameaxe_dweller": {
+      "name": "フレイムアックス",
+      "hp": 115,
+      "dmg": 46,
+      "rate": 1.8,
+      "speed": 30,
+      "radius": 11,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "spectral_scale_dragon": {
+      "name": "ファントムスケイルドラゴン",
+      "hp": 850,
+      "dmg": 30,
+      "rate": 1.5,
+      "speed": 24,
+      "radius": 18,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "twinmoon_pontiff": {
+      "name": "ムーンビショップ",
+      "hp": 100,
+      "dmg": 19,
+      "rate": 2.1,
+      "speed": 34,
+      "radius": 11,
+      "reach": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "whitehair_spinblade": {
+      "name": "ホワイトヘアスピナー",
+      "hp": 30,
+      "dmg": 10,
+      "rate": 1.2,
+      "speed": 36,
+      "radius": 7,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 12,
+      "burstRadius": 18,
+      "burstDamage": 10,
+      "burstCooldownTicks": 72,
+      "burstTargetCap": 2,
+      "burstCleanupStable": true
+    },
+    "redpole_warrior": {
+      "name": "レッドランサー",
+      "hp": 110,
+      "dmg": 18,
+      "rate": 1.9,
+      "speed": 30,
+      "radius": 11,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 42,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "smoke_thrustfighter": {
+      "name": "スモークチャージャー",
+      "hp": 90,
+      "dmg": 44,
+      "rate": 1.8,
+      "speed": 38,
+      "radius": 10,
+      "reach": 22,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "sunhalo_polyhedron": {
+      "name": "サンヘイロープリズム",
+      "hp": 150,
+      "dmg": 42,
+      "rate": 1.8,
+      "speed": 30,
+      "radius": 9,
+      "reach": 14,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 36,
+      "comboContactCount": 1,
+      "flying": true
+    },
+    "daemonflash_tripler": {
+      "name": "フロートデーモン",
+      "hp": 60,
+      "dmg": 8,
+      "rate": 2.2,
+      "speed": 28,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 18,
+      "comboFinalDamage": 16,
+      "flying": true
+    },
+    "fenrir_dualguard": {
+      "name": "ウルフマスター",
+      "hp": 250,
+      "dmg": 26,
+      "rate": 2.2,
+      "speed": 30,
+      "radius": 12,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "antlerwhirl_myriad": {
+      "name": "ホーンリングスピナー",
+      "hp": 100,
+      "dmg": 22,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 14,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 18,
+      "burstRadius": 32,
+      "burstDamage": 22,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "golden_tuft_mender": {
+      "name": "ゴールドタフトヒーラー",
+      "hp": 18,
+      "dmg": 0,
+      "rate": 1.6,
+      "speed": 30,
+      "radius": 6,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 7,
+      "groupHealRadius": 80,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "fiery_coil_inceptor": {
+      "name": "フレイムコイルスピリット",
+      "hp": 1200,
+      "dmg": 36,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 22,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 42,
+      "burstRadius": 40,
+      "burstDamage": 36,
+      "burstCooldownTicks": 144,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "desert_flarebeast": {
+      "name": "デザートフレアビースト",
+      "hp": 115,
+      "dmg": 22,
+      "rate": 1.7,
+      "speed": 28,
+      "radius": 12,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 38,
+      "coneHalfAngle": 40,
+      "coneTargetCap": 3
+    },
+    "spiral_polecaster": {
+      "name": "スパイラルスタッフメイジ",
+      "hp": 85,
+      "dmg": 30,
+      "rate": 1.35,
+      "speed": 34,
+      "radius": 10,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "stonepulse_kolossus": {
+      "name": "ストーンウェーブジャイアント",
+      "hp": 1650,
+      "dmg": 36,
+      "rate": 2.6,
+      "speed": 14,
+      "radius": 26,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 36,
+      "burstRadius": 38,
+      "burstDamage": 36,
+      "burstCooldownTicks": 156,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "goldring_brawler": {
+      "hp": 130,
+      "dmg": 17,
+      "rate": 1.9,
+      "speed": 32,
+      "radius": 11,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "ゴールドリングファイター"
+    },
+    "pteryx_tailwing": {
+      "name": "テイルウィング",
+      "hp": 35,
+      "dmg": 8,
+      "rate": 1.8,
+      "speed": 40,
+      "radius": 9,
+      "reach": 6,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "flying": true,
+      "twoHitTicks": 18,
+      "twoHitFamily": "air-duelist"
+    },
+    "darkfan_clawlord": {
+      "name": "ダークファンクロー",
+      "hp": 1300,
+      "dmg": 32,
+      "rate": 2.3,
+      "speed": 26,
+      "radius": 22,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "cyanspike_commander": {
+      "hp": 85,
+      "dmg": 12,
+      "rate": 1.7,
+      "speed": 34,
+      "radius": 9,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 30,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "ブルースパイクコマンダー"
+    },
+    "golden_bowling": {
+      "name": "ゴールドボウマン",
+      "hp": 35,
+      "dmg": 11,
+      "rate": 1.2,
+      "speed": 30,
+      "radius": 7,
+      "reach": 96,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 220,
+      "projectileLifetimeTicks": 120
+    },
+    "windslice_fighter": {
+      "name": "ウィンドブレイドファイター",
+      "hp": 80,
+      "dmg": 26,
+      "rate": 1.25,
+      "speed": 40,
+      "radius": 10,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "redcrescent_sentinel": {
+      "name": "レッドムーンガード",
+      "hp": 95,
+      "dmg": 22,
+      "rate": 1.5,
+      "speed": 32,
+      "radius": 9,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 42,
+      "coneHalfAngle": 35,
+      "coneTargetCap": 3
+    },
+    "greenlash_hatmaster": {
+      "name": "グリーンウィップメイジ",
+      "hp": 200,
+      "dmg": 58,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 10,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 42,
+      "comboContactCount": 1
+    },
+    "cyan_multiblade": {
+      "hp": 80,
+      "dmg": 13,
+      "rate": 1.9,
+      "speed": 38,
+      "radius": 10,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "ジェイドセイバー"
+    },
+    "plated_dualdragon": {
+      "name": "ヨロイドラゴン",
+      "hp": 1500,
+      "dmg": 30,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 22,
+      "reach": 24,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 30,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "suspended_prism_mender": {
+      "name": "フロートクリスタルヒーラー",
+      "hp": 30,
+      "dmg": 0,
+      "rate": 1.5,
+      "speed": 24,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 10,
+      "groupHealRadius": 85,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "rex_clawtripler": {
+      "name": "トゲオトカゲ",
+      "hp": 130,
+      "dmg": 10,
+      "rate": 2.2,
+      "speed": 28,
+      "radius": 10,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 42,
+      "comboFinalDamage": 20
+    },
+    "crimson_levitator": {
+      "name": "クリムゾンレビテイター",
+      "hp": 180,
+      "dmg": 48,
+      "rate": 2.1,
+      "speed": 26,
+      "radius": 13,
+      "reach": 18,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 48,
+      "comboContactCount": 1,
+      "flying": true
+    },
+    "golden_whirlshaper": {
+      "name": "ゴールドリングスピナー",
+      "hp": 110,
+      "dmg": 22,
+      "rate": 1.5,
+      "speed": 30,
+      "radius": 11,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 24,
+      "burstRadius": 32,
+      "burstDamage": 22,
+      "burstCooldownTicks": 90,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "colossal_hornfist": {
+      "name": "ジャイアントホーンフィスト",
+      "hp": 1500,
+      "dmg": 48,
+      "rate": 2.4,
+      "speed": 16,
+      "radius": 26,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 54,
+      "pillarRadius": 12,
+      "pillarWindupTicks": 30,
+      "pillarTargetCap": 2,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "goldgreatsword_duelist": {
+      "name": "ゴールドグレートソード",
+      "hp": 220,
+      "dmg": 32,
+      "rate": 2.2,
+      "speed": 30,
+      "radius": 13,
+      "reach": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 30,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "cyan_tripleblade": {
+      "name": "シロガネザムライ",
+      "hp": 105,
+      "dmg": 12,
+      "rate": 2.3,
+      "speed": 36,
+      "radius": 11,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 30,
+      "comboFinalDamage": 20
+    },
+    "goldtrident_duelist": {
+      "name": "ゴールドトライデント",
+      "hp": 220,
+      "dmg": 28,
+      "rate": 1.9,
+      "speed": 30,
+      "radius": 13,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 30,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "redhorn_dualbeast": {
+      "name": "アカツノ",
+      "hp": 1600,
+      "dmg": 26,
+      "rate": 2.1,
+      "speed": 26,
+      "radius": 20,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 18,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "greenneck_burster": {
+      "name": "グリーンネックバースト",
+      "hp": 110,
+      "dmg": 20,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 10,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 24,
+      "burstRadius": 24,
+      "burstDamage": 20,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true
+    },
+    "frostthrust_lancer": {
+      "name": "フロストランサー",
+      "hp": 85,
+      "dmg": 26,
+      "rate": 1.3,
+      "speed": 38,
+      "radius": 10,
+      "reach": 20,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "snowdisk_warder": {
+      "name": "スノーディスクガード",
+      "hp": 55,
+      "dmg": 0,
+      "rate": 2.5,
+      "speed": 22,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 85,
+      "singleWardReduction": 0.25,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2.5,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "redcore_burstshrine": {
+      "name": "レッドコアシュライン",
+      "hp": 150,
+      "dmg": 20,
+      "rate": 1.6,
+      "speed": 0,
+      "radius": 13,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 12,
+      "burstRadius": 18,
+      "burstDamage": 20,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "goldstroke_rotator": {
+      "name": "ゴールドブレイドスピナー",
+      "hp": 110,
+      "dmg": 44,
+      "rate": 2,
+      "speed": 30,
+      "radius": 11,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 36,
+      "comboContactCount": 1
+    },
+    "dusk_triplewarden": {
+      "name": "ナイトストーカー",
+      "hp": 85,
+      "dmg": 8,
+      "rate": 2.1,
+      "speed": 34,
+      "radius": 9,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 18,
+      "comboFinalDamage": 16
+    },
+    "iceclaw_legend": {
+      "hp": 850,
+      "dmg": 30,
+      "rate": 1.8,
+      "speed": 26,
+      "radius": 16,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "highKind": "breath",
+      "highRadius": 44,
+      "highHalfAngle": 35,
+      "highTargetCap": 3,
+      "highWindupTicks": 30,
+      "name": "アイスクローファイター",
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "cyanrise_silithar": {
+      "name": "ブルースピンアーマー",
+      "hp": 1300,
+      "dmg": 34,
+      "rate": 2.4,
+      "speed": 20,
+      "radius": 22,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 36,
+      "burstRadius": 48,
+      "burstDamage": 34,
+      "burstCooldownTicks": 144,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "groundprism_windmiller": {
+      "name": "グラウンドプリズムメイジ",
+      "hp": 110,
+      "dmg": 38,
+      "rate": 1.8,
+      "speed": 30,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 20,
+      "pillarRadius": 5,
+      "pillarWindupTicks": 24,
+      "pillarTargetCap": 1
+    },
+    "flipthrust_legend": {
+      "hp": 90,
+      "dmg": 44,
+      "rate": 1.9,
+      "speed": 34,
+      "radius": 10,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 36,
+      "comboContactCount": 1,
+      "name": "リングテイルランサー"
+    },
+    "flameburst_mythron": {
+      "name": "フレイムリングジャイアント",
+      "hp": 1300,
+      "dmg": 38,
+      "rate": 2.6,
+      "speed": 20,
+      "radius": 24,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 42,
+      "burstRadius": 60,
+      "burstDamage": 38,
+      "burstCooldownTicks": 156,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "bloodsurge_pillarist": {
+      "name": "クリムゾンピラー",
+      "hp": 85,
+      "dmg": 28,
+      "rate": 1.5,
+      "speed": 28,
+      "radius": 10,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "touchOffset": 23,
+      "touchRadius": 6
+    },
+    "baast_handtripler": {
+      "name": "フックチャンプ",
+      "hp": 125,
+      "dmg": 10,
+      "rate": 2.3,
+      "speed": 30,
+      "radius": 11,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 30,
+      "comboFinalDamage": 22
+    },
+    "metaltooth_duelist": {
+      "hp": 115,
+      "dmg": 18,
+      "rate": 2,
+      "speed": 36,
+      "radius": 10,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 48,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true,
+      "name": "レッドメタルデュエリスト"
+    },
+    "icy_dualslasher": {
+      "name": "アイスピクシー",
+      "hp": 60,
+      "dmg": 10,
+      "rate": 1.8,
+      "speed": 36,
+      "radius": 7,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "flying": true,
+      "twoHitTicks": 18,
+      "twoHitFamily": "air-duelist"
+    },
+    "crystalback_rae": {
+      "name": "クリスタルバック",
+      "hp": 42,
+      "dmg": 20,
+      "rate": 1.2,
+      "speed": 38,
+      "radius": 7,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "orbslam_zyx": {
+      "name": "ランタントカゲ",
+      "hp": 80,
+      "dmg": 42,
+      "rate": 1.8,
+      "speed": 28,
+      "radius": 7,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "touchOffset": 36,
+      "touchRadius": 12
+    },
+    "brass_flareslinger": {
+      "name": "ブラスシューター",
+      "hp": 55,
+      "dmg": 20,
+      "rate": 1.6,
+      "speed": 30,
+      "radius": 9,
+      "reach": 125,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "projectileSpeed": 240,
+      "projectileLifetimeTicks": 120,
+      "trackedProjectile": true
+    },
+    "sunbreak_pillar_guardian": {
+      "name": "サンピラーライオン",
+      "hp": 220,
+      "dmg": 46,
+      "rate": 2.2,
+      "speed": 22,
+      "radius": 14,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 41,
+      "pillarRadius": 10,
+      "pillarWindupTicks": 36,
+      "pillarTargetCap": 2
+    },
+    "bobble_mender": {
+      "name": "バブルホーンヒーラー",
+      "hp": 40,
+      "dmg": 0,
+      "rate": 2.2,
+      "speed": 24,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 7,
+      "groupHealRadius": 85,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "rune_cube_warder": {
+      "name": "ルーンキューブガード",
+      "hp": 100,
+      "dmg": 0,
+      "rate": 3,
+      "speed": 0,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 90,
+      "singleWardReduction": 0.25,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 3,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "darkclaw_harbinger": {
+      "name": "ダーククロービースト",
+      "hp": 50,
+      "dmg": 6,
+      "rate": 1.1,
+      "speed": 26,
+      "radius": 9,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "lifestealRatio": 0.35
+    },
+    "whirlsilk_cat": {
+      "name": "シルクスピンキャット",
+      "hp": 55,
+      "dmg": 16,
+      "rate": 1.1,
+      "speed": 38,
+      "radius": 9,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "twinflare_fox": {
+      "name": "キツネビ",
+      "hp": 85,
+      "dmg": 34,
+      "rate": 1.8,
+      "speed": 32,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 30,
+      "pillarRadius": 12,
+      "pillarWindupTicks": 18,
+      "pillarTargetCap": 2
+    },
+    "redshield_tripler": {
+      "name": "ブレイズナイト",
+      "hp": 125,
+      "dmg": 10,
+      "rate": 2.4,
+      "speed": 26,
+      "radius": 12,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 24,
+      "comboThirdTicks": 21,
+      "comboFinalDamage": 32
+    },
+    "shellburst_arcade": {
+      "name": "シェルウェーブファイター",
+      "hp": 100,
+      "dmg": 22,
+      "rate": 1.4,
+      "speed": 34,
+      "radius": 10,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 24,
+      "burstRadius": 16,
+      "burstDamage": 22,
+      "burstCooldownTicks": 84,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "deathExplosionDamage": 30,
+      "deathExplosionRadius": 36,
+      "deathExplosionTargetCap": 4
+    },
+    "accretion_burstcore": {
+      "name": "ダークライトコア",
+      "hp": 1150,
+      "dmg": 48,
+      "rate": 1.8,
+      "speed": 22,
+      "radius": 16,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "burstWindupTicks": 54,
+      "burstRadius": 28,
+      "burstDamage": 48,
+      "burstCooldownTicks": 108,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "deathknell_cutpillar": {
+      "name": "ナイトウィッチ",
+      "hp": 200,
+      "dmg": 25,
+      "rate": 1.8,
+      "speed": 34,
+      "radius": 10,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 24,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "redtail_whipper": {
+      "name": "レッドテイルウィップ",
+      "hp": 30,
+      "dmg": 8,
+      "rate": 0.9,
+      "speed": 32,
+      "radius": 8,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "ringblade_maehv": {
+      "name": "リングデーモン",
+      "hp": 200,
+      "dmg": 16,
+      "rate": 2.4,
+      "speed": 34,
+      "radius": 11,
+      "reach": 7,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 12,
+      "comboThirdTicks": 36,
+      "comboFinalDamage": 24
+    },
+    "dreamflash_oracle": {
+      "name": "ドリームライトビースト",
+      "hp": 70,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 30,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 90,
+      "singleWardReduction": 0.5,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "candle_archdeacon": {
+      "name": "キャンドルプリースト",
+      "hp": 130,
+      "dmg": 0,
+      "rate": 2.8,
+      "speed": 18,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 12,
+      "groupHealRadius": 110,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "reviveRadius": 90,
+      "reviveWindupTicks": 90,
+      "reviveHpRatio": 0.25,
+      "reviveHpCap": 60
+    },
+    "wavepole_adept": {
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "name": "ウェーブポールファイター",
+      "hp": 120,
+      "dmg": 22,
+      "rate": 2,
+      "speed": 28,
+      "radius": 11,
+      "reach": 6,
+      "highKind": "breath",
+      "highRadius": 40,
+      "highHalfAngle": 35,
+      "highTargetCap": 3,
+      "highWindupTicks": 24
+    },
+    "shade_trislasher": {
+      "name": "カゲオニ",
+      "hp": 105,
+      "dmg": 12,
+      "rate": 2.1,
+      "speed": 34,
+      "radius": 11,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 18,
+      "comboThirdTicks": 24,
+      "comboFinalDamage": 18
+    },
+    "twinpulse_mage": {
+      "name": "ツノシャーマン",
+      "hp": 125,
+      "dmg": 20,
+      "rate": 2.2,
+      "speed": 26,
+      "radius": 12,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "twoHitTicks": 21,
+      "twoHitFamily": "ground-configurable",
+      "twoHitCleanupStable": true
+    },
+    "redbud_blightbeast": {
+      "name": "レッドバッドソーン",
+      "hp": 155,
+      "dmg": 24,
+      "rate": 1.6,
+      "speed": 24,
+      "radius": 14,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "burstWindupTicks": 18,
+      "burstRadius": 30,
+      "burstDamage": 24,
+      "burstCooldownTicks": 96,
+      "burstTargetCap": 3,
+      "burstCleanupStable": true
+    },
+    "abyssal_palmweaver": {
+      "name": "アビスパームメイジ",
+      "hp": 100,
+      "dmg": 30,
+      "rate": 1.7,
+      "speed": 30,
+      "radius": 9,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 46,
+      "coneHalfAngle": 35,
+      "coneTargetCap": 3
+    },
+    "origami_wingburst": {
+      "name": "オリガミウィング",
+      "hp": 200,
+      "dmg": 42,
+      "rate": 2,
+      "speed": 24,
+      "radius": 10,
+      "reach": 8,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true,
+      "burstWindupTicks": 60,
+      "burstRadius": 28,
+      "burstDamage": 42,
+      "burstCooldownTicks": 120,
+      "burstTargetCap": 4,
+      "burstCleanupStable": true
+    },
+    "ochre_antlerclaw": {
+      "name": "オーカーホーンクロー",
+      "hp": 100,
+      "dmg": 12,
+      "rate": 1.5,
+      "speed": 26,
+      "radius": 8,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "komodo_fiveclaw": {
+      "name": "コモドリザード",
+      "hp": 190,
+      "dmg": 9,
+      "rate": 3,
+      "speed": 24,
+      "radius": 13,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 5,
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 9,
+      "comboThirdTicks": 9,
+      "comboFourthTicks": 12,
+      "comboFifthTicks": 18,
+      "comboFinalDamage": 24
+    },
+    "quadcut_swordmaster": {
+      "name": "ソードマスター",
+      "hp": 210,
+      "dmg": 12,
+      "rate": 2.8,
+      "speed": 28,
+      "radius": 12,
+      "reach": 12,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 4,
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 6,
+      "comboThirdTicks": 6,
+      "comboFourthTicks": 12,
+      "comboFinalDamage": 26
+    },
+    "latecut_staffblade": {
+      "name": "クリスタルランサー",
+      "hp": 240,
+      "dmg": 54,
+      "rate": 2.4,
+      "speed": 24,
+      "radius": 9,
+      "reach": 13,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 1,
+      "comboWindupTicks": 42
+    },
+    "skullflare_triad": {
+      "name": "スカルソーサラー",
+      "hp": 1250,
+      "dmg": 18,
+      "rate": 3,
+      "speed": 20,
+      "radius": 21,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 18,
+      "comboSecondTicks": 18,
+      "comboFinalDamage": 36,
+      "comboStageContacts": [
+        {
+          "mode": "forward-disk",
+          "offset": 70,
+          "radius": 20
+        },
+        {
+          "mode": "forward-disk",
+          "offset": 70,
+          "radius": 20
+        },
+        {
+          "mode": "forward-disk",
+          "offset": 70,
+          "radius": 20
+        }
+      ],
+      "comboThirdTicks": 54,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "floatinghelm_tripler": {
+      "name": "フローティングヘルム",
+      "hp": 235,
+      "dmg": 18,
+      "rate": 2.8,
+      "speed": 26,
+      "radius": 12,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboWindupTicks": 12,
+      "comboSecondTicks": 30,
+      "comboFinalDamage": 28,
+      "comboStageContacts": [
+        {
+          "mode": "reach"
+        },
+        {
+          "mode": "reach"
+        },
+        {
+          "mode": "forward-disk",
+          "offset": 20,
+          "radius": 2
+        }
+      ],
+      "comboThirdTicks": 36
+    },
+    "ashbone_swordsman": {
+      "name": "アッシュボーンソード",
+      "hp": 65,
+      "dmg": 17,
+      "rate": 1.15,
+      "speed": 30,
+      "radius": 9,
+      "reach": 11,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "punchcap_mushroom": {
+      "name": "パンチマッシュルーム",
+      "hp": 85,
+      "dmg": 20,
+      "rate": 1.8,
+      "speed": 24,
+      "radius": 7,
+      "reach": 9,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "mushroomTrapCharges": 1,
+      "mushroomTrapDurationTicks": 600,
+      "mushroomTrapArmingTicks": 45,
+      "mushroomTrapRadius": 24,
+      "mushroomTrapDamage": 12
+    },
+    "fangeye_flier": {
+      "name": "ファングアイフライヤー",
+      "hp": 55,
+      "dmg": 10,
+      "rate": 1.2,
+      "speed": 34,
+      "radius": 7,
+      "reach": 7,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "ooze_slammer": {
+      "name": "スライムスラマー",
+      "hp": 155,
+      "dmg": 27,
+      "rate": 1.3,
+      "speed": 26,
+      "radius": 9,
+      "reach": 13,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "clawring_bat": {
+      "name": "リングクローバット",
+      "hp": 38,
+      "dmg": 12,
+      "rate": 1.1,
+      "speed": 44,
+      "radius": 8,
+      "reach": 12,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "jawchest_mimic": {
+      "name": "ミミック",
+      "hp": 175,
+      "dmg": 32,
+      "rate": 1.7,
+      "speed": 24,
+      "radius": 10,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "spectralhand_wizard": {
+      "name": "スピリットハンドメイジ",
+      "hp": 190,
+      "dmg": 68,
+      "rate": 2.3,
+      "speed": 24,
+      "radius": 14,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 70,
+      "pillarRadius": 12,
+      "pillarWindupTicks": 30,
+      "pillarTargetCap": 2
+    },
+    "crownblade_king": {
+      "name": "クラウンブレイドキング",
+      "hp": 115,
+      "dmg": 22,
+      "rate": 1.3,
+      "speed": 28,
+      "radius": 10,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "spearcut_huntress": {
+      "name": "スピアハントレス",
+      "hp": 80,
+      "dmg": 20,
+      "rate": 1,
+      "speed": 35,
+      "radius": 8,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "bluecoat_blader": {
+      "name": "ブルーコートブレイダー",
+      "hp": 120,
+      "dmg": 24,
+      "rate": 1.5,
+      "speed": 26,
+      "radius": 10,
+      "reach": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "redtunic_swordsman": {
+      "name": "レッドコートソード",
+      "hp": 60,
+      "dmg": 15,
+      "rate": 1.2,
+      "speed": 32,
+      "radius": 8,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "hooded_ghost": {
+      "name": "フードゴーストヒーラー",
+      "hp": 30,
+      "dmg": 0,
+      "rate": 1.4,
+      "speed": 26,
+      "radius": 7,
+      "reach": 0,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 10,
+      "groupHealRadius": 85,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "scarfhat_swordsman": {
+      "name": "スカーフハットソード",
+      "hp": 80,
+      "dmg": 24,
+      "rate": 1.1,
+      "speed": 34,
+      "radius": 9,
+      "reach": 17,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "wrapped_mummy": {
+      "name": "リトルマミー",
+      "hp": 18,
+      "dmg": 9,
+      "rate": 0.9,
+      "speed": 42,
+      "radius": 5,
+      "reach": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "plume_swordknight": {
+      "name": "フェザーナイト",
+      "hp": 110,
+      "dmg": 22,
+      "rate": 1.35,
+      "speed": 27,
+      "radius": 10,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "ringfall_chakkram": {
+      "name": "フォーリングリングメイジ",
+      "hp": 90,
+      "dmg": 44,
+      "rate": 1.8,
+      "speed": 28,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "pillarOffset": 24,
+      "pillarRadius": 10,
+      "pillarWindupTicks": 30,
+      "pillarTargetCap": 1
+    },
+    "eggshell_repairpod": {
+      "hp": 35,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 0,
+      "radius": 8,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true,
+      "selfRepairCharges": 3,
+      "selfRepairAmount": 30,
+      "selfRepairWindupTicks": 36,
+      "selfRepairCooldownTicks": 120,
+      "name": "リペアエッグ",
+      "reflectionRatio": 1.5
+    },
+    "bonecolumn_warder": {
+      "name": "ボーンピラーガード",
+      "hp": 75,
+      "dmg": 0,
+      "rate": 2.5,
+      "speed": 0,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 115,
+      "singleWardReduction": 0.3,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2.5,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "clubnose_forest_troll": {
+      "name": "ロングノーズトロル",
+      "hp": 42,
+      "dmg": 9,
+      "rate": 1.4,
+      "speed": 30,
+      "radius": 6,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "forkbill_strider": {
+      "name": "ホネザウルス",
+      "hp": 95,
+      "dmg": 20,
+      "rate": 1.35,
+      "speed": 34,
+      "radius": 12,
+      "reach": 16,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "opalfin_sky_ray": {
+      "name": "ジェイドフィンガード",
+      "hp": 70,
+      "dmg": 0,
+      "rate": 2,
+      "speed": 28,
+      "radius": 12,
+      "reach": 0,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "singleWardRadius": 120,
+      "singleWardReduction": 0.4,
+      "singleWardDuration": 3,
+      "singleWardCooldown": 2,
+      "cadenceClass": "support",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "kilnback_pincerbeast": {
+      "name": "ブルークラブジャイアント",
+      "hp": 1450,
+      "dmg": 72,
+      "rate": 2.7,
+      "speed": 20,
+      "radius": 22,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 1,
+      "comboWindupTicks": 36,
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "copperbrow_bristle_ram": {
+      "name": "パープルテイルクロー",
+      "hp": 115,
+      "dmg": 22,
+      "rate": 1.4,
+      "speed": 30,
+      "radius": 12,
+      "reach": 14,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "glasswing_sting_moth": {
+      "name": "ダスクウィングブレイド",
+      "hp": 32,
+      "dmg": 14,
+      "rate": 1.2,
+      "speed": 38,
+      "radius": 7,
+      "reach": 13,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "exposureMultiplier": 1.2,
+      "exposureTicks": 120,
+      "exposureLockTicks": 210
+    },
+    "bellgill_mender": {
+      "name": "ホーリーリングヒーラー",
+      "hp": 32,
+      "dmg": 0,
+      "rate": 2.4,
+      "speed": 22,
+      "radius": 9,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 9,
+      "groupHealRadius": 75,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "archclapper_walker": {
+      "name": "ストーンブレイドガード",
+      "hp": 145,
+      "dmg": 36,
+      "rate": 2,
+      "speed": 20,
+      "radius": 14,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 1,
+      "comboWindupTicks": 24
+    },
+    "ribbed_fanclam": {
+      "name": "ブルーリングフロート",
+      "hp": 75,
+      "dmg": 20,
+      "rate": 1.6,
+      "speed": 20,
+      "radius": 12,
+      "reach": 105,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "projectile": true,
+      "trackedProjectile": true,
+      "projectileSpeed": 210,
+      "projectileLifetimeTicks": 120
+    },
+    "duskgargoyle_clawer": {
+      "name": "スカイブレイドマシン",
+      "hp": 45,
+      "dmg": 14,
+      "rate": 1.4,
+      "speed": 32,
+      "radius": 9,
+      "reach": 7,
+      "collisionLayer": "air",
+      "flying": true,
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 1,
+      "comboWindupTicks": 24
+    },
+    "duskbrown_rat": {
+      "name": "イワトカゲ",
+      "hp": 38,
+      "dmg": 8,
+      "rate": 1.2,
+      "speed": 36,
+      "radius": 8,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "comboContactCount": 1,
+      "comboWindupTicks": 12
+    },
+    "duskflutter_bat": {
+      "name": "フロストウルフバット",
+      "hp": 28,
+      "dmg": 6,
+      "rate": 1.1,
+      "speed": 46,
+      "radius": 5,
+      "reach": 2,
+      "collisionLayer": "air",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "flying": true
+    },
+    "puffcap_mender": {
+      "name": "ホワイトパームプリースト",
+      "hp": 50,
+      "dmg": 0,
+      "rate": 2.6,
+      "speed": 20,
+      "radius": 10,
+      "reach": 0,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ],
+      "groupHealAmount": 12,
+      "groupHealRadius": 80,
+      "groupHealCap": 1,
+      "cadenceClass": "healing",
+      "hasteExcluded": true,
+      "supportOnly": true
+    },
+    "branchsweep_treant": {
+      "name": "ブランチアームガード",
+      "hp": 145,
+      "dmg": 30,
+      "rate": 2,
+      "speed": 20,
+      "radius": 14,
+      "reach": 10,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "coneRadius": 30,
+      "coneHalfAngle": 35,
+      "coneTargetCap": 2
+    },
+    "willyee_ghoul": {
+      "name": "グール",
+      "hp": 118,
+      "dmg": 18,
+      "rate": 1.1,
+      "speed": 24,
+      "radius": 11,
+      "reach": 7,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "lifestealRatio": 0.25
+    },
+    "willyee_hellhound": {
+      "name": "ヘルハウンド",
+      "hp": 96,
+      "dmg": 17,
+      "range": 25,
+      "rate": 1,
+      "speed": 40,
+      "radius": 10,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_skel_archer": {
+      "name": "ブルーフレイムアーチャー",
+      "hp": 68,
+      "dmg": 14,
+      "range": 145,
+      "rate": 1.3,
+      "speed": 22,
+      "radius": 8,
+      "reach": 127,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ]
+    },
+    "willyee_ogre": {
+      "name": "ブラッドアイアンブレイバー",
+      "hp": 150,
+      "dmg": 20,
+      "range": 28,
+      "rate": 1.45,
+      "speed": 18,
+      "radius": 15,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_goblin": {
+      "name": "ダガーマーセナリー",
+      "hp": 80,
+      "dmg": 13,
+      "range": 18,
+      "rate": 0.85,
+      "speed": 48,
+      "radius": 8,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_lizardman": {
+      "name": "ブルースケイルファイター",
+      "hp": 110,
+      "dmg": 17,
+      "range": 28,
+      "rate": 1.1,
+      "speed": 28,
+      "radius": 10,
+      "reach": 9,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_scorpion": {
+      "name": "フレイムクラブマシン",
+      "hp": 105,
+      "dmg": 18,
+      "range": 25,
+      "rate": 1.2,
+      "speed": 27,
+      "radius": 10,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_knight": {
+      "name": "ゴールドナイト",
+      "hp": 140,
+      "dmg": 14,
+      "range": 25,
+      "rate": 1.2,
+      "speed": 24,
+      "radius": 11,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_rogue": {
+      "name": "ダガーローグ",
+      "hp": 70,
+      "dmg": 12,
+      "range": 22,
+      "rate": 0.8,
+      "speed": 42,
+      "radius": 7,
+      "reach": 4,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_monk": {
+      "name": "モンク",
+      "hp": 100,
+      "dmg": 16,
+      "range": 24,
+      "rate": 0.9,
+      "speed": 30,
+      "radius": 8,
+      "reach": 6,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_robed_fighter": {
+      "name": "スターローブソード",
+      "hp": 95,
+      "dmg": 17,
+      "range": 27,
+      "rate": 1,
+      "speed": 25,
+      "radius": 9,
+      "reach": 8,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_alchemist": {
+      "name": "ブルーオーブメイジ",
+      "hp": 75,
+      "dmg": 12,
+      "range": 130,
+      "rate": 1.4,
+      "speed": 24,
+      "radius": 8,
+      "reach": 112,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground",
+        "air"
+      ]
+    },
+    "willyee_ribbon_dancer": {
+      "name": "ジェイドダンサー",
+      "hp": 85,
+      "dmg": 13,
+      "range": 29,
+      "rate": 0.95,
+      "speed": 34,
+      "radius": 8,
+      "reach": 11,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_02": {
+      "name": "クラフトメイジ",
+      "hp": 82,
+      "dmg": 17,
+      "range": 130,
+      "rate": 1.5,
+      "speed": 24,
+      "projectile": true,
+      "radius": 9,
+      "reach": 110,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_08": {
+      "name": "ブルーライトウォーロック",
+      "hp": 90,
+      "dmg": 18,
+      "range": 85,
+      "rate": 1.6,
+      "speed": 23,
+      "projectile": true,
+      "radius": 9,
+      "reach": 65,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_42": {
+      "name": "ジュエルマスター",
+      "hp": 100,
+      "dmg": 15,
+      "range": 115,
+      "rate": 1.45,
+      "speed": 21,
+      "projectile": true,
+      "radius": 9,
+      "reach": 94,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_47": {
+      "name": "リーフメインビースト",
+      "hp": 100,
+      "dmg": 17,
+      "range": 37,
+      "rate": 1.2,
+      "speed": 29,
+      "radius": 10,
+      "reach": 19,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_51": {
+      "name": "スチールガード",
+      "hp": 125,
+      "dmg": 20,
+      "range": 26,
+      "rate": 1.3,
+      "speed": 25,
+      "radius": 10,
+      "reach": 9,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_54": {
+      "name": "スターセージ",
+      "hp": 70,
+      "dmg": 14,
+      "range": 150,
+      "rate": 1.25,
+      "speed": 24,
+      "projectile": true,
+      "radius": 8,
+      "reach": 132,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_03_axe_wayfarer": {
+      "name": "アックスワンダラー",
+      "hp": 100,
+      "dmg": 20,
+      "range": 25,
+      "rate": 1,
+      "speed": 30,
+      "radius": 9,
+      "reach": 7,
+      "comboContactCount": 1,
+      "comboWindupTicks": 18,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_10_lute_bard": {
+      "name": "クリムゾンメイジ",
+      "hp": 65,
+      "dmg": 14,
+      "range": 130,
+      "rate": 1.25,
+      "speed": 24,
+      "radius": 8,
+      "reach": 112,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_22_crescent_reaper": {
+      "name": "ムーンブレイドウォリアー",
+      "hp": 95,
+      "dmg": 18,
+      "range": 25,
+      "rate": 1.05,
+      "speed": 28,
+      "radius": 9,
+      "reach": 7,
+      "coneRadius": 38,
+      "coneHalfAngle": 40,
+      "coneTargetCap": 2,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_34_goldring_caster": {
+      "name": "ファイアスターターメイジ",
+      "hp": 75,
+      "dmg": 16,
+      "range": 125,
+      "rate": 1.2,
+      "speed": 23,
+      "radius": 9,
+      "reach": 107,
+      "projectile": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_43_redgauntlet_brawler": {
+      "name": "ブルーフィストソルジャー",
+      "hp": 85,
+      "dmg": 16,
+      "range": 24,
+      "rate": 0.9,
+      "speed": 34,
+      "radius": 8,
+      "reach": 5,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_48_horned_heavy": {
+      "name": "ルビーナイト",
+      "hp": 125,
+      "dmg": 14,
+      "range": 25,
+      "rate": 1.15,
+      "speed": 24,
+      "radius": 11,
+      "reach": 5,
+      "armor": 0.2,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_char_52_spiked_hammerer": {
+      "name": "ゴールドブレイドヘビー",
+      "hp": 120,
+      "dmg": 22,
+      "range": 25,
+      "rate": 1.5,
+      "speed": 23,
+      "radius": 12,
+      "reach": 4,
+      "burstWindupTicks": 24,
+      "burstRadius": 22,
+      "burstDamage": 22,
+      "burstCooldownTicks": 90,
+      "burstTargetCap": 2,
+      "burstCleanupStable": true,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ]
+    },
+    "willyee_frost_dragon": {
+      "name": "フロストホワイトドラゴン",
+      "hp": 1900,
+      "dmg": 48,
+      "rate": 2.7,
+      "speed": 16,
+      "radius": 27,
+      "reach": 12,
+      "highKind": "breath",
+      "highWindupTicks": 45,
+      "highRadius": 70,
+      "highHalfAngle": 35,
+      "highTargetCap": 3,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    },
+    "willyee_stone_golem": {
+      "name": "クリスタルハンマーガード",
+      "hp": 2150,
+      "dmg": 50,
+      "range": 27,
+      "rate": 2.8,
+      "speed": 14,
+      "radius": 26,
+      "reach": 2,
+      "mass": 2600,
+      "collisionLayer": "ground",
+      "attackTargetMask": [
+        "ground"
+      ],
+      "boss": true,
+      "bossDamageScale": 1,
+      "armor": 0.5,
+      "bossAbilityVersion": 1
+    }
+  },
+  "catalog": {
+    "sword": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "openingTop": 63,
+      "openingBottom": 17
+    },
+    "shield": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "openingTop": 47,
+      "openingBottom": 5
+    },
+    "spear": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "openingTop": 54,
+      "openingBottom": 0
+    },
+    "archer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 8,
+      "air": true,
+      "openingTop": 52,
+      "openingBottom": 2
+    },
+    "cannon": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 14,
+      "air": true,
+      "openingTop": 44,
+      "openingBottom": 1
+    },
+    "rider": {
+      "cost": 9,
+      "estimateCost": 9,
+      "radius": 15,
+      "air": false,
+      "openingTop": 56,
+      "openingBottom": 1
+    },
+    "healer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 8,
+      "air": false,
+      "openingTop": 71,
+      "openingBottom": 18
+    },
+    "goblin": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "golem": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 25,
+      "air": false,
+      "openingTop": 78,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "drake": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 13,
+      "air": true,
+      "openingTop": 76,
+      "openingBottom": -11
+    },
+    "wraith": {
+      "cost": 9,
+      "estimateCost": 9,
+      "radius": 9,
+      "air": true,
+      "openingTop": 71,
+      "openingBottom": -10,
+      "deploymentUnits": 5
+    },
+    "boar": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 14,
+      "air": false,
+      "openingTop": 52,
+      "openingBottom": 3
+    },
+    "bombbug": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "openingTop": 50,
+      "openingBottom": 1
+    },
+    "frostmage": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": true,
+      "openingTop": 48,
+      "openingBottom": 1
+    },
+    "stormmage": {
+      "cost": 6,
+      "estimateCost": 9,
+      "radius": 8,
+      "air": true,
+      "openingTop": 56,
+      "openingBottom": 0
+    },
+    "burrower": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 11,
+      "air": false,
+      "openingTop": 53,
+      "openingBottom": 14
+    },
+    "slime": {
+      "cost": 12,
+      "estimateCost": 12,
+      "radius": 16,
+      "air": false,
+      "openingTop": 42,
+      "openingBottom": 1,
+      "boss": true,
+      "deploymentUnits": 2
+    },
+    "screech_cricket": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "openingTop": 35,
+      "openingBottom": 3
+    },
+    "reaper_mantis": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 13,
+      "air": false,
+      "openingTop": 57,
+      "openingBottom": 1
+    },
+    "spore_toad": {
+      "cost": 12,
+      "estimateCost": 12,
+      "radius": 17,
+      "air": false,
+      "openingTop": 68,
+      "openingBottom": 3,
+      "boss": true
+    },
+    "rootwarden_treant": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 27,
+      "air": false,
+      "openingTop": 151,
+      "openingBottom": 5,
+      "boss": true
+    },
+    "sky_harpooner": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": true,
+      "openingTop": 59,
+      "openingBottom": 6
+    },
+    "bounty_hound": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "openingTop": 53,
+      "openingBottom": 7
+    },
+    "siege_crab": {
+      "cost": 36,
+      "estimateCost": 36,
+      "radius": 28,
+      "air": false,
+      "openingTop": 122,
+      "openingBottom": 11,
+      "boss": true
+    },
+    "voltaic_beetle": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 12,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 50,
+      "openingBottom": 1
+    },
+    "crystal_tailbeast": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 33,
+      "openingBottom": 1
+    },
+    "froststing_hornet": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 53,
+      "openingBottom": 0
+    },
+    "onyx_scorpion": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 40,
+      "openingBottom": 4
+    },
+    "saberspine_tiger": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 35,
+      "openingBottom": 1
+    },
+    "maw_beast": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 24,
+      "openingBottom": 1
+    },
+    "fireclaw_hawk": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 55,
+      "openingBottom": 4
+    },
+    "frosthorn_rhino": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 46,
+      "openingBottom": 3,
+      "boss": true
+    },
+    "azure_mane_lion": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 45,
+      "openingBottom": 2
+    },
+    "longtail_lizard": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 32,
+      "openingBottom": 6
+    },
+    "rune_exorcist": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 49,
+      "openingBottom": 0
+    },
+    "knife_skirmisher": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "common_orc": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 62,
+      "openingBottom": 1
+    },
+    "stone_mason": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 37,
+      "openingBottom": 2
+    },
+    "toll_squire": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 30,
+      "openingBottom": 1
+    },
+    "choir_friar": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 37,
+      "openingBottom": 1,
+      "supportOnly": true
+    },
+    "spirit_fan_wolf": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 38,
+      "openingBottom": 1
+    },
+    "breath_imp": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "thornback_beast": {
+      "cost": 16,
+      "estimateCost": 16,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 66,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "basalt_titan": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 26,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 84,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "bone_crown_lich": {
+      "cost": 12,
+      "estimateCost": 12,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 110,
+      "openingBottom": 2,
+      "deploymentUnits": 7
+    },
+    "orb_hunter": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 61,
+      "openingBottom": 1
+    },
+    "aegis_warden": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 15,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 52,
+      "openingBottom": 0,
+      "supportOnly": true
+    },
+    "glimmer_sprite": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 52,
+      "openingBottom": 2
+    },
+    "followup_cub": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 24,
+      "openingBottom": 5
+    },
+    "frostbreath_lizard": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 90,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "cleaver_brute": {
+      "cost": 40,
+      "estimateCost": 40,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 104,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "repair_pylon": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 50,
+      "openingBottom": 2
+    },
+    "repulsion_eye": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 37,
+      "openingBottom": 1
+    },
+    "wingblade_duelist": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": true,
+      "flying": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 77,
+      "openingBottom": 0
+    },
+    "spinning_tailbeast": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 44,
+      "openingBottom": 2
+    },
+    "silver_wingbird": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 58,
+      "openingBottom": 1
+    },
+    "gauntlet_combo_guard": {
+      "cost": 20,
+      "estimateCost": 20,
+      "radius": 16,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 45,
+      "openingBottom": 5,
+      "boss": true
+    },
+    "shadow_runner": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 24,
+      "openingBottom": 1
+    },
+    "palmstrike_adept": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 59,
+      "openingBottom": 1
+    },
+    "shockplate_drake": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 100,
+      "openingBottom": 4,
+      "boss": true
+    },
+    "boulder_slammer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 57,
+      "openingBottom": 2
+    },
+    "crescent_blade_dancer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 52,
+      "openingBottom": 3
+    },
+    "feral_fistfighter": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 44,
+      "openingBottom": 1
+    },
+    "thunderhorn_beast": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 90,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "roarfang_beast": {
+      "cost": 16,
+      "estimateCost": 16,
+      "radius": 17,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 49,
+      "openingBottom": 7,
+      "boss": true
+    },
+    "gilded_shooter": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 51,
+      "openingBottom": 2
+    },
+    "lumen_charger": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 10,
+      "air": true,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 38,
+      "openingBottom": 1
+    },
+    "spark_bird": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 6,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 37,
+      "openingBottom": 0
+    },
+    "azure_blade_trio": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 39,
+      "openingBottom": 1
+    },
+    "crimson_mender": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 31,
+      "openingBottom": 1
+    },
+    "emberwing_drake": {
+      "cost": 20,
+      "estimateCost": 20,
+      "radius": 16,
+      "air": false,
+      "flying": true,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 77,
+      "openingBottom": 5,
+      "boss": true
+    },
+    "poleblade_dancer": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 39,
+      "openingBottom": 2
+    },
+    "vortex_adept": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 54,
+      "openingBottom": 2
+    },
+    "ward_bastion": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 71,
+      "openingBottom": 0
+    },
+    "carapace_slashbeast": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 96,
+      "openingBottom": 4,
+      "boss": true
+    },
+    "sweep_acolyte": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 38,
+      "openingBottom": 0
+    },
+    "tumbling_critter": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 6,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 16,
+      "openingBottom": 1
+    },
+    "triad_chimera": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 18,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 44,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "pillar_hammerer": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 96,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "oni_wavelet": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 33,
+      "openingBottom": 0
+    },
+    "vex_touchbeast": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 19,
+      "openingBottom": 1
+    },
+    "wandering_warder": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 57,
+      "openingBottom": 0
+    },
+    "bluefist_colossus": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 94,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "curved_blade_raider": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 33,
+      "openingBottom": 1
+    },
+    "coiltail_halberdier": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 49,
+      "openingBottom": 1
+    },
+    "cinderbow_archer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": true,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 62,
+      "openingBottom": 2
+    },
+    "cinder_tailbeast": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 106,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "redmask_duelist": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "crownshield_guard": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 35,
+      "openingBottom": 1
+    },
+    "goldring_core": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 12,
+      "air": false,
+      "flying": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 40,
+      "openingBottom": 1
+    },
+    "finback_clawbeast": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "tendril_revenant": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 60,
+      "openingBottom": 1
+    },
+    "razorclaw_reaver": {
+      "cost": 36,
+      "estimateCost": 36,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 114,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "dusk_winglet": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 47,
+      "openingBottom": 1
+    },
+    "windcloth_duelist": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 34,
+      "openingBottom": 3
+    },
+    "antler_archer": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": true,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 29,
+      "openingBottom": 2
+    },
+    "ringneck_prowler": {
+      "cost": 40,
+      "estimateCost": 40,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 100,
+      "openingBottom": 10,
+      "boss": true
+    },
+    "bluehorn_invoker": {
+      "cost": 40,
+      "estimateCost": 40,
+      "radius": 23,
+      "air": false,
+      "flying": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 118,
+      "openingBottom": 12,
+      "boss": true
+    },
+    "light_bowman": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": true,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 25,
+      "openingBottom": 1
+    },
+    "halo_healer": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true,
+      "openingTop": 63,
+      "openingBottom": 1
+    },
+    "shellpulse_beast": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 29,
+      "openingBottom": 1
+    },
+    "crystal_glint_wisp": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 57,
+      "openingBottom": 2
+    },
+    "emberstring_archer": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": true,
+      "flying": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false,
+      "openingTop": 50,
+      "openingBottom": 2
+    },
+    "tetherlash_adept": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 63,
+      "openingBottom": 5
+    },
+    "tigermask_archer": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 11,
+      "air": true,
+      "flying": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "openingTop": 67,
+      "openingBottom": 1
+    },
+    "goldwing_skirmisher": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "openingTop": 50,
+      "openingBottom": 1,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "supportOnly": false
+    },
+    "triangle_warder": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 56,
+      "openingBottom": 1,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true
+    },
+    "scarlet_bladebeast": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 53,
+      "openingBottom": 1,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false
+    },
+    "bonefan_reaper": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "openingTop": 118,
+      "openingBottom": 8,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "gilded_hopper": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 63,
+      "openingBottom": 4,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false
+    },
+    "goldmask_pugilist": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "openingTop": 49,
+      "openingBottom": 1,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false
+    },
+    "azure_bear_brawler": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "openingTop": 69,
+      "openingBottom": 1,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false
+    },
+    "flamering_magus": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 18,
+      "air": false,
+      "flying": false,
+      "openingTop": 122,
+      "openingBottom": 2,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "wheelblade_knight": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "openingTop": 65,
+      "openingBottom": 4,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false
+    },
+    "emberfist_pillarer": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 23,
+      "air": false,
+      "flying": false,
+      "openingTop": 144,
+      "openingBottom": 2,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "domeback_colossus": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "openingTop": 94,
+      "openingBottom": 4,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": true
+    },
+    "rosewhirl_critter": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "openingTop": 36,
+      "openingBottom": 2,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "supportOnly": false
+    },
+    "crestblade_sentinel": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 36,
+      "openingBottom": 1,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "supportOnly": false
+    },
+    "sootclaw_critter": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "openingTop": 42,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true
+    },
+    "silverflare_archer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": true,
+      "flying": false,
+      "openingTop": 48,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "redblade_strider": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "openingTop": 91,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "greenflame_triad": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 54,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "ashstaff_healer": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 37,
+      "openingBottom": 1,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false
+    },
+    "brownblade_scout": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 31,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true
+    },
+    "ghostclaw_lynx": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 40,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "bluewhip_minion": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 47,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true
+    },
+    "wavebody_adept": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "openingTop": 49,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "moonclaw_werewolf": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "openingTop": 110,
+      "openingBottom": 4,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "boss": true
+    },
+    "ringhold_guardian": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 18,
+      "air": false,
+      "flying": false,
+      "openingTop": 108,
+      "openingBottom": 4,
+      "supportOnly": true,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "disc_crown_mender": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 50,
+      "openingBottom": 1,
+      "supportOnly": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "thornspin_ooze": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "openingTop": 33,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false
+    },
+    "bloodmoon_crescent": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "openingTop": 38,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "drumhammer_sister": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "openingTop": 62,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "bubble_shadow_mender": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "openingTop": 47,
+      "openingBottom": 1,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false
+    },
+    "locust_pulsefighter": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "openingTop": 57,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "spikeburst_grinder": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "openingTop": 118,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "boss": true
+    },
+    "bubbleclaw_plaguer": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 57,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "spinthrust_grincher": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 40,
+      "openingBottom": 3,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "hatblade_hsuku": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 57,
+      "openingBottom": 4,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "silverarm_vanguard": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "openingTop": 76,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "boss": true
+    },
+    "gemswirl_mender": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 69,
+      "openingBottom": 0,
+      "supportOnly": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "sol_harp_mender": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 6,
+      "air": false,
+      "flying": true,
+      "openingTop": 43,
+      "openingBottom": 3,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false
+    },
+    "bluewhip_hunter": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "openingTop": 48,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "cyanribbon_weaver": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "openingTop": 53,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true
+    },
+    "moonplunge_lancer": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 57,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "voltwing_scarab": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 6,
+      "air": false,
+      "flying": true,
+      "openingTop": 38,
+      "openingBottom": -4,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false
+    },
+    "veteran_flamewing": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 16,
+      "air": false,
+      "flying": false,
+      "openingTop": 75,
+      "openingBottom": 2,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "boss": true
+    },
+    "ivoryspike_scarab": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 46,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "bluepole_mogwai": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 46,
+      "openingBottom": 6,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "specterclaw_shuffler": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "openingTop": 53,
+      "openingBottom": 1,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false
+    },
+    "dawnblade_fencer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 40,
+      "openingBottom": 0
+    },
+    "goldring_shadow_mender": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "embergrille_monument": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 40,
+      "openingBottom": 3
+    },
+    "cyanarm_mystic": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 49,
+      "openingBottom": 3
+    },
+    "whiteburst_pugilist": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 50,
+      "openingBottom": 1
+    },
+    "stormhorn_tripler": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 16,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "curled_jackal": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 6,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 26,
+      "openingBottom": 5
+    },
+    "aurora_thrustmage": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 2
+    },
+    "shieldmace_companion": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 41,
+      "openingBottom": 1
+    },
+    "inkorb_caster": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 66,
+      "openingBottom": 8
+    },
+    "ribwraith_tripler": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 43,
+      "openingBottom": 3
+    },
+    "klaxon_windup_blader": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 48,
+      "openingBottom": 3
+    },
+    "flameaxe_dweller": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 45,
+      "openingBottom": 13
+    },
+    "spectral_scale_dragon": {
+      "cost": 16,
+      "estimateCost": 16,
+      "radius": 18,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 64,
+      "openingBottom": 1,
+      "boss": true
+    },
+    "twinmoon_pontiff": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 46,
+      "openingBottom": 1
+    },
+    "whitehair_spinblade": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 32,
+      "openingBottom": 1
+    },
+    "redpole_warrior": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 4
+    },
+    "smoke_thrustfighter": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 3
+    },
+    "sunhalo_polyhedron": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 41,
+      "openingBottom": 1
+    },
+    "daemonflash_tripler": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 40,
+      "openingBottom": 1
+    },
+    "fenrir_dualguard": {
+      "cost": 7,
+      "estimateCost": 7,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 47,
+      "openingBottom": 1
+    },
+    "antlerwhirl_myriad": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 52,
+      "openingBottom": 4
+    },
+    "golden_tuft_mender": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 6,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 30,
+      "openingBottom": 1
+    },
+    "fiery_coil_inceptor": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 118,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "desert_flarebeast": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 4
+    },
+    "spiral_polecaster": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 58,
+      "openingBottom": 0
+    },
+    "stonepulse_kolossus": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 26,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 122,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "goldring_brawler": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 1
+    },
+    "pteryx_tailwing": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": true,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 45,
+      "openingBottom": 2
+    },
+    "darkfan_clawlord": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 120,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "cyanspike_commander": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 45,
+      "openingBottom": 2
+    },
+    "golden_bowling": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": true,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 31,
+      "openingBottom": 3
+    },
+    "windslice_fighter": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 63,
+      "openingBottom": 4
+    },
+    "redcrescent_sentinel": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 49,
+      "openingBottom": 1
+    },
+    "greenlash_hatmaster": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 42,
+      "openingBottom": 1
+    },
+    "cyan_multiblade": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 52,
+      "openingBottom": 5
+    },
+    "plated_dualdragon": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 110,
+      "openingBottom": 4,
+      "boss": true
+    },
+    "suspended_prism_mender": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "supportOnly": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 62,
+      "openingBottom": 1
+    },
+    "rex_clawtripler": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 22,
+      "openingBottom": 1
+    },
+    "crimson_levitator": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 13,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 74,
+      "openingBottom": 3
+    },
+    "golden_whirlshaper": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 58,
+      "openingBottom": 1
+    },
+    "colossal_hornfist": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 26,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 104,
+      "openingBottom": 4,
+      "boss": true
+    },
+    "goldgreatsword_duelist": {
+      "cost": 7,
+      "estimateCost": 7,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 43,
+      "openingBottom": 1
+    },
+    "cyan_tripleblade": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 60,
+      "openingBottom": 2
+    },
+    "goldtrident_duelist": {
+      "cost": 7,
+      "estimateCost": 7,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 58,
+      "openingBottom": 6
+    },
+    "redhorn_dualbeast": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 20,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 48,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "greenneck_burster": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 55,
+      "openingBottom": 1
+    },
+    "frostthrust_lancer": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 76,
+      "openingBottom": 1
+    },
+    "snowdisk_warder": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 46,
+      "openingBottom": 1
+    },
+    "redcore_burstshrine": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 50,
+      "openingBottom": 1
+    },
+    "goldstroke_rotator": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 44,
+      "openingBottom": 4
+    },
+    "dusk_triplewarden": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 46,
+      "openingBottom": 1
+    },
+    "iceclaw_legend": {
+      "cost": 16,
+      "estimateCost": 16,
+      "radius": 16,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 70,
+      "openingBottom": 1,
+      "boss": true
+    },
+    "cyanrise_silithar": {
+      "cost": 32,
+      "estimateCost": 32,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 84,
+      "openingBottom": 2,
+      "boss": true
+    },
+    "groundprism_windmiller": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 53,
+      "openingBottom": 1
+    },
+    "flipthrust_legend": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 53,
+      "openingBottom": 5
+    },
+    "flameburst_mythron": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 24,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 120,
+      "openingBottom": 16,
+      "boss": true
+    },
+    "bloodsurge_pillarist": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 52,
+      "openingBottom": 5
+    },
+    "baast_handtripler": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 55,
+      "openingBottom": 1
+    },
+    "metaltooth_duelist": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 39,
+      "openingBottom": 1
+    },
+    "icy_dualslasher": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": true,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 28,
+      "openingBottom": 1
+    },
+    "crystalback_rae": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 25,
+      "openingBottom": 1
+    },
+    "orbslam_zyx": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 43,
+      "openingBottom": 2
+    },
+    "brass_flareslinger": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": true,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 41,
+      "openingBottom": 2
+    },
+    "sunbreak_pillar_guardian": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 49,
+      "openingBottom": 2
+    },
+    "bobble_mender": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 54,
+      "openingBottom": 1
+    },
+    "rune_cube_warder": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 58,
+      "openingBottom": 1
+    },
+    "darkclaw_harbinger": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 43,
+      "openingBottom": 1
+    },
+    "whirlsilk_cat": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 48,
+      "openingBottom": 2
+    },
+    "twinflare_fox": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 44,
+      "openingBottom": 1
+    },
+    "redshield_tripler": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 77,
+      "openingBottom": 1
+    },
+    "shellburst_arcade": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 37,
+      "openingBottom": 2
+    },
+    "accretion_burstcore": {
+      "cost": 16,
+      "estimateCost": 16,
+      "radius": 16,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 41,
+      "openingBottom": 7,
+      "boss": true
+    },
+    "deathknell_cutpillar": {
+      "cost": 8,
+      "estimateCost": 8,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 69,
+      "openingBottom": 1
+    },
+    "redtail_whipper": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 38,
+      "openingBottom": 0
+    },
+    "ringblade_maehv": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 83,
+      "openingBottom": 2
+    },
+    "dreamflash_oracle": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 31,
+      "openingBottom": 1
+    },
+    "candle_archdeacon": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": true,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 71,
+      "openingBottom": 1
+    },
+    "wavepole_adept": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 57,
+      "openingBottom": 0
+    },
+    "shade_trislasher": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 1
+    },
+    "twinpulse_mage": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 54,
+      "openingBottom": 1
+    },
+    "redbud_blightbeast": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 40,
+      "openingBottom": 2
+    },
+    "abyssal_palmweaver": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 53,
+      "openingBottom": 1
+    },
+    "origami_wingburst": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 59,
+      "openingBottom": 2
+    },
+    "ochre_antlerclaw": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 31,
+      "openingBottom": 1
+    },
+    "komodo_fiveclaw": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 13,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 39,
+      "openingBottom": 1
+    },
+    "quadcut_swordmaster": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 64,
+      "openingBottom": 1
+    },
+    "latecut_staffblade": {
+      "cost": 8,
+      "estimateCost": 8,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 76,
+      "openingBottom": 1
+    },
+    "ashbone_swordsman": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 52,
+      "openingBottom": 1
+    },
+    "punchcap_mushroom": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 42,
+      "openingBottom": 1
+    },
+    "fangeye_flier": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 40,
+      "openingBottom": -6
+    },
+    "ooze_slammer": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 21,
+      "openingBottom": 1
+    },
+    "clawring_bat": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": true,
+      "supportOnly": false,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 56,
+      "openingBottom": 0
+    },
+    "jawchest_mimic": {
+      "cost": 5,
+      "estimateCost": 5,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 33,
+      "openingBottom": 1
+    },
+    "spectralhand_wizard": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 13,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 103,
+      "openingBottom": 1
+    },
+    "crownblade_king": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 54,
+      "openingBottom": 1
+    },
+    "spearcut_huntress": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 41,
+      "openingBottom": 1
+    },
+    "bluecoat_blader": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 7,
+      "earlyEligible": false,
+      "starterEligible": false,
+      "openingTop": 55,
+      "openingBottom": 2
+    },
+    "redtunic_swordsman": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "unlockStage": 1,
+      "earlyEligible": true,
+      "starterEligible": true,
+      "openingTop": 40,
+      "openingBottom": 1
+    },
+    "hooded_ghost": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": true,
+      "supportOnly": true,
+      "unlockStage": 3,
+      "earlyEligible": true,
+      "starterEligible": false,
+      "openingTop": 45,
+      "openingBottom": 2
+    },
+    "scarfhat_swordsman": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "wrapped_mummy": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 5,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "plume_swordknight": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "ringfall_chakkram": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "eggshell_repairpod": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": true
+    },
+    "bonecolumn_warder": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": true
+    },
+    "clubnose_forest_troll": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 6,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "forkbill_strider": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "opalfin_sky_ray": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 12,
+      "air": false,
+      "flying": true,
+      "supportOnly": true
+    },
+    "kilnback_pincerbeast": {
+      "cost": 24,
+      "estimateCost": 24,
+      "radius": 22,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "copperbrow_bristle_ram": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "glasswing_sting_moth": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 7,
+      "air": false,
+      "flying": true,
+      "supportOnly": false
+    },
+    "bellgill_mender": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": true
+    },
+    "archclapper_walker": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "ribbed_fanclam": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 12,
+      "air": true,
+      "flying": true,
+      "supportOnly": false
+    },
+    "duskgargoyle_clawer": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 9,
+      "air": false,
+      "flying": true,
+      "supportOnly": false
+    },
+    "duskbrown_rat": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "duskflutter_bat": {
+      "cost": 1,
+      "estimateCost": 1,
+      "radius": 5,
+      "air": false,
+      "flying": true,
+      "supportOnly": false
+    },
+    "puffcap_mender": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": true
+    },
+    "branchsweep_treant": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 14,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_ghoul": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_hellhound": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_skel_archer": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": true,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_ogre": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 15,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_goblin": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_lizardman": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_scorpion": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "skullflare_triad": {
+      "cost": 20,
+      "estimateCost": 20,
+      "radius": 21,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "floatinghelm_tripler": {
+      "cost": 6,
+      "estimateCost": 6,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_knight": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_rogue": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 7,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_monk": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_robed_fighter": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_alchemist": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": true,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_ribbon_dancer": {
+      "cost": 2,
+      "estimateCost": 2,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_02": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_08": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_42": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_47": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_51": {
+      "cost": 4,
+      "estimateCost": 4,
+      "radius": 10,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_54": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_03_axe_wayfarer": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_10_lute_bard": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_22_crescent_reaper": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_34_goldring_caster": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 9,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_43_redgauntlet_brawler": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 8,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_48_horned_heavy": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 11,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_char_52_spiked_hammerer": {
+      "cost": 3,
+      "estimateCost": 3,
+      "radius": 12,
+      "air": false,
+      "flying": false,
+      "supportOnly": false
+    },
+    "willyee_frost_dragon": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 27,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "boss": true
+    },
+    "willyee_stone_golem": {
+      "cost": 28,
+      "estimateCost": 28,
+      "radius": 26,
+      "air": false,
+      "flying": false,
+      "supportOnly": false,
+      "boss": true
+    }
+  }
+}

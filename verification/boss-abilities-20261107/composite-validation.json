@@ -1,0 +1,51 @@
+{
+  "browserVerified": false,
+  "results": [
+    {
+      "label": "reproduce",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "ability-tests",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "production-integration",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "entry-loader",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "label": "release-loader",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "success": true,
+  "nodeRunner": {
+    "passed": 187,
+    "total": 187
+  },
+  "nestedContractChecks": {
+    "currentContract": 24,
+    "fidelity": 58,
+    "legacyEquivalents": 19,
+    "statusInterop": 34,
+    "deliveryInterop": 13,
+    "roundLifecycle": 2
+  },
+  "productionIntegration": {
+    "passed": 66,
+    "total": 66
+  },
+  "entryLoaderCases": 32,
+  "releaseLoaderCases": 7,
+  "countingNote": "Nested checks are separate detail, not added to the187 Node runner entries."
+}

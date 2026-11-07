@@ -1,0 +1,10 @@
+{
+  "candidateSha256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "contentRevision": "1f3d8365dec4e844ab7a5eb61e9945d892bf01cbcee50fa4b0f7e1c0450e39f9",
+  "expectedExecutions": {
+    "controlled": 2208,
+    "mixed": 196,
+    "lichSupport": 80,
+    "cleaverSupport": 88
+  }
+}
