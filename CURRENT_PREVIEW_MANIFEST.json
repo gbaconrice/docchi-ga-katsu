@@ -18,7 +18,7 @@
     "freshFullRun": true,
     "resultReuse": false,
     "sourceReconstructionExact": true,
-    "browserVerificationStatus": "PENDING_PUBLISHED_RELEASE_VERIFICATION",
+    "browserVerificationStatus": "PARTIAL_DESKTOP_FIXED_VIEWPORT_FIXTURES",
     "physicalIOSVerified": false,
     "physicalTouchVerified": false,
     "liveGravitySDKVerified": false,
@@ -27,7 +27,35 @@
     "entryLoaderFaultCases": 32,
     "actualSixScriptRecoveryCases": 7,
     "inputsUnchanged": true,
-    "canonicalInputFiles": 197
+    "canonicalInputFiles": 197,
+    "releaseHTTPFiles": 39,
+    "releaseHTTPExact": 39,
+    "pagesRun": "https://github.com/gbaconrice/docchi-ga-katsu/actions/runs/42335788426",
+    "sourceCommit": "8fe168035f40eaf71b1539051262f70c4f5faba5",
+    "browserChecksPerformed": true,
+    "allRequestedBrowserChecksComplete": false,
+    "browserSmallScreen": {
+      "viewport": [
+        320,
+        568
+      ],
+      "standalone": true,
+      "gravityInsets": true,
+      "soloStartEntersBattle": true,
+      "multiSixChoiceSyntheticSubmission": true,
+      "multiAllInSyntheticSubmission": true,
+      "fullStartButtonHeight": 48,
+      "fullStartButtonYRange": [
+        502,
+        550
+      ],
+      "horizontalOverflow": false
+    },
+    "backupArchiveVersion": 19,
+    "backupDownloadVerified": true,
+    "productionSoloBootSelectionBattleStart": true,
+    "productionPostSettlementFlowVerified": false,
+    "browserReport": "verification/review-fixes-20261107/live-browser-qa.json"
   },
   "preservation": {
     "approvedDisplayNames": 44,

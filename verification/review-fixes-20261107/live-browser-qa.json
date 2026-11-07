@@ -1,0 +1,136 @@
+{
+  "commit": "8fe168035f40eaf71b1539051262f70c4f5faba5",
+  "qaUrl": "https://gbaconrice.github.io/docchi-ga-katsu/releases/review-fixes-20261107/qa.html",
+  "browser": "Desktop Chromium",
+  "viewport": [
+    320,
+    568
+  ],
+  "method": "Published same-origin fixed-size iframe, visible fixture controls, click interactions and DOM geometry.",
+  "standard": {
+    "solo": {
+      "comparison": {
+        "top": 178,
+        "bottom": 558,
+        "height": 380
+      },
+      "startAfterScroll": {
+        "top": 502.328125,
+        "bottom": 550.328125,
+        "width": 283,
+        "height": 48
+      },
+      "startOutcome": "fight"
+    },
+    "eightPlayer": {
+      "statusRowHeight": 52,
+      "comparison": {
+        "top": 238,
+        "bottom": 558,
+        "height": 320
+      },
+      "upperReactionChecksAllTrue": true,
+      "horizontalOverflow": false
+    },
+    "normalMultiSubmission": [
+      {
+        "side": "A",
+        "stake": 25
+      }
+    ],
+    "allInMultiSubmission": [
+      {
+        "side": "B",
+        "stake": 10
+      }
+    ]
+  },
+  "gravity": {
+    "nativeTopInset": 74,
+    "solo": {
+      "comparison": {
+        "top": 252,
+        "bottom": 558,
+        "height": 306
+      },
+      "startOutcome": "fight"
+    },
+    "eightPlayer": {
+      "statusRow": {
+        "top": 82,
+        "height": 52
+      },
+      "rail": {
+        "top": 268,
+        "height": 40
+      },
+      "comparison": {
+        "top": 312,
+        "bottom": 558,
+        "height": 246
+      },
+      "startAfterScroll": {
+        "top": 502.4375,
+        "bottom": 550.4375,
+        "width": 283,
+        "height": 48
+      },
+      "upperReactionChecksAllTrue": true,
+      "horizontalOverflow": false,
+      "scrollToStart": 302,
+      "reverseArmyClickScrollTop": 36
+    },
+    "normalMultiSubmission": [
+      {
+        "side": "A",
+        "stake": 25
+      }
+    ],
+    "allInMultiSubmission": [
+      {
+        "side": "B",
+        "stake": 10
+      }
+    ],
+    "allInScroll": {
+      "scrollHeight": 490,
+      "clientHeight": 298,
+      "scrollTop": 192
+    }
+  },
+  "productionSolo": {
+    "entry": "index.html",
+    "flow": [
+      "soloStart",
+      "red",
+      "stake25",
+      "confirm"
+    ],
+    "phases": [
+      "choose",
+      "fight"
+    ],
+    "balanceText": "100",
+    "screenshotReviewed": true,
+    "horizontalOverflow": false
+  },
+  "targets": {
+    "stakeMinimumObserved": [
+      82.328125,
+      44
+    ],
+    "start": [
+      283,
+      48
+    ],
+    "toolbar44pxCheck": true
+  },
+  "screenshots": "Production battle and full GRAVITY eight-player BET/Start were visually reviewed.",
+  "limits": [
+    "Desktop Chromium iframe, not physical 320px iOS device or real GRAVITY SDK.",
+    "Multiplayer prediction submissions use QA synthetic transport and record calls; no live room/network/ranking exercised.",
+    "OvertimeQA retains multiPredictionPending after submission; reloaded between independent submission tests.",
+    "No full cross-browser or orientation suite in this pass.",
+    "Home key did not reset comparison scroll; supported army click scrolled back and succeeded."
+  ]
+}

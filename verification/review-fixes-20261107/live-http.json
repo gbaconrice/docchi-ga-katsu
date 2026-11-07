@@ -1,0 +1,287 @@
+{
+  "commit": "8fe168035f40eaf71b1539051262f70c4f5faba5",
+  "sourceSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
+  "pagesRun": {
+    "id": 42335788426,
+    "url": "https://github.com/gbaconrice/docchi-ga-katsu/actions/runs/42335788426",
+    "conclusion": "success"
+  },
+  "verifiedUTC": "2026-11-07T03:52:23Z",
+  "files": [
+    {
+      "path": "releases/review-fixes-20261107/ARTWORK.md",
+      "status": 200,
+      "bytes": 642,
+      "sha256": "9fbf32e7d00ced15fcafaf21666e057efdd4d62a043890e6f8b23dcfb8a6820b",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/GRAVITY_INTEGRATION.md",
+      "status": 200,
+      "bytes": 8632,
+      "sha256": "d16e27f19ebe96b32aad6db8e09ad5fb15eef3d09d86cf18d36cc9243a1e177d",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/body-fragment.html",
+      "status": 200,
+      "bytes": 20347,
+      "sha256": "81a433fbe187422597af501a435051b3bfef0be253956295e8de5396818d6c78",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/boot-errors.8d53d8813532e8cd4533.js",
+      "status": 200,
+      "bytes": 2351,
+      "sha256": "8d53d8813532e8cd453319d769cbc94eb81cb7884f132db0973a1456de47bcd2",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/game-runtime.74f8e8f9bce6f26c9851.js",
+      "status": 200,
+      "bytes": 6178462,
+      "sha256": "74f8e8f9bce6f26c9851758bf110d9f54f414e7ad095715fe17759127e74b6a7",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/game-shell.3632d17b88bf61d9c2b3.js",
+      "status": 200,
+      "bytes": 21921,
+      "sha256": "3632d17b88bf61d9c2b3d5fc0e042c8c4bb550f34056d795df21d2d33281f0ae",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/game.444c1ee6d2c28ea81d06.css",
+      "status": 200,
+      "bytes": 127782,
+      "sha256": "444c1ee6d2c28ea81d0676fb5128258a821ce04b58e28b838a064b36b89e949d",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/gravity-entry.html",
+      "status": 200,
+      "bytes": 9033,
+      "sha256": "f6709336a6cb178e0bb8bb046de3d751d2e40f7383db17fd218c17be0befc792",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/home-ambience.16d2af7bb92ddb2c322f.js",
+      "status": 200,
+      "bytes": 4448,
+      "sha256": "16d2af7bb92ddb2c322f7ce1f847af91a7d5077080a913132d78c78d2bfb1f3f",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/host-layout.0b679d98d044de1154e4.js",
+      "status": 200,
+      "bytes": 2731,
+      "sha256": "0b679d98d044de1154e46ca194a85a83485a2963ee80225b6fcac89771566de6",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/0797e5372cbaf2ab654b5d431feb0c6f395335ca383c7825a1a583a13f1442f2.webp",
+      "status": 200,
+      "bytes": 57866,
+      "sha256": "0797e5372cbaf2ab654b5d431feb0c6f395335ca383c7825a1a583a13f1442f2",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/15d85091dddbb24783cb5d8fd8cfb46558cbe1f28835aa5db4c7ea14ce5a100e.png",
+      "status": 200,
+      "bytes": 670981,
+      "sha256": "15d85091dddbb24783cb5d8fd8cfb46558cbe1f28835aa5db4c7ea14ce5a100e",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/b3264bbc46f0ba2ccf8bf63f2381e0c9df94e34a4ba2fefd25060d2265a25c7b.webp",
+      "status": 200,
+      "bytes": 62822,
+      "sha256": "b3264bbc46f0ba2ccf8bf63f2381e0c9df94e34a4ba2fefd25060d2265a25c7b",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/c3d23e4be025d2cd325d641c7334d38678715a969a1d7e92cb158221165a1932.webp",
+      "status": 200,
+      "bytes": 56518,
+      "sha256": "c3d23e4be025d2cd325d641c7334d38678715a969a1d7e92cb158221165a1932",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/c79c7430c69f6050ffeb7fab6b25cadac4c72eb57c7cfa082aa2039c633e9e66.webp",
+      "status": 200,
+      "bytes": 41854,
+      "sha256": "c79c7430c69f6050ffeb7fab6b25cadac4c72eb57c7cfa082aa2039c633e9e66",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/images/e563fdc3a46093e40324be7d866428a4120cb7bdf84e2fac44a0545532b429ca.webp",
+      "status": 200,
+      "bytes": 36450,
+      "sha256": "e563fdc3a46093e40324be7d866428a4120cb7bdf84e2fac44a0545532b429ca",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/index.html",
+      "status": 200,
+      "bytes": 8962,
+      "sha256": "5e469bd2a248420f9457e720a6d8f05b8754801de367196a27dd9e00f842a3f2",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/licenses/Duelyst-CC0-1.0.txt",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/licenses/SFXMINT.md",
+      "status": 200,
+      "bytes": 1311,
+      "sha256": "4458a1e41a19264b2ab7aa6b8ad0af3de546919b02091aad1799375e63d4a51d",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/licenses/SpritePilot-CC0-1.0.txt",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-a1-fixtures.js",
+      "status": 200,
+      "bytes": 1879,
+      "sha256": "faf7fee8da351fd7f527d2ae0f22f501f029928595d1a5cdade6e8bb9f56ff4a",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-boss-marker.js",
+      "status": 200,
+      "bytes": 1241,
+      "sha256": "a5c9a24c481cbf5ddc801d629536dd1cfe5dfbe8bb746592e6b54b3993c4d12e",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-comparison.js",
+      "status": 200,
+      "bytes": 4680,
+      "sha256": "cca7fc2029e88f2bb9671ec7824ee272b462bfe1486c8ed009a0cb098637f06c",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-entry.html",
+      "status": 200,
+      "bytes": 9173,
+      "sha256": "00aa0632bb107a0cf0084269621806346e40f1de7b1d47953d2952aad43fdf34",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-failure-entry.html",
+      "status": 200,
+      "bytes": 8978,
+      "sha256": "a699cc5994ef2fa3d786ab6f53d209f2e37dc2a7903ea8dd44a1ddf408bb13cd",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-fixtures.js",
+      "status": 200,
+      "bytes": 8737,
+      "sha256": "5bc398a5855014b96db175a30d17e2f851b8c71e26ad5876bc7b53e65323d8af",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-gravity-entry.html",
+      "status": 200,
+      "bytes": 9170,
+      "sha256": "36df9431c5db9f1890ff2bc96f108c930b17d93e52fbe2a2d2cb32f824fab4e4",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-horizontal-header.js",
+      "status": 200,
+      "bytes": 30118,
+      "sha256": "026530eff00fc7be92ae3e67fd43f2e1cea52050594bd64d01a66810527fe2f7",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-loss-motion.js",
+      "status": 200,
+      "bytes": 3063,
+      "sha256": "c1099a4f98a999f39dd7633b21a5b569cce563869c7e58850edea6550f697eca",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-motion-entry.html",
+      "status": 200,
+      "bytes": 8991,
+      "sha256": "336bbe0ee3ba77754c0b9476afa5c93e072aed11e3a038c2533c43c93827d884",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-result-feedback.js",
+      "status": 200,
+      "bytes": 2293,
+      "sha256": "b1a8bda545775f25d2734c67ceeb7a19c4166bd126bbed617822a1251c85081f",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa-stable-header.js",
+      "status": 200,
+      "bytes": 7391,
+      "sha256": "5a683a27fe9a2b8b117ba182e2ee2690427a5a4150d9ab5688d8676464bccc60",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/qa.html",
+      "status": 200,
+      "bytes": 19165,
+      "sha256": "ab42cdb8aa7ae1b2cac59a11ffdcabb63ff5b5201372e3120c47275006e7ae95",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/source-template.html",
+      "status": 200,
+      "bytes": 20873,
+      "sha256": "4bb94e6a98ae87685582fff4cf1d1db2a97925438c19487c27754e8402badbba",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/viewport.7055196e99d934e94664.js",
+      "status": 200,
+      "bytes": 1044,
+      "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf",
+      "matches": true
+    },
+    {
+      "path": "releases/review-fixes-20261107/manifest.json",
+      "status": 200,
+      "bytes": 408850,
+      "sha256": "f4234e19911e0b16c62cb8e9d49fb9c1b6f4e7f6fa0ed6b13171e278becdde85",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 8993,
+      "sha256": "0772eefd132feaf6e0567219e1827b743b6aa27fa7ff70d8f1f0e1d2ffcef8cb",
+      "matches": true
+    },
+    {
+      "path": "GRAVITY_EXTERNAL_ENTRY.html",
+      "status": 200,
+      "bytes": 9033,
+      "sha256": "f6709336a6cb178e0bb8bb046de3d751d2e40f7383db17fd218c17be0befc792",
+      "matches": true
+    },
+    {
+      "path": "CURRENT_PREVIEW_MANIFEST.json",
+      "status": 200,
+      "bytes": 6320,
+      "sha256": "e64a994cb673573cc1ef6794d2340977c9b5f7ad70aa7b620cdc12160e950daa",
+      "matches": true
+    }
+  ],
+  "passed": 39,
+  "total": 39
+}
