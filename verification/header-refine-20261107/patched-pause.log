@@ -1,0 +1,31 @@
+PASS boot 5 scripts
+PASS solo start
+PASS pause/resume retains the active run
+PASS home navigation ends the run and the solo action starts fresh
+PASS explicit exit stops the run, sends no score, and starts a fresh round 1 / 100 G
+PASS exit does not leave the room-entry fight guard stuck
+PASS normal cashout and bankruptcy endings still restart cleanly
+PASS extension battle exit also restarts at round 1 without submitting a score
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: 0 == 1
+    at eval (eval at <anonymous> (<validation>/tests/pause-exit.cjs:4:1), <anonymous>:61:8)
+    at Object.<anonymous> (<validation>/tests/pause-exit.cjs:63:3)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

@@ -1,0 +1,534 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 16,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 86,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 128,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 160,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 164,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 208,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "label": "予想：左",
+      "badge": {
+        "x": 16,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 66,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 128,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 160,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 164,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 208,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "label": "予想：右",
+      "badge": {
+        "x": 16,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 66,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 128,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 160,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 164,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 208,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 90,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 179,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 211,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 215,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 259,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "label": "予想：左",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 179,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 211,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 215,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 259,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "label": "予想：右",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 179,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 211,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 215,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 259,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 90,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 194,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 226,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 230,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 274,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "label": "予想：左",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 194,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 226,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 230,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 274,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "label": "予想：右",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 194,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 226,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 230,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 274,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 90,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 234,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 266,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 270,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 314,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "label": "予想：左",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 234,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 266,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 270,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 314,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "label": "予想：右",
+      "badge": {
+        "x": 20,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 70,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 234,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 266,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 270,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 314,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 144,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 214,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 448,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 480,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 484,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 528,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "label": "予想：左",
+      "badge": {
+        "x": 144,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 194,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 448,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 480,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 484,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 528,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "label": "予想：右",
+      "badge": {
+        "x": 144,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 194,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 448,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 480,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 484,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 528,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "label": "予想：未選択",
+      "badge": {
+        "x": 30,
+        "y": 86,
+        "width": 70,
+        "height": 20,
+        "right": 100,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 994,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 1026,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 1030,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 1074,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "label": "予想：左",
+      "badge": {
+        "x": 30,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 80,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 994,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 1026,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 1030,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 1074,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "label": "予想：右",
+      "badge": {
+        "x": 30,
+        "y": 86,
+        "width": 50,
+        "height": 20,
+        "right": 80,
+        "bottom": 106
+      },
+      "feedback": {
+        "x": 994,
+        "y": 80,
+        "width": 32,
+        "height": 32,
+        "right": 1026,
+        "bottom": 112
+      },
+      "controls": {
+        "x": 1030,
+        "y": 74,
+        "width": 44,
+        "height": 44,
+        "right": 1074,
+        "bottom": 118
+      },
+      "pass": true
+    },
+    {
+      "kind": "multiplayer rail DOM fixture only",
+      "below": true,
+      "scrollable": true,
+      "overflowX": "auto",
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}

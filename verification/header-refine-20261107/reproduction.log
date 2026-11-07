@@ -1,0 +1,46 @@
+{
+  "sourceSHA256": "14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440",
+  "contentRevision": "a0092c9a512f109dd0488be3328b4d51c383c5c9088b9d3a568c70dd58fbd1a2",
+  "baseSourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf"
+}
+{
+  "output": "<reproduction>/package",
+  "sourceSha256": "14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440",
+  "imageAssets": 573,
+  "imageBytes": 32277203,
+  "initialScriptBytes": 6309392,
+  "files": 16,
+  "gravityBytes": 9034
+}
+PASS boot 5 scripts
+PASS solo start
+PASS same audio node/listener moves game/home/room/game
+PASS hidden information control after choose/fight/result sync
+PASS repeated solo/multi phase transitions restore title and notice; choose has only requested buttons
+PASS all 8 stable terrain IDs plus none; full label preserved
+PASS boot 5 scripts
+PASS solo start
+PASS click #red
+PASS click #confirm
+PASS reached battle with environment rockfield
+PASS deferred image callbacks
+PASS zero G hint and prediction
+PASS zero at round 10 ends with loss state
+PASS win/loss/draw state survives audio synchronization
+PASS percent controls show one selected option for small balance
+{
+  "sha": "14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440",
+  "checks": 66,
+  "passed": 66,
+  "failed": [],
+  "matrix": 49
+}
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step -1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 0
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 2
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 3
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 4
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 5
+ENTRY_LOADER_RELEASE_PASS 7 cases; actual release code in DOM fixtures.
+REPRODUCTION PASS 14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440

@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "sourceSHA256": "14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440",
+  "baseSourceSHA256": "fef9176e59383910de20f077882565c3ef44f35ca32147bf95b219647c727adf",
+  "release": "releases/header-refine-20261107",
+  "imageAssets": 573,
+  "sharedImagePolicy": "Byte-identical manifest-listed prior images; no new images",
+  "tests": [
+    "header-controls-current.cjs",
+    "zero-result-ui.cjs",
+    "integrated-bosses.cjs",
+    "test-entry-loader-release.cjs"
+  ]
+}

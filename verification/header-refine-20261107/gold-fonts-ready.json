@@ -1,0 +1,653 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 320,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 375,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 390,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 430,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "choose",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "choose",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "fight",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "fight",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "result",
+      "doubling": "false",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    },
+    {
+      "width": 1200,
+      "phase": "result",
+      "doubling": "true",
+      "held": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal",
+        "size": "26px",
+        "overflow": "auto"
+      },
+      "earned": {
+        "family": "\"Yu Mincho\", \"Hiragino Mincho ProN\", Georgia, serif",
+        "weight": "900",
+        "style": "normal"
+      },
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}
