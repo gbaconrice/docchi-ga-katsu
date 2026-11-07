@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>大型49種・調整中プレビュー</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101b18;color:#f4edd8;font:14px/1.55 system-ui,sans-serif}main{max-width:850px;margin:auto;padding:16px}h1{font-size:21px;margin:0 0 5px}p{margin:5px 0 12px}.badge{display:inline-block;border:1px solid #cdb06b;color:#f9d992;padding:2px 8px;border-radius:5px;font-weight:700}.controls{padding:12px;background:#24352e;border:1px solid #53634e;border-radius:9px}select{display:block;width:100%;margin:5px 0 9px}button,select{font:inherit;color:#fff9e8;background:#35483c;border:1px solid #8e997b;border-radius:5px;padding:9px;min-height:42px}button{cursor:pointer;margin:3px 2px}button:hover{background:#4e654f}button:disabled,select:disabled{opacity:.55}#description{min-height:45px;margin:8px 0}#status{font-variant-numeric:tabular-nums;font-weight:700;margin:10px 0 4px}#events{overflow-wrap:anywhere;color:#c4d2c4;font-size:12px;min-height:20px}iframe{display:block;width:100%;max-width:480px;min-height:620px;border:1px solid #657057;margin:14px auto;background:#17231f}details{margin-top:12px}#roster{padding-left:24px}#roster li{margin:7px 0;overflow-wrap:anywhere}.hint{color:#c4d2c4;font-size:12px}@media(max-width:400px){main{padding:10px}h1{font-size:18px}button{padding:8px 6px}.controls{padding:8px}}
+</style></head><body><main>
+<h1>大型49種・調整中プレビュー</h1><p><span class="badge">通常版とは別</span> 固定配置で能力と演出を確認できます。</p>
+<section class="controls" aria-label="能力確認操作">
+<label for="bossSelect">確認する大型キャラクター</label><select id="bossSelect" disabled><option>読み込み中…</option></select>
+<div id="description"></div>
+<div id="buttons"><button data-action="reset" disabled>リセット</button><button data-action="advance" data-count="1" disabled>1 tick進む</button><button data-action="advance" data-count="15" disabled>15 ticks進む</button><button data-action="advance" data-count="60" disabled>60 ticks進む</button><button id="play" data-action="play" disabled>再生</button><button data-action="mirror" disabled>左右反転</button><button data-action="woundboss" disabled>大型をHP49%へ</button><button data-action="killboss" disabled>大型を倒す</button><button data-action="killenemy" disabled>敵1体を倒す</button></div>
+<p class="hint">1秒＝60 ticks。死亡時能力は「大型を倒す」、瀕死能力は「大型をHP49%へ」、屍骨徴集は「敵1体を倒す」で確認。再生中も1 tick操作で停止します。攻撃を受けることが条件の能力は、この待機配置では自動発動しません。</p>
+<div id="status" role="status" aria-live="polite">画像・能力を読み込み中…</div><div id="events"></div>
+</section>
+<iframe id="preview" src="qa-boss-entry.html" title="大型能力の固定配置プレビュー"></iframe>
+<details><summary>49種の名前・能力・ID</summary><ol id="roster"></ol></details>
+<p class="hint">開発用の確認画面です。ここでの進行は通常版の対戦・成績には反映されません。</p>
+</main><script>
+(() => {
+'use strict';const frame=document.getElementById('preview'),select=document.getElementById('bossSelect');let roster=[],built=false;
+function send(action,extra={}){frame.contentWindow.postMessage({type:'boss-preview-command',action,...extra},location.origin);}
+select.addEventListener('change',()=>send('select',{id:select.value}));
+document.querySelectorAll('[data-action]').forEach(button=>button.addEventListener('click',()=>send(button.dataset.action,{count:Number(button.dataset.count)})));
+window.addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==frame.contentWindow||event.data?.type!=='boss-preview-state')return;const s=event.data;
+ if(!built&&s.ready){roster=s.roster;select.replaceChildren();for(const [i,row]of roster.entries()){const option=document.createElement('option');option.value=row.id;option.textContent=`${i+1}/49 ${row.name} ｜ ${row.ability}`;select.appendChild(option);const li=document.createElement('li');li.textContent=`${row.name}：${row.ability} (${row.id}) — ${row.description}`;document.getElementById('roster').appendChild(li);}built=true;select.disabled=false;document.querySelectorAll('[data-action]').forEach(b=>b.disabled=false);}
+ select.value=s.selected;const row=roster.find(r=>r.id===s.selected);document.getElementById('description').textContent=row?`${row.ability} ／ ${row.tag}：${row.description}`:'';
+ document.getElementById('play').textContent=s.playing?'一時停止':'再生';document.getElementById('status').textContent=s.error?`確認エラー：${s.error}`:`tick ${s.tick} ｜ 能力 ${s.abilities}回 ｜ 効果 ${s.effects}件 ｜ HP ${Math.max(0,Math.ceil(s.bossHp||0))}${s.mirrored?' ｜ 左右反転':''}`;
+ document.getElementById('events').textContent=s.lastEvents.map(e=>`${e.tick}: ${e.name}`).join(' / ');
+});
+frame.addEventListener('load',()=>send('status'));
+})();
+</script></body></html>

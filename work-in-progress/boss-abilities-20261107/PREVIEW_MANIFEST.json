@@ -1,0 +1,20 @@
+{
+  "status": "development-preview-not-promoted",
+  "sourceSHA256": "3a8bdaa13f931b56cec76ef8a9059d9eb653bfd4e98a1e5c69ad352fafed4232",
+  "contentRevision": "2bbac02737ff86ca448eadbfdc105fd4e0d47f40dd44608396146a953de35e32",
+  "baseCommit": "e703fa9aa3efae0e56b0c3424233e0f877c715aa",
+  "previewPath": "releases/boss-abilities-preview-20261107/boss-preview.html",
+  "normalEntryUnchanged": true,
+  "registeredAbilities": 49,
+  "focusedTests": 167,
+  "productionIntegrationChecks": 66,
+  "productionAbilityMatrix": 49,
+  "replayMatrix": 49,
+  "imageAssetsPreserved": 573,
+  "legacyInitialPass": 150,
+  "legacyInitialTotal": 173,
+  "legacyFinalSweep": "pending",
+  "browserVisualQA": "pending",
+  "balanceFinalReview": "pending",
+  "isCalibratedWinRate": false
+}

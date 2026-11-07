@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs'),path=require('path'),{spawnSync}=require('child_process');
+const here=__dirname,repo=path.resolve(here,'../..'),out=path.resolve(process.argv[2]||'');
+if(!process.argv[2]||fs.existsSync(out))throw Error('Pass a new absent output directory');
+fs.mkdirSync(out,{recursive:true});
+for(const name of ['modules','tests','release-tools'])fs.cpSync(path.join(here,name),path.join(out,name),{recursive:true});
+for(const name of ['build-source.py','patch-presentation.py','baseline-roster.json'])fs.copyFileSync(path.join(here,name),path.join(out,name));
+const release=path.join(repo,'releases/review-fixes-20261107');
+const {source}=require(path.join(repo,'tools/review-fixes/reassemble-demand-source.cjs')).reassemble(release);
+fs.writeFileSync(path.join(out,'baseline.html'),source);fs.mkdirSync(path.join(out,'source/qa-assets'),{recursive:true});
+for(const name of ['ARTWORK.md','GRAVITY_INTEGRATION.md','licenses'])fs.cpSync(path.join(release,name),path.join(out,'source',name),{recursive:true});
+fs.cpSync(path.join(here,'qa-assets'),path.join(out,'source/qa-assets'),{recursive:true});
+const r=spawnSync('python3',[path.join(out,'build-source.py')],{stdio:'inherit'});if(r.status!==0)process.exit(r.status||1);
+console.log('Prepared '+out);

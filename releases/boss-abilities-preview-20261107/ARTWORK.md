@@ -1,0 +1,5 @@
+# 素材と原本
+
+200個の別原典CC0 atlas、全15,148 original framesを使用・未使用原画として保持。Slimeletは親atlasを共有する内部子で追加種には数えません。
+原PNG/plistはOpenDuelystの固定commit2843f2400854136598631288c2e8dfb8f5173de7と照合済み。原画pixelsは変更していません。原作能力・原作速度を移植したとは称しません。
+各出典、hash、全frame名はprovenance/Duelyst-original-sources.json。CC0原文とSpritePilot効果素材の出典証拠も無改変保存。原画レビューはゲーム画面での全種可読性保証ではありません。
