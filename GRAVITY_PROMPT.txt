@@ -1,0 +1,10 @@
+既存ゲーム「どっちが勝つ？」をGRAVITYに反映してください。
+
+GRAVITY用入口：
+https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/gravity-entry.html
+
+このURLのHTMLを取得して使い、HTML内に指定されているJavaScript・CSS・画像をそのまま外部読み込みしてください。大型49種の能力と調整を含む既存ゲームです。作り直しや、ゲーム内容・能力・価格・画像・UIの独自変更はしないでください。
+
+スマートフォン縦画面で、既存のGRAVITY用レイアウト、SDK連携、ルーム通信、音、スコアの既存の送信条件を維持してください。SDKと親画面への通知が届かなくなるようなiframeの追加や、未確認のSDK APIの補完は避けてください。
+
+入口や外部ファイルを取得できない場合は、推測で再実装せず、取得できなかったURLと理由を教えてください。

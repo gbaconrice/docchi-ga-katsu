@@ -1,6 +1,6 @@
 {
   "scope": "All 49 requested large-unit abilities with individual mechanics, readable effects and balance tuning. Prior UI, room and wallet fixes retained.",
-  "metadataStatus": "IMPLEMENTATION_BALANCE_AUTOMATED_AND_SCOPED_BROWSER_VERIFICATION_COMPLETE_DEPLOYMENT_PENDING",
+  "metadataStatus": "IMPLEMENTATION_BALANCE_AUTOMATED_SCOPED_BROWSER_AND_DEPLOYMENT_VERIFIED",
   "index": "index.html",
   "indexSHA256": "4d4e902da57d43158a72c00b8c52d1e5b541ebc2561876366c429ea34c9c7bd3",
   "release": "releases/boss-abilities-20261107/manifest.json",
@@ -12,12 +12,12 @@
   "previousRelease": "releases/review-fixes-20261107/manifest.json",
   "validation": {
     "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
-    "status": "AUTOMATED_BALANCE_CANVAS_AND_SCOPED_BROWSER_PASSED",
+    "status": "AUTOMATED_BALANCE_CANVAS_SCOPED_BROWSER_AND_DEPLOYMENT_PASSED",
     "browserVerified": true,
     "physicalTouchVerified": false,
     "realGravitySDKVerified": false,
     "realNetworkMultiplayerVerified": false,
-    "deploymentVerified": false,
+    "deploymentVerified": true,
     "canonicalTests": 173,
     "canonicalPassed": 149,
     "canonicalFailed": 24,
@@ -70,7 +70,12 @@
     "browserScope": "Chromium1180×757 and500×757. All49 synthetic scenarios run; representative effects and targeted triggers inspected, not exhaustive every-effect browser proof.",
     "browserEvidence": "verification/boss-abilities-20261107/browser/browser-qa.json",
     "finalPrepublicationCheck": "verification/boss-abilities-20261107/final-prepublication-check.json",
-    "independentReleaseAudit": "verification/boss-abilities-20261107/release-audit.json"
+    "independentReleaseAudit": "verification/boss-abilities-20261107/release-audit.json",
+    "publicBrowserEvidence": "verification/boss-abilities-20261107/browser/public-browser-qa.json",
+    "liveReleaseEvidence": "verification/boss-abilities-20261107/live-release-verification.json",
+    "liveFilesVerified": 608,
+    "liveImageAssetsVerified": 573,
+    "deployedSourceReconstructionExact": true
   },
   "preservation": {
     "runtimeDefinitions": 301,
@@ -97,13 +102,18 @@
   "limitations": [
     "Chromium browser verification covers the documented scope only; not every effect or interaction was visually inspected in-browser.",
     "Physical touch, real GRAVITY SDK acceptance, live network multiplayer and narrower device viewport remain unverified.",
-    "The exact absolute Gravity entry and public deployment are checked separately after publication.",
     "Production Canvas2D rendering is separate evidence from real browser interaction.",
     "Original173-test suite remains unchanged:149 pass,24 retired-spec assertions are individually mapped, never reported as original passes."
   ],
   "publication": {
-    "status": "AWAITING_POST_PUSH_DEPLOYMENT_VERIFICATION",
-    "remoteCommit": null,
-    "pagesDeploymentVerified": false
+    "status": "VERIFIED",
+    "verifiedReleaseCommit": "2d23a98d6c4c8856cb4df1d1bce37424a0533843",
+    "verifiedReleaseTree": "27e2e6ce92f3bc98a3db5fc844e461acd2fa4d07",
+    "pagesDeploymentVerified": true,
+    "pagesWorkflowId": 42352462646,
+    "normalURL": "https://gbaconrice.github.io/docchi-ga-katsu/",
+    "gravityEntryURL": "https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/gravity-entry.html",
+    "liveVerification": "verification/boss-abilities-20261107/live-release-verification.json",
+    "publicBrowserVerification": "verification/boss-abilities-20261107/browser/public-browser-qa.json"
   }
 }

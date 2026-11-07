@@ -30,7 +30,7 @@ node tools/boss-abilities/run-canonical.cjs /tmp/docchi-canonical-results
 
 実戦のstep()/draw()と実素材を使うCanvas2D描画確認に加え、実際のChromiumで通常の対戦・次ラウンド、49種の模擬編成、死亡時・反応型・成長・リプレイなどを確認しました。1180×757と500×757の画面で確認し、代表的な能力の見た目と入口の読み込みも調べています。[ブラウザ確認の範囲](verification/boss-abilities-20261107/browser/browser-qa.json)を参照してください。49種すべての効果を網羅的に目視確認したという意味ではありません。
 
-物理タッチ、さらに狭い実機画面、実GRAVITY SDKでのスコア受付、実ネットワークのマルチ対戦は未確認です。公開後の配信確認も別途必要です。
+物理タッチ、さらに狭い実機画面、実GRAVITY SDKでのスコア受付、実ネットワークのマルチ対戦は未確認です。公開後も通常入口・置き換えなしのGRAVITY用入口を実際のブラウザで操作し、予想・戦闘・結果・残高の更新を確認しました。配信サーバーから取得した608ファイル（画像573枚を含む）を照合し、再構成したソースが検証済み版と完全一致することも確認しています。[配信データの照合](verification/boss-abilities-20261107/live-release-verification.json)と[公開URLの操作確認](verification/boss-abilities-20261107/browser/public-browser-qa.json)を参照してください。
 
 ## 入口と互換性
 
@@ -39,3 +39,7 @@ node tools/boss-abilities/run-canonical.cjs /tmp/docchi-canonical-results
 同じ部屋では全員が同じコンテンツ版を使う必要があります。旧版と新版の混在を検出して参加を拒否します。財布・スコアのデータ移行は不要です。
 
 [能力確認用ページ](releases/boss-abilities-20261107/boss-preview.html)は明示した模擬編成を使う独立したQA入口です。通常入口には読み込みません。素材とライセンスは[ARTWORK](releases/boss-abilities-20261107/ARTWORK.md)とrelease内のlicensesを参照してください。
+
+## 公開URLとGRAVITY用プロンプト
+
+[通常版を開く](https://gbaconrice.github.io/docchi-ga-katsu/) ／ [GRAVITY用入口](https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/gravity-entry.html)。[貼り付け用プロンプト](GRAVITY_PROMPT.txt)は446文字で、5,000文字以内です。GRAVITYの実SDKでの受理を保証するものではありません。

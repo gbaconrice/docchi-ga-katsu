@@ -1,0 +1,40 @@
+{
+  "sourceSHA256": "649a36f59f73219e0755d48a30735b60a8cc7d589ffa6442be0f5f0bc45a5ac7",
+  "releaseCommit": "2d23a98d6c4c8856cb4df1d1bce37424a0533843",
+  "checkedAtUTC": "2026-11-07T07:54:09.262692+00:00",
+  "scope": "Real Chromium, exact public URLs, no local substitutions.",
+  "normalURL": "https://gbaconrice.github.io/docchi-ga-katsu/",
+  "gravityURL": "https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/gravity-entry.html",
+  "qaURL": "https://gbaconrice.github.io/docchi-ga-katsu/releases/boss-abilities-20261107/boss-preview.html",
+  "normalPlay": [
+    "Home to solo to prediction to battle.",
+    "Pause and resume worked.",
+    "Result awarded25G:100G to125G.",
+    "Next round25-percent amount was31G."
+  ],
+  "gravityPlay": {
+    "viewport": {
+      "width": 500,
+      "height": 757
+    },
+    "hostShell": "gravity",
+    "topReservationVisible": true,
+    "horizontalOverflow": false,
+    "flow": "Solo prediction, battle and result. Lost25G:100G to75G."
+  },
+  "publicQa": {
+    "options": 49,
+    "iframeControlsWorking": true,
+    "crossingFirebirds": "At60ticks, the expected pair of boss_firebird events was shown.",
+    "golemDeath": "At2ticks, two wall and two summon events were shown."
+  },
+  "sampledApplicationWarningsOrErrors": 0,
+  "browserScreenshotFilesStored": false,
+  "screenshotObservation": "Screenshots were visually inspected; no durable browser screenshot attachments are included. Production Canvas screenshots are separate evidence.",
+  "limits": [
+    "Real GRAVITY SDK score acceptance remains unverified.",
+    "Live multiplayer networking remains unverified.",
+    "Physical phone and physical touch remain unverified.",
+    "Representative public smoke checks are not exhaustive browser coverage of all49 abilities."
+  ]
+}
