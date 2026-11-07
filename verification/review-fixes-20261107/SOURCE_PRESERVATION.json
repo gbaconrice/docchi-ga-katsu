@@ -1,0 +1,14 @@
+{
+  "sourceSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
+  "sourceBase": "Space source v18, a6a179d7d9212b3c6269f86556593cc79c53081e32ac6f6f4280b921e0a804a8",
+  "previousPublishedCommit": "8b20cfc3cb31cb9aa498f6d935629abeceb3a14b",
+  "unitDefinitions": 301,
+  "selectableTypes": 300,
+  "bossTypes": 46,
+  "inlineImagesAndAudio": 591,
+  "eventCategories": 107,
+  "preserved": "Unit prices, stats, abilities, image/audio bytes, full log event payloads and winner carry composition/positions.",
+  "approvedLogicChanges": "Matchup history; canonical deadline cashout reason and own-client score submission; room-session rollover; no global balance adjustment.",
+  "testChanges": "See test-input-changes.json for exact input hashes and approved-timeout-module-edits.json for original wallet/score hash normalization.",
+  "unchangedHistory": "No prior release files or historical root test tools changed."
+}

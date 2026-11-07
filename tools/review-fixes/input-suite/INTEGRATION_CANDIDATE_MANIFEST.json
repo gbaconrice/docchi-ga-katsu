@@ -1,0 +1,20 @@
+{
+  "status": "unpublished",
+  "baseCommit": "8b20cfc3cb31cb9aa498f6d935629abeceb3a14b",
+  "publishedIndexSHA256": "0772eefd132feaf6e0567219e1827b743b6aa27fa7ff70d8f1f0e1d2ffcef8cb",
+  "candidateIndexSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
+  "contentRevision": "dd8079f49331709edecdb41fba54bc3463e8c71e3963c5a397bc50bb41ce648e",
+  "revisionMethod": "SHA256(docchi-integrated-candidate-v1\\0 + LF HTML with CONTENT_REVISION normalized to 64 zeroes)",
+  "compatibility": "Review fixes: no-repeat matchup history, 30-second host-authoritative extension choices, compact betting layout and readable complete battle events. Same-version rooms required.",
+  "validation": "Independent final source identity; publication and real-browser verification are separate.",
+  "sources": {
+    "uiBaseCommit": "374f834a76831434b03b077c17dbd4dcd9583bfe",
+    "uiBaseIndexSHA256": "c93421a7afc2b0d24715fc831172ff20ab9496d29eeeacfd635877ff19c496e7",
+    "mechanicsBranch": "claude/boss-balance",
+    "mechanicsCommit": "346ec2d43bf6fbf705cc47ced997e104265d2ba4",
+    "mechanicsConfirmedUTC": "2026-11-05T18:52:15Z",
+    "largeBalanceVariant": "Claude 46 bosses only; independent 36-unit candidate not applied",
+    "newAbilityBranchIncluded": false,
+    "publication": "Immutable review-fixes-20261107 release; source reconstructed and tested by tools/review-fixes/run-current.cjs"
+  }
+}

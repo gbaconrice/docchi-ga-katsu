@@ -1,0 +1,22 @@
+{
+  "wallets": [
+    {
+      "before": "  if(!['player','room-exit','no-prediction'].includes(reason))fail('INVALID_CASHOUT_REASON');\n",
+      "after": "  if(!['player','room-exit','no-prediction','decision-timeout'].includes(reason))fail('INVALID_CASHOUT_REASON');\n"
+    }
+  ],
+  "scoreBridge": [
+    {
+      "before": "/** Final-cashout adapter. It runs only after a local user action and sends a positive safe JS number; SDK acceptance is unobservable. */\n",
+      "after": "/** Final-cashout adapter. Local actions and canonical multiplayer choice timeouts send only this client's positive safe score; SDK acceptance is unobservable. */\n"
+    },
+    {
+      "before": " return Object.freeze({hasAttempted,submit({sessionId,playerId,players,completedRounds,totalRounds,mode,action,spectator=false,userInitiated=false}={}){\n  if(!userInitiated)return {status:'user-action-required'};\n",
+      "after": " return Object.freeze({hasAttempted,submit({sessionId,playerId,players,completedRounds,totalRounds,mode,action,spectator=false,userInitiated=false,automaticTimeout=false}={}){\n  const timedOut=automaticTimeout===true&&mode===GAME_MODE&&Array.isArray(players)&&players.some(p=>p?.playerId===playerId&&p.cashoutReason==='decision-timeout'&&p.cashoutRequestId==='auto-decision-timeout:'+p.cashoutRound);\n  if(!userInitiated&&!timedOut)return {status:'user-action-required'};\n"
+    },
+    {
+      "before": "  if(!own||own.cashedOut!==true||own.cashoutRound!==completedRounds||own.cashoutAmount!==own.balance||typeof own.cashoutRequestId!=='string'||!['player','room-exit','no-prediction'].includes(own.cashoutReason))return {status:'invalid'};\n",
+      "after": "  if(!own||own.cashedOut!==true||own.cashoutRound!==completedRounds||own.cashoutAmount!==own.balance||typeof own.cashoutRequestId!=='string'||!['player','room-exit','no-prediction','decision-timeout'].includes(own.cashoutReason))return {status:'invalid'};\n"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "sourceSha256": "2687079d8b3a770ac89a4734a14b476672738b2f589ca9a030bff4d6206f6499",
+  "candidateSha256": "df1cd20f66c9df271f4abe90c30957caa23a89c496d411fc63717bdc2f70a1cb",
+  "old": "function syncBattleInsights(){const node=document.querySelector('#battleInsights');if(!node)return;let facts=null;if(multiSession){if(insightDeferredSession!==multiSession||insightDeferredRound!==multiSnapshot?.roundId){insightDeferredSession=multiSession;insightDeferredRound=multiSnapshot?.roundId;insightDeferredReplay=null;}if(['settle','result'].includes(multiSnapshot?.phase)){if(!multiReplay&&!insightDeferredReplay)insightDeferredReplay=multiSession.getReplay?.()||null;const source=multiReplay||insightDeferredReplay;if(source&&source.winner===multiSnapshot.winner&&BattleFields.sameEnvironment(source.environment,multiSnapshot.environment))facts=replayInsights(source);}}else if(state==='result')facts=BattleInsights.finish(units,winner);const parts=[];if(facts?.close!==null&&facts?.close!==undefined)parts.push('接戦 · 勝利軍の初期兵残HP '+facts.close+'%');node.textContent=parts.join('\\n');node.hidden=!parts.length;}",
+  "replacement": "function syncBattleInsights(){const node=document.querySelector('#battleInsights');if(!node)return;node.textContent='';node.hidden=true;}",
+  "scope": "Only the shared result appraisal renderer is changed. BattleInsights accounting, replay validation/transport, logs, settlement, and all other source bytes are preserved."
+}

@@ -1,0 +1,1242 @@
+{
+  "sourceSHA256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
+  "tests": 173,
+  "browserVerified": false,
+  "results": [
+    {
+      "test": "a1-bounded-text.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.148
+    },
+    {
+      "test": "a1-header-wallet.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.704
+    },
+    {
+      "test": "a1-material-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.147
+    },
+    {
+      "test": "ability-integration-cross.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.12
+    },
+    {
+      "test": "attack-role-damage.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.113
+    },
+    {
+      "test": "audio-events.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.151
+    },
+    {
+      "test": "auto-speed-controls.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.793
+    },
+    {
+      "test": "balance-blink.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.193
+    },
+    {
+      "test": "balance.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.561
+    },
+    {
+      "test": "battle-clarity.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 3.737
+    },
+    {
+      "test": "battle-insights.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.75
+    },
+    {
+      "test": "battle-log-color-policy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.757
+    },
+    {
+      "test": "battle-log-history.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.997
+    },
+    {
+      "test": "battle-log-meaning.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.629
+    },
+    {
+      "test": "battle-log-semantic-tones.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.667
+    },
+    {
+      "test": "battle-log-slot.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.662
+    },
+    {
+      "test": "battle-log.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 2.088
+    },
+    {
+      "test": "bet-selection.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.164
+    },
+    {
+      "test": "bet-ui-smoke.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.542
+    },
+    {
+      "test": "boot-smoke.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.57
+    },
+    {
+      "test": "boot-storage-denied.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.589
+    },
+    {
+      "test": "boss-display-values.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.591
+    },
+    {
+      "test": "camera-visibility.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.695
+    },
+    {
+      "test": "capacity-disclosure-reimplemented.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 9.499
+    },
+    {
+      "test": "carry-side.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.598
+    },
+    {
+      "test": "character-loading.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.699
+    },
+    {
+      "test": "comparison-air-priority.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.436
+    },
+    {
+      "test": "comparison-attack-stats.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.609
+    },
+    {
+      "test": "comparison-color-cascade.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.423
+    },
+    {
+      "test": "comparison-legibility.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 2.498
+    },
+    {
+      "test": "comparison-short-features.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.604
+    },
+    {
+      "test": "confirmed-picks.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.577
+    },
+    {
+      "test": "countup.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.555
+    },
+    {
+      "test": "crowd-auto-selection.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.93
+    },
+    {
+      "test": "crowd-counter.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.611
+    },
+    {
+      "test": "current-manifest.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.244
+    },
+    {
+      "test": "exit-race-regression.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.625
+    },
+    {
+      "test": "facing-equivalence.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.137
+    },
+    {
+      "test": "field-name.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.151
+    },
+    {
+      "test": "first-variation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.102
+    },
+    {
+      "test": "game-ui-polish.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.153
+    },
+    {
+      "test": "gold-full-amount.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.156
+    },
+    {
+      "test": "gold-ledger-static.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.165
+    },
+    {
+      "test": "gold-typography.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.143
+    },
+    {
+      "test": "gravity-home-build.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.901
+    },
+    {
+      "test": "guard-cancellation-drift.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.672
+    },
+    {
+      "test": "guard-corner-final.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.974
+    },
+    {
+      "test": "guard-crowd-drift.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 7.011
+    },
+    {
+      "test": "guard-description-actual.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.563
+    },
+    {
+      "test": "guard-draw-drift.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.564
+    },
+    {
+      "test": "guard-linear-ties.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.314
+    },
+    {
+      "test": "guard-priority-drift.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.544
+    },
+    {
+      "test": "guard-version.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.531
+    },
+    {
+      "test": "header-log-readability.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.438
+    },
+    {
+      "test": "header-slot.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.709
+    },
+    {
+      "test": "healblock.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.752
+    },
+    {
+      "test": "home-ambience.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.159
+    },
+    {
+      "test": "home-overflow-guard.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.165
+    },
+    {
+      "test": "horizontal-game-header.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.624
+    },
+    {
+      "test": "host-cashout-regression.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.876
+    },
+    {
+      "test": "host-layout-native-bridge.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.146
+    },
+    {
+      "test": "host-layout-native-contract.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.163
+    },
+    {
+      "test": "impact-cue.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.515
+    },
+    {
+      "test": "inline-image-play.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.514
+    },
+    {
+      "test": "integrated-revision.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.774
+    },
+    {
+      "test": "large-body-presentation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 5.905
+    },
+    {
+      "test": "legacy-payout.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.148
+    },
+    {
+      "test": "lifesteal.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.652
+    },
+    {
+      "test": "lobby-theme.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.329
+    },
+    {
+      "test": "map-emote-frame.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.148
+    },
+    {
+      "test": "melee-combo-replay.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.502
+    },
+    {
+      "test": "melee-combo-transition.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.629
+    },
+    {
+      "test": "melee-scan-large.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.371
+    },
+    {
+      "test": "melee-scan-small.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.48
+    },
+    {
+      "test": "multi-countdown-regression.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.832
+    },
+    {
+      "test": "multi-menu.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.53
+    },
+    {
+      "test": "multi-personal-outcome.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.531
+    },
+    {
+      "test": "multi-status-integration.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.604
+    },
+    {
+      "test": "multi-status-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.162
+    },
+    {
+      "test": "multi-timer.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.623
+    },
+    {
+      "test": "multiplayer-bankruptcy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.617
+    },
+    {
+      "test": "multiplayer-decision-timeout-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.889
+    },
+    {
+      "test": "multiplayer-decision-timeout.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.837
+    },
+    {
+      "test": "multiplayer-reconnect.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.625
+    },
+    {
+      "test": "multiplayer-rematch-sdk.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.596
+    },
+    {
+      "test": "multiplayer-rematch-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.763
+    },
+    {
+      "test": "multiplayer-speed-sync.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.312
+    },
+    {
+      "test": "mvp-accounting.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.576
+    },
+    {
+      "test": "mvp-result-copy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.652
+    },
+    {
+      "test": "names-katakana.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.573
+    },
+    {
+      "test": "new-ability-boundaries.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.025
+    },
+    {
+      "test": "new-ability-preservation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.643
+    },
+    {
+      "test": "no-army-foot-markers.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.91
+    },
+    {
+      "test": "no-formation-preview.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.801
+    },
+    {
+      "test": "no-repeat-matchups.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 6.599
+    },
+    {
+      "test": "no-repeat-search.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.914
+    },
+    {
+      "test": "opening-reachability.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.561
+    },
+    {
+      "test": "overtime-choices.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.671
+    },
+    {
+      "test": "overtime-loss-copy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.721
+    },
+    {
+      "test": "participant-notice-column.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.157
+    },
+    {
+      "test": "participant-rail.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.162
+    },
+    {
+      "test": "pause-exit.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.673
+    },
+    {
+      "test": "prediction-boss-marker.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.584
+    },
+    {
+      "test": "prediction-picks-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.141
+    },
+    {
+      "test": "public-rooms-recovery.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.168
+    },
+    {
+      "test": "public-rooms.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.494
+    },
+    {
+      "test": "pull.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.556
+    },
+    {
+      "test": "reaction-game-integration.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.525
+    },
+    {
+      "test": "reaction-protocol.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.151
+    },
+    {
+      "test": "readability-preservation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.276
+    },
+    {
+      "test": "readable-controls.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.556
+    },
+    {
+      "test": "reconstruction-preservation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.323
+    },
+    {
+      "test": "reflect-cascade.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.561
+    },
+    {
+      "test": "remove-prebattle-label.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.611
+    },
+    {
+      "test": "result-appraisal-hidden.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.26
+    },
+    {
+      "test": "result-audio.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.16
+    },
+    {
+      "test": "result-coin-paths.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.223
+    },
+    {
+      "test": "result-contrast.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.128
+    },
+    {
+      "test": "result-feedback.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.611
+    },
+    {
+      "test": "result-field.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.906
+    },
+    {
+      "test": "result-loss-motion.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.643
+    },
+    {
+      "test": "result-manual-advance.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.725
+    },
+    {
+      "test": "result-multi-wait.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.605
+    },
+    {
+      "test": "result-scatter.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.218
+    },
+    {
+      "test": "result-scroll-regression.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.646
+    },
+    {
+      "test": "review-air.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 2.117
+    },
+    {
+      "test": "review-extra.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 4.536
+    },
+    {
+      "test": "reward-position.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.2
+    },
+    {
+      "test": "root-audio.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.38
+    },
+    {
+      "test": "root-cleanse.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.532
+    },
+    {
+      "test": "root-death.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.554
+    },
+    {
+      "test": "root-immunity.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.6
+    },
+    {
+      "test": "root-mechanics.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.558
+    },
+    {
+      "test": "root-presentation-flags.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.556
+    },
+    {
+      "test": "root-replay.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.49
+    },
+    {
+      "test": "root-summon.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.071
+    },
+    {
+      "test": "score-preflight-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.528
+    },
+    {
+      "test": "score-preflight.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.15
+    },
+    {
+      "test": "score-retry-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.515
+    },
+    {
+      "test": "score-retry.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.164
+    },
+    {
+      "test": "score-storage.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.157
+    },
+    {
+      "test": "selection-hierarchy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.149
+    },
+    {
+      "test": "selection-preview-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.154
+    },
+    {
+      "test": "selection-preview.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.563
+    },
+    {
+      "test": "semantic-tone-cascade.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 3.135
+    },
+    {
+      "test": "small-screen-betting.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.18
+    },
+    {
+      "test": "solo-fresh-entry.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.627
+    },
+    {
+      "test": "speed-investigation.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 5.338
+    },
+    {
+      "test": "stable-upper-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.683
+    },
+    {
+      "test": "summoner-capacity-suite.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 3.956
+    },
+    {
+      "test": "summoner-capacity.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.567
+    },
+    {
+      "test": "summoner-intrinsic-replay.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 2.949
+    },
+    {
+      "test": "summoner-movement-suite.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 3.369
+    },
+    {
+      "test": "summoner-movement.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.609
+    },
+    {
+      "test": "tap-detail-copy.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.824
+    },
+    {
+      "test": "tavern-host-layout.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.181
+    },
+    {
+      "test": "terrain-card-note.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.618
+    },
+    {
+      "test": "terrain-combat-revision.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.591
+    },
+    {
+      "test": "terrain-header.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.262
+    },
+    {
+      "test": "terrain-new.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.664
+    },
+    {
+      "test": "test-result-controls.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.892
+    },
+    {
+      "test": "test-result-countdown.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.633
+    },
+    {
+      "test": "theme-static.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.145
+    },
+    {
+      "test": "trap-candidates.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.571
+    },
+    {
+      "test": "trap-capacity.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.652
+    },
+    {
+      "test": "trap-flight-expiry.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.667
+    },
+    {
+      "test": "trap-mechanics.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.616
+    },
+    {
+      "test": "trap-replay.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.488
+    },
+    {
+      "test": "trap-stress.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 4.468
+    },
+    {
+      "test": "trap-terrain-suite.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 4.914
+    },
+    {
+      "test": "upper-reaction-area.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.693
+    },
+    {
+      "test": "zero-balance.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.179
+    },
+    {
+      "test": "zero-result-ui.cjs",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.639
+    },
+    {
+      "test": "external-packaging",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.603
+    },
+    {
+      "test": "entry-loader",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 0.1
+    },
+    {
+      "test": "actual-six-script-loader",
+      "status": "pass",
+      "code": 0,
+      "signal": null,
+      "seconds": 1.178
+    }
+  ],
+  "inputsUnchanged": true,
+  "passed": 176,
+  "failed": 0
+}

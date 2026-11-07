@@ -1,0 +1,23 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8');
+const script=fs.readFileSync('tests/multiplayer-reconnect.cjs','utf8').split('for(const zeroPlayer')[0];
+new Function('require','assert',script+`
+const run=s=>vm.runInContext(s,context,{timeout:60000});
+run(\`multiSession=null;state='result';winner=0;units=[{token:'sword-1',k:'sword',side:0,hp:100,dead:false},{token:'sword-2',k:'sword',side:0,hp:100,dead:false},{token:'shield',k:'shield',side:0,hp:170,dead:false},{token:'enemy',k:'spear',side:1,hp:0,dead:true}];BattleInsights.start(units);BattleInsights.hit('sword-1',1,20);BattleInsights.hit('sword-2',1,20);BattleInsights.hit('shield',1,25);BattleInsights.hit('enemy',0,100);syncBattleInsights();\`);
+const label=nodes.get('#battleInsights');
+assert.equal(label.textContent,'');assert.equal(label.hidden,true,'MVP has no visible text');
+assert.equal(run('BattleInsights.finish(units,winner).mvp.value'),25,'accounting is preserved');
+assert.equal(run('BattleInsights.finish(units,winner).mvp.kind'),'shield','winner-side individual, not same-kind sum');
+run("BattleInsights.hit('sword-1',1,5);syncBattleInsights()");
+assert.equal(label.hidden,true,'top tie remains hidden');assert.equal(label.textContent,'');
+run("BattleInsights.hit('shield',1,1);BattleInsights.markIncomplete();syncBattleInsights()");
+assert.equal(label.hidden,true,'uncertain attribution remains hidden');
+run("BattleInsights.start(units);BattleInsights.hit('shield',1,25);units.forEach(u=>{u.dead=true;u.hp=0});units[2].dead=false;units[2].hp=1;syncBattleInsights()");
+assert.equal(label.textContent,'','close-result appraisal text is removed');assert.equal(label.hidden,true,'close-result appraisal stays hidden');
+run("winner=null;syncBattleInsights()");assert.equal(label.hidden,true,'draw hides MVP');
+console.log('PASS no MVP or close-result appraisal; individual winner-only accounting, ties, ambiguous attribution and draw remain preserved');
+`)(require,assert);
+const center=html.match(/#resultPanel > \.result-title, #resultPanel > \.result-winner\s*\{([^}]*)\}/)?.[1];assert(center,'same selector owns both outcome labels');
+for(const rule of ['display:block','width:100%','margin-inline:0','text-align:center','text-indent:0'])assert(center.includes(rule),rule);
+assert(/\.battle-insights\s*\{[^}]*white-space:pre-line;/.test(html));
+console.log('PASS shared outcome centering and preserved legacy wrapping style');

@@ -1,0 +1,107 @@
+{
+  "result": "PASS",
+  "sourceSha256": "a0598f17b4f57eb1d277a60aa814821a7a5bf2142b52ac3284e198e3083ef14d",
+  "initialScriptBytes": 6210957,
+  "checks": [
+    {
+      "name": "All immutable files, 572 preserved originals and one approved marker reconstruct the exact source",
+      "status": "PASS"
+    },
+    {
+      "name": "All scripts parse",
+      "status": "PASS"
+    },
+    {
+      "name": "Root, immutable and GRAVITY bootstrap configurations contain exactly six ordered anonymous scripts",
+      "status": "PASS"
+    },
+    {
+      "name": "Known-image whitelist rejects arbitrary URLs and MIME confusion",
+      "status": "PASS"
+    },
+    {
+      "name": "No bulk image-data scripts or embedded PNG/WebP images remain in the executable release",
+      "status": "PASS"
+    },
+    {
+      "name": "Optimized external boot, solo, battle and delayed image callbacks: none",
+      "status": "PASS"
+    },
+    {
+      "name": "Optimized external boot, solo, battle and delayed image callbacks: hasOwn",
+      "status": "PASS"
+    },
+    {
+      "name": "Optimized external boot, solo, battle and delayed image callbacks: at",
+      "status": "PASS"
+    },
+    {
+      "name": "Optimized external boot, solo, battle and delayed image callbacks: both",
+      "status": "PASS"
+    }
+  ],
+  "boots": [
+    {
+      "missing": "none",
+      "logs": [
+        "PASS boot 5 scripts",
+        "IMAGE_REQUESTS_HOME [\"https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/images/bf06853b8247b08d2ee2dd4e86295b12990fc37cd1f379893677d497c7bfd9c3.png\"]",
+        "PASS solo start",
+        "PASS click #red",
+        "PASS click #confirm",
+        "PASS reached battle with environment highland",
+        "PASS deferred image callbacks"
+      ],
+      "requestedImages": 13,
+      "requestedImageBytes": 134692,
+      "homeImageRequests": 1
+    },
+    {
+      "missing": "hasOwn",
+      "logs": [
+        "PASS boot 5 scripts",
+        "IMAGE_REQUESTS_HOME [\"https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/images/bf06853b8247b08d2ee2dd4e86295b12990fc37cd1f379893677d497c7bfd9c3.png\"]",
+        "PASS solo start",
+        "PASS click #red",
+        "PASS click #confirm",
+        "PASS reached battle with environment icefield",
+        "PASS deferred image callbacks"
+      ],
+      "requestedImages": 13,
+      "requestedImageBytes": 133488,
+      "homeImageRequests": 1
+    },
+    {
+      "missing": "at",
+      "logs": [
+        "PASS boot 5 scripts",
+        "IMAGE_REQUESTS_HOME [\"https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/images/bf06853b8247b08d2ee2dd4e86295b12990fc37cd1f379893677d497c7bfd9c3.png\"]",
+        "PASS solo start",
+        "PASS click #red",
+        "PASS click #confirm",
+        "PASS reached battle with environment icefield",
+        "PASS deferred image callbacks"
+      ],
+      "requestedImages": 13,
+      "requestedImageBytes": 112999,
+      "homeImageRequests": 1
+    },
+    {
+      "missing": "both",
+      "logs": [
+        "PASS boot 5 scripts",
+        "IMAGE_REQUESTS_HOME [\"https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-lazy-v3/images/bf06853b8247b08d2ee2dd4e86295b12990fc37cd1f379893677d497c7bfd9c3.png\"]",
+        "PASS solo start",
+        "PASS click #red",
+        "PASS click #confirm",
+        "PASS reached battle with environment volcano",
+        "PASS deferred image callbacks"
+      ],
+      "requestedImages": 13,
+      "requestedImageBytes": 123767,
+      "homeImageRequests": 1
+    }
+  ],
+  "browserVerified": false,
+  "limitations": "Node/VM checks, not network or rendering timing. Audio bytes remain unchanged; device and GRAVITY SDK behavior require real-device checks."
+}

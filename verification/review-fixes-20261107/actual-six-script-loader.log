@@ -1,0 +1,8 @@
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step -1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 0
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 1
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 2
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 3
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 4
+PASS actual six-file loader, modern APIs absent, exactly-once boot and battle; failure step 5
+ENTRY_LOADER_RELEASE_PASS 7 cases; actual release code in DOM fixtures.

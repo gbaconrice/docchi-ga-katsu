@@ -1,0 +1,12644 @@
+[
+  {
+    "k": "shield",
+    "name": "シールドガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      39,
+      31
+    ],
+    "idleMedian": [
+      39.0,
+      33.0
+    ],
+    "alphaArea": 835.0,
+    "alphaOccupancy": 0.13046875,
+    "stableInsets": [
+      19,
+      33,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        30,
+        60,
+        64
+      ],
+      "width": 39,
+      "height": 34,
+      "pixels": 839,
+      "cellArea": 6400,
+      "insets": [
+        19,
+        33,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "reaper_mantis",
+    "name": "マンティス",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      41,
+      38
+    ],
+    "idleMedian": [
+      42,
+      41
+    ],
+    "alphaArea": 615,
+    "alphaOccupancy": 0.09609375,
+    "stableInsets": [
+      19,
+      51,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        23,
+        66,
+        64
+      ],
+      "width": 42,
+      "height": 41,
+      "pixels": 619,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        40,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "archer",
+    "name": "アーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      32,
+      42
+    ],
+    "idleMedian": [
+      33.0,
+      43.5
+    ],
+    "alphaArea": 412.0,
+    "alphaOccupancy": 0.064375,
+    "stableInsets": [
+      19,
+      45,
+      27,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        21,
+        59,
+        64
+      ],
+      "width": 34,
+      "height": 43,
+      "pixels": 418,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        42,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "healer",
+    "name": "メディック",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      64,
+      52
+    ],
+    "idleMedian": [
+      66.0,
+      55.0
+    ],
+    "alphaArea": 968.0,
+    "alphaOccupancy": 0.08,
+    "stableInsets": [
+      36,
+      56,
+      32,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        37,
+        85,
+        92
+      ],
+      "width": 64,
+      "height": 55,
+      "pixels": 935,
+      "cellArea": 12100,
+      "insets": [
+        34,
+        54,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "voltaic_beetle",
+    "name": "サンダービートル",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      46,
+      32
+    ],
+    "idleMedian": [
+      47.0,
+      34.0
+    ],
+    "alphaArea": 680.5,
+    "alphaOccupancy": 0.106328125,
+    "stableInsets": [
+      29,
+      44,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        30,
+        66,
+        64
+      ],
+      "width": 47,
+      "height": 34,
+      "pixels": 668,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        33,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crystal_tailbeast",
+    "name": "クリスタルテイル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      45,
+      22
+    ],
+    "idleMedian": [
+      46.0,
+      24.5
+    ],
+    "alphaArea": 649.5,
+    "alphaOccupancy": 0.06495000000000001,
+    "stableInsets": [
+      33,
+      27,
+      34,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        61,
+        78,
+        84
+      ],
+      "width": 45,
+      "height": 23,
+      "pixels": 584,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        22,
+        28,
+        1
+      ]
+    }
+  },
+  {
+    "k": "froststing_hornet",
+    "name": "フロストホーネット",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      24,
+      27
+    ],
+    "idleMedian": [
+      33.5,
+      34.0
+    ],
+    "alphaArea": 256.5,
+    "alphaOccupancy": 0.02565,
+    "stableInsets": [
+      46,
+      49,
+      24,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        44,
+        62,
+        82
+      ],
+      "width": 34,
+      "height": 38,
+      "pixels": 281,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        39,
+        12,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "sword",
+    "name": "ソードマン",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      49,
+      28
+    ],
+    "idleMedian": [
+      49.0,
+      29.5
+    ],
+    "alphaArea": 454.0,
+    "alphaOccupancy": 0.07093749999999999,
+    "stableInsets": [
+      34,
+      30,
+      19,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        8,
+        35,
+        57,
+        64
+      ],
+      "width": 49,
+      "height": 29,
+      "pixels": 449,
+      "cellArea": 6400,
+      "insets": [
+        32,
+        28,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "onyx_scorpion",
+    "name": "オニキススコーピオン",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      35,
+      31
+    ],
+    "idleMedian": [
+      36.0,
+      36.5
+    ],
+    "alphaArea": 508.0,
+    "alphaOccupancy": 0.079375,
+    "stableInsets": [
+      20,
+      34,
+      20,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        30,
+        59,
+        67
+      ],
+      "width": 36,
+      "height": 37,
+      "pixels": 502,
+      "cellArea": 6400,
+      "insets": [
+        17,
+        33,
+        19,
+        4
+      ]
+    }
+  },
+  {
+    "k": "saberspine_tiger",
+    "name": "サーベルタイガー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      40,
+      26
+    ],
+    "idleMedian": [
+      44.0,
+      28.0
+    ],
+    "alphaArea": 613.5,
+    "alphaOccupancy": 0.095859375,
+    "stableInsets": [
+      29,
+      29,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        37,
+        59,
+        64
+      ],
+      "width": 40,
+      "height": 27,
+      "pixels": 604,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        26,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "maw_beast",
+    "name": "スモールジョー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      24,
+      16
+    ],
+    "idleMedian": [
+      26.5,
+      17.0
+    ],
+    "alphaArea": 261.5,
+    "alphaOccupancy": 0.040859375,
+    "stableInsets": [
+      15,
+      18,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        47,
+        53,
+        64
+      ],
+      "width": 24,
+      "height": 17,
+      "pixels": 256,
+      "cellArea": 6400,
+      "insets": [
+        11,
+        16,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "golem",
+    "name": "ロックゴーレム",
+    "boss": true,
+    "scale": 2,
+    "radius": 25,
+    "idleMin": [
+      82,
+      68
+    ],
+    "idleMedian": [
+      82.0,
+      70.0
+    ],
+    "alphaArea": 3662.0,
+    "alphaOccupancy": 0.14304687500000002,
+    "stableInsets": [
+      22,
+      36,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        29,
+        63,
+        64
+      ],
+      "width": 41,
+      "height": 35,
+      "pixels": 915,
+      "cellArea": 6400,
+      "insets": [
+        18,
+        34,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "boar",
+    "name": "チャージボア",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      50,
+      41
+    ],
+    "idleMedian": [
+      50.0,
+      42.5
+    ],
+    "alphaArea": 1319.5,
+    "alphaOccupancy": 0.206171875,
+    "stableInsets": [
+      29,
+      45,
+      27,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        15,
+        22,
+        65,
+        64
+      ],
+      "width": 50,
+      "height": 42,
+      "pixels": 1307,
+      "cellArea": 6400,
+      "insets": [
+        25,
+        41,
+        25,
+        1
+      ]
+    }
+  },
+  {
+    "k": "fireclaw_hawk",
+    "name": "フレイムクロードラゴン",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      43,
+      39
+    ],
+    "idleMedian": [
+      49.0,
+      45.0
+    ],
+    "alphaArea": 630.0,
+    "alphaOccupancy": 0.09843750000000001,
+    "stableInsets": [
+      38,
+      49,
+      20,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        11,
+        17,
+        58,
+        62
+      ],
+      "width": 47,
+      "height": 45,
+      "pixels": 644,
+      "cellArea": 6400,
+      "insets": [
+        29,
+        46,
+        18,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "frosthorn_rhino",
+    "name": "フロストライノ",
+    "boss": true,
+    "scale": 1,
+    "radius": 20,
+    "idleMin": [
+      68,
+      38
+    ],
+    "idleMedian": [
+      70.5,
+      40.0
+    ],
+    "alphaArea": 1415.0,
+    "alphaOccupancy": 0.14150000000000001,
+    "stableInsets": [
+      36,
+      40,
+      38,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        45,
+        88,
+        85
+      ],
+      "width": 70,
+      "height": 40,
+      "pixels": 1367,
+      "cellArea": 10000,
+      "insets": [
+        32,
+        38,
+        38,
+        2
+      ]
+    }
+  },
+  {
+    "k": "azure_mane_lion",
+    "name": "ブルーメインライオン",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      58,
+      33
+    ],
+    "idleMedian": [
+      63.0,
+      34.5
+    ],
+    "alphaArea": 1058.5,
+    "alphaOccupancy": 0.165390625,
+    "stableInsets": [
+      38,
+      39,
+      33,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        12,
+        28,
+        70,
+        64
+      ],
+      "width": 58,
+      "height": 36,
+      "pixels": 1046,
+      "cellArea": 6400,
+      "insets": [
+        28,
+        35,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "longtail_lizard",
+    "name": "ロングテイルリザード",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      49,
+      17
+    ],
+    "idleMedian": [
+      53.0,
+      18.5
+    ],
+    "alphaArea": 408.0,
+    "alphaOccupancy": 0.06375,
+    "stableInsets": [
+      30,
+      26,
+      26,
+      6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        16,
+        45,
+        66,
+        64
+      ],
+      "width": 50,
+      "height": 19,
+      "pixels": 420,
+      "cellArea": 6400,
+      "insets": [
+        24,
+        18,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "rune_exorcist",
+    "name": "ルーンエクソシスト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      26,
+      31
+    ],
+    "idleMedian": [
+      26,
+      34
+    ],
+    "alphaArea": 370,
+    "alphaOccupancy": 0.0578125,
+    "stableInsets": [
+      17,
+      43,
+      20,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        20,
+        55,
+        63
+      ],
+      "width": 26,
+      "height": 43,
+      "pixels": 366,
+      "cellArea": 6400,
+      "insets": [
+        11,
+        43,
+        15,
+        0
+      ]
+    }
+  },
+  {
+    "k": "knife_skirmisher",
+    "name": "ナイフファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      33,
+      24
+    ],
+    "idleMedian": [
+      34.0,
+      25.5
+    ],
+    "alphaArea": 353.0,
+    "alphaOccupancy": 0.055156250000000004,
+    "stableInsets": [
+      17,
+      26,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        39,
+        62,
+        64
+      ],
+      "width": 34,
+      "height": 25,
+      "pixels": 348,
+      "cellArea": 6400,
+      "insets": [
+        12,
+        24,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "common_orc",
+    "name": "オークソードマン",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      71,
+      53
+    ],
+    "idleMedian": [
+      72.0,
+      55.0
+    ],
+    "alphaArea": 1443.0,
+    "alphaOccupancy": 0.22546875,
+    "stableInsets": [
+      36,
+      56,
+      40,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        7,
+        9,
+        79,
+        64
+      ],
+      "width": 72,
+      "height": 55,
+      "pixels": 1428,
+      "cellArea": 6400,
+      "insets": [
+        33,
+        54,
+        39,
+        1
+      ]
+    }
+  },
+  {
+    "k": "stone_mason",
+    "name": "ストーンナックル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      37,
+      26
+    ],
+    "idleMedian": [
+      37.0,
+      28.0
+    ],
+    "alphaArea": 465.5,
+    "alphaOccupancy": 0.046549999999999994,
+    "stableInsets": [
+      22,
+      31,
+      27,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        57,
+        65,
+        84
+      ],
+      "width": 37,
+      "height": 27,
+      "pixels": 458,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        26,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "toll_squire",
+    "name": "ゲートスクワイア",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      37,
+      22
+    ],
+    "idleMedian": [
+      37,
+      23
+    ],
+    "alphaArea": 421,
+    "alphaOccupancy": 0.06578125,
+    "stableInsets": [
+      22,
+      24,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        41,
+        62,
+        64
+      ],
+      "width": 37,
+      "height": 23,
+      "pixels": 421,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        22,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "choir_friar",
+    "name": "コーラスフライアー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      19,
+      29
+    ],
+    "idleMedian": [
+      19,
+      31
+    ],
+    "alphaArea": 329,
+    "alphaOccupancy": 0.05140625,
+    "stableInsets": [
+      10,
+      31,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        34,
+        52,
+        64
+      ],
+      "width": 19,
+      "height": 30,
+      "pixels": 316,
+      "cellArea": 6400,
+      "insets": [
+        7,
+        29,
+        12,
+        1
+      ]
+    }
+  },
+  {
+    "k": "frostmage",
+    "name": "フロストメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      47,
+      42
+    ],
+    "idleMedian": [
+      47.0,
+      42.0
+    ],
+    "alphaArea": 940.0,
+    "alphaOccupancy": 0.146875,
+    "stableInsets": [
+      22,
+      42,
+      36,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        22,
+        66,
+        64
+      ],
+      "width": 47,
+      "height": 42,
+      "pixels": 947,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        41,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spirit_fan_wolf",
+    "name": "スピリットウルフ",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      60,
+      29
+    ],
+    "idleMedian": [
+      61.0,
+      36.5
+    ],
+    "alphaArea": 837.5,
+    "alphaOccupancy": 0.08375,
+    "stableInsets": [
+      38,
+      38,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        51,
+        80,
+        84
+      ],
+      "width": 61,
+      "height": 33,
+      "pixels": 901,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        32,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "breath_imp",
+    "name": "ブレスインプ",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      42,
+      35
+    ],
+    "idleMedian": [
+      49.5,
+      39.0
+    ],
+    "alphaArea": 540.0,
+    "alphaOccupancy": 0.054,
+    "stableInsets": [
+      38,
+      40,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        46,
+        68,
+        84
+      ],
+      "width": 42,
+      "height": 38,
+      "pixels": 548,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        37,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "thornback_beast",
+    "name": "ソーンバック",
+    "boss": true,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      78,
+      48
+    ],
+    "idleMedian": [
+      85.0,
+      53.0
+    ],
+    "alphaArea": 2248.0,
+    "alphaOccupancy": 0.03325443786982249,
+    "stableInsets": [
+      34,
+      33,
+      26,
+      8
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        48,
+        88,
+        90,
+        114
+      ],
+      "width": 42,
+      "height": 26,
+      "pixels": 575,
+      "cellArea": 16900,
+      "insets": [
+        17,
+        25,
+        25,
+        1
+      ]
+    }
+  },
+  {
+    "k": "basalt_titan",
+    "name": "サンダーアーマービースト",
+    "boss": true,
+    "scale": 2,
+    "radius": 26,
+    "idleMin": [
+      120,
+      78
+    ],
+    "idleMedian": [
+      124.0,
+      80.0
+    ],
+    "alphaArea": 5612.0,
+    "alphaOccupancy": 0.08301775147928994,
+    "stableInsets": [
+      38,
+      42,
+      34,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        73,
+        93,
+        114
+      ],
+      "width": 60,
+      "height": 41,
+      "pixels": 1379,
+      "cellArea": 16900,
+      "insets": [
+        32,
+        40,
+        28,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goblin",
+    "name": "ゴブリン",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      26,
+      28
+    ],
+    "idleMedian": [
+      27.0,
+      30.0
+    ],
+    "alphaArea": 351.0,
+    "alphaOccupancy": 0.05484375,
+    "stableInsets": [
+      15,
+      32,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        35,
+        53,
+        64
+      ],
+      "width": 27,
+      "height": 29,
+      "pixels": 352,
+      "cellArea": 6400,
+      "insets": [
+        14,
+        28,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bone_crown_lich",
+    "name": "リッチスクライブ",
+    "boss": false,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      102,
+      104
+    ],
+    "idleMedian": [
+      102.0,
+      115.0
+    ],
+    "alphaArea": 5938.0,
+    "alphaOccupancy": 0.231953125,
+    "stableInsets": [
+      22,
+      63,
+      35,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        10,
+        71,
+        64
+      ],
+      "width": 51,
+      "height": 54,
+      "pixels": 1447,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        53,
+        31,
+        1
+      ]
+    }
+  },
+  {
+    "k": "rider",
+    "name": "ランスライダー",
+    "boss": false,
+    "scale": 1,
+    "radius": 15,
+    "idleMin": [
+      67,
+      41
+    ],
+    "idleMedian": [
+      68.0,
+      43.5
+    ],
+    "alphaArea": 689.5,
+    "alphaOccupancy": 0.107734375,
+    "stableInsets": [
+      39,
+      45,
+      40,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        7,
+        21,
+        74,
+        64
+      ],
+      "width": 67,
+      "height": 43,
+      "pixels": 679,
+      "cellArea": 6400,
+      "insets": [
+        33,
+        42,
+        34,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cannon",
+    "name": "フレイムキャスター",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      31,
+      31
+    ],
+    "idleMedian": [
+      32.5,
+      36.5
+    ],
+    "alphaArea": 425.5,
+    "alphaOccupancy": 0.066484375,
+    "stableInsets": [
+      22,
+      50,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        32,
+        58,
+        64
+      ],
+      "width": 33,
+      "height": 32,
+      "pixels": 426,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        31,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bombbug",
+    "name": "ボムビートル",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      38,
+      31
+    ],
+    "idleMedian": [
+      39.5,
+      32.5
+    ],
+    "alphaArea": 626.5,
+    "alphaOccupancy": 0.097890625,
+    "stableInsets": [
+      21,
+      34,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        32,
+        60,
+        64
+      ],
+      "width": 40,
+      "height": 32,
+      "pixels": 626,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        31,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "rootwarden_treant",
+    "name": "トレント",
+    "boss": true,
+    "scale": 2,
+    "radius": 27,
+    "idleMin": [
+      78,
+      70
+    ],
+    "idleMedian": [
+      84,
+      72
+    ],
+    "alphaArea": 2592,
+    "alphaOccupancy": 0.0648,
+    "stableInsets": [
+      25,
+      39,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        47,
+        76,
+        84
+      ],
+      "width": 42,
+      "height": 37,
+      "pixels": 648,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        36,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "orb_hunter",
+    "name": "オーブハンター",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      36,
+      59
+    ],
+    "idleMedian": [
+      41.0,
+      61.0
+    ],
+    "alphaArea": 999.0,
+    "alphaOccupancy": 0.069375,
+    "stableInsets": [
+      29,
+      64,
+      25,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        41,
+        42,
+        77,
+        104
+      ],
+      "width": 36,
+      "height": 62,
+      "pixels": 951,
+      "cellArea": 14400,
+      "insets": [
+        19,
+        61,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "aegis_warden",
+    "name": "イージスガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 15,
+    "idleMin": [
+      40,
+      45
+    ],
+    "idleMedian": [
+      42.0,
+      46.0
+    ],
+    "alphaArea": 1065.0,
+    "alphaOccupancy": 0.10650000000000001,
+    "stableInsets": [
+      45,
+      52,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        34,
+        68,
+        79
+      ],
+      "width": 42,
+      "height": 45,
+      "pixels": 1069,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        49,
+        18,
+        -4
+      ]
+    }
+  },
+  {
+    "k": "stormmage",
+    "name": "サンダーメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      27,
+      52
+    ],
+    "idleMedian": [
+      29.0,
+      54.0
+    ],
+    "alphaArea": 641.0,
+    "alphaOccupancy": 0.06409999999999999,
+    "stableInsets": [
+      36,
+      58,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        29,
+        63,
+        84
+      ],
+      "width": 29,
+      "height": 55,
+      "pixels": 630,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        54,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "glimmer_sprite",
+    "name": "ランタンフェアリー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      40,
+      34
+    ],
+    "idleMedian": [
+      41,
+      42
+    ],
+    "alphaArea": 593,
+    "alphaOccupancy": 0.0593,
+    "stableInsets": [
+      27,
+      52,
+      29,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        35,
+        68,
+        74
+      ],
+      "width": 43,
+      "height": 39,
+      "pixels": 633,
+      "cellArea": 10000,
+      "insets": [
+        25,
+        48,
+        18,
+        -9
+      ]
+    }
+  },
+  {
+    "k": "followup_cub",
+    "name": "チェイスキャット",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      23,
+      20
+    ],
+    "idleMedian": [
+      26.0,
+      24.5
+    ],
+    "alphaArea": 299.0,
+    "alphaOccupancy": 0.04671875,
+    "stableInsets": [
+      24,
+      24,
+      18,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        41,
+        51,
+        68
+      ],
+      "width": 24,
+      "height": 27,
+      "pixels": 311,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        22,
+        11,
+        5
+      ]
+    }
+  },
+  {
+    "k": "frostbreath_lizard",
+    "name": "フロストブレスリザード",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      112,
+      80
+    ],
+    "idleMedian": [
+      134.0,
+      86.0
+    ],
+    "alphaArea": 3410.0,
+    "alphaOccupancy": 0.13320312499999998,
+    "stableInsets": [
+      39,
+      45,
+      38,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        4,
+        21,
+        60,
+        64
+      ],
+      "width": 56,
+      "height": 43,
+      "pixels": 852,
+      "cellArea": 6400,
+      "insets": [
+        36,
+        42,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cleaver_brute",
+    "name": "ホーンドブレイバー",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      124,
+      96
+    ],
+    "idleMedian": [
+      131.0,
+      104.0
+    ],
+    "alphaArea": 4944.0,
+    "alphaOccupancy": 0.0731360946745562,
+    "stableInsets": [
+      51,
+      64,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        64,
+        86,
+        114
+      ],
+      "width": 65,
+      "height": 50,
+      "pixels": 1217,
+      "cellArea": 16900,
+      "insets": [
+        44,
+        49,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "repair_pylon",
+    "name": "リペアピラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      32,
+      50
+    ],
+    "idleMedian": [
+      38.0,
+      51.0
+    ],
+    "alphaArea": 864.5,
+    "alphaOccupancy": 0.08645,
+    "stableInsets": [
+      27,
+      50,
+      33,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        34,
+        73,
+        85
+      ],
+      "width": 43,
+      "height": 51,
+      "pixels": 764,
+      "cellArea": 10000,
+      "insets": [
+        20,
+        49,
+        23,
+        2
+      ]
+    }
+  },
+  {
+    "k": "spear",
+    "name": "ロングブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      43,
+      27
+    ],
+    "idleMedian": [
+      43.0,
+      28.5
+    ],
+    "alphaArea": 437.0,
+    "alphaOccupancy": 0.06828125,
+    "stableInsets": [
+      25,
+      30,
+      19,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        15,
+        36,
+        58,
+        64
+      ],
+      "width": 43,
+      "height": 28,
+      "pixels": 437,
+      "cellArea": 6400,
+      "insets": [
+        25,
+        27,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "repulsion_eye",
+    "name": "プッシュアイ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      29,
+      34
+    ],
+    "idleMedian": [
+      29.0,
+      36.0
+    ],
+    "alphaArea": 585.0,
+    "alphaOccupancy": 0.09140625,
+    "stableInsets": [
+      20,
+      37,
+      21,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        28,
+        53,
+        64
+      ],
+      "width": 29,
+      "height": 36,
+      "pixels": 585,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        35,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "wingblade_duelist",
+    "name": "ウィングブレイダー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      56,
+      46
+    ],
+    "idleMedian": [
+      60.5,
+      47.0
+    ],
+    "alphaArea": 965.5,
+    "alphaOccupancy": 0.05713017751479289,
+    "stableInsets": [
+      34,
+      77,
+      43,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        40,
+        66,
+        99,
+        113
+      ],
+      "width": 59,
+      "height": 47,
+      "pixels": 982,
+      "cellArea": 16900,
+      "insets": [
+        25,
+        47,
+        34,
+        0
+      ]
+    }
+  },
+  {
+    "k": "spinning_tailbeast",
+    "name": "スピンテイル",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      56,
+      25
+    ],
+    "idleMedian": [
+      60.0,
+      32.5
+    ],
+    "alphaArea": 663.5,
+    "alphaOccupancy": 0.06634999999999999,
+    "stableInsets": [
+      42,
+      44,
+      34,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        15,
+        49,
+        71,
+        85
+      ],
+      "width": 56,
+      "height": 36,
+      "pixels": 680,
+      "cellArea": 10000,
+      "insets": [
+        35,
+        34,
+        21,
+        2
+      ]
+    }
+  },
+  {
+    "k": "silver_wingbird",
+    "name": "シルバーウィング",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      49,
+      48
+    ],
+    "idleMedian": [
+      58.0,
+      54.5
+    ],
+    "alphaArea": 873.5,
+    "alphaOccupancy": 0.060659722222222226,
+    "stableInsets": [
+      43,
+      58,
+      35,
+      6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        46,
+        85,
+        103
+      ],
+      "width": 56,
+      "height": 57,
+      "pixels": 940,
+      "cellArea": 14400,
+      "insets": [
+        31,
+        57,
+        25,
+        0
+      ]
+    }
+  },
+  {
+    "k": "gauntlet_combo_guard",
+    "name": "ガントレットガード",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      73,
+      41
+    ],
+    "idleMedian": [
+      74.5,
+      48.0
+    ],
+    "alphaArea": 2082.0,
+    "alphaOccupancy": 0.14458333333333334,
+    "stableInsets": [
+      44,
+      45,
+      50,
+      6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        59,
+        103,
+        108
+      ],
+      "width": 74,
+      "height": 49,
+      "pixels": 2140,
+      "cellArea": 14400,
+      "insets": [
+        31,
+        44,
+        43,
+        5
+      ]
+    }
+  },
+  {
+    "k": "shadow_runner",
+    "name": "シャドウランナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      27,
+      20
+    ],
+    "idleMedian": [
+      29.0,
+      22.5
+    ],
+    "alphaArea": 219.0,
+    "alphaOccupancy": 0.03421875,
+    "stableInsets": [
+      20,
+      24,
+      10,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        41,
+        50,
+        64
+      ],
+      "width": 29,
+      "height": 23,
+      "pixels": 219,
+      "cellArea": 6400,
+      "insets": [
+        19,
+        22,
+        10,
+        1
+      ]
+    }
+  },
+  {
+    "k": "palmstrike_adept",
+    "name": "パームストライカー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      29,
+      56
+    ],
+    "idleMedian": [
+      30.5,
+      57.0
+    ],
+    "alphaArea": 786.0,
+    "alphaOccupancy": 0.0786,
+    "stableInsets": [
+      30,
+      59,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        28,
+        65,
+        84
+      ],
+      "width": 30,
+      "height": 56,
+      "pixels": 772,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        55,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "shockplate_drake",
+    "name": "ショックアーマードラゴン",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      114,
+      96
+    ],
+    "idleMedian": [
+      116.0,
+      100.0
+    ],
+    "alphaArea": 6672.0,
+    "alphaOccupancy": 0.11583333333333333,
+    "stableInsets": [
+      28,
+      50,
+      35,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        53,
+        90,
+        105
+      ],
+      "width": 58,
+      "height": 52,
+      "pixels": 1677,
+      "cellArea": 14400,
+      "insets": [
+        28,
+        50,
+        30,
+        2
+      ]
+    }
+  },
+  {
+    "k": "boulder_slammer",
+    "name": "ロックスラマー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      41,
+      55
+    ],
+    "idleMedian": [
+      41.0,
+      57.0
+    ],
+    "alphaArea": 1183.5,
+    "alphaOccupancy": 0.11835000000000001,
+    "stableInsets": [
+      22,
+      57,
+      24,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        29,
+        74,
+        85
+      ],
+      "width": 42,
+      "height": 56,
+      "pixels": 1188,
+      "cellArea": 10000,
+      "insets": [
+        18,
+        54,
+        24,
+        2
+      ]
+    }
+  },
+  {
+    "k": "crescent_blade_dancer",
+    "name": "クレセントダンサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      50,
+      49
+    ],
+    "idleMedian": [
+      70.0,
+      50.0
+    ],
+    "alphaArea": 859.0,
+    "alphaOccupancy": 0.05082840236686391,
+    "stableInsets": [
+      40,
+      52,
+      33,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        63,
+        98,
+        114
+      ],
+      "width": 70,
+      "height": 51,
+      "pixels": 860,
+      "cellArea": 16900,
+      "insets": [
+        37,
+        50,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "feral_fistfighter",
+    "name": "ワイルドパンチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      38,
+      41
+    ],
+    "idleMedian": [
+      43.5,
+      43.0
+    ],
+    "alphaArea": 975.5,
+    "alphaOccupancy": 0.09755,
+    "stableInsets": [
+      26,
+      44,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        41,
+        73,
+        84
+      ],
+      "width": 44,
+      "height": 43,
+      "pixels": 990,
+      "cellArea": 10000,
+      "insets": [
+        21,
+        42,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "thunderhorn_beast",
+    "name": "サンダーホーン",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      128,
+      72
+    ],
+    "idleMedian": [
+      136,
+      82
+    ],
+    "alphaArea": 5400,
+    "alphaOccupancy": 0.09375,
+    "stableInsets": [
+      41,
+      45,
+      39,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        59,
+        96,
+        104
+      ],
+      "width": 71,
+      "height": 45,
+      "pixels": 1407,
+      "cellArea": 14400,
+      "insets": [
+        35,
+        44,
+        36,
+        1
+      ]
+    }
+  },
+  {
+    "k": "slime",
+    "name": "スプリットアイ",
+    "boss": true,
+    "scale": 2,
+    "radius": 16,
+    "idleMin": [
+      72,
+      64
+    ],
+    "idleMedian": [
+      78.0,
+      64.0
+    ],
+    "alphaArea": 2560.0,
+    "alphaOccupancy": 0.1,
+    "stableInsets": [
+      20,
+      32,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        32,
+        60,
+        64
+      ],
+      "width": 39,
+      "height": 32,
+      "pixels": 630,
+      "cellArea": 6400,
+      "insets": [
+        19,
+        31,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "slimelet",
+    "name": "小目玉",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      36,
+      32
+    ],
+    "idleMedian": [
+      39.0,
+      32.0
+    ],
+    "alphaArea": 640.0,
+    "alphaOccupancy": 0.1,
+    "stableInsets": [
+      20,
+      32,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        32,
+        60,
+        64
+      ],
+      "width": 39,
+      "height": 32,
+      "pixels": 630,
+      "cellArea": 6400,
+      "insets": [
+        19,
+        31,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "roarfang_beast",
+    "name": "ロアファング",
+    "boss": true,
+    "scale": 1,
+    "radius": 17,
+    "idleMin": [
+      69,
+      44
+    ],
+    "idleMedian": [
+      73.0,
+      45.5
+    ],
+    "alphaArea": 1809.0,
+    "alphaOccupancy": 0.1070414201183432,
+    "stableInsets": [
+      46,
+      49,
+      41,
+      7
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        72,
+        97,
+        116
+      ],
+      "width": 69,
+      "height": 44,
+      "pixels": 1810,
+      "cellArea": 16900,
+      "insets": [
+        37,
+        41,
+        32,
+        3
+      ]
+    }
+  },
+  {
+    "k": "gilded_shooter",
+    "name": "ゴールドシューター",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      29,
+      45
+    ],
+    "idleMedian": [
+      30.0,
+      48.0
+    ],
+    "alphaArea": 514.0,
+    "alphaOccupancy": 0.0514,
+    "stableInsets": [
+      21,
+      51,
+      28,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        37,
+        36,
+        67,
+        84
+      ],
+      "width": 30,
+      "height": 48,
+      "pixels": 543,
+      "cellArea": 10000,
+      "insets": [
+        13,
+        47,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "lumen_charger",
+    "name": "ライトチャージャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      31,
+      32
+    ],
+    "idleMedian": [
+      39,
+      34
+    ],
+    "alphaArea": 529,
+    "alphaOccupancy": 0.0529,
+    "stableInsets": [
+      35,
+      38,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        45,
+        62,
+        84
+      ],
+      "width": 39,
+      "height": 39,
+      "pixels": 598,
+      "cellArea": 10000,
+      "insets": [
+        27,
+        38,
+        12,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spark_bird",
+    "name": "スパークバード",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      14,
+      20
+    ],
+    "idleMedian": [
+      17.5,
+      22.0
+    ],
+    "alphaArea": 158.5,
+    "alphaOccupancy": 0.024765625,
+    "stableInsets": [
+      13,
+      37,
+      12,
+      -7
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        29,
+        49,
+        56
+      ],
+      "width": 18,
+      "height": 27,
+      "pixels": 159,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        34,
+        9,
+        -7
+      ]
+    }
+  },
+  {
+    "k": "azure_blade_trio",
+    "name": "トリプルブルーブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      37,
+      25
+    ],
+    "idleMedian": [
+      39.0,
+      27.5
+    ],
+    "alphaArea": 410.0,
+    "alphaOccupancy": 0.040999999999999995,
+    "stableInsets": [
+      16,
+      39,
+      33,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        57,
+        78,
+        84
+      ],
+      "width": 42,
+      "height": 27,
+      "pixels": 432,
+      "cellArea": 10000,
+      "insets": [
+        14,
+        26,
+        28,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crimson_mender",
+    "name": "クリムゾンヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      28,
+      30
+    ],
+    "idleMedian": [
+      28.0,
+      30.5
+    ],
+    "alphaArea": 601.5,
+    "alphaOccupancy": 0.093984375,
+    "stableInsets": [
+      15,
+      31,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        33,
+        53,
+        64
+      ],
+      "width": 28,
+      "height": 31,
+      "pixels": 602,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        30,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "emberwing_drake",
+    "name": "フレイムウィング",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      63,
+      39
+    ],
+    "idleMedian": [
+      72.0,
+      51.0
+    ],
+    "alphaArea": 1472.0,
+    "alphaOccupancy": 0.08710059171597634,
+    "stableInsets": [
+      45,
+      77,
+      47,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        76,
+        93,
+        115
+      ],
+      "width": 66,
+      "height": 39,
+      "pixels": 1238,
+      "cellArea": 16900,
+      "insets": [
+        38,
+        37,
+        28,
+        2
+      ]
+    }
+  },
+  {
+    "k": "poleblade_dancer",
+    "name": "スピンブレイドダンサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      23,
+      40
+    ],
+    "idleMedian": [
+      23.5,
+      40.0
+    ],
+    "alphaArea": 376.0,
+    "alphaOccupancy": 0.05875,
+    "stableInsets": [
+      18,
+      39,
+      12,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        25,
+        47,
+        65
+      ],
+      "width": 23,
+      "height": 40,
+      "pixels": 372,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        38,
+        7,
+        2
+      ]
+    }
+  },
+  {
+    "k": "vortex_adept",
+    "name": "ボルテックスメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      60,
+      49
+    ],
+    "idleMedian": [
+      60,
+      52
+    ],
+    "alphaArea": 1149,
+    "alphaOccupancy": 0.073536,
+    "stableInsets": [
+      36,
+      54,
+      30,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        57,
+        89,
+        110
+      ],
+      "width": 60,
+      "height": 53,
+      "pixels": 1151,
+      "cellArea": 15625,
+      "insets": [
+        33,
+        51,
+        27,
+        2
+      ]
+    }
+  },
+  {
+    "k": "ward_bastion",
+    "name": "ストーンバスティオン",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      33,
+      66
+    ],
+    "idleMedian": [
+      34.0,
+      69.0
+    ],
+    "alphaArea": 1439.0,
+    "alphaOccupancy": 0.1439,
+    "stableInsets": [
+      19,
+      71,
+      17,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        16,
+        66,
+        83
+      ],
+      "width": 33,
+      "height": 67,
+      "pixels": 1480,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        67,
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "k": "carapace_slashbeast",
+    "name": "アーマースラッシャー",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      88,
+      90
+    ],
+    "idleMedian": [
+      89.0,
+      94.0
+    ],
+    "alphaArea": 4098.0,
+    "alphaOccupancy": 0.10245,
+    "stableInsets": [
+      28,
+      48,
+      28,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        37,
+        75,
+        85
+      ],
+      "width": 45,
+      "height": 48,
+      "pixels": 1019,
+      "cellArea": 10000,
+      "insets": [
+        20,
+        46,
+        25,
+        2
+      ]
+    }
+  },
+  {
+    "k": "sweep_acolyte",
+    "name": "スイープメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      29,
+      34
+    ],
+    "idleMedian": [
+      29,
+      35
+    ],
+    "alphaArea": 435,
+    "alphaOccupancy": 0.0435,
+    "stableInsets": [
+      27,
+      38,
+      15,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        49,
+        65,
+        83
+      ],
+      "width": 29,
+      "height": 34,
+      "pixels": 432,
+      "cellArea": 10000,
+      "insets": [
+        14,
+        34,
+        15,
+        0
+      ]
+    }
+  },
+  {
+    "k": "tumbling_critter",
+    "name": "ローリングビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      16,
+      10
+    ],
+    "idleMedian": [
+      16.0,
+      12.5
+    ],
+    "alphaArea": 159.0,
+    "alphaOccupancy": 0.015899999999999997,
+    "stableInsets": [
+      10,
+      16,
+      9,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        42,
+        70,
+        58,
+        84
+      ],
+      "width": 16,
+      "height": 14,
+      "pixels": 172,
+      "cellArea": 10000,
+      "insets": [
+        8,
+        13,
+        8,
+        1
+      ]
+    }
+  },
+  {
+    "k": "triad_chimera",
+    "name": "トリオキメラ",
+    "boss": true,
+    "scale": 2,
+    "radius": 18,
+    "idleMin": [
+      76,
+      38
+    ],
+    "idleMedian": [
+      80.0,
+      40.0
+    ],
+    "alphaArea": 1318.0,
+    "alphaOccupancy": 0.03295,
+    "stableInsets": [
+      26,
+      22,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        64,
+        67,
+        84
+      ],
+      "width": 41,
+      "height": 20,
+      "pixels": 341,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        19,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "pillar_hammerer",
+    "name": "ライトピラーハンマー",
+    "boss": true,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      122,
+      94
+    ],
+    "idleMedian": [
+      126.0,
+      111.0
+    ],
+    "alphaArea": 6276.0,
+    "alphaOccupancy": 0.09284023668639052,
+    "stableInsets": [
+      30,
+      64,
+      36,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        67,
+        98,
+        114
+      ],
+      "width": 62,
+      "height": 47,
+      "pixels": 1535,
+      "cellArea": 16900,
+      "insets": [
+        29,
+        46,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "oni_wavelet",
+    "name": "フローティングオニ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      31,
+      33
+    ],
+    "idleMedian": [
+      31.5,
+      35.0
+    ],
+    "alphaArea": 519.0,
+    "alphaOccupancy": 0.0519,
+    "stableInsets": [
+      32,
+      41,
+      20,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        45,
+        66,
+        82
+      ],
+      "width": 31,
+      "height": 37,
+      "pixels": 573,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        38,
+        16,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "vex_touchbeast",
+    "name": "グロウホーン",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      24,
+      17
+    ],
+    "idleMedian": [
+      25.0,
+      19.0
+    ],
+    "alphaArea": 229.5,
+    "alphaOccupancy": 0.035859375,
+    "stableInsets": [
+      16,
+      19,
+      16,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        45,
+        51,
+        64
+      ],
+      "width": 24,
+      "height": 19,
+      "pixels": 227,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        18,
+        11,
+        1
+      ]
+    }
+  },
+  {
+    "k": "wandering_warder",
+    "name": "ワンダーガーディアン",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      36,
+      54
+    ],
+    "idleMedian": [
+      39.5,
+      56.0
+    ],
+    "alphaArea": 809.5,
+    "alphaOccupancy": 0.08095,
+    "stableInsets": [
+      49,
+      59,
+      27,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        26,
+        71,
+        83
+      ],
+      "width": 40,
+      "height": 57,
+      "pixels": 863,
+      "cellArea": 10000,
+      "insets": [
+        19,
+        57,
+        21,
+        0
+      ]
+    }
+  },
+  {
+    "k": "bluefist_colossus",
+    "name": "ブルーフィストジャイアント",
+    "boss": true,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      78,
+      82
+    ],
+    "idleMedian": [
+      79.0,
+      90.0
+    ],
+    "alphaArea": 3140.0,
+    "alphaOccupancy": 0.0785,
+    "stableInsets": [
+      23,
+      47,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        39,
+        71,
+        84
+      ],
+      "width": 40,
+      "height": 45,
+      "pixels": 803,
+      "cellArea": 10000,
+      "insets": [
+        19,
+        44,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "curved_blade_raider",
+    "name": "カーブブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      33,
+      33
+    ],
+    "idleMedian": [
+      34,
+      33
+    ],
+    "alphaArea": 344,
+    "alphaOccupancy": 0.05375,
+    "stableInsets": [
+      13,
+      33,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        31,
+        63,
+        64
+      ],
+      "width": 34,
+      "height": 33,
+      "pixels": 342,
+      "cellArea": 6400,
+      "insets": [
+        11,
+        32,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "coiltail_halberdier",
+    "name": "コイルテイルランサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      47,
+      45
+    ],
+    "idleMedian": [
+      49,
+      47
+    ],
+    "alphaArea": 632,
+    "alphaOccupancy": 0.09875,
+    "stableInsets": [
+      22,
+      49,
+      32,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        16,
+        68,
+        64
+      ],
+      "width": 49,
+      "height": 48,
+      "pixels": 632,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        47,
+        28,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cinderbow_archer",
+    "name": "ファイアボウ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      54,
+      61
+    ],
+    "idleMedian": [
+      57.5,
+      66.0
+    ],
+    "alphaArea": 1035.5,
+    "alphaOccupancy": 0.10355,
+    "stableInsets": [
+      37,
+      69,
+      30,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        15,
+        23,
+        74,
+        84
+      ],
+      "width": 59,
+      "height": 61,
+      "pixels": 1077,
+      "cellArea": 10000,
+      "insets": [
+        35,
+        60,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cinder_tailbeast",
+    "name": "シンダーテイル",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      90,
+      124
+    ],
+    "idleMedian": [
+      101.0,
+      128.0
+    ],
+    "alphaArea": 4504.0,
+    "alphaOccupancy": 0.09305785123966942,
+    "stableInsets": [
+      48,
+      66,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        29,
+        79,
+        94
+      ],
+      "width": 48,
+      "height": 65,
+      "pixels": 1126,
+      "cellArea": 12100,
+      "insets": [
+        24,
+        64,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redmask_duelist",
+    "name": "レッドマスクツイン",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      25,
+      30
+    ],
+    "idleMedian": [
+      26,
+      31
+    ],
+    "alphaArea": 291,
+    "alphaOccupancy": 0.04546875,
+    "stableInsets": [
+      15,
+      32,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        33,
+        56,
+        64
+      ],
+      "width": 26,
+      "height": 31,
+      "pixels": 291,
+      "cellArea": 6400,
+      "insets": [
+        10,
+        30,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crownshield_guard",
+    "name": "クラウンシールド",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      35,
+      33
+    ],
+    "idleMedian": [
+      35.0,
+      34.0
+    ],
+    "alphaArea": 492.0,
+    "alphaOccupancy": 0.076875,
+    "stableInsets": [
+      12,
+      35,
+      27,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        30,
+        66,
+        64
+      ],
+      "width": 35,
+      "height": 34,
+      "pixels": 492,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        33,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goldring_core",
+    "name": "ゴールドリングコア",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      48,
+      38
+    ],
+    "idleMedian": [
+      48,
+      40
+    ],
+    "alphaArea": 836,
+    "alphaOccupancy": 0.130625,
+    "stableInsets": [
+      24,
+      40,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        25,
+        66,
+        64
+      ],
+      "width": 48,
+      "height": 39,
+      "pixels": 809,
+      "cellArea": 6400,
+      "insets": [
+        22,
+        38,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "finback_clawbeast",
+    "name": "フィンバッククロー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      41,
+      27
+    ],
+    "idleMedian": [
+      41.5,
+      30.5
+    ],
+    "alphaArea": 542.0,
+    "alphaOccupancy": 0.0542,
+    "stableInsets": [
+      38,
+      32,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        51,
+        65,
+        84
+      ],
+      "width": 41,
+      "height": 33,
+      "pixels": 568,
+      "cellArea": 10000,
+      "insets": [
+        26,
+        32,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "tendril_revenant",
+    "name": "テンドリルレヴナント",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      30,
+      64
+    ],
+    "idleMedian": [
+      33.0,
+      66.0
+    ],
+    "alphaArea": 629.5,
+    "alphaOccupancy": 0.05202479338842975,
+    "stableInsets": [
+      28,
+      68,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        40,
+        26,
+        71,
+        94
+      ],
+      "width": 31,
+      "height": 68,
+      "pixels": 638,
+      "cellArea": 12100,
+      "insets": [
+        15,
+        67,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "razorclaw_reaver",
+    "name": "シェルダブルクロー",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      116,
+      76
+    ],
+    "idleMedian": [
+      120.0,
+      109.0
+    ],
+    "alphaArea": 3962.0,
+    "alphaOccupancy": 0.0586094674556213,
+    "stableInsets": [
+      38,
+      57,
+      42,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        73,
+        95,
+        114
+      ],
+      "width": 60,
+      "height": 41,
+      "pixels": 837,
+      "cellArea": 16900,
+      "insets": [
+        30,
+        40,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "dusk_winglet",
+    "name": "ダスクウィング",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      29,
+      43
+    ],
+    "idleMedian": [
+      30.0,
+      45.5
+    ],
+    "alphaArea": 586.5,
+    "alphaOccupancy": 0.091640625,
+    "stableInsets": [
+      23,
+      47,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        18,
+        54,
+        64
+      ],
+      "width": 29,
+      "height": 46,
+      "pixels": 595,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        45,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "windcloth_duelist",
+    "name": "ウィンドクロス",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      43,
+      34
+    ],
+    "idleMedian": [
+      45.0,
+      34.0
+    ],
+    "alphaArea": 633.5,
+    "alphaOccupancy": 0.06334999999999999,
+    "stableInsets": [
+      43,
+      34,
+      24,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        50,
+        67,
+        84
+      ],
+      "width": 45,
+      "height": 34,
+      "pixels": 634,
+      "cellArea": 10000,
+      "insets": [
+        28,
+        33,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "antler_archer",
+    "name": "ホーンアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      28,
+      26
+    ],
+    "idleMedian": [
+      28,
+      28
+    ],
+    "alphaArea": 277,
+    "alphaOccupancy": 0.04328125,
+    "stableInsets": [
+      14,
+      29,
+      23,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        36,
+        54,
+        64
+      ],
+      "width": 28,
+      "height": 28,
+      "pixels": 264,
+      "cellArea": 6400,
+      "insets": [
+        14,
+        27,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "ringneck_prowler",
+    "name": "リングネック",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      130,
+      108
+    ],
+    "idleMedian": [
+      134.0,
+      112.0
+    ],
+    "alphaArea": 3968.0,
+    "alphaOccupancy": 0.08198347107438017,
+    "stableInsets": [
+      42,
+      56,
+      47,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        39,
+        93,
+        98
+      ],
+      "width": 67,
+      "height": 59,
+      "pixels": 1004,
+      "cellArea": 12100,
+      "insets": [
+        29,
+        54,
+        38,
+        5
+      ]
+    }
+  },
+  {
+    "k": "bluehorn_invoker",
+    "name": "ブルーホーンメイジ",
+    "boss": true,
+    "scale": 2,
+    "radius": 23,
+    "idleMin": [
+      88,
+      110
+    ],
+    "idleMedian": [
+      109.0,
+      117.0
+    ],
+    "alphaArea": 4800.0,
+    "alphaOccupancy": 0.07100591715976332,
+    "stableInsets": [
+      36,
+      59,
+      31,
+      6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        62,
+        86,
+        119
+      ],
+      "width": 54,
+      "height": 57,
+      "pixels": 1201,
+      "cellArea": 16900,
+      "insets": [
+        33,
+        51,
+        21,
+        6
+      ]
+    }
+  },
+  {
+    "k": "light_bowman",
+    "name": "ライトアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      17,
+      23
+    ],
+    "idleMedian": [
+      18.0,
+      25.0
+    ],
+    "alphaArea": 188.0,
+    "alphaOccupancy": 0.029375,
+    "stableInsets": [
+      11,
+      25,
+      11,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        40,
+        49,
+        64
+      ],
+      "width": 18,
+      "height": 24,
+      "pixels": 186,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        23,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "halo_healer",
+    "name": "ヘイローヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      29,
+      51
+    ],
+    "idleMedian": [
+      30.0,
+      54.5
+    ],
+    "alphaArea": 790.0,
+    "alphaOccupancy": 0.079,
+    "stableInsets": [
+      34,
+      63,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        32,
+        65,
+        84
+      ],
+      "width": 29,
+      "height": 52,
+      "pixels": 728,
+      "cellArea": 10000,
+      "insets": [
+        14,
+        51,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bounty_hound",
+    "name": "ホワイトハンター",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      42,
+      41
+    ],
+    "idleMedian": [
+      42.0,
+      42.0
+    ],
+    "alphaArea": 946.5,
+    "alphaOccupancy": 0.09465,
+    "stableInsets": [
+      22,
+      43,
+      27,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        43,
+        75,
+        85
+      ],
+      "width": 42,
+      "height": 42,
+      "pixels": 930,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        40,
+        25,
+        2
+      ]
+    }
+  },
+  {
+    "k": "screech_cricket",
+    "name": "カースシンガー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      33,
+      36
+    ],
+    "idleMedian": [
+      33.0,
+      39.5
+    ],
+    "alphaArea": 396.0,
+    "alphaOccupancy": 0.061875,
+    "stableInsets": [
+      21,
+      46,
+      19,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        23,
+        57,
+        61
+      ],
+      "width": 34,
+      "height": 38,
+      "pixels": 396,
+      "cellArea": 6400,
+      "insets": [
+        17,
+        40,
+        17,
+        -2
+      ]
+    }
+  },
+  {
+    "k": "wraith",
+    "name": "レッドローブサモナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      25,
+      24
+    ],
+    "idleMedian": [
+      28.0,
+      25.5
+    ],
+    "alphaArea": 289.5,
+    "alphaOccupancy": 0.045234375,
+    "stableInsets": [
+      15,
+      28,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        39,
+        54,
+        64
+      ],
+      "width": 28,
+      "height": 25,
+      "pixels": 283,
+      "cellArea": 6400,
+      "insets": [
+        14,
+        24,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "burrower",
+    "name": "ディグテイル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      66,
+      44
+    ],
+    "idleMedian": [
+      67.0,
+      45.0
+    ],
+    "alphaArea": 1197.5,
+    "alphaOccupancy": 0.18710937500000002,
+    "stableInsets": [
+      36,
+      47,
+      36,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        5,
+        20,
+        72,
+        65
+      ],
+      "width": 67,
+      "height": 45,
+      "pixels": 1189,
+      "cellArea": 6400,
+      "insets": [
+        35,
+        43,
+        32,
+        2
+      ]
+    }
+  },
+  {
+    "k": "sky_harpooner",
+    "name": "スカイアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      46,
+      38
+    ],
+    "idleMedian": [
+      48.0,
+      40.0
+    ],
+    "alphaArea": 617.0,
+    "alphaOccupancy": 0.042847222222222224,
+    "stableInsets": [
+      33,
+      42,
+      34,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        46,
+        64,
+        94,
+        104
+      ],
+      "width": 48,
+      "height": 40,
+      "pixels": 618,
+      "cellArea": 14400,
+      "insets": [
+        14,
+        39,
+        34,
+        1
+      ]
+    }
+  },
+  {
+    "k": "drake",
+    "name": "ツインフレイムドラゴン",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      50,
+      45
+    ],
+    "idleMedian": [
+      51.0,
+      46.0
+    ],
+    "alphaArea": 1039.0,
+    "alphaOccupancy": 0.16234375,
+    "stableInsets": [
+      35,
+      48,
+      35,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        13,
+        18,
+        63,
+        64
+      ],
+      "width": 50,
+      "height": 46,
+      "pixels": 1033,
+      "cellArea": 6400,
+      "insets": [
+        27,
+        45,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spore_toad",
+    "name": "ミストリングメイジ",
+    "boss": true,
+    "scale": 2,
+    "radius": 17,
+    "idleMin": [
+      54,
+      70
+    ],
+    "idleMedian": [
+      56.0,
+      70.0
+    ],
+    "alphaArea": 1982.0,
+    "alphaOccupancy": 0.077421875,
+    "stableInsets": [
+      22,
+      34,
+      15,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        29,
+        55,
+        64
+      ],
+      "width": 29,
+      "height": 35,
+      "pixels": 506,
+      "cellArea": 6400,
+      "insets": [
+        14,
+        34,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "siege_crab",
+    "name": "リングスタッフメイジ",
+    "boss": true,
+    "scale": 2,
+    "radius": 28,
+    "idleMin": [
+      88,
+      68
+    ],
+    "idleMedian": [
+      100.0,
+      72.0
+    ],
+    "alphaArea": 3084.0,
+    "alphaOccupancy": 0.0771,
+    "stableInsets": [
+      32,
+      40,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        47,
+        76,
+        84
+      ],
+      "width": 47,
+      "height": 37,
+      "pixels": 806,
+      "cellArea": 10000,
+      "insets": [
+        21,
+        36,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "shellpulse_beast",
+    "name": "シェルウェーブ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      34,
+      20
+    ],
+    "idleMedian": [
+      37.5,
+      21.5
+    ],
+    "alphaArea": 288.5,
+    "alphaOccupancy": 0.045078125,
+    "stableInsets": [
+      18,
+      23,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        43,
+        61,
+        64
+      ],
+      "width": 36,
+      "height": 21,
+      "pixels": 293,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        20,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crystal_glint_wisp",
+    "name": "クリスタルウィスプ",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      32,
+      42
+    ],
+    "idleMedian": [
+      32.0,
+      45.0
+    ],
+    "alphaArea": 620.0,
+    "alphaOccupancy": 0.062,
+    "stableInsets": [
+      34,
+      51,
+      22,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        34,
+        65,
+        83
+      ],
+      "width": 32,
+      "height": 49,
+      "pixels": 622,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        49,
+        15,
+        0
+      ]
+    }
+  },
+  {
+    "k": "emberstring_archer",
+    "name": "エンバーボウ",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      32,
+      39
+    ],
+    "idleMedian": [
+      32.0,
+      43.0
+    ],
+    "alphaArea": 616.0,
+    "alphaOccupancy": 0.09625,
+    "stableInsets": [
+      18,
+      44,
+      24,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        24,
+        59,
+        64
+      ],
+      "width": 32,
+      "height": 40,
+      "pixels": 604,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        39,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "tetherlash_adept",
+    "name": "マジックウィップ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      48,
+      47
+    ],
+    "idleMedian": [
+      55,
+      50
+    ],
+    "alphaArea": 935,
+    "alphaOccupancy": 0.06493055555555556,
+    "stableInsets": [
+      44,
+      57,
+      38,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        54,
+        95,
+        102
+      ],
+      "width": 67,
+      "height": 48,
+      "pixels": 1113,
+      "cellArea": 14400,
+      "insets": [
+        32,
+        49,
+        35,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "tigermask_archer",
+    "name": "タイガーマスクアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      53,
+      57
+    ],
+    "idleMedian": [
+      54.5,
+      59.0
+    ],
+    "alphaArea": 1083.5,
+    "alphaOccupancy": 0.10835,
+    "stableInsets": [
+      27,
+      61,
+      38,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        24,
+        87,
+        84
+      ],
+      "width": 53,
+      "height": 60,
+      "pixels": 1085,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        59,
+        37,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goldwing_skirmisher",
+    "name": "ゴールドウィングブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      58,
+      41
+    ],
+    "idleMedian": [
+      62.0,
+      41.0
+    ],
+    "alphaArea": 778.0,
+    "alphaOccupancy": 0.1215625,
+    "stableInsets": [
+      27,
+      44,
+      38,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        14,
+        22,
+        76,
+        63
+      ],
+      "width": 62,
+      "height": 41,
+      "pixels": 772,
+      "cellArea": 6400,
+      "insets": [
+        26,
+        41,
+        36,
+        0
+      ]
+    }
+  },
+  {
+    "k": "triangle_warder",
+    "name": "トライアングルガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      18,
+      40
+    ],
+    "idleMedian": [
+      28.0,
+      46.0
+    ],
+    "alphaArea": 437.5,
+    "alphaOccupancy": 0.068359375,
+    "stableInsets": [
+      14,
+      50,
+      18,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        17,
+        54,
+        64
+      ],
+      "width": 28,
+      "height": 47,
+      "pixels": 439,
+      "cellArea": 6400,
+      "insets": [
+        14,
+        46,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "scarlet_bladebeast",
+    "name": "スカーレットビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      40,
+      44
+    ],
+    "idleMedian": [
+      41.0,
+      45.0
+    ],
+    "alphaArea": 790.5,
+    "alphaOccupancy": 0.123515625,
+    "stableInsets": [
+      18,
+      47,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        17,
+        63,
+        64
+      ],
+      "width": 41,
+      "height": 47,
+      "pixels": 791,
+      "cellArea": 6400,
+      "insets": [
+        18,
+        46,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bonefan_reaper",
+    "name": "ボーンファンリーパー",
+    "boss": true,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      62,
+      106
+    ],
+    "idleMedian": [
+      70.0,
+      113.0
+    ],
+    "alphaArea": 2842.0,
+    "alphaOccupancy": 0.07105,
+    "stableInsets": [
+      26,
+      56,
+      20,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        29,
+        63,
+        85
+      ],
+      "width": 34,
+      "height": 56,
+      "pixels": 710,
+      "cellArea": 10000,
+      "insets": [
+        21,
+        54,
+        13,
+        2
+      ]
+    }
+  },
+  {
+    "k": "gilded_hopper",
+    "name": "ゴールドホッパー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      53,
+      49
+    ],
+    "idleMedian": [
+      53.0,
+      55.5
+    ],
+    "alphaArea": 1038.5,
+    "alphaOccupancy": 0.08582644628099173,
+    "stableInsets": [
+      28,
+      57,
+      34,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        39,
+        85,
+        95
+      ],
+      "width": 53,
+      "height": 56,
+      "pixels": 1049,
+      "cellArea": 12100,
+      "insets": [
+        23,
+        54,
+        30,
+        2
+      ]
+    }
+  },
+  {
+    "k": "goldmask_pugilist",
+    "name": "ゴールドマスクパンチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      25,
+      37
+    ],
+    "idleMedian": [
+      30,
+      41
+    ],
+    "alphaArea": 474,
+    "alphaOccupancy": 0.0474,
+    "stableInsets": [
+      23,
+      43,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        45,
+        65,
+        84
+      ],
+      "width": 33,
+      "height": 39,
+      "pixels": 485,
+      "cellArea": 10000,
+      "insets": [
+        18,
+        38,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "azure_bear_brawler",
+    "name": "ブルーベアファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      48,
+      55
+    ],
+    "idleMedian": [
+      51.0,
+      59.5
+    ],
+    "alphaArea": 1439.5,
+    "alphaOccupancy": 0.14395,
+    "stableInsets": [
+      26,
+      63,
+      35,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        24,
+        77,
+        84
+      ],
+      "width": 49,
+      "height": 60,
+      "pixels": 1432,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        59,
+        27,
+        1
+      ]
+    }
+  },
+  {
+    "k": "flamering_magus",
+    "name": "フレイムリングメイジ",
+    "boss": true,
+    "scale": 2,
+    "radius": 18,
+    "idleMin": [
+      54,
+      86
+    ],
+    "idleMedian": [
+      59.0,
+      96.0
+    ],
+    "alphaArea": 2626.0,
+    "alphaOccupancy": 0.05425619834710744,
+    "stableInsets": [
+      40,
+      58,
+      18,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        41,
+        43,
+        71,
+        87
+      ],
+      "width": 30,
+      "height": 44,
+      "pixels": 640,
+      "cellArea": 12100,
+      "insets": [
+        14,
+        50,
+        16,
+        -6
+      ]
+    }
+  },
+  {
+    "k": "wheelblade_knight",
+    "name": "ホイールブレイドナイト",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      60,
+      41
+    ],
+    "idleMedian": [
+      64,
+      44
+    ],
+    "alphaArea": 908,
+    "alphaOccupancy": 0.06305555555555556,
+    "stableInsets": [
+      30,
+      59,
+      40,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        59,
+        97,
+        104
+      ],
+      "width": 61,
+      "height": 45,
+      "pixels": 912,
+      "cellArea": 14400,
+      "insets": [
+        24,
+        44,
+        37,
+        1
+      ]
+    }
+  },
+  {
+    "k": "emberfist_pillarer",
+    "name": "フレイムフィストピラー",
+    "boss": true,
+    "scale": 2,
+    "radius": 23,
+    "idleMin": [
+      162,
+      124
+    ],
+    "idleMedian": [
+      166.0,
+      128.0
+    ],
+    "alphaArea": 9502.0,
+    "alphaOccupancy": 0.16496527777777778,
+    "stableInsets": [
+      29,
+      69,
+      56,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        38,
+        115,
+        104
+      ],
+      "width": 83,
+      "height": 66,
+      "pixels": 2348,
+      "cellArea": 14400,
+      "insets": [
+        28,
+        65,
+        55,
+        1
+      ]
+    }
+  },
+  {
+    "k": "domeback_colossus",
+    "name": "ブルーシェルジャイアント",
+    "boss": false,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      134,
+      86
+    ],
+    "idleMedian": [
+      134.0,
+      89.0
+    ],
+    "alphaArea": 6960.0,
+    "alphaOccupancy": 0.271875,
+    "stableInsets": [
+      36,
+      44,
+      36,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        4,
+        21,
+        71,
+        65
+      ],
+      "width": 67,
+      "height": 44,
+      "pixels": 1726,
+      "cellArea": 6400,
+      "insets": [
+        36,
+        42,
+        31,
+        2
+      ]
+    }
+  },
+  {
+    "k": "rosewhirl_critter",
+    "name": "ローズスピナー",
+    "boss": false,
+    "scale": 2,
+    "radius": 7,
+    "idleMin": [
+      32,
+      22
+    ],
+    "idleMedian": [
+      32.0,
+      24.0
+    ],
+    "alphaArea": 466.0,
+    "alphaOccupancy": 0.018203125,
+    "stableInsets": [
+      8,
+      15,
+      9,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        52,
+        49,
+        64
+      ],
+      "width": 16,
+      "height": 12,
+      "pixels": 111,
+      "cellArea": 6400,
+      "insets": [
+        7,
+        11,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crestblade_sentinel",
+    "name": "クラウンブレイドガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      28,
+      26
+    ],
+    "idleMedian": [
+      28.0,
+      28.5
+    ],
+    "alphaArea": 378.0,
+    "alphaOccupancy": 0.0378,
+    "stableInsets": [
+      11,
+      30,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        41,
+        56,
+        69,
+        84
+      ],
+      "width": 28,
+      "height": 28,
+      "pixels": 379,
+      "cellArea": 10000,
+      "insets": [
+        9,
+        27,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "sootclaw_critter",
+    "name": "スートクロービースト",
+    "boss": false,
+    "scale": 2,
+    "radius": 7,
+    "idleMin": [
+      36,
+      24
+    ],
+    "idleMedian": [
+      36.0,
+      26.0
+    ],
+    "alphaArea": 638.0,
+    "alphaOccupancy": 0.024921875000000003,
+    "stableInsets": [
+      9,
+      18,
+      9,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        51,
+        49,
+        64
+      ],
+      "width": 18,
+      "height": 13,
+      "pixels": 159,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        12,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "silverflare_archer",
+    "name": "シルバーフレイムアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      55,
+      37
+    ],
+    "idleMedian": [
+      55,
+      41
+    ],
+    "alphaArea": 761,
+    "alphaOccupancy": 0.11890625,
+    "stableInsets": [
+      23,
+      42,
+      37,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        22,
+        76,
+        64
+      ],
+      "width": 55,
+      "height": 42,
+      "pixels": 767,
+      "cellArea": 6400,
+      "insets": [
+        19,
+        41,
+        36,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redblade_strider",
+    "name": "レッドブレイドウォーカー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      62,
+      60
+    ],
+    "idleMedian": [
+      64.0,
+      63.0
+    ],
+    "alphaArea": 840.0,
+    "alphaOccupancy": 0.04970414201183432,
+    "stableInsets": [
+      45,
+      85,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        52,
+        95,
+        114
+      ],
+      "width": 64,
+      "height": 62,
+      "pixels": 852,
+      "cellArea": 16900,
+      "insets": [
+        34,
+        61,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "greenflame_triad",
+    "name": "グリーンアーマートリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      33,
+      39
+    ],
+    "idleMedian": [
+      38.0,
+      42.5
+    ],
+    "alphaArea": 570.5,
+    "alphaOccupancy": 0.047148760330578514,
+    "stableInsets": [
+      27,
+      48,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        51,
+        72,
+        94
+      ],
+      "width": 36,
+      "height": 43,
+      "pixels": 591,
+      "cellArea": 12100,
+      "insets": [
+        19,
+        42,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "ashstaff_healer",
+    "name": "アッシュスタッフヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      22,
+      31
+    ],
+    "idleMedian": [
+      22.0,
+      31.0
+    ],
+    "alphaArea": 329.0,
+    "alphaOccupancy": 0.05140625,
+    "stableInsets": [
+      14,
+      31,
+      21,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        33,
+        53,
+        64
+      ],
+      "width": 22,
+      "height": 31,
+      "pixels": 325,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        30,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "brownblade_scout",
+    "name": "ブラウンブレイドスカウト",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      34,
+      23
+    ],
+    "idleMedian": [
+      34.0,
+      24.5
+    ],
+    "alphaArea": 267.5,
+    "alphaOccupancy": 0.041796875,
+    "stableInsets": [
+      12,
+      25,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        40,
+        65,
+        64
+      ],
+      "width": 34,
+      "height": 24,
+      "pixels": 269,
+      "cellArea": 6400,
+      "insets": [
+        9,
+        23,
+        25,
+        1
+      ]
+    }
+  },
+  {
+    "k": "ghostclaw_lynx",
+    "name": "ブルーソーンクロー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      42,
+      32
+    ],
+    "idleMedian": [
+      43.0,
+      34.0
+    ],
+    "alphaArea": 580.0,
+    "alphaOccupancy": 0.057999999999999996,
+    "stableInsets": [
+      35,
+      83,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        51,
+        71,
+        84
+      ],
+      "width": 42,
+      "height": 33,
+      "pixels": 581,
+      "cellArea": 10000,
+      "insets": [
+        21,
+        32,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bluewhip_minion",
+    "name": "ブルーテイルビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      28,
+      32
+    ],
+    "idleMedian": [
+      38.0,
+      38.0
+    ],
+    "alphaArea": 401.5,
+    "alphaOccupancy": 0.04015,
+    "stableInsets": [
+      24,
+      58,
+      16,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        49,
+        66,
+        84
+      ],
+      "width": 40,
+      "height": 35,
+      "pixels": 409,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        34,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "wavebody_adept",
+    "name": "ウォーターシェイパー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      31,
+      41
+    ],
+    "idleMedian": [
+      32,
+      42
+    ],
+    "alphaArea": 536,
+    "alphaOccupancy": 0.08375,
+    "stableInsets": [
+      18,
+      45,
+      26,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        19,
+        56,
+        64
+      ],
+      "width": 33,
+      "height": 45,
+      "pixels": 520,
+      "cellArea": 6400,
+      "insets": [
+        17,
+        44,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "moonclaw_werewolf",
+    "name": "ムーンクローウルフ",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      94,
+      94
+    ],
+    "idleMedian": [
+      105.0,
+      102.0
+    ],
+    "alphaArea": 4182.0,
+    "alphaOccupancy": 0.06186390532544379,
+    "stableInsets": [
+      33,
+      56,
+      38,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        44,
+        66,
+        93,
+        115
+      ],
+      "width": 49,
+      "height": 49,
+      "pixels": 1029,
+      "cellArea": 16900,
+      "insets": [
+        21,
+        47,
+        28,
+        2
+      ]
+    }
+  },
+  {
+    "k": "ringhold_guardian",
+    "name": "リングウォーデン",
+    "boss": false,
+    "scale": 2,
+    "radius": 18,
+    "idleMin": [
+      90,
+      92
+    ],
+    "idleMedian": [
+      92.0,
+      97.0
+    ],
+    "alphaArea": 2884.0,
+    "alphaOccupancy": 0.0721,
+    "stableInsets": [
+      25,
+      51,
+      23,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        35,
+        73,
+        84
+      ],
+      "width": 46,
+      "height": 49,
+      "pixels": 723,
+      "cellArea": 10000,
+      "insets": [
+        23,
+        48,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "disc_crown_mender",
+    "name": "ライトクラウンヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      23,
+      42
+    ],
+    "idleMedian": [
+      24.0,
+      44.0
+    ],
+    "alphaArea": 515.0,
+    "alphaOccupancy": 0.08046875,
+    "stableInsets": [
+      12,
+      44,
+      15,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        20,
+        54,
+        64
+      ],
+      "width": 24,
+      "height": 44,
+      "pixels": 516,
+      "cellArea": 6400,
+      "insets": [
+        10,
+        43,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "thornspin_ooze",
+    "name": "ソーンボールスピナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      28,
+      24
+    ],
+    "idleMedian": [
+      28.0,
+      26.0
+    ],
+    "alphaArea": 456.0,
+    "alphaOccupancy": 0.0456,
+    "stableInsets": [
+      16,
+      27,
+      14,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        59,
+        63,
+        84
+      ],
+      "width": 28,
+      "height": 25,
+      "pixels": 438,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        24,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bloodmoon_crescent",
+    "name": "ブラッドムーンブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      34,
+      29
+    ],
+    "idleMedian": [
+      34.0,
+      31.0
+    ],
+    "alphaArea": 348.0,
+    "alphaOccupancy": 0.054375,
+    "stableInsets": [
+      18,
+      34,
+      18,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        33,
+        58,
+        64
+      ],
+      "width": 34,
+      "height": 31,
+      "pixels": 349,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        30,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "drumhammer_sister",
+    "name": "ドラムハンマーガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      60,
+      55
+    ],
+    "idleMedian": [
+      63.5,
+      61.5
+    ],
+    "alphaArea": 1122.0,
+    "alphaOccupancy": 0.1122,
+    "stableInsets": [
+      50,
+      66,
+      27,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        10,
+        23,
+        76,
+        84
+      ],
+      "width": 66,
+      "height": 61,
+      "pixels": 1147,
+      "cellArea": 10000,
+      "insets": [
+        40,
+        60,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bubble_shadow_mender",
+    "name": "バブルシャドウヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      36,
+      39
+    ],
+    "idleMedian": [
+      37.0,
+      41.5
+    ],
+    "alphaArea": 755.0,
+    "alphaOccupancy": 0.11796875,
+    "stableInsets": [
+      20,
+      44,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        22,
+        60,
+        64
+      ],
+      "width": 37,
+      "height": 42,
+      "pixels": 738,
+      "cellArea": 6400,
+      "insets": [
+        17,
+        41,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "locust_pulsefighter",
+    "name": "ブラックシェルファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      48,
+      36
+    ],
+    "idleMedian": [
+      49.0,
+      46.0
+    ],
+    "alphaArea": 775.0,
+    "alphaOccupancy": 0.04585798816568047,
+    "stableInsets": [
+      24,
+      51,
+      34,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        43,
+        67,
+        94,
+        114
+      ],
+      "width": 51,
+      "height": 47,
+      "pixels": 882,
+      "cellArea": 16900,
+      "insets": [
+        22,
+        46,
+        29,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spikeburst_grinder",
+    "name": "スパイクバースト",
+    "boss": true,
+    "scale": 2,
+    "radius": 20,
+    "idleMin": [
+      72,
+      110
+    ],
+    "idleMedian": [
+      86.0,
+      110.0
+    ],
+    "alphaArea": 2462.0,
+    "alphaOccupancy": 0.061549999999999994,
+    "stableInsets": [
+      29,
+      56,
+      27,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        29,
+        77,
+        84
+      ],
+      "width": 45,
+      "height": 55,
+      "pixels": 619,
+      "cellArea": 10000,
+      "insets": [
+        18,
+        54,
+        27,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bubbleclaw_plaguer",
+    "name": "バブルクロービースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      38,
+      45
+    ],
+    "idleMedian": [
+      41.0,
+      48.0
+    ],
+    "alphaArea": 852.0,
+    "alphaOccupancy": 0.0852,
+    "stableInsets": [
+      33,
+      51,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        37,
+        65,
+        84
+      ],
+      "width": 41,
+      "height": 47,
+      "pixels": 850,
+      "cellArea": 10000,
+      "insets": [
+        26,
+        46,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spinthrust_grincher",
+    "name": "スピンテイルソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      76,
+      30
+    ],
+    "idleMedian": [
+      79.0,
+      31.5
+    ],
+    "alphaArea": 1054.5,
+    "alphaOccupancy": 0.10545,
+    "stableInsets": [
+      33,
+      34,
+      49,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        53,
+        98,
+        84
+      ],
+      "width": 79,
+      "height": 31,
+      "pixels": 1059,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        30,
+        48,
+        1
+      ]
+    }
+  },
+  {
+    "k": "hatblade_hsuku",
+    "name": "ハットブレイドトリオ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      42,
+      48
+    ],
+    "idleMedian": [
+      46.0,
+      48.0
+    ],
+    "alphaArea": 827.0,
+    "alphaOccupancy": 0.06834710743801653,
+    "stableInsets": [
+      36,
+      51,
+      28,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        47,
+        77,
+        95
+      ],
+      "width": 45,
+      "height": 48,
+      "pixels": 828,
+      "cellArea": 12100,
+      "insets": [
+        23,
+        46,
+        22,
+        2
+      ]
+    }
+  },
+  {
+    "k": "silverarm_vanguard",
+    "name": "シルバーアームガード",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      94,
+      68
+    ],
+    "idleMedian": [
+      94.0,
+      68.0
+    ],
+    "alphaArea": 3788.0,
+    "alphaOccupancy": 0.14796875,
+    "stableInsets": [
+      25,
+      35,
+      27,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        16,
+        28,
+        63,
+        64
+      ],
+      "width": 47,
+      "height": 36,
+      "pixels": 946,
+      "cellArea": 6400,
+      "insets": [
+        24,
+        35,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "gemswirl_mender",
+    "name": "ジェムスワールヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      42,
+      50
+    ],
+    "idleMedian": [
+      44.0,
+      52.0
+    ],
+    "alphaArea": 1030.0,
+    "alphaOccupancy": 0.10300000000000001,
+    "stableInsets": [
+      25,
+      63,
+      31,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        31,
+        78,
+        82
+      ],
+      "width": 50,
+      "height": 51,
+      "pixels": 987,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        52,
+        28,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "sol_harp_mender",
+    "name": "ゴールドハープヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      35,
+      36
+    ],
+    "idleMedian": [
+      37.0,
+      36.5
+    ],
+    "alphaArea": 359.0,
+    "alphaOccupancy": 0.0359,
+    "stableInsets": [
+      19,
+      37,
+      28,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        48,
+        72,
+        84
+      ],
+      "width": 37,
+      "height": 36,
+      "pixels": 360,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        35,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bluewhip_hunter",
+    "name": "ブルーウィップハンター",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      51,
+      39
+    ],
+    "idleMedian": [
+      52.0,
+      39.0
+    ],
+    "alphaArea": 603.0,
+    "alphaOccupancy": 0.0603,
+    "stableInsets": [
+      32,
+      43,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        45,
+        72,
+        84
+      ],
+      "width": 53,
+      "height": 39,
+      "pixels": 584,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        38,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cyanribbon_weaver",
+    "name": "ブルーリボンウィーバー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      44,
+      45
+    ],
+    "idleMedian": [
+      46.0,
+      48.0
+    ],
+    "alphaArea": 724.5,
+    "alphaOccupancy": 0.113203125,
+    "stableInsets": [
+      21,
+      49,
+      36,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        16,
+        66,
+        64
+      ],
+      "width": 46,
+      "height": 48,
+      "pixels": 752,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        47,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "moonplunge_lancer",
+    "name": "ムーンランサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      47,
+      40
+    ],
+    "idleMedian": [
+      51.5,
+      41.5
+    ],
+    "alphaArea": 640.0,
+    "alphaOccupancy": 0.0378698224852071,
+    "stableInsets": [
+      39,
+      51,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        71,
+        82,
+        114
+      ],
+      "width": 48,
+      "height": 43,
+      "pixels": 639,
+      "cellArea": 16900,
+      "insets": [
+        31,
+        42,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "voltwing_scarab",
+    "name": "ボルトスカラベ",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      32,
+      22
+    ],
+    "idleMedian": [
+      38.0,
+      24.0
+    ],
+    "alphaArea": 362.0,
+    "alphaOccupancy": 0.021420118343195266,
+    "stableInsets": [
+      33,
+      36,
+      27,
+      -4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        49,
+        84,
+        92,
+        107
+      ],
+      "width": 43,
+      "height": 23,
+      "pixels": 362,
+      "cellArea": 16900,
+      "insets": [
+        16,
+        29,
+        27,
+        -6
+      ]
+    }
+  },
+  {
+    "k": "veteran_flamewing",
+    "name": "フレイムウィングツイン",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      64,
+      72
+    ],
+    "idleMedian": [
+      68.0,
+      74.0
+    ],
+    "alphaArea": 1752.0,
+    "alphaOccupancy": 0.12166666666666667,
+    "stableInsets": [
+      44,
+      73,
+      37,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        31,
+        94,
+        105
+      ],
+      "width": 68,
+      "height": 74,
+      "pixels": 1729,
+      "cellArea": 14400,
+      "insets": [
+        34,
+        72,
+        34,
+        2
+      ]
+    }
+  },
+  {
+    "k": "ivoryspike_scarab",
+    "name": "アイボリースカラベ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      46,
+      38
+    ],
+    "idleMedian": [
+      46.0,
+      39.5
+    ],
+    "alphaArea": 861.5,
+    "alphaOccupancy": 0.134609375,
+    "stableInsets": [
+      22,
+      40,
+      28,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        25,
+        66,
+        64
+      ],
+      "width": 46,
+      "height": 39,
+      "pixels": 853,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        38,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bluepole_mogwai",
+    "name": "ブルーポールメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      63,
+      38
+    ],
+    "idleMedian": [
+      71.0,
+      39.0
+    ],
+    "alphaArea": 837.5,
+    "alphaOccupancy": 0.04955621301775148,
+    "stableInsets": [
+      30,
+      40,
+      50,
+      6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        43,
+        75,
+        115,
+        114
+      ],
+      "width": 72,
+      "height": 39,
+      "pixels": 840,
+      "cellArea": 16900,
+      "insets": [
+        22,
+        38,
+        50,
+        1
+      ]
+    }
+  },
+  {
+    "k": "specterclaw_shuffler",
+    "name": "スペクトルクローソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      39,
+      46
+    ],
+    "idleMedian": [
+      42.0,
+      46.0
+    ],
+    "alphaArea": 781.0,
+    "alphaOccupancy": 0.05423611111111111,
+    "stableInsets": [
+      28,
+      47,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        39,
+        58,
+        81,
+        104
+      ],
+      "width": 42,
+      "height": 46,
+      "pixels": 802,
+      "cellArea": 14400,
+      "insets": [
+        21,
+        45,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "dawnblade_fencer",
+    "name": "ドーンブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      47,
+      37
+    ],
+    "idleMedian": [
+      51,
+      39
+    ],
+    "alphaArea": 570,
+    "alphaOccupancy": 0.0890625,
+    "stableInsets": [
+      22,
+      40,
+      36,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        25,
+        73,
+        63
+      ],
+      "width": 48,
+      "height": 38,
+      "pixels": 555,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        38,
+        33,
+        0
+      ]
+    }
+  },
+  {
+    "k": "goldring_shadow_mender",
+    "name": "ゴールドリングヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      20,
+      30
+    ],
+    "idleMedian": [
+      20.0,
+      32.5
+    ],
+    "alphaArea": 322.0,
+    "alphaOccupancy": 0.050312499999999996,
+    "stableInsets": [
+      16,
+      34,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        32,
+        49,
+        64
+      ],
+      "width": 21,
+      "height": 32,
+      "pixels": 323,
+      "cellArea": 6400,
+      "insets": [
+        12,
+        31,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "embergrille_monument",
+    "name": "エンバーグリルモニュメント",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      38,
+      50
+    ],
+    "idleMedian": [
+      38.0,
+      51.0
+    ],
+    "alphaArea": 990.0,
+    "alphaOccupancy": 0.099,
+    "stableInsets": [
+      27,
+      50,
+      20,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        35,
+        67,
+        86
+      ],
+      "width": 38,
+      "height": 51,
+      "pixels": 989,
+      "cellArea": 10000,
+      "insets": [
+        21,
+        48,
+        17,
+        3
+      ]
+    }
+  },
+  {
+    "k": "cyanarm_mystic",
+    "name": "ブルーアームメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      61,
+      47
+    ],
+    "idleMedian": [
+      64.5,
+      48.0
+    ],
+    "alphaArea": 1369.5,
+    "alphaOccupancy": 0.13695000000000002,
+    "stableInsets": [
+      29,
+      50,
+      38,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        35,
+        88,
+        84
+      ],
+      "width": 65,
+      "height": 49,
+      "pixels": 1377,
+      "cellArea": 10000,
+      "insets": [
+        27,
+        48,
+        38,
+        1
+      ]
+    }
+  },
+  {
+    "k": "whiteburst_pugilist",
+    "name": "ホワイトフラッシュパンチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      54,
+      41
+    ],
+    "idleMedian": [
+      55.0,
+      46.0
+    ],
+    "alphaArea": 1106.0,
+    "alphaOccupancy": 0.06544378698224852,
+    "stableInsets": [
+      40,
+      50,
+      37,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        39,
+        68,
+        94,
+        114
+      ],
+      "width": 55,
+      "height": 46,
+      "pixels": 1092,
+      "cellArea": 16900,
+      "insets": [
+        26,
+        45,
+        29,
+        1
+      ]
+    }
+  },
+  {
+    "k": "stormhorn_tripler",
+    "name": "サンダーホーンコンボ",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      66,
+      55
+    ],
+    "idleMedian": [
+      66,
+      56
+    ],
+    "alphaArea": 1184,
+    "alphaOccupancy": 0.07005917159763314,
+    "stableInsets": [
+      34,
+      56,
+      47,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        57,
+        98,
+        115
+      ],
+      "width": 66,
+      "height": 58,
+      "pixels": 1182,
+      "cellArea": 16900,
+      "insets": [
+        33,
+        56,
+        33,
+        2
+      ]
+    }
+  },
+  {
+    "k": "curled_jackal",
+    "name": "カールテイルウルフ",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      23,
+      18
+    ],
+    "idleMedian": [
+      27,
+      20
+    ],
+    "alphaArea": 221,
+    "alphaOccupancy": 0.0221,
+    "stableInsets": [
+      28,
+      26,
+      18,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        65,
+        61,
+        83
+      ],
+      "width": 28,
+      "height": 18,
+      "pixels": 207,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        18,
+        11,
+        0
+      ]
+    }
+  },
+  {
+    "k": "aurora_thrustmage",
+    "name": "オーロラスピアメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      34,
+      52
+    ],
+    "idleMedian": [
+      34.5,
+      54.5
+    ],
+    "alphaArea": 629.0,
+    "alphaOccupancy": 0.037218934911242604,
+    "stableInsets": [
+      22,
+      57,
+      21,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        50,
+        60,
+        85,
+        115
+      ],
+      "width": 35,
+      "height": 55,
+      "pixels": 631,
+      "cellArea": 16900,
+      "insets": [
+        15,
+        53,
+        20,
+        2
+      ]
+    }
+  },
+  {
+    "k": "shieldmace_companion",
+    "name": "シールドメイスガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      53,
+      40
+    ],
+    "idleMedian": [
+      54,
+      40
+    ],
+    "alphaArea": 922,
+    "alphaOccupancy": 0.0922,
+    "stableInsets": [
+      34,
+      41,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        44,
+        72,
+        84
+      ],
+      "width": 54,
+      "height": 40,
+      "pixels": 902,
+      "cellArea": 10000,
+      "insets": [
+        32,
+        39,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "inkorb_caster",
+    "name": "インクオーブメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      44,
+      51
+    ],
+    "idleMedian": [
+      51.0,
+      58.5
+    ],
+    "alphaArea": 963.0,
+    "alphaOccupancy": 0.0963,
+    "stableInsets": [
+      35,
+      69,
+      31,
+      8
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        21,
+        67,
+        82
+      ],
+      "width": 48,
+      "height": 61,
+      "pixels": 947,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        62,
+        17,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "ribwraith_tripler",
+    "name": "リブシャドウトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      48,
+      48
+    ],
+    "idleMedian": [
+      53.0,
+      50.5
+    ],
+    "alphaArea": 778.5,
+    "alphaOccupancy": 0.121640625,
+    "stableInsets": [
+      38,
+      43,
+      28,
+      12
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        10,
+        24,
+        63,
+        73
+      ],
+      "width": 53,
+      "height": 49,
+      "pixels": 814,
+      "cellArea": 6400,
+      "insets": [
+        30,
+        39,
+        23,
+        10
+      ]
+    }
+  },
+  {
+    "k": "klaxon_windup_blader",
+    "name": "ホワイトヘアブレイダー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      53,
+      44
+    ],
+    "idleMedian": [
+      56.5,
+      45.0
+    ],
+    "alphaArea": 892.5,
+    "alphaOccupancy": 0.08925,
+    "stableInsets": [
+      26,
+      48,
+      35,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        37,
+        83,
+        82
+      ],
+      "width": 53,
+      "height": 45,
+      "pixels": 845,
+      "cellArea": 10000,
+      "insets": [
+        20,
+        46,
+        33,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "flameaxe_dweller",
+    "name": "フレイムアックス",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      47,
+      36
+    ],
+    "idleMedian": [
+      50.0,
+      39.0
+    ],
+    "alphaArea": 817.0,
+    "alphaOccupancy": 0.06752066115702479,
+    "stableInsets": [
+      35,
+      45,
+      18,
+      13
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        60,
+        73,
+        96
+      ],
+      "width": 50,
+      "height": 36,
+      "pixels": 824,
+      "cellArea": 12100,
+      "insets": [
+        32,
+        33,
+        18,
+        3
+      ]
+    }
+  },
+  {
+    "k": "spectral_scale_dragon",
+    "name": "ファントムスケイルドラゴン",
+    "boss": true,
+    "scale": 1,
+    "radius": 18,
+    "idleMin": [
+      70,
+      61
+    ],
+    "idleMedian": [
+      76.5,
+      69.0
+    ],
+    "alphaArea": 1500.0,
+    "alphaOccupancy": 0.11342155009451796,
+    "stableInsets": [
+      52,
+      72,
+      34,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        14,
+        30,
+        90,
+        99
+      ],
+      "width": 76,
+      "height": 69,
+      "pixels": 1472,
+      "cellArea": 13225,
+      "insets": [
+        43,
+        68,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "twinmoon_pontiff",
+    "name": "ツインムーンプリースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      42,
+      44
+    ],
+    "idleMedian": [
+      42.0,
+      46.0
+    ],
+    "alphaArea": 844.0,
+    "alphaOccupancy": 0.058611111111111114,
+    "stableInsets": [
+      29,
+      46,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        42,
+        57,
+        84,
+        104
+      ],
+      "width": 42,
+      "height": 47,
+      "pixels": 839,
+      "cellArea": 14400,
+      "insets": [
+        18,
+        46,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "k": "whitehair_spinblade",
+    "name": "ホワイトヘアスピナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      30,
+      30
+    ],
+    "idleMedian": [
+      31.0,
+      32.0
+    ],
+    "alphaArea": 368.5,
+    "alphaOccupancy": 0.057578125,
+    "stableInsets": [
+      16,
+      32,
+      16,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        32,
+        56,
+        64
+      ],
+      "width": 31,
+      "height": 32,
+      "pixels": 369,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        31,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redpole_warrior",
+    "name": "レッドランサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      58,
+      45
+    ],
+    "idleMedian": [
+      60.0,
+      47.0
+    ],
+    "alphaArea": 870.5,
+    "alphaOccupancy": 0.051508875739644966,
+    "stableInsets": [
+      27,
+      56,
+      46,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        41,
+        66,
+        100,
+        114
+      ],
+      "width": 59,
+      "height": 48,
+      "pixels": 868,
+      "cellArea": 16900,
+      "insets": [
+        24,
+        47,
+        35,
+        1
+      ]
+    }
+  },
+  {
+    "k": "smoke_thrustfighter",
+    "name": "スモークチャージャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      37,
+      56
+    ],
+    "idleMedian": [
+      40.5,
+      60.0
+    ],
+    "alphaArea": 736.5,
+    "alphaOccupancy": 0.037576530612244904,
+    "stableInsets": [
+      33,
+      64,
+      20,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        43,
+        63,
+        84,
+        123
+      ],
+      "width": 41,
+      "height": 60,
+      "pixels": 801,
+      "cellArea": 19600,
+      "insets": [
+        27,
+        60,
+        14,
+        0
+      ]
+    }
+  },
+  {
+    "k": "sunhalo_polyhedron",
+    "name": "サンヘイロープリズム",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      18,
+      38
+    ],
+    "idleMedian": [
+      19.0,
+      42.0
+    ],
+    "alphaArea": 484.5,
+    "alphaOccupancy": 0.04845,
+    "stableInsets": [
+      21,
+      45,
+      14,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        40,
+        46,
+        59,
+        84
+      ],
+      "width": 19,
+      "height": 38,
+      "pixels": 440,
+      "cellArea": 10000,
+      "insets": [
+        10,
+        37,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "daemonflash_tripler",
+    "name": "デーモンクロートリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      39,
+      39
+    ],
+    "idleMedian": [
+      40.5,
+      41.0
+    ],
+    "alphaArea": 644.0,
+    "alphaOccupancy": 0.10062499999999999,
+    "stableInsets": [
+      24,
+      44,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        21,
+        59,
+        62
+      ],
+      "width": 40,
+      "height": 41,
+      "pixels": 636,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        42,
+        19,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "fenrir_dualguard",
+    "name": "ブルーウルフコンボ",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      48,
+      43
+    ],
+    "idleMedian": [
+      48.0,
+      48.5
+    ],
+    "alphaArea": 814.5,
+    "alphaOccupancy": 0.08145,
+    "stableInsets": [
+      31,
+      53,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        35,
+        69,
+        84
+      ],
+      "width": 48,
+      "height": 49,
+      "pixels": 816,
+      "cellArea": 10000,
+      "insets": [
+        29,
+        48,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "antlerwhirl_myriad",
+    "name": "ホーンリングスピナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      53,
+      45
+    ],
+    "idleMedian": [
+      57.0,
+      49.0
+    ],
+    "alphaArea": 1014.0,
+    "alphaOccupancy": 0.1014,
+    "stableInsets": [
+      41,
+      52,
+      26,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        16,
+        39,
+        73,
+        85
+      ],
+      "width": 57,
+      "height": 46,
+      "pixels": 955,
+      "cellArea": 10000,
+      "insets": [
+        34,
+        44,
+        23,
+        2
+      ]
+    }
+  },
+  {
+    "k": "golden_tuft_mender",
+    "name": "ゴールドタフトヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      27,
+      30
+    ],
+    "idleMedian": [
+      29,
+      30
+    ],
+    "alphaArea": 344,
+    "alphaOccupancy": 0.0344,
+    "stableInsets": [
+      16,
+      30,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        54,
+        65,
+        84
+      ],
+      "width": 30,
+      "height": 30,
+      "pixels": 337,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        29,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "fiery_coil_inceptor",
+    "name": "フレイムコイルスピリット",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      70,
+      102
+    ],
+    "idleMedian": [
+      83.0,
+      120.0
+    ],
+    "alphaArea": 3594.0,
+    "alphaOccupancy": 0.08985,
+    "stableInsets": [
+      41,
+      67,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        26,
+        71,
+        81
+      ],
+      "width": 36,
+      "height": 55,
+      "pixels": 837,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        57,
+        21,
+        -2
+      ]
+    }
+  },
+  {
+    "k": "desert_flarebeast",
+    "name": "デザートフレアビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      53,
+      34
+    ],
+    "idleMedian": [
+      58.0,
+      38.0
+    ],
+    "alphaArea": 765.5,
+    "alphaOccupancy": 0.05315972222222222,
+    "stableInsets": [
+      38,
+      56,
+      35,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        68,
+        88,
+        105
+      ],
+      "width": 53,
+      "height": 37,
+      "pixels": 775,
+      "cellArea": 14400,
+      "insets": [
+        25,
+        35,
+        28,
+        2
+      ]
+    }
+  },
+  {
+    "k": "spiral_polecaster",
+    "name": "スパイラルスタッフメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      52,
+      54
+    ],
+    "idleMedian": [
+      52.0,
+      57.5
+    ],
+    "alphaArea": 813.5,
+    "alphaOccupancy": 0.048136094674556214,
+    "stableInsets": [
+      46,
+      62,
+      30,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        55,
+        83,
+        112
+      ],
+      "width": 52,
+      "height": 57,
+      "pixels": 816,
+      "cellArea": 16900,
+      "insets": [
+        34,
+        58,
+        18,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "stonepulse_kolossus",
+    "name": "ストーンウェーブジャイアント",
+    "boss": true,
+    "scale": 2,
+    "radius": 26,
+    "idleMin": [
+      144,
+      114
+    ],
+    "idleMedian": [
+      144.0,
+      118.0
+    ],
+    "alphaArea": 6416.0,
+    "alphaOccupancy": 0.250625,
+    "stableInsets": [
+      39,
+      61,
+      35,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        1,
+        3,
+        73,
+        64
+      ],
+      "width": 72,
+      "height": 61,
+      "pixels": 1649,
+      "cellArea": 6400,
+      "insets": [
+        39,
+        60,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goldring_brawler",
+    "name": "ゴールドリングファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      47,
+      57
+    ],
+    "idleMedian": [
+      48.5,
+      58.0
+    ],
+    "alphaArea": 1363.5,
+    "alphaOccupancy": 0.11268595041322313,
+    "stableInsets": [
+      30,
+      58,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        37,
+        75,
+        94
+      ],
+      "width": 47,
+      "height": 57,
+      "pixels": 1335,
+      "cellArea": 12100,
+      "insets": [
+        27,
+        56,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "pteryx_tailwing",
+    "name": "テイルウィング",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      53,
+      39
+    ],
+    "idleMedian": [
+      54,
+      41
+    ],
+    "alphaArea": 594,
+    "alphaOccupancy": 0.0594,
+    "stableInsets": [
+      47,
+      45,
+      25,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        45,
+        74,
+        84
+      ],
+      "width": 56,
+      "height": 39,
+      "pixels": 590,
+      "cellArea": 10000,
+      "insets": [
+        32,
+        38,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "k": "darkfan_clawlord",
+    "name": "ダークファンクロー",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      108,
+      120
+    ],
+    "idleMedian": [
+      116.0,
+      122.0
+    ],
+    "alphaArea": 5334.0,
+    "alphaOccupancy": 0.09260416666666667,
+    "stableInsets": [
+      39,
+      62,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        42,
+        82,
+        104
+      ],
+      "width": 59,
+      "height": 62,
+      "pixels": 1319,
+      "cellArea": 14400,
+      "insets": [
+        37,
+        61,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cyanspike_commander",
+    "name": "ブルースパイクコマンダー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      36,
+      44
+    ],
+    "idleMedian": [
+      38.0,
+      46.0
+    ],
+    "alphaArea": 715.0,
+    "alphaOccupancy": 0.04230769230769231,
+    "stableInsets": [
+      27,
+      45,
+      22,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        45,
+        71,
+        83,
+        115
+      ],
+      "width": 38,
+      "height": 44,
+      "pixels": 694,
+      "cellArea": 16900,
+      "insets": [
+        20,
+        42,
+        18,
+        2
+      ]
+    }
+  },
+  {
+    "k": "golden_bowling",
+    "name": "ゴールドボウマン",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      32,
+      30
+    ],
+    "idleMedian": [
+      33,
+      32
+    ],
+    "alphaArea": 379,
+    "alphaOccupancy": 0.05921875,
+    "stableInsets": [
+      21,
+      31,
+      14,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        35,
+        52,
+        65
+      ],
+      "width": 33,
+      "height": 30,
+      "pixels": 375,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        28,
+        12,
+        2
+      ]
+    }
+  },
+  {
+    "k": "windslice_fighter",
+    "name": "ウィンドブレイドファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      45,
+      44
+    ],
+    "idleMedian": [
+      46.0,
+      45.0
+    ],
+    "alphaArea": 931.5,
+    "alphaOccupancy": 0.0646875,
+    "stableInsets": [
+      52,
+      63,
+      36,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        56,
+        79,
+        101
+      ],
+      "width": 45,
+      "height": 45,
+      "pixels": 938,
+      "cellArea": 14400,
+      "insets": [
+        26,
+        47,
+        19,
+        -2
+      ]
+    }
+  },
+  {
+    "k": "redcrescent_sentinel",
+    "name": "レッドムーンガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      30,
+      48
+    ],
+    "idleMedian": [
+      31.5,
+      52.0
+    ],
+    "alphaArea": 522.5,
+    "alphaOccupancy": 0.030917159763313606,
+    "stableInsets": [
+      22,
+      56,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        50,
+        59,
+        82,
+        114
+      ],
+      "width": 32,
+      "height": 55,
+      "pixels": 529,
+      "cellArea": 16900,
+      "insets": [
+        15,
+        54,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "greenlash_hatmaster",
+    "name": "グリーンウィップメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      42,
+      42
+    ],
+    "idleMedian": [
+      43.0,
+      43.0
+    ],
+    "alphaArea": 812.5,
+    "alphaOccupancy": 0.08124999999999999,
+    "stableInsets": [
+      27,
+      42,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        31,
+        42,
+        74,
+        84
+      ],
+      "width": 43,
+      "height": 42,
+      "pixels": 797,
+      "cellArea": 10000,
+      "insets": [
+        19,
+        41,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cyan_multiblade",
+    "name": "ブルーブレイドツイン",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      37,
+      41
+    ],
+    "idleMedian": [
+      39.0,
+      47.0
+    ],
+    "alphaArea": 639.5,
+    "alphaOccupancy": 0.037840236686390534,
+    "stableInsets": [
+      28,
+      52,
+      24,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        45,
+        69,
+        86,
+        114
+      ],
+      "width": 41,
+      "height": 45,
+      "pixels": 589,
+      "cellArea": 16900,
+      "insets": [
+        20,
+        44,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "plated_dualdragon",
+    "name": "アーマーツインドラゴン",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      118,
+      108
+    ],
+    "idleMedian": [
+      124.0,
+      113.0
+    ],
+    "alphaArea": 5756.0,
+    "alphaOccupancy": 0.1439,
+    "stableInsets": [
+      37,
+      56,
+      33,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        17,
+        28,
+        82,
+        85
+      ],
+      "width": 65,
+      "height": 57,
+      "pixels": 1470,
+      "cellArea": 10000,
+      "insets": [
+        33,
+        55,
+        32,
+        2
+      ]
+    }
+  },
+  {
+    "k": "suspended_prism_mender",
+    "name": "フロートクリスタルヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      25,
+      58
+    ],
+    "idleMedian": [
+      25.0,
+      63.5
+    ],
+    "alphaArea": 627.5,
+    "alphaOccupancy": 0.06275,
+    "stableInsets": [
+      16,
+      65,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        38,
+        22,
+        63,
+        84
+      ],
+      "width": 25,
+      "height": 62,
+      "pixels": 633,
+      "cellArea": 10000,
+      "insets": [
+        12,
+        61,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "rex_clawtripler",
+    "name": "トリプルクロービースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      39,
+      19
+    ],
+    "idleMedian": [
+      39.0,
+      21.0
+    ],
+    "alphaArea": 382.5,
+    "alphaOccupancy": 0.03825,
+    "stableInsets": [
+      21,
+      22,
+      21,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        61,
+        69,
+        84
+      ],
+      "width": 39,
+      "height": 23,
+      "pixels": 385,
+      "cellArea": 10000,
+      "insets": [
+        20,
+        22,
+        19,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crimson_levitator",
+    "name": "クリムゾンレビテイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      49,
+      51
+    ],
+    "idleMedian": [
+      56,
+      63
+    ],
+    "alphaArea": 989,
+    "alphaOccupancy": 0.058520710059171595,
+    "stableInsets": [
+      41,
+      75,
+      37,
+      3
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        41,
+        102,
+        112
+      ],
+      "width": 69,
+      "height": 71,
+      "pixels": 989,
+      "cellArea": 16900,
+      "insets": [
+        32,
+        72,
+        37,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "golden_whirlshaper",
+    "name": "ゴールドリングスピナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      43,
+      57
+    ],
+    "idleMedian": [
+      47.5,
+      59.5
+    ],
+    "alphaArea": 956.5,
+    "alphaOccupancy": 0.06642361111111111,
+    "stableInsets": [
+      47,
+      62,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        44,
+        81,
+        104
+      ],
+      "width": 48,
+      "height": 60,
+      "pixels": 961,
+      "cellArea": 14400,
+      "insets": [
+        27,
+        59,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "colossal_hornfist",
+    "name": "ジャイアントホーンフィスト",
+    "boss": true,
+    "scale": 2,
+    "radius": 26,
+    "idleMin": [
+      110,
+      98
+    ],
+    "idleMedian": [
+      112.0,
+      102.0
+    ],
+    "alphaArea": 5992.0,
+    "alphaOccupancy": 0.2340625,
+    "stableInsets": [
+      33,
+      52,
+      28,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        9,
+        14,
+        65,
+        65
+      ],
+      "width": 56,
+      "height": 51,
+      "pixels": 1488,
+      "cellArea": 6400,
+      "insets": [
+        31,
+        49,
+        25,
+        2
+      ]
+    }
+  },
+  {
+    "k": "goldgreatsword_duelist",
+    "name": "ゴールドグレートソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      46,
+      44
+    ],
+    "idleMedian": [
+      46,
+      44
+    ],
+    "alphaArea": 1068,
+    "alphaOccupancy": 0.1068,
+    "stableInsets": [
+      37,
+      43,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        40,
+        65,
+        84
+      ],
+      "width": 46,
+      "height": 44,
+      "pixels": 1057,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        43,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cyan_tripleblade",
+    "name": "ブルーブレイドトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      76,
+      49
+    ],
+    "idleMedian": [
+      79.5,
+      50.5
+    ],
+    "alphaArea": 1087.0,
+    "alphaOccupancy": 0.069568,
+    "stableInsets": [
+      43,
+      60,
+      45,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        59,
+        107,
+        109
+      ],
+      "width": 80,
+      "height": 50,
+      "pixels": 1111,
+      "cellArea": 15625,
+      "insets": [
+        35,
+        49,
+        45,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goldtrident_duelist",
+    "name": "ゴールドトライデント",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      61,
+      55
+    ],
+    "idleMedian": [
+      65.5,
+      59.0
+    ],
+    "alphaArea": 1100.0,
+    "alphaOccupancy": 0.09090909090909091,
+    "stableInsets": [
+      54,
+      58,
+      29,
+      7
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        2,
+        35,
+        75,
+        98
+      ],
+      "width": 73,
+      "height": 63,
+      "pixels": 1142,
+      "cellArea": 12100,
+      "insets": [
+        53,
+        58,
+        20,
+        5
+      ]
+    }
+  },
+  {
+    "k": "redhorn_dualbeast",
+    "name": "レッドホーンツイン",
+    "boss": true,
+    "scale": 1,
+    "radius": 20,
+    "idleMin": [
+      82,
+      45
+    ],
+    "idleMedian": [
+      85.5,
+      48.5
+    ],
+    "alphaArea": 1531.0,
+    "alphaOccupancy": 0.09059171597633137,
+    "stableInsets": [
+      47,
+      49,
+      46,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        69,
+        106,
+        115
+      ],
+      "width": 84,
+      "height": 46,
+      "pixels": 1518,
+      "cellArea": 16900,
+      "insets": [
+        43,
+        44,
+        41,
+        2
+      ]
+    }
+  },
+  {
+    "k": "greenneck_burster",
+    "name": "グリーンネックバースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      38,
+      51
+    ],
+    "idleMedian": [
+      42.0,
+      54.0
+    ],
+    "alphaArea": 795.0,
+    "alphaOccupancy": 0.0470414201183432,
+    "stableInsets": [
+      33,
+      56,
+      25,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        40,
+        60,
+        81,
+        114
+      ],
+      "width": 41,
+      "height": 54,
+      "pixels": 803,
+      "cellArea": 16900,
+      "insets": [
+        25,
+        53,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "frostthrust_lancer",
+    "name": "フロストランサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      32,
+      64
+    ],
+    "idleMedian": [
+      34.0,
+      69.5
+    ],
+    "alphaArea": 672.0,
+    "alphaOccupancy": 0.03976331360946746,
+    "stableInsets": [
+      50,
+      80,
+      19,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        49,
+        48,
+        83,
+        114
+      ],
+      "width": 34,
+      "height": 66,
+      "pixels": 677,
+      "cellArea": 16900,
+      "insets": [
+        16,
+        65,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "snowdisk_warder",
+    "name": "スノーディスクガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      60,
+      44
+    ],
+    "idleMedian": [
+      60.0,
+      45.5
+    ],
+    "alphaArea": 1408.5,
+    "alphaOccupancy": 0.220078125,
+    "stableInsets": [
+      34,
+      46,
+      32,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        12,
+        17,
+        72,
+        64
+      ],
+      "width": 60,
+      "height": 47,
+      "pixels": 1426,
+      "cellArea": 6400,
+      "insets": [
+        28,
+        46,
+        32,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redcore_burstshrine",
+    "name": "レッドコアシュライン",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      46,
+      49
+    ],
+    "idleMedian": [
+      49.0,
+      49.0
+    ],
+    "alphaArea": 1558.5,
+    "alphaOccupancy": 0.15585,
+    "stableInsets": [
+      29,
+      50,
+      29,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        35,
+        72,
+        84
+      ],
+      "width": 46,
+      "height": 49,
+      "pixels": 1548,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        48,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "goldstroke_rotator",
+    "name": "ゴールドブレイドスピナー",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      57,
+      45
+    ],
+    "idleMedian": [
+      58.5,
+      45.0
+    ],
+    "alphaArea": 803.5,
+    "alphaOccupancy": 0.08035,
+    "stableInsets": [
+      39,
+      46,
+      27,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        13,
+        39,
+        72,
+        84
+      ],
+      "width": 59,
+      "height": 45,
+      "pixels": 816,
+      "cellArea": 10000,
+      "insets": [
+        37,
+        44,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "dusk_triplewarden",
+    "name": "ダスクブレイドトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      33,
+      36
+    ],
+    "idleMedian": [
+      35.0,
+      37.5
+    ],
+    "alphaArea": 492.0,
+    "alphaOccupancy": 0.034166666666666665,
+    "stableInsets": [
+      29,
+      46,
+      24,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        44,
+        66,
+        81,
+        104
+      ],
+      "width": 37,
+      "height": 38,
+      "pixels": 510,
+      "cellArea": 14400,
+      "insets": [
+        16,
+        37,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "iceclaw_legend",
+    "name": "アイスクローファイター",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      61,
+      64
+    ],
+    "idleMedian": [
+      62.0,
+      66.0
+    ],
+    "alphaArea": 2338.0,
+    "alphaOccupancy": 0.1383431952662722,
+    "stableInsets": [
+      38,
+      74,
+      40,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        50,
+        98,
+        114
+      ],
+      "width": 62,
+      "height": 64,
+      "pixels": 2302,
+      "cellArea": 16900,
+      "insets": [
+        29,
+        63,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "cyanrise_silithar",
+    "name": "ブルースピンアーマー",
+    "boss": true,
+    "scale": 2,
+    "radius": 22,
+    "idleMin": [
+      110,
+      70
+    ],
+    "idleMedian": [
+      114.0,
+      74.0
+    ],
+    "alphaArea": 3350.0,
+    "alphaOccupancy": 0.130859375,
+    "stableInsets": [
+      33,
+      43,
+      29,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        9,
+        25,
+        66,
+        64
+      ],
+      "width": 57,
+      "height": 39,
+      "pixels": 825,
+      "cellArea": 6400,
+      "insets": [
+        31,
+        38,
+        26,
+        1
+      ]
+    }
+  },
+  {
+    "k": "groundprism_windmiller",
+    "name": "グラウンドプリズムメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      38,
+      43
+    ],
+    "idleMedian": [
+      41,
+      45
+    ],
+    "alphaArea": 606,
+    "alphaOccupancy": 0.042083333333333334,
+    "stableInsets": [
+      23,
+      53,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        47,
+        58,
+        85,
+        104
+      ],
+      "width": 38,
+      "height": 46,
+      "pixels": 606,
+      "cellArea": 14400,
+      "insets": [
+        13,
+        45,
+        25,
+        1
+      ]
+    }
+  },
+  {
+    "k": "flipthrust_legend",
+    "name": "リングテイルランサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      41,
+      46
+    ],
+    "idleMedian": [
+      43,
+      50
+    ],
+    "alphaArea": 724,
+    "alphaOccupancy": 0.0724,
+    "stableInsets": [
+      36,
+      53,
+      32,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        32,
+        65,
+        85
+      ],
+      "width": 41,
+      "height": 53,
+      "pixels": 743,
+      "cellArea": 10000,
+      "insets": [
+        26,
+        51,
+        15,
+        2
+      ]
+    }
+  },
+  {
+    "k": "flameburst_mythron",
+    "name": "フレイムリングジャイアント",
+    "boss": true,
+    "scale": 2,
+    "radius": 24,
+    "idleMin": [
+      120,
+      102
+    ],
+    "idleMedian": [
+      122.0,
+      113.0
+    ],
+    "alphaArea": 7086.0,
+    "alphaOccupancy": 0.17715,
+    "stableInsets": [
+      31,
+      60,
+      43,
+      8
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        29,
+        83,
+        85
+      ],
+      "width": 60,
+      "height": 56,
+      "pixels": 1757,
+      "cellArea": 10000,
+      "insets": [
+        27,
+        54,
+        33,
+        2
+      ]
+    }
+  },
+  {
+    "k": "bloodsurge_pillarist",
+    "name": "クリムゾンピラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      46,
+      36
+    ],
+    "idleMedian": [
+      51,
+      38
+    ],
+    "alphaArea": 686,
+    "alphaOccupancy": 0.04059171597633136,
+    "stableInsets": [
+      40,
+      52,
+      29,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        76,
+        85,
+        114
+      ],
+      "width": 50,
+      "height": 38,
+      "pixels": 689,
+      "cellArea": 16900,
+      "insets": [
+        30,
+        37,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "baast_handtripler",
+    "name": "ダブルフックトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      37,
+      53
+    ],
+    "idleMedian": [
+      39.0,
+      55.0
+    ],
+    "alphaArea": 942.5,
+    "alphaOccupancy": 0.09425,
+    "stableInsets": [
+      25,
+      55,
+      25,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        29,
+        70,
+        84
+      ],
+      "width": 38,
+      "height": 55,
+      "pixels": 909,
+      "cellArea": 10000,
+      "insets": [
+        18,
+        54,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "metaltooth_duelist",
+    "name": "レッドメタルデュエリスト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      35,
+      35
+    ],
+    "idleMedian": [
+      35.0,
+      37.0
+    ],
+    "alphaArea": 562.0,
+    "alphaOccupancy": 0.0562,
+    "stableInsets": [
+      24,
+      39,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        46,
+        70,
+        84
+      ],
+      "width": 36,
+      "height": 38,
+      "pixels": 548,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        37,
+        20,
+        1
+      ]
+    }
+  },
+  {
+    "k": "icy_dualslasher",
+    "name": "アイスウィングツイン",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      28,
+      22
+    ],
+    "idleMedian": [
+      30.5,
+      24.5
+    ],
+    "alphaArea": 327.5,
+    "alphaOccupancy": 0.03275,
+    "stableInsets": [
+      22,
+      28,
+      17,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        58,
+        66,
+        84
+      ],
+      "width": 31,
+      "height": 26,
+      "pixels": 332,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        25,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crystalback_rae",
+    "name": "クリスタルバック",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      22,
+      21
+    ],
+    "idleMedian": [
+      27.0,
+      24.0
+    ],
+    "alphaArea": 343.5,
+    "alphaOccupancy": 0.03435,
+    "stableInsets": [
+      19,
+      25,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        60,
+        63,
+        84
+      ],
+      "width": 27,
+      "height": 24,
+      "pixels": 356,
+      "cellArea": 10000,
+      "insets": [
+        14,
+        23,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "orbslam_zyx",
+    "name": "オーブテイル",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      28,
+      38
+    ],
+    "idleMedian": [
+      32,
+      41
+    ],
+    "alphaArea": 433,
+    "alphaOccupancy": 0.0433,
+    "stableInsets": [
+      31,
+      43,
+      19,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        42,
+        65,
+        84
+      ],
+      "width": 31,
+      "height": 42,
+      "pixels": 433,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        41,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "brass_flareslinger",
+    "name": "ブラスシューター",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      35,
+      38
+    ],
+    "idleMedian": [
+      37.0,
+      38.0
+    ],
+    "alphaArea": 653.5,
+    "alphaOccupancy": 0.054008264462809916,
+    "stableInsets": [
+      25,
+      41,
+      28,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        39,
+        52,
+        76,
+        94
+      ],
+      "width": 37,
+      "height": 42,
+      "pixels": 667,
+      "cellArea": 12100,
+      "insets": [
+        16,
+        41,
+        21,
+        1
+      ]
+    }
+  },
+  {
+    "k": "sunbreak_pillar_guardian",
+    "name": "サンピラーライオン",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      56,
+      38
+    ],
+    "idleMedian": [
+      60.0,
+      44.5
+    ],
+    "alphaArea": 1147.5,
+    "alphaOccupancy": 0.06789940828402366,
+    "stableInsets": [
+      50,
+      49,
+      35,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        65,
+        91,
+        115
+      ],
+      "width": 58,
+      "height": 50,
+      "pixels": 1139,
+      "cellArea": 16900,
+      "insets": [
+        32,
+        48,
+        26,
+        2
+      ]
+    }
+  },
+  {
+    "k": "bobble_mender",
+    "name": "バブルホーンヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      49,
+      52
+    ],
+    "idleMedian": [
+      50.0,
+      53.0
+    ],
+    "alphaArea": 1076.5,
+    "alphaOccupancy": 0.10765,
+    "stableInsets": [
+      36,
+      54,
+      26,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        23,
+        31,
+        73,
+        84
+      ],
+      "width": 50,
+      "height": 53,
+      "pixels": 1072,
+      "cellArea": 10000,
+      "insets": [
+        27,
+        52,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "rune_cube_warder",
+    "name": "ルーンキューブガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      35,
+      55
+    ],
+    "idleMedian": [
+      37.0,
+      57.0
+    ],
+    "alphaArea": 849.0,
+    "alphaOccupancy": 0.1048148148148148,
+    "stableInsets": [
+      25,
+      58,
+      18,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        19,
+        59,
+        74
+      ],
+      "width": 35,
+      "height": 55,
+      "pixels": 844,
+      "cellArea": 8100,
+      "insets": [
+        21,
+        54,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "darkclaw_harbinger",
+    "name": "ダーククロービースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      30,
+      40
+    ],
+    "idleMedian": [
+      31.0,
+      41.5
+    ],
+    "alphaArea": 654.5,
+    "alphaOccupancy": 0.102265625,
+    "stableInsets": [
+      16,
+      43,
+      19,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        23,
+        57,
+        64
+      ],
+      "width": 30,
+      "height": 41,
+      "pixels": 657,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        40,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "whirlsilk_cat",
+    "name": "シルクスピンキャット",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      49,
+      46
+    ],
+    "idleMedian": [
+      50,
+      48
+    ],
+    "alphaArea": 848,
+    "alphaOccupancy": 0.0848,
+    "stableInsets": [
+      25,
+      48,
+      33,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        36,
+        78,
+        85
+      ],
+      "width": 50,
+      "height": 49,
+      "pixels": 846,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        47,
+        28,
+        2
+      ]
+    }
+  },
+  {
+    "k": "twinflare_fox",
+    "name": "ツインフレイムフォックス",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      46,
+      40
+    ],
+    "idleMedian": [
+      49.0,
+      42.0
+    ],
+    "alphaArea": 763.5,
+    "alphaOccupancy": 0.06309917355371901,
+    "stableInsets": [
+      30,
+      44,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        52,
+        77,
+        94
+      ],
+      "width": 50,
+      "height": 42,
+      "pixels": 762,
+      "cellArea": 12100,
+      "insets": [
+        28,
+        41,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redshield_tripler",
+    "name": "レッドシールドトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      72,
+      52
+    ],
+    "idleMedian": [
+      75.0,
+      54.0
+    ],
+    "alphaArea": 1761.0,
+    "alphaOccupancy": 0.112704,
+    "stableInsets": [
+      52,
+      77,
+      50,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        56,
+        110,
+        109
+      ],
+      "width": 77,
+      "height": 53,
+      "pixels": 1740,
+      "cellArea": 15625,
+      "insets": [
+        29,
+        52,
+        48,
+        1
+      ]
+    }
+  },
+  {
+    "k": "shellburst_arcade",
+    "name": "シェルウェーブファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      43,
+      32
+    ],
+    "idleMedian": [
+      43.0,
+      33.5
+    ],
+    "alphaArea": 1091.5,
+    "alphaOccupancy": 0.10915,
+    "stableInsets": [
+      34,
+      37,
+      24,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        50,
+        73,
+        84
+      ],
+      "width": 43,
+      "height": 34,
+      "pixels": 1105,
+      "cellArea": 10000,
+      "insets": [
+        20,
+        33,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "accretion_burstcore",
+    "name": "ダークライトコア",
+    "boss": true,
+    "scale": 1,
+    "radius": 16,
+    "idleMin": [
+      73,
+      37
+    ],
+    "idleMedian": [
+      74.0,
+      38.5
+    ],
+    "alphaArea": 1857.5,
+    "alphaOccupancy": 0.18575,
+    "stableInsets": [
+      44,
+      41,
+      40,
+      7
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        16,
+        45,
+        89,
+        84
+      ],
+      "width": 73,
+      "height": 39,
+      "pixels": 1852,
+      "cellArea": 10000,
+      "insets": [
+        34,
+        38,
+        39,
+        1
+      ]
+    }
+  },
+  {
+    "k": "deathknell_cutpillar",
+    "name": "パープルフレイムツイン",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      41,
+      58
+    ],
+    "idleMedian": [
+      44.0,
+      61.0
+    ],
+    "alphaArea": 1209.5,
+    "alphaOccupancy": 0.08399305555555556,
+    "stableInsets": [
+      33,
+      69,
+      25,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        44,
+        74,
+        104
+      ],
+      "width": 44,
+      "height": 60,
+      "pixels": 1232,
+      "cellArea": 14400,
+      "insets": [
+        30,
+        59,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redtail_whipper",
+    "name": "レッドテイルウィップ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      35,
+      35
+    ],
+    "idleMedian": [
+      35.5,
+      35.0
+    ],
+    "alphaArea": 409.5,
+    "alphaOccupancy": 0.06398437500000001,
+    "stableInsets": [
+      17,
+      38,
+      24,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        27,
+        60,
+        62
+      ],
+      "width": 35,
+      "height": 35,
+      "pixels": 414,
+      "cellArea": 6400,
+      "insets": [
+        15,
+        36,
+        20,
+        -1
+      ]
+    }
+  },
+  {
+    "k": "ringblade_maehv",
+    "name": "レッドリングトリプル",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      57,
+      69
+    ],
+    "idleMedian": [
+      64.5,
+      72.0
+    ],
+    "alphaArea": 1522.5,
+    "alphaOccupancy": 0.0900887573964497,
+    "stableInsets": [
+      43,
+      83,
+      43,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        43,
+        93,
+        114
+      ],
+      "width": 57,
+      "height": 71,
+      "pixels": 1520,
+      "cellArea": 16900,
+      "insets": [
+        29,
+        70,
+        28,
+        1
+      ]
+    }
+  },
+  {
+    "k": "dreamflash_oracle",
+    "name": "ドリームライトビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      32,
+      27
+    ],
+    "idleMedian": [
+      33.0,
+      29.0
+    ],
+    "alphaArea": 525.5,
+    "alphaOccupancy": 0.082109375,
+    "stableInsets": [
+      17,
+      32,
+      19,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        35,
+        56,
+        64
+      ],
+      "width": 32,
+      "height": 29,
+      "pixels": 527,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        28,
+        16,
+        1
+      ]
+    }
+  },
+  {
+    "k": "candle_archdeacon",
+    "name": "キャンドルプリースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      33,
+      66
+    ],
+    "idleMedian": [
+      33.0,
+      67.5
+    ],
+    "alphaArea": 792.5,
+    "alphaOccupancy": 0.04689349112426036,
+    "stableInsets": [
+      22,
+      78,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        49,
+        47,
+        82,
+        114
+      ],
+      "width": 33,
+      "height": 67,
+      "pixels": 819,
+      "cellArea": 16900,
+      "insets": [
+        16,
+        66,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "wavepole_adept",
+    "name": "ウェーブポールファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      46,
+      42
+    ],
+    "idleMedian": [
+      57.0,
+      49.5
+    ],
+    "alphaArea": 919.0,
+    "alphaOccupancy": 0.05437869822485207,
+    "stableInsets": [
+      37,
+      57,
+      32,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        62,
+        92,
+        113
+      ],
+      "width": 59,
+      "height": 51,
+      "pixels": 916,
+      "cellArea": 16900,
+      "insets": [
+        32,
+        51,
+        27,
+        0
+      ]
+    }
+  },
+  {
+    "k": "shade_trislasher",
+    "name": "シャドウトリプルブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      31,
+      55
+    ],
+    "idleMedian": [
+      33.0,
+      56.0
+    ],
+    "alphaArea": 639.0,
+    "alphaOccupancy": 0.0639,
+    "stableInsets": [
+      23,
+      56,
+      31,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        28,
+        65,
+        84
+      ],
+      "width": 32,
+      "height": 56,
+      "pixels": 661,
+      "cellArea": 10000,
+      "insets": [
+        17,
+        55,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "twinpulse_mage",
+    "name": "ツインウェーブメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      55,
+      49
+    ],
+    "idleMedian": [
+      55.0,
+      54.0
+    ],
+    "alphaArea": 983.0,
+    "alphaOccupancy": 0.05816568047337278,
+    "stableInsets": [
+      42,
+      58,
+      32,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        33,
+        58,
+        88,
+        114
+      ],
+      "width": 55,
+      "height": 56,
+      "pixels": 988,
+      "cellArea": 16900,
+      "insets": [
+        32,
+        55,
+        23,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redbud_blightbeast",
+    "name": "レッドバッドソーン",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      55,
+      43
+    ],
+    "idleMedian": [
+      65.5,
+      47.5
+    ],
+    "alphaArea": 1011.0,
+    "alphaOccupancy": 0.1011,
+    "stableInsets": [
+      40,
+      50,
+      38,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        12,
+        40,
+        78,
+        85
+      ],
+      "width": 66,
+      "height": 45,
+      "pixels": 1099,
+      "cellArea": 10000,
+      "insets": [
+        38,
+        43,
+        28,
+        2
+      ]
+    }
+  },
+  {
+    "k": "abyssal_palmweaver",
+    "name": "アビスパームメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      28,
+      50
+    ],
+    "idleMedian": [
+      29,
+      55
+    ],
+    "alphaArea": 653,
+    "alphaOccupancy": 0.03863905325443787,
+    "stableInsets": [
+      16,
+      57,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        52,
+        58,
+        82,
+        114
+      ],
+      "width": 30,
+      "height": 56,
+      "pixels": 700,
+      "cellArea": 16900,
+      "insets": [
+        13,
+        55,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "origami_wingburst",
+    "name": "オリガミウィング",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      46,
+      38
+    ],
+    "idleMedian": [
+      48,
+      54
+    ],
+    "alphaArea": 792,
+    "alphaOccupancy": 0.04686390532544379,
+    "stableInsets": [
+      30,
+      59,
+      35,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        43,
+        60,
+        90,
+        115
+      ],
+      "width": 47,
+      "height": 55,
+      "pixels": 800,
+      "cellArea": 16900,
+      "insets": [
+        22,
+        53,
+        25,
+        2
+      ]
+    }
+  },
+  {
+    "k": "ochre_antlerclaw",
+    "name": "オーカーホーンクロー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      30,
+      29
+    ],
+    "idleMedian": [
+      30.0,
+      30.0
+    ],
+    "alphaArea": 429.0,
+    "alphaOccupancy": 0.06703125,
+    "stableInsets": [
+      15,
+      31,
+      20,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        34,
+        57,
+        64
+      ],
+      "width": 30,
+      "height": 30,
+      "pixels": 424,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        29,
+        17,
+        1
+      ]
+    }
+  },
+  {
+    "k": "komodo_fiveclaw",
+    "name": "ファイブクロースケイル",
+    "boss": false,
+    "scale": 1,
+    "radius": 13,
+    "idleMin": [
+      61,
+      25
+    ],
+    "idleMedian": [
+      63.5,
+      29.5
+    ],
+    "alphaArea": 931.0,
+    "alphaOccupancy": 0.09309999999999999,
+    "stableInsets": [
+      38,
+      39,
+      37,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        21,
+        51,
+        84,
+        84
+      ],
+      "width": 63,
+      "height": 33,
+      "pixels": 944,
+      "cellArea": 10000,
+      "insets": [
+        29,
+        32,
+        34,
+        1
+      ]
+    }
+  },
+  {
+    "k": "quadcut_swordmaster",
+    "name": "クアッドソードマスター",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      67,
+      61
+    ],
+    "idleMedian": [
+      70.0,
+      63.5
+    ],
+    "alphaArea": 1614.5,
+    "alphaOccupancy": 0.08237244897959184,
+    "stableInsets": [
+      44,
+      64,
+      35,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        62,
+        103,
+        124
+      ],
+      "width": 69,
+      "height": 62,
+      "pixels": 1618,
+      "cellArea": 19600,
+      "insets": [
+        36,
+        61,
+        33,
+        1
+      ]
+    }
+  },
+  {
+    "k": "latecut_staffblade",
+    "name": "ラストカットスタッフ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      46,
+      71
+    ],
+    "idleMedian": [
+      48.5,
+      74.0
+    ],
+    "alphaArea": 1193.0,
+    "alphaOccupancy": 0.076352,
+    "stableInsets": [
+      29,
+      76,
+      37,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        42,
+        34,
+        91,
+        109
+      ],
+      "width": 49,
+      "height": 75,
+      "pixels": 1194,
+      "cellArea": 15625,
+      "insets": [
+        20,
+        74,
+        29,
+        1
+      ]
+    }
+  },
+  {
+    "k": "skullflare_triad",
+    "name": "スカルフレイムトリプル",
+    "boss": true,
+    "scale": 2,
+    "radius": 21,
+    "idleMin": [
+      68,
+      98
+    ],
+    "idleMedian": [
+      77.0,
+      106.0
+    ],
+    "alphaArea": 3420.0,
+    "alphaOccupancy": 0.05059171597633136,
+    "stableInsets": [
+      31,
+      56,
+      25,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        45,
+        61,
+        80,
+        114
+      ],
+      "width": 35,
+      "height": 53,
+      "pixels": 877,
+      "cellArea": 16900,
+      "insets": [
+        20,
+        52,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "floatinghelm_tripler",
+    "name": "フローティングヘルム",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      65,
+      66
+    ],
+    "idleMedian": [
+      73.0,
+      67.0
+    ],
+    "alphaArea": 1784.5,
+    "alphaOccupancy": 0.10559171597633137,
+    "stableInsets": [
+      38,
+      70,
+      47,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        44,
+        106,
+        113
+      ],
+      "width": 77,
+      "height": 69,
+      "pixels": 1785,
+      "cellArea": 16900,
+      "insets": [
+        36,
+        69,
+        41,
+        0
+      ]
+    }
+  },
+  {
+    "k": "ashbone_swordsman",
+    "name": "アッシュボーンソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      45,
+      49
+    ],
+    "idleMedian": [
+      45.0,
+      50.0
+    ],
+    "alphaArea": 717.0,
+    "alphaOccupancy": 0.03186666666666667,
+    "stableInsets": [
+      25,
+      52,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        60,
+        50,
+        105,
+        101
+      ],
+      "width": 45,
+      "height": 51,
+      "pixels": 723,
+      "cellArea": 22500,
+      "insets": [
+        15,
+        50,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "punchcap_mushroom",
+    "name": "パンチマッシュルーム",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      23,
+      35
+    ],
+    "idleMedian": [
+      23.0,
+      36.0
+    ],
+    "alphaArea": 584.0,
+    "alphaOccupancy": 0.025955555555555558,
+    "stableInsets": [
+      31,
+      42,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        64,
+        64,
+        87,
+        101
+      ],
+      "width": 23,
+      "height": 37,
+      "pixels": 589,
+      "cellArea": 22500,
+      "insets": [
+        11,
+        36,
+        12,
+        1
+      ]
+    }
+  },
+  {
+    "k": "fangeye_flier",
+    "name": "ファングアイフライヤー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      39,
+      24
+    ],
+    "idleMedian": [
+      40.0,
+      25.0
+    ],
+    "alphaArea": 371.5,
+    "alphaOccupancy": 0.016511111111111112,
+    "stableInsets": [
+      19,
+      40,
+      23,
+      -6
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        57,
+        61,
+        98,
+        92
+      ],
+      "width": 41,
+      "height": 31,
+      "pixels": 434,
+      "cellArea": 22500,
+      "insets": [
+        18,
+        39,
+        23,
+        -8
+      ]
+    }
+  },
+  {
+    "k": "ooze_slammer",
+    "name": "スライムスラマー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      44,
+      15
+    ],
+    "idleMedian": [
+      44.0,
+      17.5
+    ],
+    "alphaArea": 412.0,
+    "alphaOccupancy": 0.01692965154503616,
+    "stableInsets": [
+      24,
+      21,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        56,
+        69,
+        100,
+        87
+      ],
+      "width": 44,
+      "height": 18,
+      "pixels": 412,
+      "cellArea": 24336,
+      "insets": [
+        22,
+        17,
+        22,
+        1
+      ]
+    }
+  },
+  {
+    "k": "clawring_bat",
+    "name": "リングクローバット",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      44,
+      15
+    ],
+    "idleMedian": [
+      54,
+      24
+    ],
+    "alphaArea": 571,
+    "alphaOccupancy": 0.0754392918483287,
+    "stableInsets": [
+      29,
+      56,
+      38,
+      -1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        29,
+        74,
+        62
+      ],
+      "width": 54,
+      "height": 33,
+      "pixels": 636,
+      "cellArea": 7569,
+      "insets": [
+        23,
+        43,
+        31,
+        -10
+      ]
+    }
+  },
+  {
+    "k": "jawchest_mimic",
+    "name": "ジョーチェストミミック",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      36,
+      27
+    ],
+    "idleMedian": [
+      40,
+      28
+    ],
+    "alphaArea": 807,
+    "alphaOccupancy": 0.03785888534434228,
+    "stableInsets": [
+      19,
+      33,
+      29,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        56,
+        53,
+        98,
+        83
+      ],
+      "width": 42,
+      "height": 30,
+      "pixels": 874,
+      "cellArea": 21316,
+      "insets": [
+        17,
+        29,
+        25,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spectralhand_wizard",
+    "name": "スピリットハンドメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      54,
+      95
+    ],
+    "idleMedian": [
+      56.0,
+      100.0
+    ],
+    "alphaArea": 1785.5,
+    "alphaOccupancy": 0.028568000000000003,
+    "stableInsets": [
+      36,
+      103,
+      40,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        108,
+        72,
+        165,
+        167
+      ],
+      "width": 57,
+      "height": 95,
+      "pixels": 1769,
+      "cellArea": 62500,
+      "insets": [
+        17,
+        94,
+        40,
+        1
+      ]
+    }
+  },
+  {
+    "k": "crownblade_king",
+    "name": "クラウンブレイドキング",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      27,
+      50
+    ],
+    "idleMedian": [
+      29.0,
+      52.5
+    ],
+    "alphaArea": 914.0,
+    "alphaOccupancy": 0.051463963963963966,
+    "stableInsets": [
+      28,
+      54,
+      23,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        64,
+        51,
+        95,
+        105
+      ],
+      "width": 31,
+      "height": 54,
+      "pixels": 988,
+      "cellArea": 17760,
+      "insets": [
+        16,
+        53,
+        15,
+        1
+      ]
+    }
+  },
+  {
+    "k": "spearcut_huntress",
+    "name": "スピアハントレス",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      32,
+      39
+    ],
+    "idleMedian": [
+      32.0,
+      40.5
+    ],
+    "alphaArea": 411.0,
+    "alphaOccupancy": 0.018266666666666667,
+    "stableInsets": [
+      25,
+      41,
+      29,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        61,
+        55,
+        93,
+        97
+      ],
+      "width": 32,
+      "height": 42,
+      "pixels": 415,
+      "cellArea": 22500,
+      "insets": [
+        14,
+        41,
+        18,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bluecoat_blader",
+    "name": "ブルーコートブレイダー",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      33,
+      54
+    ],
+    "idleMedian": [
+      33.0,
+      55.0
+    ],
+    "alphaArea": 609.5,
+    "alphaOccupancy": 0.015237500000000001,
+    "stableInsets": [
+      28,
+      55,
+      16,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        81,
+        72,
+        114,
+        128
+      ],
+      "width": 33,
+      "height": 56,
+      "pixels": 615,
+      "cellArea": 40000,
+      "insets": [
+        19,
+        55,
+        14,
+        1
+      ]
+    }
+  },
+  {
+    "k": "redtunic_swordsman",
+    "name": "レッドコートソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      26,
+      38
+    ],
+    "idleMedian": [
+      26.0,
+      39.5
+    ],
+    "alphaArea": 470.0,
+    "alphaOccupancy": 0.020888888888888887,
+    "stableInsets": [
+      19,
+      40,
+      15,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        62,
+        54,
+        88,
+        95
+      ],
+      "width": 26,
+      "height": 41,
+      "pixels": 470,
+      "cellArea": 22500,
+      "insets": [
+        13,
+        40,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "hooded_ghost",
+    "name": "フードゴーストヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      24,
+      41
+    ],
+    "idleMedian": [
+      25,
+      42
+    ],
+    "alphaArea": 657,
+    "alphaOccupancy": 0.1283203125,
+    "stableInsets": [
+      14,
+      45,
+      14,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        19,
+        44,
+        61
+      ],
+      "width": 24,
+      "height": 42,
+      "pixels": 628,
+      "cellArea": 5120,
+      "insets": [
+        12,
+        45,
+        12,
+        -3
+      ]
+    }
+  },
+  {
+    "k": "scarfhat_swordsman",
+    "name": "スカーフハットソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      37,
+      49
+    ],
+    "idleMedian": [
+      37.0,
+      50.5
+    ],
+    "alphaArea": 926.0,
+    "alphaOccupancy": 0.02315,
+    "stableInsets": [
+      34,
+      53,
+      18,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        76,
+        70,
+        113,
+        122
+      ],
+      "width": 37,
+      "height": 52,
+      "pixels": 973,
+      "cellArea": 40000,
+      "insets": [
+        24,
+        51,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "wrapped_mummy",
+    "name": "リトルマミー",
+    "boss": false,
+    "scale": 1,
+    "radius": 5,
+    "idleMin": [
+      17,
+      22
+    ],
+    "idleMedian": [
+      18.0,
+      23.0
+    ],
+    "alphaArea": 278.0,
+    "alphaOccupancy": 0.41369047619047616,
+    "stableInsets": [
+      9,
+      22,
+      10,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        3,
+        5,
+        21,
+        28
+      ],
+      "width": 18,
+      "height": 23,
+      "pixels": 278,
+      "cellArea": 672,
+      "insets": [
+        9,
+        22,
+        9,
+        1
+      ]
+    }
+  },
+  {
+    "k": "plume_swordknight",
+    "name": "フェザーナイト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      47,
+      49
+    ],
+    "idleMedian": [
+      47,
+      50
+    ],
+    "alphaArea": 668,
+    "alphaOccupancy": 0.020617283950617283,
+    "stableInsets": [
+      24,
+      55,
+      30,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        73,
+        63,
+        120,
+        114
+      ],
+      "width": 47,
+      "height": 51,
+      "pixels": 695,
+      "cellArea": 32400,
+      "insets": [
+        17,
+        50,
+        30,
+        1
+      ]
+    }
+  },
+  {
+    "k": "ringfall_chakkram",
+    "name": "フォーリングリングメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      56,
+      43
+    ],
+    "idleMedian": [
+      61.0,
+      43.0
+    ],
+    "alphaArea": 988.0,
+    "alphaOccupancy": 0.0988,
+    "stableInsets": [
+      31,
+      46,
+      35,
+      -1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        38,
+        85,
+        81
+      ],
+      "width": 65,
+      "height": 43,
+      "pixels": 986,
+      "cellArea": 10000,
+      "insets": [
+        30,
+        45,
+        35,
+        -2
+      ]
+    }
+  },
+  {
+    "k": "eggshell_repairpod",
+    "name": "リペアエッグ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      22,
+      30
+    ],
+    "idleMedian": [
+      24,
+      31
+    ],
+    "alphaArea": 618,
+    "alphaOccupancy": 0.0965625,
+    "stableInsets": [
+      13,
+      31,
+      13,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        32,
+        53,
+        64
+      ],
+      "width": 26,
+      "height": 32,
+      "pixels": 693,
+      "cellArea": 6400,
+      "insets": [
+        13,
+        31,
+        13,
+        1
+      ]
+    }
+  },
+  {
+    "k": "bonecolumn_warder",
+    "name": "ボーンピラーガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      43,
+      65
+    ],
+    "idleMedian": [
+      43.5,
+      66.0
+    ],
+    "alphaArea": 1226.5,
+    "alphaOccupancy": 0.12265000000000001,
+    "stableInsets": [
+      26,
+      65,
+      22,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        18,
+        69,
+        85
+      ],
+      "width": 43,
+      "height": 67,
+      "pixels": 1230,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        65,
+        19,
+        2
+      ]
+    }
+  },
+  {
+    "k": "clubnose_forest_troll",
+    "name": "ロングノーズトロル",
+    "boss": false,
+    "scale": 1,
+    "radius": 6,
+    "idleMin": [
+      18,
+      24
+    ],
+    "idleMedian": [
+      18.0,
+      25.0
+    ],
+    "alphaArea": 207.0,
+    "alphaOccupancy": 0.2021484375,
+    "stableInsets": [
+      15,
+      25,
+      7,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        2,
+        3,
+        20,
+        28
+      ],
+      "width": 18,
+      "height": 25,
+      "pixels": 214,
+      "cellArea": 1024,
+      "insets": [
+        14,
+        24,
+        4,
+        1
+      ]
+    }
+  },
+  {
+    "k": "forkbill_strider",
+    "name": "ボーンロングネック",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      57,
+      37
+    ],
+    "idleMedian": [
+      58,
+      39
+    ],
+    "alphaArea": 755,
+    "alphaOccupancy": 0.11796875,
+    "stableInsets": [
+      29,
+      43,
+      38,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        17,
+        26,
+        75,
+        64
+      ],
+      "width": 58,
+      "height": 38,
+      "pixels": 754,
+      "cellArea": 6400,
+      "insets": [
+        23,
+        38,
+        35,
+        0
+      ]
+    }
+  },
+  {
+    "k": "opalfin_sky_ray",
+    "name": "ジェイドフィンガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      28,
+      29
+    ],
+    "idleMedian": [
+      29.0,
+      35.0
+    ],
+    "alphaArea": 356.0,
+    "alphaOccupancy": 0.0356,
+    "stableInsets": [
+      38,
+      45,
+      15,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        49,
+        64,
+        82
+      ],
+      "width": 29,
+      "height": 33,
+      "pixels": 368,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        33,
+        14,
+        0
+      ]
+    }
+  },
+  {
+    "k": "kilnback_pincerbeast",
+    "name": "ブルークラブジャイアント",
+    "boss": true,
+    "scale": 1,
+    "radius": 22,
+    "idleMin": [
+      46,
+      31
+    ],
+    "idleMedian": [
+      48,
+      35
+    ],
+    "alphaArea": 772,
+    "alphaOccupancy": 0.0772,
+    "stableInsets": [
+      31,
+      40,
+      30,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        49,
+        74,
+        84
+      ],
+      "width": 48,
+      "height": 35,
+      "pixels": 775,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        35,
+        24,
+        0
+      ]
+    }
+  },
+  {
+    "k": "copperbrow_bristle_ram",
+    "name": "パープルテイルクロー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      50,
+      33
+    ],
+    "idleMedian": [
+      53.0,
+      36.5
+    ],
+    "alphaArea": 701.0,
+    "alphaOccupancy": 0.10953125,
+    "stableInsets": [
+      35,
+      39,
+      27,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        14,
+        31,
+        64,
+        64
+      ],
+      "width": 50,
+      "height": 33,
+      "pixels": 687,
+      "cellArea": 6400,
+      "insets": [
+        26,
+        33,
+        24,
+        0
+      ]
+    }
+  },
+  {
+    "k": "glasswing_sting_moth",
+    "name": "ダスクウィングブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      51,
+      39
+    ],
+    "idleMedian": [
+      59.0,
+      44.0
+    ],
+    "alphaArea": 822.5,
+    "alphaOccupancy": 0.08225,
+    "stableInsets": [
+      38,
+      49,
+      26,
+      5
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        37,
+        72,
+        83
+      ],
+      "width": 54,
+      "height": 46,
+      "pixels": 784,
+      "cellArea": 10000,
+      "insets": [
+        32,
+        46,
+        22,
+        0
+      ]
+    }
+  },
+  {
+    "k": "bellgill_mender",
+    "name": "ホーリーリングヒーラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      39,
+      45
+    ],
+    "idleMedian": [
+      40.0,
+      45.0
+    ],
+    "alphaArea": 884.0,
+    "alphaOccupancy": 0.138125,
+    "stableInsets": [
+      40,
+      45,
+      22,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        19,
+        59,
+        64
+      ],
+      "width": 39,
+      "height": 45,
+      "pixels": 901,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        45,
+        19,
+        0
+      ]
+    }
+  },
+  {
+    "k": "archclapper_walker",
+    "name": "ストーンブレイドガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      41,
+      41
+    ],
+    "idleMedian": [
+      41.0,
+      43.0
+    ],
+    "alphaArea": 549.0,
+    "alphaOccupancy": 0.08578125,
+    "stableInsets": [
+      16,
+      45,
+      33,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        22,
+        69,
+        64
+      ],
+      "width": 41,
+      "height": 42,
+      "pixels": 540,
+      "cellArea": 6400,
+      "insets": [
+        12,
+        42,
+        29,
+        0
+      ]
+    }
+  },
+  {
+    "k": "ribbed_fanclam",
+    "name": "ブルーリングフロート",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      27,
+      30
+    ],
+    "idleMedian": [
+      29.0,
+      36.0
+    ],
+    "alphaArea": 341.0,
+    "alphaOccupancy": 0.028181818181818183,
+    "stableInsets": [
+      23,
+      43,
+      17,
+      8
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        41,
+        44,
+        69,
+        87
+      ],
+      "width": 28,
+      "height": 43,
+      "pixels": 338,
+      "cellArea": 12100,
+      "insets": [
+        14,
+        43,
+        14,
+        0
+      ]
+    }
+  },
+  {
+    "k": "duskgargoyle_clawer",
+    "name": "スカイブレイドマシン",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      33,
+      56
+    ],
+    "idleMedian": [
+      39.0,
+      57.5
+    ],
+    "alphaArea": 634.5,
+    "alphaOccupancy": 0.06345,
+    "stableInsets": [
+      35,
+      62,
+      27,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        28,
+        24,
+        65,
+        82
+      ],
+      "width": 37,
+      "height": 58,
+      "pixels": 646,
+      "cellArea": 10000,
+      "insets": [
+        22,
+        58,
+        15,
+        0
+      ]
+    }
+  },
+  {
+    "k": "duskbrown_rat",
+    "name": "ケイブビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      48,
+      18
+    ],
+    "idleMedian": [
+      50.0,
+      19.5
+    ],
+    "alphaArea": 371.5,
+    "alphaOccupancy": 0.058046875,
+    "stableInsets": [
+      28,
+      22,
+      24,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        13,
+        45,
+        63,
+        64
+      ],
+      "width": 50,
+      "height": 19,
+      "pixels": 366,
+      "cellArea": 6400,
+      "insets": [
+        27,
+        19,
+        23,
+        0
+      ]
+    }
+  },
+  {
+    "k": "duskflutter_bat",
+    "name": "フロストウルフバット",
+    "boss": false,
+    "scale": 1,
+    "radius": 5,
+    "idleMin": [
+      48,
+      61
+    ],
+    "idleMedian": [
+      49.0,
+      63.5
+    ],
+    "alphaArea": 799.0,
+    "alphaOccupancy": 0.12484375,
+    "stableInsets": [
+      38,
+      64,
+      20,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        6,
+        1,
+        54,
+        65
+      ],
+      "width": 48,
+      "height": 64,
+      "pixels": 801,
+      "cellArea": 6400,
+      "insets": [
+        34,
+        64,
+        14,
+        0
+      ]
+    }
+  },
+  {
+    "k": "puffcap_mender",
+    "name": "ホワイトパームプリースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      31,
+      65
+    ],
+    "idleMedian": [
+      39.5,
+      67.0
+    ],
+    "alphaArea": 1043.0,
+    "alphaOccupancy": 0.1043,
+    "stableInsets": [
+      37,
+      70,
+      25,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        16,
+        68,
+        83
+      ],
+      "width": 41,
+      "height": 67,
+      "pixels": 1022,
+      "cellArea": 10000,
+      "insets": [
+        23,
+        67,
+        18,
+        0
+      ]
+    }
+  },
+  {
+    "k": "branchsweep_treant",
+    "name": "ブランチアームガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 14,
+    "idleMin": [
+      46,
+      43
+    ],
+    "idleMedian": [
+      46.0,
+      44.5
+    ],
+    "alphaArea": 1096.0,
+    "alphaOccupancy": 0.17125,
+    "stableInsets": [
+      27,
+      46,
+      23,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        15,
+        20,
+        61,
+        64
+      ],
+      "width": 46,
+      "height": 44,
+      "pixels": 1090,
+      "cellArea": 6400,
+      "insets": [
+        25,
+        44,
+        21,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_ghoul",
+    "name": "グール",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      56,
+      61
+    ],
+    "idleMedian": [
+      59.0,
+      63.0
+    ],
+    "alphaArea": 1325.5,
+    "alphaOccupancy": 0.09204861111111112,
+    "stableInsets": [
+      37,
+      66,
+      27,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        41,
+        84,
+        104
+      ],
+      "width": 60,
+      "height": 63,
+      "pixels": 1366,
+      "cellArea": 14400,
+      "insets": [
+        36,
+        63,
+        24,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_hellhound",
+    "name": "ヘルハウンド",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      34,
+      24
+    ],
+    "idleMedian": [
+      38.5,
+      25.0
+    ],
+    "alphaArea": 398.0,
+    "alphaOccupancy": 0.0621875,
+    "stableInsets": [
+      25,
+      28,
+      21,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        24,
+        39,
+        58,
+        64
+      ],
+      "width": 34,
+      "height": 25,
+      "pixels": 386,
+      "cellArea": 6400,
+      "insets": [
+        16,
+        25,
+        18,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_skel_archer",
+    "name": "ブルーフレイムアーチャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      49,
+      27
+    ],
+    "idleMedian": [
+      51.0,
+      28.5
+    ],
+    "alphaArea": 396.5,
+    "alphaOccupancy": 0.061953125,
+    "stableInsets": [
+      24,
+      30,
+      29,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        37,
+        69,
+        64
+      ],
+      "width": 51,
+      "height": 27,
+      "pixels": 382,
+      "cellArea": 6400,
+      "insets": [
+        22,
+        27,
+        29,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_ogre",
+    "name": "ブラッドアイアンブレイバー",
+    "boss": false,
+    "scale": 1,
+    "radius": 15,
+    "idleMin": [
+      59,
+      49
+    ],
+    "idleMedian": [
+      61.0,
+      52.0
+    ],
+    "alphaArea": 1774.5,
+    "alphaOccupancy": 0.105,
+    "stableInsets": [
+      36,
+      52,
+      34,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        36,
+        67,
+        97,
+        118
+      ],
+      "width": 61,
+      "height": 51,
+      "pixels": 1842,
+      "cellArea": 16900,
+      "insets": [
+        29,
+        51,
+        32,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_goblin",
+    "name": "ダガーマーセナリー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      23,
+      27
+    ],
+    "idleMedian": [
+      23.0,
+      28.5
+    ],
+    "alphaArea": 303.5,
+    "alphaOccupancy": 0.047421875,
+    "stableInsets": [
+      17,
+      30,
+      14,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        29,
+        36,
+        52,
+        64
+      ],
+      "width": 23,
+      "height": 28,
+      "pixels": 304,
+      "cellArea": 6400,
+      "insets": [
+        11,
+        28,
+        12,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_lizardman",
+    "name": "ブルースケイルファイター",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      44,
+      45
+    ],
+    "idleMedian": [
+      48.0,
+      46.0
+    ],
+    "alphaArea": 971.5,
+    "alphaOccupancy": 0.09715,
+    "stableInsets": [
+      32,
+      49,
+      29,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        25,
+        38,
+        71,
+        84
+      ],
+      "width": 46,
+      "height": 46,
+      "pixels": 956,
+      "cellArea": 10000,
+      "insets": [
+        25,
+        46,
+        21,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_scorpion",
+    "name": "フレイムクラブマシン",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      40,
+      32
+    ],
+    "idleMedian": [
+      41.0,
+      34.0
+    ],
+    "alphaArea": 638.5,
+    "alphaOccupancy": 0.099765625,
+    "stableInsets": [
+      22,
+      36,
+      25,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        30,
+        63,
+        64
+      ],
+      "width": 41,
+      "height": 34,
+      "pixels": 632,
+      "cellArea": 6400,
+      "insets": [
+        18,
+        34,
+        23,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_knight",
+    "name": "ゴールドナイト",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      69,
+      47
+    ],
+    "idleMedian": [
+      71.0,
+      52.5
+    ],
+    "alphaArea": 1762.0,
+    "alphaOccupancy": 0.1042603550295858,
+    "stableInsets": [
+      39,
+      57,
+      42,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        30,
+        65,
+        100,
+        114
+      ],
+      "width": 70,
+      "height": 49,
+      "pixels": 1738,
+      "cellArea": 16900,
+      "insets": [
+        35,
+        49,
+        35,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_rogue",
+    "name": "ツインブレイドローグ",
+    "boss": false,
+    "scale": 1,
+    "radius": 7,
+    "idleMin": [
+      42,
+      46
+    ],
+    "idleMedian": [
+      44,
+      49
+    ],
+    "alphaArea": 620,
+    "alphaOccupancy": 0.096875,
+    "stableInsets": [
+      22,
+      51,
+      24,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        16,
+        63,
+        64
+      ],
+      "width": 44,
+      "height": 48,
+      "pixels": 626,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        48,
+        23,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_monk",
+    "name": "モンク",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      40,
+      51
+    ],
+    "idleMedian": [
+      40.0,
+      56.0
+    ],
+    "alphaArea": 997.0,
+    "alphaOccupancy": 0.0997,
+    "stableInsets": [
+      33,
+      63,
+      20,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        26,
+        27,
+        66,
+        84
+      ],
+      "width": 40,
+      "height": 57,
+      "pixels": 996,
+      "cellArea": 10000,
+      "insets": [
+        24,
+        57,
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_robed_fighter",
+    "name": "スターローブソード",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      60,
+      51
+    ],
+    "idleMedian": [
+      62.0,
+      54.0
+    ],
+    "alphaArea": 1279.5,
+    "alphaOccupancy": 0.12795,
+    "stableInsets": [
+      35,
+      56,
+      46,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        31,
+        89,
+        84
+      ],
+      "width": 62,
+      "height": 53,
+      "pixels": 1283,
+      "cellArea": 10000,
+      "insets": [
+        23,
+        53,
+        39,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_alchemist",
+    "name": "ブルーオーブメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      34,
+      35
+    ],
+    "idleMedian": [
+      38.0,
+      36.0
+    ],
+    "alphaArea": 461.0,
+    "alphaOccupancy": 0.07203124999999999,
+    "stableInsets": [
+      24,
+      39,
+      23,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        29,
+        56,
+        64
+      ],
+      "width": 37,
+      "height": 35,
+      "pixels": 459,
+      "cellArea": 6400,
+      "insets": [
+        21,
+        35,
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_ribbon_dancer",
+    "name": "ジェイドダンサー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      39,
+      46
+    ],
+    "idleMedian": [
+      41.0,
+      46.5
+    ],
+    "alphaArea": 604.0,
+    "alphaOccupancy": 0.094375,
+    "stableInsets": [
+      26,
+      48,
+      21,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        20,
+        16,
+        60,
+        64
+      ],
+      "width": 40,
+      "height": 48,
+      "pixels": 604,
+      "cellArea": 6400,
+      "insets": [
+        20,
+        48,
+        20,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_02",
+    "name": "クラフトメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      51,
+      48
+    ],
+    "idleMedian": [
+      54.5,
+      48.0
+    ],
+    "alphaArea": 931.0,
+    "alphaOccupancy": 0.09309999999999999,
+    "stableInsets": [
+      24,
+      58,
+      49,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        36,
+        82,
+        84
+      ],
+      "width": 55,
+      "height": 48,
+      "pixels": 936,
+      "cellArea": 10000,
+      "insets": [
+        23,
+        48,
+        32,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_08",
+    "name": "ブルーライトウォーロック",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      34,
+      47
+    ],
+    "idleMedian": [
+      36,
+      48
+    ],
+    "alphaArea": 830,
+    "alphaOccupancy": 0.083,
+    "stableInsets": [
+      20,
+      48,
+      22,
+      1
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        34,
+        36,
+        70,
+        84
+      ],
+      "width": 36,
+      "height": 48,
+      "pixels": 837,
+      "cellArea": 10000,
+      "insets": [
+        16,
+        48,
+        20,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_42",
+    "name": "オーブメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      45,
+      56
+    ],
+    "idleMedian": [
+      47.5,
+      59.0
+    ],
+    "alphaArea": 1216.0,
+    "alphaOccupancy": 0.1216,
+    "stableInsets": [
+      41,
+      75,
+      22,
+      2
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        26,
+        70,
+        84
+      ],
+      "width": 48,
+      "height": 58,
+      "pixels": 1249,
+      "cellArea": 10000,
+      "insets": [
+        28,
+        58,
+        20,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_47",
+    "name": "リーフメインビースト",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      46,
+      44
+    ],
+    "idleMedian": [
+      46.0,
+      45.0
+    ],
+    "alphaArea": 1189.5,
+    "alphaOccupancy": 0.11895,
+    "stableInsets": [
+      24,
+      51,
+      46,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        32,
+        39,
+        78,
+        84
+      ],
+      "width": 46,
+      "height": 45,
+      "pixels": 1146,
+      "cellArea": 10000,
+      "insets": [
+        18,
+        45,
+        28,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_51",
+    "name": "スチールシールドガード",
+    "boss": false,
+    "scale": 1,
+    "radius": 10,
+    "idleMin": [
+      36,
+      38
+    ],
+    "idleMedian": [
+      37.0,
+      40.0
+    ],
+    "alphaArea": 657.0,
+    "alphaOccupancy": 0.10265625,
+    "stableInsets": [
+      21,
+      41,
+      21,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        22,
+        25,
+        59,
+        64
+      ],
+      "width": 37,
+      "height": 39,
+      "pixels": 654,
+      "cellArea": 6400,
+      "insets": [
+        18,
+        39,
+        19,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_54",
+    "name": "スターオーブメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      41,
+      54
+    ],
+    "idleMedian": [
+      46.0,
+      55.5
+    ],
+    "alphaArea": 665.0,
+    "alphaOccupancy": 0.0665,
+    "stableInsets": [
+      27,
+      57,
+      34,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        35,
+        27,
+        76,
+        84
+      ],
+      "width": 41,
+      "height": 57,
+      "pixels": 671,
+      "cellArea": 10000,
+      "insets": [
+        15,
+        57,
+        26,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_03_axe_wayfarer",
+    "name": "アックスワンダラー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      64,
+      50
+    ],
+    "idleMedian": [
+      66,
+      54
+    ],
+    "alphaArea": 1769,
+    "alphaOccupancy": 0.146198347107438,
+    "stableInsets": [
+      46,
+      67,
+      33,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        18,
+        39,
+        84,
+        94
+      ],
+      "width": 66,
+      "height": 55,
+      "pixels": 1821,
+      "cellArea": 12100,
+      "insets": [
+        37,
+        55,
+        29,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_10_lute_bard",
+    "name": "クリムゾンメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      37,
+      27
+    ],
+    "idleMedian": [
+      46.5,
+      38.5
+    ],
+    "alphaArea": 455.5,
+    "alphaOccupancy": 0.03764462809917356,
+    "stableInsets": [
+      42,
+      44,
+      34,
+      10
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        27,
+        54,
+        84,
+        93
+      ],
+      "width": 57,
+      "height": 39,
+      "pixels": 631,
+      "cellArea": 12100,
+      "insets": [
+        28,
+        39,
+        29,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_22_crescent_reaper",
+    "name": "ムーンブレイドウォリアー",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      44,
+      47
+    ],
+    "idleMedian": [
+      48.0,
+      50.0
+    ],
+    "alphaArea": 1021.5,
+    "alphaOccupancy": 0.05211734693877551,
+    "stableInsets": [
+      36,
+      54,
+      27,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        49,
+        72,
+        93,
+        124
+      ],
+      "width": 44,
+      "height": 52,
+      "pixels": 1030,
+      "cellArea": 19600,
+      "insets": [
+        21,
+        52,
+        23,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_34_goldring_caster",
+    "name": "ファイアスターターメイジ",
+    "boss": false,
+    "scale": 1,
+    "radius": 9,
+    "idleMin": [
+      40,
+      69
+    ],
+    "idleMedian": [
+      46.0,
+      72.5
+    ],
+    "alphaArea": 1184.5,
+    "alphaOccupancy": 0.06043367346938776,
+    "stableInsets": [
+      30,
+      75,
+      28,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        50,
+        50,
+        98,
+        124
+      ],
+      "width": 48,
+      "height": 74,
+      "pixels": 1108,
+      "cellArea": 19600,
+      "insets": [
+        20,
+        74,
+        28,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_43_redgauntlet_brawler",
+    "name": "ブルーフィストソルジャー",
+    "boss": false,
+    "scale": 1,
+    "radius": 8,
+    "idleMin": [
+      48,
+      56
+    ],
+    "idleMedian": [
+      50.5,
+      60.5
+    ],
+    "alphaArea": 1576.5,
+    "alphaOccupancy": 0.15765,
+    "stableInsets": [
+      39,
+      67,
+      29,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        19,
+        24,
+        72,
+        84
+      ],
+      "width": 53,
+      "height": 60,
+      "pixels": 1569,
+      "cellArea": 10000,
+      "insets": [
+        31,
+        60,
+        22,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_48_horned_heavy",
+    "name": "クリムゾンクリスタルブレイド",
+    "boss": false,
+    "scale": 1,
+    "radius": 11,
+    "idleMin": [
+      40,
+      44
+    ],
+    "idleMedian": [
+      40.0,
+      45.0
+    ],
+    "alphaArea": 970.0,
+    "alphaOccupancy": 0.1515625,
+    "stableInsets": [
+      25,
+      48,
+      21,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        17,
+        19,
+        57,
+        64
+      ],
+      "width": 40,
+      "height": 45,
+      "pixels": 967,
+      "cellArea": 6400,
+      "insets": [
+        23,
+        45,
+        17,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_char_52_spiked_hammerer",
+    "name": "ゴールドブレイドヘビー",
+    "boss": false,
+    "scale": 1,
+    "radius": 12,
+    "idleMin": [
+      76,
+      63
+    ],
+    "idleMedian": [
+      76.0,
+      65.5
+    ],
+    "alphaArea": 2382.0,
+    "alphaOccupancy": 0.12153061224489796,
+    "stableInsets": [
+      27,
+      74,
+      56,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        44,
+        55,
+        120,
+        124
+      ],
+      "width": 76,
+      "height": 69,
+      "pixels": 2402,
+      "cellArea": 19600,
+      "insets": [
+        26,
+        69,
+        50,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_frost_dragon",
+    "name": "フロストホワイトドラゴン",
+    "boss": true,
+    "scale": 1,
+    "radius": 27,
+    "idleMin": [
+      58,
+      46
+    ],
+    "idleMedian": [
+      60.0,
+      47.5
+    ],
+    "alphaArea": 997.5,
+    "alphaOccupancy": 0.09975,
+    "stableInsets": [
+      45,
+      49,
+      42,
+      4
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        17,
+        35,
+        77,
+        82
+      ],
+      "width": 60,
+      "height": 47,
+      "pixels": 993,
+      "cellArea": 10000,
+      "insets": [
+        33,
+        47,
+        27,
+        0
+      ]
+    }
+  },
+  {
+    "k": "willyee_stone_golem",
+    "name": "クリスタルハンマーガード",
+    "boss": true,
+    "scale": 1,
+    "radius": 26,
+    "idleMin": [
+      40,
+      55
+    ],
+    "idleMedian": [
+      45.0,
+      58.0
+    ],
+    "alphaArea": 864.0,
+    "alphaOccupancy": 0.05112426035502959,
+    "stableInsets": [
+      35,
+      68,
+      34,
+      0
+    ],
+    "firstIdle": {
+      "clip": "idle",
+      "bbox": [
+        45,
+        58,
+        86,
+        114
+      ],
+      "width": 41,
+      "height": 56,
+      "pixels": 853,
+      "cellArea": 16900,
+      "insets": [
+        20,
+        56,
+        21,
+        0
+      ]
+    }
+  }
+]

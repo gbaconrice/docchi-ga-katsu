@@ -1,0 +1,108 @@
+[
+  {
+    "path": "battle-log-semantic-tones.cjs",
+    "originalSha256": "970844699f8264e9cc7786e5327febf829b693d8fb279fbba66814a6c55400a8",
+    "currentSha256": "5b1d6a840f3c12f5ae9d33f8388eeca61d4ab217aa43cc9ada00d2f49ae2effb"
+  },
+  {
+    "path": "comparison-air-priority.cjs",
+    "originalSha256": "41eb0bddd9e340e4b79f146528de659d5e91a55e3488bafc2c69b4067a5d1381",
+    "currentSha256": "8de1b041276ca60338e4ecd6799536b34ecc55e75da546d0a450731746901868"
+  },
+  {
+    "path": "countup.cjs",
+    "originalSha256": "6118793f2de2c9d49e98c221be9308cc9c79e7b10e01146da7049cfbda7bb62d",
+    "currentSha256": "641f9cf271e25fad55b3d69cc45c0c908d1fdde99f8a32e71abcdefac7824898"
+  },
+  {
+    "path": "fixtures/approved-timeout-module-edits.json",
+    "originalSha256": null,
+    "currentSha256": "e4a8f47236f33b36b32d417230e64a4b87963d3088b3c19d6a56ddd078bbdf41"
+  },
+  {
+    "path": "fixtures/capacity-disclosure-reimplemented.json",
+    "originalSha256": "5f97f5944e4f428238139b1816aebcde2bab58cf6358b7b39e5143b590a2e571",
+    "currentSha256": "cf9792ae623b7f945a4731e4c34ecc38a8d6c2a0c795feb3ccef9cd2eded1446"
+  },
+  {
+    "path": "fixtures/readability-template.json",
+    "originalSha256": null,
+    "currentSha256": "73aa786ac3a299f7f42cb033d823a79c98b0149cdf7812f96a395fbd8d563971"
+  },
+  {
+    "path": "multi-countdown-regression.cjs",
+    "originalSha256": "9e0796b3356a9341f51325df40be699f4889745d3d41b8e1152b6353ab78180c",
+    "currentSha256": "e44243ac5ea8fb5438e1918341a0a527c6f3a0488c04e783a876b62a3bec3fd0"
+  },
+  {
+    "path": "multi-personal-outcome.cjs",
+    "originalSha256": "4d08c7dc8728157b11be18f45850b6b9821e1a311ba1c4cab4e9399ccde8c5a1",
+    "currentSha256": "073e29557cad74f4f077fd39913747e05fd177ed735b3f5d97344dc3894ba96a"
+  },
+  {
+    "path": "multi-status-ui.cjs",
+    "originalSha256": "1c882e944b00766a858ee1326c9124c81ca37083cdea5de9e791267888d07c38",
+    "currentSha256": "e476d77d61564e4dc1cdc44e12ef9e76c84458154b196cc9aa5aa6c3edcf55a5"
+  },
+  {
+    "path": "multiplayer-decision-timeout-ui.cjs",
+    "originalSha256": null,
+    "currentSha256": "bc3b2b6ddc697502edf5fd09fe2cbd321789d80fb194f94276e5a7bafd1c0d8e"
+  },
+  {
+    "path": "multiplayer-decision-timeout.cjs",
+    "originalSha256": null,
+    "currentSha256": "8a2e3380593f5f7075c3a98949ea411d0a21787fb19485d183d7c600032a86ba"
+  },
+  {
+    "path": "multiplayer-rematch-sdk.cjs",
+    "originalSha256": null,
+    "currentSha256": "4224257733f2ba3bc8892f1aab41534257939558b61f1d49fbbc89e17cc4bd27"
+  },
+  {
+    "path": "multiplayer-rematch-ui.cjs",
+    "originalSha256": null,
+    "currentSha256": "88b8606719dacd6a2f57e5cf1bc424591a17fbbdd11b9a7a02a3e24801facae2"
+  },
+  {
+    "path": "readability-preservation.cjs",
+    "originalSha256": null,
+    "currentSha256": "1761583e2cf950d451e04333e1a4937b3d92fcb6d535f2db56ce5fd6fbb83ec9"
+  },
+  {
+    "path": "reconstruction-preservation.cjs",
+    "originalSha256": "9826907572db2cbeeb588baac3a98bebfa777684598ba1758c8bcdeaf42bf006",
+    "currentSha256": "857cc7fe0ae2bb3de92a10fecaea192eb68fcc1b087bccf2eb82ecd55400b146"
+  },
+  {
+    "path": "result-feedback.cjs",
+    "originalSha256": "512fe3ecbe1fcad204dee03ab01729565df2b256e5668354505aee6a83e81c9a",
+    "currentSha256": "8fb87c77411450f2103075a38b05a440c220f20c56373116a371f65e832ed369"
+  },
+  {
+    "path": "result-multi-wait.cjs",
+    "originalSha256": "730d4e8f9317a80d0f68a125470a9d70eb591c24613ebaf9be01d13076e9682a",
+    "currentSha256": "94113b1da7836f0a071c9da5d22f6dd2ec5c8a78cc870c2ba0143171f710def5"
+  },
+  {
+    "path": "semantic-tone-cascade.cjs",
+    "originalSha256": "fb0f09712ba8697699c1ae0e32bc50d6c8b22e157b02f374ff5013a67c2f27bb",
+    "currentSha256": "724315cdc02caad8ccb70b1f1acfd8a3549f849de219cc403c88d910a0aa7a50"
+  },
+  {
+    "path": "small-screen-betting.cjs",
+    "originalSha256": null,
+    "currentSha256": "7d6b930a74ea062d5e0f7ffa77d32c0b7be5295fa6545f95121e522dd6a3b300"
+  },
+  {
+    "path": "upper-reaction-area.cjs",
+    "originalSha256": "8dbcb120fc3eb6d0866d03880389a6c5bb184218965f17d2c81e677269ddeb8e",
+    "currentSha256": "9ef87c3c81df88739cc2710821fb43224a7e1708cb5f23778720d589abf60926"
+  },
+  {
+    "path": "host-layout-native-bridge.cjs",
+    "originalSha256": "44754d47e50957a9c3b976503ff6d6d39b59ad96d1a07f05e8050dcf7fb61b2c",
+    "currentSha256": "36d00c99d775141c4108b0a09412ae4858b721513a44074eabb36f1e1f5017b2",
+    "reason": "Provide and verify newly referenced rematch callback in isolated enterNative harness; no changed behavior assertions."
+  }
+]

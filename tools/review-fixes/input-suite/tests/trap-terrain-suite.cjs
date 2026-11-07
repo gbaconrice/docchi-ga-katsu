@@ -1,0 +1,1 @@
+const cp=require('child_process');for(const field of ['grassland','desert','icefield','highland','rockfield','volcano','shallow_ford','crosswind_ridge']){cp.execFileSync(process.execPath,['tests/trap-mechanics.cjs'],{encoding:'utf8',env:{...process.env,TRAP_FIELD:field}});console.log('PASS',field)}

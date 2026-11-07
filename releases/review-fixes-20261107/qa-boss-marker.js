@@ -1,0 +1,6 @@
+/* Isolated rendering and real image-failure fixture. QA entry only. */
+window.BossMarkerQA={
+ choose(){if(!DocchiQa.ready)throw Error('QA is not ready');multiSession=null;multiSnapshot=null;if(screenMode!=='game'){showScreen('home');openSoloScreen();}DocchiQa.comparison(['triad_chimera','sword']);return this.measure();},
+ fail(){if(state!=='choose'||screenMode!=='game')this.choose();predictionBossMarkerStatus='idle';predictionBossMarkerImage=null;ensurePredictionBossMarker();const image=predictionBossMarkerImage;if(!image)throw Error('Marker image did not start');image.src='./qa-missing-boss-marker.png';return this.measure();},
+ measure(){const q=s=>document.querySelector(s),box=s=>{const n=q(s),r=n.getBoundingClientRect();return {hidden:n.hidden,display:getComputedStyle(n).display,box:[r.x,r.y,r.width,r.height],text:n.textContent,disabled:!!n.disabled,markerCount:n.getAttribute('data-boss-marker-count')};};return {fixture:true,phase:state,screen:screenMode,markerStatus:predictionBossMarkerStatus,markerImageUrl:predictionBossMarkerImage?.src||null,canStart:assetCanStart(),assets:assetProgress(),left:box('#armyPreviewRed'),right:box('#armyPreviewBlue'),notice:box('#assetNoticeChoose'),retry:box('#assetRetryChoose')};}
+};

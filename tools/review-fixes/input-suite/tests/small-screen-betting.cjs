@@ -1,0 +1,14 @@
+const fs=require('fs'),assert=require('assert'),vm=require('vm');
+const html=fs.readFileSync('index.html','utf8');
+const css=html.slice(html.indexOf('/* Short prediction screens'),html.indexOf('</style></head>'));
+assert(css.includes('@media (max-height:640px)'));
+for(const rule of ['overflow-y:auto','min-height:160px','order:0','order:1','order:2','min-height:48px']) assert(css.includes(rule),rule);
+assert(!css.includes('font-size:'));
+assert(html.includes('.stake-option {\n  min-width: 44px;\n  min-height: 44px;'));
+assert.equal((html.match(/resetCompactPredictionScroll\(\);/g)||[]).length,3);
+const fn=html.match(/function resetCompactPredictionScroll\(\)\{[^\n]+/)[0];
+const nodes=new Map([['#comparison',{scrollTop:200}],['#gameScreen',{scrollTop:100}]]);
+vm.runInNewContext(fn+';resetCompactPredictionScroll();',{document:{querySelector:s=>nodes.get(s)}});
+assert([...nodes.values()].every(n=>n.scrollTop===0));
+vm.runInNewContext(fn+';resetCompactPredictionScroll();',{document:{querySelector:()=>null}});
+console.log('PASS short-screen CSS contract, preserved tap minimums, three round reset sites, reset behavior and missing-node safety (static/VM, not rendered geometry)');

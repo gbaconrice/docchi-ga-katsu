@@ -1,0 +1,22 @@
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),css=html.match(/<style>([\s\S]*?)<\/style>/)[1];
+assert(!html.includes('部屋を作るか、コードで参加。'));
+assert(!html.includes('つづきから'));
+assert(html.includes('<label class="room-code-label" for="roomId">部屋コードで参加</label>'));
+const flat=css.match(/#app, #app \*, #app::before, #app::after, #app \*::before, #app \*::after\s*\{([^}]+)\}/);
+assert(flat,'missing all-UI shadow policy');
+assert.match(flat[1],/box-shadow\s*:\s*none\s*!important/);
+assert.match(flat[1],/text-shadow\s*:\s*none\s*!important/);
+// Competing old declarations are all non-important and therefore cannot win.
+const shadows=[...css.matchAll(/(?:box|text)-shadow\s*:\s*([^;}]+)/g)];
+assert(shadows.length>100);
+for(const [,value] of shadows)if(value.includes('!important'))assert.equal(value.trim(),'none !important');
+assert(!/drop-shadow\s*\(/.test(css));
+assert.match(css,/#app \.army-card\[aria-pressed="true"\] \{ outline:2px solid/);
+assert.match(css,/#app \.stake-option\[aria-pressed="true"\] \{ outline:1px solid/);
+assert.match(css,/#app #roomScreen input:focus-visible \{ outline:3px solid/);
+assert.match(css,/#app #roomScreen\.room-screen \{[\s\S]*?overflow-y:auto/);
+assert.match(css,/#app #roomScreen \.room-join-row \{ grid-template-columns:minmax\(0,1fr\) 76px/);
+for(const id of ['createRoom','joinRoom','roomId','publicRooms','publicRoomsStatus','publicRoomsList','refreshPublicRooms','backHome','beginRound','exitRoom'])assert.equal((html.match(new RegExp('id="'+id+'"','g'))||[]).length,1);
+assert.match(css,/#app:has\(#roomScreen:not\(\[hidden\]\)\) \{[\s\S]*?background-size:cover/);
+console.log('PASS room labels, routes, scroll/tap rules, full UI shadow overrides and selection/focus outlines');
