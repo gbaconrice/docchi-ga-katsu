@@ -1,40 +1,40 @@
 {
-  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "sourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
   "suites": [
     {
       "suite": "profiles-emotes",
       "status": 0,
-      "seconds": 1.2
+      "seconds": 1.24
     },
     {
       "suite": "avatar-fallback-errors",
       "status": 0,
-      "seconds": 0.52
+      "seconds": 0.53
     },
     {
       "suite": "waiting-room-lobby",
       "status": 0,
-      "seconds": 1.41
+      "seconds": 1.33
     },
     {
       "suite": "pick-icon-layout",
       "status": 0,
-      "seconds": 1.0
+      "seconds": 1.18
     },
     {
       "suite": "results-waits-logs",
       "status": 0,
-      "seconds": 2.01
+      "seconds": 2.26
     },
     {
       "suite": "boss-status-logs",
       "status": 0,
-      "seconds": 5.3
+      "seconds": 5.11
     },
     {
       "suite": "home-gif",
       "status": 0,
-      "seconds": 0.2
+      "seconds": 0.23
     }
   ],
   "passed": 7,

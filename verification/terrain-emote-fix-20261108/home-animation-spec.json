@@ -1,0 +1,74 @@
+{
+  "width": 640,
+  "height": 960,
+  "frames": 24,
+  "fps": 10,
+  "durationMs": 2400,
+  "gifBytes": 992844,
+  "gifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "originalSHA256": "43fbeb1f07efc3c8bda997c7b28f3b02c5f7284d394ae984209bba630788d7aa",
+  "lamps": [
+    {
+      "name": "front hanging",
+      "x": 143,
+      "y": 198,
+      "rx": 44,
+      "ry": 48,
+      "seed": 0.4
+    },
+    {
+      "name": "middle hanging",
+      "x": 464,
+      "y": 294,
+      "rx": 34,
+      "ry": 31,
+      "seed": 2.1
+    },
+    {
+      "name": "back hanging",
+      "x": 643,
+      "y": 370,
+      "rx": 24,
+      "ry": 26,
+      "seed": 4.2
+    },
+    {
+      "name": "lower-left table",
+      "x": 88,
+      "y": 1160,
+      "rx": 48,
+      "ry": 69,
+      "seed": 1.15
+    }
+  ],
+  "candles": [
+    {
+      "name": "window table candle",
+      "x": 115,
+      "y": 651.5,
+      "rx": 9,
+      "ry": 13,
+      "bottom": 663,
+      "seed": 0.7
+    },
+    {
+      "name": "left mantel candle",
+      "x": 769,
+      "y": 417,
+      "rx": 10,
+      "ry": 12,
+      "bottom": 428,
+      "seed": 2.3
+    },
+    {
+      "name": "right mantel candle",
+      "x": 796,
+      "y": 431,
+      "rx": 9,
+      "ry": 10,
+      "bottom": 440,
+      "seed": 4.6
+    }
+  ],
+  "method": "Full original PNG every frame. Fixed lamp and candle bodies. Continuous texture-preserving local light modulation; bounded interior flame deformation on original candle and fireplace pixels. No cutout, repair plate, atlas, background replacement or lamp transform."
+}

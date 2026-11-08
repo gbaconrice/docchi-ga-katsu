@@ -1,0 +1,125 @@
+{
+  "sourceSHA": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
+  "baselineSHA": "5dfc9459661c4aa40c696ca3d93466463a26068ed173087ea3cc96495211ed41",
+  "checks": [
+    {
+      "name": "original character renderer and drawSprite exactly unchanged",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "all embedded source artwork/audio/fonts remain byte-identical",
+      "pass": true,
+      "detail": 588
+    },
+    {
+      "name": "all existing functions other than2 targeted effect renderers remain identical",
+      "pass": true,
+      "detail": 405
+    },
+    {
+      "name": "all character frames, sprite selection, replay and effect lifetime contracts unchanged",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "scope only matches the darkfan added claw effect",
+      "pass": true,
+      "detail": 300
+    },
+    {
+      "name": "persistent curse marks draw below actors; contact chips remain above",
+      "pass": true,
+      "detail": [
+        [
+          "ground",
+          180
+        ],
+        [
+          "above",
+          40
+        ]
+      ]
+    },
+    {
+      "name": "early and expired cues remain absent and inputs are immutable",
+      "pass": true,
+      "detail": 6
+    },
+    {
+      "name": "all replay effect kinds still render at early mid late times",
+      "pass": true,
+      "detail": 480
+    },
+    {
+      "name": "low effects retains static readable ground with fewer drawing calls",
+      "pass": true,
+      "detail": [
+        {
+          "low": false,
+          "age": 30,
+          "drawCalls": 176
+        },
+        {
+          "low": false,
+          "age": 60,
+          "drawCalls": 176
+        },
+        {
+          "low": false,
+          "age": 100,
+          "drawCalls": 176
+        },
+        {
+          "low": true,
+          "age": 30,
+          "drawCalls": 93
+        },
+        {
+          "low": true,
+          "age": 60,
+          "drawCalls": 93
+        },
+        {
+          "low": true,
+          "age": 100,
+          "drawCalls": 93
+        }
+      ]
+    },
+    {
+      "name": "low effects omits debris motion and reduces fragments",
+      "pass": true,
+      "detail": [
+        {
+          "low": false,
+          "age": 2,
+          "drawCalls": 8
+        },
+        {
+          "low": false,
+          "age": 5,
+          "drawCalls": 8
+        },
+        {
+          "low": true,
+          "age": 2,
+          "drawCalls": 0
+        },
+        {
+          "low": true,
+          "age": 5,
+          "drawCalls": 0
+        }
+      ]
+    },
+    {
+      "name": "1200 natural battle ticks preserve every event, effect, frame, position and HP",
+      "pass": true,
+      "detail": {
+        "sha": "66d9b8b2672ef7925ed5cd2419047d958a9b6cb8794ec3dcfd091142b0051e13",
+        "ticks": 1200
+      }
+    }
+  ]
+}

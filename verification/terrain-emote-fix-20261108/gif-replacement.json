@@ -1,0 +1,28 @@
+{
+  "oldGifSHA256": "c97c1221053bc61e654bf76408ac0ada9560a3c5dafffd520cd2f648477b1eae",
+  "newGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "newGifBytes": 992844,
+  "uiSourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "checks": [
+    {
+      "name": "exact original GIF replaces directly; all other source bytes unchanged",
+      "pass": true
+    },
+    {
+      "name": "wrong source GIF is refused",
+      "pass": true
+    },
+    {
+      "name": "already replaced source is refused",
+      "pass": true
+    },
+    {
+      "name": "duplicate source GIF is refused",
+      "pass": true
+    },
+    {
+      "name": "wrong replacement bytes are refused",
+      "pass": true
+    }
+  ]
+}

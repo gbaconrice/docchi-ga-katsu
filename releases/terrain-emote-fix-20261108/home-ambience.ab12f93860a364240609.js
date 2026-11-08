@@ -5,7 +5,7 @@
   const backdrop = doc.getElementById('app');
   if (!home || !backdrop) return;
   win.DocchiHomeAmbience?.destroy?.();
-  const GIF_SOURCE = 'https://gbaconrice.github.io/docchi-ga-katsu/releases/terrain-emote-fix-20261108/images/c97c1221053bc61e654bf76408ac0ada9560a3c5dafffd520cd2f648477b1eae.gif';
+  const GIF_SOURCE = 'https://gbaconrice.github.io/docchi-ga-katsu/releases/terrain-emote-fix-20261108/images/f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084.gif';
   const disposers = [];
   let disposed = false, pageActive = true, battery = null;
   let pendingImage = null, sequence = 0, failed = false;

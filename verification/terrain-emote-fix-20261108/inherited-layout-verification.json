@@ -1,0 +1,158 @@
+{
+  "schema": "docchi-inherited-layout-evidence-v1",
+  "status": "passed-on-prior-source",
+  "sourceSHA256": "18c70eca8082cb52919811da00c5e68e99b4cda532660ce26cf4b76bba086ca2",
+  "originalEvidenceSHA256": "59309a979dd08a15e8c3403c16fee79e32974520abc64cca2e8c09d255268461",
+  "layout": [
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 568,
+        "width": 320
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 900,
+        "width": 320
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 900,
+        "width": 375
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 900,
+        "width": 390
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 900,
+        "width": 430
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    },
+    {
+      "cases": 192,
+      "passed": true,
+      "viewport": {
+        "height": 900,
+        "width": 1200
+      },
+      "failed": [],
+      "allTerrainTextUnclipped": true,
+      "badgeSizes": [
+        "18x18"
+      ],
+      "portraitSizes": [
+        "26x26"
+      ],
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "allSyntheticAvatarImagesLoaded": true
+    }
+  ],
+  "equivalenceToFollowingSource": {
+    "sourceSHA256": "e3156ec04eae2bd632c48e7e353941a29574e3d5f512d5f6a1989b0eaa851b3d",
+    "originalEvidenceSHA256": "cfd7da3506d7ec846a0b9e05a896d1fb7de26a4bb305e9670ed31778d2798f71",
+    "proofOfEquivalence": "Normalized source identical after removing only the dark-claw helper block and CONTENT_REVISION. CSS, DOM, game shell, host layout and home controller files byte-identical."
+  },
+  "limits": [
+    "These 1,344 cases were run on the identified prior source, not freshly rerun on the final source.",
+    "The final source has 384 fresh layout cases plus exact non-media source and CSS/DOM equivalence recorded in browser-verification.json.",
+    "Synthetic room fixtures and simulated insets do not establish physical-device safe-area or native multiplayer behavior."
+  ]
+}

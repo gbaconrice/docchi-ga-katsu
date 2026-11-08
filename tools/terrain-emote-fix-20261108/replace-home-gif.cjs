@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert');
+const input=path.resolve(process.argv[2]||''),out=path.resolve(process.argv[3]||'');
+assert(process.argv[2]&&process.argv[3],'Usage: replace-home-gif.cjs INPUT_HTML OUTPUT_HTML [NEW_GIF]');assert.notEqual(input,out,'Write a new output.');
+const file=path.resolve(process.argv[4]||process.env.HOME_GIF_FILE||path.join(__dirname,'home-fixed-light.gif'));
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const OLD='c97c1221053bc61e654bf76408ac0ada9560a3c5dafffd520cd2f648477b1eae',NEW='f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084';
+const source=fs.readFileSync(input,'utf8'),gif=fs.readFileSync(file);assert.equal(gif.subarray(0,6).toString(),'GIF89a');assert.equal(sha(gif),NEW,'Unexpected replacement asset.');
+const matches=[...source.matchAll(/data:image\/gif;base64,([A-Za-z0-9+/]+={0,2})/g)];assert.equal(matches.length,1,'Expected one literal GIF.');
+assert.equal(sha(Buffer.from(matches[0][1],'base64')),OLD,'Input must contain the known original GIF.');
+const replacement='data:image/gif;base64,'+gif.toString('base64'),updated=source.replace(matches[0][0],replacement);
+assert.equal(updated.replace(replacement,matches[0][0]),source,'Only the GIF bytes may change.');
+fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,updated);
+console.log(JSON.stringify({input:path.basename(input),out:path.basename(out),sourceSHA256:sha(source),outputSHA256:sha(updated),oldGifSHA256:OLD,newGifSHA256:NEW,newGifBytes:gif.length,onlyGifChanged:true,controllerAndFallbackUnchanged:true},null,2));

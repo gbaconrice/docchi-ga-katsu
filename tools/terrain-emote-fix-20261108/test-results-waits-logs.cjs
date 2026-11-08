@@ -12,6 +12,15 @@ function normalizeBossDiagnostic(s){
  if(start>=0){assert(end>start);s=s.slice(0,start)+' /* Separately verified boss diagnostic event function. */\n'+s.slice(end);}
  return s.replace(bossDiagnosticMarker,'').replace(bossFormatLine,'').replace(bossFilterBranch,'');
 }
+function normalizeAddedClawRenderer(s){
+ if(!s.includes('/* dark-claw-material-v1:'))return s;
+ const helper=fs.readFileSync(path.join(__dirname,'dark-claw-art-renderers.js'),'utf8')+'\n';
+ const dispatch=' if(isDarkClawEffect(f)){drawDarkClawEffect(f,age,duration);return;}\n';
+ const modified="'boss_tail_sweep'].includes(f.kind)||(isDarkClawEffect(f)&&effectLifetime(f)>=60);if(ground!==(layer==='ground'))continue;";
+ const original="'boss_tail_sweep'].includes(f.kind);if(ground!==(layer==='ground'))continue;";
+ for(const fragment of [helper,dispatch,modified])assert.equal(s.split(fragment).length,2,'Exact claw-only inverse fragment required');
+ return s.replace(helper,'').replace(dispatch,'').replace(modified,original);
+}
 context.assert=assert;context.btoa=btoa;context.atob=atob;
 for(const node of nodes.values()){
  node.attributes={};node.setAttribute=function(k,v){this.attributes[k]=String(v)};
@@ -175,13 +184,16 @@ check('visible summary and history exclude cleanup rows while raw log stays comp
 }`));
 if(process.env.BASELINE_HTML)check('wallet, combat, replay codec, recording, clock speed and solo handlers unchanged',()=>{
  const before=fs.readFileSync(process.env.BASELINE_HTML,'utf8');
+ // Only the separately verified invertible claw renderer is normalized. All
+ // original character drawing and all other bytes keep the broad comparisons.
+ const comparable=integrated?normalizeAddedClawRenderer(html):html;
  for(const [start,end]of [
   ['const Money=(()=>{','// No stat inflation:'],
   ['const BossAbilities=(()=>{','const ROLE_NOTES='],
   ['const ReplayClock=(()=>{','const MultiProtocol='],
   ['function startPrediction(skip=false){','// UI admission only.'],
   ['const BattleLog=(()=>{','let battleLogObserved='],
- ]){const extract=s=>s.slice(s.indexOf(start),s.indexOf(end,s.indexOf(start)));assert(before.includes(start)&&before.includes(end),start);assert.equal(integrated?normalizeBossDiagnostic(extract(html)):extract(html),integrated?normalizeBossDiagnostic(extract(before)):extract(before),start);}
+ ]){const extract=s=>s.slice(s.indexOf(start),s.indexOf(end,s.indexOf(start)));assert(before.includes(start)&&before.includes(end),start);assert.equal(integrated?normalizeBossDiagnostic(extract(comparable)):extract(comparable),integrated?normalizeBossDiagnostic(extract(before)):extract(before),start);}
 });
 const report={sha,mode:integrated?'integrated':'isolated',passed:checks.length,checks,catalogAudit:{types:108,alwaysRetained:kept.length-(integrated?1:0),alwaysHidden:hidden.length,conditional:conditional.length+(integrated?1:0)},timing:{normalResultMs:8000,postTenDecisionMs:30000,predictionMaxMs:60000,replayLeadMs:2000}};
 if(process.env.REPORT_DIR){fs.mkdirSync(process.env.REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.REPORT_DIR,'results-waits-logs.json'),JSON.stringify(report,null,2));}

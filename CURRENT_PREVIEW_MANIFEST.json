@@ -1,10 +1,10 @@
 {
   "release": "releases/terrain-emote-fix-20261108",
-  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
-  "contentRevision": "fcd38ae131430c3d45533d9bfce6955da200cd80f38e84d56552d1acb04ef591",
+  "sourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
+  "contentRevision": "1c8cf464440547b6e4c63cf5bc5c2c8ca3dafc9d6bcddbaed7035e1f02eb090f",
   "imageFiles": 574,
-  "unchangedImageFiles": 574,
-  "newHomeGifFiles": 0,
+  "unchangedImageFiles": 573,
+  "newHomeGifFiles": 1,
   "requestedRules": {
     "battleLimitSeconds": 60,
     "damageSpeedAtSeconds": {
@@ -21,13 +21,18 @@
     "nativeRoomInvitationUnchanged": true
   },
   "verification": "verification/terrain-emote-fix-20261108/README.md",
-  "runtime": "game-runtime.95810e196df5449993cb.js",
-  "runtimeSHA256": "95810e196df5449993cba048a6cf64d402554ad0a64bc409d375bf48d6d13cef",
+  "runtime": "game-runtime.ee2952e2625249b616ba.js",
+  "runtimeSHA256": "ee2952e2625249b616bab99e13cd8c16d75798e9fd860511d12d27f2c9b4ba17",
   "changes": [
     "Full terrain text wraps in the existing header; result clearance follows actual header height",
     "Only the emote badge backing and border removed",
     "Requested lobby text and redundant self-role suffix removed",
-    "Routine game room bar and empty prediction/winner labels omitted; explicit failure recovery preserved"
+    "Routine game room bar and empty prediction/winner labels omitted; explicit failure recovery preserved",
+    "Only the added darkfan claw cue uses narrow terrain-colored fissures and small brief debris; original character rendering and physics remain unchanged",
+    "The pinned GIF animates only original candle/fireplace flames, lamp light and local reflections; lamp bodies and chains stay fixed"
   ],
-  "originalCharacterRenderingPreserved": true
+  "originalCharacterRenderingPreserved": true,
+  "newHomeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "newHomeGifBytes": 992844,
+  "fixedLampBodies": true
 }

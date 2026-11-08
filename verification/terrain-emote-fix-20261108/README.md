@@ -1,25 +1,33 @@
-# Display cleanup verification
+# Display and added-effect verification
 
-Source SHA-256: `b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0`.
+Source SHA-256: `ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f`.
 
 ## Scope
 
-- Terrain names and effects wrap inside their existing header column, retaining the font size. A measured result clearance prevents overlap on short screens.
-- Emotes keep their existing 18px box and upper-right avatar position, with only the backing and border removed.
-- The initial host lobby explanation and redundant self-role suffix are removed. Genuine names, avatars, host permissions and lobby controls remain.
-- Routine game-room summary and exit chrome are hidden during normal play. Empty prediction/winner labels are omitted. Actual winner names, settlement amounts and the lower next-round controls remain.
-- Existing recovery controls are retained only for explicit failures, not ordinary replay preparation or clock waiting.
+- Complete terrain labels wrap at the original font size. Measured result clearance prevents overlap on short screens.
+- Emotes keep their 18px box and upper-right avatar position; their backing and border are removed.
+- The specified lobby explanation and redundant self-role suffix are removed. Routine room chrome and empty prediction/winner labels are omitted. Genuine names, settlement amounts, next-round controls and explicit error recovery remain.
+- Only the added darkfan claw effect changes: persistent marks draw as narrow terrain-colored fissures below actors; short contact chips remain above. Its original events, lifetime and collision rules remain.
+- One home GIF is replaced with the pinned 24-frame original-painting flame/light animation, with lamp bodies and chains fixed. All 573 original PNG/WebP files, original character drawing and non-GIF embedded assets are unchanged. The original PNG remains the static fallback.
 
-All original character rendering and embedded assets remain unchanged. This checkpoint does not modify character attack/hit frames, effect rendering, simulation, room transport, native invitations, prediction receipts, money calculations or deadlines.
+## Reproduction
 
-## Verification
+With Node.js and Python 3, run from the repository root:
 
-The exact-composition test rebuilds the declared three patches and content seal. It verifies original character rendering, image-byte equality, five-script structure and idempotence. The redundant-label patch has seven invertible display-only edits; the lobby patch has four exact edits.
+```sh
+node tools/terrain-emote-fix-20261108/reproduce.cjs /absolute/new-output-directory .
+```
 
-Focused tests cover all eight terrains, solo/eight-player emotes, overflow and clearance behavior, lobby roles and status transitions, routine versus actionable-error display, and a real canonical timeout receipt retaining its exact 0 G settlement.
+The output directory must not exist. The script first reconstructs and verifies the preceding public release, then applies the declared UI patches, exact GIF replacement, invertible claw renderer and content seal. It rebuilds the split release and checks every formal file, manifest and root entry byte-for-byte. The GIF is a pinned input, not regenerated during reconstruction.
 
-All seven retained UI suites pass, including 27 lobby cases and 20 result/receipt/deadline cases. The latter retains its comprehensive original gameplay equality check; only the two superseded empty-label expectations change. Normal next-round waiting remains 8 seconds, post-ten decisions 30 seconds and prediction cap 60 seconds. The actual distribution loader passes seven cases.
+## Tests
 
-Run `node tools/terrain-emote-fix-20261108/reproduce.cjs /absolute/new-output-directory .` from the repository root with Node.js and Python 3. The output directory must not exist. This first rebuilds and verifies the preceding release, then rebuilds this source and checks exact split-release reassembly.
+Scope tests verify the exact UI composition, one GIF replacement, reversible claw-only edits, unchanged character renderer and all original non-GIF asset bytes. Eleven claw checks include 1,200 natural battle ticks with identical events, effects, character frames, positions and HP. They also cover effect lifetime, ground/contact layers, all replay effect kinds and reduced-effects behavior.
 
-See `source-build.json`, the test logs, `retained-ui-summary.json`, and the reconstruction/browser reports when included. Browser fixtures are not physical-device or real GRAVITY verification. Private screenshots, native identities and test-only controls are excluded from the release.
+The suite covers eight terrain labels, solo/eight-player emotes, clearance, lobby roles, eight focused match-label/recovery cases, all seven retained UI suites and seven actual distribution-loader cases. The results suite keeps its full gameplay equality check, normalizing only the literal, independently verified claw-renderer insertion. Normal next-round waiting remains 8 seconds, post-ten decisions 30 seconds and the prediction cap 60 seconds.
+
+See `reproduction.json`, `source-build.json`, `retained-ui-summary.json`, the focused test logs and `claw-tests.json`. The exact final-source browser report is `browser-verification.json`: 384 fresh layout cases, 36 label/recovery cases, 96 claw width/facing/effect combinations, 160 onset/settled-time cases and native-play inspection across all eight terrains. It also covers original sprite loading, the fixed GIF, home/game pause and resume, unchanged button/title geometry, disabled motion, low power, page hide/show and a missing-image fallback with game entry and return. No game errors were recorded. The separate 1,344-case inherited layout evidence is labeled in `inherited-layout-verification.json` and supported by exact non-media source and CSS/DOM equivalence; those cases are not represented as fresh final-source runs. Five replacement tests verify direct original-GIF replacement and full inversion, and reject wrong source bytes, an already replaced input, duplicate GIFs and wrong replacement bytes.
+
+## Limits
+
+No physical iOS/GRAVITY safe-area, native room invitation, real SDK transport, CPU, thermal or battery benchmark is claimed. The GIF is 992,844 bytes; 24 fully decoded RGBA frames would be a conservative 56.25 MiB cache bound, not a measured browser allocation. Static fallback, reduced-motion and power-saving controls remain tested. Private screenshots, real user identifiers and browser-only test controls are not included.

@@ -1,17 +1,16 @@
 {
   "baseSourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
-  "terrainStageSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
-  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
-  "contentRevision": "fcd38ae131430c3d45533d9bfce6955da200cd80f38e84d56552d1acb04ef591",
-  "bytes": 50221568,
+  "uiSourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "sourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
+  "contentRevision": "1c8cf464440547b6e4c63cf5bc5c2c8ca3dafc9d6bcddbaed7035e1f02eb090f",
+  "bytes": 50842461,
+  "newHomeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "newHomeGifBytes": 992844,
+  "originalCharacterRenderingPreserved": true,
+  "beforeClawSHA256": "5dfc9459661c4aa40c696ca3d93466463a26068ed173087ea3cc96495211ed41",
   "patches": {
-    "patch-terrain-emote.py": "cd7d44a35a6b15e84ac1d845ff96a4db03f14d171f46743af59510fae47ca39e",
-    "patch-lobby-copy.py": "f53929eb4a1bec2b8bdb6f9440095d9e9e3917400e7af9e0ee50855836095ae6",
-    "patch-redundant-match-labels.py": "900288d08698c76fe9c0f40a9252b41021bfb0040c96ce35925ddecffc1693dd"
-  },
-  "baselines": {
-    "before-redundant-labels.html": "0e433e744e378945e5c5c9591f4277fd77254a71c6bdc297b0b33814abebebfc",
-    "before-seal.html": "92e7c9f86b3704a471db36b9cb8a0f883878174d18009877e50a6cbfb6ad24e0",
-    "terrain-stage.html": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5"
+    "replace-home-gif.cjs": "e36ea13ae8a2841655f02ae86f0055561a528fc0d29c012853b8afa75ea37ca1",
+    "patch-dark-claw-art.py": "9fc3a6fd651d26d320057e6b24bbfc0e6023084405670966be4aa0818b1771ad",
+    "dark-claw-art-renderers.js": "3924f2c5d465eb383303460ee91616d4cc9166c325c26b1484eaa3c0668e2acc"
   }
 }

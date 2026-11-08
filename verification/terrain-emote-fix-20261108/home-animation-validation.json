@@ -1,0 +1,40 @@
+{
+  "sha256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "bytes": 992844,
+  "frames": 24,
+  "durationMs": 2400,
+  "sourceDependencies": [
+    "original-home.png only"
+  ],
+  "repairPlateOrCutoutOrAtlasUsed": false,
+  "lampSurroundMaxDifferenceFromOriginalRGB255": {
+    "front hanging": 4,
+    "middle hanging": 3,
+    "back hanging": 3,
+    "lower-left table": 15
+  },
+  "staticChainsMaxDifferenceFromOriginal": {
+    "near": 0,
+    "middle": 0,
+    "back": 0
+  },
+  "staticSceneMaxDifferenceFromOriginal": {
+    "window": 0,
+    "banner": 0,
+    "books": 0,
+    "floor": 0
+  },
+  "animatedRegionsChangedPixels": {
+    "table_lamp": 2241,
+    "middle_lamp": 1217,
+    "back_lamp": 797,
+    "near_lamp": 2710,
+    "window_candle": 204,
+    "mantel_candle_left": 247,
+    "mantel_candle_right": 154,
+    "fireplace": 5707
+  },
+  "browserSequenceFrames": 52,
+  "browserSequenceDurationMs": 2564,
+  "scope": "All rendered source frames and actual browser home-screen motion capture, not a full game QA pass."
+}

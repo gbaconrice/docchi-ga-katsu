@@ -1,0 +1,5 @@
+PASS exact original GIF replaces directly; all other source bytes unchanged
+PASS wrong source GIF is refused
+PASS already replaced source is refused
+PASS duplicate source GIF is refused
+PASS wrong replacement bytes are refused

@@ -1,0 +1,11 @@
+PASS original character renderer and drawSprite exactly unchanged
+PASS all embedded source artwork/audio/fonts remain byte-identical
+PASS all existing functions other than2 targeted effect renderers remain identical
+PASS all character frames, sprite selection, replay and effect lifetime contracts unchanged
+PASS scope only matches the darkfan added claw effect
+PASS persistent curse marks draw below actors; contact chips remain above
+PASS early and expired cues remain absent and inputs are immutable
+PASS all replay effect kinds still render at early mid late times
+PASS low effects retains static readable ground with fewer drawing calls
+PASS low effects omits debris motion and reduces fragments
+PASS 1200 natural battle ticks preserve every event, effect, frame, position and HP
