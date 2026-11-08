@@ -1,0 +1,10 @@
+/* home-background-gif-v1: the actual full backdrop is a looping GIF.
+   The existing PNG remains the default if loading or motion is unavailable. */
+#app[data-home-gif="running"]:has(#homeScreen:not([hidden])) {
+  background-image:var(--home-gif-image);
+}
+@media (prefers-reduced-motion:reduce), (update:slow) {
+  #app[data-home-gif="running"]:has(#homeScreen:not([hidden])) {
+    background-image:var(--home-still-image);
+  }
+}
