@@ -1,0 +1,43 @@
+PASS one absolute, pointer-transparent, single-row overlay per card; no flow height
+PASS participant/winner/log/inspector name fills removed; team hues and emote top-right unchanged
+PASS 1–8 players: long names, side switches, confirmed picks, failed images, spectators, phase cleanup
+PASS stable seat ordering, deduplication, invalid/spectator/departed/cashed-out selection filtering
+PASS all 46 registered bosses × 1/8/32 units × 320/390/430/1200: marker/body bounds clear avatar lane, canvas unchanged
+{
+  "checks": 5,
+  "layoutMethod": "structural CSS + canvas planner; actual DOM/pixel browser QA still required",
+  "matrix": [
+    {
+      "viewport": 320,
+      "cardWidth": 145,
+      "canvasWidth": 125,
+      "bossCanvasHeight": 112,
+      "eightAvatarWidth": 13.13,
+      "maxBossDrawHeightReduction": 6
+    },
+    {
+      "viewport": 390,
+      "cardWidth": 175,
+      "canvasWidth": 155,
+      "bossCanvasHeight": 113.1,
+      "eightAvatarWidth": 16.88,
+      "maxBossDrawHeightReduction": 6
+    },
+    {
+      "viewport": 430,
+      "cardWidth": 195,
+      "canvasWidth": 175,
+      "bossCanvasHeight": 124.69999999999999,
+      "eightAvatarWidth": 19.38,
+      "maxBossDrawHeightReduction": 6
+    },
+    {
+      "viewport": 1200,
+      "cardWidth": 372,
+      "canvasWidth": 352,
+      "bossCanvasHeight": 132,
+      "eightAvatarWidth": 21,
+      "maxBossDrawHeightReduction": 6
+    }
+  ]
+}

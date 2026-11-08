@@ -1,0 +1,869 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "matchesPublishedBaseline": true,
+  "matrix": [
+    {
+      "id": "thornback_beast",
+      "symmetry": true,
+      "abilityEvents": [
+        "八方棘縛",
+        "束縛"
+      ],
+      "damageEvents": 28,
+      "remainingHp": [
+        903,
+        38.8,
+        34.34,
+        -1.2,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "roarfang_beast",
+      "symmetry": true,
+      "abilityEvents": [
+        "震天咆哮",
+        "気絶"
+      ],
+      "damageEvents": 26,
+      "remainingHp": [
+        587,
+        30,
+        -2,
+        -10,
+        43
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "spectral_scale_dragon",
+      "symmetry": true,
+      "abilityEvents": [
+        "infiltration",
+        "幽体潜行"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        701,
+        -13,
+        136,
+        -30,
+        100
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "iceclaw_legend",
+      "symmetry": true,
+      "abilityEvents": [
+        "砕氷三連爪",
+        "凍結"
+      ],
+      "damageEvents": 28,
+      "remainingHp": [
+        757,
+        -9.62,
+        46.4675,
+        60,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "gauntlet_combo_guard",
+      "symmetry": true,
+      "abilityEvents": [
+        "双拳衝波",
+        "左拳",
+        "右拳",
+        "双拳の衝撃波"
+      ],
+      "damageEvents": 25,
+      "remainingHp": [
+        1052,
+        -13,
+        84.8,
+        34.4,
+        -13
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "rootwarden_treant",
+      "symmetry": true,
+      "abilityEvents": [
+        "群縛根",
+        "束縛"
+      ],
+      "damageEvents": 27,
+      "remainingHp": [
+        1596,
+        40,
+        25,
+        0,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "frosthorn_rhino",
+      "symmetry": true,
+      "abilityEvents": [
+        "氷角反復突進",
+        "凍結"
+      ],
+      "damageEvents": 20,
+      "remainingHp": [
+        1319,
+        -50.365,
+        64.77,
+        32.885,
+        -6
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "pillar_hammerer",
+      "symmetry": true,
+      "abilityEvents": [
+        "進撃光柱",
+        "気絶"
+      ],
+      "damageEvents": 20,
+      "remainingHp": [
+        1401,
+        -49.5,
+        -47.5,
+        -14.75,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "colossal_hornfist",
+      "symmetry": true,
+      "abilityEvents": [
+        "巨拳打ち上げ",
+        "打ち上げ"
+      ],
+      "damageEvents": 24,
+      "remainingHp": [
+        1390,
+        -35.72,
+        39.76,
+        14.76,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "kilnback_pincerbeast",
+      "symmetry": true,
+      "abilityEvents": [
+        "巨鋏断ち"
+      ],
+      "damageEvents": 16,
+      "remainingHp": [
+        1391,
+        -40.4,
+        -38.4,
+        60,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "carapace_slashbeast",
+      "symmetry": true,
+      "abilityEvents": [
+        "破盾大薙ぎ",
+        "盾割り"
+      ],
+      "damageEvents": 13,
+      "remainingHp": [
+        1489,
+        -1.25,
+        -7.75,
+        -41.25,
+        100
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "stonepulse_kolossus",
+      "symmetry": true,
+      "abilityEvents": [
+        "直線地裂",
+        "打ち上げ"
+      ],
+      "damageEvents": 23,
+      "remainingHp": [
+        1530,
+        -8,
+        -6,
+        43,
+        56
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "bluefist_colossus",
+      "symmetry": true,
+      "abilityEvents": [
+        "双拳地震",
+        "気絶"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        1404,
+        -13.4,
+        -11.4,
+        -53.4,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "spikeburst_grinder",
+      "symmetry": true,
+      "abilityEvents": [
+        "丸まり連棘"
+      ],
+      "damageEvents": 31,
+      "remainingHp": [
+        1034,
+        -10.4,
+        29.136,
+        -6.24,
+        100
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "redhorn_dualbeast",
+      "symmetry": true,
+      "abilityEvents": [
+        "双角背面投げ",
+        "打ち上げ"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        1501,
+        -7.16,
+        23.68,
+        60,
+        66
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "bluehorn_invoker",
+      "symmetry": true,
+      "abilityEvents": [
+        "密集隕石"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        1167,
+        24.6,
+        9.6,
+        -15.4,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "emberwing_drake",
+      "symmetry": true,
+      "abilityEvents": [
+        "旋回火雨"
+      ],
+      "damageEvents": 39,
+      "remainingHp": [
+        865,
+        -14.08,
+        72.36,
+        60,
+        -2
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "skullflare_triad",
+      "symmetry": true,
+      "abilityEvents": [
+        "三骸炎牙",
+        "炎上"
+      ],
+      "damageEvents": 43,
+      "remainingHp": [
+        1103,
+        25.12,
+        -6.88,
+        -6.24,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "flamering_magus",
+      "symmetry": true,
+      "abilityEvents": [
+        "拡大火輪"
+      ],
+      "damageEvents": 15,
+      "remainingHp": [
+        975,
+        -22.4,
+        -3.4,
+        -1.2,
+        80
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "shockplate_drake",
+      "symmetry": true,
+      "abilityEvents": [
+        "雷鎧連鎖",
+        "結界"
+      ],
+      "damageEvents": 28,
+      "remainingHp": [
+        1750.7,
+        30.88,
+        29.704,
+        15.7632,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "thunderhorn_beast",
+      "symmetry": true,
+      "abilityEvents": [
+        "落雷角撃"
+      ],
+      "damageEvents": 25,
+      "remainingHp": [
+        1387,
+        -49.76,
+        0.52,
+        -24.48,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "stormhorn_tripler",
+      "symmetry": true,
+      "abilityEvents": [
+        "三連雷角"
+      ],
+      "damageEvents": 29,
+      "remainingHp": [
+        990,
+        -1.92,
+        49.28,
+        41.28,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "darkfan_clawlord",
+      "symmetry": true,
+      "abilityEvents": [
+        "治癒封じの爪痕",
+        "回復封じ"
+      ],
+      "damageEvents": 83,
+      "remainingHp": [
+        1139,
+        26.272,
+        11.272,
+        23.136,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "plated_dualdragon",
+      "symmetry": true,
+      "abilityEvents": [
+        "炎氷交差ブレス",
+        "炎上",
+        "凍結"
+      ],
+      "damageEvents": 28,
+      "remainingHp": [
+        1397,
+        -8.48,
+        -6.48,
+        43,
+        56
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "flameburst_mythron",
+      "symmetry": true,
+      "abilityEvents": [
+        "灼熱溶岩域",
+        "炎上"
+      ],
+      "damageEvents": 61,
+      "remainingHp": [
+        1180,
+        -13.088,
+        -14.736,
+        -5.664,
+        56
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "willyee_frost_dragon",
+      "symmetry": true,
+      "abilityEvents": [
+        "白竜の吹雪",
+        "凍結"
+      ],
+      "damageEvents": 16,
+      "remainingHp": [
+        1825,
+        -22.88,
+        -3.88,
+        -1.44,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "frostbreath_lizard",
+      "symmetry": true,
+      "abilityEvents": [
+        "遅滞氷息",
+        "凍結"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        1404,
+        -14.4,
+        -12.4,
+        -54.4,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "triad_chimera",
+      "symmetry": true,
+      "abilityEvents": [
+        "三頭独立攻撃",
+        "炎上",
+        "毒"
+      ],
+      "damageEvents": 39,
+      "remainingHp": [
+        1370,
+        -15.2,
+        -10.616,
+        -1.056,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "cinder_tailbeast",
+      "symmetry": true,
+      "abilityEvents": [
+        "旋尾火散らし",
+        "炎上"
+      ],
+      "damageEvents": 20,
+      "remainingHp": [
+        1575,
+        -24,
+        -5,
+        -2,
+        80
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "emberfist_pillarer",
+      "symmetry": true,
+      "abilityEvents": [
+        "追撃火柱"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1181,
+        -11.36,
+        -29.48,
+        -14.24,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "veteran_flamewing",
+      "symmetry": true,
+      "abilityEvents": [
+        "双鳥交差爆炎"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1087,
+        -10.4,
+        -8.4,
+        -50.4,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "spore_toad",
+      "symmetry": true,
+      "abilityEvents": [
+        "拡散毒霧",
+        "毒"
+      ],
+      "damageEvents": 76,
+      "remainingHp": [
+        564,
+        49,
+        17,
+        29.4,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "siege_crab",
+      "symmetry": true,
+      "abilityEvents": [
+        "全域貫通光線"
+      ],
+      "damageEvents": 14,
+      "remainingHp": [
+        1422,
+        -14.4,
+        -12.4,
+        -54.4,
+        100
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "slime",
+      "symmetry": true,
+      "abilityEvents": [
+        "三眼分裂"
+      ],
+      "damageEvents": 27,
+      "remainingHp": [
+        414,
+        51.4,
+        68,
+        60,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "accretion_burstcore",
+      "symmetry": true,
+      "abilityEvents": [
+        "吸命光線"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1221,
+        -15.8,
+        37.2,
+        60,
+        9
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "domeback_colossus",
+      "symmetry": true,
+      "abilityEvents": [
+        "誘引甲殻",
+        "挑発"
+      ],
+      "damageEvents": 25,
+      "remainingHp": [
+        294.9,
+        35,
+        54,
+        12,
+        4
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "ringhold_guardian",
+      "symmetry": true,
+      "abilityEvents": [
+        "守光輪"
+      ],
+      "damageEvents": 24,
+      "remainingHp": [
+        117,
+        100,
+        68,
+        60,
+        62
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "silverarm_vanguard",
+      "symmetry": true,
+      "abilityEvents": [
+        "倍返しの銀腕"
+      ],
+      "damageEvents": 30,
+      "remainingHp": [
+        1266,
+        -2.6,
+        -14.3,
+        60,
+        84
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "fiery_coil_inceptor",
+      "symmetry": true,
+      "abilityEvents": [
+        "終炎膨張"
+      ],
+      "damageEvents": 26,
+      "remainingHp": [
+        1039,
+        -45.8,
+        85,
+        60,
+        50
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "golem",
+      "symmetry": true,
+      "abilityEvents": [
+        "瓦礫の継承"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1840,
+        -35,
+        17.5,
+        60,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "bonefan_reaper",
+      "symmetry": true,
+      "abilityEvents": [
+        "刈魂の大鎌"
+      ],
+      "damageEvents": 15,
+      "remainingHp": [
+        1130.0561,
+        -35,
+        -16,
+        -7.5,
+        80
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "moonclaw_werewolf",
+      "symmetry": true,
+      "abilityEvents": [
+        "血月疾走"
+      ],
+      "damageEvents": 24,
+      "remainingHp": [
+        1356,
+        -38.6,
+        85,
+        60,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "willyee_stone_golem",
+      "symmetry": true,
+      "abilityEvents": [
+        "水晶反射"
+      ],
+      "damageEvents": 35,
+      "remainingHp": [
+        2051,
+        -10.25,
+        -11,
+        -3.5,
+        100
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "basalt_titan",
+      "symmetry": true,
+      "abilityEvents": [
+        "雷葬"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1990,
+        -13.4,
+        28.3,
+        60,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "cyanrise_silithar",
+      "symmetry": true,
+      "abilityEvents": [],
+      "damageEvents": 31,
+      "remainingHp": [
+        1258.3,
+        -7.44,
+        3.808,
+        45.312,
+        -3
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "razorclaw_reaver",
+      "symmetry": true,
+      "abilityEvents": [
+        "双爪迎撃",
+        "爪の構え",
+        "爪で防御",
+        "双爪の反撃"
+      ],
+      "damageEvents": 26,
+      "remainingHp": [
+        1506,
+        10.5,
+        -4.5,
+        60,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "cleaver_brute",
+      "symmetry": true,
+      "abilityEvents": [
+        "鼓舞",
+        "紅蓮の咆哮"
+      ],
+      "damageEvents": 22,
+      "remainingHp": [
+        1544,
+        -36.6875,
+        -1.025,
+        -31.125,
+        70
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "ringneck_prowler",
+      "symmetry": true,
+      "abilityEvents": [
+        "後衛呑み"
+      ],
+      "damageEvents": 20,
+      "remainingHp": [
+        1267,
+        7.775,
+        85,
+        -32.225,
+        60
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    },
+    {
+      "id": "bone_crown_lich",
+      "symmetry": true,
+      "abilityEvents": [
+        "屍骨徴集"
+      ],
+      "damageEvents": 21,
+      "remainingHp": [
+        -4,
+        100,
+        85,
+        60,
+        -2
+      ],
+      "spawned": 0,
+      "productionEqual": true
+    }
+  ]
+}

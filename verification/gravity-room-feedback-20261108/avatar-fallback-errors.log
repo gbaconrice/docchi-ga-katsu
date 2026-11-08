@@ -1,0 +1,9 @@
+PASS handled avatar resource failure keeps fallback and no startup banner
+PASS handled avatar resource failure keeps fallback and no runtime banner
+PASS unmarked or unhandled IMG errors retain existing diagnostics
+PASS runtime details are never hidden even when target resembles an avatar
+PASS own SCRIPT and LINK resource failures still report required-file failure
+PASS real game runtime exceptions retain filename, line and runtime banner
+PASS opaque script errors and unrelated resource behavior remain unchanged
+PASS all existing avatar fallback paths marked; precise backdrop override outranks toolbar child rule
+AVATAR RESOURCE / BACKDROP PASS 8 cases; all embedded scripts compile.

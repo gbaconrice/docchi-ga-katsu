@@ -1,0 +1,76 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "publishedBaselineSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "result": "No new gameplay regression found; explicit exceptions and prior failures retained.",
+  "rawFocusedSuites": {
+    "total": 17,
+    "passedUnmodified": 11,
+    "supersededAssertionFailures": 6
+  },
+  "compatibleSuites": {
+    "participantRail": 10,
+    "eventLogChecks": 4,
+    "eventLogAttributionCases": 432,
+    "zeroBet": 9,
+    "effectArt": 10,
+    "battleUI": 11,
+    "homeRetained": 9,
+    "homeSupersededNotRun": 1
+  },
+  "structureChecks": 10,
+  "unchangedTopLevelDeclarations": 827,
+  "originalEmbeddedAssetOccurrencesPreserved": 587,
+  "addedAssets": "one exact known home GIF",
+  "all300TraitFactsIdentical": true,
+  "originalProductionPhysics": {
+    "checks": 173,
+    "passedOnEachSource": 169,
+    "preExistingFailuresOnEachSource": 4,
+    "fullReportsEqualExceptSourceHashAndTimestamp": true,
+    "bossMatrices": 49,
+    "preExistingFailures": [
+      {
+        "suite": "integrated-bosses",
+        "check": "ordinary roster metadata untouched except registered boss flags",
+        "reason": "Old fixture expects ゴブリン; both sources use the previously approved シャドウクローラー display name."
+      },
+      {
+        "suite": "boss-status-interop",
+        "check": "actual treant/thornback/razor casts cleanse on next tick, never their application tick",
+        "reason": "Both sources encounter undefined bossControlLock.control in this fixture."
+      },
+      {
+        "suite": "fidelity-mechanics",
+        "check": "two held enemies absorb damage",
+        "reason": "Both sources encounter undefined .length in this fixture."
+      },
+      {
+        "suite": "fidelity-mechanics",
+        "check": "pincer lifts then crushes one target after delay",
+        "reason": "Both sources produce 859.6 early-sample HP; the old assertion expects 1000."
+      }
+    ]
+  },
+  "completeCanonicalReplays": {
+    "compared": 7,
+    "passed": 7,
+    "onlyExcludedField": "authorized diagnostic battleLog",
+    "allOtherFieldsAndDecodedReconnectFramesEqual": true
+  },
+  "generationAudit": {
+    "status": "TRANSFERRED_NOT_RERUN",
+    "rounds": 2600,
+    "runs": 130,
+    "coverage": 300,
+    "basis": "Complete generation code, catalog, model, types, costs, exclusions and inputs unchanged",
+    "crossTeamDescendantCollisions": 0,
+    "exactPairRepeats": 0
+  },
+  "neverRunHere": [
+    "Removed CSS-light geometry/lifecycle assertion: real GIF replaces it.",
+    "Historical isolated pre-diversity R1-10 equality and pre-integration draw whole-source checks; current full-module equality against published b080 proved instead.",
+    "Live Gravity/device/network/browser proof, separately covered by integration task."
+  ],
+  "sourceFilesEditedByThisAudit": false,
+  "oldTestOriginalsEditedByThisAudit": false
+}

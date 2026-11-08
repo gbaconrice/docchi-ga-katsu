@@ -1,9 +1,10 @@
 {
-  "release": "releases/battle-ui-feedback-20261108",
-  "sourceSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
-  "contentRevision": "44f5a517b956b79c4fdc0be9b16fa14748c84a6bfc3702e069fbf4003ac81733",
-  "runtime": "game-runtime.2b14d1a89d6853867147.js",
-  "imageFiles": 573,
+  "release": "releases/gravity-room-feedback-20261108",
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "contentRevision": "bc829498a075889f77cdd19ebd3b4da94be803664e4a40076033b73a27424622",
+  "imageFiles": 574,
+  "unchangedImageFiles": 573,
+  "newHomeGifFiles": 1,
   "requestedRules": {
     "battleLimitSeconds": 60,
     "damageSpeedAtSeconds": {
@@ -13,7 +14,13 @@
     },
     "overtime": false,
     "separateBossDamageMultiplier": false,
-    "opposingSpeciesIncludesDescendants": true
+    "opposingSpeciesIncludesDescendants": true,
+    "normalResultSeconds": 8,
+    "continueDecisionSeconds": 30,
+    "predictionCapSeconds": 60,
+    "nativeRoomInvitationUnchanged": true
   },
-  "verification": "verification/battle-ui-feedback-20261108/README.md"
+  "verification": "verification/gravity-room-feedback-20261108/README.md",
+  "runtime": "game-runtime.cd2acc050bf7484e4090.js",
+  "runtimeSHA256": "cd2acc050bf7484e409028dab6b936ab72a413d2c2e214470fc2ea8bab81ead1"
 }

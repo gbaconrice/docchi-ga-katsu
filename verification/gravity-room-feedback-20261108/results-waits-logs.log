@@ -1,0 +1,59 @@
+PASS result area is always expanded, has no removed heading or details control
+PASS correct predictors only, exact names, missing-profile fallback, no gold details
+PASS late genuine profile refresh replaces fallback in the visible result without cache
+PASS eight correct players, escaped text path, losses, draw, invalid and incomplete receipts
+PASS canonical multiplayer payout: winner, loser, draw, 0 G recovery, large exact amount
+PASS solo win, loss, draw and zero result keep own exact delta and manual next
+PASS normal 8-second deadline and post-ten 30-second decision are distinct
+PASS independent device clocks, duplicate snapshots and reconnect retain remaining time
+PASS host UI rejects premature next, advances once at 8 seconds, and keeps 60-second prediction window
+PASS guest never advances locally; stopped host never starts another round
+PASS late replay delivery cannot erase result, reset its deadline or settle twice
+PASS lost replay does not delay authoritative result or change wallet at transition
+PASS replay chunks arriving after the next round cannot revive the old result
+PASS all 108 catalog types explicitly audited, no accidental omissions
+PASS integrated boss rows show only concrete status, guard and positive measured blocks
+PASS all projectile cleanup reasons hidden, actual blocks and active-defense endings retained
+PASS log filtering leaves recorded events and replay payload byte-for-byte unchanged
+PASS all descriptions retain actual damage/heal/status/target and do not invent actor names
+PASS visible summary and history exclude cleanup rows while raw log stays complete
+PASS wallet, combat, replay codec, recording, clock speed and solo handlers unchanged
+{
+  "sha": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "mode": "integrated",
+  "passed": 20,
+  "checks": [
+    "result area is always expanded, has no removed heading or details control",
+    "correct predictors only, exact names, missing-profile fallback, no gold details",
+    "late genuine profile refresh replaces fallback in the visible result without cache",
+    "eight correct players, escaped text path, losses, draw, invalid and incomplete receipts",
+    "canonical multiplayer payout: winner, loser, draw, 0 G recovery, large exact amount",
+    "solo win, loss, draw and zero result keep own exact delta and manual next",
+    "normal 8-second deadline and post-ten 30-second decision are distinct",
+    "independent device clocks, duplicate snapshots and reconnect retain remaining time",
+    "host UI rejects premature next, advances once at 8 seconds, and keeps 60-second prediction window",
+    "guest never advances locally; stopped host never starts another round",
+    "late replay delivery cannot erase result, reset its deadline or settle twice",
+    "lost replay does not delay authoritative result or change wallet at transition",
+    "replay chunks arriving after the next round cannot revive the old result",
+    "all 108 catalog types explicitly audited, no accidental omissions",
+    "integrated boss rows show only concrete status, guard and positive measured blocks",
+    "all projectile cleanup reasons hidden, actual blocks and active-defense endings retained",
+    "log filtering leaves recorded events and replay payload byte-for-byte unchanged",
+    "all descriptions retain actual damage/heal/status/target and do not invent actor names",
+    "visible summary and history exclude cleanup rows while raw log stays complete",
+    "wallet, combat, replay codec, recording, clock speed and solo handlers unchanged"
+  ],
+  "catalogAudit": {
+    "types": 108,
+    "alwaysRetained": 58,
+    "alwaysHidden": 42,
+    "conditional": 8
+  },
+  "timing": {
+    "normalResultMs": 8000,
+    "postTenDecisionMs": 30000,
+    "predictionMaxMs": 60000,
+    "replayLeadMs": 2000
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "status": "PASS within stated browser scope",
+  "source_sha256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "formal_runtime_file": "game-runtime.cd2acc050bf7484e4090.js",
+  "formal_runtime_sha256": "cd2acc050bf7484e409028dab6b936ab72a413d2c2e214470fc2ea8bab81ead1",
+  "qa_runtime_sha256": "b7ce86bcfa175705db36e869f051ac8f50e9a7b26236b29b7445688e6393e0d8",
+  "qa_runtime_difference": "Only unpublished GIF release URL replaced with local preview URL.",
+  "browser": "Native cloud Chrome; exact-width iframes, not physical devices or device emulation",
+  "iframe_widths": [
+    320,
+    390,
+    430,
+    1200
+  ],
+  "iframe_height": 900,
+  "identity_and_transport": "Synthetic named fixtures and in-memory mock SDK, using actual SDKAdapter and MultiProtocol. No actual GRAVITY rooms, accounts or invitations.",
+  "passed": [
+    "Final marked broken-avatar errors do not reveal the generic runtime error banner; truthful fallback remains.",
+    "Delayed solo getter shows loading then returned fixture name. Successful HTTPS portrait images complete with loading=eager and naturalWidth512.",
+    "Actual reaction menu clicks, emoji clicks and outside-tap dismissal pass in betting, fight and result.",
+    "Local sends and remote protocol messages render sender-specific18px upper-right avatar badges. Selection, profile update and image onload preserve visible badges.",
+    "Eight selection avatars fit upper-left, left-to-right. No card/stat movement, scroll growth, avatar overlap or overflow in forty state comparisons across four widths and two large-boss pairings.",
+    "Final eight-seat host lobby has no create/join controls. Final layout is distinct from entry, with start and exit.",
+    "Natural multiplayer result renders correct winning name only, DIV rather than details/summary, no participant-results heading. Actual self payout +25G and wallet125 retained.",
+    "Result and log participant names and winner labels have transparent backing; existing blue/red text colors remain.",
+    "Actual GIF decodes and runs with cover. Missing GIF uses original still; simulated reduced-motion preference uses original still. Mobile-width app bounds cover entire900px frame."
+  ],
+  "lobby_interruption_matrix": {
+    "source_sha256": "60053b13c0df54359beb316d48375a68c85c39a4806d34e49de3a88e93065c61",
+    "passed": [
+      "Host and guest waiting",
+      "Eight seats, guest departure7/8 then rejoin8/8",
+      "Host loss stops session with exit route",
+      "Delayed create and join canceled, late completion cleans up exactly once",
+      "Repeated create serialized",
+      "Failed exit retains retry, successful retry returns home",
+      "Double exit serialized",
+      "Host start enters prediction; room-menu return resumes same battle"
+    ],
+    "final_recheck": "Final host eight-seat lobby and geometry rechecked after the narrow avatar/backdrop reseal. Full lifecycle matrix not repeated after reseal."
+  },
+  "log_fixture": {
+    "recorded": 8,
+    "visible": 4,
+    "visible_types": [
+      "resolved_hit",
+      "heal",
+      "boss_ability status",
+      "boss_ability positive block"
+    ],
+    "hidden": [
+      "projectile_end expired",
+      "projectile_end contact",
+      "boss_ability empty status",
+      "boss_ability zero block"
+    ],
+    "preserved_text_colors": {
+      "left": "rgb(23, 106, 180)",
+      "right": "rgb(185, 54, 50)",
+      "recovery": "rgb(160, 237, 180)"
+    },
+    "name_background": "rgba(0, 0, 0, 0)"
+  },
+  "geometry": {
+    "picker": {
+      "widths": [
+        320,
+        390,
+        430,
+        1200
+      ],
+      "states": [
+        "none",
+        "all left",
+        "all right",
+        "split",
+        "confirmed split"
+      ],
+      "boss_pairs": [
+        [
+          "veteran_flamewing",
+          "emberfist_pillarer"
+        ],
+        [
+          "redhorn_dualbeast",
+          "spore_toad"
+        ]
+      ],
+      "errors": [],
+      "comparisonScroll": 474,
+      "gameScroll": 882,
+      "documentScroll": 900,
+      "all_scroll_heights_unchanged": true
+    },
+    "result": {
+      "widths": [
+        320,
+        390,
+        430,
+        1200
+      ],
+      "panel_widths": [
+        280,
+        342,
+        382,
+        430
+      ],
+      "panel_bottom": 882,
+      "visible_text": "左の勝利 / +25 G / 的中：QAホスト / 次の戦いまで8秒 / 戦闘ログ"
+    },
+    "lobby": {
+      "width": 390,
+      "count": "8/8",
+      "entryVisible": false,
+      "lobbyVisible": true,
+      "room_width": 366,
+      "room_height": 567.765625
+    }
+  },
+  "timing_scope": "Ordinary result8-second text was observed. Final result was intentionally held only after natural settlement for visual review, explicitly labeled timing unavailable. This browser review is not wall-clock proof of8/30/60-second rules; use final automated timing tests.",
+  "limits": [
+    "No physical GRAVITY WebView or genuine cross-device network room test.",
+    "Real native invitation unchanged by scope, not exercised.",
+    "Reduced motion tested through a labeled QA media-query stub, not OS setting.",
+    "Safe-area insets are zero in these frames; physical notch behavior untested.",
+    "1200px frame preserves existing1180px app maximum width.",
+    "Existing long character names may clamp, wrap or horizontally scroll at320px. No new styling added.",
+    "Some bottom-frame controls required keyboard activation when browser pointer scrolling missed them; reaction menu outside-click was verified with actual pointer clicks."
+  ],
+  "captures": [
+    {
+      "file": "lobby-390.jpg",
+      "description": "Final eight-seat mock host lobby; all identities and room code synthetic."
+    },
+    {
+      "file": "picker-320.jpg",
+      "description": "Final large-boss selection layout, eight synthetic avatars. Screenshot width320; QA panel contains last1200px audit text from the preceding matrix."
+    },
+    {
+      "file": "result-390.jpg",
+      "description": "Final natural result, clock held for layout only; synthetic participants."
+    },
+    {
+      "file": "log-outcomes-390.jpg",
+      "description": "Final actual log renderer over an explicitly synthetic eight-event journal."
+    },
+    {
+      "file": "home-gif-390.jpg",
+      "description": "Final actual animated GIF background, one frame."
+    }
+  ]
+}

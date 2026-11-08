@@ -1,0 +1,130 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "baselineSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "scope": "Exact canonical replay equality excluding only separately authorized diagnostic battleLog; all decoded physics/effect/pose frames and reconnect playback compared",
+  "checks": [
+    {
+      "name": "ordinary",
+      "pass": true,
+      "ticks": 662,
+      "winner": "B",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        662
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "589126ec13a544150598ffd417ea1b28d531bec0698917ddc72f683588d6f560",
+      "diagnosticLogChanged": false,
+      "oldDiagnosticLogRows": 54,
+      "newDiagnosticLogRows": 54
+    },
+    {
+      "name": "stun-death-child",
+      "pass": true,
+      "ticks": 2949,
+      "winner": "B",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        1199,
+        1200,
+        2399,
+        2400,
+        2949
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "a690afbb337fa677a33583b2decabfccbf741e2183a326bd7e65076b61facc5f",
+      "diagnosticLogChanged": true,
+      "oldDiagnosticLogRows": 100,
+      "newDiagnosticLogRows": 38
+    },
+    {
+      "name": "claw-guard-block",
+      "pass": true,
+      "ticks": 1371,
+      "winner": "A",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        1199,
+        1200,
+        1371
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "52559907d2885cad04f542b36b7e141c0a0cac24632b9a614a0221b051d917ed",
+      "diagnosticLogChanged": true,
+      "oldDiagnosticLogRows": 344,
+      "newDiagnosticLogRows": 250
+    },
+    {
+      "name": "trap-placement",
+      "pass": true,
+      "ticks": 1025,
+      "winner": "A",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        1025
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "ed7354a8fbccccf8f4b5e1e5523801f6d4837bf6e1eac1507a39dd4cf4002d24",
+      "diagnosticLogChanged": false,
+      "oldDiagnosticLogRows": 27,
+      "newDiagnosticLogRows": 27
+    },
+    {
+      "name": "revival",
+      "pass": true,
+      "ticks": 673,
+      "winner": "A",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        673
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "b92fa3eea83212993fabd89b0195b5a0fb737b132816b367f8ab089ff42cc0b1",
+      "diagnosticLogChanged": false,
+      "oldDiagnosticLogRows": 47,
+      "newDiagnosticLogRows": 47
+    },
+    {
+      "name": "summon-descendants",
+      "pass": true,
+      "ticks": 509,
+      "winner": "A",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        509
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "5e4a1563fccac39f1711b1a9cff8391703cd1c6f02f52195a53150440a18b4d6",
+      "diagnosticLogChanged": true,
+      "oldDiagnosticLogRows": 47,
+      "newDiagnosticLogRows": 35
+    },
+    {
+      "name": "60s-cap-synthetic",
+      "pass": true,
+      "ticks": 3600,
+      "winner": "draw",
+      "comparedFrameTicks": [
+        0,
+        55,
+        120,
+        1199,
+        1200,
+        2399,
+        2400,
+        3600
+      ],
+      "canonicalWithoutDiagnosticLogSHA256": "efb980d178c2146a8ec08ab93a5a88784977bdf584f2ee2470490d62be945bd0",
+      "diagnosticLogChanged": false,
+      "oldDiagnosticLogRows": 1,
+      "newDiagnosticLogRows": 1
+    }
+  ],
+  "passed": true
+}

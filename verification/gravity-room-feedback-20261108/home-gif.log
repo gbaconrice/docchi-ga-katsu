@@ -1,0 +1,1 @@
+PASS home GIF: real GIF source, first-frame load, navigation, visibility, page lifecycle, reduced motion, low power, Data Saver, failed load, zero-sized image, stale callbacks, retry, repeated resume and cleanup.

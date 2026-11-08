@@ -1,0 +1,41 @@
+{
+  "baseSourceSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "contentRevision": "bc829498a075889f77cdd19ebd3b4da94be803664e4a40076033b73a27424622",
+  "bytes": 50217766,
+  "patches": [
+    {
+      "name": "profiles-emotes",
+      "patchSHA256": "21582941270d38bbc7f7a59095c9e6514fe5f234d31e10664ef956753f5aed57"
+    },
+    {
+      "name": "waiting-room-lobby",
+      "patchSHA256": "972c2563eda25cf5bce8c361e38722ccc281dc9495bdae219093ff69e2c0dc6d"
+    },
+    {
+      "name": "pick-icon-layout",
+      "patchSHA256": "8f839875fc2ccdcf043b68968872f96a3d0bb922617bce1469b3fcca3e1fc467"
+    },
+    {
+      "name": "avatar-fallback-errors",
+      "patchSHA256": "33327deb91fb12de601467f853d3df9c4b5a8164745bbcc18dd31c1719344f66"
+    },
+    {
+      "name": "results-waits-logs",
+      "patchSHA256": "d1607e90f6723fa1348943dd9dcd92154d201c7a0db731eec1450ef184ff0378"
+    },
+    {
+      "name": "boss-status-logs",
+      "patchSHA256": "592e44b25173a97997702f27efe0fbd3f772e0c477cad60dd36aa9c90f8c0f85"
+    },
+    {
+      "name": "home-gif",
+      "patchSHA256": "0d63bf4493c0e3e4b4075bfe5fd51eb2f8ffb3e93c2eec6809804bf0c762c62d",
+      "inputs": {
+        "home-tavern.gif": "c97c1221053bc61e654bf76408ac0ada9560a3c5dafffd520cd2f648477b1eae",
+        "home-gif.css": "219675707244dbc43f3a1b76055b578e8efc46b71900c42b1ac3e64f1e51779b",
+        "home-gif-controller.js": "dfdd5e4a11ecaf56e5d6ca35776943b3c40e91663872cf48d445c4da59726db5"
+      }
+    }
+  ]
+}

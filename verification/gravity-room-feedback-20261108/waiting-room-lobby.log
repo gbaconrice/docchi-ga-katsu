@@ -1,0 +1,28 @@
+PASS one start button lives in the dedicated lobby, not room entry
+PASS native create/join/exit/list arguments and invitation integration are unchanged
+PASS simulation, betting, canonical start and replay pump stay byte-identical
+PASS entry shows create/join and hides lobby/start/exit before native admission
+PASS host create opens dedicated roster lobby and disables duplicate entry controls
+PASS native member identity and explicit creator label render without ID guessing
+PASS profile image failure shows a real name fallback and never changes session
+PASS live profile changes refresh safely; hostile names remain literal text
+PASS opening the room menu during play retains a return-to-match action
+PASS repeated room entry cannot create a second native room
+PASS departure removes visible presence while keeping the canonical ledger seat
+PASS same admitted member rejoin restores presence once without duplicate seats
+PASS stopped room goes to lobby with no start or creation controls
+PASS explicit exit cleans up membership and returns home without launching solo
+PASS guest sees waiting state and creator-only start stays hidden
+PASS calling start as guest cannot advance canonical phase
+PASS host departure does not migrate ownership or expose start to guest
+PASS in-flight create shows one waiting lobby with cancel and blocks repeat taps
+PASS canceled native callback cannot replace a newer screen or solo round
+PASS late create completion is exited rather than reopening canceled lobby
+PASS create after canceled request completes normally with fresh session
+PASS exit failure keeps existing room and retry visible, never shows create controls
+PASS repeated exit is serialized and gives pending button feedback
+PASS canceled join cleanup failure presents exit recovery and blocks another native entry
+PASS pending join blocks repeated join and shows participant waiting state
+PASS canceling a join cleans up the late native membership exactly once
+PASS cancel during SDK load never installs room adapter or calls create
+PASS 27 lobby checks

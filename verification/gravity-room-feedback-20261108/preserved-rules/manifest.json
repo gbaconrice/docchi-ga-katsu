@@ -1,0 +1,75 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 938,
+      "sha256": "341de3d7e509cf9fd3cbe9def4334c1fa8698d228d39109d9c3ba78ab3c2c198"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 7342,
+      "sha256": "fc3365e1e6b03e815dd8f9a20e38186144283b85b5e7263206af7c4dffba5539"
+    },
+    {
+      "path": "boss49-matrix.json",
+      "bytes": 15609,
+      "sha256": "98ac5e0f7eaae4716e8bd3d2e6a00a470fba177a06ec9013259c2316f0139145"
+    },
+    {
+      "path": "focused-suites.json",
+      "bytes": 1608,
+      "sha256": "479492ad3af575c64b644401a148509115d8c5d977b5ecf153b1207c49ecc437"
+    },
+    {
+      "path": "generation-audit-b080.json",
+      "bytes": 3523,
+      "sha256": "c7d85242cf227a1f157a37293cf18fd137d5d2045f494f0e77f2e55e451a7084"
+    },
+    {
+      "path": "production-physics-equivalence.json",
+      "bytes": 1934,
+      "sha256": "17a3304d38d82fa63898aa240750980ed6824f5cb7039f6360e1523c043cf491"
+    },
+    {
+      "path": "replay-equivalence.json",
+      "bytes": 3406,
+      "sha256": "c039a3f37345a4fd23a6874abe0bc554bcfb145b49de16b11be91b7b7b8234e0"
+    },
+    {
+      "path": "structures.json",
+      "bytes": 130865,
+      "sha256": "0b48aa999b34eacb64f3c3955e2413615080485a9f338a820aaa16c2328e9e27"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 2943,
+      "sha256": "17b794177fbcbf69b2a6630569af5e15824cec1660a9de10b0110407aaf0dbf5"
+    },
+    {
+      "path": "tools/harness.cjs",
+      "bytes": 2660,
+      "sha256": "7d612d58341cd186ab62f79180b0109eb35c947a549feff40cd7f09c3da31c84"
+    },
+    {
+      "path": "tools/test-preserved-replays.cjs",
+      "bytes": 3630,
+      "sha256": "700b144660a34accefad0c0ae1558047500de1a5e4d415928c7c6911786228ef"
+    },
+    {
+      "path": "tools/test-preserved-structures.cjs",
+      "bytes": 11258,
+      "sha256": "0cc72897247cc389f52a41c7a1cf17bb098a8f202d1d15e68797bbdd926e10fa"
+    },
+    {
+      "path": "ui-assertion-classifications.json",
+      "bytes": 1055,
+      "sha256": "08b64ead238eab5dc9e666133c750f23a340859258c140a7e848420c6435ce3d"
+    },
+    {
+      "path": "verify.cjs",
+      "bytes": 1302,
+      "sha256": "a68510d57b4ce71859338d8a67adf119f4a464338d32b381d5e97b7024da8eed"
+    }
+  ]
+}

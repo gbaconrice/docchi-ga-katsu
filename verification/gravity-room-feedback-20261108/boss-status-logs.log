@@ -1,0 +1,47 @@
+PASS source audit: duration-bearing boss event exists only after successful status application
+PASS natural stun retains exact emitted name, actual target and one visible row
+PASS natural guard and absorbed block remain, generic claw cast/counter announcements disappear
+PASS every current status preserves its actual emitted label; failed/duplicate applications create no row
+PASS generic emission shapes stay out of diagnostic log, combat payloads still carry their exact original fields
+PASS non-collecting mechanics records each concrete outcome once without manufacturing combat events
+PASS complete natural fight physics and raw combat event bytes equal the frozen baseline
+PASS canonical replay physics, poses, effects and frames are exactly unchanged; only diagnostic log differs
+PASS existing bounded codec accepts new outcomes without fields/types/version changes, including the old reader
+PASS legacy blank boss rows remain readable raw data but never display fabricated status or empty spam
+PASS replay transport and reconnect retain concrete outcomes and canonical wallet exactly once
+PASS money, combat implementation outside diagnostic helper, status application, codec and protocol are untouched
+{
+  "sha": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "baselineSha": "1add2c381a8b16201c011a08c0661a20786c48b33a346514b6ca320b2a614cce",
+  "passed": 12,
+  "checks": [
+    "source audit: duration-bearing boss event exists only after successful status application",
+    "natural stun retains exact emitted name, actual target and one visible row",
+    "natural guard and absorbed block remain, generic claw cast/counter announcements disappear",
+    "every current status preserves its actual emitted label; failed/duplicate applications create no row",
+    "generic emission shapes stay out of diagnostic log, combat payloads still carry their exact original fields",
+    "non-collecting mechanics records each concrete outcome once without manufacturing combat events",
+    "complete natural fight physics and raw combat event bytes equal the frozen baseline",
+    "canonical replay physics, poses, effects and frames are exactly unchanged; only diagnostic log differs",
+    "existing bounded codec accepts new outcomes without fields/types/version changes, including the old reader",
+    "legacy blank boss rows remain readable raw data but never display fabricated status or empty spam",
+    "replay transport and reconnect retain concrete outcomes and canonical wallet exactly once",
+    "money, combat implementation outside diagnostic helper, status application, codec and protocol are untouched"
+  ],
+  "changes": "Existing diagnostic fields only; combat events and replay frames byte-identical",
+  "naturalStun": {
+    "row": {
+      "tick": 55,
+      "seq": 3,
+      "type": "boss_ability",
+      "source": 0,
+      "target": 1,
+      "data": {
+        "kind": "status",
+        "status": "気絶"
+      }
+    },
+    "visible": true,
+    "description": "ブルーフィストジャイアント #1 → ロックゴーレム #1：気絶を付与"
+  }
+}

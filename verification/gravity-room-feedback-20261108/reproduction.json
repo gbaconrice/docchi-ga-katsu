@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "focusedSuites": 7,
+  "preservedStructureChecks": 10,
+  "preservedReplayCases": 7,
+  "entryLoaderCases": 7,
+  "unchangedImageFiles": 573,
+  "newHomeGifFiles": 1,
+  "realGravitySDKAndPhysicalDevicesVerified": false
+}

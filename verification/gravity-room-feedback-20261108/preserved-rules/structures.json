@@ -1,0 +1,3725 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "baselineSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "checks": [
+    {
+      "name": "same script count; host layout and suppression exact; only explicit optional-avatar error guard allowed",
+      "pass": true,
+      "detail": {
+        "scripts": [
+          {
+            "attrs": " id=\"host-layout-config\"",
+            "sha256": "0b679d98d044de1154e46ca194a85a83485a2963ee80225b6fcac89771566de6"
+          },
+          {
+            "attrs": "",
+            "sha256": "8d53d8813532e8cd453319d769cbc94eb81cb7884f132db0973a1456de47bcd2"
+          },
+          {
+            "attrs": "",
+            "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf"
+          }
+        ],
+        "explicitOptionalAvatarGuardAdded": true
+      }
+    },
+    {
+      "name": "original ordered embedded assets are byte-identical plus one known GIF",
+      "pass": true,
+      "detail": {
+        "preserved": 587,
+        "added": {
+          "mime": "image/gif",
+          "sha256": "6396e0b88c27c106d73c3e7908781a7bf51313e482f4aa81ee31fc26f424c6b8"
+        },
+        "orderedOriginalPayloadHash": "0823c5fd7f5dd41b3d4adeecc446ccd148683516308f99386638fcb60ddb56d8"
+      }
+    },
+    {
+      "name": "wallet, types, generator, descendant exclusions, replay and speed modules are exact source",
+      "pass": true,
+      "detail": [
+        {
+          "name": "Money",
+          "bytes": 2082,
+          "sha256": "9ec15b72fc1e082f3b80f58a503cffba48458440b1e1336cc06a89f5935198de"
+        },
+        {
+          "name": "Wallet",
+          "bytes": 1193,
+          "sha256": "9bd9a116b6a4c2640733aeec590bbe7b46f7e3c166755ac0f5a901ae0bea1f3b"
+        },
+        {
+          "name": "SoloWallet",
+          "bytes": 1201,
+          "sha256": "d98e766fdbcd139dae862a21d2debe866cf6d394b81f4f04a4ea93401ac3e854"
+        },
+        {
+          "name": "MoneyUI",
+          "bytes": 2981,
+          "sha256": "b6eef6ecf922b13becbe81610129045e112e28b5cdef8ec421aa0330ce97352a"
+        },
+        {
+          "name": "BALANCE_COST",
+          "bytes": 123,
+          "sha256": "ee53e9315e5d3f9169bb0c4d8ff6ad0bd9326c9ae2153a55a237aa55e5b888c7"
+        },
+        {
+          "name": "TYPES",
+          "bytes": 516,
+          "sha256": "cf21a342b1cad23fcadc0044a644221e21bc93909e696188c50dcd11d9390824"
+        },
+        {
+          "name": "CONTENT_ROSTER",
+          "bytes": 20372,
+          "sha256": "6000d57cff50d59445f155ab6b9c97e3fe237d8ffeb03b9c1d4afca3d6c01283"
+        },
+        {
+          "name": "TypedGrowthGenerator",
+          "bytes": 25547,
+          "sha256": "b5c6d7414599f1a4eed002099475d4b94820a4b75ed9513dcd16dca86fe9a612"
+        },
+        {
+          "name": "MatchupHistory",
+          "bytes": 4578,
+          "sha256": "63d555f145d419e661f9657443a5c76d55339e06311bfdeda29dc3f2fae25122"
+        },
+        {
+          "name": "OpposingSpecies",
+          "bytes": 974,
+          "sha256": "dda84312720a5ba045edc864ff6662600d7a361ad6b5d7909c501bbb9cb0a391"
+        },
+        {
+          "name": "growthGenerator",
+          "bytes": 53746,
+          "sha256": "cd3ca9031563630e865c3eed9b3ba96790ca82934f4a22083fb6537841abcf56"
+        },
+        {
+          "name": "OpeningUnits",
+          "bytes": 1048,
+          "sha256": "c2de091ffcd9a0faeca560e85ba99f24121f824fcf9d2c9223a0281dae011f4b"
+        },
+        {
+          "name": "BattleFields",
+          "bytes": 3581,
+          "sha256": "92f3c9bdd4e15e2a16373f41b4c3f7e15565c1757725f5cddb1e892a093766a8"
+        },
+        {
+          "name": "ReplayClock",
+          "bytes": 2614,
+          "sha256": "9256ca5e2dbc5802834a580107d1707eb26cbeef2c70b445dd64d81a5fa167be"
+        },
+        {
+          "name": "ReplayTransfer",
+          "bytes": 3869,
+          "sha256": "3653c06525f6b164e3d45041d5459db7533915b15b16c8ee9c3e383b6989440b"
+        },
+        {
+          "name": "CompactReplay",
+          "bytes": 43876,
+          "sha256": "fd43243d3bec726b63d33fbf614ef57aa29ed48ecbfa84a0535f57f5cdf76806"
+        },
+        {
+          "name": "BattleDamageSpeed",
+          "bytes": 303,
+          "sha256": "e0dca557eeab605d2578a402f3785ef4011b42e81c0d20dc9dab95c5f03ef0ac"
+        }
+      ]
+    },
+    {
+      "name": "all exported data and nested function bodies in preserved modules are exact",
+      "pass": true,
+      "detail": {
+        "modules": 17,
+        "sha256": "967e55d30fa05af20a3b02c2177e53eef13b7235e9b89fd00dc87ce7cd898698",
+        "rosterCount": 300
+      }
+    },
+    {
+      "name": "all 300 trait display facts and raw comparison facts equal published source",
+      "pass": true,
+      "detail": {
+        "count": 300,
+        "sha256": "4add2f3e9889a13076075914ce1c51ec6d17c1107a6263ab3ded16867fea2764"
+      }
+    },
+    {
+      "name": "all top-level declarations are inventoried without silently waiving any differences",
+      "pass": true,
+      "detail": {
+        "unchanged": 827,
+        "changed": [
+          "ReactionLane",
+          "ContentProfile",
+          "MultiProtocol",
+          "SDKAdapter",
+          "BossAbilities",
+          "multiResultText",
+          "predictionPickEntries",
+          "syncPredictionPicks",
+          "enterNative",
+          "leaveMulti",
+          "showScreen",
+          "drawArmyPreviewsLegacy",
+          "predictionPreviewPlan",
+          "drawArmyPreviews",
+          "normalizeParticipantProfile",
+          "requestSoloParticipantProfile",
+          "soloParticipantEntries",
+          "syncParticipantRail",
+          "battleLogVisibleRow",
+          "BattleLog"
+        ],
+        "added": [
+          "NativeProfiles",
+          "roomEntryGeneration",
+          "roomEntryRequest",
+          "roomEntryPending",
+          "roomEntryKind",
+          "roomExitPending",
+          "receiveNativeMultiChange",
+          "nativeRoomNeedsExit",
+          "roomLobbyMembers",
+          "renderMultiRoomLobby",
+          "cancelRoomEntry",
+          "predictionPreviewLane",
+          "soloParticipantUserId",
+          "soloProfileAttempts",
+          "soloProfileNextAt",
+          "soloProfileRetryTimer",
+          "soloProfileStatus",
+          "soloProfileGeneration",
+          "nativeProfileContext",
+          "refreshNativeProfileViews",
+          "retryNativeProfileAfterResume",
+          "BATTLE_LOG_PROJECTILE_END",
+          "BATTLE_LOG_REDUNDANT"
+        ],
+        "removed": [
+          "soloGravityProfileAttempted"
+        ]
+      }
+    },
+    {
+      "name": "BossAbilities differs only in diagnostic event helper; combat and status logic exact",
+      "pass": true,
+      "detail": {
+        "unchangedModuleWithoutEventSHA256": "d58cf1c5d5c5295bc9844497cc6d797ac05b6ffcc0a8962e2fa298ced6306b04"
+      }
+    },
+    {
+      "name": "MultiProtocol differs only in normal result wait 30s to 8s",
+      "pass": true,
+      "detail": {
+        "unchangedExceptNamedTiming": true,
+        "normalResultWaitMs": 8000,
+        "postTenDecisionMs": 30000
+      }
+    },
+    {
+      "name": "every non-declaration statement is exact except reviewed lobby/profile/log presentation edits",
+      "pass": true,
+      "detail": {
+        "unchanged": 258,
+        "removed": [
+          "displayMultiState=function(){screenMultiDisplay();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if(multiSnapshot.phase==='lobby'&&(screenMode==='game'||multiSnapshot.roundId!==null))showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();if(!multiSession)lastPredictionViewKey=null;else if(multiSnapshot?.phase==='predict'){const key=JSON.stringify([multiSnapshot.sessionId,multiSnapshot.roundId]);if(key!==lastPredictionViewKey){lastPredictionViewKey=key;const scroll=document.querySelector('#comparisonScroll');if(scroll)scroll.scrollTop=0;resetCompactPredictionScroll();}}};",
+          "document.querySelector('#backHome').onclick=()=>showScreen(multiSession&&multiSnapshot?.phase!=='lobby'?'game':'home');",
+          "leaveMulti=async function(){await exitScreen();if(!multiSession)showScreen('game');};",
+          "BATTLE_LOG_CATALOG.boss_ability={s:['sourceToken'],t:['targetToken'],text:'{source}：{name}',extra:{}};"
+        ],
+        "added": [
+          "displayMultiState=function(){screenMultiDisplay();renderMultiRoomLobby();if(multiSession&&multiSnapshot&&multiSnapshot.phase!==lastScreenPhase){lastScreenPhase=multiSnapshot.phase;if(['predict','locked','battle','settle','result'].includes(multiSnapshot.phase)&&screenMode==='room')showScreen('game');if((multiSnapshot.phase==='lobby'&&(screenMode==='game'||multiSnapshot.roundId!==null))||multiSnapshot.phase==='stopped')showScreen('room');}syncFormation();drawArmyPreviews();if(state==='choose')updateUnitTraits();if(!multiSession)lastPredictionViewKey=null;else if(multiSnapshot?.phase==='predict'){const key=JSON.stringify([multiSnapshot.sessionId,multiSnapshot.roundId]);if(key!==lastPredictionViewKey){lastPredictionViewKey=key;const scroll=document.querySelector('#comparisonScroll');if(scroll)scroll.scrollTop=0;resetCompactPredictionScroll();}}};",
+          "document.querySelector('#backHome').onclick=()=>{if(!cancelRoomEntry())showScreen(multiSession&&multiSnapshot?.phase!=='lobby'?'game':'home');};",
+          "leaveMulti=async function(){await exitScreen();if(!multiSession&&!nativeRoomNeedsExit()&&!roomEntryPending&&!multiBusy){document.querySelector('#roomId').value='';multiHost=false;multiUser=null;lastScreenPhase=null;showScreen('home');}};",
+          "if(typeof globalThis.addEventListener==='function')for(const event of ['pageshow','online','docchi:host-layout-change'])globalThis.addEventListener(event,retryNativeProfileAfterResume);",
+          "if(typeof document.addEventListener==='function')document.addEventListener('visibilitychange',retryNativeProfileAfterResume);",
+          "BATTLE_LOG_CATALOG.boss_ability={s:['sourceToken'],t:['targetToken'],text:'{source} → {target}：{status}',extra:{}};"
+        ]
+      }
+    },
+    {
+      "name": "published 2600-round generation audit transfers by identical code, catalog and inputs",
+      "pass": true,
+      "detail": {
+        "method": "Transferred deterministic evidence, NOT rerun of 2600 rounds",
+        "auditSHA256": "6b3cecc81b748e3e2b2e370b8f3011706ded0e6e6fc32ad5c9e7cd9a3632ed68",
+        "runs": 130,
+        "rounds": 2600,
+        "combined": {
+          "runs": 130,
+          "rounds": 2600,
+          "coverage": 300,
+          "zero": [],
+          "under5": 20,
+          "minimum": 1,
+          "median": 19,
+          "p10": 6,
+          "p90": 34,
+          "maximum": 85,
+          "bossSelections": 1372,
+          "supportSelections": 233,
+          "totalSelections": 6142
+        },
+        "hardInvariants": {
+          "crossTeamDescendantCollisions": 0,
+          "exactPairRepeats": 0
+        },
+        "stages": [
+          {
+            "name": "frequency",
+            "rosterHash": "e4f49d95b22677995738ea44e97149969109c85efc127f5e059103ed43d2dce8",
+            "allKindCountsEqual": true
+          },
+          {
+            "name": "holdout",
+            "rosterHash": "0ec3be719e7ef9555084d6b0bd01a93a7fd02c8bb8b4c43b26bee61826b4d847",
+            "allKindCountsEqual": true
+          }
+        ]
+      }
+    }
+  ],
+  "declarations": {
+    "unchanged": [
+      {
+        "name": "BattleFields",
+        "sha256": "92f3c9bdd4e15e2a16373f41b4c3f7e15565c1757725f5cddb1e892a093766a8"
+      },
+      {
+        "name": "inlineFieldLabel",
+        "sha256": "76620305704d2e8c08e06c4d4a025150c3f5277392a66f12ff9cbcf277d44c46"
+      },
+      {
+        "name": "Money",
+        "sha256": "9ec15b72fc1e082f3b80f58a503cffba48458440b1e1336cc06a89f5935198de"
+      },
+      {
+        "name": "MoneyUI",
+        "sha256": "b6eef6ecf922b13becbe81610129045e112e28b5cdef8ec421aa0330ce97352a"
+      },
+      {
+        "name": "DoubleUpLedger",
+        "sha256": "625ddee04fc0c8ef310a2ea20a55efc9bbc0245de28000fa5df69144cd71dce5"
+      },
+      {
+        "name": "Wallet",
+        "sha256": "9bd9a116b6a4c2640733aeec590bbe7b46f7e3c166755ac0f5a901ae0bea1f3b"
+      },
+      {
+        "name": "SoloWallet",
+        "sha256": "d98e766fdbcd139dae862a21d2debe866cf6d394b81f4f04a4ea93401ac3e854"
+      },
+      {
+        "name": "LateRoundPolicy",
+        "sha256": "a1b395cc327a4b155ea1ee37371e4ad8cbe980845c836e66ed3ec98b7c9ddb69"
+      },
+      {
+        "name": "GrowthGenerator",
+        "sha256": "9066f2af1b085d4d12c75d653319459e5c3373848f9a076b6e399266a65c0122"
+      },
+      {
+        "name": "CompositionFeatures",
+        "sha256": "dcef1bb712934a961ee82bbd4096f9589808f18de9870fd30f9be0fd1a6daded"
+      },
+      {
+        "name": "GenerationCoverage",
+        "sha256": "a8ea52a4e8f5536a6d20e180a7491d0f1708f1bd817191703a5edab3aa9671b7"
+      },
+      {
+        "name": "OpposingSpecies",
+        "sha256": "dda84312720a5ba045edc864ff6662600d7a361ad6b5d7909c501bbb9cb0a391"
+      },
+      {
+        "name": "MatchupHistory",
+        "sha256": "63d555f145d419e661f9657443a5c76d55339e06311bfdeda29dc3f2fae25122"
+      },
+      {
+        "name": "TypedGrowthGenerator",
+        "sha256": "b5c6d7414599f1a4eed002099475d4b94820a4b75ed9513dcd16dca86fe9a612"
+      },
+      {
+        "name": "OpeningUnits",
+        "sha256": "c2de091ffcd9a0faeca560e85ba99f24121f824fcf9d2c9223a0281dae011f4b"
+      },
+      {
+        "name": "BattleDamageSpeed",
+        "sha256": "e0dca557eeab605d2578a402f3785ef4011b42e81c0d20dc9dab95c5f03ef0ac"
+      },
+      {
+        "name": "FixedTickJob",
+        "sha256": "041cc0255c62512f1a60595a3c0144c3d6e60d36b244e4e517ff437db9906c56"
+      },
+      {
+        "name": "compositionModel",
+        "sha256": "8c688b45f26599482ba1eaef864383749dd4dac9c1e944f6fc06d27afb4e5a5e"
+      },
+      {
+        "name": "compositionFeaturePack",
+        "sha256": "aaeecfc46246f508244df1ef28cde408b410b1944a09213d8c7552c06005a603"
+      },
+      {
+        "name": "compositionRuntimeSeal",
+        "sha256": "7606c6ad8ee2cff18040771605009c20503f6492bec6e61df3c4055c4bb1d3b8"
+      },
+      {
+        "name": "compositionEstimator",
+        "sha256": "f8cfaf73b588be959f1989667ced36b2302de4a58312dafe92ef17bb7ec29871"
+      },
+      {
+        "name": "growthGenerator",
+        "sha256": "cd3ca9031563630e865c3eed9b3ba96790ca82934f4a22083fb6537841abcf56"
+      },
+      {
+        "name": "RUN_MODE",
+        "sha256": "2a52e8869ee0f71b8aa84b827634fa9fd962db1b9fcc032e813d927779dda37d"
+      },
+      {
+        "name": "TOTAL_ROUNDS",
+        "sha256": "a3319f665d1921450c817dd40302be2cfb0b17f391985de5a7e75f1aeb1e5e11"
+      },
+      {
+        "name": "ScoreBridge",
+        "sha256": "87ac4f86120dbdf9da9302686c72f78812102bccfa239c520eb471b9148e7eb8"
+      },
+      {
+        "name": "ReplayTransfer",
+        "sha256": "3653c06525f6b164e3d45041d5459db7533915b15b16c8ee9c3e383b6989440b"
+      },
+      {
+        "name": "ReplayClock",
+        "sha256": "9256ca5e2dbc5802834a580107d1707eb26cbeef2c70b445dd64d81a5fa167be"
+      },
+      {
+        "name": "MultiBinding",
+        "sha256": "cd4328e8d53bb72160d8e997077c73c89766959a4d17a69ebc42648bc10272c1"
+      },
+      {
+        "name": "ReactionSdkBridge",
+        "sha256": "9dfe08de1a4caaffbab8da727d05fdd0e192ceaa5b848ccea36ec9ea061188d7"
+      },
+      {
+        "name": "CornerPillars",
+        "sha256": "7ab2d6b862f6fe86c6eb1075d5f0593c791530cd12038b1d9ac442b683186f3d"
+      },
+      {
+        "name": "CompactReplay",
+        "sha256": "fd43243d3bec726b63d33fbf614ef57aa29ed48ecbfa84a0535f57f5cdf76806"
+      },
+      {
+        "name": "LicensedAssets",
+        "sha256": "00293b50b63e1d31b477e139fd4b9635efa416619f380eae5323051b7fa28c7e"
+      },
+      {
+        "name": "MultiSourceAssets",
+        "sha256": "9f827c0e8c9736f429a900c0648915d88615f905f497db81f18f86a73735ac07"
+      },
+      {
+        "name": "VariableClips",
+        "sha256": "d2c83af283595d514a58ba8c4697a111e06b649347e5b6bd581045f278ea8bc3"
+      },
+      {
+        "name": "ActionPresentation",
+        "sha256": "7233b6f8c363b6086cea857b2f44ba583e50dabd2cf4d5de6cc75c6d5962376c"
+      },
+      {
+        "name": "StagedStanceHost",
+        "sha256": "39c88f58388086e3f3c3d9214eb1712f0627644611662f013d77678522a687d5"
+      },
+      {
+        "name": "BombbugPresentation",
+        "sha256": "b7eb922a50cbb3d0e8166c3494070dee8b1ba4089c2f7aab08f41a576149a8d9"
+      },
+      {
+        "name": "MultiContactClips",
+        "sha256": "7a587d12e88a64c552cc80b672a51ae0b282e41250e4e987b61df5b7796b228f"
+      },
+      {
+        "name": "LionHost",
+        "sha256": "e4f103d85f1d642d2201d78af771f0836e44b77b3c115439fefc8a123c5d420b"
+      },
+      {
+        "name": "ShockPhase",
+        "sha256": "117c9f1bd0bacabf108c1075417ad53e7a2ffe00d6fee6b8657aaa8d732c74f6"
+      },
+      {
+        "name": "ShockHost",
+        "sha256": "e951b695e7a8036f4d4748cae33df87b17b5cdec59729fd7df86a3e4bd0be64f"
+      },
+      {
+        "name": "ComboPresentation",
+        "sha256": "2618adffa49ca3ef018a344d11dbf99f87d1bcb82c9994d6b500e1e1b4681cee"
+      },
+      {
+        "name": "FixedStageComboPresentation",
+        "sha256": "df95df392ef415bfc1159819f8918fbbd8af9b6e91ff9ff61f7c438cc2faa212"
+      },
+      {
+        "name": "CleavePresentation",
+        "sha256": "543c1d06ede7c0178b73aad563103a8b549c1a758d5e962aebe83de2f6fb9ee2"
+      },
+      {
+        "name": "WingHost",
+        "sha256": "6143e25ab704084eecfee792435b1e2d0ef2918e31225b9b6e1d784e4e4947c9"
+      },
+      {
+        "name": "Wave4Phase",
+        "sha256": "146f2e4e3bae87eb81df00acacae51dbf22b63ec67cba75552571f3a9d7b8e12"
+      },
+      {
+        "name": "Wave4Host",
+        "sha256": "9d0013f23e62682b7f4549536400e77d8b792824d92d7b53b6909b36b7de8a04"
+      },
+      {
+        "name": "DefenseHost",
+        "sha256": "e70941d12cf27a2272af2f7fd975960e7af5825105c876666c752572faf70f4e"
+      },
+      {
+        "name": "GuidedFlight",
+        "sha256": "67aa7768b6817323afe6297d88d82296da6e7396c8b682f664d94098af422caa"
+      },
+      {
+        "name": "HighHost",
+        "sha256": "99052b97b6bceb77d965b92205abb5e9539c823da590ff226e7b15ef51d70836"
+      },
+      {
+        "name": "BookHost",
+        "sha256": "adeb6056ab6a2942072e0444fcc5b287eed48b4c7cb5530d1e6e5386092a4d26"
+      },
+      {
+        "name": "After75Host",
+        "sha256": "7d91b7a2841f61f383a549b0ddf8509314e272a3a0ca4397300bffa77b6ec2ef"
+      },
+      {
+        "name": "TYPES",
+        "sha256": "cf21a342b1cad23fcadc0044a644221e21bc93909e696188c50dcd11d9390824"
+      },
+      {
+        "name": "BOSS_TUNING",
+        "sha256": "1d69db8ccba50e2eef93672ac602d227a8faad38e6596cb8c2baa54f99be3c1c"
+      },
+      {
+        "name": "BOSS_KINDS",
+        "sha256": "e34a3c420c082f658b38f66a86c61c9d7b7ca67015bcc6df792bb55ea734b787"
+      },
+      {
+        "name": "pendingSummons",
+        "sha256": "9cc223ecd0df17b117f70fef956cc7be9fc17487e6b9d6081a13b975f7d69393"
+      },
+      {
+        "name": "combatEvents",
+        "sha256": "b4250f2ef473497089df7fcdb4ace295c83e391363698363d886190f135bd577"
+      },
+      {
+        "name": "DISPLAY_NAMES_KANA",
+        "sha256": "859d17eaf8d4e839e84a69d6ae362398029bd7e89160fb172e05cbcbe362c689"
+      },
+      {
+        "name": "CONTENT_ROSTER",
+        "sha256": "6000d57cff50d59445f155ab6b9c97e3fe237d8ffeb03b9c1d4afca3d6c01283"
+      },
+      {
+        "name": "keys",
+        "sha256": "15635a8c04c020c4854f2bbf6329e1b73d53da63e31088a743f131702ac31182"
+      },
+      {
+        "name": "canvas",
+        "sha256": "767bddbcef11b6d6d8df2289f6d2528308c6c2b76994f47a091549b67972b0dc"
+      },
+      {
+        "name": "ctx",
+        "sha256": "c2bcc2db34ae2415d2b4a9219af0c6a9385e5b4db294322acaa8611474def652"
+      },
+      {
+        "name": "paused",
+        "sha256": "4c490d4a732c3d5417337ef70d5bba726bd58026319dd48f8c815c690f3b6c5d"
+      },
+      {
+        "name": "round",
+        "sha256": "40bb63f4c4d6d790d79ed6dd0249d372280db69b5c0a0cf73f1e017f4be38a30"
+      },
+      {
+        "name": "mistakes",
+        "sha256": "1571cc641c8e4bd4e1352457da1c7ed69b5afaa482ab86f5427b987c01b22944"
+      },
+      {
+        "name": "correct",
+        "sha256": "381e115494716ce0bcf3cd71142f2681c2bcbcfbd736edbd74b59b74a967cef0"
+      },
+      {
+        "name": "state",
+        "sha256": "d39bfb3c9645a9dc2b65da83b7203bdc96997cc9f7f5be495b3efd4e64326c51"
+      },
+      {
+        "name": "choice",
+        "sha256": "319ab7480226d3c3add1cac99c63690e8910698b64ad50ba8fb2068db06c2fa6"
+      },
+      {
+        "name": "seed",
+        "sha256": "f801b631ddebe1d4f047159c8c9b1b7d3f8904ee830f8ac5776dffb0c945bef3"
+      },
+      {
+        "name": "units",
+        "sha256": "b82b1d7beea3bbbed70006709e104c17a8889b407bae7bc4a86cca45215a7a7d"
+      },
+      {
+        "name": "shots",
+        "sha256": "741e6b7ef017b627dc1a8be34909554ef79efed44f0f17fc336f91679bde5764"
+      },
+      {
+        "name": "elapsed",
+        "sha256": "c5b273a13544d1e3528e33645f21cef7cd2dcbe6e8cdf77be66513458af5edd9"
+      },
+      {
+        "name": "last",
+        "sha256": "47b7cf55f199474e5d4fe17a38b2f95ee8ca28415f45d2e6e79e0a0dbb6ab0e0"
+      },
+      {
+        "name": "acc",
+        "sha256": "5c5f5b8153fdaf253521a783f06f3cafda7c8003c06029d9abccbe407f190dc6"
+      },
+      {
+        "name": "frame",
+        "sha256": "d203e48ab70173cdcbfcb5894de30bb2ccf23cc43509989572f06022850f241e"
+      },
+      {
+        "name": "winner",
+        "sha256": "7d8b406aecdbd6f07ec2089c185ac36a509ef5104915f5dbc2fdf7a919d0f0f5"
+      },
+      {
+        "name": "BOSS_SHORT_COPY",
+        "sha256": "1143373010249ca4cb2071e27dcf01f16b9aa0a0c785d7ec64b158ed1dbcae20"
+      },
+      {
+        "name": "rng",
+        "sha256": "64f398774ceddbf6c75946fbbe99f4691b53ce80a977ca3338484f194ccd18c6"
+      },
+      {
+        "name": "budgets",
+        "sha256": "855a6432edb0caf311de4f956831c8024a74faec53886e6f8dcbeb2216a4d5d2"
+      },
+      {
+        "name": "COST",
+        "sha256": "399ccbddb65a7950f3d6bcd87936a3a4282f6f6eef267bf4e651a1b2cf9396f9"
+      },
+      {
+        "name": "generateEarlyArmies",
+        "sha256": "91d5adcca37ea13cc0ef52b2b2f6123eb4661d03cac9451b319a8087f5cd80a3"
+      },
+      {
+        "name": "previousArmyKinds",
+        "sha256": "7a30369f6ad30cd41665b5763b6d4b052e51ef6aa6df3cc9f04e77f4e6be68b1"
+      },
+      {
+        "name": "pendingCarryKinds",
+        "sha256": "4a701f40d7666c010e536da94af480dcba4397a88f230ee654c3d3382c926328"
+      },
+      {
+        "name": "pendingCarryOutcome",
+        "sha256": "dda5c1c284e4e307db0b5336ca87d83a6742411c47b5f9c4e172ae682b1ec62a"
+      },
+      {
+        "name": "initialKinds",
+        "sha256": "06c7758cd066903011de0334264db052aa9134434066a5385b0fb64891aeb7d6"
+      },
+      {
+        "name": "initialUnits",
+        "sha256": "0f224a5b4c25c8f657f815f76a79c156ea835144a9bdd86ce967ea0b4a45f8d5"
+      },
+      {
+        "name": "carryStreak",
+        "sha256": "5c7284e0a8273afbe68b22a42c9e94c16722e90ec4360f1a1fbd1f067dd3465b"
+      },
+      {
+        "name": "leftArmyCost",
+        "sha256": "0ee8dc6fa36cbdd040dd065ff8b3427c8973ceaf129b4819f17366b66d31344c"
+      },
+      {
+        "name": "progressRound",
+        "sha256": "2d4444bac1bb404439bdb3632a134bf897aac7bf2acb78f062122a382a71b59c"
+      },
+      {
+        "name": "BALANCE_COST",
+        "sha256": "ee53e9315e5d3f9169bb0c4d8ff6ad0bd9326c9ae2153a55a237aa55e5b888c7"
+      },
+      {
+        "name": "leftArmyCount",
+        "sha256": "1d10dff4e9d8302402241e879896d039c0e6285be52f51863bff94a9e997ca10"
+      },
+      {
+        "name": "makeArmy",
+        "sha256": "290574343953512677957fffe1fa8444ae4fd8d125fd59edc687421b438127c8"
+      },
+      {
+        "name": "layoutOpeningArmy",
+        "sha256": "c7de40206e103f52fec2f037d4abb88c1d31778ae0c488cb65fbae7df577420d"
+      },
+      {
+        "name": "openingPlan",
+        "sha256": "a1c10f9a9ba674d6be6ee193d77d43ddc83959cb8152eeecca574367924e5f8c"
+      },
+      {
+        "name": "soloMatchupHistory",
+        "sha256": "498294ff19c8b861aae6462a6df4bfde27454144c5230ce73a8bd3279d42b0c6"
+      },
+      {
+        "name": "prepareOpening",
+        "sha256": "3e46254f79f52bfc5080d62c0d0aa224ec8242dedde3be7879309472ea777e7d"
+      },
+      {
+        "name": "exposureActive",
+        "sha256": "db213897f3b659351376d3b1bdb1281e63fab3e378aa1737931a6da8a8c3fe93"
+      },
+      {
+        "name": "clearExposure",
+        "sha256": "3ccf4180b157843a5766747dcf0528a898033029c2af63fb2994339da871bf5f"
+      },
+      {
+        "name": "revivalRootToken",
+        "sha256": "82be6fa3b3194e73346c39a960b946b8b677a782a375124064dfad44243dca1f"
+      },
+      {
+        "name": "revivalEligible",
+        "sha256": "135f227898d30d71fd746c2d30ac3994a51084ae708b52f6fde25176661135ed"
+      },
+      {
+        "name": "revivalPosition",
+        "sha256": "5664f778da60891a0f84e5cf4de57a4648ee90cd5c5480f6d9763d812dea0f1c"
+      },
+      {
+        "name": "revivalLife",
+        "sha256": "5c8e7495820e3a447d366d3f262162713429a0ea58ade52e72128c4aa6d57109"
+      },
+      {
+        "name": "BattleInsights",
+        "sha256": "a449cf3dc48ae983c13c1e5d626ab15c6f789edfb48ff18daa623fee65c3675d"
+      },
+      {
+        "name": "setup",
+        "sha256": "2aa3eff6ede6ebf2a5ae0fca94e9fe34d16b707a7917302abdd19abb9e489cf5"
+      },
+      {
+        "name": "update",
+        "sha256": "973ddc83a3e05275e335fd297f8a8b8cd13fff65abe23e889c98ab4f6e53de9a"
+      },
+      {
+        "name": "comboStageCount",
+        "sha256": "35f0188bd72473d319a3d35864e6f50fd736823f008f1195f570c5771e999d56"
+      },
+      {
+        "name": "comboStagesValid",
+        "sha256": "47a4197a2fbb77720a87bbed05bff0eb12ed57e8184bfe255c6e5b8fe04fae9a"
+      },
+      {
+        "name": "CASTER_SUPPORT_KINDS",
+        "sha256": "3955dade09ef5f5db757d3a144f9b532fb6094dc689ae8059656df4377332ff3"
+      },
+      {
+        "name": "CREATED_TEAM_CAP",
+        "sha256": "fa456ee65c72276b6d7f294e5ebc5b89c68fbb7dd6b276959cb00028d1cdd1c9"
+      },
+      {
+        "name": "CREATED_TOTAL_CAP",
+        "sha256": "8099126efb2799de25719f5e121acbd1430a4b15f5d8d7262f7bbba04df787e6"
+      },
+      {
+        "name": "TEAM_CAP",
+        "sha256": "0cabf1c633bf45631fb03317c8ca9070cb14befd4df94c8538f26e8e56c644f2"
+      },
+      {
+        "name": "GRID_SIZE",
+        "sha256": "4970a9ae8f4f10708f22a1d98b1c5bdec6ce4ec0cf2f1359023dfd5b43635142"
+      },
+      {
+        "name": "FIELD",
+        "sha256": "ad35bf985c3ff623270925e513e678ae600f9dd404611738bb262ff44c183fd0"
+      },
+      {
+        "name": "MAX_RADIUS",
+        "sha256": "cca04daba27d3623651735c408419043f9f7a2267c770f3fa18c934705e0f7ba"
+      },
+      {
+        "name": "stableOrder",
+        "sha256": "7959da2ff92cd49271eb5772f2f3b19ba0ff773436df74d5e7bbd1c293f8aa07"
+      },
+      {
+        "name": "tokenOf",
+        "sha256": "4c77985a316762cb129a61e6e41a1eb9a1cc87e0969ed7c8ff4a49c69cb8e15b"
+      },
+      {
+        "name": "layerOf",
+        "sha256": "c9d6af51a60c9b244a34a7f1d2ecc8837620e06e12fe0efaf96443b82f7cb2fd"
+      },
+      {
+        "name": "canCollide",
+        "sha256": "5ff6742cb7379d4d4ede629c6250596cdca3ca3ea10f3fb2c2c20a3c1b5fe497"
+      },
+      {
+        "name": "canTarget",
+        "sha256": "1df7a67c6de20672dda9bdf5b5180c5414e26a28de3fe127a0255ae221de7b8a"
+      },
+      {
+        "name": "radiusOf",
+        "sha256": "c8f3e26956e0c00de85da1f90841fbbdab29b7a17b8c383881821a0bfddcb47e"
+      },
+      {
+        "name": "coneFacing",
+        "sha256": "823ff9a369ade0c4d0a19d372798e5aca544d309f1af3ae52d33e5be29da5dcd"
+      },
+      {
+        "name": "coneContains",
+        "sha256": "e417609efab2005f8c41b5245890522850e55e5d22d2b40882916cfef8f46e65"
+      },
+      {
+        "name": "highContains",
+        "sha256": "29b42ceee582e41ee3c5cd3078536fd4481fd1facb4b05194578bd049edcc85e"
+      },
+      {
+        "name": "touchContains",
+        "sha256": "b41756c0459dde6a7f6567da4e40666e68dbd81f111edc345cb53566f16a70d1"
+      },
+      {
+        "name": "studyBusyFields",
+        "sha256": "5a66385e0ac31e21824319675a4e1edcd8b5279887ed8d152ad6af4b0e3321bc"
+      },
+      {
+        "name": "studyBusy",
+        "sha256": "6912ccfdd30118ef4a88dcb35eabe14e013b463b27e671a48751afa033337305"
+      },
+      {
+        "name": "studyClearSegment",
+        "sha256": "9b03cb2b006dcf612e489e01609ae3d4122f0a50d08bd0d3c07050d3de3036fe"
+      },
+      {
+        "name": "studySegmentDistance",
+        "sha256": "a6b186daa630ec86b22a93d8137cd06dab82199f9f8ac0b7443bec6ed84ae02c"
+      },
+      {
+        "name": "studyThreatClear",
+        "sha256": "d976e554e81ce29273fb0dd00f0edbbf315e0400a6fb3f958ec1ae7b10be6e32"
+      },
+      {
+        "name": "studySimultaneousClear",
+        "sha256": "b51acbb8801b158457ca52f7368fafb1e997d9f1868b71a86949cbecc819524f"
+      },
+      {
+        "name": "studyFreeSameSide",
+        "sha256": "a4e66cc3ee7d55f2d16c9ddeb294cd790f861940d5060f2f0a9dbe19e7e1977b"
+      },
+      {
+        "name": "STUDY_SEARCH_INTERVAL_TICKS",
+        "sha256": "7dab82bfb4dd14963b1148abdc1b6ea87b9724b537ee74fd2ae3259e741514ef"
+      },
+      {
+        "name": "STUDY_SEARCHES_PER_TICK",
+        "sha256": "f947101bc95125feba01da07d7e98997e94895276ea22ac2303f6cf4d5d1ce2c"
+      },
+      {
+        "name": "studySearchCandidates",
+        "sha256": "15e6c95d36315187dab56ced022c77af6919014bd5fe3e4df782d8efb8162bd1"
+      },
+      {
+        "name": "pillarZone",
+        "sha256": "1d2c64b2341c7b21d76fa0922965dc54fbffe6479679bb33c0e5dc160856aa38"
+      },
+      {
+        "name": "pillarContains",
+        "sha256": "d02e6f40a25ccb4a7c7a5a23806cf18b80701696eb898d7e1a088136efb7a85c"
+      },
+      {
+        "name": "cornerStudyObserve",
+        "sha256": "605ade802c7bfe45422bf2070bf3a944f8cc882abc9d301a88f7b51187752f22"
+      },
+      {
+        "name": "cornerStudyReady",
+        "sha256": "a3852c370b5ea60c7782c39b5bc59b7a5c32185845bb64a65bb87b04ab6b0842"
+      },
+      {
+        "name": "cornerStrikeZone",
+        "sha256": "e3dfa4d778c0ac042a792e58316d945cf08905471e7b162cc315b7e530ed0de1"
+      },
+      {
+        "name": "cornerStrikeContains",
+        "sha256": "6dba5f8d77d39795b8a9b3799a1a97f1414e0c083b5e622fb2144fd16f676ad6"
+      },
+      {
+        "name": "comboStageAt",
+        "sha256": "04e587053baf28ead8c2bfffd9fc68e2dbccd971cfd2b21903cbde819299ecdb"
+      },
+      {
+        "name": "comboStageContains",
+        "sha256": "9b602e6456e1c9d1c52736b38ccc2877df5862355b8508544e4cac743de88f00"
+      },
+      {
+        "name": "massOf",
+        "sha256": "a0a8e472b0b4517946a2e9802c631ee9d9f5082913af1e675ae9d7590296be48"
+      },
+      {
+        "name": "nearbyGrid",
+        "sha256": "fdda7ba2bc5552b9c86b82e90c2488aeb11997e105645a8fd8236503b91995ff"
+      },
+      {
+        "name": "snapPosition",
+        "sha256": "6c82a0dcee1087394d42f7e69d1694da8c73ab787a61bd9e4132a54c9f4c07e2"
+      },
+      {
+        "name": "snapXPosition",
+        "sha256": "635e298fb90ac5ccc0b0cd300fceda1522c7917c128cbac9aaae1cbba70e480b"
+      },
+      {
+        "name": "resolveBodies",
+        "sha256": "6991c28ac259209353ce09d495e12eb21a97554c4631491ba84bc2efb47c2648"
+      },
+      {
+        "name": "hashString",
+        "sha256": "4595ecba3ccba3551584eebf102154e4cd05635287eae4e29d7f456d11d7fdc2"
+      },
+      {
+        "name": "spawnPosition",
+        "sha256": "9f6323de06b6835aea9dca31e6b0a6ca38aaf2532049ec87b4d673233975c1ca"
+      },
+      {
+        "name": "combatEventSinkAvailable",
+        "sha256": "f4ec2b50daf67e55cdb913d4885c2c04fa6b13da70583a43f18c026510a8607b"
+      },
+      {
+        "name": "publishCombatEvent",
+        "sha256": "8d781422f0f1e61c05f6ba8cfc3edf5b7f767cf4339e7cfd7e117a8d740cc15e"
+      },
+      {
+        "name": "observeBattleLogExtra",
+        "sha256": "950bbd250648a59d6ad062c3825cb6f4f12db8e881fa1a1f9a316c407bbbb5be"
+      },
+      {
+        "name": "battleLogEntityToken",
+        "sha256": "b161fadcc6a8c6c3d3048497ac21176c1836ead1a3f06270c9037b7ac2c88e67"
+      },
+      {
+        "name": "settleBattleLogHp",
+        "sha256": "61b9075cfef97aff90090a833c3b6972ed35e0f38044b3fe8b49b91c47eb4483"
+      },
+      {
+        "name": "step",
+        "sha256": "21cb9753b6767e60eb49f198304f1612444e91ca35032810f6cf6b23fe5e81e0"
+      },
+      {
+        "name": "damage",
+        "sha256": "2fb546b54a48c3fc31fb9495105c82a7a3fea89462489a19720210c05810ffc9"
+      },
+      {
+        "name": "drawOrderCache",
+        "sha256": "690f2b145d8933859009d7dc104b8e47643273f78ee22218a2d200cd346381da"
+      },
+      {
+        "name": "presentationLayer",
+        "sha256": "7fc2d31321fd7b6550fd9bafbdbac901a5cf79a11bb49d200a767c8f52e706cc"
+      },
+      {
+        "name": "presentationOrder",
+        "sha256": "c328417f952af86b4141cfc26fe255e9f46a1e66178c8fd382af77b63f9ac4ba"
+      },
+      {
+        "name": "orderedDrawUnits",
+        "sha256": "5873826b8892ef70e3bfa61fb87eb30c98fa172c1058df412c8043779e4ead64"
+      },
+      {
+        "name": "TEAM_COLORS",
+        "sha256": "be9d4d60a88b7e294b48f8a5707dd3b1dacc615e34c9833cf9e865d0a70a7acb"
+      },
+      {
+        "name": "TEAM_HP_BAR_FILL",
+        "sha256": "e1944b66bc08561006b92aa82043f797dbc13453ceeb334088acab4c1738de18"
+      },
+      {
+        "name": "TEAM_HP_BAR_TRACK",
+        "sha256": "fc3573629d92a97526e13cf9555cdf664d756bc5e6b806a2e80ca00fd91abb5b"
+      },
+      {
+        "name": "TEAM_HP_BAR_OUTLINE",
+        "sha256": "b087347dc5a2a59b55af133f78616afabbf62e92e486fea065401700480d2775"
+      },
+      {
+        "name": "drawSideHPBar",
+        "sha256": "e1f90017e98941270de1940327ffd990bc4581d89e348ba8cf55883c9d9e8195"
+      },
+      {
+        "name": "crowdMaskCache",
+        "sha256": "877e48ea9cd47611bd9400228e3d689f380df344b3f541922de90e94c284201c"
+      },
+      {
+        "name": "crowdMaskPixels",
+        "sha256": "a6a45c42f1c64a248876b457eaae25870d89b25a1b373b9ab930a47671ab5a13"
+      },
+      {
+        "name": "crowdImageSerial",
+        "sha256": "cf1eee4301eb06d456890fed2e35f15519342a852b554ee95fde259a14e22d56"
+      },
+      {
+        "name": "crowdImageIds",
+        "sha256": "9ba6100914d14af9da4ac5c5d0ca3296812488eecd09db36cdf7fdf3d2784f8b"
+      },
+      {
+        "name": "crowdFrame",
+        "sha256": "e6faf8588e3212a96542442198498fc49d62c22111dfc8547bac22dd62073b69"
+      },
+      {
+        "name": "crowdFocusKey",
+        "sha256": "96eb19f4d58e50d7dc18f2b11336623fc2a5f9d7e60c8b13d47a8b263c0dc874"
+      },
+      {
+        "name": "crowdFocusedEntry",
+        "sha256": "597239df899901cd2c714a932c06a3b773b4cffa23eabf37ea4b4140f8fbe226"
+      },
+      {
+        "name": "crowdCandidateKeys",
+        "sha256": "26db10df1536149a5c1f6a2969e792680f8f88d9f26cf319fb19364639805263"
+      },
+      {
+        "name": "crowdChoiceMode",
+        "sha256": "e4ebba383134f39afd98a86ded231304293c1a1c417bdc83afbb4f55e33e5259"
+      },
+      {
+        "name": "crowdSelectionNotice",
+        "sha256": "e95a4fb3925538afc6fe302de2abc501da1ff03dd836b85fe2bfb2493ea6550c"
+      },
+      {
+        "name": "crowdTap",
+        "sha256": "fbeeb75c4ccf50deabf68897b6ad39cb4b1fb885e3bd78b1986d3b7102e3c510"
+      },
+      {
+        "name": "crowdLive",
+        "sha256": "741d4bbac12ea03a6dae4b8c172df9a953aa8796f78374e505b05c7caf716663"
+      },
+      {
+        "name": "crowdKey",
+        "sha256": "eb79adada822e46a991e57c84322dadc8480d2c0e82fbe46ffa8777bc1ee270c"
+      },
+      {
+        "name": "LARGE_BODY_PRESENTATION",
+        "sha256": "58aee096dfe7ed273dbc59e4b275f87d9067c7a7d69324c23b0055995e05d15e"
+      },
+      {
+        "name": "largeBodyScale",
+        "sha256": "c0e5e803c8bc8de353632b1322f500fbbd0421a8cff23aba430901051523ba35"
+      },
+      {
+        "name": "largeBodyInsets",
+        "sha256": "94f70b0e678ef62608bb9f13a53bcc6d43699c655af94cf687084e4e96dd3e8e"
+      },
+      {
+        "name": "crowdHPAnchor",
+        "sha256": "78ab6feb1b1c187c1a3ff1a75478757fcd451c002ef1e4c861641b35ad3fcfee"
+      },
+      {
+        "name": "crowdIntersects",
+        "sha256": "757cad6012f8f1bad031d7d07f0ec7f97595e976e226467fe66f4cca19db458d"
+      },
+      {
+        "name": "setCrowdFocus",
+        "sha256": "7eb5baa2de04f00a5924f16443726fa8c4dbb8d75e94b9a424cd9fd059ab074f"
+      },
+      {
+        "name": "prepareCrowdPresentation",
+        "sha256": "0236ca66ed3051a661bfd551d92a0afda6de51772268ba93e76cb82f964f36fa"
+      },
+      {
+        "name": "resetCrowdPresentation",
+        "sha256": "59f95ac53c0e6410b5a11c8481ba61915cfb31333ef055f276ffdc5befa96d54"
+      },
+      {
+        "name": "crowdSilhouetteMask",
+        "sha256": "80031b206b8882cb128e2e7ede8cdb16a7208517dbec7b171c9dccb4442558db"
+      },
+      {
+        "name": "drawCrowdSpriteOutline",
+        "sha256": "9e37f8623ee35aafc1a71c62282bf5cbfc02d5abc697283c69d421ca5ca163f9"
+      },
+      {
+        "name": "drawCrowdHP",
+        "sha256": "214ba230966a85a139e88d323f6cbc40855f817cdbf11f85e90b9089b7d6df3e"
+      },
+      {
+        "name": "crowdFocusDetails",
+        "sha256": "de8ff51deae7feb33a409ae06b2db9906b486a7761293a579e86f6798e0fc906"
+      },
+      {
+        "name": "drawCrowdFocusedHP",
+        "sha256": "4ab2d93fee0f923a13e2d785cd418a71cc6ffd65d2fc4b25d27d581741fd14fa"
+      },
+      {
+        "name": "drawVisibleHP",
+        "sha256": "3aa97c97963a2dae2ff89bc5c6b347f460d186113e1635a4e8155d06e3481728"
+      },
+      {
+        "name": "fieldDrawPass",
+        "sha256": "59316f328510f48db6824fef20ab0b1f51dfba0e714bf8c14548aa2f13d83293"
+      },
+      {
+        "name": "ARENA_FLOOR_ONLY_ASSET",
+        "sha256": "650116864f0c19eebc84090ea94b2b6d563cc34186ed74b772d97cc6817658f0"
+      },
+      {
+        "name": "FIELD_FLOORS",
+        "sha256": "18a49ff288824745a1d1fa1d32e59371e9b332290566163118aa342d972ada08"
+      },
+      {
+        "name": "FIELD_BORDER",
+        "sha256": "e93be95a617bd9e202b960dfd1f92cc7f5c1de30a76983b5e1e27909153ea47e"
+      },
+      {
+        "name": "createFieldFloorCache",
+        "sha256": "6366d50dc5f61332aacb06db8238e09295a291289d2116e554e49f56fe7ba878"
+      },
+      {
+        "name": "battleEnvironment",
+        "sha256": "00b95413c2fa8b3368cd4ee01e9fdf3de5f6d370ca807bb1126b1f6d36118cc9"
+      },
+      {
+        "name": "arenaFloorImage",
+        "sha256": "b0d5fd6c0cb92e54df801c82b9ba0388daa2c607e16f4c126960e1880ceb0c31"
+      },
+      {
+        "name": "fieldBorderImage",
+        "sha256": "3239d1a5951b4cfb3208b751348ac4a7db3c26a40127ccffdae079bf7c324c9b"
+      },
+      {
+        "name": "fieldBorderReady",
+        "sha256": "42a8f16e0102fa2a20196b960cc42f4955f922440b717efd596575cf3929d43f"
+      },
+      {
+        "name": "fieldFloorCache",
+        "sha256": "da46d0b755692e387a6276f9cff690807e6af492d8e14d978e21a3f6ea16b579"
+      },
+      {
+        "name": "syncArenaField",
+        "sha256": "caec04d5063dd174cd7e8436adce5d945dd15689326319c5b0c3f113264a7e44"
+      },
+      {
+        "name": "drawArenaFloorBase",
+        "sha256": "dbbc686852198eaed33506274d5c7b209b9b0bda4a9a5a7d4c5af13af42184f1"
+      },
+      {
+        "name": "drawArenaFrameOnly",
+        "sha256": "1ba1a8077ad5b6b1623bc43561cb907ace91bfae5b23bda22a025c628c7a4a06"
+      },
+      {
+        "name": "drawArenaFloor",
+        "sha256": "94ab574072f545fcc43f84df72433e236f0300ec899f55912478a5b6754d4a5e"
+      },
+      {
+        "name": "drawBossScene",
+        "sha256": "1d1848aac7979ead80390d37c2681ec51154cea7098b52d644246eccff1ca266"
+      },
+      {
+        "name": "SPRITE_ROWS",
+        "sha256": "300c4500cc5ca46ffa3f4d5175eca001ac26a59e4ab5d30f818ad0e99a1e376f"
+      },
+      {
+        "name": "EXPANSION_ROLES",
+        "sha256": "769e848639c9db17864229e8f113980e252f4d72b80c1a72b6717a0ef2a0dfa2"
+      },
+      {
+        "name": "SPRITE_ASSETS",
+        "sha256": "bac7af410bbc980d508136e1e13e5eabc547636a018fab27c46093f91eab6cf9"
+      },
+      {
+        "name": "MONSTER_META",
+        "sha256": "9e8551a60a517ba74c42fe500ddbc740e765f007a47a9b79ac354938021a76ea"
+      },
+      {
+        "name": "GUIDED_FLIGHT_CONTRACT",
+        "sha256": "8f6076abbe6126cff99908178d8211447dcf46fcf6b8ea33db1b272f14f7aa81"
+      },
+      {
+        "name": "MULTISOURCE_CLIP_IMAGE_MAP",
+        "sha256": "a654fe5a48758caf2e69644906dcfe3347d226db642535e72587e83892104a80"
+      },
+      {
+        "name": "MULTISOURCE_IMAGE_CATALOG",
+        "sha256": "fcddcf444efdc5382a69fe5f245d012595f46619753820c9a3e6245fc42a960e"
+      },
+      {
+        "name": "MULTISOURCE_ROLE_IMAGES",
+        "sha256": "3b12b2c7c8baa8ab5546b3dd963ad87e26fb28f5469cecad578426fe2c75582c"
+      },
+      {
+        "name": "LICENSED_CLIP_SPECS",
+        "sha256": "f8c9b3badbca2939d2e1b882292cbf9f2ba89e32ba968394ff2ad1ca2990ac69"
+      },
+      {
+        "name": "LICENSED_CLIP_REGISTRIES",
+        "sha256": "993b3bf4d503aa7bf54c0ade9b0a5c16ca3ded83c9cccfe92c4fc806d3248636"
+      },
+      {
+        "name": "SHIELD_CLIP_REGISTRY",
+        "sha256": "cd01c2f836b47fa7d38c0017f87803d160a0e930953317761e0ea889649d4025"
+      },
+      {
+        "name": "LION_CLIP_TIMELINE",
+        "sha256": "1ff357ce3b3d2e46620af17edd2b66ff331a8879851b13306772717627993644"
+      },
+      {
+        "name": "lionEpochCounter",
+        "sha256": "17558b8bd2d40d7441203c4bd1c8c64576f3994c70aece626aebf7aab305e933"
+      },
+      {
+        "name": "lionEpoch",
+        "sha256": "f943d8e7fa134a116b89b87b1136a6f6f3f9cf9a5907c2a6561b49fdeca1628c"
+      },
+      {
+        "name": "lionHost",
+        "sha256": "d1b2a058526b4b215b6dff96b3a8ccf92db5ff82024abfbb0ceaa0b92069e1b4"
+      },
+      {
+        "name": "resetLionPresentation",
+        "sha256": "c20d501c6861fd33f1f8de78ce673ec69bd4830282e8f64c6bfa5bcbddc0b707"
+      },
+      {
+        "name": "shockRegistry",
+        "sha256": "1877b0c2d3730678e8a58b3d6a2015edde47e297aa8f35166ca58eb175ab0152"
+      },
+      {
+        "name": "shockEpochCounter",
+        "sha256": "97350ab477e5aa25b5f815eab5653ea14a449ac40fd98dd47c8a2a34dfe8f9a1"
+      },
+      {
+        "name": "shockEpoch",
+        "sha256": "a6ec680fe757d100de4aa5ce14b0df8ee6af30c006516ed7f48d7350d8ad81fb"
+      },
+      {
+        "name": "shockHost",
+        "sha256": "a5fcc058f268d244de7100191d21caf71f312f4b9a0b3a4b3faf0ba359dfd02d"
+      },
+      {
+        "name": "resetShockPresentation",
+        "sha256": "717dcbb62b76419bb555f20712c68e6faedf8132f251c249d1b921bb8ba23b82"
+      },
+      {
+        "name": "consumeShockPresentation",
+        "sha256": "e0bb05687c7f93edd056772ad69e36cbb791271ca6acdc0df5326748df3b88c7"
+      },
+      {
+        "name": "shockSample",
+        "sha256": "067bce1cb3aab627b467bbd9662e6af99514323fabcaf9eca858da5ee732582b"
+      },
+      {
+        "name": "shockActionFrame",
+        "sha256": "93dab0b0404dc7f9a699b448635106c1c0e71e6f00dbd19960dcc1877207b4c3"
+      },
+      {
+        "name": "shockPresentationFrame",
+        "sha256": "6df400204a1b5d16ca878643bf2676cf3c501ed0032f2f2da96025a5443b24aa"
+      },
+      {
+        "name": "comboRegistries",
+        "sha256": "31ef4371516554505d6970af1ab8a213d88e077a865e28273608bffdb9ae6f3d"
+      },
+      {
+        "name": "comboEpochCounter",
+        "sha256": "baa24b195dd2178c2e0a3dd9136292c243194b4cea8a3190453104093357ef55"
+      },
+      {
+        "name": "comboEpoch",
+        "sha256": "8560d6c29be43031c5de7497aef0b7fce237d26caca1819b5461a69128584603"
+      },
+      {
+        "name": "comboHosts",
+        "sha256": "a0a919ca375871be992300f87dbf0f69946199ad949ed6a0fe8cf17f16bf89d0"
+      },
+      {
+        "name": "comboHost",
+        "sha256": "a742c81498f92abbb9d60d8f76e69e0abd0f20f1c98d146ab5b2ffd5b0099704"
+      },
+      {
+        "name": "resetComboPresentation",
+        "sha256": "a3a08c061bfc7ed88b53863c0ca3e65e06b94234dfe2aa3b2949d58a7f4587b9"
+      },
+      {
+        "name": "consumeComboPresentation",
+        "sha256": "8cbe0d0d698564deda3cb4769291b10eb659d52866745a1e7f59cfce1c715791"
+      },
+      {
+        "name": "comboSample",
+        "sha256": "174acdb3d67bf70f6220d182bdd5f7c094d7c25345a54478fda47892ed0af6c3"
+      },
+      {
+        "name": "comboActionFrame",
+        "sha256": "bcf433fa718297ede6bd96f8bd3cfa78eb6d1b368d17ab94e6a0523b1427820d"
+      },
+      {
+        "name": "comboPresentationFrame",
+        "sha256": "1918c7cd4f06052200775d642c64359039900f03698897c904dcfbbfe9c4a1d9"
+      },
+      {
+        "name": "cleaveRegistries",
+        "sha256": "31fff4a1b1a77ed3184ba5b170280d285c270ea526a4ae4ec7cabd042806f967"
+      },
+      {
+        "name": "cleaveEpochCounter",
+        "sha256": "46200f74d0438456f4ebd1f5141e46a713ccba233805215116c4fbd1171ff7e5"
+      },
+      {
+        "name": "cleaveEpoch",
+        "sha256": "c0d7b101378257b3ef562f5390fee2f5d44e7f6d20b195b84540b2a0bfd85505"
+      },
+      {
+        "name": "cleaveHosts",
+        "sha256": "0a5dbaa30715eed520ae75fdd3b6d816a1b013358f7d9a35705805d2215f9b60"
+      },
+      {
+        "name": "cleaveHost",
+        "sha256": "b76073639512936e83c88465e6385caaedbe78d73f3142c8b94ea990e756f009"
+      },
+      {
+        "name": "resetCleavePresentation",
+        "sha256": "a6bb2214b69da190913db7ce4fc6786cdd3f26dc4cb24e277f7b6befe58ec69c"
+      },
+      {
+        "name": "consumeCleavePresentation",
+        "sha256": "7c4936c551c23aed9451571552e387cb75e9e4cdda299c03610c951b2412ffc9"
+      },
+      {
+        "name": "cleaveSample",
+        "sha256": "a571a82090d141e75711ddc5685c1bec9dfaece97b37e68a37c4b9a4b93ec67f"
+      },
+      {
+        "name": "cleaveActionFrame",
+        "sha256": "d40d9d7d8e1ec8337253df4138d33ff050ea68a091087031ce5478eb6c19067c"
+      },
+      {
+        "name": "cleavePresentationFrame",
+        "sha256": "61f3e62390d4574fa2a6a81fa95c68726f885382c244dae2b4fdd639030c632a"
+      },
+      {
+        "name": "wingRegistries",
+        "sha256": "46cf89b4eac252d6d90a739ec72f3de0ec1518e60836987a8d1baac1cceaea28"
+      },
+      {
+        "name": "wingEpochCounter",
+        "sha256": "6cf4e83d1cc49b0843c6a935b89c33868f4f376681dbe009cc1294c559a46433"
+      },
+      {
+        "name": "wingEpoch",
+        "sha256": "fe30f35d58cfb7d932022faee943aff5ca6918cfa52703406992c268424c2a5c"
+      },
+      {
+        "name": "wingHosts",
+        "sha256": "f621e3e3635c41ad4cd0b64aa532216949f733dcc303e94fedc220226a62c129"
+      },
+      {
+        "name": "wingHost",
+        "sha256": "54ec94dd6d2fa660411ede9e3fbcd770560d9ae3b28186ec38ee8831d8344c0d"
+      },
+      {
+        "name": "resetWingPresentation",
+        "sha256": "16fb843229f261b774c5fc18a6858e1b08cddc19956f1c6d72cbaeca39738be6"
+      },
+      {
+        "name": "consumeWingPresentation",
+        "sha256": "dda3e56a30c55b4dc2457b752132e182cfd8f2f383b57be8aa8b9d09e54efdfa"
+      },
+      {
+        "name": "wingSample",
+        "sha256": "991a69ec42cc8a82a6f15dd2ddcd34491cb1ad0afd5b29b5208d75d1ec4cf19e"
+      },
+      {
+        "name": "wingActionFrame",
+        "sha256": "6b54bd2484290164f58515b30e52878a90a83f71fbb39f5a1d24eab90bc3fb3a"
+      },
+      {
+        "name": "wingPresentationFrame",
+        "sha256": "2fbdf529315654106eb0d9c51e56d5bb50db11394dd02053d550441967e3acec"
+      },
+      {
+        "name": "wave4Registries",
+        "sha256": "ee84de3e27b06af345168c84c8decf967ca528ec1b5e42f40155e803d7456028"
+      },
+      {
+        "name": "wave4EpochCounter",
+        "sha256": "63cc520abbd3ceea67ed7afe7c9e1c6723871e5c2add8312a1ca3e05c6ab1611"
+      },
+      {
+        "name": "wave4Epoch",
+        "sha256": "2e85a1662a9002c950f063f5aa74c0efc593b033df433a2ded330ad17efcd605"
+      },
+      {
+        "name": "wave4Host",
+        "sha256": "e8ba230ae54680a6977debb0591836c0139b0dc79ba81b7813982410ddae20a9"
+      },
+      {
+        "name": "resetWave4Presentation",
+        "sha256": "464a261eeff768e179e00b58996e47cb0d2ff0f890581a0480be1b05668c2401"
+      },
+      {
+        "name": "consumeWave4Presentation",
+        "sha256": "c770523391abdb1f4a4196e11e5711417fae4eda5624b08bed68d8b933927789"
+      },
+      {
+        "name": "wave4PresentationFrame",
+        "sha256": "3b60aaf5e5dbd84e519305c3a0b58c4006f2c1d410a3ca5e1e0256baa94c3e55"
+      },
+      {
+        "name": "defenseRegistries",
+        "sha256": "94a200b0b51bbd28bc325bb16ea5af182f0039f948133ed1d1fd901cf9458c84"
+      },
+      {
+        "name": "defenseEpochCounter",
+        "sha256": "b3ae48a7309835f353505b6bca987322a530cef3c063b0e71c3176e5251aa05a"
+      },
+      {
+        "name": "defenseEpoch",
+        "sha256": "af0ffa152dec22b2e523327515330ddd651470af4718ca657a5d278eaa83f17c"
+      },
+      {
+        "name": "defenseHost",
+        "sha256": "98d41cb1a268eb03889ad9c0d1b4a39a1c2c14089ccc37f17786f8cff939aabb"
+      },
+      {
+        "name": "resetDefensePresentation",
+        "sha256": "95d86162c8d15e2f8a4b457508882a7ee1cd19ae5acbc7d92235c11e1a8a5606"
+      },
+      {
+        "name": "consumeDefensePresentation",
+        "sha256": "7272039c8a1f6894c2e61212d080701dc3dc59014d43b7fbef9f70451aef34e8"
+      },
+      {
+        "name": "defenseActionFrame",
+        "sha256": "1e70137c96f952237be3699fdb7e6f079a55e1fd620b854aa0fdbb03aa29024c"
+      },
+      {
+        "name": "defensePresentationFrame",
+        "sha256": "ff093469a3fae6a6777529bff4b96aa2ced5fc3494b789246f2de7637dd437f7"
+      },
+      {
+        "name": "highRegistries",
+        "sha256": "db451ed8e7959c349a270e0c9ca225af79afe260bf6bf3178237e7dc49bd65af"
+      },
+      {
+        "name": "highEpochCounter",
+        "sha256": "638f0458f6914c87c78045e1a1bfc353a2c10f915ee9506f9adfe4b3a16f0478"
+      },
+      {
+        "name": "highEpoch",
+        "sha256": "7f2cef80128303e9ce684f3287f00e3c5f21bdaf56920b38d0574ee02bed500c"
+      },
+      {
+        "name": "highHost",
+        "sha256": "bf45bf50897393c30bb551b142944cb8f7d25dfe1df6bef08fb879d9be0160fc"
+      },
+      {
+        "name": "resetHighPresentation",
+        "sha256": "d8a20f15ce440058989ad25832990229afb54e4fcf2041b6fed8dee8b16a9a5d"
+      },
+      {
+        "name": "consumeHighPresentation",
+        "sha256": "be1b827b770c0447dc0c0eecb6820337aa75fcfbd3590350ee69e653c018fd01"
+      },
+      {
+        "name": "highActionFrame",
+        "sha256": "a249882c96d538047f8f9e980e994d11515fcd5365cef42e5e2daa4c20c7565b"
+      },
+      {
+        "name": "highPresentationFrame",
+        "sha256": "94ea1eb4be57bd44f41bf621f38a99f5ea05e10040e46834a08e01a9bf9e6b0c"
+      },
+      {
+        "name": "normalizeChargedPresentation",
+        "sha256": "e4f94c3e2ab8ab8898f5d6835056654de222d45588481ee4fea2c7917d894485"
+      },
+      {
+        "name": "stagedRegistries",
+        "sha256": "717c2e8a5babbdd483971aa16c376b555aa62ac32ea87005feab6b6b2b06b802"
+      },
+      {
+        "name": "stagedEpochCounter",
+        "sha256": "676dfea01c31cec26de2efd1acc2b6aece7eae4d572257fd6c5ac0fc1e33043d"
+      },
+      {
+        "name": "stagedEpoch",
+        "sha256": "55c8d3b06e32ee4f319b97a24619a899a1eac5d8c4b80736e49cd7da9bb953b7"
+      },
+      {
+        "name": "stagedHost",
+        "sha256": "e686905f2bdf359087d4357815bdb70783199537d02d070de8cfbd4a7849cb22"
+      },
+      {
+        "name": "resetStagedPresentation",
+        "sha256": "3a8301936e9ef1d878ab8abb31d47b0fb0cbe65b51aa21d9daf5fd9938fafed2"
+      },
+      {
+        "name": "consumeStagedPresentation",
+        "sha256": "10b7606af5b1fc35da294b48c8959b22f1b5b82e981487c36296d1a3fe6b9792"
+      },
+      {
+        "name": "stagedActionFrame",
+        "sha256": "3a2f5fb99a6413132a7eb4a0570df4f357651167a18ce002f7cc6928d3332e9a"
+      },
+      {
+        "name": "stagedPresentationFrame",
+        "sha256": "feb7a446ed062b4679e6c30b8cbeff1601310bdbe7bee0318d51cae792e08007"
+      },
+      {
+        "name": "bombDetonations",
+        "sha256": "d2c9238fa61ec955a315c758af15fbfad20e089651079c36f811b0a09c72d7b4"
+      },
+      {
+        "name": "resetBombPresentation",
+        "sha256": "9ae57bbda9cd387f62896911adc3754de69bcd4f603012c235e353157df89fd5"
+      },
+      {
+        "name": "consumeBombPresentation",
+        "sha256": "246f579c6212bef8cfea524d0e5c2967228b8d01a650268b6dfb7f65d7e8f194"
+      },
+      {
+        "name": "bombbugPresentationFrame",
+        "sha256": "64d88a022e8d37afa0d5682b9f1fd026419fae8f79b53595ec76c95a26d547f1"
+      },
+      {
+        "name": "licensedRetireTicks",
+        "sha256": "5de6aea042d35f47a42f9c4f4c32e319632a6e6d6f47d5611a0a9d19151c1909"
+      },
+      {
+        "name": "licensedAssetEpoch",
+        "sha256": "6d659bdb8ef3b13959c0c0dae9cd91b92551df89914bf64f76af09117d32026b"
+      },
+      {
+        "name": "licensedAssetSerial",
+        "sha256": "4c7a7967b775c28db6a858e86f7243364e3de01a45ca1a47595771a351946235"
+      },
+      {
+        "name": "licensedSeenUnits",
+        "sha256": "c3b56d7aabb7399ffec89675192fd6dc04ea3e033981020567a059fa887c4350"
+      },
+      {
+        "name": "licensedAtlasRole",
+        "sha256": "7a43a30999b114d9c204bccf9b5fe74cfc3cddfe8dfc616aae8a1c3b8a8bcc5c"
+      },
+      {
+        "name": "licensedReplayRoleOrder",
+        "sha256": "02fb1491bc5e5cc14885c98b59bd786d996f1b0e2e66e189b141490da5b725c7"
+      },
+      {
+        "name": "hasLegacyAtlas",
+        "sha256": "8050147e13327a258da8e5bdfbd8190cc5d6b914e3b426c517769f135d5a86a0"
+      },
+      {
+        "name": "licensedAssetKeys",
+        "sha256": "c3fb22872c96072eda8dfa40ff3a12815006472a8013489d681424fed0ac12f2"
+      },
+      {
+        "name": "licensedLoader",
+        "sha256": "50dd57a2b3f78469da54320d234b7f6382ae3720d93cd424f9d1df64e64891d8"
+      },
+      {
+        "name": "multiSourceLoader",
+        "sha256": "cc105ea1a3028c451b39ff3b1b40aa55cab5d012f2944585642828489a348e19"
+      },
+      {
+        "name": "licensedRolesFor",
+        "sha256": "a10be2cd0ec298c05e6c43f393b89cb3e42d339e82b5fc6f02b6ea3d2feeab19"
+      },
+      {
+        "name": "multiSourceRolesFor",
+        "sha256": "60636d2d2bc5ca1216e69b9cc1cb6a226a21b7c3e1da71dface90e7a8550f51d"
+      },
+      {
+        "name": "multiSourceReplayRolesFor",
+        "sha256": "71f08adf4e04eb65344cdab5b80f63aa2eb975e918711baa73ef47018663f1a1"
+      },
+      {
+        "name": "requiredLegacyKeys",
+        "sha256": "0c1e9f42171a10a046f1dadbc5b993b11edcb0c5050e394b4fffc464cff8b8ae"
+      },
+      {
+        "name": "preloadLegacySpawns",
+        "sha256": "2bb7dcd042459ad469fd986afafb6476eacea385fb368b6a12c2f968dc611101"
+      },
+      {
+        "name": "beginLicensedOpening",
+        "sha256": "de50bc20403146289043524dc8f0f5ba7fbadb46e8a7bc3932c30f6938410f37"
+      },
+      {
+        "name": "retainLicensedSpawnRoles",
+        "sha256": "26da1b60f3c863086b9f2fcc6d0e63ddff5e50a304d9b55e6a9d4e8c38078638"
+      },
+      {
+        "name": "retainLicensedReplay",
+        "sha256": "d5867941158520e770686a3eb97d7bddaed044fa7009724d5fdd6d019f69dd0c"
+      },
+      {
+        "name": "endLicensedAssets",
+        "sha256": "beca8afc32e1bc4699c2e30521af01abe78b6b41c11390d2e0e2e4c78bbd7520"
+      },
+      {
+        "name": "licensedImage",
+        "sha256": "e567e2585a2d19e39f88593ec5fa6885e549d7a9629cfb62a35a39f33ec9626e"
+      },
+      {
+        "name": "licensedImageForFrame",
+        "sha256": "be6eeec709c03ad7a8468633d521e0bf3e1bf1ab93e802779a28498d65031aa5"
+      },
+      {
+        "name": "drawLicensedPlaceholder",
+        "sha256": "f06882bb4ee3a803f15648d1824180df41b4f2b7e19e5b89aa366d412771a14f"
+      },
+      {
+        "name": "spriteImages",
+        "sha256": "749df9cacf1d9c9b07e890c423edbe7e9ebb9a54840dd490be5fef23dbb8f6ec"
+      },
+      {
+        "name": "visualTime",
+        "sha256": "c4ec714c8a250e7b3446fbdcf35c4f1e8e344b8d6b14c6099a4f0293aa5c264d"
+      },
+      {
+        "name": "visualUnits",
+        "sha256": "346a470dbd3eacb10549eb3481caf428a56f512c188cb04bcf003da716303c43"
+      },
+      {
+        "name": "failedLegacyImages",
+        "sha256": "81aec0dcef1f21018e1481d846eb328d5fa19913df8e44ce5a00006726ab4236"
+      },
+      {
+        "name": "assetWaitStarted",
+        "sha256": "13fb0d8e8ec98cf04846f266649679b866a349ec51ef32560f28d5a3f84317ba"
+      },
+      {
+        "name": "assetBypass",
+        "sha256": "7d1fdd9285dca246ce7a74008ada3ccf3791ad43356257bc1be9d57c4ee5465b"
+      },
+      {
+        "name": "assetProgress",
+        "sha256": "7f7e35fd0feba6a39012bb5fa81364cd7da857d1bffbc91cf9357c183900788c"
+      },
+      {
+        "name": "assetCanStart",
+        "sha256": "ef6ce5a6fe672009c508a942e100daa30aa76ee6b9d372a9202cc48c14e55d94"
+      },
+      {
+        "name": "assetRefreshUI",
+        "sha256": "e055024952bd92ff7bd65931939fbd3febd1181135bf793bca4cbd623a943bb0"
+      },
+      {
+        "name": "retryImageAssets",
+        "sha256": "f14badafaf3e5b1337721cbc002d53a1a8d2864520869eb0fa9f64ddcd9d36c0"
+      },
+      {
+        "name": "legacyImage",
+        "sha256": "c1fefab0094323a6eff34401aec23aea78e33f00f5db9057698666bd337faabd"
+      },
+      {
+        "name": "visualFor",
+        "sha256": "a2ffc6f971e3f585ecd6585bf0faf4f4bba8f38b1dd2cc812fff5204b651f25e"
+      },
+      {
+        "name": "licensedContactEvent",
+        "sha256": "4a57e72dd290b79e24e3642eb8fd549e3dcc0ec31f9cf649edc8f2b05253e039"
+      },
+      {
+        "name": "combatStep",
+        "sha256": "716be835c22e8323277ef93756c98a896950ca1cec060e546359ba746a067a1a"
+      },
+      {
+        "name": "nearestFacingEnemy",
+        "sha256": "2dae214f7c5344e6e6721b54dcbb020c6f807960db7e00266730f41a24eef70e"
+      },
+      {
+        "name": "combatSetup",
+        "sha256": "7772815fe83ea5328ce175e7734bae04d5da2a3904a64dcabcfb50d0ba651e08"
+      },
+      {
+        "name": "resultClipFrames",
+        "sha256": "09669343f5194ec9db8266151f32e8cf82a323ad2b4530cea2920089b8cd8200"
+      },
+      {
+        "name": "resultClipTail",
+        "sha256": "ac76e41b129964168ef7c194c387132367b1677df0f81261a26f5161618ab7d8"
+      },
+      {
+        "name": "resultClipKey",
+        "sha256": "3c7f2e8eb0b13fa2ec03c3af7cae02e1a727f263bc294557f04aa76193cc3782"
+      },
+      {
+        "name": "cornerResultOffset",
+        "sha256": "ca0251abed6557e0e06b26ebda9cea594cef493a8c325d1a632a8ca12be7cc3b"
+      },
+      {
+        "name": "BOSS_REPLACEMENT_ROLES",
+        "sha256": "3c41c5d223b8006ee9feb1a0b89c337748a05f6e3581a12f1688c46d6905ca72"
+      },
+      {
+        "name": "bossReplacementFrame",
+        "sha256": "eb35fa2c96ccc3442cd592b9b5f1938ad896f6dbc456825cf35a26c424c0509e"
+      },
+      {
+        "name": "consumeBossReplacementEvent",
+        "sha256": "082d221316aac9ada1c66d1784dd1927d1ce694345c57cf6b7f2064bcb43f599"
+      },
+      {
+        "name": "licensedShieldFrame",
+        "sha256": "56335abed83d20f62d6be6b0cfa7fa0b83e251c9c9474111253a1f4359aff366"
+      },
+      {
+        "name": "buildShieldPresentationTail",
+        "sha256": "aee61e9826a52f40d140cfdb78f8ee7e07c38b26194678c8cf5032e47e2833ff"
+      },
+      {
+        "name": "updateResultClipTail",
+        "sha256": "3b969bb4661de69adc7d3a017d0e4a4aea7d0fbc91ffe2a43f1a06d08e3c0db6"
+      },
+      {
+        "name": "spriteFrame",
+        "sha256": "b8b682a5d15cdb1133456bcad5dcee47a8a59d04b970bfb66e23443defbb5436"
+      },
+      {
+        "name": "drawSprite",
+        "sha256": "72d01bced2e01f68e6c7a8c010a927abdc2fa4e2ef79170a948abdfe626bd1be"
+      },
+      {
+        "name": "SOLO_MAX_STEPS_PER_FRAME",
+        "sha256": "2af2509626eacfc203e8541c2f4ede27bbea15f4cd4740e2de94d4f1de4e85d8"
+      },
+      {
+        "name": "SOLO_FRAME_BUDGET_MS",
+        "sha256": "9350119cadb03f0512e50e8444fd770c6ff110115d0f404f9e4155cde4ce5c77"
+      },
+      {
+        "name": "resetSoloClock",
+        "sha256": "205eaa8a263e0fc3617ee36be0a3d88e66fdeb0af31bca157dd1355583cee7ca"
+      },
+      {
+        "name": "EFFECT_META",
+        "sha256": "f3a1a4a9f4335d6a5c3a1322b542407799c161dce04b6c5c36a20a5cb857fd6d"
+      },
+      {
+        "name": "EFFECT_ASSETS",
+        "sha256": "7c5450c81f2be2551508f9f8efd65acbf3fba09563f7c319f6dd87fa9780700c"
+      },
+      {
+        "name": "effectImages",
+        "sha256": "d7af261fad7d669319bf07e97b509b6876605250b711aaaa6bc08b6c88f8c860"
+      },
+      {
+        "name": "primeEffectImages",
+        "sha256": "1cb24df8fe8e8c4dd8bd3ea69002a8eb71c960d4dfaa22106abb1ab31a664152"
+      },
+      {
+        "name": "activeEffects",
+        "sha256": "dbce5e9d6c7264a35708e15e21b426ac08c03a35a274923395d0816e94e240a4"
+      },
+      {
+        "name": "newEffects",
+        "sha256": "d8a76380e32cd72acc969ba8efabf42f67ac3feacabe49ff1112ecb0e80da1f6"
+      },
+      {
+        "name": "effectClockTick",
+        "sha256": "53e91ea2a38f55379a4bd827423211618ee8e0145565da3f17e85b7dcf3a575e"
+      },
+      {
+        "name": "lowEffects",
+        "sha256": "0ab44fc7b83779d5a143eb3a5d6bba2a6bd5224d128f22961cfba1e546f009f3"
+      },
+      {
+        "name": "replayCornerCues",
+        "sha256": "c88e010ef059ce9d2d7951849d919d6f5eb7de614e5bce13067099252d7f7071"
+      },
+      {
+        "name": "EFFECT_CAPS",
+        "sha256": "7efb2317cf116ea7ca1d804a34eda2a91388db1358cf973e6b02a5f73cbe7698"
+      },
+      {
+        "name": "admitEffect",
+        "sha256": "65537052c940247b4f5afe848ebb5105e6961d729bc64a01e5cbb3280fd614a4"
+      },
+      {
+        "name": "consumeCombatEvents",
+        "sha256": "3b6e2d879a3bdf2152e3089c20dfbecd768c89ff3eb27ab05f39ab7ae6b17cf5"
+      },
+      {
+        "name": "drawEffect",
+        "sha256": "0ee77228eb4721b433928d1a9e1157c816163e3d5a87d828986611db0c2e3330"
+      },
+      {
+        "name": "ordinaryPixelPoison",
+        "sha256": "1bcb61b714ad3ac7fac3692b218e560e7e99942f4ed27f3e28991b84c27dd1fa"
+      },
+      {
+        "name": "ordinaryPixelWard",
+        "sha256": "120b895607eee22c16a9a100f6d6c25d4007c0b06c86ff1e3b496adb950bf5d0"
+      },
+      {
+        "name": "ordinaryPixelFracture",
+        "sha256": "b0ff8a1ce1f2ffaf39b75c67140a20f6458fd348e4de3af80dba303ee7fc2f78"
+      },
+      {
+        "name": "drawPrimitiveEffect",
+        "sha256": "e582c0911895255bb1b80a8a16b7109b9b2f377a534240babafa76213e8afa2d"
+      },
+      {
+        "name": "statusArtAnchor",
+        "sha256": "ecab41089464e214977bc7ef8b633909d9c337e78eefff15217bd2dbb95ac9ce"
+      },
+      {
+        "name": "drawGuardIndicator",
+        "sha256": "f14ee8eb59a713c10682a31835380b2eb4fc196c41476abfcd64fb40862c4b28"
+      },
+      {
+        "name": "drawExposureIndicator",
+        "sha256": "01ace9e53f231c9ee6d9f16c34628364ae0dec446c09fb015e71d309d84ec3de"
+      },
+      {
+        "name": "drawRootIndicator",
+        "sha256": "771d29da9987088040d2e9c46b23c43f3326b0cbf8c7026cea877f1bddf3f09f"
+      },
+      {
+        "name": "drawHealingBlockIndicator",
+        "sha256": "9de60abbea9fd3b782edea1d579cd3cec632bd068cffd9f3f4cb6efa679e6059"
+      },
+      {
+        "name": "drawCornerPillarCues",
+        "sha256": "9b7f2ad994b0cfd3cbdff0f8925b2a70db37fe613519dfaad60389d21efc020a"
+      },
+      {
+        "name": "drawOrdinaryMovementCues",
+        "sha256": "10d454d4971c7e78e323c002e15dd7cc316fd3f2cb9535e3e139cf89be53639e"
+      },
+      {
+        "name": "drawBossStatus",
+        "sha256": "5ae8dc8022922d06dcd52e819520f00545b34e944a9b6bc379fc590ff86eb660"
+      },
+      {
+        "name": "meteorStoneCache",
+        "sha256": "d9b2b9691400e2e01eb7754861f5ff4f8c634de5e21248e25de64bb052197d11"
+      },
+      {
+        "name": "meteorStoneImage",
+        "sha256": "1db5b987a2a74cd7ec3301faf13166c4fee7338fd9354eeef355be845cdc0723"
+      },
+      {
+        "name": "bossPixelMeteor",
+        "sha256": "13b9d3a759800b947d3d68303dbfb851fbd553ea5178addd6c2c69b2835b7084"
+      },
+      {
+        "name": "ORDINARY_SHOT_ART",
+        "sha256": "6af1e3cc1739a5e312e431e5ae36341aeeae70dfedf03a9da2a055c3c5581b45"
+      },
+      {
+        "name": "drawMaterialProjectile",
+        "sha256": "29bcde894fd6ae5245ffc252c71ac4805bcdfed4e15858c764f2b37b84f22031"
+      },
+      {
+        "name": "drawMaterialHit",
+        "sha256": "dc8c093230f420ff835d5559b40e91a5c3374faadc0e60b30f41ea763e1454a4"
+      },
+      {
+        "name": "bossColor",
+        "sha256": "0edf1ed015584adb97842ef1a1799d47f58926a5998844e709f37984946a3bb8"
+      },
+      {
+        "name": "bossEffectData",
+        "sha256": "d4d74fc357eed0c03bfd0222a4f22cb5122c5a940fc695db28933e192f97bb2b"
+      },
+      {
+        "name": "effectLifetime",
+        "sha256": "0987be605a897e10f1f0619c976e331f9a1a17b41a9f4884750a90796e810012"
+      },
+      {
+        "name": "bossPresentationFlags",
+        "sha256": "a7d12d81468161cfb176f23daa7c297a653c5ac0148f276dd33b0d08dc6a886c"
+      },
+      {
+        "name": "bossRenderFlags",
+        "sha256": "6ad6499b53160252c8cee3153add6c846f12edf5aa6618de3a7b64d463f2050d"
+      },
+      {
+        "name": "bossRenderScale",
+        "sha256": "a8bffe6cdeba731360890e96cfea3bbbfa8bd64377cce56f353a9d067b34cce1"
+      },
+      {
+        "name": "BOSS_PIXEL_PALETTES",
+        "sha256": "7d6717b4bd2750a0f909387451fbd8188b2b404866ca7584b1e4ba659e1665a8"
+      },
+      {
+        "name": "bossPixelPalette",
+        "sha256": "9e5732f9d01276d25d80267bc22365270dd793dadad37b73c49f0ad49c7515e2"
+      },
+      {
+        "name": "bossPixelEffectVariant",
+        "sha256": "90e5a505ffc999e001be0caecd53e87671cf52b8481bac97716bac40797abff5"
+      },
+      {
+        "name": "bossPixelRect",
+        "sha256": "bb6391027aa61bc76974919d6d5054356c08c276f6f046f14dd041f73814a2a4"
+      },
+      {
+        "name": "bossPixelLine",
+        "sha256": "3c3cda086d2b924b160db7d5c4585f69c44b224fdd9ba629a7a972967ba391e5"
+      },
+      {
+        "name": "bossPixelPoly",
+        "sha256": "885eb94e195e1a6f07eb8bdaab85a2f3c6d3642029a2f2159e2071d6c2939827"
+      },
+      {
+        "name": "bossPixelNoise",
+        "sha256": "ef02828ddcb7fee39c39a6a4ad0f59c48aaa7f1ac5b89259d756b1d339a5650d"
+      },
+      {
+        "name": "bossPixelGlint",
+        "sha256": "8cf5c84467f5a61bba66173a32e3631e315e786741fa1d5fc5082dcb367ae33c"
+      },
+      {
+        "name": "bossPixelChip",
+        "sha256": "04c2ed6b82444f7633aab301125690af0f8cea04df472d6dbd990b2266339383"
+      },
+      {
+        "name": "bossPixelCrystal",
+        "sha256": "9582fb5b8cbf043896839ecd9037f250c841dd77f0c6d17412cc15ea5d1b1f88"
+      },
+      {
+        "name": "bossPixelFlame",
+        "sha256": "aa2b24d4296d0a1d31a3ae1b6fdf57e1eb2b44b4b2700aa176136621efa999ec"
+      },
+      {
+        "name": "bossPixelSmoke",
+        "sha256": "7a0d2ea500a02d14877d177b9bea581969d706d95f0afa009c056fc51cdc8991"
+      },
+      {
+        "name": "bossPixelArc",
+        "sha256": "73dcf41be276bda2bcaab1a37a5913b206769e31ba79e8b0439b4df506c83e4e"
+      },
+      {
+        "name": "bossPixelBoundary",
+        "sha256": "ee95df4fbef9040e2377524b80936bf4c934ffc208d319ff4857c800d171ac23"
+      },
+      {
+        "name": "bossPixelDebris",
+        "sha256": "15860ba49fd275b85c1335b18d01944be74c635c7061533789871cea42b17451"
+      },
+      {
+        "name": "bossPixelRuneMotes",
+        "sha256": "4de2b162fedc37a2dd8a21cc09b5efde10dacb081275b55db6da2790f21ed44c"
+      },
+      {
+        "name": "bossPixelBolt",
+        "sha256": "965b1308905cb6430d062a118b81d6be61af8edfdc732bda6583b9e82bfec32c"
+      },
+      {
+        "name": "bossPixelImpact",
+        "sha256": "a12a161bfd563a3388209e65368e4e9ee783dca9273f647ae1743b43910a5938"
+      },
+      {
+        "name": "bossPixelSkull",
+        "sha256": "f14546bd9778882420eeb9662bac22c79422809c32b2a5fb71c121c4f6e96607"
+      },
+      {
+        "name": "bossPixelDeathBlast",
+        "sha256": "8759e71fb607b94f276aee57fb356b10138df7818c06a4afe17617332aec3d76"
+      },
+      {
+        "name": "bossPixelFirebird",
+        "sha256": "f3ed7901d2766a329885a3b8253e4612f83ab3385a0168d9771f4e5103b1c5a5"
+      },
+      {
+        "name": "drawBossEffect",
+        "sha256": "22e68b847cbdf890b92da2cfb51fb14e34e8f44fdb8f8cc59a963920d7966b51"
+      },
+      {
+        "name": "bossPresentationMaxHp",
+        "sha256": "efe5b2387a2529ac270591f0811d5f46bfd004fb518d99d25124ff4fcb1ad6bd"
+      },
+      {
+        "name": "bossScreenShake",
+        "sha256": "4da8a79e5d569b7db4fde1afba77a6d22434927dae80e10f7b7ada02a9da894c"
+      },
+      {
+        "name": "draw",
+        "sha256": "b544b1ea16d73addcc0de4c33935227aa085d9a5aa3a39132fa98a09526fb4c2"
+      },
+      {
+        "name": "drawCombatEffects",
+        "sha256": "43f442ba6e2c21836240d1eb3c51ff4d8db487b1d1cd219dc8ddf3080be9629a"
+      },
+      {
+        "name": "ORB_GLYPH_MASK",
+        "sha256": "c7b01887f6fdeb9c78cae35093869f3aaede97ffae1442a322c1fdb92924a334"
+      },
+      {
+        "name": "ORB_GLYPH_COLORS",
+        "sha256": "25b6f51a4ef8a42f3d503887b7e98b08e0e0f84b697063ee43875f5b6610d71b"
+      },
+      {
+        "name": "orbGlyphCanvas",
+        "sha256": "45cdc0363d7d51bb185956d9f06f7fc9c7e564a4a1908bdac93d36631c8362aa"
+      },
+      {
+        "name": "orbGlyphAttempted",
+        "sha256": "34a904cb16f3e96be12748b46ec5b543d9bdef9bdc852b628c73755938d30c53"
+      },
+      {
+        "name": "paintOrbGlyph",
+        "sha256": "911e6725d75ec84c01e1dc9a726e37a9ac2871d7795522ec7ffb3282083a4ec2"
+      },
+      {
+        "name": "drawOrbGlyph",
+        "sha256": "f936a3515f5a81bdc2467d26bf500346af9d1a0975832a42ac29f8f453374eb2"
+      },
+      {
+        "name": "sparkGlyphCanvas",
+        "sha256": "776862ab621149f538da74f7cbb45e2251de96087d9d355b5438648bb27ce7f1"
+      },
+      {
+        "name": "sparkGlyphAttempted",
+        "sha256": "7c3de1fe82d0326b11f2436ffed808e8e1d538bb8c0dba34edaf663d0958407d"
+      },
+      {
+        "name": "paintSparkGlyph",
+        "sha256": "17aac53245d6a365186b5741b06461ecde0577d92f36b908a1880286d727ec08"
+      },
+      {
+        "name": "drawSparkGlyph",
+        "sha256": "3dee35a60b3055c861e51fb1b3d8c74c911c6fc1181b09a72bbfb5d49fc37dee"
+      },
+      {
+        "name": "cinderArrowCanvas",
+        "sha256": "3aca0dbccb2b9b087a4c2c4b9ef4ca0316614db6d2239c696f0fce8d2622aa4e"
+      },
+      {
+        "name": "cinderArrowAttempted",
+        "sha256": "a0cbc5acbac16e8893e7e0bc96388d6a6cd1e6c7ff619dea062fd38c0483c48c"
+      },
+      {
+        "name": "paintCinderArrow",
+        "sha256": "dae37128baed1a3e722891146ebc1ea33ba8e9d2767eed355f6ecc6086344ea8"
+      },
+      {
+        "name": "drawCinderArrow",
+        "sha256": "d8936db70fc00fb2fcbc733b6f0bb16a2ca17fbc03ebbfc3c565000b32ecdb8f"
+      },
+      {
+        "name": "drawGuidedFlight",
+        "sha256": "d7612696921b75521d660bdf9671c83b801d4368277554d6bffcfd86459f8ddb"
+      },
+      {
+        "name": "MUSHROOM_TRAP_ART",
+        "sha256": "2d7751c5ac4f75c165b096b94ffaa8fbd389c16441ff9a7b8f5d543fa8052901"
+      },
+      {
+        "name": "mushroomTrapCanvas",
+        "sha256": "7ad26c16b4ff9edff60fabbf3dcd59072d35e3b88ae9226b0fe7935bcd7f19d5"
+      },
+      {
+        "name": "paintMushroomTrap",
+        "sha256": "46352a653adc9548c3952db5dcdb0e374e7e074e1f0641f5a68be22200bf8bb7"
+      },
+      {
+        "name": "drawMushroomTrap",
+        "sha256": "9f76f3d7a5212de82cd5a1eeb030e033c95fb8688f564308e0cce8d467a14ed8"
+      },
+      {
+        "name": "drawProjectile",
+        "sha256": "5e563e579d5ff72bf67df0b32ba751fd280cd514b66f4fa7939f55b714cb25b8"
+      },
+      {
+        "name": "loop",
+        "sha256": "96f09733e87497880ab79f0f66d1bd37d743362e65774ea08fa8755395dfb74b"
+      },
+      {
+        "name": "setPaused",
+        "sha256": "35a5437f420b702669b6dff207418e9121105161d4243be305c273d3a82637ce"
+      },
+      {
+        "name": "choose",
+        "sha256": "2103905d1e44bf8ae924af7fd9628c13bf304eb1ab44f8596cc0b7a0651202a6"
+      },
+      {
+        "name": "walletSessionCounter",
+        "sha256": "c3d9553699ba6e5fc49dadd7df075daa7d22d3eb7bbfe3b148cb2ab64f01044f"
+      },
+      {
+        "name": "walletState",
+        "sha256": "ee0b5e8a22eae8f882d95da02844636d3b0b92a71ba14ce14c123180c8c0191a"
+      },
+      {
+        "name": "selectedSide",
+        "sha256": "39dd9c8fb70007e58f3a5b8f9f2fce285da50aad7b9d0d7fc38fe62b84de7821"
+      },
+      {
+        "name": "selectedStake",
+        "sha256": "a97e0c570a6f9c561e0da0a34e42db46e271e91a4387a0914e1751db9da75fff"
+      },
+      {
+        "name": "selectedStakeOption",
+        "sha256": "07ac9811f2052492826481eb8a94bbf56585b6e9a25848c4b968a5b547c5c548"
+      },
+      {
+        "name": "PLAYER",
+        "sha256": "cc3747d3603cc8c28996b3ff4aeb890f98d6a708186b7680df973a22be1b14ed"
+      },
+      {
+        "name": "MIN_BET",
+        "sha256": "84933414754f7b52709cc11dad18e9ed9f97f8efe1ae141d7d08978c7e8d82ea"
+      },
+      {
+        "name": "minimumBetForBalance",
+        "sha256": "93aa108aaae492ccd41616ee21cec2607855af9ed8deb6e6961d921fdd847a0b"
+      },
+      {
+        "name": "stakeOptionAmount",
+        "sha256": "ee9781aae61974bfd2ded7d9f1d35cc1df45a70a6de100ea3657bd8cf490a547"
+      },
+      {
+        "name": "validPredictionStake",
+        "sha256": "0a3aed33f89c15c35f28ea30a84164f50ce4825a68578540bf2df01e587a7bda"
+      },
+      {
+        "name": "soloTerminalBoundary",
+        "sha256": "05c038b752dfc7e2c5c00c11d9b4d7bee6f3bce16be72698378111dbebc420f6"
+      },
+      {
+        "name": "soloRunEnded",
+        "sha256": "aa106d35d5d73b0e85fc1d7a6b18e1664ee448116768968b8942cac2390fabbd"
+      },
+      {
+        "name": "sessionRoundLimit",
+        "sha256": "a9e83836bea1933e53bf91f1a24e31e4583fb40509f82c1f97f95e98ec26e814"
+      },
+      {
+        "name": "ROLE_NOTES",
+        "sha256": "0b00c64a5f5ee1117db9f39478542104ffcdb1a42389ded8c03fe8d98dee6436"
+      },
+      {
+        "name": "freshWallet",
+        "sha256": "68baada97171ecb18d0a2f3e28ba31bc3af65a0560bb8201718c52258cf10344"
+      },
+      {
+        "name": "credits",
+        "sha256": "719fb15378f9a27ba13d05a9264158e2918bf08f83432aabf868bb5f5cb3dfe5"
+      },
+      {
+        "name": "walletBalanceText",
+        "sha256": "e22011976b676b9dad1fbbd1a0a4ded07ee94c8e7e259642d6296a1ab9796eef"
+      },
+      {
+        "name": "currentWallet",
+        "sha256": "a1573d295582f8cf73e3b7aa8cf7ab3557ef1e75ed1f97e786ce81d75a43b765"
+      },
+      {
+        "name": "spriteSetup",
+        "sha256": "4ceb0aca34e4dcf7279d06d8a8827671bbc07916882a5b7cbc2c76751b35a7bb"
+      },
+      {
+        "name": "resetCompactPredictionScroll",
+        "sha256": "01847165d4d3441fb9dfe5a516fcba6fac366e727628ae0582f2a5db50423001"
+      },
+      {
+        "name": "selectionPreviewTimer",
+        "sha256": "7510f46b6a589cf50a0da1ddabbacc470993908e34ae2dcfb49016db4e240f0b"
+      },
+      {
+        "name": "queueSelectionPreview",
+        "sha256": "d2cf6d55d64ec9417cd6fa92b223d34c19a7cc8ecb78880b01d83217c4d4fcbb"
+      },
+      {
+        "name": "selectSide",
+        "sha256": "aa016fa3b4fdba2dcfd2cf243eee3d50d632052156e389fc9ad6882fc4552f93"
+      },
+      {
+        "name": "selectStake",
+        "sha256": "f22dc061a44e226fc12ccd85ec52f57c6eab4797694cea4178a9559862efd006"
+      },
+      {
+        "name": "startPrediction",
+        "sha256": "31da702bb93456323c8beb205ab19edc0b23bb09dec5b14d51f6c8ef0f0ad075"
+      },
+      {
+        "name": "spriteStep",
+        "sha256": "32852ca0fe25afaf07dd2cec8603d9bb02fdaecfbcf7fa4ecd7a25c3b27b1a26"
+      },
+      {
+        "name": "openPrediction",
+        "sha256": "4c2d96a31f3ae0f6263465839f5c5abafbd516175884370e6025a1189ef82170"
+      },
+      {
+        "name": "nextPrediction",
+        "sha256": "c43329ad6660cf57fc5e2f597ee56b55e2d7680a541ca220e40f45a7bbacb45e"
+      },
+      {
+        "name": "activeKind",
+        "sha256": "a711633503f1796cc2893cc51eb94a63119e289b7eefff78bc738ba47052b077"
+      },
+      {
+        "name": "validateActiveMatchup",
+        "sha256": "946aebf99b81243569b2177dc2f925e17c8fc23355043ab60c6d66405ee8b8d6"
+      },
+      {
+        "name": "admitActiveReplay",
+        "sha256": "4f8ac1b0b5ef5bed9f40c5675d3b800af8caf28cf935f5314a674e90b9d39407"
+      },
+      {
+        "name": "multiUnavailableRound",
+        "sha256": "a038ce789b8f0cb7ed49f909b0fda365f6caf04a47ab37c0d7de47bad107d29c"
+      },
+      {
+        "name": "multiUnavailableAdvanceRound",
+        "sha256": "98fd901d65b5fcce610e81b10f35af9751558b60435300fad337930a2978a57a"
+      },
+      {
+        "name": "rejectMultiContent",
+        "sha256": "8934e64248e0c6c89a5870214b22aa19f5df4a620741ceea16734473a289cfe0"
+      },
+      {
+        "name": "admitMultiMatchup",
+        "sha256": "c64a0fb69797a02e29cb0fb8b1c09980d2c69cf0708503c5f957e2aaa69a9e34"
+      },
+      {
+        "name": "nativeProfileVerified",
+        "sha256": "a10b8b04fc85179e6b3444baab58fa6faacd0e3c392b646d048c2f426dbc4d32"
+      },
+      {
+        "name": "gravityContext",
+        "sha256": "8e546eb80f54fe8994129fdff973ef3bb9c9dd3a48ffb01d00a9648b303a5bba"
+      },
+      {
+        "name": "scoreBridge",
+        "sha256": "f74601de4037bd69b417184a909c88aa525a203c8c1284794c7b8d7bd7883f7f"
+      },
+      {
+        "name": "pendingOwnCashoutPost",
+        "sha256": "9775b7dd7fb6cd534297c85bf7c39d1eba8e8531bc1864e1b56384a53a95316f"
+      },
+      {
+        "name": "failedScoreKey",
+        "sha256": "a7a2c73e83f2f66d634284a6efb7465e06649ed4320c23bf72dbe469ba0ee454"
+      },
+      {
+        "name": "automaticOwnCashoutAttempts",
+        "sha256": "38d955c57e73255f9fe687da5e00a7d5a41fd2cd03262e349485f9dcd84c39c4"
+      },
+      {
+        "name": "failedScoreInputs",
+        "sha256": "2f2eae4500ac6defc67054d7aff4705fcd89d3f53230ef83f598bda125cb1071"
+      },
+      {
+        "name": "submitFinalScore",
+        "sha256": "512831d9677865842aa084eb7eb90e66676cf98046a38601c8e5c740ead552b0"
+      },
+      {
+        "name": "attemptFinalScore",
+        "sha256": "84a09ab22bea6fc44aad8a3a01b694a65d6e35ce9f8456d95786246bc95b824b"
+      },
+      {
+        "name": "multiSession",
+        "sha256": "cb58e775be763aa1ed43f568c34936123b56784c9916da049ceca04fd4ff62ef"
+      },
+      {
+        "name": "multiAdapter",
+        "sha256": "4465643daed9f68579653d9e509e6eb555d961becbc36fe6a5ce7eb15690e74c"
+      },
+      {
+        "name": "multiHost",
+        "sha256": "a53848d586bb1086830a651bbe0a5885712cea32563c6d0c2473cfe19e024ee9"
+      },
+      {
+        "name": "multiUser",
+        "sha256": "9ca3a70fa6fec1c38e15e50207f4aefa9eef55fd9a54868e78700a6065d45564"
+      },
+      {
+        "name": "multiSnapshot",
+        "sha256": "fac146ed209d77f467a8a3d3718e13b750789f79a321284d200aeb487d3c0aa6"
+      },
+      {
+        "name": "multiBusy",
+        "sha256": "87b80cbbdb532305096e35c651abc2a6e3db28a28daa3a4aaba831576047f58d"
+      },
+      {
+        "name": "multiRecording",
+        "sha256": "22466055b122b4523f3cc00627645976eb922be81e9f0c3d9f47626da7dbbc8e"
+      },
+      {
+        "name": "multiAutoAdvanceRound",
+        "sha256": "5db333e90a2d47c77c521adef01e55c50f289faf7fde58b6573d793bf6b3d783"
+      },
+      {
+        "name": "multiPredictionPending",
+        "sha256": "f136699317e74dae85c89405c79adf08ad2629a80f03a5a7c74548783981a392"
+      },
+      {
+        "name": "multiLastSceneTick",
+        "sha256": "177b4ab1614227b784317cc3cd3077d8dbfba2a88aa3a659af2aa71f28a6fb12"
+      },
+      {
+        "name": "multiShownWallets",
+        "sha256": "13548f48a2a7916fc46239de78d4b8462e5c119bab9f636a2ef4a3908125dcd8"
+      },
+      {
+        "name": "multiBattleWaitAt",
+        "sha256": "997d6f7e0d1ca07a39e65c10759ee56b2b8b9424c36d691d7cd0156633f21ae5"
+      },
+      {
+        "name": "multiInitial",
+        "sha256": "3d2336feea72cc45ded2a5de051deb9bd9e9b54f8bc10d1a25e7c7f9c634fb57"
+      },
+      {
+        "name": "multiReplay",
+        "sha256": "20d915e2537891c87adb2095259779a6a96e1fe5815b06dabe5f5e50bb61b771"
+      },
+      {
+        "name": "multiPlayback",
+        "sha256": "e0b78206d93b78a65c405ff19a6dfd54b9157a8a3896922ee89267ad4796d3ba"
+      },
+      {
+        "name": "multiPlaybackStarted",
+        "sha256": "9b9cdb3e5da50fd2ab3588d5f209f6e3b7ac9789d84cbd7f761597ebc666d447"
+      },
+      {
+        "name": "multiRoundSeen",
+        "sha256": "1c16ef6780dafc551d284da4572f4f07ac27f5b1d3b00491fffc48f3339aed32"
+      },
+      {
+        "name": "multiLastPump",
+        "sha256": "0ac4c7020833464307e850413167f761cc3625513851d6e4670aab0fb26d727f"
+      },
+      {
+        "name": "multiHeartbeat",
+        "sha256": "0988d272569a4943bc78f7221b555d53263a104d0b401c7a6f60ed7172921dc7"
+      },
+      {
+        "name": "mockGuest",
+        "sha256": "9000b6d1f81693e0ee3fac09cc66d90db18d53d28996db931dbdbc59044067cd"
+      },
+      {
+        "name": "mockQueue",
+        "sha256": "b542b4498253bf8a1749a871eb72884829bb3947cc791a27f2c3767b9484db8a"
+      },
+      {
+        "name": "mockGuestDecisionRound",
+        "sha256": "564ba80fc8c038253fbb21eb921934d68940433690e020be5dd2d70cdedf2789"
+      },
+      {
+        "name": "multiError",
+        "sha256": "83ee12d9f47a403bca1dab35561b740ed2d93149a3f6cfb484cbc79794db9ec3"
+      },
+      {
+        "name": "soloUpdate",
+        "sha256": "29b428a01958317a1973f8cfe18a8a0425c5725523bfb6c0acdacaaf93388aec"
+      },
+      {
+        "name": "soloStart",
+        "sha256": "f71b5899204d2f2b7aceba0eb4e09f0904296ea52114917ad0c42ccddf946b88"
+      },
+      {
+        "name": "soloNext",
+        "sha256": "78eddbd26e919684b4129cf34ea6f0e011a50fb9be3c25744dbec4facdf7e31b"
+      },
+      {
+        "name": "soloLoop",
+        "sha256": "a6541aa9c53e4878eb2f8b7e5bc06610710e918e5810dbde093805499989d3b4"
+      },
+      {
+        "name": "soloWallet",
+        "sha256": "44fc13fb584135185b4ffb153cbcba9c85eda635d3eed07b9b35b92579ba12f0"
+      },
+      {
+        "name": "baseSpriteFrame",
+        "sha256": "b564755f1b070c29f113b635c08a139f31f2e443540255a6061da6f1fc13cfa4"
+      },
+      {
+        "name": "multiNextRoundSeconds",
+        "sha256": "84db253f964145fd0c351015695a91f76238cbcacd1ef6a6bbba08322435160c"
+      },
+      {
+        "name": "multiNextRoundLabel",
+        "sha256": "82780118090da019cd73e8ed96b20bf15538b83b772e8cbaf888b9c31155dec9"
+      },
+      {
+        "name": "multiStatusSummary",
+        "sha256": "cf9815745be705c3d22b459fdf95a1f0eb4994de944fc97d2166bbcd36ace9dc"
+      },
+      {
+        "name": "syncOwnBattleChoice",
+        "sha256": "4b4cea0bdfb3249c7f43fcd5f2899a5a212885bfe18ea4ba5f185073b4110ada"
+      },
+      {
+        "name": "syncStableBattleClock",
+        "sha256": "ac69f281b6ea13fc0f0d930634c89c353d871e18ca56040078d3ad0f5478dbcc"
+      },
+      {
+        "name": "displayMultiState",
+        "sha256": "586e6a65f7a2a6c231db53a90f973f995ab01e7727c43266303d1511aac9a456"
+      },
+      {
+        "name": "multiDecisionSeconds",
+        "sha256": "0decd9c1f7120156b546b34eb4bcd99ecf9289cd4fceb635ed554fa5041a445f"
+      },
+      {
+        "name": "activeDoubleUpIds",
+        "sha256": "a02c6c5c61d0869c33652a44ed97eeb1a47e2f353fdd958af8819849900a3778"
+      },
+      {
+        "name": "multiDoubleUpDecisionsComplete",
+        "sha256": "514eb598c01a9064ac91f110543c9433800a4a8acd69402a4542f0a2f1fcd1c0"
+      },
+      {
+        "name": "observeCanonicalCashout",
+        "sha256": "5cfa99689b115e8d0d8c8accd285448b44ffd29f5a12d3bd7d525573791160eb"
+      },
+      {
+        "name": "maybeAutoAdvanceDoubleUp",
+        "sha256": "065ef55900b1bf3de5d15c25f6ee450e218180d0c4a1a4f6002601769b919abd"
+      },
+      {
+        "name": "onMultiChange",
+        "sha256": "c3ad33ef40f539bdc4e0eada0307c39d6e266eb3f6a4198a757e55cd05e139cc"
+      },
+      {
+        "name": "resetMultiRound",
+        "sha256": "6557a89578462a1e025edce25193c4a1611d5af63fde46f187210f9f74f6b2bb"
+      },
+      {
+        "name": "publicMatchup",
+        "sha256": "302e2caf867c56c679889a50482f79c3034bd63834574cad45fca2bd0f453e26"
+      },
+      {
+        "name": "openMultiRound",
+        "sha256": "600f7cbc241546ff09086094b78b81ec22676232a44569aa5885f132cca5d8a8"
+      },
+      {
+        "name": "replayJobToken",
+        "sha256": "da12f7602e7873c53628c3015bf69767cc7d3a07cdb1286c767d0382b4935e3b"
+      },
+      {
+        "name": "cancelReplayJob",
+        "sha256": "845d6986b221d331b4394ec83db949e0586fa896d59d03b02b67552c7621f02b"
+      },
+      {
+        "name": "legacyRecordedFrame",
+        "sha256": "a14c307ab7ef9b2a703aa808159eb814cdbe67ad72c7585d808e742b93d00b26"
+      },
+      {
+        "name": "createCanonicalRecording",
+        "sha256": "73950614e027d163971d3a1c881ef4874bd8a933e78e740b64f76d48d5808c6a"
+      },
+      {
+        "name": "buildCanonicalReplay",
+        "sha256": "da20df1220c639eae397b36e6c4cb592f79550a9091d7a1726f72aeaf350faa0"
+      },
+      {
+        "name": "buildCanonicalReplayAsync",
+        "sha256": "a32acb3ea2fccdd5b334dd5aea64c9c71e0ef8bb86c4b9468fa82de835fb3ee5"
+      },
+      {
+        "name": "startAsyncHostReplay",
+        "sha256": "2b80592dfde7d50936ef813578c6fe5da0808bad077ff533fb09e1a7f5135346"
+      },
+      {
+        "name": "preparePlayback",
+        "sha256": "81d439238a4ea713247cccc131c7ab04b2a542ab4c0a491a8761c4d00e42c5b3"
+      },
+      {
+        "name": "applyReplayFrame",
+        "sha256": "adcffecc75d0d40be08e3aa20541c5fcffb11a184dc5706ebead8fe2e4d71e2f"
+      },
+      {
+        "name": "mockGuestDefaultStake",
+        "sha256": "423d6e06454da0d68f2043c08fda8c7a2285d78f7a84a67d1fda710c70d63642"
+      },
+      {
+        "name": "drainMock",
+        "sha256": "684cd03d3845e992f88161c5d8f674ccf86f9fd481afdfc022295c0da2fc58dc"
+      },
+      {
+        "name": "pumpMulti",
+        "sha256": "7587350d36c3a198e258e1c297342059e6179168c8cf62d81d76d2b9a346f0f0"
+      },
+      {
+        "name": "mockRunGeneration",
+        "sha256": "19d3b834fe1d7e5bcca9294ddf7a819f9b9e27e566f480b92ae5a445fa918c6e"
+      },
+      {
+        "name": "beginMock",
+        "sha256": "82b292453756ff91c78bf667e4bfe08c5f139d62f13b26bb7cc6b4221de9eeab"
+      },
+      {
+        "name": "adoptRestartedMultiSession",
+        "sha256": "284dda843eb85e217a4ba333dcb92e413500e69172d11281858a8e8414c2d5c6"
+      },
+      {
+        "name": "restartMultiRoom",
+        "sha256": "cd3cbea110df8669b70d2d3607eec596f812c3bd2dc4656f881fb0995280f6fb"
+      },
+      {
+        "name": "loadNativeSDKRaw",
+        "sha256": "04029671f04a5af35e3d3b84e9bd0715eb91650150b6a1faedef7a57fb0cc64d"
+      },
+      {
+        "name": "nativeSdkPending",
+        "sha256": "1ab480b5c32f68ca8a046ef61c550029a5850c2c966d8dd84e950743178109bf"
+      },
+      {
+        "name": "loadNativeSDK",
+        "sha256": "d5f3af57fc497835099efc2a8afe84dcc7ab10dc730d347e7f1b9d4717e4a845"
+      },
+      {
+        "name": "screenMode",
+        "sha256": "c822145c5e859375c8b309691c251bd9bcb2394c02266669d9c3d51d5c607c3c"
+      },
+      {
+        "name": "homePausedSolo",
+        "sha256": "02c5a9e32a1dbfb71ca5e0127d150a7e5e8cef5fe0102180e66c49d2deb6979b"
+      },
+      {
+        "name": "syncAudioControlPlacement",
+        "sha256": "a7f175d0519452fcfe2d6fe616743692404a3147a827363e20ff2f387352ee29"
+      },
+      {
+        "name": "openSoloScreen",
+        "sha256": "934032e3fc5399f9a55bde473dfde42c72199bfbb6b11aa52ac459683abac6bc"
+      },
+      {
+        "name": "returnHome",
+        "sha256": "2883684498d95507d10afcdd404f758f63b2ce224a3a80eb8bf6e3ecef6dff68"
+      },
+      {
+        "name": "PREDICTION_BOSS_MARKER_SOURCE",
+        "sha256": "3eaa697dc4a335012ca2baf1e41f7550fcd5efb76da5cb1e721a9c5d69fc3850"
+      },
+      {
+        "name": "PREDICTION_BOSS_MARKER_RECT",
+        "sha256": "9f6f2c3adf454acf7b3b19f95ac196009f17ff994c25b22d12ca18bbd90751b4"
+      },
+      {
+        "name": "predictionBossMarkerImage",
+        "sha256": "253b314a9b6df9fb3ca3ba0a85c38229b25cd92bf75199eba7ee70a1ac120bd1"
+      },
+      {
+        "name": "predictionBossMarkerStatus",
+        "sha256": "57ed7fe001cb80f5ef1d8b73cea690fcb440fe4c7c561ca45bef4ba38e5707a3"
+      },
+      {
+        "name": "ensurePredictionBossMarker",
+        "sha256": "b031a0d59b1194b05405f5e5acd77e58ab5b50dbf9fdabea0b03a8229acd67a4"
+      },
+      {
+        "name": "drawPredictionBossMarker",
+        "sha256": "53cdf6087c8c0b47f9007d11b9d2670d6958de1817baf10fbebcf0fb2c5a19b4"
+      },
+      {
+        "name": "drawPredictionPreviewPlaceholder",
+        "sha256": "a43ef3aff97bb6f996adbbc7b5b723f353826bc0b4838b526929b02bf701c528"
+      },
+      {
+        "name": "predictionPreviewInsets",
+        "sha256": "ce9cc17c6a8eeb677b24d5e31a86f2dca2c5dac740fb077d0303d0e5cf9ca0f9"
+      },
+      {
+        "name": "UNIT_DETAILS",
+        "sha256": "54e21cb98faa03ba8312c716bf98e4778593fdf1071cafab75a5b5b4ee73665d"
+      },
+      {
+        "name": "lastTraitKinds",
+        "sha256": "ed36f09b684fb9067bb3abe70a84817aaa4370a35c93469e1013ff7a7b3799a8"
+      },
+      {
+        "name": "updateUnitTraits",
+        "sha256": "af17aa612a4294a87d2ab781961554dcac9f796bd9f46f952cc39a265fea83c9"
+      },
+      {
+        "name": "formationVisible",
+        "sha256": "4c6d8cf66f94b04129207310c1571f3a63b4f3d99098ac50a1da9da3b5635b46"
+      },
+      {
+        "name": "syncFormation",
+        "sha256": "4803325030f0ed48e62a0a5882862e027837d812fda58c613026639efe409912"
+      },
+      {
+        "name": "screenUpdate",
+        "sha256": "aa305084cfa1646e8c5f5596fbaa665be7ae7dfcfd148ab16f5e73df7f5164ef"
+      },
+      {
+        "name": "lastScreenPhase",
+        "sha256": "138a13dc1e2c96064404fbf616cf8ef254c21bad76ec5467df9e5e2aa74ab0ee"
+      },
+      {
+        "name": "lastPredictionViewKey",
+        "sha256": "40a55839f63085a1defe71c643b954ea346013dbaedb9571358e16c1da43b417"
+      },
+      {
+        "name": "screenMultiDisplay",
+        "sha256": "554f2eb19669f60759b220d09c8ea044e12d044647f33e1f946ef43e0d379b09"
+      },
+      {
+        "name": "publicRoomRequest",
+        "sha256": "89e76815acaef05922466488eae2d3665194fcd1b14407fb2d8d43345d0eb3d6"
+      },
+      {
+        "name": "parsePublicRooms",
+        "sha256": "da0f3dceb7f146400dbed28b78ae397293fe218bd0d402e1757dab4d503ea688"
+      },
+      {
+        "name": "refreshPublicRooms",
+        "sha256": "e4a0e7f25a7e21e67918ca93f2bcb0881dbb891d9b060e03c5eca4dbaef08630"
+      },
+      {
+        "name": "legacyHome",
+        "sha256": "758ddd0e3eb0b62b79e5f8b0564ea35ce180ce963c597ea61f58b98a8515be87"
+      },
+      {
+        "name": "exitScreen",
+        "sha256": "22e547f512d0e30b14c1c47eeb50a75c50ba584a27a4fd76910d02e582c2cbef"
+      },
+      {
+        "name": "pausePanelOpen",
+        "sha256": "17a76583528af4091bc3c48304e81fdbf1ae5ee08edbb0ad8f0bb68947de16ae"
+      },
+      {
+        "name": "pausePanelWasPaused",
+        "sha256": "8fde7669845faf1c8addb1b6c99d4f74b549639d434ec02cc556ce47312151eb"
+      },
+      {
+        "name": "resultReadSeconds",
+        "sha256": "89e5cd9ecdf823f4fb9192ab1045e9e695e7b99d7efec6f2ee7a20ac0a54c1df"
+      },
+      {
+        "name": "resultReadLast",
+        "sha256": "6001b924e185d66390f050b663d0772daaa9ba35b329ef9d638fd051b8d78216"
+      },
+      {
+        "name": "resultReadRound",
+        "sha256": "b08ef696fcc74c20df4c2f203d1862779b035943bc70b5244c70e2c3560db34a"
+      },
+      {
+        "name": "resetResultRead",
+        "sha256": "1169e8e54464686675118b5bf825dfebff87915a47588bde1600b2dd3089fc47"
+      },
+      {
+        "name": "syncResultProgress",
+        "sha256": "c22e1cee32124e54561c439b1379e0f95e561b28149da4a2c36672804803a4a3"
+      },
+      {
+        "name": "commitArmy",
+        "sha256": "ccc69378861e7bf862c2d0aa7fe09a41ce9adac777eb5d80d2e963452ca43e20"
+      },
+      {
+        "name": "advanceResultRead",
+        "sha256": "ddacb8a39bd7624ca19684c7b629dc808dba06199ed035a1a36c02e3bd0da8c5"
+      },
+      {
+        "name": "flowLoop",
+        "sha256": "c6857d85027104c58d678f19c73ca1895b316160b25d695ce26bf935e9fab920"
+      },
+      {
+        "name": "flowScreen",
+        "sha256": "57e410ee78159b9c9a7709d1888405abceed02a1f49e937752e3a402820fdeb6"
+      },
+      {
+        "name": "cameraZoom",
+        "sha256": "e21928753761f11833c6c99072087a93543c18598173505b9c5e0d54af57eb6d"
+      },
+      {
+        "name": "unitsOpen",
+        "sha256": "cd4a7609c08e294c8662866ba91b3bffa7579b39dce7252bc8200715f95770d1"
+      },
+      {
+        "name": "unitsPausedSolo",
+        "sha256": "5a62850af30db07cb55880b9a26a43c4812841fd25e876695dcde2bdedcc612d"
+      },
+      {
+        "name": "unitsReturnFocus",
+        "sha256": "9f4e8a36d21ed9432cde6b51a528ee467aa6e2fb644c001343d1e6b19afab828"
+      },
+      {
+        "name": "cameraX",
+        "sha256": "75c9bccc95731f393335e2c4b7662ed51ed82020e7cdad02a7cf158f99219674"
+      },
+      {
+        "name": "cameraY",
+        "sha256": "39d1f78ee09817e6a906e5f57d07da2d3a3f19f494ddc6b8bfbcde4774100c45"
+      },
+      {
+        "name": "cameraDrag",
+        "sha256": "3214d04a9ab7b373df422457906b89cbe3f1136ac6860fc5316304bae68bfd67"
+      },
+      {
+        "name": "cameraFitScale",
+        "sha256": "1b6133d385728080f2852a559a88a78255ead88c045e07b85dba0e8dde1f80cf"
+      },
+      {
+        "name": "cameraFitBounds",
+        "sha256": "828d5842589585491cc8fdaadbd86cdd2d46ba0f834ea096c293fac1af66a560"
+      },
+      {
+        "name": "cameraMode",
+        "sha256": "b0d2010ff8e4b244ac93033e9b6251f2db99f3d492873b4ce9fbe8cf0102d1f4"
+      },
+      {
+        "name": "cameraAutoLast",
+        "sha256": "9f0431cd31d436a368094725baaeb8ec2d621f768478a91f498d67b0436f3c5e"
+      },
+      {
+        "name": "cameraAutoBounds",
+        "sha256": "04fe18f3d0e6cea1ad952f5949bf238a3eeb418564742904bd232a46032b4927"
+      },
+      {
+        "name": "AUTO_CAMERA_MAX_SCALE",
+        "sha256": "9dbdd51765cddd73fd4ed69a9d16cf476d1996f883bbad89d3bfa0193d227d9c"
+      },
+      {
+        "name": "AUTO_CAMERA_PADDING",
+        "sha256": "c9bd61b200348cc84dbb0810851b0e5010decc17d1d2985dc8eb688430eb67c4"
+      },
+      {
+        "name": "resetCameraForRound",
+        "sha256": "3d62cdddb4bc6673b2502cd6ade16002719b58c161c8fa0df2128aea1dc2f0c2"
+      },
+      {
+        "name": "automaticCameraBounds",
+        "sha256": "b9b4cea9022d993d1960c1b3010e56f3c788c97ebcc46f7fc68debc5107864ff"
+      },
+      {
+        "name": "updateAutoCamera",
+        "sha256": "cbee315d4ed67637ff223c87f62700472e3e02324906e650c864cf2265fd2cb3"
+      },
+      {
+        "name": "centerFixedCamera",
+        "sha256": "ecb1730166eee30e287ec8d83a17a2a6bc74766a1d32fddc24adc705c97f9cf2"
+      },
+      {
+        "name": "BASE_VISUAL_META",
+        "sha256": "c08d4ea2628b45add329577bcac1dbcc147467529f07236c2453b78dfd29f096"
+      },
+      {
+        "name": "CAMERA_INTERIOR",
+        "sha256": "3c149b520c1bef1a84e5368affa5ada52f7d3c6d34196535d59be19839b7b3fc"
+      },
+      {
+        "name": "CAMERA_CENTER",
+        "sha256": "29a11269d6ee53dac2c6ce37170bf271ec904d5b6b46c4fca5ff0c288b828a3e"
+      },
+      {
+        "name": "LEGACY_STABLE_CAMERA",
+        "sha256": "37cb4bbf2573de1d7137e680ae218a07d5c7ee730a2ce75f0468271746e8d330"
+      },
+      {
+        "name": "stableCameraInsets",
+        "sha256": "fcdd39b06287ad34959ee3e45376ec00f439b58ffce9a76be198ed18d1e1674c"
+      },
+      {
+        "name": "configureFixedCamera",
+        "sha256": "f1883d3cb294bbbbbf69e4dbec4843572f6987cd453b63973e2ac9dc13e2ec5c"
+      },
+      {
+        "name": "clampCamera",
+        "sha256": "e643a4fa6e2cd10e7eaa6e399dddfe014394821653dcbad84a12edbc5ea19cdf"
+      },
+      {
+        "name": "flowDraw",
+        "sha256": "733647a5abc3c8da019e877a00c4e2c4323ea9e3bfc586af6ed891cb6703d23e"
+      },
+      {
+        "name": "paintCameraPass",
+        "sha256": "6741290ff7e31bd41f9f594de1137cbc618e12cde2f128a24d7310982162695e"
+      },
+      {
+        "name": "syncCameraInput",
+        "sha256": "0c16c2b9b80030b0bb25ed13ad9668e1562cc56b9f4946eaa889283ac75c5d58"
+      },
+      {
+        "name": "cameraCanvas",
+        "sha256": "0fe65da2ad87a57d01523f8323d52fbbc2469e6a13a4d3eb1a77df837e6c2f68"
+      },
+      {
+        "name": "CAMERA_DRAG_THRESHOLD",
+        "sha256": "362582283d54fcfda86b3af59a6d086db15c8a89fa7fa580e82be9ffa7497071"
+      },
+      {
+        "name": "cameraSetup",
+        "sha256": "119b76965b4b1d1d22e32ef2f03518dac460cf894a8beb98f014cd7e5cfaa937"
+      },
+      {
+        "name": "cameraResetMultiRound",
+        "sha256": "d996e91ce5966b41c4fa3af3179c9b72899b61fddba30e4655eb7da6decf3923"
+      },
+      {
+        "name": "crowdInspectorLastActive",
+        "sha256": "b0ec7f868c1375066949ba3978c3405d45dd7107837474899d8b189fbb31afec"
+      },
+      {
+        "name": "crowdInspectorUI",
+        "sha256": "01d6e5a008645b45f3f6a7ead00bb50f68d6517b5ff9d3b950fc421d89dd3a61"
+      },
+      {
+        "name": "crowdInspectionAvailable",
+        "sha256": "48ec9dc6416b382dcbf63b3954d91972d990266df71930cf94e9681e5328865f"
+      },
+      {
+        "name": "crowdLiveChoices",
+        "sha256": "108c10a8231457b1f4c7c8d453da10f41f203ac6807417ed4ba8733480b407bc"
+      },
+      {
+        "name": "crowdSameKind",
+        "sha256": "dc67da09f345110f83701011da4ec13574b564d7b647452cf01911a079abfed1"
+      },
+      {
+        "name": "crowdChoicePool",
+        "sha256": "ab91b96b2c80603aa762463eca8358e855b4c4275fec5768da8e9fa1056cb79b"
+      },
+      {
+        "name": "crowdChoiceOrdinal",
+        "sha256": "c070792c08bf72a49d0a0fa9e3000efc845d2e48fab37086e41bc32e90bee3c7"
+      },
+      {
+        "name": "syncCrowdInspector",
+        "sha256": "d5ab13d57e72594ed1fb2091f63375851be4c1520bec13ce1fe84df4cc555000"
+      },
+      {
+        "name": "redrawCrowdSelection",
+        "sha256": "47389bb9416d208ac58df144c2c6b92eafa8f1b1ed2eb119d74e6dd0958b261e"
+      },
+      {
+        "name": "clearCrowdSelection",
+        "sha256": "bee39358df1a9fc1393e5a84de417a331082bce4ee2b616caad32968d98ef933"
+      },
+      {
+        "name": "cycleCrowdSelection",
+        "sha256": "681d97307f6f32eaac3f1dc676f2b7fd156c244b149d94fcde9f68ad57d06f2c"
+      },
+      {
+        "name": "crowdCanvasPoint",
+        "sha256": "ae630a9e4da0f8799a4868c0be6469c3cb989bf2ab289239ecb0bcd3d2968d08"
+      },
+      {
+        "name": "crowdHitCandidates",
+        "sha256": "964309951d227df6921b039b7f162d377efd36a838635374871f48b74f84fd40"
+      },
+      {
+        "name": "pickCrowdUnit",
+        "sha256": "470a0be5e3c315b6c053f233b07ba61333b43c943d0ace7992fd2bdbcc8269bf"
+      },
+      {
+        "name": "crowdCameraPointerDown",
+        "sha256": "76a662902e4f67938d543b588dc56967cc3c6292f59433f8f7df7f780bb3bb49"
+      },
+      {
+        "name": "crowdCameraPointerMove",
+        "sha256": "4771023df2f8342f874ff4d169f52aac004bbdc9915c70b387d50b384fb38f88"
+      },
+      {
+        "name": "crowdCameraPointerUp",
+        "sha256": "3b1dde4f364965420c91436f5722bc578511188e214822fa53b8ee8407df572c"
+      },
+      {
+        "name": "crowdCameraPointerCancel",
+        "sha256": "fc5b42ec760e71fbdac8989bf9267c5544773f84bd8f52bee76bbcba05a05fb3"
+      },
+      {
+        "name": "crowdCameraLostCapture",
+        "sha256": "efd7e591723ca8879316651e1d5770795b51cd752b8231aab2d5ebf599b33b64"
+      },
+      {
+        "name": "crowdResetMultiRound",
+        "sha256": "b62fbc7eac030ba08e081ce3a57fc42377875cf462958f95bb493576bc1e6659"
+      },
+      {
+        "name": "crowdOpenMultiRound",
+        "sha256": "dae423e97a8c9d21ddf6dec2b1b05d8c953aaf7de599e2e1a71b2f32c5369d3f"
+      },
+      {
+        "name": "comparisonNumber",
+        "sha256": "02775d750d147916fe0832a222e915a163833ba4ea42e5d7c922025d49fc693f"
+      },
+      {
+        "name": "comparisonDamage",
+        "sha256": "1bfad721e38f4f8c8e3862be8d081eb3f8bf32184bbfc888c8705b1817c47c45"
+      },
+      {
+        "name": "comparisonSeconds",
+        "sha256": "b72efe2675595a7ba20a51d272802faa1378eeef4bdefcba6691e817bda0104d"
+      },
+      {
+        "name": "comparisonTicks",
+        "sha256": "3773b2943fd18486043edbbfd02f70511008636b5bd24acc580caf47a6c879bb"
+      },
+      {
+        "name": "buildUnitComparisonFacts",
+        "sha256": "5780efc04ac593cbed7b18f181a5793d452de4b0cf36dd2a32a2c71e27f36581"
+      },
+      {
+        "name": "comparisonStrengthReference",
+        "sha256": "4828c6b326d42e1ed9ca694d3fb73f51cd866fb0c6313a87dd5939e8b64daab0"
+      },
+      {
+        "name": "unitComparisonEmphasis",
+        "sha256": "138cbe4bdce720cf9371e0e0717e7af4ede4e939813349ebabe952a14d818593"
+      },
+      {
+        "name": "terrainTargetInfo",
+        "sha256": "748ee2fc25f17b06284e0320319aabd518c8f0ae3fade2fbdd6bcd390afd8796"
+      },
+      {
+        "name": "buildUnitComparisonDisplayFactsSource",
+        "sha256": "c769825d26ba06ca77ba8a4ad97c265af4e5f667e42f9f780a0f63eae248c7d4"
+      },
+      {
+        "name": "COMPARISON_TRAIT_TERMS",
+        "sha256": "c4ec423e2dfe0ead58b102db54afade4b99d12f53ec59a3f8a8a82610136d715"
+      },
+      {
+        "name": "buildUnitComparisonDisplayFacts",
+        "sha256": "b2b56b57a328ec3f2e26ca11f7fdc625efb279d6c9ed9946a76db026c226514b"
+      },
+      {
+        "name": "fillUnitStats",
+        "sha256": "81a27c0a17fbee0fb6511d2ba76b475a55f649721f67975da6f0bc4d405431bb"
+      },
+      {
+        "name": "flowControlsAvailable",
+        "sha256": "e6e22bc96d08fbec15138739dfce4e1f9b6cac38154187c1e344de49298a0166"
+      },
+      {
+        "name": "pauseControlAvailable",
+        "sha256": "c7948f6f095465b96f8fba63523ba952cd10ed669ea50b7c6d1121d1ef0ad5cd"
+      },
+      {
+        "name": "closeOtherGamePanels",
+        "sha256": "add62546cdca430e3acae5ba8ad69fb4407aee4d212c01cb317020fe6daa61ac"
+      },
+      {
+        "name": "toggleUnits",
+        "sha256": "0d6c2c7f97796efd0d42e6c0d3d4d0335cd55a3dd27708c6fd3f72b4e040757a"
+      },
+      {
+        "name": "flowControlsViewKey",
+        "sha256": "1e4cf9d9fa63d1ef1a5f34c3d3c024c14744db552b63c0f8592f876c08018d59"
+      },
+      {
+        "name": "syncFlowControls",
+        "sha256": "a82e12441fc09a29f7b0146b1530880953f941866b305db525777c684f11146c"
+      },
+      {
+        "name": "flowUpdate",
+        "sha256": "ef7e8ef4091635e577205a17d029ebb20a493aabfaabe43a838b2458183156a9"
+      },
+      {
+        "name": "flowDisplayMulti",
+        "sha256": "ce9c9dced2e3779541826114589eecaa9f35aa40f40b2a558c2b7e7e84b15b08"
+      },
+      {
+        "name": "flowAdvance",
+        "sha256": "bdfb4ddf92cbce196cd55d4267c7e53d7b70cb34ea968c84a0074d0d79b7b918"
+      },
+      {
+        "name": "predictionPreview",
+        "sha256": "9624c73055a9d3197e7135ab79475af329a251e3532a931f99469be91a014e9a"
+      },
+      {
+        "name": "syncPredictionPreview",
+        "sha256": "9f55ac9fbdaeb9c7d7b4c2e94d6a0e82cfcac23d122e8e3af1702203660e84a0"
+      },
+      {
+        "name": "openPausePanel",
+        "sha256": "069eaf817deb322e8f9bb30e224e5d1cee9fd2f137b309b2392461e3d2315013"
+      },
+      {
+        "name": "closePausePanel",
+        "sha256": "54cdfca9eb4791e59a448918f808d290707283d866239cf2e9380725cd008a67"
+      },
+      {
+        "name": "pauseResume",
+        "sha256": "cd6733bfd4ebda860fc7ae02c1c133e6803acd23be5a1a66bdeb96934e4903ba"
+      },
+      {
+        "name": "exitSoloRun",
+        "sha256": "bea1bb93aee93dd28687e3b529657521c1820a85e218ca6b162e75f015e6bb96"
+      },
+      {
+        "name": "pauseExit",
+        "sha256": "d17d0e3b3b858a21ad322991b86a22e1f7addece6f3d5b44952b18af6e7ebcea"
+      },
+      {
+        "name": "battleAudio",
+        "sha256": "47341a3ec58015065715d02546c4c8f59f0aa6fe3c241a788aa231c494f31f93"
+      },
+      {
+        "name": "audioCall",
+        "sha256": "859d31ad2a77c42e8151eca9363f3d746b7e8dda3a994387e7384869fded533b"
+      },
+      {
+        "name": "resumeExistingAudioFromGesture",
+        "sha256": "aef1c83d4cad2e383b4c8987c4f3919ce806d4b0666bf1feedfc6768d1632bea"
+      },
+      {
+        "name": "audioBattleKey",
+        "sha256": "88180fcff4513ff3ab249742f4bef303b5d3b5c9e207d83bbaad2906f907bc01"
+      },
+      {
+        "name": "resolvePersonalResultFeedback",
+        "sha256": "872358211b265541f0413fcb48ca4e5300c717c1f92450f4609391beca8804ec"
+      },
+      {
+        "name": "syncBattleAudio",
+        "sha256": "0748ad49b8115c4e4a1ad4a813f1cd6fbcfd7aec030e2608742709c254d9243f"
+      },
+      {
+        "name": "audioCommit",
+        "sha256": "6a0447e91c2c9f78fcb34925be0e508042d0dcbb0ce7dd93dfa5e1178cee063e"
+      },
+      {
+        "name": "audioSoloStart",
+        "sha256": "541b177fc472d89c2ec0cff0ee89cbaa185b7a06c12654e3888cbb3ff76e8539"
+      },
+      {
+        "name": "audioPause",
+        "sha256": "4d97fb27ac8057ca228f81b16adbbc5e17cb2c1a75bacc91da0ba6d3017623a2"
+      },
+      {
+        "name": "audioConsume",
+        "sha256": "51d2b6f773a84a5247bcf8b7093f8e0042968dd3904d0bff2c58a5b77c404122"
+      },
+      {
+        "name": "audioFXBattle",
+        "sha256": "713c9c0c6aa367cb288953983d9c2bf0d61230a2582b2b4986d872bbaf673986"
+      },
+      {
+        "name": "audioFXBirth",
+        "sha256": "9017df6d8f5f1ea9fd8d566b87c74c06f05e835373e600ef0f7fd58156032d39"
+      },
+      {
+        "name": "audioReplay",
+        "sha256": "c68a0e0ff226643cd55487796637fabed740e1282692106c81047c2c4e2c25ec"
+      },
+      {
+        "name": "audioRecord",
+        "sha256": "69edf1ed9eb73fe399306474a993667f1f7284fc2350d612f94b1845ee9a216c"
+      },
+      {
+        "name": "audioLoop",
+        "sha256": "621051a250b4b9af667ac4018283801a3bbb629190c549c785ff3f24dd9a16ab"
+      },
+      {
+        "name": "battleMotion",
+        "sha256": "0cb1d5623076bbd3345c305957a2d5bb6bc6136d0e2041910e182c0be166875c"
+      },
+      {
+        "name": "motionSuspended",
+        "sha256": "7d1e4edb1a36637be7d6ecf4a9323959279815a236b3fbbb5892df69c3bc03c5"
+      },
+      {
+        "name": "motionCall",
+        "sha256": "a80efb54af5dbc44d9e8e1f7ce9c7b498e16b8a1d9787efaf872a6de761909be"
+      },
+      {
+        "name": "motionBattleKey",
+        "sha256": "5c8577620559d75b047f90435f05336922faaf185e01bf4c696a81662542bd6d"
+      },
+      {
+        "name": "syncBattleMotion",
+        "sha256": "cf324efbbdab2f92f5f2fbd0ac7b387147c2d2f0223fc95f61aa56c5444bd109"
+      },
+      {
+        "name": "motionSelect",
+        "sha256": "5ab0cfb27a4760b290d017790fdd8a4858ada2f967ac0f5cb6e4272add8518f7"
+      },
+      {
+        "name": "motionLoop",
+        "sha256": "4eb935c0568bc97f36f317a406868ac9d36acc2030aae110a4d4da09b5edbe61"
+      },
+      {
+        "name": "motionScreen",
+        "sha256": "6d11f53987e5ce8d7f11f093305a3d20271d1dee5bab127acee3316b2111cad0"
+      },
+      {
+        "name": "motionUpdate",
+        "sha256": "fa66f563229c6ffea0cbd0fccb8451313a76848916ae536fed116f5f5eb8eb3f"
+      },
+      {
+        "name": "motionMultiDisplay",
+        "sha256": "3cbf389dc6e1949a428de4e613d15e00b46d9c306bc06a8e841e5efd7b4540ac"
+      },
+      {
+        "name": "NATIVE_REACTION_VIEW",
+        "sha256": "86c163e372e24f35af86a9a37b1d845de4e0d07de90646c459cc96fccf6ca228"
+      },
+      {
+        "name": "reactionChannel",
+        "sha256": "c4274cf4fb7b6e3efeaf381d580b028397d5d0e6e5abd13eeffe3513e7278588"
+      },
+      {
+        "name": "reactionSessionKey",
+        "sha256": "a312fcbd544198027606be1968ce2810acb042bca4ae0613b622c48d7f5fd913"
+      },
+      {
+        "name": "reactionOpen",
+        "sha256": "e5a9f9b4aecc618abfc0bcdc2fcf39224faabb24352c234b4a6ed00a5a0ba014"
+      },
+      {
+        "name": "reactionLive",
+        "sha256": "b4aa3e889a114599bcd3dd1c34be16b48521abd41a2359bbe05d7b8b9cd52ce5"
+      },
+      {
+        "name": "participantRailKey",
+        "sha256": "8c71389cb9a0411544f96057785c9ae86c8920c51cae226bae6eb8c479b521c2"
+      },
+      {
+        "name": "participantNodes",
+        "sha256": "81e0ba84bd6e153db4e5df792f80f7714ab2f74137a5db1790115bbb0d9158e0"
+      },
+      {
+        "name": "soloParticipantProfile",
+        "sha256": "f14c1dae229d0bcdc6725d31cf89cc1af20c5c0dec49355d6e78b2c2a749c148"
+      },
+      {
+        "name": "soloParticipantProfilePending",
+        "sha256": "961b7d6c7c99d1ec086cbb80bd92e348161607b1332b5796e8444128563f9b02"
+      },
+      {
+        "name": "soloParticipantProfileOwner",
+        "sha256": "9a3f08ab049cfbd68120fd849feea02ec3f2f89506d96474bac93758989b22f4"
+      },
+      {
+        "name": "participantEntries",
+        "sha256": "4a688bdfcce76449b7dbc21d6f6c1588b8325d7af66c679f5e978bbeaa0b1db3"
+      },
+      {
+        "name": "reactionRender",
+        "sha256": "7a2cc1c9eac6e190eef008d2b9f0fc88555185b4fa7547f470ca2dff361f9b8c"
+      },
+      {
+        "name": "closeReactionMenu",
+        "sha256": "7716ef2dd886b6cad7023e0d81b7d1b0ee4f517aaa4c0711801095589988d7b3"
+      },
+      {
+        "name": "syncReactions",
+        "sha256": "db3bb8a581c758f94c4dbcf7bd3a246743b1dabf373c5021d545494dc2254234"
+      },
+      {
+        "name": "receiveReaction",
+        "sha256": "d94ee072e7b9de36bfeabf7826550ba8ef42b3597bd155de0c7f651a3ea78116"
+      },
+      {
+        "name": "reactionToggle",
+        "sha256": "9f28111dd6e6e2dfabeb66e3817efba249b8c4df20a255a33209c1b4a8e9e876"
+      },
+      {
+        "name": "reactionBackdrop",
+        "sha256": "4483d49f95062f3eab5ca5aaf8481073856f73b2154fd6e627a10eb74d53530a"
+      },
+      {
+        "name": "reactionLoop",
+        "sha256": "d4b615d16472995dbd532a5df3ce45fa3cbab03cb4c92d05ab959a6c9165e308"
+      },
+      {
+        "name": "reactionUpdate",
+        "sha256": "b735c0db2d87e3811cf2a8150302abd3a35aad1a1cdbb84c46834441371ffc1c"
+      },
+      {
+        "name": "personalResultScene",
+        "sha256": "8d7dc5d98c45aa60a4bc9b7bd50040cada4d5963dca6499fa8f07c614643766d"
+      },
+      {
+        "name": "personalResultSeen",
+        "sha256": "8505d9c9c680ecb14982e156640b29fdafaca9fc88f8e0b201ce7787bd6f28f4"
+      },
+      {
+        "name": "spectacleStartPriority",
+        "sha256": "a49d51b1d2f2085720f0989b180ce8762daf6e01c22646167c3e6c8b28021277"
+      },
+      {
+        "name": "spectacleBattleKey",
+        "sha256": "fec3727b8c29a501f00e19514b946f1016fbb65bad3ae7a9e8fc61a906d2acb7"
+      },
+      {
+        "name": "spectacleLastWindupTick",
+        "sha256": "59a95d753aba49606c751dfe52da734b4774025690de6c65f878b07542652351"
+      },
+      {
+        "name": "spectacleLastImpactTick",
+        "sha256": "73569d586e8004f69a89136e791d317b9c721a33c3be6a97fba72286c63bd927"
+      },
+      {
+        "name": "spectacleSeen",
+        "sha256": "9ef54d0d5327049a982a4e15b82069b9576e9b170e63728e491547f4e1b17108"
+      },
+      {
+        "name": "spectacleStarts",
+        "sha256": "9407a294f78bd48a0efb38bff2e4fb5ae079ac38768de7b55a19ad5d12217b96"
+      },
+      {
+        "name": "spectacleAnimations",
+        "sha256": "76331c880da5f7476114ac9be3e71a79b4bc83de827c4cf91d92a3c8d9c9a307"
+      },
+      {
+        "name": "finalSpectacleAnimations",
+        "sha256": "1d86ff56edaf71e004953fe4edfa406e3fc5aaafe141e092d8dabc46f10d7806"
+      },
+      {
+        "name": "ownResultEntry",
+        "sha256": "48bf54298d7c05d86c19a56f2468f552cb14172309230c760ca61139fa00c011"
+      },
+      {
+        "name": "personalViewerId",
+        "sha256": "dc65046b083cddb652459cfaaa8f812fb87d6a3a6dc22206913f329d2fcbeeeb"
+      },
+      {
+        "name": "resultReducedMotion",
+        "sha256": "4009bcec876bece2450c209cf2f028402a1643a85174b9818b3704ba44f5384d"
+      },
+      {
+        "name": "validOwnSettlement",
+        "sha256": "47f2ffbf0389e538aaf6ce87ba415d3fae4008c94fd164e6a70414fd4d093ecd"
+      },
+      {
+        "name": "ownPositiveDelta",
+        "sha256": "a44eef39de7af850c1b365735bcd69fbd0fa26c485ef5ec37d63732b5979433e"
+      },
+      {
+        "name": "setEarnedStage",
+        "sha256": "a886f519bad5489a191b3f3141d7ae324c4ea5cd487b1d34a836f4a28b65783f"
+      },
+      {
+        "name": "hideEarnedFlight",
+        "sha256": "6b4aa9d3c25207d9ea8d6486410f5985e5bd6b200c5444a4730a65bee83bd3c2"
+      },
+      {
+        "name": "finishEarnedDisplay",
+        "sha256": "f93966c994ae08f66958a56f0447fab03dac2494710342d5ed55c36b5a50a1a0"
+      },
+      {
+        "name": "cancelPersonalResult",
+        "sha256": "6dc287567e98a99bbdb07e804227052da4207ed2ef406608558b8db6c3e6cc48"
+      },
+      {
+        "name": "resultAnimate",
+        "sha256": "7779a0529a2cd586e65ce220774c33845b713ecde8d3c6d91f68ee34621a60ab"
+      },
+      {
+        "name": "clearSpectacleNodes",
+        "sha256": "d6162c5ce743ebe2cd7e9d942b467ad93957e190d6895d064a71d302f7910bad"
+      },
+      {
+        "name": "cancelSpectacleAnimations",
+        "sha256": "09f2ebb118a7f0930e5006f73288cc3f198a965a0eecd3b07a7d9ee205c0bec9"
+      },
+      {
+        "name": "resetSpectacleBattle",
+        "sha256": "6bd0ad8e5bd15ef69018515ce51df22a9d34264b16773103074b8dfb5d73c661"
+      },
+      {
+        "name": "rememberSpectacleEvent",
+        "sha256": "4741d783a1baa64480f50ceaefba4f7077202463f7e92e16eeba9e0f4035b45b"
+      },
+      {
+        "name": "eventActionToken",
+        "sha256": "0bc6eb080f63aad7266d064ea38ac7acfcede4cb59f4a1821897d2aec6328b89"
+      },
+      {
+        "name": "stagePosition",
+        "sha256": "f7a074060de624de8fbfcba984ae79a0e02e2eda26908960c894fe1bd7c30644"
+      },
+      {
+        "name": "spectacleAnimate",
+        "sha256": "cd36131821955505547175a5333dacb83955db9206bf569db9436df1c1db02e1"
+      },
+      {
+        "name": "combatSpectacleAllowed",
+        "sha256": "e9d8c026b20d56b701eb772d135774daa37add28450fb185c36fdd7b7010f9d8"
+      },
+      {
+        "name": "syncCombatSpectacle",
+        "sha256": "2b7cc297ecddbf21668f9e851ca6fe06b68735824cdcb5b33edd568eafc06b9a"
+      },
+      {
+        "name": "terminalWinnerSide",
+        "sha256": "8796363d821bc9a758b6600ed9a6ef2e13b041cab4bfdd531b8bb1ef4c79a6cd"
+      },
+      {
+        "name": "terminalLethalHit",
+        "sha256": "ee68255ab0abcd4868de55c6065cbe1786b37092b9e6cb6f60b30429a9c5ec87"
+      },
+      {
+        "name": "validDoubleUpWin",
+        "sha256": "6a6eea3cb2523b4b8f93b7f4d3271ffd570d38affa2b8675af5e2aad1b08b671"
+      },
+      {
+        "name": "startTerminalResolve",
+        "sha256": "4cf91460b56a926139c3e7257752309d3af00dc17fb4f56db2aafd4f37fc7a54"
+      },
+      {
+        "name": "syncTerminalResolve",
+        "sha256": "5add3212d6ba3d42879b63ac8a40660cb42ce7e312c016f081092556530b75b3"
+      },
+      {
+        "name": "earnedTextRect",
+        "sha256": "954c302b9af82df3f036b3e066a93d11418b286128252024dcbe88671f782c20"
+      },
+      {
+        "name": "earnedSidePoint",
+        "sha256": "5115dca40a9144450071418f088b3ca35e8f74c369f2788e91607acc236ab88d"
+      },
+      {
+        "name": "burstEarnedCoins",
+        "sha256": "56551bd4b4249e86db3297020b655cc0a15b3ee5fc978cd1eeab78b94b1d1a0c"
+      },
+      {
+        "name": "animateBalanceArrival",
+        "sha256": "3c1990ad7d360d0ce25a2f9300ecae9d153215ab0c1c0ae106210e11215c66ea"
+      },
+      {
+        "name": "resultCoinCount",
+        "sha256": "58169ddabf8d5119ebfa449f1773dd69c4320d370c920dd2268952cc7dc56e09"
+      },
+      {
+        "name": "scatterLostResultCoins",
+        "sha256": "9f0bced01c9336351a359f48644409530d7bffd4b6b71e0915ebfed3f45d4d6a"
+      },
+      {
+        "name": "scatterResultCoins",
+        "sha256": "f17d0fd0a6e16e06d9734009d6801d43b0558c10de3429c6683e8ba35ab6b08d"
+      },
+      {
+        "name": "EARNED_COUNT_MS",
+        "sha256": "7b53cf86b2c4dcd291d69b0a9a3b4a327a97aa3b1cc260ae5bc2081387fe3ccb"
+      },
+      {
+        "name": "BALANCE_RAMP_MS",
+        "sha256": "7b3eda2369203dc674937271a262a495281f9c86692bc9e94a7010717dd05b3b"
+      },
+      {
+        "name": "heldBalanceValue",
+        "sha256": "bcad672d3c480acdacd1c6a0aeafdbcc37bf43f9fc1809a261103ea91f2eac9b"
+      },
+      {
+        "name": "heldBalanceOwned",
+        "sha256": "f575aa021d4448e47bdd9c329d7b088c911445f5c69abe67647ebaf7191633fe"
+      },
+      {
+        "name": "applyHeldBalance",
+        "sha256": "6954a7631cc09f5ba4f85c4f00e56df85fdc03654622064771b227b91155bd4e"
+      },
+      {
+        "name": "releaseHeldBalance",
+        "sha256": "831236c7ca623a561b301626ce7a44c81bcc0107efcc973d37914b614060859c"
+      },
+      {
+        "name": "syncEarnedCount",
+        "sha256": "b14738b05c2b145d2d37078302d230dd9c75d6f48271289bea6d51231008db9b"
+      },
+      {
+        "name": "syncPersonalResult",
+        "sha256": "7bab10c71bcbbb24d9dcc34a2921257a84af098f64b39eefa4ae7dc6ed21d8aa"
+      },
+      {
+        "name": "personalUpdate",
+        "sha256": "ed69d8b1c7b2e85c2772c4d384981b5310fdfa22765c701727b4c1e20f36f8d5"
+      },
+      {
+        "name": "personalDisplay",
+        "sha256": "b608630a047cc4128dc9594645ae29abf0fa54388701424ec34f7e019b62323f"
+      },
+      {
+        "name": "personalLoop",
+        "sha256": "3f2015a7db735151dadf5dd964a52b655ccc1b63b24e2f28609cb30256b385d2"
+      },
+      {
+        "name": "personalScreen",
+        "sha256": "b49b6bdb4be86f5d18cc00522a5dbeb1f38438cf38ba468b78fd095c38f0b54b"
+      },
+      {
+        "name": "audioCashoutObserved",
+        "sha256": "b6df7de1b95d4e11aca348f21d8ba1931d2ce3c39757e507951b6e2de95ca618"
+      },
+      {
+        "name": "cashoutReceiptSeen",
+        "sha256": "9061bd0d4750227e12e6674ae7c2e4dfd8545a0d5885f7da4c670a149adf075b"
+      },
+      {
+        "name": "observeOwnCashoutAudio",
+        "sha256": "2406e496181425b9b3cb51019bda058078afc80274af3c0faa91d31359152c2e"
+      },
+      {
+        "name": "syncCashoutReceipt",
+        "sha256": "1ff36ac16578d86d4c24927f6b929553b56fb9f18e50ba87a8e96665afa4299c"
+      },
+      {
+        "name": "setCashoutChoiceLabel",
+        "sha256": "e8af5e3be81a849f7d972caeb8017ee0b3fea8ba0befbbc7169feae1229d387c"
+      },
+      {
+        "name": "syncExtensionControls",
+        "sha256": "f582ba469fc6beb92b0e2d3c9ce55879c0c410ca09eb2735cc4c34010588af49"
+      },
+      {
+        "name": "continueSoloRun",
+        "sha256": "fb7ef24d957963a84581d176a66fc678d46defdd1eac56400931a7ddbbd84d93"
+      },
+      {
+        "name": "continueMultiRun",
+        "sha256": "c39b508ec42ee933d5d99195b4e137cdcbbe69e721b84203e71982f8a6c3222b"
+      },
+      {
+        "name": "cashOutRun",
+        "sha256": "463855e430269bcd8f6f78eed96bc573b937f5990e7bef5c05c37f5c3f51af16"
+      },
+      {
+        "name": "finishSoloRun",
+        "sha256": "ecfb6017f364111dfb9ff03ab901a3e9b00740bfc8e63bb019b244e9b56a2c8f"
+      },
+      {
+        "name": "extensionNext",
+        "sha256": "4198e0ee9914e1f42997e770a4cd8a2552d1cb41aa28df8c1b7af45cb762341e"
+      },
+      {
+        "name": "extensionUpdate",
+        "sha256": "f75a5126267c7221391bb2cae6d0c7093120d68ce01879a069c8ba104578f687"
+      },
+      {
+        "name": "extensionDisplay",
+        "sha256": "d32fd4fbbb6845c47404a7ec182eead347c88f5d2c205246a554374f0eec45ea"
+      },
+      {
+        "name": "extensionLoop",
+        "sha256": "31648f15ce9ee70e3d7601c0d3a55a9ddab84865add8cd4a322f788498dc5df6"
+      },
+      {
+        "name": "insightReplayCache",
+        "sha256": "42f17ef22dc8f36d3b2586444801252e88f59194d422ef1e11dc406ffc1a0adc"
+      },
+      {
+        "name": "replayInsights",
+        "sha256": "7e87a76597c729535302d608da78ac017a6c214ae95e59481b43ba4fb579893f"
+      },
+      {
+        "name": "insightDeferredSession",
+        "sha256": "a783cf1eb360a7cd1cb8b5f14212bfe6fc6d212b6aa25915f7455e0df8d49d2b"
+      },
+      {
+        "name": "insightDeferredRound",
+        "sha256": "f4bf33fea4adc2313b963bc34b30ef463fdcd9809a355de193e6518053a09b82"
+      },
+      {
+        "name": "insightDeferredReplay",
+        "sha256": "152cb0b018634139491a17481149bb441a72596bdfd68f56acffda948606e610"
+      },
+      {
+        "name": "syncBattleInsights",
+        "sha256": "aa740d868cf864d6c4e314bb0c7c32d81c7400ccb842c27a9915135138c237c1"
+      },
+      {
+        "name": "insightsUpdate",
+        "sha256": "d0d87bdbe22118319dca54af9cfaf36d9186ef5e6f59dd7b662fc69b6e9eed66"
+      },
+      {
+        "name": "insightsDisplay",
+        "sha256": "c9ef008be4ab7fee61c21fbfc6010726d9e2de11490a5fb56fea03895b243874"
+      },
+      {
+        "name": "BATTLE_LOG_CATALOG",
+        "sha256": "b015c9e304bdca4c5fb77a8574016f069abc913a1187d679de3df2c84aab2a3e"
+      },
+      {
+        "name": "BATTLE_LOG_EVENT_TONES",
+        "sha256": "b87ebc8ac13014e27b2a4e2b097f03af87e7c4df21c20cc58f9d26e5c11eb75f"
+      },
+      {
+        "name": "BATTLE_LOG_STATUS_TONES",
+        "sha256": "1d60a1414d3778ac52db924fd3bf765022d4b444b09b8b857cadae852dbbce99"
+      },
+      {
+        "name": "battleLogActionTone",
+        "sha256": "41006f5e8c088447fc16599f27268189bc8ed55a827bfd731990d2dc9d8af15c"
+      },
+      {
+        "name": "BATTLE_LOG_PREPARATION",
+        "sha256": "5098e22c0605460c8f1399333807f1de4489fb5586ce9c74ec5060b5d88cc40c"
+      },
+      {
+        "name": "BATTLE_LOG_LAUNCH",
+        "sha256": "515608eae81dc26bc016c572c3bd2946fe14f0fd6a0b4e3f666cfe7316870c2f"
+      },
+      {
+        "name": "BATTLE_LOG_COMPLETION",
+        "sha256": "da802ed902eac73b5a9b805d23e6dd5c23f0abc6fb635ef24be1f2cf6453cef5"
+      },
+      {
+        "name": "battleLogObserved",
+        "sha256": "ec9aab809f9c32181bd8478d34fec62532ccc9352df5198c55188169d71e9196"
+      },
+      {
+        "name": "battleLogObservationDropped",
+        "sha256": "5a4285a590e8ea2d1b8429f7901639cc969e16fc3057837b0f0675cba74935c5"
+      },
+      {
+        "name": "battleLogOpen",
+        "sha256": "e7159e8b483830a4403ba42d65425de4112a9780ff2b321993c8ffde0b4cd2d3"
+      },
+      {
+        "name": "battleLogPageEnd",
+        "sha256": "0131a38952ad5cd79fb05028a48f2f7b2f816f3770d38e2b207c1b952a0e3571"
+      },
+      {
+        "name": "battleLogScrollHold",
+        "sha256": "19078e1bbd14f8446ebd3758c1160b9cbc2c808febbb005da6b90cebdcab36f6"
+      },
+      {
+        "name": "battleLogReturnFocus",
+        "sha256": "ba882ecc4059e302552e094419f7dbd01122ad3f44a6b3b7ce2bdf3d72e1b9e8"
+      },
+      {
+        "name": "soloBattleLog",
+        "sha256": "6752eaebc855efc95a2349809087f24cc57906481d8a15f952a5befc56179339"
+      },
+      {
+        "name": "battleLogReplaySource",
+        "sha256": "f2509adffa8b676693b7917fe44e88f6477fc81e2d1269be8c567c4ff4ed8142"
+      },
+      {
+        "name": "battleLogPlayback",
+        "sha256": "0750ce178bdeacbb567af9c35bc3f29defac1b9c965ac3449f1d328d28df15b0"
+      },
+      {
+        "name": "battleLogLastWrite",
+        "sha256": "242b99408304be85ee2f15ea50142f2206ef9b55eb07be1e5274e85d1ab8a95f"
+      },
+      {
+        "name": "battleLogRenderKey",
+        "sha256": "4fc355fd0affb51067f730249b1f56e196f4c5011a1a8457cfdb3984d6c6b441"
+      },
+      {
+        "name": "battleLogLocalEpoch",
+        "sha256": "660ed72efb43e91638dc269dec3a4a7001722b97f50ff502781743dcb2d7bb1a"
+      },
+      {
+        "name": "battleLogDeferredSession",
+        "sha256": "64e7b315fc14ffcd8428ca144fc004955087b6f0ebdd432e37c37b030d71b09b"
+      },
+      {
+        "name": "battleLogDeferredRound",
+        "sha256": "4fed76d50e92c6cb69e879936596df75eee729ccda0c223697d8e07dc9e2d85a"
+      },
+      {
+        "name": "battleLogDeferredReplay",
+        "sha256": "d778c2d150908e146b9dc26f4007f7f57f47ea463fa98055ce81de6e5f81f801"
+      },
+      {
+        "name": "battleLogDeferredRejected",
+        "sha256": "0c8e30887fd80ecb40146b5231e05ff39532ab4413cf4bae0e68a837b9183831"
+      },
+      {
+        "name": "resetBattleLogObservation",
+        "sha256": "d7903098a2811d3b22daa2dbe203dbb720572898a4c78de91ad8deba658a45e7"
+      },
+      {
+        "name": "observeBattleLog",
+        "sha256": "715de38c671c3c1d20b00dbb02fadd47ed68000c20d18a839ace54431a8cf82e"
+      },
+      {
+        "name": "battleLogPublish",
+        "sha256": "f5114da7335c18c4a588bed9b499641af1521ddb023857d28d76f275cc1d22e5"
+      },
+      {
+        "name": "resetBattleLog",
+        "sha256": "1f97e8cef9b958213960d6394b07c73405b7fcafac85c0adae2f5295edc347b5"
+      },
+      {
+        "name": "battleLogReplay",
+        "sha256": "571bf4afcee8b96c415d50a1211d129861957491ea1bad6f247d57a1a7073403"
+      },
+      {
+        "name": "battleLogReadable",
+        "sha256": "f88273cc944b73131d355622fee66464be6a9c32d01df0f60a63590064d551c6"
+      },
+      {
+        "name": "battleLogCurrentCatalog",
+        "sha256": "191b9ecb23598c10d5f5c470fac75dedb69ff01676007b45c2ad82d88bac884e"
+      },
+      {
+        "name": "battleLogView",
+        "sha256": "d62c8a64b66bb58f3dba2b7ec49c13f5c1e2ed95892ed6694669dec8f18a121d"
+      },
+      {
+        "name": "battleLogActor",
+        "sha256": "d4111623980fd6168a35773cfa64283ed61efb2a2ff15f7e027cd874e80a91d4"
+      },
+      {
+        "name": "setBattleLogOpen",
+        "sha256": "4137c3f497e6b026e9bb691aa584d1e5a8d90b7ef0f6adafccbc6e55cb08dbb8"
+      },
+      {
+        "name": "renderBattleLogParts",
+        "sha256": "0b18d396121d834bc5feb26b69786da581ef8896f41c7d2bf136cd9669654be0"
+      },
+      {
+        "name": "syncBattleLog",
+        "sha256": "baf81b59e5e00c604efddf2d542b0a05644ac2c3d948c3fd76b117305a325178"
+      },
+      {
+        "name": "battleLogSetup",
+        "sha256": "98c08a334e2c13efa21ee5fad5b047f3a2e99b52e2e0019a5d19ff3254e6dc34"
+      },
+      {
+        "name": "battleLogStep",
+        "sha256": "a00121b3dfc3b291a5b528cd29bd758c05c3371131554bea3d4bce4cd455a3f7"
+      },
+      {
+        "name": "battleLogLoop",
+        "sha256": "5454b8ca3ba32f2fe1c3ddf766242300743241b27a96b16e1a2357988969a62c"
+      },
+      {
+        "name": "logAdvanceResultRead",
+        "sha256": "e5afd86ba26973f52e9782b5049082a31ef0bc9d3a63ec376262bf95296bf800"
+      },
+      {
+        "name": "battleLogToggle",
+        "sha256": "e2e64ab5b193b52404607fbf976cfb3de8c203c1a0be42ab8873a11fb8b9328b"
+      },
+      {
+        "name": "battleLogClose",
+        "sha256": "2468623ed12417dfedf9f8d32c111ef080ce02032041707276a9f421024363be"
+      },
+      {
+        "name": "battleLogPrevious",
+        "sha256": "fa45611a654d35b9e200d50121145916a112297de1f1942bc5ca00d6d18d15aa"
+      },
+      {
+        "name": "battleLogLatest",
+        "sha256": "206f9e0e5e3e7bbc0d6ddd66a24dfc6513e242da760fe155b3cbad649d72d965"
+      },
+      {
+        "name": "battleLogList",
+        "sha256": "eb2a639b89b3a2cda5433d40c245017ab9d0ad7dcda29278a01b032f7259ead0"
+      },
+      {
+        "name": "battleLogResult",
+        "sha256": "5cf50ca05cd07b38267044f102bfef6ecfb9289d099f593c99770fe4669f31db"
+      }
+    ],
+    "changed": [
+      {
+        "name": "ReactionLane",
+        "oldSHA256": "5d386cc686d34243f4801a931d0611f85419954fa6a95590c3e53ce42e0c714c",
+        "newSHA256": "81bfa8dcc7aed052b6cc72a3e066984b4a6fd613c72587a2731cabf95076ab7a"
+      },
+      {
+        "name": "ContentProfile",
+        "oldSHA256": "0bec2329c28c57aac07d4b81773836d7bdba3aa1058a21622064f85ba52ddf86",
+        "newSHA256": "588406bbb976a42460ed6ccd39a00dd25a304a2df7d5658322771b03d43c3c7e"
+      },
+      {
+        "name": "MultiProtocol",
+        "oldSHA256": "e0873c1c9cd08161bb18defc43c3c7a2e2c1fdd110090258a744a817498af848",
+        "newSHA256": "4c4047dead889ae63dcd8f5323e2fd509ec3c434975300f89ca05deefda920bc"
+      },
+      {
+        "name": "SDKAdapter",
+        "oldSHA256": "7307a925c1486bdca9ff7857ff9c20ed951918053c792e7fc59796688dc3aeaa",
+        "newSHA256": "f518236fc9092182f71aad2172d1cd02e890e1a3af774146e9a4f63a0d6afbce"
+      },
+      {
+        "name": "BossAbilities",
+        "oldSHA256": "284616e28b7424d48023819f8a12a2fdf5d61851b5d6c7040f6b18c7f551d514",
+        "newSHA256": "81e95768fc4fb8f67acb69309fb01d4df4628999c4e6b3bc08f8b21e31732384"
+      },
+      {
+        "name": "multiResultText",
+        "oldSHA256": "d7e06add5d95d8b274e3efde390506fa51cdbce75deed7a1707f4d2f9b07e52a",
+        "newSHA256": "145c4974a71536660594c390a58ab70ff154282d3d56b7d95997d01701cd9780"
+      },
+      {
+        "name": "predictionPickEntries",
+        "oldSHA256": "bd5ed90bb1c9b7b9482fda62ff330290211ec62c77595295a212af7e163e4232",
+        "newSHA256": "f3296e8d6b1b8f2a14d1e01eae427bf6a2646177605f4e178aa9f78acbf77b6b"
+      },
+      {
+        "name": "syncPredictionPicks",
+        "oldSHA256": "53dbfc776c735759abf2778e38970e5d79d8b1388a6448c92bdadf067b65e5a8",
+        "newSHA256": "8eb9aaab060148df926938fd3d75ac1476f9ef974d755d13b05bc864254b180f"
+      },
+      {
+        "name": "enterNative",
+        "oldSHA256": "190d047d0c8663bc57c9e032c7f804da19c7f49a4d2a449663fa664002265a43",
+        "newSHA256": "15ddaac4cfaf27ed4595c3f76ec8debd97642f83691601017dc2c9c4aa54ef34"
+      },
+      {
+        "name": "leaveMulti",
+        "oldSHA256": "3ed58402a74e0f21d9eecc75ad3ea6ab2420a47ccde1e5c89e54238ce3d9c1c6",
+        "newSHA256": "43967189f13602c8163da8650c0c089184df64e80f74ec315fafd02c2b3966cc"
+      },
+      {
+        "name": "showScreen",
+        "oldSHA256": "5350cca5e9ab5a947bf376fc691c1421f67f1ead3fa8595d5ed6fafc35342712",
+        "newSHA256": "b0f21b4af51d95b68ad68f199c552c526d6323a4d755a65d4ab282a2c5a1657f"
+      },
+      {
+        "name": "drawArmyPreviewsLegacy",
+        "oldSHA256": "baf1b88e848f32ffd5ad9f3220f378efaff5183c5f54a3108bff22e63d1f9f72",
+        "newSHA256": "cef8eb7fd2c80a8379870b903dd21d734a5f75deec7e2b3d0d5732f508a1e769"
+      },
+      {
+        "name": "predictionPreviewPlan",
+        "oldSHA256": "0e5c8a3e79d2314d215d98717b0bc140b697cdfadbbfb43e18fef31ac7a5d0a6",
+        "newSHA256": "18f83a80682a7dff31f105350678b26e34493ca8fece9f2e96fb2ea5740e5bd3"
+      },
+      {
+        "name": "drawArmyPreviews",
+        "oldSHA256": "3f8f51c27bb163141bd4528d0573644619ae5ea11b8b7eeb0be039925e669e98",
+        "newSHA256": "67f7685a5797adb9320a17f314b1cf8713b3123219be1a8d96808fcebd82d2db"
+      },
+      {
+        "name": "normalizeParticipantProfile",
+        "oldSHA256": "d18f26f6f196b857e5a9f33a499cbc6c90ce5ef0bfdf8c30f44d948163e0205e",
+        "newSHA256": "0e1ccaeda0ff7e181780f150035edb1786ce3a2dbf8bff3cfb8bf77e68262058"
+      },
+      {
+        "name": "requestSoloParticipantProfile",
+        "oldSHA256": "a1bb6d5162b0dce0ab679efe9ec8e868fa12e75a33a42a3f0aa3706355515649",
+        "newSHA256": "e71dd48b106dd2f542660870dfb2cca3693a4d671969e4695b11bc3fd8823e6c"
+      },
+      {
+        "name": "soloParticipantEntries",
+        "oldSHA256": "3a2c518ad84769aee0e1e6d12e4a45ab819d204001714fd9582bcb470c1ddd2e",
+        "newSHA256": "6dde36f218c6345d837902ce171bb690b2f6713097b0751f5792270a25688ebf"
+      },
+      {
+        "name": "syncParticipantRail",
+        "oldSHA256": "cd9e79ae7b9bdc4d019209365442fa509dc667748dc4e950f3a498d028006e36",
+        "newSHA256": "aeed05a6b9f34013624be124a9b738a805c57861931def433b663f1f92d347b2"
+      },
+      {
+        "name": "battleLogVisibleRow",
+        "oldSHA256": "728e6c5309caf48c085a38b88b242508cf9b49e01fa578a136b6ed5bd4bb9318",
+        "newSHA256": "3a20637ea3e7f5c7d88c3710dc93735ee27d5cb3bcfd027c36bed70e4c24fffb"
+      },
+      {
+        "name": "BattleLog",
+        "oldSHA256": "7e8c59e06b48e87ffb05df108be3e72c622f9a18bebc18b90fa016c4939dba87",
+        "newSHA256": "8774b2d0fbefa885695cc3f399470472167658630ec0a5f731f03a64e3adaa30"
+      }
+    ],
+    "added": [
+      "NativeProfiles",
+      "roomEntryGeneration",
+      "roomEntryRequest",
+      "roomEntryPending",
+      "roomEntryKind",
+      "roomExitPending",
+      "receiveNativeMultiChange",
+      "nativeRoomNeedsExit",
+      "roomLobbyMembers",
+      "renderMultiRoomLobby",
+      "cancelRoomEntry",
+      "predictionPreviewLane",
+      "soloParticipantUserId",
+      "soloProfileAttempts",
+      "soloProfileNextAt",
+      "soloProfileRetryTimer",
+      "soloProfileStatus",
+      "soloProfileGeneration",
+      "nativeProfileContext",
+      "refreshNativeProfileViews",
+      "retryNativeProfileAfterResume",
+      "BATTLE_LOG_PROJECTILE_END",
+      "BATTLE_LOG_REDUNDANT"
+    ],
+    "removed": [
+      "soloGravityProfileAttempted"
+    ]
+  },
+  "passed": true
+}

@@ -1,0 +1,92 @@
+{
+  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+  "suites": [
+    {
+      "suite": "participant-rail",
+      "status": 1,
+      "seconds": 0.48
+    },
+    {
+      "suite": "event-log",
+      "status": 1,
+      "seconds": 0.69
+    },
+    {
+      "suite": "draw-matchup",
+      "status": 0,
+      "seconds": 6.11
+    },
+    {
+      "suite": "late-boss-rounds",
+      "status": 0,
+      "seconds": 53.23
+    },
+    {
+      "suite": "zero-bet-text",
+      "status": 1,
+      "seconds": 1.54
+    },
+    {
+      "suite": "home-room-display",
+      "status": 1,
+      "seconds": 0.56
+    },
+    {
+      "suite": "speed-damage",
+      "status": 0,
+      "seconds": 3.37
+    },
+    {
+      "suite": "speed-natural",
+      "status": 0,
+      "seconds": 35.03
+    },
+    {
+      "suite": "trap-placement",
+      "status": 0,
+      "seconds": 11.68
+    },
+    {
+      "suite": "trap-camera",
+      "status": 0,
+      "seconds": 0.76
+    },
+    {
+      "suite": "dead-unit-motion",
+      "status": 0,
+      "seconds": 5.61
+    },
+    {
+      "suite": "summon-name",
+      "status": 0,
+      "seconds": 1.53
+    },
+    {
+      "suite": "matchup-diversity",
+      "status": 0,
+      "seconds": 14.77
+    },
+    {
+      "suite": "distinct-opponents",
+      "status": 0,
+      "seconds": 7.07
+    },
+    {
+      "suite": "effect-art",
+      "status": 1,
+      "seconds": 2.77
+    },
+    {
+      "suite": "battle-ui",
+      "status": 1,
+      "seconds": 1.58
+    },
+    {
+      "suite": "trait-terms",
+      "status": 0,
+      "seconds": 0.99
+    }
+  ],
+  "passed": 11,
+  "failed": 6
+}

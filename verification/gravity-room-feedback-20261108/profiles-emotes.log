@@ -1,0 +1,25 @@
+PASS offline solo has honest player label, no native/CDN access
+PASS documented name/portrait aliases, numeric native ID and HTTPS restrictions
+PASS one in-flight read across 1000 frames; eager image, loading/error fallback, avatar badge survives completion
+PASS SDK injection after initial solo rendering recovers real identity
+PASS delayed Gravity host context loads only the real SDK profile route
+PASS errno failure is not identity; bounded delayed retry recovers without per-frame calls
+PASS hung native callback times out; late response cannot replace successful retry
+PASS partial native profile merges only same-user fields
+PASS four-attempt cap stops permanent native failures and timer churn
+PASS partial genuine room cache remains usable in solo without invented identity
+PASS replaced SDK owner cannot install an older in-flight identity
+PASS sender-specific native portraits, spectators and departed/unknown sender filters
+PASS actual solo betting click renders badge; changing prediction preserves it
+PASS actual solo choose/fight/result handlers keep reaction controls live
+PASS modal closes/suspends reactions and resuming betting restores availability
+PASS native entry profiles update views; wrong-room events cannot replace identities
+PASS self refresh is coalesced/throttled and cannot change adapter identity
+PASS actual multiplayer betting handler shows own badge immediately without SDK echo
+PASS real SDK receive anchors remote sender; prediction changes and profile rebuild preserve both badges
+PASS obsolete quick10 wire, wrong-room events and unknown sender are rejected
+PASS actual native participant badges expire without phase transition
+PASS real SDKAdapter and wallet-session battle/settle/result send/receive; own feedback never waits for echo
+PASS old-round native messages cannot revive a badge in the next prediction
+PASS one phase-independent reaction backdrop and unchanged 18px upper-right badge placement
+PROFILES / EMOTES PASS 24 focused cases; all embedded scripts compile. Device WebView validation still required.
