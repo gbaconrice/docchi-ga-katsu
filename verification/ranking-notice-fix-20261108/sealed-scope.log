@@ -1,0 +1,4 @@
+PASS frozen sealed SHA and independent exact content-revision calculation
+PASS final source differs only by the 51-byte requested notice deletion and deterministic revision reseal
+Final SHA256 6283b7ec63b7e8c876ce6bff3377fbacfa9248df7c17ac8d08c861e9331ed3a4
+Content revision 9af77ea21e75902e547beeb43706834c47f5770ce96aa6978b1c35a7b2f42d75

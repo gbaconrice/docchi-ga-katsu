@@ -1,0 +1,5 @@
+PASS actual bridge status paths, eligibility, zero/unsafe amount guards, input identity, payload/target and timeout rules
+PASS unavailable/failed to mirrored retry to posted-unconfirmed to duplicate; successful attempts remain deduplicated
+PASS another failed score retains its existing retry suffix and both retry controls during standalone status
+PASS unchanged actual submitFinalScore solo/multiplayer routing, non-cashout guard and spectator gating
+PASS 32 paired before/after runtime comparisons and all embedded script syntax checks

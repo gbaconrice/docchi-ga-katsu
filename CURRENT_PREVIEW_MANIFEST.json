@@ -1,38 +1,18 @@
 {
-  "release": "releases/terrain-emote-fix-20261108",
-  "sourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
-  "contentRevision": "1c8cf464440547b6e4c63cf5bc5c2c8ca3dafc9d6bcddbaed7035e1f02eb090f",
+  "release": "releases/ranking-notice-fix-20261108",
+  "sourceSHA256": "6283b7ec63b7e8c876ce6bff3377fbacfa9248df7c17ac8d08c861e9331ed3a4",
+  "contentRevision": "9af77ea21e75902e547beeb43706834c47f5770ce96aa6978b1c35a7b2f42d75",
+  "baseCommit": "7e8519c48608551bc2092284492a8e0f36720557",
+  "baseSourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
   "imageFiles": 574,
-  "unchangedImageFiles": 573,
-  "newHomeGifFiles": 1,
-  "requestedRules": {
-    "battleLimitSeconds": 60,
-    "damageSpeedAtSeconds": {
-      "0": 1,
-      "20": 2,
-      "40": 3
-    },
-    "overtime": false,
-    "separateBossDamageMultiplier": false,
-    "opposingSpeciesIncludesDescendants": true,
-    "normalResultSeconds": 8,
-    "continueDecisionSeconds": 30,
-    "predictionCapSeconds": 60,
-    "nativeRoomInvitationUnchanged": true
-  },
-  "verification": "verification/terrain-emote-fix-20261108/README.md",
-  "runtime": "game-runtime.ee2952e2625249b616ba.js",
-  "runtimeSHA256": "ee2952e2625249b616bab99e13cd8c16d75798e9fd860511d12d27f2c9b4ba17",
+  "unchangedImageFiles": 574,
+  "newImageFiles": 0,
+  "runtime": "game-runtime.5185e436c28cb53e4ce6.js",
+  "runtimeSHA256": "5185e436c28cb53e4ce6ce94eef66b4ae2d9720cbcaf33e361b1ae7f0f5d9373",
+  "verification": "verification/ranking-notice-fix-20261108/README.md",
   "changes": [
-    "Full terrain text wraps in the existing header; result clearance follows actual header height",
-    "Only the emote badge backing and border removed",
-    "Requested lobby text and redundant self-role suffix removed",
-    "Routine game room bar and empty prediction/winner labels omitted; explicit failure recovery preserved",
-    "Only the added darkfan claw cue uses narrow terrain-colored fissures and small brief debris; original character rendering and physics remain unchanged",
-    "The pinned GIF animates only original candle/fireplace flames, lamp light and local reflections; lamp bodies and chains stay fixed"
+    "Remove only the standalone external-ranking notice; other ranking text, submission eligibility and transport remain unchanged."
   ],
-  "originalCharacterRenderingPreserved": true,
-  "newHomeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
-  "newHomeGifBytes": 992844,
+  "homeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
   "fixedLampBodies": true
 }

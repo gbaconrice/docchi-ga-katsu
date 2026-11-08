@@ -1,0 +1,3 @@
+PASS exact one-literal removal; inverse restores every original byte; immutable input SHA; idempotence; fail-closed anchors
+PASS ScoreBridge, submit eligibility, retry handlers, markup, CSS and all embedded assets are byte-for-byte unchanged
+Candidate SHA256 55ecf6a2d0aa3088f10454f0f6a5df05f31c1a4fe679c9ce0d4fb865c3cd9005

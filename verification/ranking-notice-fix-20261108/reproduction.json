@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "baseCommit": "7e8519c48608551bc2092284492a8e0f36720557",
+  "baseSourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
+  "sourceSHA256": "6283b7ec63b7e8c876ce6bff3377fbacfa9248df7c17ac8d08c861e9331ed3a4",
+  "removedLiteralBytes": 51,
+  "otherSourceChanges": "content revision only",
+  "all574ImageBytesAndURLsUnchanged": true,
+  "homeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
+  "newImageFiles": 0,
+  "formalFiles": 17,
+  "formalFilesAndRootEntriesByteIdentical": true,
+  "pairedRuntimeCases": 32,
+  "entryLoaderCases": 7,
+  "scoreTransportAndEligibilityUnchanged": true,
+  "physicalGravityAndRealScoreSubmissionVerified": false
+}

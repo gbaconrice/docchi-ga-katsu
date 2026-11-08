@@ -1,0 +1,11 @@
+{
+  "baseCommit": "7e8519c48608551bc2092284492a8e0f36720557",
+  "baseSourceSHA256": "ff7862a0193b266463bf699edc8844b7ce30b7c9fb03e283462542f6d0f4985f",
+  "preSealSHA256": "55ecf6a2d0aa3088f10454f0f6a5df05f31c1a4fe679c9ce0d4fb865c3cd9005",
+  "sourceSHA256": "6283b7ec63b7e8c876ce6bff3377fbacfa9248df7c17ac8d08c861e9331ed3a4",
+  "contentRevision": "9af77ea21e75902e547beeb43706834c47f5770ce96aa6978b1c35a7b2f42d75",
+  "patchSHA256": "9fbce2bb48c9f56c7e5bb7d748d6c4afee06a1aa6225748aa26eb6d2f63d7ce7",
+  "removedLiteralBytes": 51,
+  "bytes": 50842410,
+  "scope": "Only the standalone external-ranking notice is empty; all other source bytes differ only in the content revision."
+}
