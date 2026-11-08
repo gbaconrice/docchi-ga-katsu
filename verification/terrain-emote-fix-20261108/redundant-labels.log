@@ -1,0 +1,9 @@
+PASS host and guest routine prediction/preparation/replay/result bars and exits collapse
+PASS missing replay and unknown clock are ordinary waiting, not an error exception
+PASS existing explicit replay/content/exit failures retain recovery but never routine summary
+PASS clearing a failure collapses the row again; score-only routine duplicate stays hidden
+PASS lobby and stopped recovery retain exit, start/retry states; home hides row
+PASS empty or skipped/lost/incomplete winner receipts omit the entire result row
+PASS header keeps actual left/right picks and choose 未選択, never no-pick fight/result
+PASS canonical timeout receipt keeps exact 0 G and ledger while removing empty label
+PASS 8 focused display/recovery tests; no native device claim

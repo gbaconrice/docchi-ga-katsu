@@ -1,23 +1,25 @@
-# Terrain and emote correction verification
+# Display cleanup verification
 
-Final source SHA-256: `9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5`.
+Source SHA-256: `b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0`.
 
 ## Scope
 
-- The terrain slot keeps its existing 13px font and column. It wraps the complete name/effect instead of hiding the ending in a single-line horizontal scroller. Only a header that needs more lines grows.
-- The participant emote keeps its 18px box, 14px emoji and upper-right portrait position. Only its cream backing and border are removed.
-- A small isolated presentation observer measures the actual upper stack for the existing result panel. Its normal126px reserve,68% height cap, internal scrolling and styling remain. The measure is batched, never polls or runs on combat ticks, and writes only changed CSS values. A guarded mutation/font fallback covers engines without ResizeObserver.
+- Terrain names and effects wrap inside their existing header column, retaining the font size. A measured result clearance prevents overlap on short screens.
+- Emotes keep their existing 18px box and upper-right avatar position, with only the backing and border removed.
+- The initial host lobby explanation and redundant self-role suffix are removed. Genuine names, avatars, host permissions and lobby controls remain.
+- Routine game-room summary and exit chrome are hidden during normal play. Empty prediction/winner labels are omitted. Actual winner names, settlement amounts and the lower next-round controls remain.
+- Existing recovery controls are retained only for explicit failures, not ordinary replay preparation or clock waiting.
 
-## Exact checks
+All original character rendering and embedded assets remain unchanged. This checkpoint does not modify character attack/hit frames, effect rendering, simulation, room transport, native invitations, prediction receipts, money calculations or deadlines.
 
-The portable scope test proves that removing the one declared CSS insertion and the one literal layout helper restores the entire prior source after normalizing only the exact release-content seal. All original runtime functions, DOM content, image/audio payloads, game rules and protocol are unchanged. All574 image files, including the home GIF, are identical to the prior release.
+## Verification
 
-Tests cover all eight terrain labels at maximum strength, solo and eight-player sender badges in prediction/fight/result, expiry, no obsolete feedback surface, and all embedded script syntax. Layout-helper tests cover126→142→126 clearance, more wrapped lines, batching, unchanged-value guards, hidden-to-visible changes, asynchronous terrain changes, font completion and missing APIs. Repeated identical mutations cause no layout reads.
+The exact-composition test rebuilds the declared three patches and content seal. It verifies original character rendering, image-byte equality, five-script structure and idempotence. The redundant-label patch has seven invertible display-only edits; the lobby patch has four exact edits.
 
-The preceding release's seven focused UI suites pass on the final source. The actual distribution loader passes its seven cases. The split release reconstructs the exact standalone source, and the clean portable reproduction also checks the prior release before applying this correction.
+Focused tests cover all eight terrains, solo/eight-player emotes, overflow and clearance behavior, lobby roles and status transitions, routine versus actionable-error display, and a real canonical timeout receipt retaining its exact 0 G settlement.
 
-See the individual logs, `retained-ui-summary.json`, `source-build.json`, `reproduction.json`, and the browser report when included. The prior full gameplay/replay equivalence evidence is in [the preceding release](../gravity-room-feedback-20261108/README.md); this correction preserves all original gameplay bytes rather than claiming a new balance simulation.
+All seven retained UI suites pass, including 27 lobby cases and 20 result/receipt/deadline cases. The latter retains its comprehensive original gameplay equality check; only the two superseded empty-label expectations change. Normal next-round waiting remains 8 seconds, post-ten decisions 30 seconds and prediction cap 60 seconds. The actual distribution loader passes seven cases.
 
-## Limitations
+Run `node tools/terrain-emote-fix-20261108/reproduce.cjs /absolute/new-output-directory .` from the repository root with Node.js and Python 3. The output directory must not exist. This first rebuilds and verifies the preceding release, then rebuilds this source and checks exact split-release reassembly.
 
-Native browser width/inset fixtures are not physical devices or real GRAVITY WebViews. Real SDK profiles, room transport and physical safe-area behavior still need in-app verification. Private user screenshots and browser captures are not included in this package. Test-only controls are not part of the production release.
+See `source-build.json`, the test logs, `retained-ui-summary.json`, and the reconstruction/browser reports when included. Browser fixtures are not physical-device or real GRAVITY verification. Private screenshots, native identities and test-only controls are excluded from the release.

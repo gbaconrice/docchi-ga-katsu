@@ -1,7 +1,7 @@
 {
   "release": "releases/terrain-emote-fix-20261108",
-  "sourceSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
-  "contentRevision": "574b1ef932817ebcdc203241cc6865dd58d5619d63172154f7fa793d9dd2a53a",
+  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "contentRevision": "fcd38ae131430c3d45533d9bfce6955da200cd80f38e84d56552d1acb04ef591",
   "imageFiles": 574,
   "unchangedImageFiles": 574,
   "newHomeGifFiles": 0,
@@ -21,10 +21,13 @@
     "nativeRoomInvitationUnchanged": true
   },
   "verification": "verification/terrain-emote-fix-20261108/README.md",
-  "runtime": "game-runtime.739d2611bb4c2e3c2d53.js",
-  "runtimeSHA256": "739d2611bb4c2e3c2d53d140a3bc61c7ebb1afce41a50fae61033dcc2706e831",
+  "runtime": "game-runtime.95810e196df5449993cb.js",
+  "runtimeSHA256": "95810e196df5449993cba048a6cf64d402554ad0a64bc409d375bf48d6d13cef",
   "changes": [
-    "Full terrain text wraps in the existing header",
-    "Only the emote badge backing and border removed"
-  ]
+    "Full terrain text wraps in the existing header; result clearance follows actual header height",
+    "Only the emote badge backing and border removed",
+    "Requested lobby text and redundant self-role suffix removed",
+    "Routine game room bar and empty prediction/winner labels omitted; explicit failure recovery preserved"
+  ],
+  "originalCharacterRenderingPreserved": true
 }

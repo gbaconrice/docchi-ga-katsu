@@ -1,0 +1,6 @@
+PASS sentence removed; initial status hidden; global hidden rule removes its layout box; embedded scripts compile
+PASS host/self, guest/other and spectator roles; original names, avatars, member cache, membership and controls retained
+PASS guest/self and spectator/self omit only the redundant role suffix; existing fallback name is untouched
+PASS create/join/restart/stopped/playing status text and busy/exit controls; host blank hides again after every status transition
+PASS residual native membership, hidden entry/home states, leave/rejoin and status relocation
+PASS lobby-copy focused checks: index.html

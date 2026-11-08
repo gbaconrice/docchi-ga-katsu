@@ -2,8 +2,8 @@
   "format": "docchi-demand-images-v1",
   "releasePath": "releases/terrain-emote-fix-20261108",
   "releaseBase": "https://gbaconrice.github.io/docchi-ga-katsu/releases/terrain-emote-fix-20261108/",
-  "sourceSha256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
-  "sourceBytes": 50221426,
+  "sourceSha256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "sourceBytes": 50221568,
   "scripts": [
     {
       "index": 0,
@@ -29,9 +29,9 @@
     {
       "index": 3,
       "attributes": " id=\"game-runtime\"",
-      "file": "game-runtime.739d2611bb4c2e3c2d53.js",
-      "originalSha256": "d32fdbed357cd36022bdeff05e681387e41ced16c3f2ce36a9bd1a61141f5643",
-      "transformedSha256": "739d2611bb4c2e3c2d53d140a3bc61c7ebb1afce41a50fae61033dcc2706e831"
+      "file": "game-runtime.95810e196df5449993cb.js",
+      "originalSha256": "c5d3e91e3d98bd6846ce18dcda7dd6ed41de7db135a64489a0ddb37ae97da931",
+      "transformedSha256": "95810e196df5449993cba048a6cf64d402554ad0a64bc409d375bf48d6d13cef"
     },
     {
       "index": 4,
@@ -46,15 +46,15 @@
     "originalSha256": "89f8e6219eee5dfeece09887bdd5ec7692f0d02ed14fd11d235dca2f76fd2503"
   },
   "shell": {
-    "file": "game-shell.1448c991e15bd423e1d3.js",
+    "file": "game-shell.814db17924bc1fadde9c.js",
     "bodyFile": "body-fragment.html"
   },
   "loadOrder": [
     "host-layout.0b679d98d044de1154e4.js",
-    "game-shell.1448c991e15bd423e1d3.js",
+    "game-shell.814db17924bc1fadde9c.js",
     "boot-errors.fbbf182df287955b44f1.js",
     "viewport.7055196e99d934e94664.js",
-    "game-runtime.739d2611bb4c2e3c2d53.js",
+    "game-runtime.95810e196df5449993cb.js",
     "home-ambience.741a9360b33b37ccd143.js"
   ],
   "imageAssets": [
@@ -5296,8 +5296,8 @@
     },
     {
       "file": "body-fragment.html",
-      "bytes": 20355,
-      "sha256": "051ce340b91633403cdd14853562e1a0e891e9d3782d123f753d6aad64cc8d77"
+      "bytes": 20362,
+      "sha256": "d1ad5757c820c613b1e2a98103f5c9efe38b7066afe35b184923f7149d42db2a"
     },
     {
       "file": "boot-errors.fbbf182df287955b44f1.js",
@@ -5305,14 +5305,14 @@
       "sha256": "fbbf182df287955b44f1b7a246afdad9dac330db096cf9df997971c63a6da6f9"
     },
     {
-      "file": "game-runtime.739d2611bb4c2e3c2d53.js",
-      "bytes": 6327219,
-      "sha256": "739d2611bb4c2e3c2d53d140a3bc61c7ebb1afce41a50fae61033dcc2706e831"
+      "file": "game-runtime.95810e196df5449993cb.js",
+      "bytes": 6327354,
+      "sha256": "95810e196df5449993cba048a6cf64d402554ad0a64bc409d375bf48d6d13cef"
     },
     {
-      "file": "game-shell.1448c991e15bd423e1d3.js",
-      "bytes": 21942,
-      "sha256": "1448c991e15bd423e1d3304ade514214421fc7cabc1681576f6ca108b64310ad"
+      "file": "game-shell.814db17924bc1fadde9c.js",
+      "bytes": 21949,
+      "sha256": "814db17924bc1fadde9cade007b9ceeecfb2d88ec61c9a67562825dfbe19d7b7"
     },
     {
       "file": "game.65726794bf2bab46ae45.css",
@@ -5322,7 +5322,7 @@
     {
       "file": "gravity-entry.html",
       "bytes": 9038,
-      "sha256": "c1c1ac3dffc4fc8aa0eab928a46cd3486c99823e2f06957b2847746a510858af"
+      "sha256": "ea40ec1e23dd0dc8d1bf2157dafe24d6feb48a0c9a92132f3077c95822d22cfe"
     },
     {
       "file": "home-ambience.741a9360b33b37ccd143.js",
@@ -5342,7 +5342,7 @@
     {
       "file": "index.html",
       "bytes": 8962,
-      "sha256": "d4a3b9c52ed646042a6e881fec791fa280d110a57066fb9567259c1ab26c27ef"
+      "sha256": "2612c87a93f9b758f2353e0a4178b43c77f9d43486d8e496f07a2f14e0273efa"
     },
     {
       "file": "licenses/Duelyst-CC0-1.0.txt",
@@ -5361,8 +5361,8 @@
     },
     {
       "file": "source-template.html",
-      "bytes": 20881,
-      "sha256": "53ed3691d71fbfc54aa2161893828b669095f98a167a5cc238629101c7c6e4f6"
+      "bytes": 20888,
+      "sha256": "29c61b2f6aed81d427c93c5768496a79795d0485dc8b0b7c3045f9ae5af1c64a"
     },
     {
       "file": "viewport.7055196e99d934e94664.js",
@@ -5370,6 +5370,6 @@
       "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf"
     }
   ],
-  "initialScriptBytes": 6360229,
+  "initialScriptBytes": 6360371,
   "initialEntryAndCssBytes": 150452
 }

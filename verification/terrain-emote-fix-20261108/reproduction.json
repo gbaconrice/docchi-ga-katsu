@@ -1,11 +1,12 @@
 {
   "result": "PASS",
-  "sourceSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
-  "changes": "Exact CSS insertion and isolated result-clearance helper plus exact content seal only",
+  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "changes": "Terrain wrapping, transparent emote backing, requested lobby/empty-status cleanup, and exact content seal",
   "imageFiles": 574,
   "imageBytesUnchanged": true,
   "terrainKinds": 8,
   "retainedUISuites": 7,
   "entryLoaderCases": 7,
+  "focusedMatchLabelCases": 8,
   "realGravityAndPhysicalDeviceVerified": false
 }

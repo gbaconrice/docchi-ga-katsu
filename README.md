@@ -42,3 +42,9 @@ node tools/gravity-room-feedback-20261108/reproduce.cjs /tmp/docchi-gravity-room
 [前版の修正と検証](verification/battle-ui-feedback-20261108/README.md) ／ [49種の能力一覧](BOSS_ABILITIES.md)
 
 以前のリリースと検証は保存しています。素材出典は各リリースのARTWORK.md・licensesに記載しています。
+
+## 追加の表示整理
+
+ロビーの指定された説明文と重複する「あなた」を削除し、通常の対戦画面では部屋バーを表示しません。空の予想・的中結果は省略し、実際の的中者名、金額、次戦進行と障害時の復旧は維持します。元のキャラクター描画と全画像は変更していません。
+
+Node.js と Python 3 がある環境で、`node tools/terrain-emote-fix-20261108/reproduce.cjs /absolute/new-output-directory .` を実行すると前版から再構成・検証できます。出力先は新規ディレクトリにしてください。

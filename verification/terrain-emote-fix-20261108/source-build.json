@@ -1,7 +1,17 @@
 {
   "baseSourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
-  "sourceSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
-  "contentRevision": "574b1ef932817ebcdc203241cc6865dd58d5619d63172154f7fa793d9dd2a53a",
-  "patchSHA256": "cd7d44a35a6b15e84ac1d845ff96a4db03f14d171f46743af59510fae47ca39e",
-  "bytes": 50221426
+  "terrainStageSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
+  "sourceSHA256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "contentRevision": "fcd38ae131430c3d45533d9bfce6955da200cd80f38e84d56552d1acb04ef591",
+  "bytes": 50221568,
+  "patches": {
+    "patch-terrain-emote.py": "cd7d44a35a6b15e84ac1d845ff96a4db03f14d171f46743af59510fae47ca39e",
+    "patch-lobby-copy.py": "f53929eb4a1bec2b8bdb6f9440095d9e9e3917400e7af9e0ee50855836095ae6",
+    "patch-redundant-match-labels.py": "900288d08698c76fe9c0f40a9252b41021bfb0040c96ce35925ddecffc1693dd"
+  },
+  "baselines": {
+    "before-redundant-labels.html": "0e433e744e378945e5c5c9591f4277fd77254a71c6bdc297b0b33814abebebfc",
+    "before-seal.html": "92e7c9f86b3704a471db36b9cb8a0f883878174d18009877e50a6cbfb6ad24e0",
+    "terrain-stage.html": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5"
+  }
 }

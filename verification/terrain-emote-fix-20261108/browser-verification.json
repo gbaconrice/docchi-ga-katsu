@@ -1,0 +1,3911 @@
+{
+  "schema": "terrain-emote-ui-only-checkpoint-verification-v1",
+  "status": "validated-ui-checkpoint-awaiting-new-media-integration",
+  "releaseApproval": false,
+  "sourceSha256": "b296d5d85653c7d3906d807f7c74cce087c60fa2692a5f6e51b542a6c0c49be0",
+  "contentRevision": "fcd38ae131430c3d45533d9bfce6955da200cd80f38e84d56552d1acb04ef591",
+  "method": "Chromium viewport, inset and interaction tests using test-only synthetic states",
+  "productionFilesCopiedByteIdentically": true,
+  "sourceChecks": {
+    "exactUiPatchComposition": true,
+    "originalEmbeddedImageBytes": true,
+    "sourceFrameMasksAbsent": true,
+    "resultClearanceRegression": true,
+    "focusedDisplayRecoveryTests": 8,
+    "originalCharacterRenderingUnchanged": true
+  },
+  "privacy": {
+    "privateInputScreenshotsIncluded": false,
+    "screenshotsIncluded": false,
+    "nativeUserIdentifiersIncluded": false
+  },
+  "limitations": [
+    "Not a final public-release approval; new media integration is still pending",
+    "Physical iOS and native GRAVITY safe areas not verified by iframe",
+    "No native invite or SDK transport integration tested"
+  ],
+  "layout": [
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 568,
+        "width": 320
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 516,
+            "height": 210.890625,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 305.109375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 516,
+            "height": 243.078125,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 272.921875
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 320
+      }
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 375
+      }
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 390
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 126,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 126,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 216.75,
+            "right": 366,
+            "width": 342,
+            "x": 24,
+            "y": 631.25
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 126,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 126,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 248.9375,
+            "right": 366,
+            "width": 342,
+            "x": 24,
+            "y": 599.0625
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 430
+      }
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1200
+      }
+    }
+  ],
+  "labels": [
+    {
+      "requestedScenario": "Host lobby",
+      "scenario": "Host lobby",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "noHostWaitSentence": true,
+        "hostRoleOnly": true,
+        "noSelfRoleSuffix": true,
+        "lobbyExitRetained": true,
+        "hostStartRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · 開始ボタンで次へ\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Guest lobby",
+      "scenario": "Guest lobby",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "guestWaitPreserved": true,
+        "noSelfRoleSuffix": true,
+        "hostOnlyStart": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · ホストの開始待ち\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストが対戦を始めるまでお待ちください。",
+          "hidden": false,
+          "display": "block",
+          "height": 19.5,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Choose",
+      "scenario": "Choose",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "choose",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Fight",
+      "scenario": "Fight",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: no prediction",
+      "scenario": "Result: no prediction",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPredictionLabel": true,
+        "noEmptyWinners": true,
+        "noPredictionHeader": true,
+        "exactZero": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "0 G",
+          "hidden": false,
+          "display": "block",
+          "height": 34.5,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: winners",
+      "scenario": "Result: winners",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "realNames": true,
+        "exactAmount": true,
+        "actualPick": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：左",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        的中：QA Host、QA Guest\n      ",
+          "hidden": false,
+          "display": "block",
+          "height": 24.1875,
+          "visible": true
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 34.5,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Ordinary replay wait",
+      "scenario": "Ordinary replay wait",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Replay error",
+      "scenario": "Replay error",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      観戦記録の転送障害（確定結果は維持）\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Content error",
+      "scenario": "Content error",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      QA: 観戦記録を受信できません。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Exit error",
+      "scenario": "Exit error",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      退出失敗：QA。もう一度退出してください。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Stopped recovery",
+      "scenario": "Stopped recovery",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      ホストとの接続が切れました\n      停止：host-lost。未精算の予約は差し引きません。退出して戻れます。\n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 93,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストとの接続が切れました。退出して参加し直してください。",
+          "hidden": false,
+          "display": "block",
+          "height": 39,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Clear error",
+      "scenario": "Fight",
+      "viewport": [
+        320,
+        568
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Host lobby",
+      "scenario": "Host lobby",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "noHostWaitSentence": true,
+        "hostRoleOnly": true,
+        "noSelfRoleSuffix": true,
+        "lobbyExitRetained": true,
+        "hostStartRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · 開始ボタンで次へ\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Guest lobby",
+      "scenario": "Guest lobby",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "guestWaitPreserved": true,
+        "noSelfRoleSuffix": true,
+        "hostOnlyStart": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · ホストの開始待ち\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストが対戦を始めるまでお待ちください。",
+          "hidden": false,
+          "display": "block",
+          "height": 19.5,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Choose",
+      "scenario": "Choose",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "choose",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Fight",
+      "scenario": "Fight",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: no prediction",
+      "scenario": "Result: no prediction",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPredictionLabel": true,
+        "noEmptyWinners": true,
+        "noPredictionHeader": true,
+        "exactZero": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "0 G",
+          "hidden": false,
+          "display": "block",
+          "height": 40.359375,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: winners",
+      "scenario": "Result: winners",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "realNames": true,
+        "exactAmount": true,
+        "actualPick": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：左",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        的中：QA Host、QA Guest\n      ",
+          "hidden": false,
+          "display": "block",
+          "height": 24.1875,
+          "visible": true
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 40.359375,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Ordinary replay wait",
+      "scenario": "Ordinary replay wait",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Replay error",
+      "scenario": "Replay error",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      観戦記録の転送障害（確定結果は維持）\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Content error",
+      "scenario": "Content error",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      QA: 観戦記録を受信できません。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Exit error",
+      "scenario": "Exit error",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      退出失敗：QA。もう一度退出してください。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Stopped recovery",
+      "scenario": "Stopped recovery",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      ホストとの接続が切れました\n      停止：host-lost。未精算の予約は差し引きません。退出して戻れます。\n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 93,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストとの接続が切れました。退出して参加し直してください。",
+          "hidden": false,
+          "display": "block",
+          "height": 39,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Clear error",
+      "scenario": "Fight",
+      "viewport": [
+        390,
+        844
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Host lobby",
+      "scenario": "Host lobby",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "noHostWaitSentence": true,
+        "hostRoleOnly": true,
+        "noSelfRoleSuffix": true,
+        "lobbyExitRetained": true,
+        "hostStartRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · 開始ボタンで次へ\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Guest lobby",
+      "scenario": "Guest lobby",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "guestWaitPreserved": true,
+        "noSelfRoleSuffix": true,
+        "hostOnlyStart": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      参加 2人 · ホストの開始待ち\n      \n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 50,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストが対戦を始めるまでお待ちください。",
+          "hidden": false,
+          "display": "block",
+          "height": 19.5,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Choose",
+      "scenario": "Choose",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "choose",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Fight",
+      "scenario": "Fight",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: no prediction",
+      "scenario": "Result: no prediction",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPredictionLabel": true,
+        "noEmptyWinners": true,
+        "noPredictionHeader": true,
+        "exactZero": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "0 G",
+          "hidden": false,
+          "display": "block",
+          "height": 50.59375,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Result: winners",
+      "scenario": "Result: winners",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "result",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "realNames": true,
+        "exactAmount": true,
+        "actualPick": true,
+        "lowerCountdownRetained": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "予想：左",
+          "hidden": false,
+          "display": "block",
+          "height": 16,
+          "visible": true
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        的中：QA Host、QA Guest\n      ",
+          "hidden": false,
+          "display": "block",
+          "height": 24.1875,
+          "visible": true
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 50.59375,
+          "visible": true
+        },
+        "next": {
+          "text": "次の戦いまで 8秒",
+          "hidden": false,
+          "display": "block",
+          "height": 48.390625,
+          "visible": true
+        }
+      }
+    },
+    {
+      "requestedScenario": "Ordinary replay wait",
+      "scenario": "Ordinary replay wait",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Replay error",
+      "scenario": "Replay error",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      観戦記録の転送障害（確定結果は維持）\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Content error",
+      "scenario": "Content error",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      QA: 観戦記録を受信できません。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Exit error",
+      "scenario": "Exit error",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      退出失敗：QA。もう一度退出してください。\n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 52,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Stopped recovery",
+      "scenario": "Stopped recovery",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "room",
+      "phase": "choose",
+      "checks": {
+        "errorRecoveryVisible": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      ホストとの接続が切れました\n      停止：host-lost。未精算の予約は差し引きません。退出して戻れます。\n      \n      記録を再試行\n    \n    退出してホームへ\n  ",
+          "hidden": false,
+          "display": "flex",
+          "height": 93,
+          "visible": true
+        },
+        "exitRoom": {
+          "text": "退出してホームへ",
+          "hidden": false,
+          "display": "block",
+          "height": 44,
+          "visible": true
+        },
+        "roomLobbyWait": {
+          "text": "ホストとの接続が切れました。退出して参加し直してください。",
+          "hidden": false,
+          "display": "block",
+          "height": 19.5,
+          "visible": true
+        },
+        "battleChoice": {
+          "text": "予想：未選択",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    },
+    {
+      "requestedScenario": "Clear error",
+      "scenario": "Fight",
+      "viewport": [
+        1200,
+        900
+      ],
+      "screen": "game",
+      "phase": "fight",
+      "checks": {
+        "noTopRoomBar": true,
+        "noTopExit": true,
+        "noRoutineSummary": true,
+        "noPageWidthOverflow": true
+      },
+      "failed": [],
+      "roles": [
+        "ホスト",
+        "参加中"
+      ],
+      "nodes": {
+        "multiStatusRow": {
+          "text": "\n    \n      \n      \n      \n      記録を再試行\n    \n    退出\n  ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "exitRoom": {
+          "text": "退出",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "roomLobbyWait": {
+          "text": "対戦に参加しています。",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "battleChoice": {
+          "text": "",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "message": {
+          "text": "",
+          "hidden": false,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "multiResults": {
+          "text": "\n        \n      ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        },
+        "breakdown": {
+          "text": "+25 G",
+          "hidden": false,
+          "display": "block",
+          "height": 0,
+          "visible": false
+        },
+        "next": {
+          "text": "次の戦いへ",
+          "hidden": true,
+          "display": "none",
+          "height": 0,
+          "visible": false
+        }
+      }
+    }
+  ],
+  "applicationErrors": []
+}
