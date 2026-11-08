@@ -1,0 +1,2788 @@
+{
+  "schema": "terrain-emote-independent-browser-verification-v1",
+  "verifiedDate": "2026-11-08",
+  "sourceSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
+  "contentRevision": "574b1ef932817ebcdc203241cc6865dd58d5619d63172154f7fa793d9dd2a53a",
+  "cssSHA256": "65726794bf2bab46ae450633c415b3f1af43aa461e110c58411d83ac4a38bb5a",
+  "method": "Chromium browser checks used visible test controls to exercise production rendering and final release CSS, followed by read-only layout measurements and visual inspection. Test controls are excluded from the production release.",
+  "matrix": {
+    "totalCases": 1344,
+    "passed": true,
+    "widths": [
+      320,
+      375,
+      390,
+      430,
+      1200
+    ],
+    "additionalHeightsAt320": [
+      568,
+      640
+    ],
+    "normalHeight": 900,
+    "terrains": 8,
+    "phases": [
+      "choose",
+      "fight",
+      "result"
+    ],
+    "modes": [
+      "solo",
+      "multi8"
+    ],
+    "hostModes": [
+      "standalone",
+      "gravity74",
+      "gravity98 with bottom34",
+      "already-inset"
+    ]
+  },
+  "baselineFindings": {
+    "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
+    "icefield390": {
+      "clientWidth": 126,
+      "scrollWidth": 140,
+      "whiteSpace": "nowrap"
+    },
+    "icefield320": {
+      "clientWidth": 95,
+      "scrollWidth": 140
+    },
+    "badge": {
+      "width": 18,
+      "height": 18,
+      "background": "rgb(255, 243, 210)",
+      "borderWidth": 1
+    }
+  },
+  "correctedRegression": {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "mode": "multi8",
+    "hostMode": "gravity98 with bottom34",
+    "terrains": [
+      "rockfield",
+      "volcano"
+    ],
+    "description": "The first wrapping candidate produced an 8px overlap between result panel and toolbar. Final measured clearance restores an 8px gap without changing the terrain text size or toolbar controls.",
+    "finalToolbarBottom": 284,
+    "finalResultTop": 292,
+    "finalResultHeight": 224,
+    "finalResultBottom": 516,
+    "baselineHeaderHeight": 56,
+    "wrappedHeaderHeight": 72
+  },
+  "codeChecks": {
+    "sealedPatchScope": "passed",
+    "idempotence": "passed",
+    "embeddedScriptSyntax": "passed",
+    "eightFullTerrainLabels": "passed",
+    "soloAndEightSenderBadgesAcrossPhases": "passed",
+    "badgeExpiry": "passed",
+    "resultObserverAndFallbackUnitTests": "passed",
+    "unchangedGameplayProtocolAssetsAndSafeAreaRules": "passed",
+    "finalPreviewCSSMatchesFormalRelease": true
+  },
+  "limitations": [
+    "Exact-width iframe rendering, not physical-device emulation.",
+    "GRAVITY SDK transport, real user identity and real iOS safe-area behavior were not exercised.",
+    "Host top and bottom insets were explicitly simulated.",
+    "Short-screen BET retains its existing internal scrolling; Confirm is reachable rather than always initially visible.",
+    "No private input image or screenshots are included in this proof."
+  ],
+  "reports": [
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 568,
+        "width": 320
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 516,
+            "height": 210.890625,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 305.109375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 176,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 124,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 516,
+            "height": 224,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 292
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 408,
+            "height": 124,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": false,
+            "scrollReachable": true
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 640,
+        "width": 320
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 480,
+            "height": 248,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 588,
+            "height": 210.890625,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 377.109375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 480,
+            "height": 248,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 480,
+            "height": 196,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 588,
+            "height": 243.078125,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 344.921875
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 480,
+            "height": 196,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 320
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 508,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 210.890625,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 637.109375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 508,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 95,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 95,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 456,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 85,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 85,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 243.078125,
+            "right": 300,
+            "width": 280,
+            "x": 20,
+            "y": 604.921875
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 456,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 312,
+            "width": 304,
+            "x": 8,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56,
+        72
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 375
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 119,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 119,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 108,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 108,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 508,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 108,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 108,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 182,
+            "height": 72,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 215.203125,
+            "right": 351,
+            "width": 327,
+            "x": 24,
+            "y": 632.796875
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 508,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 232
+          },
+          "toolbar": {
+            "bottom": 232,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 188
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 119,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 119,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 108,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 108,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 456,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 240
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 60,
+            "clientWidth": 108,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 60,
+            "scrollWidth": 108,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 234,
+            "height": 72,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 247.390625,
+            "right": 351,
+            "width": 327,
+            "x": 24,
+            "y": 600.609375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 456,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 284
+          },
+          "toolbar": {
+            "bottom": 284,
+            "height": 44,
+            "right": 363,
+            "width": 351,
+            "x": 12,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 390
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 126,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 126,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 216.75,
+            "right": 366,
+            "width": 342,
+            "x": 24,
+            "y": 631.25
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 126,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 126,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 116,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 116,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 248.9375,
+            "right": 366,
+            "width": 342,
+            "x": 24,
+            "y": 599.0625
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 378,
+            "width": 366,
+            "x": 12,
+            "y": 224
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 430
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 146,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 146,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 136,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 136,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 136,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 136,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 220.890625,
+            "right": 406,
+            "width": 382,
+            "x": 24,
+            "y": 627.109375
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 146,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 146,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 136,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 136,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 40,
+            "clientWidth": 136,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 40,
+            "scrollWidth": 136,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 253.078125,
+            "right": 406,
+            "width": 382,
+            "x": 24,
+            "y": 594.921875
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 418,
+            "width": 406,
+            "x": 12,
+            "y": 224
+          }
+        }
+      ]
+    },
+    {
+      "allSyntheticAvatarImagesLoaded": true,
+      "allTerrainTextUnclipped": true,
+      "backgrounds": [
+        "rgba(0, 0, 0, 0)"
+      ],
+      "badgeOffsets": [
+        "13,-1"
+      ],
+      "badgeSizes": [
+        "18x18"
+      ],
+      "cases": 192,
+      "checks": [
+        "completeText",
+        "noTerrainClip",
+        "terrainInsideHeader",
+        "headerColumnsSeparate",
+        "noPageWidthOverflow",
+        "headerBelowHost",
+        "controls44px",
+        "noExtraBadgeSurface",
+        "badge18px",
+        "expectedPortraitCount",
+        "fieldBelowControls",
+        "activeContentInsideSafeBottom",
+        "resultClearOfUpperUI",
+        "legacyFeedbackHidden"
+      ],
+      "failed": [],
+      "passed": true,
+      "portraitSizes": [
+        "26x26"
+      ],
+      "shortViewportConfirmation": [
+        {
+          "mode": "solo",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        },
+        {
+          "mode": "multi8",
+          "visibility": {
+            "initiallyVisible": true,
+            "scrollReachable": false
+          }
+        }
+      ],
+      "terrainHeaders": [
+        56
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1200
+      },
+      "volcano": [
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 521,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 521,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 511,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 511,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 511,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 511,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 166,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 110
+          },
+          "mode": "solo",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 226.984375,
+            "right": 815,
+            "width": 430,
+            "x": 385,
+            "y": 621.015625
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 524,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 216
+          },
+          "toolbar": {
+            "bottom": 216,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 172
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 521,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 521,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "choose",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 511,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 511,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "fight",
+          "result": {
+            "bottom": 0,
+            "height": 0,
+            "right": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 224
+          }
+        },
+        {
+          "failed": [],
+          "fieldStyle": {
+            "clientHeight": 20,
+            "clientWidth": 511,
+            "font": "13px",
+            "lineHeight": "20px",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "scrollHeight": 20,
+            "scrollWidth": 511,
+            "whiteSpace": "normal"
+          },
+          "header": {
+            "bottom": 218,
+            "height": 56,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 162
+          },
+          "mode": "multi8",
+          "phase": "result",
+          "result": {
+            "bottom": 848,
+            "height": 259.171875,
+            "right": 815,
+            "width": 430,
+            "x": 385,
+            "y": 588.828125
+          },
+          "safeBottom": 44,
+          "safeTop": 106,
+          "stage": {
+            "bottom": 740,
+            "height": 472,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 268
+          },
+          "toolbar": {
+            "bottom": 268,
+            "height": 44,
+            "right": 1178,
+            "width": 1156,
+            "x": 22,
+            "y": 224
+          }
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "avatarLoaded": true,
+      "background": "rgba(0, 0, 0, 0)",
+      "badge": {
+        "bottom": 192,
+        "height": 18,
+        "left": 52,
+        "right": 70,
+        "top": 174,
+        "width": 18,
+        "x": 52,
+        "y": 174
+      },
+      "border": "0px",
+      "hidden": false,
+      "pickerClosed": true,
+      "portrait": {
+        "bottom": 201,
+        "height": 26,
+        "left": 39,
+        "right": 65,
+        "top": 175,
+        "width": 26,
+        "x": 39,
+        "y": 175
+      },
+      "test": "solo_real_emote_send",
+      "text": "😮"
+    },
+    {
+      "test": "picker_outside_close",
+      "closed": true
+    },
+    {
+      "test": "picker_escape_close",
+      "closed": true
+    },
+    {
+      "badgeBackground": "rgba(0, 0, 0, 0)",
+      "badgeHidden": false,
+      "badgeRect": {
+        "bottom": 260,
+        "height": 18,
+        "left": 48,
+        "right": 66,
+        "top": 242,
+        "width": 18,
+        "x": 48,
+        "y": 242
+      },
+      "badgeText": "😄",
+      "canvas": {
+        "bottom": 408,
+        "height": 124,
+        "left": 104.578125,
+        "right": 215.421875,
+        "top": 284,
+        "width": 110.84375,
+        "x": 104.578125,
+        "y": 284
+      },
+      "fieldStage": {
+        "bottom": 408,
+        "height": 124,
+        "left": 8,
+        "right": 312,
+        "top": 284,
+        "width": 304,
+        "x": 8,
+        "y": 284
+      },
+      "participantCount": 8,
+      "phase": "fight",
+      "pickerClosed": true,
+      "test": "multi8_fight_real_emote_send",
+      "toolbar": {
+        "bottom": 284,
+        "height": 44,
+        "left": 8,
+        "right": 312,
+        "top": 240,
+        "width": 304,
+        "x": 8,
+        "y": 240
+      }
+    },
+    {
+      "badge": {
+        "bottom": 260,
+        "height": 18,
+        "left": 48,
+        "right": 66,
+        "top": 242,
+        "width": 18,
+        "x": 48,
+        "y": 242
+      },
+      "hidden": false,
+      "pickerClosed": true,
+      "test": "multi8_result_real_emote_send",
+      "text": "👏"
+    },
+    {
+      "clientHeight": 218,
+      "log": {
+        "bottom": 492.078125,
+        "height": 48,
+        "left": 35,
+        "right": 270,
+        "top": 444.078125,
+        "width": 235,
+        "x": 35,
+        "y": 444.078125
+      },
+      "next": {
+        "bottom": 436.078125,
+        "height": 48.390625,
+        "left": 35,
+        "right": 270,
+        "top": 387.6875,
+        "width": 235,
+        "x": 35,
+        "y": 387.6875
+      },
+      "panel": {
+        "bottom": 516,
+        "height": 224,
+        "left": 20,
+        "right": 300,
+        "top": 292,
+        "width": 280,
+        "x": 20,
+        "y": 292
+      },
+      "scrollHeight": 237,
+      "scrollTop": 19,
+      "test": "short_result_scroll_reachability"
+    },
+    {
+      "clientWidth": 144,
+      "lastPortrait": {
+        "bottom": 269,
+        "height": 26,
+        "left": 115,
+        "right": 141,
+        "top": 243,
+        "width": 26,
+        "x": 115,
+        "y": 243
+      },
+      "participants": 8,
+      "rail": {
+        "bottom": 284,
+        "height": 44,
+        "left": 16,
+        "right": 160,
+        "top": 240,
+        "width": 144,
+        "x": 16,
+        "y": 240
+      },
+      "scrollLeft": 368,
+      "scrollWidth": 512,
+      "test": "eight_participants_horizontal_scroll"
+    }
+  ]
+}

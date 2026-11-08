@@ -1,0 +1,1 @@
+PASS result layout: exact126→142→126; batching; unchanged-value guard; hidden/zero guards; missing ResizeObserver hidden→shown, async terrain and font changes; 1000 unchanged mutations cause no layout reads; no clock observer; missing RAF/observers/DOM safe; no polling

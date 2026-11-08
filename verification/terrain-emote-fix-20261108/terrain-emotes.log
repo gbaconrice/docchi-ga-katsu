@@ -1,0 +1,15 @@
+PASS full terrain label grassland: 草原 · 補正なし
+PASS full terrain label shallow_ford: 浅瀬 · 地上移動−12%
+PASS full terrain label crosswind_ridge: 荒野 · 射撃間合い−12%
+PASS full terrain label desert: 砂漠 · 回復量−12%
+PASS full terrain label icefield: 氷原 · 押し出し距離+12%
+PASS full terrain label highland: 高地 · 飛行移動−12%
+PASS full terrain label rockfield: 岩場 · 突撃追加ダメージ−12%
+PASS full terrain label volcano: 火山 · 地上に最大HP6%ダメージ/8秒
+PASS actual solo sender badge and no obsolete feedback in choose
+PASS actual solo sender badge and no obsolete feedback in fight
+PASS actual solo sender badge and no obsolete feedback in result
+PASS eight actual participant badges and no obsolete surfaces in choose
+PASS eight actual participant badges and no obsolete surfaces in fight
+PASS eight actual participant badges and no obsolete surfaces in result
+PASS badge expiry; all embedded scripts compile; existing protocol retained

@@ -1,10 +1,10 @@
 {
-  "release": "releases/gravity-room-feedback-20261108",
-  "sourceSHA256": "ef0724f9b482aa5d59c22afe2418e7f2d8e98d6bee85395a322ecdfa28263bfa",
-  "contentRevision": "bc829498a075889f77cdd19ebd3b4da94be803664e4a40076033b73a27424622",
+  "release": "releases/terrain-emote-fix-20261108",
+  "sourceSHA256": "9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5",
+  "contentRevision": "574b1ef932817ebcdc203241cc6865dd58d5619d63172154f7fa793d9dd2a53a",
   "imageFiles": 574,
-  "unchangedImageFiles": 573,
-  "newHomeGifFiles": 1,
+  "unchangedImageFiles": 574,
+  "newHomeGifFiles": 0,
   "requestedRules": {
     "battleLimitSeconds": 60,
     "damageSpeedAtSeconds": {
@@ -20,7 +20,11 @@
     "predictionCapSeconds": 60,
     "nativeRoomInvitationUnchanged": true
   },
-  "verification": "verification/gravity-room-feedback-20261108/README.md",
-  "runtime": "game-runtime.cd2acc050bf7484e4090.js",
-  "runtimeSHA256": "cd2acc050bf7484e409028dab6b936ab72a413d2c2e214470fc2ea8bab81ead1"
+  "verification": "verification/terrain-emote-fix-20261108/README.md",
+  "runtime": "game-runtime.739d2611bb4c2e3c2d53.js",
+  "runtimeSHA256": "739d2611bb4c2e3c2d53d140a3bc61c7ebb1afce41a50fae61033dcc2706e831",
+  "changes": [
+    "Full terrain text wraps in the existing header",
+    "Only the emote badge backing and border removed"
+  ]
 }

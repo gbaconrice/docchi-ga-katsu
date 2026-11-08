@@ -1,8 +1,19 @@
 # どっちが勝つ？
 
-[ゲームを開く](https://gbaconrice.github.io/docchi-ga-katsu/) ／ [GRAVITY用入口](https://gbaconrice.github.io/docchi-ga-katsu/releases/gravity-room-feedback-20261108/gravity-entry.html) ／ [反映用プロンプト](GRAVITY_PROMPT.txt)
+[ゲームを開く](https://gbaconrice.github.io/docchi-ga-katsu/) ／ [GRAVITY用入口](https://gbaconrice.github.io/docchi-ga-katsu/releases/terrain-emote-fix-20261108/gravity-entry.html) ／ [反映用プロンプト](GRAVITY_PROMPT.txt)
 
-## 今回の修正
+## 今回の追加修正
+
+- 地形名と効果を同じ文字サイズで折り返し、長い内容も最初から全文表示します。狭い画面で必要なときだけ既存の上部枠が高くなります。結果欄の余白も実際の上部枠に追従し、重なりを防ぎます。
+- エモートに残っていた丸い背景と縁を除去。18pxの表示枠、14pxの絵文字、アイコン右上の位置はそのままです。
+
+[今回の検証](verification/terrain-emote-fix-20261108/README.md) ／ [今回の版情報](CURRENT_PREVIEW_MANIFEST.json)
+
+```sh
+node tools/terrain-emote-fix-20261108/reproduce.cjs /tmp/docchi-terrain-emote
+```
+
+## 前版から保持している修正
 
 - ナンバーブラフの待機画面を参考に、参加者一覧とホストの開始操作があるルームロビーを用意。作成・参加・取消・退出を整理し、GRAVITY側の招待仕様は変更していません。
 - 実プロフィールの読込、遅れたSDKの準備、読込失敗時の再試行、画像の代替表示を修正。ソロも同じ本人取得経路を使います。未取得時に架空の名前や画像は作りません。
@@ -14,7 +25,7 @@
 
 以前の戦闘規則、300種・価格・選出、同種対戦回避、罠・カメラ・死体・能力描画の修正は保持しています。戦闘上限60秒、速度とダメージの1×・2×・3×連動も同じです。
 
-## 検証と再構成
+## 前版の検証と再構成
 
 [検証範囲・結果・制限](verification/gravity-room-feedback-20261108/README.md) ／ [正確な版情報](CURRENT_PREVIEW_MANIFEST.json)
 

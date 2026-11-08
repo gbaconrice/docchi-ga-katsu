@@ -1,0 +1,3 @@
+PASS immutable base, exact CSS plus literal layout-helper scope plus exact content seal, idempotence, unchanged assets/scripts/safe-area/18px geometry
+Candidate SHA256 9b412ae06ac9c37ba58a6ef7e104b705a277eaf2ed6c5f396930ba44ee2372a5
+Content seal 574b1ef932817ebcdc203241cc6865dd58d5619d63172154f7fa793d9dd2a53a
