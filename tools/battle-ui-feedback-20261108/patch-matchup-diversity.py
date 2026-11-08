@@ -45,4 +45,20 @@ def patch(source):
     old='let best=pickFrom[0];if(near.length)best=near[Math.floor(pickRandom()*near.length)];else for(const c of pickFrom.slice(1))if(Math.abs(cost(c.roster)-target)<Math.abs(cost(best.roster)-target))best=c;'
     new='const closest=Math.min(...pickFrom.map(c=>Math.abs(cost(c.roster)-target))),weightedChoices=near.length?near:pickFrom.filter(c=>Math.abs(cost(c.roster)-target)===closest);let best=MatchupHistory.pick(weightedChoices,pickRandom,history,catalog);'
     replace(old,new)
+    if ' function generateDrawFresh(args){' in source:
+        a=source.index(' function generateDrawFresh(args){');b=source.index(' function generate(args){const plan=',a)
+        source=source[:a]+r''' function generateDrawFresh(args){
+  if(!Number.isSafeInteger(args.seed)||args.seed<0||args.seed>0xffffffff||!Array.isArray(args.carryKinds))throw Error('INVALID_INPUT');
+  if(args.carryKinds.length||args.streak!==0)throw Error('FRESH_ROUND_CONFLICT');
+  const retired=args.avoidArmies||[],retiredKeys=new Set(retired.filter(a=>Array.isArray(a)&&a.length).map(signature)),history=args.matchupHistory||[],seen=MatchupHistory.index(history),run=MatchupHistory.diversity(history,catalog);let best=null,bestRisk=Infinity,bestReuse=Infinity,attempts=0;
+  for(let attempt=0;attempt<64;attempt++){
+   attempts++;const candidateSeed=(args.seed+Math.imul(attempt,0x9e3779b9))>>>0;let plan;try{plan=generateCore({...args,seed:candidateSeed});}catch(error){if(['NO_UNSEEN_MATCHUP','NO_DISTINCT_CHALLENGER','NO_FEASIBLE_CHALLENGER','NO_FEASIBLE_SINGLE_SPECIES_CHALLENGER'].includes(error.message))continue;throw error;}
+   if(retiredKeys.has(signature(plan.leftKinds))||retiredKeys.has(signature(plan.rightKinds))||seen.has(MatchupHistory.key(plan.leftKinds,plan.rightKinds)))continue;
+   const risk=Math.max(run.risk(plan.leftKinds),run.risk(plan.rightKinds)),reuse=run.stats(plan.leftKinds).reusedFraction+run.stats(plan.rightKinds).reusedFraction;
+   if(risk<bestRisk||risk===bestRisk&&reuse<bestReuse){best={plan,attempt:attempt+1};bestRisk=risk;bestReuse=reuse;}if(risk===0)break;
+  }
+  if(!best)throw Error('NO_FRESH_DRAW_MATCHUP');
+  return freeze({...best.plan,drawFreshDecision:{version:'draw-fresh-both-v2-diverse',requestedSeed:args.seed,selectedSeed:best.plan.seed,attempts,selectedAttempt:best.attempt,retiredArmies:retiredKeys.size,nearRepeatRetained:bestRisk>0,nearRepeatRisk:bestRisk}});
+ }
+'''+source[b:]
     return source

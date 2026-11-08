@@ -1,34 +1,19 @@
 {
-  "scope": "Remove home audio button only. Keep game/room controls and all approved header refinements unchanged.",
-  "metadataStatus": "SCOPED_BROWSER_AND_AUTOMATED_VERIFIED_READY_FOR_DEPLOYMENT",
-  "index": "index.html",
-  "indexSHA256": "de3983fb1f6628e7eb7de8c2f9680e1de41b067ce21fedc11580a75c77584a63",
-  "release": "releases/header-refine-home-20261107/manifest.json",
-  "releaseManifestSHA256": "5cdd8689e1d431248f3e0202ded41ce836f068c13647e02059159eeb08226e1f",
-  "reconstructedSourceSHA256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
-  "reconstructedSourceBytes": 49454430,
-  "contentRevision": "c8000006e8f24710e6db9c37dc6e2a94c5bdbfe1ac566fc6404fa7ac90ffb5bd",
-  "gravityEntrySHA256": "6d50cf9f70ac15de5dfd3da39c260a0ce7a07da82a6c94ddcaf325cc0e463f44",
-  "previousRelease": "releases/header-refine-20261107/manifest.json",
-  "validation": {
-    "sourceSHA256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
-    "productionIntegrationChecks": 66,
-    "actualReleaseLoaderChecks": 7,
-    "homeSourceInvariance": true,
-    "currentControls": "PASS",
-    "zeroResults": "PASS",
-    "homeBrowserWidths": [
-      320,
-      390,
-      1200
-    ],
-    "ordinaryAndGravityEntry": true,
-    "browserVerified": true,
-    "realGravitySDKVerified": false,
-    "physicalTouchVerified": false,
-    "realNetworkMultiplayerVerified": false,
-    "deploymentVerified": false,
-    "evidence": "verification/header-refine-home-20261107/README.md",
-    "previousHeaderEvidence": "verification/header-refine-20261107/README.md"
-  }
+  "release": "releases/battle-ui-feedback-20261108",
+  "sourceSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "contentRevision": "44f5a517b956b79c4fdc0be9b16fa14748c84a6bfc3702e069fbf4003ac81733",
+  "runtime": "game-runtime.2b14d1a89d6853867147.js",
+  "imageFiles": 573,
+  "requestedRules": {
+    "battleLimitSeconds": 60,
+    "damageSpeedAtSeconds": {
+      "0": 1,
+      "20": 2,
+      "40": 3
+    },
+    "overtime": false,
+    "separateBossDamageMultiplier": false,
+    "opposingSpeciesIncludesDescendants": true
+  },
+  "verification": "verification/battle-ui-feedback-20261108/README.md"
 }

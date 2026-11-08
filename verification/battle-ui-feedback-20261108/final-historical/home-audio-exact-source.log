@@ -1,0 +1,22 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: 'd1bd94bbd26fc098b952f231cc15a10dde1482406495cbfb3cb39d8ee3c2814a' == '14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440'
+    at Object.<anonymous> (game-recovery-20261108/public-head/tools/header-refine-home-20261107/home-audio-current.cjs:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'd1bd94bbd26fc098b952f231cc15a10dde1482406495cbfb3cb39d8ee3c2814a',
+  expected: '14103deee70be661f36874c3ebfaa7e883d35bab92abea12089bd42368bea440',
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

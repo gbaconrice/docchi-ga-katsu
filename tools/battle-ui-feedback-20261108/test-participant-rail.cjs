@@ -1,0 +1,44 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync(process.argv[2]||'index.html','utf8');
+for(const [i,m] of [...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].entries())new vm.Script(m[1],{filename:'script-'+i});
+const toolbar=source.slice(source.indexOf('id="gameToolbar"'),source.indexOf('<section id="comparison"'));
+assert(toolbar.indexOf('id="participantRailWrap"')<toolbar.indexOf('id="reaction-feedback"'));
+assert.equal((source.match(/id="participantRailWrap"/g)||[]).length,1);
+assert(source.includes('grid-column:1 / 3; grid-row:1 / 3;'));
+assert(source.includes('portrait.appendChild(badge);chip.appendChild(portrait)'));
+assert(source.includes('const latest=feed[feed.length-1],active=false;'));
+const participantCSS=source.slice(source.indexOf('/* requested-toolbar-participants-20261108 */'),source.indexOf('</style>',source.indexOf('/* requested-toolbar-participants-20261108 */')));
+assert(participantCSS.includes('align-items:flex-start;'));
+assert(participantCSS.includes('scrollbar-width:none;'));
+assert(participantCSS.includes('padding:2px 2px 0;'));
+assert(participantCSS.includes('#participantRail::-webkit-scrollbar { display:none; width:0; height:0; }'));
+assert(/#app #gameScreen #gameToolbar \.participant-chip \{[^}]*color:#f6e7cb;/.test(participantCSS));
+assert(participantCSS.includes('.participant-chip.is-self .participant-name::before { content:none; }'));
+const code=source.slice(source.indexOf("let participantRailKey='',participantNodes=new Map();"),source.indexOf('\nfunction reactionRender()'));
+let tests=0;
+function fixture({gravity=false,sdk=null,load=null,adapter=null}={}){
+ const nodes=new Map();let calls=0,loads=0;
+ const node=()=>({children:[],attributes:{},hidden:false,textContent:'',setAttribute(k,v){this.attributes[k]=String(v)},getAttribute(k){return this.attributes[k]??null},appendChild(n){n.parentNode=this;this.children.push(n)},replaceChildren(...v){this.children=v;for(const n of v)n.parentNode=this},getBoundingClientRect(){return {left:0,right:200,width:200}}});
+ const doc={querySelector(id){if(!nodes.has(id))nodes.set(id,node());return nodes.get(id)},createElement:()=>node()};
+ const ctx=vm.createContext({document:doc,URL,console,setTimeout,clearTimeout,AgentSDK:sdk,loadNativeSDK:async()=>{loads++;return await load()},reactionRender:()=>{calls++},gravityContext:gravity,screenMode:'game',multiSession:null,multiSnapshot:null,multiUser:null,multiAdapter:adapter,NATIVE_REACTION_VIEW:{wow:{glyph:'😮',label:'びっくり'},cheer:{glyph:'😆',label:'応援'}}});
+ vm.runInContext(code,ctx);
+ return {run:s=>vm.runInContext(s,ctx),ctx,nodes,get calls(){return calls},get loads(){return loads}};
+}
+const pass=t=>{tests++;console.log('PASS '+t)};
+(async()=>{
+ let f=fixture();f.run('syncParticipantRail(true,[])');assert.equal(f.nodes.get('#participantRailWrap').hidden,false);assert.equal(f.run('participantNodes.get("local").row.name'),'あなた');assert.equal(f.loads,0);assert.equal(f.run('soloParticipantProfilePending'),null);pass('offline solo shows honest fallback, no native or CDN request');
+ f.run('syncParticipantRail(true,[{sender:"local",emoji:"wow"},{sender:"unknown",emoji:"cheer"}])');assert.equal(f.run('participantNodes.get("local").badge.textContent'),'😮');assert.equal(f.run('participantNodes.get("local").badge.parentNode.className'),'participant-portrait');f.run('syncParticipantRail(true,[])');assert.equal(f.run('participantNodes.get("local").badge.hidden'),true);pass('solo emote belongs to own avatar, unknown senders ignored, expired badges cleared');
+ f.run('syncParticipantRail(false,[])');assert.equal(f.nodes.get('#participantRailWrap').hidden,true);assert.equal(f.run('participantNodes.size'),0);pass('leaving game hides and clears rail');
+ assert.equal(f.run('normalizeParticipantProfile({user_id:"x",user_name:" A\\u0000B ",portrait:"https://example.org/a.png"}).name'),'A B');
+ for(const url of ['javascript:alert(1)','http://example.org/a','https://user:pass@example.org/a'])assert.equal(f.run('normalizeParticipantProfile('+JSON.stringify({user_id:'x',name:'Name',portrait:url})+').avatarUrl'),null);
+ assert.equal(f.run('normalizeParticipantProfile({name:"invented"})'),null);pass('native shape requires real ID; names sanitized and unsafe avatar URLs rejected');
+ let reads=0;const sdk={user:{getMyUserInfo:async()=>{reads++;return {errno:0,data:{user_id:'native-123',user_name:'本人の名前',portrait:'https://example.org/a.png'}}}}};
+ f=fixture({sdk});f.run('syncParticipantRail(true,[]);syncParticipantRail(true,[])');await f.run('soloParticipantProfilePending');f.run('syncParticipantRail(true,[])');assert.equal(reads,1);assert.equal(f.loads,0);assert.equal(f.run('participantNodes.get("local").row.name'),'本人の名前');const img=f.run('participantNodes.get("local").chip.children[0].children.find(n=>n.src)');assert.equal(img.referrerPolicy,'no-referrer');assert.equal(img.src,'https://example.org/a.png');img.onload();assert.equal(img.hidden,false);img.onerror();assert.equal(img.hidden,true);pass('existing SDK fetched once, genuine solo profile rendered, image fallback works');
+ f=fixture({gravity:true,load:async()=>sdk});f.run('syncParticipantRail(true,[])');await f.run('soloParticipantProfilePending');f.run('syncParticipantRail(true,[])');assert.equal(f.loads,1);assert.equal(f.run('participantNodes.get("local").row.name'),'本人の名前');pass('Gravity solo loads existing SDK once without room adapter or score eligibility changes');
+ f=fixture({gravity:true,load:async()=>{throw Error('unavailable')}});f.run('syncParticipantRail(true,[])');await f.run('soloParticipantProfilePending');f.run('syncParticipantRail(true,[])');assert.equal(f.loads,1);assert.equal(f.run('participantNodes.get("local").row.name'),'あなた');pass('SDK failure leaves fallback and does not retry every frame');
+ f=fixture({sdk:{user:{getMyUserInfo:async()=>({errno:1,data:{user_id:'bad',user_name:'must not show'}})}}});f.run('syncParticipantRail(true,[])');await f.run('soloParticipantProfilePending');f.run('syncParticipantRail(true,[])');assert.equal(f.run('participantNodes.get("local").row.name'),'あなた');pass('failed SDK response never becomes identity');
+ f=fixture({adapter:{userId:'a',getProfile:id=>id==='a'?{name:'cached player',avatarUrl:null}:null}});f.run('syncParticipantRail(true,[])');assert.equal(f.run('participantNodes.get("local").row.name'),'cached player');assert.equal(f.loads,0);pass('known native adapter self profile reused without another lookup');
+ f=fixture({adapter:{getProfile:id=>({name:'Name '+id,avatarUrl:null})}});f.run('multiSession={};multiUser="b";multiSnapshot={participants:["a","b","c"],spectators:["s","a"],departedIds:["c"]};syncParticipantRail(true,[{sender:"a",emoji:"wow"},{sender:"b",emoji:"cheer"},{sender:"ghost",emoji:"wow"}])');assert.equal(f.run('participantNodes.size'),3);assert.equal(f.run('participantNodes.get("a").badge.textContent'),'😮');assert.equal(f.run('participantNodes.get("b").badge.textContent'),'😆');assert.equal(f.run('participantNodes.get("s").badge.hidden'),true);assert.equal(f.run('participantNodes.get("b").chip.className'),'participant-chip is-self');assert.equal(f.run('participantNodes.get("s").row.spectator'),true);assert.equal(f.nodes.get('#reactionOutside').hidden,true);pass('multiplayer actual profiles, self identity, spectators, departures, sender-specific badges preserved');
+ console.log('PARTICIPANT RAIL PASS '+tests+' focused cases; full embedded scripts compile');
+})().catch(e=>{console.error(e.stack);process.exitCode=1});
