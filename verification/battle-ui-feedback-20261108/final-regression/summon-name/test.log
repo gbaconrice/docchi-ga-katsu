@@ -1,0 +1,8 @@
+PASS registered sprite and shared display name resolve to the verified crawler
+PASS all 300 display feature terms stay at most eight characters
+PASS prediction cards, battle detail cards and live unit selector use the new name
+PASS four real summons retain goblin identity and render the new actor name in logs
+PASS only goblin display name changes in TYPES; every other stat and type is unchanged
+PASS roster, costs, replay roles, sprite registration and gameplay functions are unchanged
+PASS natural summon timing, units and serialized log payload match baseline exactly
+{"sha":"b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727","passed":7,"baselineCompared":true}

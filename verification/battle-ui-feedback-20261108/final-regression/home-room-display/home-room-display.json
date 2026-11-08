@@ -1,0 +1,48 @@
+{
+  "source": "battle-ui-feedback/source/index.html",
+  "sha256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "baseline": "battle-ui-feedback/baselines/before-home-room-display.html",
+  "baselineSha256": "770e946ba10d71da1e484bf24459b8abb2b60c3f08504e23ac4a4d293d40820c",
+  "checks": [
+    {
+      "name": "existing art/audio payload order and bytes are unchanged",
+      "pass": true
+    },
+    {
+      "name": "home art fills app; safe-area and content size rules are preserved",
+      "pass": true
+    },
+    {
+      "name": "routine bottom chatter removed; actionable errors and choices remain",
+      "pass": true
+    },
+    {
+      "name": "single shared sound node; only home and menu dock are suppressed",
+      "pass": true
+    },
+    {
+      "name": "full-app ambience geometry and reduced motion lifecycle",
+      "pass": true
+    },
+    {
+      "name": "home room game room home round trip preserves audio singleton/listener",
+      "pass": true
+    },
+    {
+      "name": "join validation and native connection failure remain; connecting text is empty",
+      "pass": true
+    },
+    {
+      "name": "real mock room summary/exit remain without routine protocol text",
+      "pass": true
+    },
+    {
+      "name": "successful exit clears both old status and summary",
+      "pass": true
+    },
+    {
+      "name": "failed exit retains retry instruction",
+      "pass": true
+    }
+  ]
+}

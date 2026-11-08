@@ -1,0 +1,80 @@
+{
+  "sha": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "checks": [
+    {
+      "label": "registered sprite and shared display name resolve to the verified crawler",
+      "pass": true
+    },
+    {
+      "label": "all 300 display feature terms stay at most eight characters",
+      "pass": true,
+      "detail": {
+        "roles": 300,
+        "terms": 375,
+        "max": 8
+      }
+    },
+    {
+      "label": "prediction cards, battle detail cards and live unit selector use the new name",
+      "pass": true,
+      "detail": {
+        "prediction": "シャドウクローラー ×1\nHP 50 · 攻撃 9\n移動 54 · 間合い 4 · 基本間隔0.62秒",
+        "battle": "シャドウクローラー ×1\nHP 50 · 攻撃 9\n移動 54 · 間合い 4 · 基本間隔0.62秒",
+        "summoner": "レッドローブサモナー ×1\nHP 90 · 攻撃 15\n移動 22 · 間合い 63 · 基本間隔1.3秒\n遠距離射撃 · 対空攻撃 · クローラー召喚",
+        "options": "<option value=\"goblin\">シャドウクローラー</option><option value=\"wraith\">レッドローブサモナー</option>",
+        "trait": "シャドウクローラー：攻撃 · 9 · 基本間隔0.62秒"
+      }
+    },
+    {
+      "label": "four real summons retain goblin identity and render the new actor name in logs",
+      "pass": true,
+      "detail": {
+        "births": [
+          {
+            "tick": 17,
+            "token": "rename:0/summon:0",
+            "k": "goblin",
+            "ownerToken": "rename:0"
+          },
+          {
+            "tick": 77,
+            "token": "rename:0/summon:1",
+            "k": "goblin",
+            "ownerToken": "rename:0"
+          },
+          {
+            "tick": 137,
+            "token": "rename:0/summon:2",
+            "k": "goblin",
+            "ownerToken": "rename:0"
+          },
+          {
+            "tick": 197,
+            "token": "rename:0/summon:3",
+            "k": "goblin",
+            "ownerToken": "rename:0"
+          }
+        ],
+        "sentences": [
+          "レッドローブサモナー #1 → シャドウクローラー #1：召喚して登場",
+          "レッドローブサモナー #1 → シャドウクローラー #2：召喚して登場",
+          "レッドローブサモナー #1 → シャドウクローラー #3：召喚して登場",
+          "レッドローブサモナー #1 → シャドウクローラー #4：召喚して登場"
+        ]
+      }
+    },
+    {
+      "label": "only goblin display name changes in TYPES; every other stat and type is unchanged",
+      "pass": true
+    },
+    {
+      "label": "roster, costs, replay roles, sprite registration and gameplay functions are unchanged",
+      "pass": true
+    },
+    {
+      "label": "natural summon timing, units and serialized log payload match baseline exactly",
+      "pass": true
+    }
+  ],
+  "baselineSha": "1d41f7633271eb8086b0aa8fc6a265787199babdabe6266e98d4c717c35d2fd4"
+}

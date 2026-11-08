@@ -1,0 +1,11 @@
+PASS offline solo shows honest fallback, no native or CDN request
+PASS solo emote belongs to own avatar, unknown senders ignored, expired badges cleared
+PASS leaving game hides and clears rail
+PASS native shape requires real ID; names sanitized and unsafe avatar URLs rejected
+PASS existing SDK fetched once, genuine solo profile rendered, image fallback works
+PASS Gravity solo loads existing SDK once without room adapter or score eligibility changes
+PASS SDK failure leaves fallback and does not retry every frame
+PASS failed SDK response never becomes identity
+PASS known native adapter self profile reused without another lookup
+PASS multiplayer actual profiles, self identity, spectators, departures, sender-specific badges preserved
+PARTICIPANT RAIL PASS 10 focused cases; full embedded scripts compile

@@ -1,0 +1,6136 @@
+{
+  "sha": "b3ba04fbb92c195a1ad3f41bb3583c17aece41eba1f316a20b263d101fde372d",
+  "scope": "Production generation, seeded controlled winners, not simulated combat win frequencies; candidate opportunities are R6–20 only.",
+  "summary": {
+    "runs": 100,
+    "rounds": 2000,
+    "coverage": 295,
+    "zero": [
+      {
+        "k": "fireclaw_hawk",
+        "opportunities": 38
+      },
+      {
+        "k": "glimmer_sprite",
+        "opportunities": 7
+      },
+      {
+        "k": "halo_healer",
+        "opportunities": 15
+      },
+      {
+        "k": "opalfin_sky_ray",
+        "opportunities": 18
+      },
+      {
+        "k": "sunhalo_polyhedron",
+        "opportunities": 20
+      }
+    ],
+    "under5": 42,
+    "minimum": 0,
+    "median": 15,
+    "p10": 3,
+    "p90": 27,
+    "maximum": 70,
+    "bossSelections": 1140,
+    "supportSelections": 153,
+    "totalSelections": 4675,
+    "elapsedMs": 67485
+  },
+  "kinds": [
+    {
+      "k": "fireclaw_hawk",
+      "name": "フレイムクロードラゴン",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 0,
+      "candidateRounds": 38,
+      "candidateRosters": 44,
+      "byStage": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": "glimmer_sprite",
+      "name": "ランタンフェアリー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 0,
+      "candidateRounds": 7,
+      "candidateRosters": 8,
+      "byStage": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": "halo_healer",
+      "name": "ヘイローヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 0,
+      "candidateRounds": 15,
+      "candidateRosters": 16,
+      "byStage": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": "opalfin_sky_ray",
+      "name": "ジェイドフィンガード",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 0,
+      "candidateRounds": 18,
+      "candidateRosters": 18,
+      "byStage": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": "sunhalo_polyhedron",
+      "name": "サンヘイロープリズム",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 0,
+      "candidateRounds": 20,
+      "candidateRosters": 23,
+      "byStage": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": "bone_crown_lich",
+      "name": "リッチスクライブ",
+      "boss": false,
+      "support": false,
+      "price": 12,
+      "selected": 1,
+      "candidateRounds": 64,
+      "candidateRosters": 67,
+      "byStage": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": "daemonflash_tripler",
+      "name": "フロートデーモン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 31,
+      "candidateRosters": 31,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "drake",
+      "name": "サラマンダー",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 1,
+      "candidateRounds": 18,
+      "candidateRosters": 20,
+      "byStage": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": "dusk_winglet",
+      "name": "ダスクウィング",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 1,
+      "candidateRounds": 37,
+      "candidateRosters": 41,
+      "byStage": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": "froststing_hornet",
+      "name": "フロストホーネット",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 45,
+      "candidateRosters": 52,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "glasswing_sting_moth",
+      "name": "ダスクウィングブレイド",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 1,
+      "candidateRounds": 38,
+      "candidateRosters": 42,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "hooded_ghost",
+      "name": "フードゴーストヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 11,
+      "candidateRosters": 11,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "origami_wingburst",
+      "name": "オリガミウィング",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 1,
+      "candidateRounds": 15,
+      "candidateRosters": 15,
+      "byStage": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": "ribbed_fanclam",
+      "name": "ブルーリングフロート",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 1,
+      "candidateRounds": 21,
+      "candidateRosters": 21,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "silver_wingbird",
+      "name": "シルバーウィング",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 45,
+      "candidateRosters": 51,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "snowdisk_warder",
+      "name": "スノーディスクガード",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 1,
+      "candidateRounds": 87,
+      "candidateRosters": 90,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "sol_harp_mender",
+      "name": "ゴールドハープヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 11,
+      "candidateRosters": 11,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "spectralhand_wizard",
+      "name": "スピリットハンドメイジ",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 1,
+      "candidateRounds": 136,
+      "candidateRosters": 147,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "suspended_prism_mender",
+      "name": "フロートクリスタルヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 1,
+      "candidateRounds": 13,
+      "candidateRosters": 13,
+      "byStage": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": "wingblade_duelist",
+      "name": "ウィングブレイダー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 1,
+      "candidateRounds": 21,
+      "candidateRosters": 24,
+      "byStage": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "clawring_bat",
+      "name": "リングクローバット",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 2,
+      "candidateRounds": 37,
+      "candidateRosters": 39,
+      "byStage": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "crimson_levitator",
+      "name": "クリムゾンレビテイター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 2,
+      "candidateRounds": 41,
+      "candidateRosters": 47,
+      "byStage": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "crystal_glint_wisp",
+      "name": "クリスタルウィスプ",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 2,
+      "candidateRounds": 37,
+      "candidateRosters": 42,
+      "byStage": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "duskflutter_bat",
+      "name": "フロストウルフバット",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 2,
+      "candidateRounds": 40,
+      "candidateRosters": 47,
+      "byStage": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "duskgargoyle_clawer",
+      "name": "スカイブレイドマシン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 2,
+      "candidateRounds": 33,
+      "candidateRosters": 38,
+      "byStage": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "pteryx_tailwing",
+      "name": "テイルウィング",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 2,
+      "candidateRounds": 40,
+      "candidateRosters": 45,
+      "byStage": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "k": "spark_bird",
+      "name": "スパークバード",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 2,
+      "candidateRounds": 44,
+      "candidateRosters": 47,
+      "byStage": [
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "k": "bellgill_mender",
+      "name": "ホーリーリングヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 3,
+      "candidateRounds": 99,
+      "candidateRosters": 101,
+      "byStage": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "k": "bloodmoon_crescent",
+      "name": "ブラッドムーンブレイド",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 3,
+      "candidateRounds": 41,
+      "candidateRosters": 42,
+      "byStage": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "goldring_core",
+      "name": "ゴールドリングコア",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 3,
+      "candidateRounds": 31,
+      "candidateRosters": 39,
+      "byStage": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "goldwing_skirmisher",
+      "name": "ゴールドウィングブレイド",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 3,
+      "candidateRounds": 34,
+      "candidateRosters": 37,
+      "byStage": [
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "k": "icy_dualslasher",
+      "name": "アイスピクシー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 3,
+      "candidateRounds": 49,
+      "candidateRosters": 60,
+      "byStage": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "k": "oni_wavelet",
+      "name": "フローティングオニ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 3,
+      "candidateRounds": 35,
+      "candidateRosters": 38,
+      "byStage": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "k": "quadcut_swordmaster",
+      "name": "ソードマスター",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 3,
+      "candidateRounds": 139,
+      "candidateRosters": 147,
+      "byStage": [
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "k": "stormmage",
+      "name": "サンダーメイジ",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 3,
+      "candidateRounds": 122,
+      "candidateRosters": 128,
+      "byStage": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "k": "sunbreak_pillar_guardian",
+      "name": "サンピラーライオン",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 3,
+      "candidateRounds": 128,
+      "candidateRosters": 142,
+      "byStage": [
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "k": "disc_crown_mender",
+      "name": "ライトクラウンヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 3,
+      "selected": 4,
+      "candidateRounds": 185,
+      "candidateRosters": 202,
+      "byStage": [
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "k": "fangeye_flier",
+      "name": "ファングアイフライヤー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 4,
+      "candidateRounds": 47,
+      "candidateRosters": 51,
+      "byStage": [
+        0,
+        0,
+        4
+      ]
+    },
+    {
+      "k": "scarlet_bladebeast",
+      "name": "スカーレットビースト",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 4,
+      "candidateRounds": 157,
+      "candidateRosters": 167,
+      "byStage": [
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "k": "triangle_warder",
+      "name": "トライアングルガード",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 4,
+      "candidateRounds": 111,
+      "candidateRosters": 114,
+      "byStage": [
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "k": "voltaic_beetle",
+      "name": "サンダービートル",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 4,
+      "candidateRounds": 34,
+      "candidateRosters": 40,
+      "byStage": [
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "k": "voltwing_scarab",
+      "name": "ボルトスカラベ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 4,
+      "candidateRounds": 48,
+      "candidateRosters": 53,
+      "byStage": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "k": "candle_archdeacon",
+      "name": "キャンドルプリースト",
+      "boss": false,
+      "support": true,
+      "price": 4,
+      "selected": 5,
+      "candidateRounds": 107,
+      "candidateRosters": 112,
+      "byStage": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "k": "choir_friar",
+      "name": "コーラスフライアー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 5,
+      "candidateRounds": 103,
+      "candidateRosters": 107,
+      "byStage": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "k": "goldring_shadow_mender",
+      "name": "ゴールドリングヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 5,
+      "candidateRounds": 111,
+      "candidateRosters": 115,
+      "byStage": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "k": "greenlash_hatmaster",
+      "name": "グリーンウィップメイジ",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 5,
+      "candidateRounds": 126,
+      "candidateRosters": 133,
+      "byStage": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "k": "bobble_mender",
+      "name": "バブルホーンヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 6,
+      "candidateRounds": 99,
+      "candidateRosters": 100,
+      "byStage": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "k": "burrower",
+      "name": "ディグテイル",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 6,
+      "candidateRounds": 143,
+      "candidateRosters": 150,
+      "byStage": [
+        0,
+        3,
+        3
+      ]
+    },
+    {
+      "k": "dreamflash_oracle",
+      "name": "ドリームライトビースト",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 6,
+      "candidateRounds": 112,
+      "candidateRosters": 115,
+      "byStage": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "k": "emberwing_drake",
+      "name": "フレイムウィング",
+      "boss": true,
+      "support": false,
+      "price": 20,
+      "selected": 6,
+      "candidateRounds": 38,
+      "candidateRosters": 46,
+      "byStage": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "k": "healer",
+      "name": "メディック",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 6,
+      "candidateRounds": 97,
+      "candidateRosters": 103,
+      "byStage": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "k": "komodo_fiveclaw",
+      "name": "コモドリザード",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 6,
+      "candidateRounds": 166,
+      "candidateRosters": 173,
+      "byStage": [
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "k": "lumen_charger",
+      "name": "ライトチャージャー",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 6,
+      "candidateRounds": 157,
+      "candidateRosters": 163,
+      "byStage": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "k": "puffcap_mender",
+      "name": "ホワイトパームプリースト",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 6,
+      "candidateRounds": 143,
+      "candidateRosters": 153,
+      "byStage": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "k": "rune_cube_warder",
+      "name": "ルーンキューブガード",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 6,
+      "candidateRounds": 105,
+      "candidateRosters": 108,
+      "byStage": [
+        0,
+        3,
+        3
+      ]
+    },
+    {
+      "k": "smoke_thrustfighter",
+      "name": "スモークチャージャー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 6,
+      "candidateRounds": 146,
+      "candidateRosters": 156,
+      "byStage": [
+        0,
+        3,
+        3
+      ]
+    },
+    {
+      "k": "accretion_burstcore",
+      "name": "ダークライトコア",
+      "boss": true,
+      "support": false,
+      "price": 16,
+      "selected": 7,
+      "candidateRounds": 60,
+      "candidateRosters": 86,
+      "byStage": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "k": "bonecolumn_warder",
+      "name": "ボーンピラーガード",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 7,
+      "candidateRounds": 99,
+      "candidateRosters": 106,
+      "byStage": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "k": "bubble_shadow_mender",
+      "name": "バブルシャドウヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 7,
+      "candidateRounds": 147,
+      "candidateRosters": 155,
+      "byStage": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "k": "domeback_colossus",
+      "name": "ブルーシェルジャイアント",
+      "boss": false,
+      "support": true,
+      "price": 6,
+      "selected": 7,
+      "candidateRounds": 118,
+      "candidateRosters": 121,
+      "byStage": [
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "k": "eggshell_repairpod",
+      "name": "リペアエッグ",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 7,
+      "candidateRounds": 114,
+      "candidateRosters": 119,
+      "byStage": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "k": "ivoryspike_scarab",
+      "name": "アイボリースカラベ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 7,
+      "candidateRounds": 188,
+      "candidateRosters": 198,
+      "byStage": [
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "k": "klaxon_windup_blader",
+      "name": "ホワイトヘアブレイダー",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 7,
+      "candidateRounds": 133,
+      "candidateRosters": 139,
+      "byStage": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "k": "locust_pulsefighter",
+      "name": "ブラックシェルファイター",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 7,
+      "candidateRounds": 160,
+      "candidateRosters": 178,
+      "byStage": [
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "k": "ringblade_maehv",
+      "name": "リングデーモン",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 7,
+      "candidateRounds": 153,
+      "candidateRosters": 163,
+      "byStage": [
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "k": "ringhold_guardian",
+      "name": "リングウォーデン",
+      "boss": false,
+      "support": true,
+      "price": 6,
+      "selected": 7,
+      "candidateRounds": 118,
+      "candidateRosters": 124,
+      "byStage": [
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "k": "rune_exorcist",
+      "name": "ルーンエクソシスト",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 7,
+      "candidateRounds": 160,
+      "candidateRosters": 165,
+      "byStage": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "k": "ashstaff_healer",
+      "name": "アッシュスタッフヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 8,
+      "candidateRounds": 103,
+      "candidateRosters": 105,
+      "byStage": [
+        0,
+        2,
+        6
+      ]
+    },
+    {
+      "k": "bluepole_mogwai",
+      "name": "ブルーポールメイジ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 8,
+      "candidateRounds": 182,
+      "candidateRosters": 196,
+      "byStage": [
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "k": "cyan_tripleblade",
+      "name": "シロガネザムライ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 8,
+      "candidateRounds": 156,
+      "candidateRosters": 161,
+      "byStage": [
+        2,
+        4,
+        2
+      ]
+    },
+    {
+      "k": "golden_tuft_mender",
+      "name": "ゴールドタフトヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 1,
+      "selected": 8,
+      "candidateRounds": 93,
+      "candidateRosters": 100,
+      "byStage": [
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "k": "redblade_strider",
+      "name": "レッドブレイドウォーカー",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 8,
+      "candidateRounds": 154,
+      "candidateRosters": 170,
+      "byStage": [
+        0,
+        4,
+        4
+      ]
+    },
+    {
+      "k": "tigermask_archer",
+      "name": "タイガーマスクアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 8,
+      "candidateRounds": 156,
+      "candidateRosters": 169,
+      "byStage": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "k": "wandering_warder",
+      "name": "ワンダーガーディアン",
+      "boss": false,
+      "support": true,
+      "price": 3,
+      "selected": 8,
+      "candidateRounds": 197,
+      "candidateRosters": 214,
+      "byStage": [
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "k": "whiteburst_pugilist",
+      "name": "マグマボクサー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 8,
+      "candidateRounds": 163,
+      "candidateRosters": 174,
+      "byStage": [
+        0,
+        2,
+        6
+      ]
+    },
+    {
+      "k": "willyee_robed_fighter",
+      "name": "スターローブソード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 8,
+      "candidateRounds": 161,
+      "candidateRosters": 171,
+      "byStage": [
+        0,
+        4,
+        4
+      ]
+    },
+    {
+      "k": "bombbug",
+      "name": "ボムビートル",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 9,
+      "candidateRounds": 146,
+      "candidateRosters": 159,
+      "byStage": [
+        2,
+        1,
+        6
+      ]
+    },
+    {
+      "k": "frostmage",
+      "name": "フロストメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 9,
+      "candidateRounds": 348,
+      "candidateRosters": 403,
+      "byStage": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "k": "goldstroke_rotator",
+      "name": "ゴールドブレイドスピナー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 9,
+      "candidateRounds": 173,
+      "candidateRosters": 179,
+      "byStage": [
+        0,
+        5,
+        4
+      ]
+    },
+    {
+      "k": "moonplunge_lancer",
+      "name": "ムーンランサー",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 9,
+      "candidateRounds": 135,
+      "candidateRosters": 140,
+      "byStage": [
+        0,
+        2,
+        7
+      ]
+    },
+    {
+      "k": "ooze_slammer",
+      "name": "スライムスラマー",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 9,
+      "candidateRounds": 161,
+      "candidateRosters": 173,
+      "byStage": [
+        0,
+        2,
+        7
+      ]
+    },
+    {
+      "k": "twinmoon_pontiff",
+      "name": "ムーンビショップ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 9,
+      "candidateRounds": 175,
+      "candidateRosters": 183,
+      "byStage": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "k": "ward_bastion",
+      "name": "ストーンバスティオン",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 9,
+      "candidateRounds": 177,
+      "candidateRosters": 183,
+      "byStage": [
+        0,
+        2,
+        7
+      ]
+    },
+    {
+      "k": "wavepole_adept",
+      "name": "ウェーブポールファイター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 9,
+      "candidateRounds": 332,
+      "candidateRosters": 369,
+      "byStage": [
+        0,
+        2,
+        7
+      ]
+    },
+    {
+      "k": "wheelblade_knight",
+      "name": "ホイールブレイドナイト",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 9,
+      "candidateRounds": 155,
+      "candidateRosters": 169,
+      "byStage": [
+        4,
+        4,
+        1
+      ]
+    },
+    {
+      "k": "willyee_char_54",
+      "name": "スターセージ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 9,
+      "candidateRounds": 365,
+      "candidateRosters": 427,
+      "byStage": [
+        1,
+        4,
+        4
+      ]
+    },
+    {
+      "k": "wrapped_mummy",
+      "name": "リトルマミー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 9,
+      "candidateRounds": 335,
+      "candidateRosters": 374,
+      "byStage": [
+        0,
+        1,
+        8
+      ]
+    },
+    {
+      "k": "cinderbow_archer",
+      "name": "フレアハンター",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 10,
+      "candidateRounds": 172,
+      "candidateRosters": 179,
+      "byStage": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "k": "gemswirl_mender",
+      "name": "ジェムスワールヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 3,
+      "selected": 10,
+      "candidateRounds": 185,
+      "candidateRosters": 195,
+      "byStage": [
+        0,
+        4,
+        6
+      ]
+    },
+    {
+      "k": "metaltooth_duelist",
+      "name": "レッドメタルデュエリスト",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 10,
+      "candidateRounds": 165,
+      "candidateRosters": 177,
+      "byStage": [
+        2,
+        1,
+        7
+      ]
+    },
+    {
+      "k": "willyee_char_10_lute_bard",
+      "name": "クリムゾンメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 10,
+      "candidateRounds": 338,
+      "candidateRosters": 392,
+      "byStage": [
+        0,
+        5,
+        5
+      ]
+    },
+    {
+      "k": "willyee_char_22_crescent_reaper",
+      "name": "ムーンブレイドウォリアー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 10,
+      "candidateRounds": 334,
+      "candidateRosters": 390,
+      "byStage": [
+        0,
+        3,
+        7
+      ]
+    },
+    {
+      "k": "bluewhip_hunter",
+      "name": "ブルーウィップハンター",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 11,
+      "candidateRounds": 191,
+      "candidateRosters": 208,
+      "byStage": [
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "k": "crestblade_sentinel",
+      "name": "クラウンブレイドガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 11,
+      "candidateRounds": 151,
+      "candidateRosters": 162,
+      "byStage": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "k": "drumhammer_sister",
+      "name": "ドラムハンマーガード",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 11,
+      "candidateRounds": 179,
+      "candidateRosters": 188,
+      "byStage": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "k": "floatinghelm_tripler",
+      "name": "フローティングヘルム",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 11,
+      "candidateRounds": 164,
+      "candidateRosters": 177,
+      "byStage": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "k": "jawchest_mimic",
+      "name": "ミミック",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 11,
+      "candidateRounds": 172,
+      "candidateRosters": 183,
+      "byStage": [
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "k": "redpole_warrior",
+      "name": "レッドランサー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 11,
+      "candidateRounds": 159,
+      "candidateRosters": 169,
+      "byStage": [
+        0,
+        5,
+        6
+      ]
+    },
+    {
+      "k": "shade_trislasher",
+      "name": "カゲオニ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 11,
+      "candidateRounds": 334,
+      "candidateRosters": 378,
+      "byStage": [
+        2,
+        2,
+        7
+      ]
+    },
+    {
+      "k": "silverflare_archer",
+      "name": "シルバーフレイムアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 11,
+      "candidateRounds": 162,
+      "candidateRosters": 173,
+      "byStage": [
+        2,
+        5,
+        4
+      ]
+    },
+    {
+      "k": "twinflare_fox",
+      "name": "キツネビ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 11,
+      "candidateRounds": 166,
+      "candidateRosters": 182,
+      "byStage": [
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "k": "willyee_char_08",
+      "name": "ブルーライトウォーロック",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 11,
+      "candidateRounds": 318,
+      "candidateRosters": 364,
+      "byStage": [
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "k": "willyee_rogue",
+      "name": "ダガーローグ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 11,
+      "candidateRounds": 356,
+      "candidateRosters": 427,
+      "byStage": [
+        0,
+        2,
+        9
+      ]
+    },
+    {
+      "k": "abyssal_palmweaver",
+      "name": "アビスパームメイジ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 174,
+      "candidateRosters": 184,
+      "byStage": [
+        0,
+        5,
+        7
+      ]
+    },
+    {
+      "k": "azure_mane_lion",
+      "name": "ブルーメインライオン",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 177,
+      "candidateRosters": 186,
+      "byStage": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "k": "bonefan_reaper",
+      "name": "ボーンファンリーパー",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 12,
+      "candidateRounds": 267,
+      "candidateRosters": 333,
+      "byStage": [
+        0,
+        0,
+        12
+      ]
+    },
+    {
+      "k": "crescent_blade_dancer",
+      "name": "クレセントダンサー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 170,
+      "candidateRosters": 184,
+      "byStage": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "k": "dawnblade_fencer",
+      "name": "ドーンブレイド",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 169,
+      "candidateRosters": 176,
+      "byStage": [
+        1,
+        7,
+        4
+      ]
+    },
+    {
+      "k": "goldring_brawler",
+      "name": "ゴールドリングファイター",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 153,
+      "candidateRosters": 166,
+      "byStage": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "k": "orb_hunter",
+      "name": "オーブハンター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 12,
+      "candidateRounds": 321,
+      "candidateRosters": 370,
+      "byStage": [
+        0,
+        6,
+        6
+      ]
+    },
+    {
+      "k": "reaper_mantis",
+      "name": "マンティス",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 12,
+      "candidateRounds": 156,
+      "candidateRosters": 163,
+      "byStage": [
+        1,
+        6,
+        5
+      ]
+    },
+    {
+      "k": "redcrescent_sentinel",
+      "name": "レッドムーンガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 163,
+      "candidateRosters": 179,
+      "byStage": [
+        2,
+        3,
+        7
+      ]
+    },
+    {
+      "k": "redshield_tripler",
+      "name": "ブレイズナイト",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 184,
+      "candidateRosters": 202,
+      "byStage": [
+        1,
+        6,
+        5
+      ]
+    },
+    {
+      "k": "repair_pylon",
+      "name": "リペアピラー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 12,
+      "candidateRounds": 196,
+      "candidateRosters": 206,
+      "byStage": [
+        0,
+        6,
+        6
+      ]
+    },
+    {
+      "k": "shieldmace_companion",
+      "name": "シールドメイスガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 169,
+      "candidateRosters": 176,
+      "byStage": [
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "k": "tetherlash_adept",
+      "name": "マジックウィップ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 12,
+      "candidateRounds": 173,
+      "candidateRosters": 189,
+      "byStage": [
+        2,
+        2,
+        8
+      ]
+    },
+    {
+      "k": "willyee_char_03_axe_wayfarer",
+      "name": "アックスワンダラー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 12,
+      "candidateRounds": 336,
+      "candidateRosters": 386,
+      "byStage": [
+        1,
+        2,
+        9
+      ]
+    },
+    {
+      "k": "willyee_ogre",
+      "name": "ブラッドアイアンブレイバー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 12,
+      "candidateRounds": 357,
+      "candidateRosters": 417,
+      "byStage": [
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "k": "willyee_scorpion",
+      "name": "フレイムクラブマシン",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 12,
+      "candidateRounds": 331,
+      "candidateRosters": 382,
+      "byStage": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "k": "willyee_skel_archer",
+      "name": "ブルーフレイムアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 12,
+      "candidateRounds": 348,
+      "candidateRosters": 408,
+      "byStage": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "k": "baast_handtripler",
+      "name": "フックチャンプ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 13,
+      "candidateRounds": 160,
+      "candidateRosters": 168,
+      "byStage": [
+        1,
+        4,
+        8
+      ]
+    },
+    {
+      "k": "boulder_slammer",
+      "name": "ロックスラマー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 13,
+      "candidateRounds": 188,
+      "candidateRosters": 198,
+      "byStage": [
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "k": "crimson_mender",
+      "name": "クリムゾンヒーラー",
+      "boss": false,
+      "support": true,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 191,
+      "candidateRosters": 211,
+      "byStage": [
+        0,
+        4,
+        9
+      ]
+    },
+    {
+      "k": "embergrille_monument",
+      "name": "エンバーグリルモニュメント",
+      "boss": false,
+      "support": true,
+      "price": 2,
+      "selected": 13,
+      "candidateRounds": 171,
+      "candidateRosters": 178,
+      "byStage": [
+        0,
+        9,
+        4
+      ]
+    },
+    {
+      "k": "feral_fistfighter",
+      "name": "ワイルドパンチャー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 311,
+      "candidateRosters": 365,
+      "byStage": [
+        1,
+        1,
+        11
+      ]
+    },
+    {
+      "k": "flameaxe_dweller",
+      "name": "フレイムアックス",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 13,
+      "candidateRounds": 172,
+      "candidateRosters": 183,
+      "byStage": [
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "k": "ghostclaw_lynx",
+      "name": "ブルーソーンクロー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 334,
+      "candidateRosters": 383,
+      "byStage": [
+        0,
+        3,
+        10
+      ]
+    },
+    {
+      "k": "greenflame_triad",
+      "name": "エメラルドナイト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 330,
+      "candidateRosters": 377,
+      "byStage": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "k": "razorclaw_reaver",
+      "name": "シェルリッパー",
+      "boss": true,
+      "support": false,
+      "price": 36,
+      "selected": 13,
+      "candidateRounds": 214,
+      "candidateRosters": 278,
+      "byStage": [
+        0,
+        1,
+        12
+      ]
+    },
+    {
+      "k": "siege_crab",
+      "name": "リングスタッフメイジ",
+      "boss": true,
+      "support": false,
+      "price": 36,
+      "selected": 13,
+      "candidateRounds": 248,
+      "candidateRosters": 303,
+      "byStage": [
+        0,
+        0,
+        13
+      ]
+    },
+    {
+      "k": "vortex_adept",
+      "name": "ボルテックスメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 322,
+      "candidateRosters": 363,
+      "byStage": [
+        1,
+        4,
+        8
+      ]
+    },
+    {
+      "k": "willyee_char_34_goldring_caster",
+      "name": "ファイアスターターメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 323,
+      "candidateRosters": 359,
+      "byStage": [
+        1,
+        9,
+        3
+      ]
+    },
+    {
+      "k": "willyee_ghoul",
+      "name": "グール",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 13,
+      "candidateRounds": 348,
+      "candidateRosters": 397,
+      "byStage": [
+        1,
+        4,
+        8
+      ]
+    },
+    {
+      "k": "willyee_knight",
+      "name": "ゴールドナイト",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 13,
+      "candidateRounds": 158,
+      "candidateRosters": 173,
+      "byStage": [
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "k": "windslice_fighter",
+      "name": "ウィンドブレイドファイター",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 13,
+      "candidateRounds": 166,
+      "candidateRosters": 173,
+      "byStage": [
+        0,
+        7,
+        6
+      ]
+    },
+    {
+      "k": "archclapper_walker",
+      "name": "ストーンブレイドガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 14,
+      "candidateRounds": 191,
+      "candidateRosters": 203,
+      "byStage": [
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "k": "aurora_thrustmage",
+      "name": "オーロラスピアメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 347,
+      "candidateRosters": 420,
+      "byStage": [
+        1,
+        4,
+        9
+      ]
+    },
+    {
+      "k": "bloodsurge_pillarist",
+      "name": "クリムゾンピラー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 308,
+      "candidateRosters": 365,
+      "byStage": [
+        1,
+        5,
+        8
+      ]
+    },
+    {
+      "k": "bluecoat_blader",
+      "name": "ブルーコートブレイダー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 353,
+      "candidateRosters": 402,
+      "byStage": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "k": "bluehorn_invoker",
+      "name": "ブルーホーンメイジ",
+      "boss": true,
+      "support": false,
+      "price": 40,
+      "selected": 14,
+      "candidateRounds": 211,
+      "candidateRosters": 278,
+      "byStage": [
+        0,
+        0,
+        14
+      ]
+    },
+    {
+      "k": "boar",
+      "name": "チャージボア",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 14,
+      "candidateRounds": 154,
+      "candidateRosters": 162,
+      "byStage": [
+        7,
+        3,
+        4
+      ]
+    },
+    {
+      "k": "bounty_hound",
+      "name": "スノーベア",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 351,
+      "candidateRosters": 403,
+      "byStage": [
+        1,
+        7,
+        6
+      ]
+    },
+    {
+      "k": "bubbleclaw_plaguer",
+      "name": "バブルクロービースト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 360,
+      "candidateRosters": 412,
+      "byStage": [
+        0,
+        7,
+        7
+      ]
+    },
+    {
+      "k": "crownblade_king",
+      "name": "クラウンブレイドキング",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 14,
+      "candidateRounds": 185,
+      "candidateRosters": 196,
+      "byStage": [
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "k": "frostthrust_lancer",
+      "name": "フロストランサー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 14,
+      "candidateRounds": 162,
+      "candidateRosters": 176,
+      "byStage": [
+        1,
+        3,
+        10
+      ]
+    },
+    {
+      "k": "plume_swordknight",
+      "name": "フェザーナイト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 14,
+      "candidateRounds": 343,
+      "candidateRosters": 392,
+      "byStage": [
+        2,
+        3,
+        9
+      ]
+    },
+    {
+      "k": "thunderhorn_beast",
+      "name": "サンダーホーン",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 14,
+      "candidateRounds": 267,
+      "candidateRosters": 331,
+      "byStage": [
+        0,
+        1,
+        13
+      ]
+    },
+    {
+      "k": "wavebody_adept",
+      "name": "ウォーターシェイパー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 14,
+      "candidateRounds": 175,
+      "candidateRosters": 189,
+      "byStage": [
+        0,
+        7,
+        7
+      ]
+    },
+    {
+      "k": "willyee_ribbon_dancer",
+      "name": "ジェイドダンサー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 14,
+      "candidateRounds": 345,
+      "candidateRosters": 411,
+      "byStage": [
+        2,
+        2,
+        10
+      ]
+    },
+    {
+      "k": "cannon",
+      "name": "フレイムキャスター",
+      "boss": false,
+      "support": false,
+      "price": 6,
+      "selected": 15,
+      "candidateRounds": 142,
+      "candidateRosters": 159,
+      "byStage": [
+        2,
+        5,
+        8
+      ]
+    },
+    {
+      "k": "cyan_multiblade",
+      "name": "ジェイドセイバー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 15,
+      "candidateRounds": 305,
+      "candidateRosters": 351,
+      "byStage": [
+        0,
+        6,
+        9
+      ]
+    },
+    {
+      "k": "cyanrise_silithar",
+      "name": "ブルースピンアーマー",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 15,
+      "candidateRounds": 233,
+      "candidateRosters": 303,
+      "byStage": [
+        0,
+        1,
+        14
+      ]
+    },
+    {
+      "k": "duskbrown_rat",
+      "name": "イワトカゲ",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 15,
+      "candidateRounds": 334,
+      "candidateRosters": 388,
+      "byStage": [
+        1,
+        4,
+        10
+      ]
+    },
+    {
+      "k": "forkbill_strider",
+      "name": "ホネザウルス",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 15,
+      "candidateRounds": 322,
+      "candidateRosters": 372,
+      "byStage": [
+        1,
+        5,
+        9
+      ]
+    },
+    {
+      "k": "goldtrident_duelist",
+      "name": "ゴールドトライデント",
+      "boss": false,
+      "support": false,
+      "price": 7,
+      "selected": 15,
+      "candidateRounds": 276,
+      "candidateRosters": 327,
+      "byStage": [
+        0,
+        7,
+        8
+      ]
+    },
+    {
+      "k": "ringneck_prowler",
+      "name": "リングネック",
+      "boss": true,
+      "support": false,
+      "price": 40,
+      "selected": 15,
+      "candidateRounds": 208,
+      "candidateRosters": 277,
+      "byStage": [
+        0,
+        2,
+        13
+      ]
+    },
+    {
+      "k": "screech_cricket",
+      "name": "カースシンガー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 15,
+      "candidateRounds": 355,
+      "candidateRosters": 395,
+      "byStage": [
+        1,
+        7,
+        7
+      ]
+    },
+    {
+      "k": "sky_harpooner",
+      "name": "スカイアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 15,
+      "candidateRounds": 356,
+      "candidateRosters": 418,
+      "byStage": [
+        0,
+        3,
+        12
+      ]
+    },
+    {
+      "k": "stormhorn_tripler",
+      "name": "ホーンタイタン",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 15,
+      "candidateRounds": 278,
+      "candidateRosters": 345,
+      "byStage": [
+        0,
+        1,
+        14
+      ]
+    },
+    {
+      "k": "willyee_char_51",
+      "name": "スチールガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 15,
+      "candidateRounds": 165,
+      "candidateRosters": 169,
+      "byStage": [
+        1,
+        3,
+        11
+      ]
+    },
+    {
+      "k": "wraith",
+      "name": "レッドローブサモナー",
+      "boss": false,
+      "support": false,
+      "price": 9,
+      "selected": 15,
+      "candidateRounds": 259,
+      "candidateRosters": 297,
+      "byStage": [
+        0,
+        7,
+        8
+      ]
+    },
+    {
+      "k": "antlerwhirl_myriad",
+      "name": "ホーンリングスピナー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 354,
+      "candidateRosters": 415,
+      "byStage": [
+        0,
+        6,
+        10
+      ]
+    },
+    {
+      "k": "azure_bear_brawler",
+      "name": "ブルーベアファイター",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 16,
+      "candidateRounds": 174,
+      "candidateRosters": 185,
+      "byStage": [
+        2,
+        6,
+        8
+      ]
+    },
+    {
+      "k": "branchsweep_treant",
+      "name": "ブランチアームガード",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 320,
+      "candidateRosters": 366,
+      "byStage": [
+        1,
+        4,
+        11
+      ]
+    },
+    {
+      "k": "crownshield_guard",
+      "name": "クラウンシールド",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 16,
+      "candidateRounds": 347,
+      "candidateRosters": 390,
+      "byStage": [
+        0,
+        6,
+        10
+      ]
+    },
+    {
+      "k": "crystalback_rae",
+      "name": "クリスタルバック",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 16,
+      "candidateRounds": 361,
+      "candidateRosters": 411,
+      "byStage": [
+        7,
+        4,
+        5
+      ]
+    },
+    {
+      "k": "cyanarm_mystic",
+      "name": "ブルーアームメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 304,
+      "candidateRosters": 346,
+      "byStage": [
+        2,
+        5,
+        9
+      ]
+    },
+    {
+      "k": "cyanspike_commander",
+      "name": "ブルースパイクコマンダー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 359,
+      "candidateRosters": 421,
+      "byStage": [
+        2,
+        5,
+        9
+      ]
+    },
+    {
+      "k": "dusk_triplewarden",
+      "name": "ナイトストーカー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 16,
+      "candidateRounds": 332,
+      "candidateRosters": 388,
+      "byStage": [
+        2,
+        4,
+        10
+      ]
+    },
+    {
+      "k": "emberfist_pillarer",
+      "name": "フレイムフィストピラー",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 16,
+      "candidateRounds": 263,
+      "candidateRosters": 328,
+      "byStage": [
+        0,
+        0,
+        16
+      ]
+    },
+    {
+      "k": "redbud_blightbeast",
+      "name": "レッドバッドソーン",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 16,
+      "candidateRounds": 204,
+      "candidateRosters": 217,
+      "byStage": [
+        1,
+        5,
+        10
+      ]
+    },
+    {
+      "k": "ringfall_chakkram",
+      "name": "フォーリングリングメイジ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 16,
+      "candidateRounds": 166,
+      "candidateRosters": 176,
+      "byStage": [
+        2,
+        9,
+        5
+      ]
+    },
+    {
+      "k": "scarfhat_swordsman",
+      "name": "スカーフハットソード",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 339,
+      "candidateRosters": 392,
+      "byStage": [
+        0,
+        4,
+        12
+      ]
+    },
+    {
+      "k": "shellburst_arcade",
+      "name": "シェルウェーブファイター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 316,
+      "candidateRosters": 360,
+      "byStage": [
+        2,
+        4,
+        10
+      ]
+    },
+    {
+      "k": "spikeburst_grinder",
+      "name": "スパイクバースト",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 16,
+      "candidateRounds": 252,
+      "candidateRosters": 326,
+      "byStage": [
+        0,
+        1,
+        15
+      ]
+    },
+    {
+      "k": "spinthrust_grincher",
+      "name": "スピンテイルソード",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 364,
+      "candidateRosters": 422,
+      "byStage": [
+        0,
+        4,
+        12
+      ]
+    },
+    {
+      "k": "spiral_polecaster",
+      "name": "スパイラルスタッフメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 16,
+      "candidateRounds": 333,
+      "candidateRosters": 384,
+      "byStage": [
+        3,
+        3,
+        10
+      ]
+    },
+    {
+      "k": "aegis_warden",
+      "name": "イージスガード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 17,
+      "candidateRounds": 140,
+      "candidateRosters": 146,
+      "byStage": [
+        0,
+        6,
+        11
+      ]
+    },
+    {
+      "k": "antler_archer",
+      "name": "ホーンアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 328,
+      "candidateRosters": 385,
+      "byStage": [
+        1,
+        8,
+        8
+      ]
+    },
+    {
+      "k": "carapace_slashbeast",
+      "name": "アーマースラッシャー",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 17,
+      "candidateRounds": 287,
+      "candidateRosters": 377,
+      "byStage": [
+        0,
+        3,
+        14
+      ]
+    },
+    {
+      "k": "copperbrow_bristle_ram",
+      "name": "パープルテイルクロー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 335,
+      "candidateRosters": 390,
+      "byStage": [
+        0,
+        6,
+        11
+      ]
+    },
+    {
+      "k": "desert_flarebeast",
+      "name": "デザートフレアビースト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 368,
+      "candidateRosters": 423,
+      "byStage": [
+        2,
+        9,
+        6
+      ]
+    },
+    {
+      "k": "longtail_lizard",
+      "name": "ロングテイルリザード",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 17,
+      "candidateRounds": 171,
+      "candidateRosters": 185,
+      "byStage": [
+        2,
+        6,
+        9
+      ]
+    },
+    {
+      "k": "spearcut_huntress",
+      "name": "スピアハントレス",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 348,
+      "candidateRosters": 401,
+      "byStage": [
+        0,
+        5,
+        12
+      ]
+    },
+    {
+      "k": "spinning_tailbeast",
+      "name": "スピンテイル",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 17,
+      "candidateRounds": 337,
+      "candidateRosters": 394,
+      "byStage": [
+        4,
+        3,
+        10
+      ]
+    },
+    {
+      "k": "willyee_char_47",
+      "name": "リーフメインビースト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 346,
+      "candidateRosters": 404,
+      "byStage": [
+        2,
+        8,
+        7
+      ]
+    },
+    {
+      "k": "windcloth_duelist",
+      "name": "ウィンドクロス",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 17,
+      "candidateRounds": 320,
+      "candidateRosters": 355,
+      "byStage": [
+        2,
+        6,
+        9
+      ]
+    },
+    {
+      "k": "fenrir_dualguard",
+      "name": "ウルフマスター",
+      "boss": false,
+      "support": false,
+      "price": 7,
+      "selected": 18,
+      "candidateRounds": 283,
+      "candidateRosters": 310,
+      "byStage": [
+        0,
+        9,
+        9
+      ]
+    },
+    {
+      "k": "flameburst_mythron",
+      "name": "フレイムリングジャイアント",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 18,
+      "candidateRounds": 277,
+      "candidateRosters": 352,
+      "byStage": [
+        0,
+        3,
+        15
+      ]
+    },
+    {
+      "k": "goldmask_pugilist",
+      "name": "ゴールドマスクパンチャー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 18,
+      "candidateRounds": 328,
+      "candidateRosters": 378,
+      "byStage": [
+        3,
+        3,
+        12
+      ]
+    },
+    {
+      "k": "hatblade_hsuku",
+      "name": "クロガサ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 18,
+      "candidateRounds": 340,
+      "candidateRosters": 409,
+      "byStage": [
+        0,
+        8,
+        10
+      ]
+    },
+    {
+      "k": "rex_clawtripler",
+      "name": "トゲオトカゲ",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 18,
+      "candidateRounds": 190,
+      "candidateRosters": 203,
+      "byStage": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "k": "specterclaw_shuffler",
+      "name": "スペクトルクローソード",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 18,
+      "candidateRounds": 321,
+      "candidateRosters": 356,
+      "byStage": [
+        1,
+        6,
+        11
+      ]
+    },
+    {
+      "k": "spirit_fan_wolf",
+      "name": "スピリットウルフ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 18,
+      "candidateRounds": 331,
+      "candidateRosters": 379,
+      "byStage": [
+        12,
+        0,
+        6
+      ]
+    },
+    {
+      "k": "twinpulse_mage",
+      "name": "ツノシャーマン",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 18,
+      "candidateRounds": 208,
+      "candidateRosters": 227,
+      "byStage": [
+        2,
+        2,
+        14
+      ]
+    },
+    {
+      "k": "willyee_char_42",
+      "name": "ジュエルマスター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 18,
+      "candidateRounds": 339,
+      "candidateRosters": 401,
+      "byStage": [
+        0,
+        6,
+        12
+      ]
+    },
+    {
+      "k": "willyee_char_43_redgauntlet_brawler",
+      "name": "ブルーフィストソルジャー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 18,
+      "candidateRounds": 328,
+      "candidateRosters": 377,
+      "byStage": [
+        0,
+        6,
+        12
+      ]
+    },
+    {
+      "k": "willyee_monk",
+      "name": "モンク",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 18,
+      "candidateRounds": 339,
+      "candidateRosters": 390,
+      "byStage": [
+        1,
+        8,
+        9
+      ]
+    },
+    {
+      "k": "greenneck_burster",
+      "name": "グリーンネックバースト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 19,
+      "candidateRounds": 340,
+      "candidateRosters": 383,
+      "byStage": [
+        1,
+        8,
+        10
+      ]
+    },
+    {
+      "k": "ribwraith_tripler",
+      "name": "ボーンレイス",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 19,
+      "candidateRounds": 340,
+      "candidateRosters": 396,
+      "byStage": [
+        4,
+        6,
+        9
+      ]
+    },
+    {
+      "k": "willyee_goblin",
+      "name": "ダガーマーセナリー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 19,
+      "candidateRounds": 343,
+      "candidateRosters": 387,
+      "byStage": [
+        0,
+        9,
+        10
+      ]
+    },
+    {
+      "k": "basalt_titan",
+      "name": "サンダーアーマービースト",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 20,
+      "candidateRounds": 267,
+      "candidateRosters": 327,
+      "byStage": [
+        0,
+        0,
+        20
+      ]
+    },
+    {
+      "k": "brass_flareslinger",
+      "name": "ブラスシューター",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 20,
+      "candidateRounds": 377,
+      "candidateRosters": 437,
+      "byStage": [
+        1,
+        9,
+        10
+      ]
+    },
+    {
+      "k": "cleaver_brute",
+      "name": "ホーンドブレイバー",
+      "boss": true,
+      "support": false,
+      "price": 40,
+      "selected": 20,
+      "candidateRounds": 216,
+      "candidateRosters": 282,
+      "byStage": [
+        0,
+        0,
+        20
+      ]
+    },
+    {
+      "k": "clubnose_forest_troll",
+      "name": "ロングノーズトロル",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 20,
+      "candidateRounds": 340,
+      "candidateRosters": 403,
+      "byStage": [
+        1,
+        10,
+        9
+      ]
+    },
+    {
+      "k": "darkfan_clawlord",
+      "name": "ダークファンクロー",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 20,
+      "candidateRounds": 292,
+      "candidateRosters": 369,
+      "byStage": [
+        0,
+        2,
+        18
+      ]
+    },
+    {
+      "k": "goblin",
+      "name": "ゴブリン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 20,
+      "candidateRounds": 363,
+      "candidateRosters": 419,
+      "byStage": [
+        5,
+        4,
+        11
+      ]
+    },
+    {
+      "k": "golden_whirlshaper",
+      "name": "ゴールドリングスピナー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 20,
+      "candidateRounds": 367,
+      "candidateRosters": 419,
+      "byStage": [
+        2,
+        4,
+        14
+      ]
+    },
+    {
+      "k": "latecut_staffblade",
+      "name": "クリスタルランサー",
+      "boss": false,
+      "support": false,
+      "price": 8,
+      "selected": 20,
+      "candidateRounds": 279,
+      "candidateRosters": 319,
+      "byStage": [
+        0,
+        10,
+        10
+      ]
+    },
+    {
+      "k": "redhorn_dualbeast",
+      "name": "アカツノ",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 20,
+      "candidateRounds": 269,
+      "candidateRosters": 362,
+      "byStage": [
+        0,
+        2,
+        18
+      ]
+    },
+    {
+      "k": "redtunic_swordsman",
+      "name": "レッドコートソード",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 20,
+      "candidateRounds": 337,
+      "candidateRosters": 392,
+      "byStage": [
+        7,
+        6,
+        7
+      ]
+    },
+    {
+      "k": "rosewhirl_critter",
+      "name": "ローズスピナー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 20,
+      "candidateRounds": 332,
+      "candidateRosters": 372,
+      "byStage": [
+        5,
+        5,
+        10
+      ]
+    },
+    {
+      "k": "triad_chimera",
+      "name": "トリオキメラ",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 20,
+      "candidateRounds": 273,
+      "candidateRosters": 357,
+      "byStage": [
+        0,
+        1,
+        19
+      ]
+    },
+    {
+      "k": "willyee_char_02",
+      "name": "クラフトメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 20,
+      "candidateRounds": 327,
+      "candidateRosters": 361,
+      "byStage": [
+        3,
+        9,
+        8
+      ]
+    },
+    {
+      "k": "archer",
+      "name": "アーチャー",
+      "boss": false,
+      "support": false,
+      "price": 4,
+      "selected": 21,
+      "candidateRounds": 174,
+      "candidateRosters": 189,
+      "byStage": [
+        12,
+        4,
+        5
+      ]
+    },
+    {
+      "k": "bluewhip_minion",
+      "name": "ブルーテイルビースト",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 21,
+      "candidateRounds": 353,
+      "candidateRosters": 401,
+      "byStage": [
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "k": "coiltail_halberdier",
+      "name": "コイルテイルランサー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 21,
+      "candidateRounds": 363,
+      "candidateRosters": 437,
+      "byStage": [
+        3,
+        7,
+        11
+      ]
+    },
+    {
+      "k": "gilded_shooter",
+      "name": "ゴールドシューター",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 21,
+      "candidateRounds": 349,
+      "candidateRosters": 394,
+      "byStage": [
+        10,
+        5,
+        6
+      ]
+    },
+    {
+      "k": "groundprism_windmiller",
+      "name": "グラウンドプリズムメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 21,
+      "candidateRounds": 349,
+      "candidateRosters": 423,
+      "byStage": [
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "k": "knife_skirmisher",
+      "name": "ナイフファイター",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 21,
+      "candidateRounds": 380,
+      "candidateRosters": 451,
+      "byStage": [
+        9,
+        7,
+        5
+      ]
+    },
+    {
+      "k": "palmstrike_adept",
+      "name": "パームストライカー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 21,
+      "candidateRounds": 347,
+      "candidateRosters": 397,
+      "byStage": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "k": "plated_dualdragon",
+      "name": "ヨロイドラゴン",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 21,
+      "candidateRounds": 271,
+      "candidateRosters": 361,
+      "byStage": [
+        0,
+        2,
+        19
+      ]
+    },
+    {
+      "k": "punchcap_mushroom",
+      "name": "パンチマッシュルーム",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 21,
+      "candidateRounds": 337,
+      "candidateRosters": 400,
+      "byStage": [
+        4,
+        5,
+        12
+      ]
+    },
+    {
+      "k": "shockplate_drake",
+      "name": "ショックアーマードラゴン",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 21,
+      "candidateRounds": 263,
+      "candidateRosters": 334,
+      "byStage": [
+        0,
+        3,
+        18
+      ]
+    },
+    {
+      "k": "veteran_flamewing",
+      "name": "マグマドレイク",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 21,
+      "candidateRounds": 239,
+      "candidateRosters": 300,
+      "byStage": [
+        0,
+        2,
+        19
+      ]
+    },
+    {
+      "k": "whitehair_spinblade",
+      "name": "ホワイトヘアスピナー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 21,
+      "candidateRounds": 327,
+      "candidateRosters": 370,
+      "byStage": [
+        3,
+        8,
+        10
+      ]
+    },
+    {
+      "k": "willyee_char_52_spiked_hammerer",
+      "name": "ゴールドブレイドヘビー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 21,
+      "candidateRounds": 339,
+      "candidateRosters": 409,
+      "byStage": [
+        1,
+        5,
+        15
+      ]
+    },
+    {
+      "k": "willyee_hellhound",
+      "name": "ヘルハウンド",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 21,
+      "candidateRounds": 333,
+      "candidateRosters": 371,
+      "byStage": [
+        2,
+        11,
+        8
+      ]
+    },
+    {
+      "k": "curled_jackal",
+      "name": "カールテイルウルフ",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 22,
+      "candidateRounds": 359,
+      "candidateRosters": 405,
+      "byStage": [
+        4,
+        6,
+        12
+      ]
+    },
+    {
+      "k": "deathknell_cutpillar",
+      "name": "ナイトウィッチ",
+      "boss": false,
+      "support": false,
+      "price": 8,
+      "selected": 22,
+      "candidateRounds": 307,
+      "candidateRosters": 342,
+      "byStage": [
+        0,
+        7,
+        15
+      ]
+    },
+    {
+      "k": "flamering_magus",
+      "name": "フレイムリングメイジ",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 22,
+      "candidateRounds": 311,
+      "candidateRosters": 392,
+      "byStage": [
+        0,
+        1,
+        21
+      ]
+    },
+    {
+      "k": "flipthrust_legend",
+      "name": "リングテイルランサー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 22,
+      "candidateRounds": 339,
+      "candidateRosters": 410,
+      "byStage": [
+        1,
+        11,
+        10
+      ]
+    },
+    {
+      "k": "maw_beast",
+      "name": "スモールジョー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 22,
+      "candidateRounds": 370,
+      "candidateRosters": 409,
+      "byStage": [
+        3,
+        6,
+        13
+      ]
+    },
+    {
+      "k": "willyee_char_48_horned_heavy",
+      "name": "ルビーナイト",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 22,
+      "candidateRounds": 366,
+      "candidateRosters": 415,
+      "byStage": [
+        2,
+        6,
+        14
+      ]
+    },
+    {
+      "k": "willyee_frost_dragon",
+      "name": "フロストホワイトドラゴン",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 22,
+      "candidateRounds": 262,
+      "candidateRosters": 346,
+      "byStage": [
+        0,
+        2,
+        20
+      ]
+    },
+    {
+      "k": "azure_blade_trio",
+      "name": "シルバーフェンサー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 23,
+      "candidateRounds": 334,
+      "candidateRosters": 397,
+      "byStage": [
+        0,
+        5,
+        18
+      ]
+    },
+    {
+      "k": "curved_blade_raider",
+      "name": "カーブブレイド",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 23,
+      "candidateRounds": 341,
+      "candidateRosters": 389,
+      "byStage": [
+        5,
+        6,
+        12
+      ]
+    },
+    {
+      "k": "darkclaw_harbinger",
+      "name": "ダーククロービースト",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 23,
+      "candidateRounds": 337,
+      "candidateRosters": 379,
+      "byStage": [
+        5,
+        3,
+        15
+      ]
+    },
+    {
+      "k": "frostbreath_lizard",
+      "name": "フロストブレスリザード",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 23,
+      "candidateRounds": 242,
+      "candidateRosters": 325,
+      "byStage": [
+        0,
+        1,
+        22
+      ]
+    },
+    {
+      "k": "goldgreatsword_duelist",
+      "name": "ゴールドグレートソード",
+      "boss": false,
+      "support": false,
+      "price": 7,
+      "selected": 23,
+      "candidateRounds": 293,
+      "candidateRosters": 338,
+      "byStage": [
+        0,
+        10,
+        13
+      ]
+    },
+    {
+      "k": "poleblade_dancer",
+      "name": "スピンブレイドダンサー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 23,
+      "candidateRounds": 315,
+      "candidateRosters": 364,
+      "byStage": [
+        4,
+        1,
+        18
+      ]
+    },
+    {
+      "k": "redcore_burstshrine",
+      "name": "レッドコアシュライン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 23,
+      "candidateRounds": 380,
+      "candidateRosters": 453,
+      "byStage": [
+        1,
+        10,
+        12
+      ]
+    },
+    {
+      "k": "shellpulse_beast",
+      "name": "シェルウェーブ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 23,
+      "candidateRounds": 358,
+      "candidateRosters": 409,
+      "byStage": [
+        11,
+        5,
+        7
+      ]
+    },
+    {
+      "k": "silverarm_vanguard",
+      "name": "シルバーアームガード",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 23,
+      "candidateRounds": 298,
+      "candidateRosters": 366,
+      "byStage": [
+        0,
+        5,
+        18
+      ]
+    },
+    {
+      "k": "sootclaw_critter",
+      "name": "スートクロービースト",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 23,
+      "candidateRounds": 312,
+      "candidateRosters": 364,
+      "byStage": [
+        4,
+        8,
+        11
+      ]
+    },
+    {
+      "k": "vex_touchbeast",
+      "name": "グロウホーン",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 23,
+      "candidateRounds": 315,
+      "candidateRosters": 360,
+      "byStage": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "k": "willyee_alchemist",
+      "name": "ブルーオーブメイジ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 23,
+      "candidateRounds": 389,
+      "candidateRosters": 454,
+      "byStage": [
+        4,
+        7,
+        12
+      ]
+    },
+    {
+      "k": "brownblade_scout",
+      "name": "ブラウンブレイドスカウト",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 24,
+      "candidateRounds": 317,
+      "candidateRosters": 352,
+      "byStage": [
+        6,
+        4,
+        14
+      ]
+    },
+    {
+      "k": "cyanribbon_weaver",
+      "name": "ブルーリボンウィーバー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 24,
+      "candidateRounds": 339,
+      "candidateRosters": 383,
+      "byStage": [
+        4,
+        3,
+        17
+      ]
+    },
+    {
+      "k": "moonclaw_werewolf",
+      "name": "ムーンクローウルフ",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 24,
+      "candidateRounds": 265,
+      "candidateRosters": 337,
+      "byStage": [
+        0,
+        2,
+        22
+      ]
+    },
+    {
+      "k": "thornspin_ooze",
+      "name": "ソーンボール",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 24,
+      "candidateRounds": 381,
+      "candidateRosters": 452,
+      "byStage": [
+        4,
+        5,
+        15
+      ]
+    },
+    {
+      "k": "bluefist_colossus",
+      "name": "ブルーフィストジャイアント",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 25,
+      "candidateRounds": 278,
+      "candidateRosters": 367,
+      "byStage": [
+        0,
+        0,
+        25
+      ]
+    },
+    {
+      "k": "cinder_tailbeast",
+      "name": "シンダーテイル",
+      "boss": true,
+      "support": false,
+      "price": 32,
+      "selected": 25,
+      "candidateRounds": 269,
+      "candidateRosters": 345,
+      "byStage": [
+        0,
+        2,
+        23
+      ]
+    },
+    {
+      "k": "emberstring_archer",
+      "name": "エンバーボウ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 25,
+      "candidateRounds": 355,
+      "candidateRosters": 403,
+      "byStage": [
+        14,
+        6,
+        5
+      ]
+    },
+    {
+      "k": "finback_clawbeast",
+      "name": "フィンバッククロー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 25,
+      "candidateRounds": 375,
+      "candidateRosters": 435,
+      "byStage": [
+        4,
+        7,
+        14
+      ]
+    },
+    {
+      "k": "inkorb_caster",
+      "name": "インクオーブメイジ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 25,
+      "candidateRounds": 382,
+      "candidateRosters": 456,
+      "byStage": [
+        4,
+        7,
+        14
+      ]
+    },
+    {
+      "k": "ochre_antlerclaw",
+      "name": "オーカーホーンクロー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 25,
+      "candidateRounds": 373,
+      "candidateRosters": 423,
+      "byStage": [
+        9,
+        4,
+        12
+      ]
+    },
+    {
+      "k": "onyx_scorpion",
+      "name": "オニキススコーピオン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 25,
+      "candidateRounds": 363,
+      "candidateRosters": 414,
+      "byStage": [
+        6,
+        9,
+        10
+      ]
+    },
+    {
+      "k": "pillar_hammerer",
+      "name": "ライトピラーハンマー",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 25,
+      "candidateRounds": 333,
+      "candidateRosters": 420,
+      "byStage": [
+        0,
+        4,
+        21
+      ]
+    },
+    {
+      "k": "redtail_whipper",
+      "name": "レッドテイルウィップ",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 25,
+      "candidateRounds": 343,
+      "candidateRosters": 407,
+      "byStage": [
+        3,
+        8,
+        14
+      ]
+    },
+    {
+      "k": "tendril_revenant",
+      "name": "テンドリルレヴナント",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 25,
+      "candidateRounds": 317,
+      "candidateRosters": 364,
+      "byStage": [
+        5,
+        13,
+        7
+      ]
+    },
+    {
+      "k": "tumbling_critter",
+      "name": "ローリングビースト",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 25,
+      "candidateRounds": 339,
+      "candidateRosters": 393,
+      "byStage": [
+        4,
+        11,
+        10
+      ]
+    },
+    {
+      "k": "willyee_lizardman",
+      "name": "ブルースケイルファイター",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 25,
+      "candidateRounds": 362,
+      "candidateRosters": 414,
+      "byStage": [
+        2,
+        12,
+        11
+      ]
+    },
+    {
+      "k": "willyee_stone_golem",
+      "name": "クリスタルハンマーガード",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 25,
+      "candidateRounds": 279,
+      "candidateRosters": 350,
+      "byStage": [
+        0,
+        2,
+        23
+      ]
+    },
+    {
+      "k": "ashbone_swordsman",
+      "name": "アッシュボーンソード",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 26,
+      "candidateRounds": 367,
+      "candidateRosters": 421,
+      "byStage": [
+        12,
+        8,
+        6
+      ]
+    },
+    {
+      "k": "crystal_tailbeast",
+      "name": "クリスタルテイル",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 26,
+      "candidateRounds": 350,
+      "candidateRosters": 406,
+      "byStage": [
+        12,
+        3,
+        11
+      ]
+    },
+    {
+      "k": "followup_cub",
+      "name": "チェイスキャット",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 26,
+      "candidateRounds": 375,
+      "candidateRosters": 430,
+      "byStage": [
+        4,
+        8,
+        14
+      ]
+    },
+    {
+      "k": "stone_mason",
+      "name": "ストーンナックル",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 26,
+      "candidateRounds": 357,
+      "candidateRosters": 406,
+      "byStage": [
+        2,
+        9,
+        15
+      ]
+    },
+    {
+      "k": "kilnback_pincerbeast",
+      "name": "ブルークラブジャイアント",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 27,
+      "candidateRounds": 348,
+      "candidateRosters": 448,
+      "byStage": [
+        1,
+        4,
+        22
+      ]
+    },
+    {
+      "k": "whirlsilk_cat",
+      "name": "シルクスピンキャット",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 27,
+      "candidateRounds": 366,
+      "candidateRosters": 429,
+      "byStage": [
+        9,
+        8,
+        10
+      ]
+    },
+    {
+      "k": "colossal_hornfist",
+      "name": "ジャイアントホーンフィスト",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 28,
+      "candidateRounds": 320,
+      "candidateRosters": 394,
+      "byStage": [
+        0,
+        4,
+        24
+      ]
+    },
+    {
+      "k": "orbslam_zyx",
+      "name": "ランタントカゲ",
+      "boss": false,
+      "support": false,
+      "price": 5,
+      "selected": 28,
+      "candidateRounds": 156,
+      "candidateRosters": 162,
+      "byStage": [
+        20,
+        3,
+        5
+      ]
+    },
+    {
+      "k": "rootwarden_treant",
+      "name": "トレント",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 28,
+      "candidateRounds": 345,
+      "candidateRosters": 444,
+      "byStage": [
+        0,
+        7,
+        21
+      ]
+    },
+    {
+      "k": "saberspine_tiger",
+      "name": "サーベルタイガー",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 28,
+      "candidateRounds": 340,
+      "candidateRosters": 395,
+      "byStage": [
+        10,
+        8,
+        10
+      ]
+    },
+    {
+      "k": "golem",
+      "name": "ロックゴーレム",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 29,
+      "candidateRounds": 274,
+      "candidateRosters": 369,
+      "byStage": [
+        0,
+        4,
+        25
+      ]
+    },
+    {
+      "k": "redmask_duelist",
+      "name": "アカズキン",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 29,
+      "candidateRounds": 336,
+      "candidateRosters": 377,
+      "byStage": [
+        9,
+        6,
+        14
+      ]
+    },
+    {
+      "k": "sweep_acolyte",
+      "name": "スイープメイジ",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 29,
+      "candidateRounds": 350,
+      "candidateRosters": 412,
+      "byStage": [
+        13,
+        6,
+        10
+      ]
+    },
+    {
+      "k": "fiery_coil_inceptor",
+      "name": "フレイムコイルスピリット",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 30,
+      "candidateRounds": 319,
+      "candidateRosters": 402,
+      "byStage": [
+        0,
+        0,
+        30
+      ]
+    },
+    {
+      "k": "gilded_hopper",
+      "name": "コガネガエル",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 31,
+      "candidateRounds": 394,
+      "candidateRosters": 458,
+      "byStage": [
+        12,
+        5,
+        14
+      ]
+    },
+    {
+      "k": "repulsion_eye",
+      "name": "プッシュアイ",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 31,
+      "candidateRounds": 361,
+      "candidateRosters": 409,
+      "byStage": [
+        5,
+        11,
+        15
+      ]
+    },
+    {
+      "k": "stonepulse_kolossus",
+      "name": "ストーンウェーブジャイアント",
+      "boss": true,
+      "support": false,
+      "price": 28,
+      "selected": 31,
+      "candidateRounds": 292,
+      "candidateRosters": 366,
+      "byStage": [
+        0,
+        2,
+        29
+      ]
+    },
+    {
+      "k": "common_orc",
+      "name": "オークソードマン",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 32,
+      "candidateRounds": 348,
+      "candidateRosters": 402,
+      "byStage": [
+        15,
+        6,
+        11
+      ]
+    },
+    {
+      "k": "frosthorn_rhino",
+      "name": "フロストライノ",
+      "boss": true,
+      "support": false,
+      "price": 24,
+      "selected": 32,
+      "candidateRounds": 313,
+      "candidateRosters": 401,
+      "byStage": [
+        0,
+        8,
+        24
+      ]
+    },
+    {
+      "k": "golden_bowling",
+      "name": "ゴールドボウマン",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 32,
+      "candidateRounds": 351,
+      "candidateRosters": 418,
+      "byStage": [
+        12,
+        6,
+        14
+      ]
+    },
+    {
+      "k": "light_bowman",
+      "name": "ライトアーチャー",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 33,
+      "candidateRounds": 366,
+      "candidateRosters": 425,
+      "byStage": [
+        14,
+        11,
+        8
+      ]
+    },
+    {
+      "k": "shadow_runner",
+      "name": "シャドウランナー",
+      "boss": false,
+      "support": false,
+      "price": 1,
+      "selected": 33,
+      "candidateRounds": 365,
+      "candidateRosters": 416,
+      "byStage": [
+        7,
+        6,
+        20
+      ]
+    },
+    {
+      "k": "breath_imp",
+      "name": "ブレスインプ",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 34,
+      "candidateRounds": 330,
+      "candidateRosters": 378,
+      "byStage": [
+        22,
+        5,
+        7
+      ]
+    },
+    {
+      "k": "gauntlet_combo_guard",
+      "name": "ガントレットガード",
+      "boss": true,
+      "support": false,
+      "price": 20,
+      "selected": 34,
+      "candidateRounds": 388,
+      "candidateRosters": 530,
+      "byStage": [
+        1,
+        8,
+        25
+      ]
+    },
+    {
+      "k": "spear",
+      "name": "ロングブレイド",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 34,
+      "candidateRounds": 307,
+      "candidateRosters": 347,
+      "byStage": [
+        17,
+        8,
+        9
+      ]
+    },
+    {
+      "k": "rider",
+      "name": "ランスライダー",
+      "boss": false,
+      "support": false,
+      "price": 9,
+      "selected": 35,
+      "candidateRounds": 315,
+      "candidateRosters": 373,
+      "byStage": [
+        12,
+        12,
+        11
+      ]
+    },
+    {
+      "k": "shield",
+      "name": "シールドガード",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 35,
+      "candidateRounds": 349,
+      "candidateRosters": 398,
+      "byStage": [
+        13,
+        7,
+        15
+      ]
+    },
+    {
+      "k": "thornback_beast",
+      "name": "ソーンバック",
+      "boss": true,
+      "support": false,
+      "price": 16,
+      "selected": 36,
+      "candidateRounds": 454,
+      "candidateRosters": 677,
+      "byStage": [
+        0,
+        7,
+        29
+      ]
+    },
+    {
+      "k": "iceclaw_legend",
+      "name": "アイスクローファイター",
+      "boss": true,
+      "support": false,
+      "price": 16,
+      "selected": 38,
+      "candidateRounds": 456,
+      "candidateRosters": 662,
+      "byStage": [
+        0,
+        1,
+        37
+      ]
+    },
+    {
+      "k": "skullflare_triad",
+      "name": "スカルソーサラー",
+      "boss": true,
+      "support": false,
+      "price": 20,
+      "selected": 39,
+      "candidateRounds": 379,
+      "candidateRosters": 491,
+      "byStage": [
+        0,
+        8,
+        31
+      ]
+    },
+    {
+      "k": "spectral_scale_dragon",
+      "name": "ファントムスケイルドラゴン",
+      "boss": true,
+      "support": false,
+      "price": 16,
+      "selected": 39,
+      "candidateRounds": 467,
+      "candidateRosters": 686,
+      "byStage": [
+        0,
+        8,
+        31
+      ]
+    },
+    {
+      "k": "toll_squire",
+      "name": "ゲートスクワイア",
+      "boss": false,
+      "support": false,
+      "price": 2,
+      "selected": 39,
+      "candidateRounds": 340,
+      "candidateRosters": 384,
+      "byStage": [
+        18,
+        7,
+        14
+      ]
+    },
+    {
+      "k": "roarfang_beast",
+      "name": "ロアファング",
+      "boss": true,
+      "support": false,
+      "price": 16,
+      "selected": 46,
+      "candidateRounds": 470,
+      "candidateRosters": 687,
+      "byStage": [
+        0,
+        4,
+        42
+      ]
+    },
+    {
+      "k": "sword",
+      "name": "ソードマン",
+      "boss": false,
+      "support": false,
+      "price": 3,
+      "selected": 49,
+      "candidateRounds": 377,
+      "candidateRosters": 429,
+      "byStage": [
+        27,
+        9,
+        13
+      ]
+    },
+    {
+      "k": "slime",
+      "name": "スプリットアイ",
+      "boss": true,
+      "support": false,
+      "price": 12,
+      "selected": 65,
+      "candidateRounds": 623,
+      "candidateRosters": 1201,
+      "byStage": [
+        0,
+        9,
+        56
+      ]
+    },
+    {
+      "k": "spore_toad",
+      "name": "ミストリングメイジ",
+      "boss": true,
+      "support": false,
+      "price": 12,
+      "selected": 70,
+      "candidateRounds": 614,
+      "candidateRosters": 1186,
+      "byStage": [
+        0,
+        8,
+        62
+      ]
+    }
+  ],
+  "examples": [
+    [
+      {
+        "round": 1,
+        "seed": 138502895,
+        "right": [
+          "orbslam_zyx",
+          "orbslam_zyx",
+          "orbslam_zyx",
+          "orbslam_zyx",
+          "orbslam_zyx"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 0,
+          "uniqueCandidates": 7,
+          "unseenCandidates": 7,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 2,
+        "seed": 138503614,
+        "right": [
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 1,
+          "uniqueCandidates": 8,
+          "unseenCandidates": 8,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 3,
+        "seed": 138504333,
+        "right": [
+          "archer",
+          "archer",
+          "archer",
+          "archer",
+          "archer",
+          "archer",
+          "archer"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 2,
+          "uniqueCandidates": 8,
+          "unseenCandidates": 8,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 4,
+        "seed": 138505052,
+        "right": [
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "spiral_polecaster"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 3,
+          "uniqueCandidates": 120,
+          "unseenCandidates": 120,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 5,
+        "seed": 138505771,
+        "right": [
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword",
+          "sword"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 4,
+          "uniqueCandidates": 155,
+          "unseenCandidates": 155,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 6,
+        "seed": 138506490,
+        "right": [
+          "azure_blade_trio",
+          "ochre_antlerclaw",
+          "azure_blade_trio",
+          "ochre_antlerclaw",
+          "ochre_antlerclaw",
+          "ochre_antlerclaw",
+          "azure_blade_trio",
+          "ochre_antlerclaw",
+          "azure_blade_trio",
+          "azure_blade_trio",
+          "azure_blade_trio",
+          "ochre_antlerclaw"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 5,
+          "uniqueCandidates": 26,
+          "unseenCandidates": 26,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 7,
+        "seed": 138507209,
+        "right": [
+          "veteran_flamewing"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 6,
+          "uniqueCandidates": 29,
+          "unseenCandidates": 29,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 8,
+        "seed": 138507928,
+        "right": [
+          "darkfan_clawlord",
+          "groundprism_windmiller"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 7,
+          "uniqueCandidates": 23,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 9,
+        "seed": 138508647,
+        "right": [
+          "redbud_blightbeast",
+          "brass_flareslinger",
+          "pillar_hammerer"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 8,
+          "uniqueCandidates": 23,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 10,
+        "seed": 138509366,
+        "right": [
+          "scarfhat_swordsman",
+          "hatblade_hsuku",
+          "scarfhat_swordsman",
+          "hatblade_hsuku",
+          "hatblade_hsuku",
+          "scarfhat_swordsman",
+          "hatblade_hsuku",
+          "scarfhat_swordsman",
+          "hatblade_hsuku",
+          "scarfhat_swordsman"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 9,
+          "uniqueCandidates": 21,
+          "unseenCandidates": 21,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 11,
+        "seed": 138510085,
+        "right": [
+          "frostbreath_lizard"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 10,
+          "uniqueCandidates": 28,
+          "unseenCandidates": 27,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 12,
+        "seed": 138510804,
+        "right": [
+          "willyee_skel_archer",
+          "onyx_scorpion",
+          "willyee_skel_archer",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "willyee_skel_archer",
+          "willyee_skel_archer",
+          "willyee_skel_archer",
+          "onyx_scorpion",
+          "willyee_skel_archer",
+          "onyx_scorpion",
+          "willyee_skel_archer",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 11,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 13,
+        "seed": 138511523,
+        "right": [
+          "cinder_tailbeast"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 12,
+          "uniqueCandidates": 28,
+          "unseenCandidates": 28,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 14,
+        "seed": 138512242,
+        "right": [
+          "repulsion_eye",
+          "sootclaw_critter",
+          "willyee_char_51",
+          "repulsion_eye",
+          "willyee_char_51",
+          "sootclaw_critter",
+          "repulsion_eye",
+          "willyee_char_51",
+          "repulsion_eye",
+          "willyee_char_51",
+          "willyee_char_51",
+          "sootclaw_critter",
+          "willyee_char_51"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 13,
+          "uniqueCandidates": 35,
+          "unseenCandidates": 34,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 15,
+        "seed": 138512961,
+        "right": [
+          "skullflare_triad",
+          "roarfang_beast",
+          "gilded_shooter"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 14,
+          "uniqueCandidates": 31,
+          "unseenCandidates": 31,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 16,
+        "seed": 138513680,
+        "right": [
+          "fiery_coil_inceptor",
+          "stone_mason",
+          "flameaxe_dweller"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 15,
+          "uniqueCandidates": 23,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 17,
+        "seed": 138514399,
+        "right": [
+          "vortex_adept",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "vortex_adept",
+          "vortex_adept",
+          "vortex_adept",
+          "copperbrow_bristle_ram",
+          "vortex_adept",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 16,
+          "uniqueCandidates": 23,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 18,
+        "seed": 138515118,
+        "right": [
+          "feral_fistfighter",
+          "willyee_char_48_horned_heavy",
+          "feral_fistfighter",
+          "willyee_char_48_horned_heavy",
+          "willyee_char_48_horned_heavy",
+          "willyee_char_48_horned_heavy",
+          "willyee_char_48_horned_heavy",
+          "feral_fistfighter",
+          "willyee_char_48_horned_heavy",
+          "feral_fistfighter"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 17,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 19,
+        "seed": 138515837,
+        "right": [
+          "bluefist_colossus"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 18,
+          "uniqueCandidates": 31,
+          "unseenCandidates": 29,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 20,
+        "seed": 138516556,
+        "right": [
+          "rosewhirl_critter",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "rosewhirl_critter",
+          "dusk_triplewarden",
+          "rosewhirl_critter",
+          "rosewhirl_critter",
+          "dusk_triplewarden",
+          "rosewhirl_critter",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "dusk_triplewarden",
+          "rosewhirl_critter",
+          "rosewhirl_critter"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 19,
+          "uniqueCandidates": 27,
+          "unseenCandidates": 27,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      }
+    ],
+    [
+      {
+        "round": 1,
+        "seed": 2792938664,
+        "right": [
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast",
+          "crystal_tailbeast"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 0,
+          "uniqueCandidates": 26,
+          "unseenCandidates": 26,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 2,
+        "seed": 2792939383,
+        "right": [
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 1,
+          "uniqueCandidates": 32,
+          "unseenCandidates": 32,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 3,
+        "seed": 2792940102,
+        "right": [
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion",
+          "onyx_scorpion"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 2,
+          "uniqueCandidates": 32,
+          "unseenCandidates": 32,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 4,
+        "seed": 2792940821,
+        "right": [
+          "saberspine_tiger",
+          "saberspine_tiger",
+          "saberspine_tiger",
+          "saberspine_tiger",
+          "saberspine_tiger",
+          "saberspine_tiger"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 3,
+          "uniqueCandidates": 153,
+          "unseenCandidates": 153,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 5,
+        "seed": 2792941540,
+        "right": [
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman",
+          "ashbone_swordsman"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 4,
+          "uniqueCandidates": 176,
+          "unseenCandidates": 176,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 6,
+        "seed": 2792942259,
+        "right": [
+          "willyee_char_47",
+          "willyee_knight",
+          "tetherlash_adept",
+          "willyee_char_47",
+          "willyee_char_47",
+          "willyee_knight"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 5,
+          "uniqueCandidates": 23,
+          "unseenCandidates": 23,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 7,
+        "seed": 2792942978,
+        "right": [
+          "gilded_shooter",
+          "cyanarm_mystic",
+          "gilded_shooter",
+          "cyanarm_mystic",
+          "gilded_shooter",
+          "cyanarm_mystic",
+          "gilded_shooter",
+          "gilded_shooter",
+          "gilded_shooter",
+          "gilded_shooter"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 6,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 8,
+        "seed": 2792943697,
+        "right": [
+          "willyee_rogue",
+          "archclapper_walker",
+          "sky_harpooner",
+          "archclapper_walker",
+          "sky_harpooner",
+          "archclapper_walker",
+          "willyee_rogue",
+          "archclapper_walker"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 7,
+          "uniqueCandidates": 20,
+          "unseenCandidates": 20,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 9,
+        "seed": 2792944416,
+        "right": [
+          "spinthrust_grincher",
+          "light_bowman",
+          "spinthrust_grincher",
+          "light_bowman",
+          "light_bowman",
+          "spinthrust_grincher",
+          "spinthrust_grincher",
+          "light_bowman",
+          "spinthrust_grincher",
+          "light_bowman",
+          "light_bowman"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 8,
+          "uniqueCandidates": 27,
+          "unseenCandidates": 27,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 10,
+        "seed": 2792945135,
+        "right": [
+          "followup_cub",
+          "goldwing_skirmisher",
+          "redpole_warrior",
+          "coiltail_halberdier",
+          "followup_cub",
+          "goldwing_skirmisher",
+          "coiltail_halberdier",
+          "coiltail_halberdier",
+          "redpole_warrior",
+          "redpole_warrior",
+          "redpole_warrior",
+          "followup_cub",
+          "coiltail_halberdier",
+          "followup_cub"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 9,
+          "uniqueCandidates": 25,
+          "unseenCandidates": 25,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 11,
+        "seed": 2792945854,
+        "right": [
+          "toll_squire",
+          "lumen_charger",
+          "reaper_mantis",
+          "reaper_mantis",
+          "lumen_charger",
+          "toll_squire",
+          "toll_squire",
+          "reaper_mantis",
+          "reaper_mantis"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 10,
+          "uniqueCandidates": 5,
+          "unseenCandidates": 5,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 12,
+        "seed": 2792946573,
+        "right": [
+          "skullflare_triad",
+          "roarfang_beast",
+          "shadow_runner",
+          "shadow_runner",
+          "shadow_runner",
+          "shadow_runner",
+          "shadow_runner",
+          "shadow_runner",
+          "shadow_runner"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 11,
+          "uniqueCandidates": 26,
+          "unseenCandidates": 26,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 13,
+        "seed": 2792947292,
+        "right": [
+          "spore_toad",
+          "gilded_hopper",
+          "shockplate_drake",
+          "gilded_hopper",
+          "gilded_hopper",
+          "gilded_hopper"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 12,
+          "uniqueCandidates": 32,
+          "unseenCandidates": 32,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 14,
+        "seed": 2792948011,
+        "right": [
+          "spikeburst_grinder",
+          "slime",
+          "willyee_monk",
+          "willyee_monk",
+          "willyee_monk",
+          "willyee_monk"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 13,
+          "uniqueCandidates": 28,
+          "unseenCandidates": 28,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 15,
+        "seed": 2792948730,
+        "right": [
+          "willyee_lizardman",
+          "willyee_ghoul",
+          "rootwarden_treant",
+          "plated_dualdragon",
+          "willyee_lizardman"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 14,
+          "uniqueCandidates": 22,
+          "unseenCandidates": 22,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 16,
+        "seed": 2792949449,
+        "right": [
+          "cyanspike_commander",
+          "copperbrow_bristle_ram",
+          "cyanspike_commander",
+          "copperbrow_bristle_ram",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "copperbrow_bristle_ram",
+          "cyanspike_commander",
+          "cyanspike_commander",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram",
+          "copperbrow_bristle_ram"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 15,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 17,
+        "seed": 2792950168,
+        "right": [
+          "windslice_fighter",
+          "antler_archer",
+          "willyee_ogre",
+          "veteran_flamewing",
+          "antler_archer",
+          "willyee_ogre",
+          "windslice_fighter",
+          "windslice_fighter",
+          "windslice_fighter",
+          "windslice_fighter",
+          "willyee_ogre",
+          "antler_archer"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 16,
+          "uniqueCandidates": 28,
+          "unseenCandidates": 28,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 18,
+        "seed": 2792950887,
+        "right": [
+          "moonclaw_werewolf",
+          "cyanrise_silithar",
+          "cannon",
+          "cannon",
+          "cannon"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 17,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 19,
+        "seed": 2792951606,
+        "right": [
+          "willyee_stone_golem",
+          "kilnback_pincerbeast",
+          "basalt_titan",
+          "brownblade_scout",
+          "brownblade_scout"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 18,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 20,
+        "seed": 2792952325,
+        "right": [
+          "pillar_hammerer",
+          "carapace_slashbeast",
+          "stormhorn_tripler",
+          "smoke_thrustfighter",
+          "smoke_thrustfighter",
+          "smoke_thrustfighter"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 19,
+          "uniqueCandidates": 22,
+          "unseenCandidates": 22,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      }
+    ],
+    [
+      {
+        "round": 1,
+        "seed": 1152407137,
+        "right": [
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear",
+          "spear"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 0,
+          "uniqueCandidates": 27,
+          "unseenCandidates": 27,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 2,
+        "seed": 1152407856,
+        "right": [
+          "common_orc",
+          "common_orc",
+          "common_orc",
+          "common_orc",
+          "common_orc",
+          "common_orc"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 1,
+          "uniqueCandidates": 8,
+          "unseenCandidates": 8,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 3,
+        "seed": 1152408575,
+        "right": [
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster",
+          "inkorb_caster"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 2,
+          "uniqueCandidates": 32,
+          "unseenCandidates": 32,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 4,
+        "seed": 1152409294,
+        "right": [
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad",
+          "greenflame_triad"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 3,
+          "uniqueCandidates": 153,
+          "unseenCandidates": 153,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 5,
+        "seed": 1152410013,
+        "right": [
+          "rider",
+          "rider",
+          "rider"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 4,
+          "uniqueCandidates": 157,
+          "unseenCandidates": 157,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null
+        }
+      },
+      {
+        "round": 6,
+        "seed": 1152410732,
+        "right": [
+          "toll_squire",
+          "sword",
+          "toll_squire",
+          "sword",
+          "toll_squire",
+          "toll_squire",
+          "sword",
+          "sword",
+          "sword",
+          "toll_squire"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 5,
+          "uniqueCandidates": 16,
+          "unseenCandidates": 16,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 7,
+        "seed": 1152411451,
+        "right": [
+          "latecut_staffblade",
+          "wheelblade_knight",
+          "wheelblade_knight",
+          "wheelblade_knight",
+          "wheelblade_knight"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 6,
+          "uniqueCandidates": 19,
+          "unseenCandidates": 19,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 8,
+        "seed": 1152412170,
+        "right": [
+          "wraith",
+          "willyee_skel_archer",
+          "wraith",
+          "wraith"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 7,
+          "uniqueCandidates": 21,
+          "unseenCandidates": 21,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 9,
+        "seed": 1152412889,
+        "right": [
+          "golem"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 8,
+          "uniqueCandidates": 18,
+          "unseenCandidates": 18,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 10,
+        "seed": 1152413608,
+        "right": [
+          "darkfan_clawlord",
+          "bubbleclaw_plaguer"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 9,
+          "uniqueCandidates": 22,
+          "unseenCandidates": 22,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 11,
+        "seed": 1152414327,
+        "right": [
+          "spectral_scale_dragon",
+          "roarfang_beast",
+          "spore_toad"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 10,
+          "uniqueCandidates": 34,
+          "unseenCandidates": 34,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 12,
+        "seed": 1152415046,
+        "right": [
+          "bluefist_colossus",
+          "slime"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 11,
+          "uniqueCandidates": 33,
+          "unseenCandidates": 33,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 13,
+        "seed": 1152415765,
+        "right": [
+          "siege_crab",
+          "iceclaw_legend",
+          "curled_jackal",
+          "curled_jackal",
+          "curled_jackal"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 12,
+          "uniqueCandidates": 30,
+          "unseenCandidates": 30,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 14,
+        "seed": 1152416484,
+        "right": [
+          "redblade_strider",
+          "willyee_scorpion",
+          "spikeburst_grinder",
+          "redblade_strider",
+          "redblade_strider"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 13,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 15,
+        "seed": 1152417203,
+        "right": [
+          "colossal_hornfist",
+          "pillar_hammerer",
+          "longtail_lizard",
+          "longtail_lizard",
+          "longtail_lizard",
+          "longtail_lizard"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 14,
+          "uniqueCandidates": 22,
+          "unseenCandidates": 22,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 16,
+        "seed": 1152417922,
+        "right": [
+          "shellburst_arcade",
+          "spiral_polecaster",
+          "feral_fistfighter",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "feral_fistfighter",
+          "spiral_polecaster",
+          "shellburst_arcade",
+          "shellburst_arcade",
+          "feral_fistfighter",
+          "spiral_polecaster",
+          "shellburst_arcade",
+          "feral_fistfighter",
+          "feral_fistfighter",
+          "feral_fistfighter",
+          "shellburst_arcade",
+          "feral_fistfighter",
+          "spiral_polecaster",
+          "spiral_polecaster",
+          "shellburst_arcade",
+          "shellburst_arcade",
+          "feral_fistfighter",
+          "feral_fistfighter",
+          "shellburst_arcade"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 15,
+          "uniqueCandidates": 29,
+          "unseenCandidates": 29,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 17,
+        "seed": 1152418641,
+        "right": [
+          "basalt_titan",
+          "fiery_coil_inceptor",
+          "quadcut_swordmaster",
+          "quadcut_swordmaster",
+          "quadcut_swordmaster"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 16,
+          "uniqueCandidates": 21,
+          "unseenCandidates": 21,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 18,
+        "seed": 1152419360,
+        "right": [
+          "cyanrise_silithar",
+          "sweep_acolyte",
+          "redcrescent_sentinel",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "redcrescent_sentinel",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "sweep_acolyte",
+          "redcrescent_sentinel",
+          "redcrescent_sentinel",
+          "redcrescent_sentinel"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 17,
+          "uniqueCandidates": 21,
+          "unseenCandidates": 21,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 19,
+        "seed": 1152420079,
+        "right": [
+          "stonepulse_kolossus",
+          "cinder_tailbeast",
+          "cinderbow_archer",
+          "cinderbow_archer",
+          "cinderbow_archer",
+          "cinderbow_archer",
+          "cinderbow_archer"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 18,
+          "uniqueCandidates": 22,
+          "unseenCandidates": 22,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      },
+      {
+        "round": 20,
+        "seed": 1152420798,
+        "right": [
+          "frostbreath_lizard",
+          "moonclaw_werewolf",
+          "gauntlet_combo_guard",
+          "redmask_duelist",
+          "redmask_duelist",
+          "redmask_duelist",
+          "redmask_duelist",
+          "redmask_duelist",
+          "redmask_duelist"
+        ],
+        "history": {
+          "version": "run-kind-diversity-v2",
+          "previousCards": 19,
+          "uniqueCandidates": 24,
+          "unseenCandidates": 24,
+          "repeatRetained": false,
+          "reason": null,
+          "nearRepeatRetained": false,
+          "nearRepeatRisk": 0,
+          "reusedKindFraction": 0,
+          "minimumUses": null,
+          "searchAttempts": 0
+        }
+      }
+    ]
+  ]
+}

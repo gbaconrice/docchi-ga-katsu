@@ -1,0 +1,1483 @@
+{
+  "runtime": "Node VM wall time, excluding source load; not native browser/mobile timing",
+  "boundedWork": {
+    "base": 32,
+    "extra": "48 R6-10,64 R11+",
+    "groupReplacements": 9600,
+    "drawAttempts": 64
+  },
+  "sources": [
+    {
+      "name": "baseline",
+      "sha": "eea69de57251f6abcdc13468da9a319f2372562d2cc8471e27e0825779a960c7",
+      "normal": {
+        "samples": 60,
+        "medianMs": 29,
+        "p95Ms": 81,
+        "maxMs": 91,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "draw": {
+        "samples": 40,
+        "medianMs": 26,
+        "p95Ms": 78,
+        "maxMs": 79,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "exhausted": {
+        "samples": 25,
+        "medianMs": 1,
+        "p95Ms": 1,
+        "maxMs": 1,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "rows": {
+        "normal": [
+          {
+            "round": 1,
+            "ms": 23,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 11,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 12,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 16,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 23,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 33,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 29,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 42,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 40,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 33,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 50,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 48,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 49,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 58,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 6,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 16,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 19,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 24,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 23,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 24,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 45,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 44,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 55,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 51,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 51,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 67,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 67,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 69,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 83,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 81,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 7,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 14,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 17,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 27,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 25,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 30,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 45,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 44,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 52,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 40,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 39,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 35,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 81,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 91,
+            "historySearch": 0,
+            "drawAttempts": 1
+          }
+        ],
+        "draw": [
+          {
+            "round": 1,
+            "ms": 5,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 7,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 16,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 16,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 21,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 18,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 53,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 57,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 58,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 79,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 64,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 68,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 73,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 73,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 78,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 6,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 2,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 26,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 18,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 21,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 18,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 12,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 45,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 58,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 58,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 72,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 65,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 60,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 41,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 75,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 78,
+            "historySearch": 0,
+            "drawAttempts": 1
+          }
+        ],
+        "exhausted": [
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          },
+          {
+            "ms": 0,
+            "error": null
+          },
+          {
+            "ms": 1,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "current",
+      "sha": "6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece",
+      "normal": {
+        "samples": 60,
+        "medianMs": 47,
+        "p95Ms": 101,
+        "maxMs": 104,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "draw": {
+        "samples": 40,
+        "medianMs": 48,
+        "p95Ms": 114,
+        "maxMs": 135,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "exhausted": {
+        "samples": 25,
+        "medianMs": 1,
+        "p95Ms": 2,
+        "maxMs": 7,
+        "maxHistorySearch": 0,
+        "maxDrawAttempts": 1
+      },
+      "rows": {
+        "normal": [
+          {
+            "round": 1,
+            "ms": 18,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 11,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 14,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 17,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 24,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 31,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 31,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 30,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 31,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 38,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 53,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 48,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 38,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 70,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 56,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 48,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 104,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 79,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 11,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 28,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 44,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 35,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 40,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 37,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 47,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 69,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 78,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 81,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 66,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 73,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 94,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 84,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 90,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 96,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 102,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 8,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 23,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 51,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 55,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 40,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 37,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 35,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 47,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 46,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 63,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 70,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 69,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 85,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 87,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 84,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 101,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 103,
+            "historySearch": 0,
+            "drawAttempts": 1
+          }
+        ],
+        "draw": [
+          {
+            "round": 1,
+            "ms": 10,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 5,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 11,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 24,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 48,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 46,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 37,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 40,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 31,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 65,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 87,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 90,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 63,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 113,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 112,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 114,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 83,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 101,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 135,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 1,
+            "ms": 10,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 2,
+            "ms": 9,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 3,
+            "ms": 5,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 4,
+            "ms": 20,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 5,
+            "ms": 22,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 6,
+            "ms": 42,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 7,
+            "ms": 43,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 8,
+            "ms": 34,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 9,
+            "ms": 34,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 10,
+            "ms": 36,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 11,
+            "ms": 71,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 12,
+            "ms": 91,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 13,
+            "ms": 66,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 14,
+            "ms": 79,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 15,
+            "ms": 78,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 16,
+            "ms": 87,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 17,
+            "ms": 111,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 18,
+            "ms": 108,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 19,
+            "ms": 102,
+            "historySearch": 0,
+            "drawAttempts": 1
+          },
+          {
+            "round": 20,
+            "ms": 116,
+            "historySearch": 0,
+            "drawAttempts": 1
+          }
+        ],
+        "exhausted": [
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 2,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 7,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 0,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          },
+          {
+            "ms": 1,
+            "error": "NO_UNSEEN_MATCHUP"
+          }
+        ]
+      }
+    }
+  ]
+}

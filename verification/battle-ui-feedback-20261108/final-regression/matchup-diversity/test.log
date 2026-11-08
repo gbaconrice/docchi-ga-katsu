@@ -1,0 +1,6 @@
+PASS same boss pair plus one small unit, count changes and swapped sides are near repeats
+PASS unchanged carried winners count once; fresh kinds and low reuse win selection
+PASS six full20-round runs keep winning rosters, avoid exact pairs, obey descendants and reproduce seeds
+PASS 30 consecutive fresh draws check both armies, strict pairs, bounded fallback and deterministic seeds
+PASS actual multiplayer host stores whole-run pairs and guest reconnect restores identical units
+{"sha":"b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727","passed":5,"failed":0}

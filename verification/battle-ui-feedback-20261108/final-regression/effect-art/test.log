@@ -1,0 +1,10 @@
+PASS all60 replay effect kinds have metadata and draw at early mid late expired times
+PASS all300 role and status combinations render without state mutation
+PASS overhead status anchors follow small and large registered bodies within viewport
+PASS head status clipping follows the actual camera transform
+PASS meteor texture cache remains bounded
+PASS pixel meteor renders all legal radii with no gameplay mutation
+PASS 18 observed fallback projectile roles now have dedicated immutable draw paths
+PASS all embedded artwork audio fonts unchanged
+PASS all accessible non-render functions unchanged
+PASS no six-ray fallback, flat poison oval, status text box or old meteor ring

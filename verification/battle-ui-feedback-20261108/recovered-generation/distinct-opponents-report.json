@@ -1,0 +1,329 @@
+{
+  "sha": "6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece",
+  "checks": [
+    {
+      "name": "all summoners reserve descendants symmetrically without banning unrelated opponents",
+      "pass": true,
+      "detail": [
+        {
+          "a": "wraith",
+          "b": "goblin",
+          "forward": false,
+          "reverse": false,
+          "ordinary": true
+        },
+        {
+          "a": "golem",
+          "b": "stone_mason",
+          "forward": false,
+          "reverse": false,
+          "ordinary": true
+        },
+        {
+          "a": "bone_crown_lich",
+          "b": "ashbone_swordsman",
+          "forward": false,
+          "reverse": false,
+          "ordinary": true
+        },
+        {
+          "a": "slime",
+          "b": "slimelet",
+          "forward": false,
+          "reverse": false,
+          "ordinary": true
+        }
+      ]
+    },
+    {
+      "name": "all candidate families stay disjoint across early, mixed, boss and airborne carried armies",
+      "pass": true,
+      "detail": {
+        "cases": 85
+      }
+    },
+    {
+      "name": "a32-distinct-kind carried army still gets a legal challenger",
+      "pass": true,
+      "detail": {
+        "carry": [
+          "wrapped_mummy",
+          "clubnose_forest_troll",
+          "curled_jackal",
+          "tumbling_critter",
+          "goldmask_pugilist",
+          "maw_beast",
+          "rosewhirl_critter",
+          "shadow_runner",
+          "sootclaw_critter",
+          "whitehair_spinblade",
+          "crystalback_rae",
+          "emberstring_archer",
+          "finback_clawbeast",
+          "goblin",
+          "golden_bowling",
+          "light_bowman",
+          "punchcap_mushroom",
+          "willyee_rogue",
+          "vex_touchbeast",
+          "orbslam_zyx",
+          "brownblade_scout",
+          "curved_blade_raider",
+          "cyanribbon_weaver",
+          "duskbrown_rat",
+          "followup_cub",
+          "poleblade_dancer",
+          "redmask_duelist",
+          "redtail_whipper",
+          "repulsion_eye",
+          "bluewhip_minion",
+          "ochre_antlerclaw",
+          "redtunic_swordsman"
+        ],
+        "rows": [
+          [
+            "spikeburst_grinder",
+            "slime",
+            "thornback_beast",
+            "willyee_char_42"
+          ],
+          [
+            "cyanrise_silithar",
+            "frosthorn_rhino",
+            "shieldmace_companion"
+          ],
+          [
+            "fiery_coil_inceptor",
+            "frostbreath_lizard",
+            "oni_wavelet",
+            "oni_wavelet",
+            "oni_wavelet"
+          ],
+          [
+            "accretion_burstcore",
+            "cleaver_brute",
+            "cyanspike_commander",
+            "cyanspike_commander"
+          ],
+          [
+            "drake",
+            "thornback_beast",
+            "willyee_frost_dragon",
+            "drake",
+            "drake"
+          ],
+          [
+            "skullflare_triad",
+            "emberwing_drake",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress",
+            "spearcut_huntress"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "impossible catalogs and exhausted exact history fail explicitly, never relax strict constraints",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "real summons, boss death children and second-generation splits stay disjoint through replay and reconnect",
+      "pass": true,
+      "detail": [
+        {
+          "kind": "wraith",
+          "side": 0,
+          "births": [
+            {
+              "tick": 17,
+              "k": "goblin",
+              "side": 0
+            },
+            {
+              "tick": 77,
+              "k": "goblin",
+              "side": 0
+            },
+            {
+              "tick": 137,
+              "k": "goblin",
+              "side": 0
+            },
+            {
+              "tick": 197,
+              "k": "goblin",
+              "side": 0
+            }
+          ]
+        },
+        {
+          "kind": "wraith",
+          "side": 1,
+          "births": [
+            {
+              "tick": 17,
+              "k": "goblin",
+              "side": 1
+            },
+            {
+              "tick": 77,
+              "k": "goblin",
+              "side": 1
+            },
+            {
+              "tick": 137,
+              "k": "goblin",
+              "side": 1
+            },
+            {
+              "tick": 197,
+              "k": "goblin",
+              "side": 1
+            }
+          ]
+        },
+        {
+          "kind": "bone_crown_lich",
+          "side": 0,
+          "births": [
+            {
+              "tick": 14,
+              "k": "ashbone_swordsman",
+              "side": 0
+            }
+          ]
+        },
+        {
+          "kind": "bone_crown_lich",
+          "side": 1,
+          "births": [
+            {
+              "tick": 14,
+              "k": "ashbone_swordsman",
+              "side": 1
+            }
+          ]
+        },
+        {
+          "kind": "golem",
+          "side": 0,
+          "births": [
+            {
+              "tick": 2,
+              "k": "stone_mason",
+              "side": 0
+            },
+            {
+              "tick": 2,
+              "k": "stone_mason",
+              "side": 0
+            }
+          ]
+        },
+        {
+          "kind": "golem",
+          "side": 1,
+          "births": [
+            {
+              "tick": 2,
+              "k": "stone_mason",
+              "side": 1
+            },
+            {
+              "tick": 2,
+              "k": "stone_mason",
+              "side": 1
+            }
+          ]
+        },
+        {
+          "kind": "slime",
+          "side": 0,
+          "births": [
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 0
+            },
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 0
+            },
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 0
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 0
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 0
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 0
+            }
+          ]
+        },
+        {
+          "kind": "slime",
+          "side": 1,
+          "births": [
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 1
+            },
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 1
+            },
+            {
+              "tick": 2,
+              "k": "slimelet",
+              "side": 1
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 1
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 1
+            },
+            {
+              "tick": 242,
+              "k": "slimelet",
+              "side": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fully exhausted fresh draw returns controlled failure within64seed bound",
+      "pass": true,
+      "detail": {
+        "error": "NO_FRESH_DRAW_MATCHUP",
+        "ms": 401
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+EXCLUDED (--integrated) Whole winner-plan byte equality against baseline (other generation patches allowed).
+EXCLUDED (--integrated) Unit stats, prices and simulation entry-point equality against baseline (other combat patches allowed).
+PASS normal winner remains on its original side
+PASS fresh draws stable across rounds and seeds; neither prior army or pair returns
+PASS solo nextPrediction resets draw carry and streak; final round starts a clean run
+PASS host draw uses authoritative prior matchup, publishes fresh full-health teams and final-round stop
+PASS draw-generated solo simulation and canonical replay are deterministic; reconnect frames match
+PASS draw admission still rejects invalid seeds and nonempty carry
+{
+  "mode": "integrated",
+  "source": "battle-ui-feedback/source/index.html",
+  "baseline": null,
+  "harness": "game-recovery-20261108/restored-v22/repository/tools/boss-abilities/tests/harness.cjs",
+  "sha256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "passed": 6,
+  "excluded": [
+    "Whole winner-plan byte equality against baseline (other generation patches allowed).",
+    "Unit stats, prices and simulation entry-point equality against baseline (other combat patches allowed)."
+  ],
+  "checks": [
+    "normal winner remains on its original side",
+    "fresh draws stable across rounds and seeds; neither prior army or pair returns",
+    "solo nextPrediction resets draw carry and streak; final round starts a clean run",
+    "host draw uses authoritative prior matchup, publishes fresh full-health teams and final-round stop",
+    "draw-generated solo simulation and canonical replay are deterministic; reconnect frames match",
+    "draw admission still rejects invalid seeds and nonempty carry"
+  ]
+}

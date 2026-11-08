@@ -1,0 +1,7 @@
+PASS all summoners reserve descendants symmetrically without banning unrelated opponents
+PASS all candidate families stay disjoint across early, mixed, boss and airborne carried armies
+PASS a32-distinct-kind carried army still gets a legal challenger
+PASS impossible catalogs and exhausted exact history fail explicitly, never relax strict constraints
+PASS real summons, boss death children and second-generation splits stay disjoint through replay and reconnect
+PASS fully exhausted fresh draw returns controlled failure within64seed bound
+{"sha":"b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727","passed":6,"failed":0}

@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../..'),harness=process.env.ENGINE_HARNESS||process.env.HARNESS_PATH||path.join(root,'tools/boss-abilities/tests/harness.cjs');
+const {ev,sha}=require(harness);let checks=0;
+const report=ev(`(()=>{const c={actors:[{kind:'sword',side:0,ordinal:1},{kind:'archer',side:1,ordinal:1}]},rows=[];for(const type of Object.keys(BATTLE_LOG_CATALOG)){const data={amount:12,actualAmount:5,hpAfter:80,hpMax:100,count:3,reason:'complete',reduction:.5,subhitId:1,factor:2,dps:3,remainingCharges:1,charges:1,delay:.2,multiplier:2,status:'poison',kind:'repair',name:'能力',leftAlive:1,rightAlive:1};for(const source of [-1,0])for(const target of [-1,1]){const row={type,tick:60,source,target,data},d=BattleLog.describe(row,c);if(d.sentence.includes('不明')||/[→：]\s*[→：]/.test(d.sentence))throw Error(type+': '+d.sentence);rows.push({type,source,target,text:d.sentence});}}return {rows,prep:[...BATTLE_LOG_PREPARATION],launch:[...BATTLE_LOG_LAUNCH],complete:[...BATTLE_LOG_COMPLETION]};})()`);
+assert(report.rows.length>=400);checks++;
+for(const type of [...report.prep,...report.launch])assert.equal(ev(`battleLogVisibleRow({type:${JSON.stringify(type)},data:{}})`),false);checks++;
+for(const type of report.complete){assert.equal(ev(`battleLogVisibleRow({type:${JSON.stringify(type)},data:{reason:'complete'}})`),false);assert.equal(ev(`battleLogVisibleRow({type:${JSON.stringify(type)},data:{reason:'target-dead'}})`),true);}checks++;
+for(const type of ['resolved_hit','heal','slow_applied','poison_applied','ward_granted','trap_triggered','battle_finished','unit_defeated','summon_spawn','aegis_target_acquired'])assert.equal(ev(`battleLogVisibleRow({type:${JSON.stringify(type)},data:{reason:'complete'}})`),true);checks++;
+const output={sha,checks,catalogTypes:report.rows.length/4,attributionCases:report.rows.length,preparation:report.prep.length,launch:report.launch.length,completion:report.complete.length};
+if(process.env.REPORT_DIR){fs.mkdirSync(process.env.REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.REPORT_DIR,'event-log-summary.json'),JSON.stringify(output,null,2));}console.log(JSON.stringify(output));

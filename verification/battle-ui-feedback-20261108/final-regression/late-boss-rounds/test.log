@@ -1,0 +1,27 @@
+SKIP old isolated R1–10 bit-exact generator comparison: integrated matchup diversity and coverage intentionally supersede it
+generated 11 8
+generated 11 16
+generated 12 8
+generated 12 16
+generated 15 8
+generated 15 16
+generated 16 8
+generated 16 16
+generated 20 8
+generated 20 16
+{"cases":400,"byRound":{"11":{"cases":80,"pairs":45,"triples":3,"ordinary":32},"12":{"cases":80,"pairs":42,"triples":4,"ordinary":34},"15":{"cases":80,"pairs":45,"triples":7,"ordinary":28},"16":{"cases":80,"pairs":43,"triples":6,"ordinary":31},"20":{"cases":80,"pairs":35,"triples":16,"ordinary":29}}}
+PASS R11+ generation is deterministic, finite and admits distinct pairs/triples without enlarging winners
+[{"round":11,"seed":23,"left":["golem","iceclaw_legend","slime","shield","archer"],"right":["basalt_titan","pillar_hammerer","spore_toad","wheelblade_knight"],"bosses":["basalt_titan","pillar_hammerer","spore_toad"],"actualCosts":[63,73],"estimatedCosts":[63,73],"actualBand":[59,93],"estimatedBand":[59,93]},{"round":12,"seed":23,"left":["golem","iceclaw_legend","slime","shield","archer"],"right":["basalt_titan","pillar_hammerer","spore_toad","wheelblade_knight"],"bosses":["basalt_titan","pillar_hammerer","spore_toad"],"actualCosts":[63,73],"estimatedCosts":[63,73],"actualBand":[59,93],"estimatedBand":[59,93]}]
+PASS R11 and R12 explicitly admit three distinct bosses within budget and preserve the carried army
+PASS all prices and unit stats remain unchanged, apart from the separately verified display rename
+PASS R10 rejects multi-boss carries and R11 rejects duplicate bosses
+{
+  "sha": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "passed": 4,
+  "checks": [
+    "R11+ generation is deterministic, finite and admits distinct pairs/triples without enlarging winners",
+    "R11 and R12 explicitly admit three distinct bosses within budget and preserve the carried army",
+    "all prices and unit stats remain unchanged, apart from the separately verified display rename",
+    "R10 rejects multi-boss carries and R11 rejects duplicate bosses"
+  ]
+}

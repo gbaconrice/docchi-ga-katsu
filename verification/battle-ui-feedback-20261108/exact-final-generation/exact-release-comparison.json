@@ -1,0 +1,137 @@
+{
+  "finalSha": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "isolatedSha": "6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece",
+  "scope": "Exact final HTML, production generation; identical130 seeds and controlled winner patterns; no combat winner-frequency claim.",
+  "hardInvariants": {
+    "crossTeamDescendantCollisions": 0,
+    "exactPairRepeats": 0
+  },
+  "runs": 130,
+  "rounds": 2600,
+  "rosterMismatches": [],
+  "countMismatches": [],
+  "stages": [
+    {
+      "name": "frequency",
+      "offset": 0,
+      "summary": {
+        "runs": 100,
+        "rounds": 2000,
+        "coverage": 298,
+        "zero": [
+          {
+            "k": "glimmer_sprite",
+            "opportunities": 17
+          },
+          {
+            "k": "opalfin_sky_ray",
+            "opportunities": 38
+          }
+        ],
+        "under5": 31,
+        "minimum": 0,
+        "median": 15,
+        "p10": 4,
+        "p90": 27,
+        "maximum": 67,
+        "bossSelections": 1069,
+        "supportSelections": 176,
+        "totalSelections": 4715
+      },
+      "allKindCountsEqual": true,
+      "isolatedReproducesPreviousAudit": true,
+      "finalRosterHash": "e4f49d95b22677995738ea44e97149969109c85efc127f5e059103ed43d2dce8",
+      "isolatedRosterHash": "e4f49d95b22677995738ea44e97149969109c85efc127f5e059103ed43d2dce8"
+    },
+    {
+      "name": "holdout",
+      "offset": 100,
+      "summary": {
+        "runs": 30,
+        "rounds": 600,
+        "coverage": 288,
+        "zero": [
+          {
+            "k": "bloodmoon_crescent",
+            "opportunities": 23
+          },
+          {
+            "k": "crownblade_king",
+            "opportunities": 41
+          },
+          {
+            "k": "duskgargoyle_clawer",
+            "opportunities": 27
+          },
+          {
+            "k": "emberwing_drake",
+            "opportunities": 21
+          },
+          {
+            "k": "fangeye_flier",
+            "opportunities": 20
+          },
+          {
+            "k": "hooded_ghost",
+            "opportunities": 5
+          },
+          {
+            "k": "origami_wingburst",
+            "opportunities": 13
+          },
+          {
+            "k": "sol_harp_mender",
+            "opportunities": 10
+          },
+          {
+            "k": "suspended_prism_mender",
+            "opportunities": 11
+          },
+          {
+            "k": "triangle_warder",
+            "opportunities": 27
+          },
+          {
+            "k": "wandering_warder",
+            "opportunities": 48
+          },
+          {
+            "k": "wheelblade_knight",
+            "opportunities": 54
+          }
+        ],
+        "under5": 151,
+        "minimum": 0,
+        "median": 4,
+        "p10": 1,
+        "p90": 9,
+        "maximum": 20,
+        "bossSelections": 303,
+        "supportSelections": 57,
+        "totalSelections": 1427
+      },
+      "allKindCountsEqual": true,
+      "isolatedReproducesPreviousAudit": true,
+      "finalRosterHash": "0ec3be719e7ef9555084d6b0bd01a93a7fd02c8bb8b4c43b26bee61826b4d847",
+      "isolatedRosterHash": "0ec3be719e7ef9555084d6b0bd01a93a7fd02c8bb8b4c43b26bee61826b4d847"
+    }
+  ],
+  "combined": {
+    "runs": 130,
+    "rounds": 2600,
+    "coverage": 300,
+    "zero": [],
+    "under5": 20,
+    "minimum": 1,
+    "median": 19,
+    "p10": 6,
+    "p90": 34,
+    "maximum": 85,
+    "bossSelections": 1372,
+    "supportSelections": 233,
+    "totalSelections": 6142
+  },
+  "allKindCountsEqual": true,
+  "elapsedMs": 258043,
+  "passed": true
+}

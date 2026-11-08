@@ -1,0 +1,216 @@
+{
+  "sha": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "checks": [
+    {
+      "name": "all300 species on both sides retain corpse position/facing across crossing, overlap and absent enemies",
+      "pass": true,
+      "detail": {
+        "cases": 600
+      }
+    },
+    {
+      "name": "late boss attack effects cannot overwrite corpse face or restart attack state",
+      "pass": true,
+      "detail": 6
+    },
+    {
+      "name": "death animation advances, settles and preserves identical draw transforms",
+      "pass": true,
+      "detail": {
+        "cases": 10
+      }
+    },
+    {
+      "name": "natural deaths stay frozen for the remaining fight and animate on both sides",
+      "pass": true,
+      "detail": [
+        {
+          "a": [
+            "sword",
+            "shield",
+            "archer"
+          ],
+          "b": [
+            "sword",
+            "goblin",
+            "archer",
+            "healer"
+          ],
+          "mirror": false,
+          "ticks": 905,
+          "deaths": 4
+        },
+        {
+          "a": [
+            "sword",
+            "shield",
+            "archer"
+          ],
+          "b": [
+            "sword",
+            "goblin",
+            "archer",
+            "healer"
+          ],
+          "mirror": true,
+          "ticks": 905,
+          "deaths": 4
+        },
+        {
+          "a": [
+            "gauntlet_combo_guard",
+            "goblin"
+          ],
+          "b": [
+            "kilnback_pincerbeast",
+            "archer"
+          ],
+          "mirror": false,
+          "ticks": 1800,
+          "deaths": 2
+        },
+        {
+          "a": [
+            "gauntlet_combo_guard",
+            "goblin"
+          ],
+          "b": [
+            "kilnback_pincerbeast",
+            "archer"
+          ],
+          "mirror": true,
+          "ticks": 1800,
+          "deaths": 2
+        },
+        {
+          "a": [
+            "slime",
+            "cannon"
+          ],
+          "b": [
+            "basalt_titan",
+            "sword"
+          ],
+          "mirror": false,
+          "ticks": 1800,
+          "deaths": 4
+        },
+        {
+          "a": [
+            "slime",
+            "cannon"
+          ],
+          "b": [
+            "basalt_titan",
+            "sword"
+          ],
+          "mirror": true,
+          "ticks": 1800,
+          "deaths": 4
+        },
+        {
+          "a": [
+            "drake",
+            "frostmage",
+            "sword"
+          ],
+          "b": [
+            "archer",
+            "archer",
+            "shield"
+          ],
+          "mirror": false,
+          "ticks": 890,
+          "deaths": 5
+        },
+        {
+          "a": [
+            "drake",
+            "frostmage",
+            "sword"
+          ],
+          "b": [
+            "archer",
+            "archer",
+            "shield"
+          ],
+          "mirror": true,
+          "ticks": 890,
+          "deaths": 5
+        },
+        {
+          "a": [
+            "razorclaw_reaver",
+            "sword"
+          ],
+          "b": [
+            "willyee_stone_golem",
+            "cannon"
+          ],
+          "mirror": false,
+          "ticks": 1800,
+          "deaths": 1
+        },
+        {
+          "a": [
+            "razorclaw_reaver",
+            "sword"
+          ],
+          "b": [
+            "willyee_stone_golem",
+            "cannon"
+          ],
+          "mirror": true,
+          "ticks": 1800,
+          "deaths": 1
+        }
+      ]
+    },
+    {
+      "name": "real death replay keeps transforms and fresh decoder reconnect matches",
+      "pass": true,
+      "detail": {
+        "ticks": 537,
+        "deaths": 3,
+        "drawn": 2
+      }
+    },
+    {
+      "name": "genuine revival makes a live new identity that moves and turns while its corpse stays fixed",
+      "pass": true,
+      "detail": [
+        {
+          "side": 0,
+          "revived": true,
+          "different": true,
+          "corpseDead": true,
+          "moved": true,
+          "turned": true
+        },
+        {
+          "side": 1,
+          "revived": true,
+          "different": true,
+          "corpseDead": true,
+          "moved": true,
+          "turned": true
+        }
+      ]
+    },
+    {
+      "name": "live actors still follow a target after death guards",
+      "pass": true,
+      "detail": {
+        "a": 1,
+        "b": -1
+      }
+    },
+    {
+      "name": "corpse patch does not change authoritative combat results",
+      "pass": true,
+      "detail": {
+        "baselineSha": "454df3b9ce5610099aee48f9db53fd7f6b69aef414c8a45d79982da3cc8b4466"
+      }
+    }
+  ]
+}

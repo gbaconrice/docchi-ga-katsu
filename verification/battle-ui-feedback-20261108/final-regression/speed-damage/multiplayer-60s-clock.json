@@ -1,0 +1,32 @@
+[
+  {
+    "wallMs": 0,
+    "tick": 0,
+    "status": "playing"
+  },
+  {
+    "wallMs": 20000,
+    "tick": 1200,
+    "status": "playing"
+  },
+  {
+    "wallMs": 25000,
+    "tick": 1800,
+    "status": "playing"
+  },
+  {
+    "wallMs": 30000,
+    "tick": 2400,
+    "status": "playing"
+  },
+  {
+    "wallMs": 35000,
+    "tick": 3300,
+    "status": "playing"
+  },
+  {
+    "wallMs": 36667,
+    "tick": 3600,
+    "status": "finished"
+  }
+]

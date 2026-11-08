@@ -1,0 +1,226 @@
+{
+  "sha": "6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece",
+  "checks": [
+    {
+      "name": "same boss pair plus one small unit, count changes and swapped sides are near repeats",
+      "pass": true,
+      "detail": {
+        "near": 1,
+        "counts": 2,
+        "fresh": 0,
+        "swap": true
+      }
+    },
+    {
+      "name": "unchanged carried winners count once; fresh kinds and low reuse win selection",
+      "pass": true,
+      "detail": {
+        "a": 1,
+        "b": 1,
+        "chosen": [
+          "new"
+        ]
+      }
+    },
+    {
+      "name": "six full20-round runs keep winning rosters, avoid exact pairs, obey descendants and reproduce seeds",
+      "pass": true,
+      "detail": [
+        {
+          "seed": 1,
+          "near": 0,
+          "reused": 0
+        },
+        {
+          "seed": 1337,
+          "near": 0,
+          "reused": 0
+        },
+        {
+          "seed": 797,
+          "near": 0,
+          "reused": 0
+        },
+        {
+          "seed": 4211,
+          "near": 0,
+          "reused": 0
+        },
+        {
+          "seed": 15137,
+          "near": 0,
+          "reused": 0
+        },
+        {
+          "seed": 4294967295,
+          "near": 0,
+          "reused": 0
+        }
+      ]
+    },
+    {
+      "name": "30 consecutive fresh draws check both armies, strict pairs, bounded fallback and deterministic seeds",
+      "pass": true,
+      "detail": [
+        {
+          "round": 1,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 2,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 3,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 4,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 5,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 6,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 7,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 8,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 9,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 10,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 11,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 12,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 13,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 14,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 15,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 16,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 17,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 18,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 19,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 20,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 21,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 22,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 23,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 24,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 25,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 26,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 27,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 28,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 29,
+          "attempts": 1,
+          "near": false
+        },
+        {
+          "round": 30,
+          "attempts": 1,
+          "near": false
+        }
+      ]
+    },
+    {
+      "name": "actual multiplayer host stores whole-run pairs and guest reconnect restores identical units",
+      "pass": true,
+      "detail": {
+        "rounds": 8,
+        "rejoins": 2
+      }
+    }
+  ]
+}

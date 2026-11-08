@@ -1,0 +1,1329 @@
+{
+  "sha": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "rows": [
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 0,
+      "x": 146,
+      "y": 308,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 1,
+      "x": 100,
+      "y": 301,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 2,
+      "x": 112,
+      "y": 255,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 3,
+      "x": 158,
+      "y": 253,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 4,
+      "x": 112,
+      "y": 356,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 5,
+      "x": 158,
+      "y": 354,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 6,
+      "x": 192,
+      "y": 306,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 7,
+      "x": 66,
+      "y": 248,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 8,
+      "x": 54,
+      "y": 303,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "redcore_burstshrine",
+      "inputIndex": 9,
+      "x": 66,
+      "y": 358,
+      "radius": 13,
+      "side": 0
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 0,
+      "x": 465,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 1,
+      "x": 449,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 2,
+      "x": 433,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 3,
+      "x": 417,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 4,
+      "x": 401,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 5,
+      "x": 385,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 6,
+      "x": 369,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    },
+    {
+      "k": "punchcap_mushroom",
+      "inputIndex": 7,
+      "x": 353,
+      "y": 289.5,
+      "radius": 7,
+      "side": 1
+    }
+  ],
+  "runs": [
+    {
+      "tick": 1801,
+      "winner": 1,
+      "placements": [
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:17",
+          "tick": 241,
+          "x": 225.6591796875,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841,
+          "sourceX": 257.4921875,
+          "sourceY": 299.28515625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:16",
+          "tick": 288,
+          "x": 225.834716796875,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888,
+          "sourceX": 257.78271484375,
+          "sourceY": 302.246337890625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:15",
+          "tick": 337,
+          "x": 225.793212890625,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937,
+          "sourceX": 257.793212890625,
+          "sourceY": 305.870849609375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:14",
+          "tick": 407,
+          "x": 224.537109375,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007,
+          "sourceX": 255.503173828125,
+          "sourceY": 322.545654296875
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:13",
+          "tick": 471,
+          "x": 222.965087890625,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071,
+          "sourceX": 252.233154296875,
+          "sourceY": 332.62548828125
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:12",
+          "tick": 518,
+          "x": 223.611083984375,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118,
+          "sourceX": 253.422607421875,
+          "sourceY": 329.9638671875
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:11",
+          "tick": 720,
+          "x": 186.867919921875,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320,
+          "sourceX": 214.421142578125,
+          "sourceY": 387.406494140625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:10",
+          "tick": 784,
+          "x": 184.041015625,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384,
+          "sourceX": 208.776611328125,
+          "sourceY": 395.81982421875
+        }
+      ],
+      "events": [
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:17",
+          "targetToken": "trap:6",
+          "tick": 286,
+          "x": 225.6591796875,
+          "y": 302.549072265625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:17",
+          "sourceToken": "trap:17",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 192,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:16",
+          "targetToken": "trap:6",
+          "tick": 333,
+          "x": 225.834716796875,
+          "y": 304.0693359375
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:16",
+          "sourceToken": "trap:16",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 192,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:15",
+          "targetToken": "trap:6",
+          "tick": 382,
+          "x": 225.793212890625,
+          "y": 305.93359375
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:15",
+          "sourceToken": "trap:15",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 192,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:14",
+          "targetToken": "trap:6",
+          "tick": 452,
+          "x": 224.537109375,
+          "y": 314.4775390625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:14",
+          "sourceToken": "trap:14",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 192,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:13",
+          "targetToken": "trap:6",
+          "tick": 516,
+          "x": 222.965087890625,
+          "y": 319.687744140625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:13",
+          "sourceToken": "trap:13",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 192,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:11",
+          "targetToken": "trap:5",
+          "tick": 765,
+          "x": 186.867919921875,
+          "y": 371.13330078125
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:5",
+          "source": "trap:11",
+          "sourceToken": "trap:11",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 157.759765625,
+          "y": 353.947998046875,
+          "amount": 12
+        }
+      ],
+      "logs": [
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:17",
+          "tick": 241,
+          "x": 225.6591796875,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:17",
+          "tick": 286,
+          "x": 225.6591796875,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:17",
+          "targetToken": "trap:6",
+          "tick": 286,
+          "x": 225.6591796875,
+          "y": 302.549072265625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:16",
+          "tick": 288,
+          "x": 225.834716796875,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:16",
+          "tick": 333,
+          "x": 225.834716796875,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:16",
+          "targetToken": "trap:6",
+          "tick": 333,
+          "x": 225.834716796875,
+          "y": 304.0693359375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:15",
+          "tick": 337,
+          "x": 225.793212890625,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:15",
+          "tick": 382,
+          "x": 225.793212890625,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:15",
+          "targetToken": "trap:6",
+          "tick": 382,
+          "x": 225.793212890625,
+          "y": 305.93359375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:14",
+          "tick": 407,
+          "x": 224.537109375,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:14",
+          "tick": 452,
+          "x": 224.537109375,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:14",
+          "targetToken": "trap:6",
+          "tick": 452,
+          "x": 224.537109375,
+          "y": 314.4775390625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:13",
+          "tick": 471,
+          "x": 222.965087890625,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:13",
+          "tick": 516,
+          "x": 222.965087890625,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:13",
+          "targetToken": "trap:6",
+          "tick": 516,
+          "x": 222.965087890625,
+          "y": 319.687744140625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:12",
+          "tick": 518,
+          "x": 223.611083984375,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:12",
+          "tick": 563,
+          "x": 223.611083984375,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:11",
+          "tick": 720,
+          "x": 186.867919921875,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:11",
+          "tick": 765,
+          "x": 186.867919921875,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:11",
+          "targetToken": "trap:5",
+          "tick": 765,
+          "x": 186.867919921875,
+          "y": 371.13330078125
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:10",
+          "tick": 784,
+          "x": 184.041015625,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:10",
+          "tick": 829,
+          "x": 184.041015625,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384
+        },
+        {
+          "type": "trap_expired",
+          "sourceToken": "trap:12",
+          "tick": 1118,
+          "x": 223.611083984375,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118,
+          "reason": "expired"
+        },
+        {
+          "type": "trap_expired",
+          "sourceToken": "trap:10",
+          "tick": 1384,
+          "x": 184.041015625,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384,
+          "reason": "expired"
+        }
+      ],
+      "units": [
+        {
+          "token": "trap:0",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 146,
+          "y": 308,
+          "dead": true
+        },
+        {
+          "token": "trap:1",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 100,
+          "y": 301,
+          "dead": true
+        },
+        {
+          "token": "trap:2",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 112,
+          "y": 255,
+          "dead": true
+        },
+        {
+          "token": "trap:3",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 158,
+          "y": 253,
+          "dead": true
+        },
+        {
+          "token": "trap:4",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 112.46216,
+          "y": 355.19385,
+          "dead": true
+        },
+        {
+          "token": "trap:5",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -2,
+          "x": 157.75977,
+          "y": 353.948,
+          "dead": true
+        },
+        {
+          "token": "trap:6",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 192,
+          "y": 306,
+          "dead": true
+        },
+        {
+          "token": "trap:7",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 66.35034,
+          "y": 248.21948,
+          "dead": true
+        },
+        {
+          "token": "trap:8",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 54,
+          "y": 303,
+          "dead": true
+        },
+        {
+          "token": "trap:9",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 65.45215,
+          "y": 356.40356,
+          "dead": true
+        },
+        {
+          "token": "trap:10",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 45,
+          "x": 49.59326,
+          "y": 237.34839,
+          "dead": false
+        },
+        {
+          "token": "trap:11",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 25,
+          "x": 35.63843,
+          "y": 238.6228,
+          "dead": false
+        },
+        {
+          "token": "trap:12",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 65,
+          "x": 31.48413,
+          "y": 251.98926,
+          "dead": false
+        },
+        {
+          "token": "trap:13",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 41.5979,
+          "y": 225.83789,
+          "dead": false
+        },
+        {
+          "token": "trap:14",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 45,
+          "x": 89.48926,
+          "y": 265.11597,
+          "dead": false
+        },
+        {
+          "token": "trap:15",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 64.87524,
+          "y": 276.97827,
+          "dead": false
+        },
+        {
+          "token": "trap:16",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 5,
+          "x": 43.24854,
+          "y": 259.56323,
+          "dead": false
+        },
+        {
+          "token": "trap:17",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 106.06567,
+          "y": 260.47705,
+          "dead": false
+        }
+      ],
+      "shots": []
+    },
+    {
+      "tick": 1801,
+      "winner": 1,
+      "placements": [
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:17",
+          "tick": 241,
+          "x": 254.3408203125,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841,
+          "sourceX": 222.5078125,
+          "sourceY": 299.28515625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:16",
+          "tick": 288,
+          "x": 254.165283203125,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888,
+          "sourceX": 222.21728515625,
+          "sourceY": 302.246337890625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:15",
+          "tick": 337,
+          "x": 254.206787109375,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937,
+          "sourceX": 222.206787109375,
+          "sourceY": 305.870849609375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:14",
+          "tick": 407,
+          "x": 255.462890625,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007,
+          "sourceX": 224.496826171875,
+          "sourceY": 322.545654296875
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:13",
+          "tick": 471,
+          "x": 257.034912109375,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071,
+          "sourceX": 227.766845703125,
+          "sourceY": 332.62548828125
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:12",
+          "tick": 518,
+          "x": 256.388916015625,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118,
+          "sourceX": 226.577392578125,
+          "sourceY": 329.9638671875
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:11",
+          "tick": 720,
+          "x": 293.132080078125,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320,
+          "sourceX": 265.578857421875,
+          "sourceY": 387.406494140625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:10",
+          "tick": 784,
+          "x": 295.958984375,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384,
+          "sourceX": 271.223388671875,
+          "sourceY": 395.81982421875
+        }
+      ],
+      "events": [
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:17",
+          "targetToken": "trap:6",
+          "tick": 286,
+          "x": 254.3408203125,
+          "y": 302.549072265625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:17",
+          "sourceToken": "trap:17",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 288,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:16",
+          "targetToken": "trap:6",
+          "tick": 333,
+          "x": 254.165283203125,
+          "y": 304.0693359375
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:16",
+          "sourceToken": "trap:16",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 288,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:15",
+          "targetToken": "trap:6",
+          "tick": 382,
+          "x": 254.206787109375,
+          "y": 305.93359375
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:15",
+          "sourceToken": "trap:15",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 288,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:14",
+          "targetToken": "trap:6",
+          "tick": 452,
+          "x": 255.462890625,
+          "y": 314.4775390625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:14",
+          "sourceToken": "trap:14",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 288,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:13",
+          "targetToken": "trap:6",
+          "tick": 516,
+          "x": 257.034912109375,
+          "y": 319.687744140625
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:6",
+          "source": "trap:13",
+          "sourceToken": "trap:13",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 288,
+          "y": 306,
+          "amount": 12
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:11",
+          "targetToken": "trap:5",
+          "tick": 765,
+          "x": 293.132080078125,
+          "y": 371.13330078125
+        },
+        {
+          "type": "resolved_hit",
+          "targetToken": "trap:5",
+          "source": "trap:11",
+          "sourceToken": "trap:11",
+          "sourceKind": "punchcap_mushroom",
+          "delivery": "area",
+          "x": 322.240234375,
+          "y": 353.947998046875,
+          "amount": 12
+        }
+      ],
+      "logs": [
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:17",
+          "tick": 241,
+          "x": 254.3408203125,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:17",
+          "tick": 286,
+          "x": 254.3408203125,
+          "y": 302.549072265625,
+          "armTick": 286,
+          "expiresTick": 841
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:17",
+          "targetToken": "trap:6",
+          "tick": 286,
+          "x": 254.3408203125,
+          "y": 302.549072265625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:16",
+          "tick": 288,
+          "x": 254.165283203125,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:16",
+          "tick": 333,
+          "x": 254.165283203125,
+          "y": 304.0693359375,
+          "armTick": 333,
+          "expiresTick": 888
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:16",
+          "targetToken": "trap:6",
+          "tick": 333,
+          "x": 254.165283203125,
+          "y": 304.0693359375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:15",
+          "tick": 337,
+          "x": 254.206787109375,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:15",
+          "tick": 382,
+          "x": 254.206787109375,
+          "y": 305.93359375,
+          "armTick": 382,
+          "expiresTick": 937
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:15",
+          "targetToken": "trap:6",
+          "tick": 382,
+          "x": 254.206787109375,
+          "y": 305.93359375
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:14",
+          "tick": 407,
+          "x": 255.462890625,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:14",
+          "tick": 452,
+          "x": 255.462890625,
+          "y": 314.4775390625,
+          "armTick": 452,
+          "expiresTick": 1007
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:14",
+          "targetToken": "trap:6",
+          "tick": 452,
+          "x": 255.462890625,
+          "y": 314.4775390625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:13",
+          "tick": 471,
+          "x": 257.034912109375,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:13",
+          "tick": 516,
+          "x": 257.034912109375,
+          "y": 319.687744140625,
+          "armTick": 516,
+          "expiresTick": 1071
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:13",
+          "targetToken": "trap:6",
+          "tick": 516,
+          "x": 257.034912109375,
+          "y": 319.687744140625
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:12",
+          "tick": 518,
+          "x": 256.388916015625,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:12",
+          "tick": 563,
+          "x": 256.388916015625,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:11",
+          "tick": 720,
+          "x": 293.132080078125,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:11",
+          "tick": 765,
+          "x": 293.132080078125,
+          "y": 371.13330078125,
+          "armTick": 765,
+          "expiresTick": 1320
+        },
+        {
+          "type": "trap_triggered",
+          "sourceToken": "trap:11",
+          "targetToken": "trap:5",
+          "tick": 765,
+          "x": 293.132080078125,
+          "y": 371.13330078125
+        },
+        {
+          "type": "trap_placed",
+          "sourceToken": "trap:10",
+          "tick": 784,
+          "x": 295.958984375,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384
+        },
+        {
+          "type": "trap_armed",
+          "sourceToken": "trap:10",
+          "tick": 829,
+          "x": 295.958984375,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384
+        },
+        {
+          "type": "trap_expired",
+          "sourceToken": "trap:12",
+          "tick": 1118,
+          "x": 256.388916015625,
+          "y": 318.3330078125,
+          "armTick": 563,
+          "expiresTick": 1118,
+          "reason": "expired"
+        },
+        {
+          "type": "trap_expired",
+          "sourceToken": "trap:10",
+          "tick": 1384,
+          "x": 295.958984375,
+          "y": 375.518310546875,
+          "armTick": 829,
+          "expiresTick": 1384,
+          "reason": "expired"
+        }
+      ],
+      "units": [
+        {
+          "token": "trap:0",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 146,
+          "y": 308,
+          "dead": true
+        },
+        {
+          "token": "trap:1",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 100,
+          "y": 301,
+          "dead": true
+        },
+        {
+          "token": "trap:2",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 112,
+          "y": 255,
+          "dead": true
+        },
+        {
+          "token": "trap:3",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 158,
+          "y": 253,
+          "dead": true
+        },
+        {
+          "token": "trap:4",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 112.46216,
+          "y": 355.19385,
+          "dead": true
+        },
+        {
+          "token": "trap:5",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -2,
+          "x": 157.75977,
+          "y": 353.948,
+          "dead": true
+        },
+        {
+          "token": "trap:6",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 192,
+          "y": 306,
+          "dead": true
+        },
+        {
+          "token": "trap:7",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 66.35034,
+          "y": 248.21948,
+          "dead": true
+        },
+        {
+          "token": "trap:8",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -10,
+          "x": 54,
+          "y": 303,
+          "dead": true
+        },
+        {
+          "token": "trap:9",
+          "k": "redcore_burstshrine",
+          "side": 0,
+          "hp": -30,
+          "x": 65.45215,
+          "y": 356.40356,
+          "dead": true
+        },
+        {
+          "token": "trap:10",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 45,
+          "x": 49.59326,
+          "y": 237.34839,
+          "dead": false
+        },
+        {
+          "token": "trap:11",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 25,
+          "x": 35.63843,
+          "y": 238.6228,
+          "dead": false
+        },
+        {
+          "token": "trap:12",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 65,
+          "x": 31.48413,
+          "y": 251.98926,
+          "dead": false
+        },
+        {
+          "token": "trap:13",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 41.5979,
+          "y": 225.83789,
+          "dead": false
+        },
+        {
+          "token": "trap:14",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 45,
+          "x": 89.48926,
+          "y": 265.11597,
+          "dead": false
+        },
+        {
+          "token": "trap:15",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 64.87524,
+          "y": 276.97827,
+          "dead": false
+        },
+        {
+          "token": "trap:16",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 5,
+          "x": 43.24854,
+          "y": 259.56323,
+          "dead": false
+        },
+        {
+          "token": "trap:17",
+          "k": "punchcap_mushroom",
+          "side": 1,
+          "hp": 85,
+          "x": 106.06567,
+          "y": 260.47705,
+          "dead": false
+        }
+      ],
+      "shots": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+runs 10 elapsedMs 9813
+runs 20 elapsedMs 18293
+runs 30 elapsedMs 25982
+{"sha":"6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece","summary":{"runs":30,"rounds":600,"coverage":288,"zero":[{"k":"bloodmoon_crescent","opportunities":23},{"k":"crownblade_king","opportunities":41},{"k":"duskgargoyle_clawer","opportunities":27},{"k":"emberwing_drake","opportunities":21},{"k":"fangeye_flier","opportunities":20},{"k":"hooded_ghost","opportunities":5},{"k":"origami_wingburst","opportunities":13},{"k":"sol_harp_mender","opportunities":10},{"k":"suspended_prism_mender","opportunities":11},{"k":"triangle_warder","opportunities":27},{"k":"wandering_warder","opportunities":48},{"k":"wheelblade_knight","opportunities":54}],"under5":151,"minimum":0,"median":4,"p10":1,"p90":9,"maximum":20,"bossSelections":303,"supportSelections":57,"totalSelections":1427,"elapsedMs":25983}}

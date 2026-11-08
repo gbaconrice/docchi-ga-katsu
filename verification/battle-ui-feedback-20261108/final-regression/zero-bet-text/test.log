@@ -1,0 +1,15 @@
+PASS only the zero-stake hint prefix changes in the shared UI renderer
+PASS all wallet, stake validation and multiplayer protocol code is byte-identical
+PASS solo zero at rounds 1, 3 and 10 retains only its necessary zero option
+PASS normal, small and double-up BET hints remain unchanged
+PASS local multiplayer all-zero, zero host, zero guest and nonzero peer use the correct hint
+PASS solo side selection and zero-stake submission survive repeated updates
+PASS zero host and guest can submit, lock, settle and recover independently
+PASS all-zero multiplayer preserves win, miss and draw payouts for both seats
+PASS zero win/loss/draw recovery and round-10 bankruptcy boundary remain unchanged
+{
+  "result": "PASS",
+  "passed": 9,
+  "beforeAfterCases": 15,
+  "sha256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727"
+}

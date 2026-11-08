@@ -1,0 +1,11 @@
+runs 10 elapsedMs 8712
+runs 20 elapsedMs 17398
+runs 30 elapsedMs 25964
+runs 40 elapsedMs 33862
+runs 50 elapsedMs 42147
+runs 60 elapsedMs 50507
+runs 70 elapsedMs 58679
+runs 80 elapsedMs 67315
+runs 90 elapsedMs 75748
+runs 100 elapsedMs 83845
+{"sha":"6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece","summary":{"runs":100,"rounds":2000,"coverage":298,"zero":[{"k":"glimmer_sprite","opportunities":17},{"k":"opalfin_sky_ray","opportunities":38}],"under5":31,"minimum":0,"median":15,"p10":4,"p90":27,"maximum":67,"bossSelections":1069,"supportSelections":176,"totalSelections":4715,"elapsedMs":83846}}

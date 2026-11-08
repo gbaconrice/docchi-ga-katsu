@@ -1,0 +1,489 @@
+{
+  "sourceSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "baselineSHA256": "f644edaf050346c5ce791649dc9e784cfe3f2eaa774aed90e038d5cf95e9b5ff",
+  "passed": 9,
+  "checks": [
+    {
+      "name": "damage matches displayed1x/2x/3x without an extra boss-clash factor",
+      "detail": [
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 1,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 1199,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 1200,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 1201,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 2399,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 2400,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 2401,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "sword",
+          "target": "shield",
+          "tick": 3599,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 1,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 1199,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 1200,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 1201,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 2399,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 2400,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 2401,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "shield",
+          "tick": 3599,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 1,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 1199,
+          "damage": 10,
+          "original": 10,
+          "factor": 1
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 1200,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 1201,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 2399,
+          "damage": 20,
+          "original": 10,
+          "factor": 2
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 2400,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 2401,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        },
+        {
+          "source": "golem",
+          "target": "roarfang_beast",
+          "tick": 3599,
+          "damage": 30,
+          "original": 10,
+          "factor": 3
+        }
+      ]
+    },
+    {
+      "name": "derived reflected/redirected damage is not scaled twice; fixed counters scale and healing does not",
+      "detail": [
+        {
+          "tick": 1200,
+          "delivery": "boss_counter",
+          "damage": 10
+        },
+        {
+          "tick": 1200,
+          "delivery": "boss_redirect",
+          "damage": 10
+        },
+        {
+          "tick": 1200,
+          "delivery": "intercept",
+          "damage": 10
+        },
+        {
+          "tick": 1200,
+          "delivery": "counter",
+          "damage": 10
+        },
+        {
+          "tick": 1200,
+          "delivery": "reflect",
+          "damage": 10
+        },
+        {
+          "tick": 2400,
+          "delivery": "boss_counter",
+          "damage": 10
+        },
+        {
+          "tick": 2400,
+          "delivery": "boss_redirect",
+          "damage": 10
+        },
+        {
+          "tick": 2400,
+          "delivery": "intercept",
+          "damage": 10
+        },
+        {
+          "tick": 2400,
+          "delivery": "counter",
+          "damage": 10
+        },
+        {
+          "tick": 2400,
+          "delivery": "reflect",
+          "damage": 10
+        }
+      ]
+    },
+    {
+      "name": "shared melee/projectile/poison/zone/death damage and volcano pulses use the same factor",
+      "detail": {
+        "deliveries": [
+          {
+            "delivery": "melee",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "projectile",
+            "amounts": [
+              5.5,
+              11,
+              16.5
+            ]
+          },
+          {
+            "delivery": "counter_projectile",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "poison",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "cone",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "area",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "cleave",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "boss",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "boss_melee",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "boss_projectile",
+            "amounts": [
+              5.5,
+              11,
+              16.5
+            ]
+          },
+          {
+            "delivery": "boss_dot",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "boss_zone",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          },
+          {
+            "delivery": "death_explosion",
+            "amounts": [
+              10,
+              20,
+              30
+            ]
+          }
+        ],
+        "terrain": [
+          4,
+          8,
+          12
+        ]
+      }
+    },
+    {
+      "name": "deferred projectile barrier scales incoming damage exactly once",
+      "detail": [
+        10,
+        20,
+        30
+      ]
+    },
+    {
+      "name": "the existing60s limit remains exact and preserves genuine draws",
+      "detail": {
+        "before60": "fight",
+        "after60": "result",
+        "winner": null,
+        "tick": 3600
+      }
+    },
+    {
+      "name": "automatic speed and unchanged clock text agree at exact natural boundaries",
+      "detail": [
+        {
+          "tick": 1199,
+          "elapsed": 19.98333333333348,
+          "speed": 1,
+          "damage": 1
+        },
+        {
+          "tick": 1200,
+          "elapsed": 20.000000000000146,
+          "speed": 2,
+          "damage": 2
+        },
+        {
+          "tick": 1201,
+          "elapsed": 20.01666666666681,
+          "speed": 2,
+          "damage": 2
+        },
+        {
+          "tick": 2399,
+          "elapsed": 39.98333333333235,
+          "speed": 2,
+          "damage": 2
+        },
+        {
+          "tick": 2400,
+          "elapsed": 39.99999999999901,
+          "speed": 3,
+          "damage": 3
+        },
+        {
+          "tick": 2401,
+          "elapsed": 40.01666666666568,
+          "speed": 3,
+          "damage": 3
+        },
+        {
+          "tick": 3600,
+          "elapsed": 59.999999999997875,
+          "speed": 3,
+          "damage": 3
+        }
+      ]
+    },
+    {
+      "name": "canonical60s replay is deterministic, sync/async identical, and codec rejects overtime",
+      "detail": {
+        "ticks": 3600,
+        "winner": "draw",
+        "bytes": 53592
+      }
+    },
+    {
+      "name": "old60s boss replay remains readable with old flags/effects while oversized old replays reject",
+      "detail": {
+        "ticks": 3600,
+        "engineVersion": "first300-boss49-v1"
+      }
+    },
+    {
+      "name": "host/guest clocks with20s offset and reconnect agree across1x/2x/3x and finish at60s",
+      "detail": [
+        {
+          "wallMs": 0,
+          "tick": 0,
+          "status": "playing"
+        },
+        {
+          "wallMs": 20000,
+          "tick": 1200,
+          "status": "playing"
+        },
+        {
+          "wallMs": 25000,
+          "tick": 1800,
+          "status": "playing"
+        },
+        {
+          "wallMs": 30000,
+          "tick": 2400,
+          "status": "playing"
+        },
+        {
+          "wallMs": 35000,
+          "tick": 3300,
+          "status": "playing"
+        },
+        {
+          "wallMs": 36667,
+          "tick": 3600,
+          "status": "finished"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+PASS existing art/audio payload order and bytes are unchanged
+PASS home art fills app; safe-area and content size rules are preserved
+PASS routine bottom chatter removed; actionable errors and choices remain
+PASS single shared sound node; only home and menu dock are suppressed
+PASS full-app ambience geometry and reduced motion lifecycle
+PASS home room game room home round trip preserves audio singleton/listener
+PASS join validation and native connection failure remain; connecting text is empty
+PASS real mock room summary/exit remain without routine protocol text
+PASS successful exit clears both old status and summary
+PASS failed exit retains retry instruction
+PASS 10 home/room checks

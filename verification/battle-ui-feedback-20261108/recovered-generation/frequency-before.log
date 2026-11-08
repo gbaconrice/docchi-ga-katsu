@@ -1,0 +1,11 @@
+runs 10 elapsedMs 6715
+runs 20 elapsedMs 13136
+runs 30 elapsedMs 19920
+runs 40 elapsedMs 26091
+runs 50 elapsedMs 32874
+runs 60 elapsedMs 40360
+runs 70 elapsedMs 47174
+runs 80 elapsedMs 54609
+runs 90 elapsedMs 61370
+runs 100 elapsedMs 67484
+{"sha":"b3ba04fbb92c195a1ad3f41bb3583c17aece41eba1f316a20b263d101fde372d","summary":{"runs":100,"rounds":2000,"coverage":295,"zero":[{"k":"fireclaw_hawk","opportunities":38},{"k":"glimmer_sprite","opportunities":7},{"k":"halo_healer","opportunities":15},{"k":"opalfin_sky_ray","opportunities":18},{"k":"sunhalo_polyhedron","opportunities":20}],"under5":42,"minimum":0,"median":15,"p10":3,"p90":27,"maximum":70,"bossSelections":1140,"supportSelections":153,"totalSelections":4675,"elapsedMs":67485}}

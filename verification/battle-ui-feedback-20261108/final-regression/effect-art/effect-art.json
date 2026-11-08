@@ -1,0 +1,312 @@
+{
+  "sha256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "baselineSHA256": "2f5c5c0d7d0c84198b120ae814cd0aff6d043c6048bda30266201d9e8b5624b2",
+  "checks": [
+    {
+      "name": "all60 replay effect kinds have metadata and draw at early mid late expired times",
+      "pass": true,
+      "detail": 480
+    },
+    {
+      "name": "all300 role and status combinations render without state mutation",
+      "pass": true,
+      "detail": 4800
+    },
+    {
+      "name": "overhead status anchors follow small and large registered bodies within viewport",
+      "pass": true,
+      "detail": [
+        {
+          "k": "sword",
+          "x": 3,
+          "y": 3,
+          "top": 14,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 3,
+          "y": 270,
+          "top": 228,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 3,
+          "y": 535,
+          "top": 493,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 240,
+          "y": 3,
+          "top": 14,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 240,
+          "y": 270,
+          "top": 228,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 240,
+          "y": 535,
+          "top": 493,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 477,
+          "y": 3,
+          "top": 14,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 477,
+          "y": 270,
+          "top": 228,
+          "height": 30
+        },
+        {
+          "k": "sword",
+          "x": 477,
+          "y": 535,
+          "top": 493,
+          "height": 30
+        },
+        {
+          "k": "spore_toad",
+          "x": 3,
+          "y": 3,
+          "top": 14,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 3,
+          "y": 270,
+          "top": 151,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 3,
+          "y": 535,
+          "top": 416,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 240,
+          "y": 3,
+          "top": 14,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 240,
+          "y": 270,
+          "top": 151,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 240,
+          "y": 535,
+          "top": 416,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 477,
+          "y": 3,
+          "top": 14,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 477,
+          "y": 270,
+          "top": 151,
+          "height": 107.25
+        },
+        {
+          "k": "spore_toad",
+          "x": 477,
+          "y": 535,
+          "top": 416,
+          "height": 107.25
+        },
+        {
+          "k": "basalt_titan",
+          "x": 3,
+          "y": 3,
+          "top": 14,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 3,
+          "y": 270,
+          "top": 152,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 3,
+          "y": 535,
+          "top": 417,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 240,
+          "y": 3,
+          "top": 14,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 240,
+          "y": 270,
+          "top": 152,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 240,
+          "y": 535,
+          "top": 417,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 477,
+          "y": 3,
+          "top": 14,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 477,
+          "y": 270,
+          "top": 152,
+          "height": 106
+        },
+        {
+          "k": "basalt_titan",
+          "x": 477,
+          "y": 535,
+          "top": 417,
+          "height": 106
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 3,
+          "y": 3,
+          "top": 14,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 3,
+          "y": 270,
+          "top": 65,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 3,
+          "y": 535,
+          "top": 330,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 240,
+          "y": 3,
+          "top": 14,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 240,
+          "y": 270,
+          "top": 65,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 240,
+          "y": 535,
+          "top": 330,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 477,
+          "y": 3,
+          "top": 14,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 477,
+          "y": 270,
+          "top": 65,
+          "height": 180
+        },
+        {
+          "k": "emberwing_drake",
+          "x": 477,
+          "y": 535,
+          "top": 330,
+          "height": 180
+        }
+      ]
+    },
+    {
+      "name": "head status clipping follows the actual camera transform",
+      "pass": true,
+      "detail": {
+        "world": -145,
+        "screen": 77.5
+      }
+    },
+    {
+      "name": "meteor texture cache remains bounded",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "pixel meteor renders all legal radii with no gameplay mutation",
+      "pass": true,
+      "detail": 36
+    },
+    {
+      "name": "18 observed fallback projectile roles now have dedicated immutable draw paths",
+      "pass": true,
+      "detail": 54
+    },
+    {
+      "name": "all embedded artwork audio fonts unchanged",
+      "pass": true,
+      "detail": 587
+    },
+    {
+      "name": "all accessible non-render functions unchanged",
+      "pass": true,
+      "detail": 378
+    },
+    {
+      "name": "no six-ray fallback, flat poison oval, status text box or old meteor ring",
+      "pass": true,
+      "detail": true
+    }
+  ]
+}

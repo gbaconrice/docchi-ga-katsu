@@ -1,0 +1,755 @@
+{
+  "result": "PASS",
+  "source": "battle-ui-feedback/source/index.html",
+  "sha256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "baseline": "battle-ui-feedback/baselines/before-zero-bet-text.html",
+  "baselineSha256": "456ff795d96b9ae93c974973c54f437bedcbfa2243dc140d0d19135e7cf5baf1",
+  "checks": [
+    "only the zero-stake hint prefix changes in the shared UI renderer",
+    "all wallet, stake validation and multiplayer protocol code is byte-identical",
+    "solo zero at rounds 1, 3 and 10 retains only its necessary zero option",
+    "normal, small and double-up BET hints remain unchanged",
+    "local multiplayer all-zero, zero host, zero guest and nonzero peer use the correct hint",
+    "solo side selection and zero-stake submission survive repeated updates",
+    "zero host and guest can submit, lock, settle and recover independently",
+    "all-zero multiplayer preserves win, miss and draw payouts for both seats",
+    "zero win/loss/draw recovery and round-10 bankruptcy boundary remain unchanged"
+  ],
+  "rows": [
+    {
+      "case": "solo-zero-round-1",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "solo-zero-round-3",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "solo-zero-round-10",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "solo-balance-1",
+      "before": "的中 +1 G · 外れ −1 G · 引分 ±0 G",
+      "after": "的中 +1 G · 外れ −1 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 1 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "solo-balance-3",
+      "before": "的中 +1 G · 外れ −1 G · 引分 ±0 G",
+      "after": "的中 +1 G · 外れ −1 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 1 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 2 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 2 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 3 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 3 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "solo-balance-100",
+      "before": "的中 +25 G · 外れ −25 G · 引分 ±0 G",
+      "after": "的中 +25 G · 外れ −25 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 10 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 25 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 50 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 75 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 90 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 100 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "solo-balance-1000",
+      "before": "的中 +250 G · 外れ −250 G · 引分 ±0 G",
+      "after": "的中 +250 G · 外れ −250 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 100 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 250 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 500 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 750 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 900 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 1,000 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "solo-double-up",
+      "before": "全額BET：勝ち2倍／負けその時点で終了／引分そのまま",
+      "after": "全額BET：勝ち2倍／負けその時点で終了／引分そのまま",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額 · 100 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "multi-all-zero-host",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "multi-all-zero-guest",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "multi-zero-host-view-host",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "multi-zero-host-view-guest",
+      "before": "的中 +39 G · 外れ −39 G · 引分 ±0 G",
+      "after": "的中 +39 G · 外れ −39 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 16 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 39 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 78 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 117 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 140 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 156 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "multi-zero-guest-view-host",
+      "before": "的中 +39 G · 外れ −39 G · 引分 ±0 G",
+      "after": "的中 +39 G · 外れ −39 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 16 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 39 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 78 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 117 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 140 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 156 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "case": "multi-zero-guest-view-guest",
+      "before": "0 G · 的中 +10 G · 外れ・引分 ±0 G",
+      "after": "的中 +10 G · 外れ・引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 10,
+          "text": "10%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 25,
+          "text": "25%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 50,
+          "text": "50%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 75,
+          "text": "75%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 90,
+          "text": "90%",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 100,
+          "text": "全額",
+          "hidden": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "case": "multi-normal-host",
+      "before": "的中 +25 G · 外れ −25 G · 引分 ±0 G",
+      "after": "的中 +25 G · 外れ −25 G · 引分 ±0 G",
+      "options": [
+        {
+          "option": 0,
+          "text": "0 G",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "option": 10,
+          "text": "10% · 10 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 25,
+          "text": "25% · 25 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 50,
+          "text": "50% · 50 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 75,
+          "text": "75% · 75 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 90,
+          "text": "90% · 90 G",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "option": 100,
+          "text": "全額 · 100 G",
+          "hidden": false,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

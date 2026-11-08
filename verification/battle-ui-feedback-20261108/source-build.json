@@ -1,0 +1,84 @@
+{
+  "baseSourceSHA256": "9872204a68cf587f56a429cd3369dc057445b8d6463747b89a9da030f1eb6c2d",
+  "sourceSHA256": "b080617884c5f67d44431dd922b77c44736d8dbe227ef3c26fbf937645b52727",
+  "contentRevision": "44f5a517b956b79c4fdc0be9b16fa14748c84a6bfc3702e069fbf4003ac81733",
+  "bytes": 49493554,
+  "patches": [
+    {
+      "name": "round-summary",
+      "patchSHA256": "a6ec669fd8af6c29c755deaa90b95c022416073a2f412de31f8506aa1d3195d4"
+    },
+    {
+      "name": "remove-opening-cue",
+      "patchSHA256": "959373a867040627c8eb59ff322c172bf128c3a494f5fbc5b6705f83e3b76851"
+    },
+    {
+      "name": "trait-text",
+      "patchSHA256": "d7dcbd2533f4e2cfcb1a230de961c004e9c1a5481a5f7185b0e8d96d7a35dc36"
+    },
+    {
+      "name": "team-colors",
+      "patchSHA256": "59530cabdc742f2366058c9f1c31497bbe70a06925d530434052d95fbae12a43"
+    },
+    {
+      "name": "event-log",
+      "patchSHA256": "13923c359bf3286fa94c725cab2e3b3aa5b8ea36ceca2aea52eb45c12619e819"
+    },
+    {
+      "name": "participant-rail",
+      "patchSHA256": "cbe28ebf40fcb4ed6f40f97dcedd3c7f51800c588f07a4e47084103061e6a80f"
+    },
+    {
+      "name": "draw-matchup",
+      "patchSHA256": "2b4af6ec63045bfca3c7221f354e37723213ac16540ae0d2854674bfdefe31a7"
+    },
+    {
+      "name": "late-boss-rounds",
+      "patchSHA256": "007734dc278e9fe25742555c9eef8ff52f0e8d6a9dd45eded46a06f0778033d9"
+    },
+    {
+      "name": "zero-bet-text",
+      "patchSHA256": "0c2a749e7ec58c974cfd964a7f0f86c9d0d0756c692318be360c7e3efc8d7853"
+    },
+    {
+      "name": "home-room-display",
+      "patchSHA256": "150a9db1f81f3c2c821812c3f9b636d0b433ea57e59cc3b2a2655da45b86e31d"
+    },
+    {
+      "name": "speed-damage",
+      "patchSHA256": "32925084cd40197e7c6987c28a8e2d009e46d02dcdcedc888a7ba097f769fcbe"
+    },
+    {
+      "name": "trap-placement",
+      "patchSHA256": "edfe45e97ef6ffc39c5f4636d01f26370398572c42324a246f73ad76a715ca31"
+    },
+    {
+      "name": "trap-camera",
+      "patchSHA256": "d83323a12710bfe68e23bb1eac48aecad436f28ddaaf712c4db91e9e6ad3cd2a"
+    },
+    {
+      "name": "dead-unit-motion",
+      "patchSHA256": "72639f9c283f57e424e7006888496f1c8ffd606286ffd965cd93f3a8e85d99dc"
+    },
+    {
+      "name": "summon-name",
+      "patchSHA256": "0b47501edcbb2e09f0e3ae749f7316391810e6a8932815d0b833b2c4a4945e34"
+    },
+    {
+      "name": "matchup-diversity",
+      "patchSHA256": "f353cb8999d44c68a4470446509a196ff86fe05559e7d59fa61d41ab0624c542"
+    },
+    {
+      "name": "generation-coverage",
+      "patchSHA256": "778221847d3166122f0cbe0d3c7272dbb8e9a2b67c073d1e8537cc61be1baab3"
+    },
+    {
+      "name": "distinct-opponents",
+      "patchSHA256": "6269668258685c6a3b065cebd4b93eb0842723e6505870839ad35b27fab9fef6"
+    },
+    {
+      "name": "effect-art",
+      "patchSHA256": "ff4bc1d0c27e45ac7ccb746c21f5f18716ee024cebe682d09ffb8b8877a1e81a"
+    }
+  ]
+}

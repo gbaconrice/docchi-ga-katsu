@@ -1,0 +1,9 @@
+PASS all300 species on both sides retain corpse position/facing across crossing, overlap and absent enemies
+PASS late boss attack effects cannot overwrite corpse face or restart attack state
+PASS death animation advances, settles and preserves identical draw transforms
+PASS natural deaths stay frozen for the remaining fight and animate on both sides
+PASS real death replay keeps transforms and fresh decoder reconnect matches
+PASS genuine revival makes a live new identity that moves and turns while its corpse stays fixed
+PASS live actors still follow a target after death guards
+PASS corpse patch does not change authoritative combat results
+{"sha":"6dc166253c28406d348a324650900efb8427278ecafa4d8b0e33801ebfd7aece","passed":8,"failed":0}
