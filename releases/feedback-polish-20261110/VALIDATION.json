@@ -1,0 +1,33 @@
+{
+  "sourceSha256": "8bc040c9704d5e334835ea1c6c5d4650c3f88b818d85c6db535ee0f5327a722f",
+  "candidateCommit": "ee0af7f21b2242c1352ac7b7250ca2701df4c888",
+  "automated": {
+    "feedbackChecks": 18,
+    "audioLifecycleChecks": 10,
+    "hostGuestTransportChecks": 5,
+    "simulationClockChecks": 3,
+    "independentPostCommitInterruptionCases": 18,
+    "existingCombatAudioBurstIterations": 1000,
+    "syntax": "PASS",
+    "sourceScopeReversal": "PASS",
+    "sourcePackagingRoundtrip": "PASS",
+    "reproductionFromSealedBaseline": "PASS",
+    "unchangedImages": 698
+  },
+  "browser": {
+    "engine": "Cloud Chromium",
+    "method": "Ordinary desktop window resizing and browser zoom; no mobile user-agent emulation",
+    "viewports": [[1200,777],[400,622],[333,518]],
+    "verified": [
+      "First countdown number is on the visible actual battlefield; prediction screen is hidden and battle clock is 0.0 seconds",
+      "Countdown is centered on the fitted field; normal battle time advances after it ends",
+      "HP gauge is within the lower fieldMap above the stone border, with zero coin-marker nodes",
+      "Prediction stamp is 28 by 28 CSS pixels, circular double border, in the existing card feedback row",
+      "Champion at round 2 and streak at round 3 preserve position with transparent background and zero border",
+      "Result to next round and menu close resume ordinary UI",
+      "Sound button changes between muted and unmuted states",
+      "GRAVITY entry loads and retains host header clearance at 333 by 518"
+    ]
+  },
+  "notVerified": ["Physical iPhone Safari", "Native GRAVITY app", "Multiple-device native transport", "Physical audibility or subjective sound quality"]
+}

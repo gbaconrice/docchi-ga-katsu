@@ -1,0 +1,177 @@
+/* fun-feedback-20261109, layout-safe revision.
+   The HP gauge lives inside the lower arena; card feedback keeps its existing row.
+   Artwork, stats, player picks, host insets and controls retain their geometry. */
+#app button.fun-pressed {
+  transform:translateY(1px) scale(.97) !important;
+  filter:brightness(.9);
+  transition:none !important;
+}
+
+/* Both cards reserve the same small feedback row AFTER the preview and BEFORE
+   stats, even without a crown or seal. The existing absolute pick lane stays
+   at the top of the unchanged preview, separate from this new row. */
+#app #gameScreen #comparison .army-card > .fun-card-feedback {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 36px;
+  align-items:center;
+  gap:4px;
+  flex:0 0 auto;
+  min-width:0;
+  min-height:28px;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  pointer-events:none;
+}
+#app #gameScreen #comparison .fun-card-feedback > .fun-crown {
+  grid-column:1;
+  grid-row:1;
+  justify-self:start;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+  padding:0;
+  border:0;
+  border-radius:0;
+  color:#67451b;
+  background:transparent;
+  font:800 12px/18px system-ui,sans-serif;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  pointer-events:none;
+}
+#app #gameScreen #comparison .fun-card-feedback > .fun-seal {
+  grid-column:2;
+  grid-row:1;
+  display:grid;
+  place-items:center;
+  box-sizing:border-box;
+  justify-self:center;
+  width:28px;
+  height:28px;
+  border:3px double #a8261b;
+  border-radius:50%;
+  color:#a8261b;
+  background:transparent;
+  font:900 10px/1 "Hiragino Mincho ProN","Yu Mincho",serif;
+  letter-spacing:.04em;
+  pointer-events:none;
+  transform:rotate(-12deg);
+  /* The round ink stamp stays inside its existing reserved cell. */
+  animation:fun-seal-in .20s ease-out both;
+}
+@keyframes fun-seal-in {
+  from { transform:rotate(-12deg) scale(.88); opacity:0; }
+  to { transform:rotate(-12deg) scale(1); opacity:1; }
+}
+
+/* Reference placement: inside the lower dirt arena, above its stone border.
+   The gauge is attached to the fitted map so letterboxing and tall hosts agree. */
+#app #gameScreen #fieldMap > .fun-tug {
+  position:absolute;
+  z-index:3;
+  left:6%;
+  right:6%;
+  bottom:8%;
+  display:flex;
+  align-items:center;
+  min-width:0;
+  width:auto;
+  height:18px;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  pointer-events:none;
+}
+#app #gameScreen #fieldMap > .fun-tug .fun-tug-track {
+  position:relative;
+  display:block;
+  flex:1 1 auto;
+  min-width:0;
+  height:10px;
+  box-sizing:border-box;
+  border:1px solid #d2b57c;
+  background:#39291e;
+}
+#app .fun-tug-track > .fun-tug-left,
+#app .fun-tug-track > .fun-tug-right {
+  position:absolute;
+  top:0;
+  bottom:0;
+}
+#app .fun-tug-track > .fun-tug-left {
+  left:0;
+  width:var(--tug,50%);
+  background:var(--tug-left,var(--team-blue,#176ab4));
+}
+#app .fun-tug-track > .fun-tug-right {
+  right:0;
+  width:calc(100% - var(--tug,50%));
+  background:var(--tug-right,var(--team-red,#b93632));
+}
+#app .fun-tug-track > .fun-tug-knot {
+  position:absolute;
+  top:-4px;
+  bottom:-4px;
+  left:var(--tug,50%);
+  width:4px;
+  box-sizing:border-box;
+  margin-left:-2px;
+  border:1px solid #60402a;
+  background:#fff1c9;
+}
+/* Contain the short start ceremony inside the game, below native host chrome.
+   Controls must be made inert by the countdown lifecycle, including keyboard. */
+#app #gameScreen > .fun-countdown {
+  position:absolute;
+  inset:0;
+  z-index:35;
+  display:grid;
+  place-items:center;
+  box-sizing:border-box;
+  overflow:hidden;
+  background:rgba(20,12,6,.28);
+  pointer-events:auto;
+  touch-action:none;
+}
+#app .fun-countdown .fun-count {
+  position:absolute;
+  left:var(--fun-count-x,50%);
+  top:var(--fun-count-y,50%);
+  translate:-50% -50%;
+  max-width:100%;
+  color:#fff3d0;
+  font:900 clamp(64px,26vw,120px)/1 "Hiragino Mincho ProN","Yu Mincho",serif;
+  -webkit-text-stroke:3px #3b2412;
+  paint-order:stroke fill;
+  animation:fun-count-pop .30s ease-out both;
+}
+#app .fun-countdown .fun-count.is-final { color:#ffd36b; font-size:clamp(52px,20vw,96px); }
+#app .fun-countdown .fun-count.is-still { animation:none; }
+@keyframes fun-count-pop {
+  from { transform:scale(.90); opacity:0; }
+  to { transform:scale(1); opacity:1; }
+}
+#app #gameScreen > .fun-countdown[hidden],
+#app #gameScreen #fieldMap > .fun-tug[hidden],
+#app #gameScreen #comparison .fun-card-feedback > [hidden] { display:none !important; }
+
+/* Wrap only between semantic chunks. Extremely narrow/text-enlarged slots
+   scroll their own full text instead of painting over the round or wallet. */
+#app #gameScreen > #gameTopline #fieldStatus {
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+#fieldStatus .field-chunk {
+  display:inline-block;
+  max-width:none;
+  white-space:nowrap;
+  overflow-wrap:normal;
+}
+@media (prefers-reduced-motion:reduce) {
+  #app button.fun-pressed { transform:none !important; }
+  #app #gameScreen #comparison .fun-seal,
+  #app .fun-countdown .fun-count { animation:none; }
+}
+
+#app #gameScreen > .fun-countdown[data-counting="preparing"] { background:transparent; }

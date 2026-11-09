@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const html=fs.readFileSync(process.argv[2]||__dirname+'/source/index.html','utf8');
+const start=html.indexOf('function loop(t){'),end=html.indexOf("\nif(typeof document.addEventListener",start);
+const loop=html.slice(start,end);
+let hold=true,steps=0,draws=0,queued=0;
+const ctx=vm.createContext({document:{hidden:false,querySelector:()=>({textContent:''})},last:null,acc:0,elapsed:0,state:'fight',paused:false,visualTime:0,SOLO_MAX_STEPS_PER_FRAME:1000,SOLO_FRAME_BUDGET_MS:1000,FunFeedback:{isHoldingBattle:()=>hold},ReplayClock:{advanceSceneSeconds:(elapsed,delta)=>elapsed+delta,effectiveSpeed:()=>1},resetSoloClock(){ctx.last=null;ctx.acc=0},step(dt){steps++;ctx.elapsed+=dt},draw(){draws++},requestAnimationFrame(){queued++}});
+vm.runInContext(loop,ctx);
+for(const t of [0,430,860,1290,1520])ctx.loop(t);
+assert.equal(ctx.elapsed,0);assert.equal(steps,0);assert.equal(queued,5);
+hold=false;ctx.resetSoloClock();ctx.loop(1600);assert.equal(steps,0);ctx.loop(1634);assert(steps>=1&&steps<=3);assert(ctx.elapsed>0&&ctx.elapsed<.05);
+ctx.paused=true;const before=ctx.elapsed;ctx.loop(2000);assert.equal(ctx.elapsed,before);
+console.log(JSON.stringify({status:'PASS',checks:['Battle elapsed and simulation steps stay at zero throughout 3/2/1','Ending ceremony resets accumulated clock; no catch-up tick burst','Existing pause remains authoritative']},null,2));
