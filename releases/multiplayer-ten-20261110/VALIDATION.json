@@ -1,0 +1,1215 @@
+{
+  "sourceSha256": "71e1597e6ffd98ca8ba090a24e07a3fed40c328dea04d07691bf75b90819597f",
+  "contentRevision": "0a15770f4cf1bfee18b8074e5b84f9b2cc5e75a6eeffc9296a2c86ebc1f481e2",
+  "baselineCommit": "a42af2f8e323c5c2ba05a07e9c53ada79a421e0c",
+  "automated": {
+    "rules": {
+      "result": "PASS",
+      "checks": [
+        "every inline script parses",
+        "multiplayer starts 1000G versus unchanged solo 100G; exact 1/1.5/2x profit with integer ceiling, recovery100/300/1000, theoretical perfect all-in 5.4M G",
+        "solo snapshots, exact payouts, overtime and cashout match baseline; solo wallet, battle fields and history definitions unchanged",
+        "solo zero-G play before checkpoint and terminal bankruptcy at round10 remain exact baseline behavior",
+        "all six stake percentages are monotone from 0G through 3000G; zeroing funds never improves correct-prediction balance",
+        "eight real sessions stay synchronized for all 10 rounds; zero-G player stays eligible through 10; disconnected seat retains balance and resumes at round 8; no 11th round",
+        "every non-final result has shared host deadline exactly +5000ms despite device clock offsets; final personal result remains for exactly five shared seconds before rankings, including reconnect; no next-round timer or overtime choice",
+        "final-ranking receipt survives same-seat reconnect; rankings include all eight, ties and zero-G",
+        "automatic positive final score posts once, no early/zero/spectator score; SDK receipt remains unverified",
+        "60 real-ledger recovery cases: tiers, positive/zero balances, wins, losses, draws and canonical delta arithmetic",
+        "actual UI stake helpers retain six multiplayer percentages and zero-G play at round 10; solo switches to all-in and retains its ten-round checkpoint",
+        "all-zero final room ranks both players equally; finalization is idempotent"
+      ]
+    },
+    "formations": {
+      "status": "PASS",
+      "multiplayerCases": 120,
+      "soloIdenticalCases": 120,
+      "stats": [
+        {
+          "round": 1,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 8,
+          "families": {
+            "single": 12
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 12.666666666666666
+        },
+        {
+          "round": 2,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 8,
+          "families": {
+            "single": 12
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 12.916666666666666
+        },
+        {
+          "round": 3,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 10,
+          "families": {
+            "single": 12
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 14.25
+        },
+        {
+          "round": 4,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 10,
+          "families": {
+            "single": 12
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 15.25
+        },
+        {
+          "round": 5,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 17,
+          "families": {
+            "single": 12
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 16.083333333333332
+        },
+        {
+          "round": 6,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 16,
+          "families": {
+            "crowd": 11,
+            "mixed": 1
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 29.5
+        },
+        {
+          "round": 7,
+          "examples": 12,
+          "bossArmies": 0,
+          "multiBossArmies": 0,
+          "maxCount": 22,
+          "families": {
+            "mixed": 3,
+            "crowd": 8,
+            "normal": 1
+          },
+          "bossCounts": {
+            "0": 24
+          },
+          "bossSpecies": {},
+          "meanRightCost": 37.5
+        },
+        {
+          "round": 8,
+          "examples": 12,
+          "bossArmies": 10,
+          "multiBossArmies": 0,
+          "maxCount": 22,
+          "families": {
+            "bosses": 8,
+            "crowd": 2,
+            "mixed": 2
+          },
+          "bossCounts": {
+            "0": 14,
+            "1": 10
+          },
+          "bossSpecies": {
+            "fiery_coil_inceptor": 1,
+            "bonefan_reaper": 1,
+            "spikeburst_grinder": 2,
+            "bluehorn_invoker": 2,
+            "redhorn_dualbeast": 1,
+            "cleaver_brute": 1,
+            "razorclaw_reaver": 1,
+            "siege_crab": 1
+          },
+          "meanRightCost": 47.166666666666664
+        },
+        {
+          "round": 9,
+          "examples": 12,
+          "bossArmies": 13,
+          "multiBossArmies": 0,
+          "maxCount": 21,
+          "families": {
+            "bosses": 5,
+            "crowd": 4,
+            "mixed": 3
+          },
+          "bossCounts": {
+            "0": 11,
+            "1": 13
+          },
+          "bossSpecies": {
+            "fiery_coil_inceptor": 1,
+            "basalt_titan": 1,
+            "bonefan_reaper": 1,
+            "bluehorn_invoker": 2,
+            "plated_dualdragon": 1,
+            "redhorn_dualbeast": 1,
+            "flameburst_mythron": 1,
+            "cleaver_brute": 1,
+            "stonepulse_kolossus": 1,
+            "razorclaw_reaver": 1,
+            "spikeburst_grinder": 1,
+            "emberfist_pillarer": 1
+          },
+          "meanRightCost": 59
+        },
+        {
+          "round": 10,
+          "examples": 12,
+          "bossArmies": 10,
+          "multiBossArmies": 5,
+          "maxCount": 30,
+          "families": {
+            "mixed": 3,
+            "crowd": 4,
+            "bosses": 5
+          },
+          "bossCounts": {
+            "0": 14,
+            "1": 5,
+            "2": 5
+          },
+          "bossSpecies": {
+            "basalt_titan": 2,
+            "cyanrise_silithar": 1,
+            "redhorn_dualbeast": 2,
+            "darkfan_clawlord": 2,
+            "flameburst_mythron": 1,
+            "stonepulse_kolossus": 1,
+            "bluefist_colossus": 1,
+            "spikeburst_grinder": 1,
+            "emberfist_pillarer": 2,
+            "ringneck_prowler": 1,
+            "kilnback_pincerbeast": 1
+          },
+          "meanRightCost": 71.25
+        }
+      ],
+      "examples": [
+        {
+          "seed": 1,
+          "round": 1,
+          "left": [
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman",
+            "ashbone_swordsman"
+          ],
+          "right": [
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 1,
+          "round": 2,
+          "left": [
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger",
+            "saberspine_tiger"
+          ],
+          "right": [
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 1,
+          "round": 3,
+          "left": [
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling"
+          ],
+          "right": [
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 1,
+          "round": 4,
+          "left": [
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast"
+          ],
+          "right": [
+            "boar",
+            "boar",
+            "boar",
+            "boar"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 1,
+          "round": 5,
+          "left": [
+            "boar",
+            "boar",
+            "boar",
+            "boar"
+          ],
+          "right": [
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 1,
+          "round": 6,
+          "left": [
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman",
+            "light_bowman"
+          ],
+          "right": [
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "icy_dualslasher",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "icy_dualslasher"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 1,
+          "round": 7,
+          "left": [
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "icy_dualslasher",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "icy_dualslasher",
+            "dusk_triplewarden",
+            "icy_dualslasher"
+          ],
+          "right": [
+            "willyee_alchemist",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "twinflare_fox",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "willyee_alchemist"
+          ],
+          "family": "mixed"
+        },
+        {
+          "seed": 1,
+          "round": 8,
+          "left": [
+            "willyee_alchemist",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "twinflare_fox",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "redcore_burstshrine",
+            "redcore_burstshrine",
+            "twinflare_fox",
+            "willyee_alchemist"
+          ],
+          "right": [
+            "fiery_coil_inceptor",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter"
+          ],
+          "family": "bosses"
+        },
+        {
+          "seed": 1,
+          "round": 9,
+          "left": [
+            "fiery_coil_inceptor",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter",
+            "willyee_robed_fighter"
+          ],
+          "right": [
+            "basalt_titan",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre"
+          ],
+          "family": "bosses"
+        },
+        {
+          "seed": 1,
+          "round": 10,
+          "left": [
+            "basalt_titan",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre"
+          ],
+          "right": [
+            "redshield_tripler",
+            "cyanspike_commander",
+            "willyee_goblin",
+            "ward_bastion",
+            "willyee_goblin",
+            "ward_bastion",
+            "cyanspike_commander",
+            "redshield_tripler",
+            "redshield_tripler",
+            "ward_bastion",
+            "willyee_goblin",
+            "redshield_tripler",
+            "redshield_tripler",
+            "willyee_goblin",
+            "ward_bastion",
+            "ward_bastion",
+            "willyee_goblin",
+            "redshield_tripler",
+            "willyee_goblin",
+            "ward_bastion",
+            "cyanspike_commander",
+            "redshield_tripler",
+            "redshield_tripler",
+            "redshield_tripler",
+            "willyee_goblin",
+            "cyanspike_commander"
+          ],
+          "family": "mixed"
+        },
+        {
+          "seed": 2,
+          "round": 1,
+          "left": [
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver",
+            "cyanribbon_weaver"
+          ],
+          "right": [
+            "spear",
+            "spear",
+            "spear"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 2,
+          "round": 2,
+          "left": [
+            "spear",
+            "spear",
+            "spear"
+          ],
+          "right": [
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 2,
+          "round": 3,
+          "left": [
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier",
+            "coiltail_halberdier"
+          ],
+          "right": [
+            "archer",
+            "archer",
+            "archer"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 2,
+          "round": 4,
+          "left": [
+            "archer",
+            "archer",
+            "archer"
+          ],
+          "right": [
+            "archclapper_walker",
+            "archclapper_walker",
+            "archclapper_walker"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 2,
+          "round": 5,
+          "left": [
+            "archclapper_walker",
+            "archclapper_walker",
+            "archclapper_walker"
+          ],
+          "right": [
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 2,
+          "round": 6,
+          "left": [
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre",
+            "willyee_ogre"
+          ],
+          "right": [
+            "willyee_char_08",
+            "forkbill_strider",
+            "forkbill_strider",
+            "willyee_char_08",
+            "willyee_char_08",
+            "forkbill_strider",
+            "forkbill_strider",
+            "willyee_char_08",
+            "forkbill_strider"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 2,
+          "round": 7,
+          "left": [
+            "willyee_char_08",
+            "forkbill_strider",
+            "forkbill_strider",
+            "willyee_char_08",
+            "willyee_char_08",
+            "forkbill_strider",
+            "forkbill_strider",
+            "willyee_char_08",
+            "forkbill_strider"
+          ],
+          "right": [
+            "vortex_adept",
+            "branchsweep_treant",
+            "bounty_hound",
+            "vortex_adept",
+            "vortex_adept",
+            "bounty_hound",
+            "branchsweep_treant",
+            "bounty_hound",
+            "vortex_adept",
+            "bounty_hound",
+            "branchsweep_treant",
+            "branchsweep_treant"
+          ],
+          "family": "mixed"
+        },
+        {
+          "seed": 2,
+          "round": 8,
+          "left": [
+            "vortex_adept",
+            "branchsweep_treant",
+            "bounty_hound",
+            "vortex_adept",
+            "vortex_adept",
+            "bounty_hound",
+            "branchsweep_treant",
+            "bounty_hound",
+            "vortex_adept",
+            "bounty_hound",
+            "branchsweep_treant",
+            "branchsweep_treant"
+          ],
+          "right": [
+            "bonefan_reaper",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast"
+          ],
+          "family": "bosses"
+        },
+        {
+          "seed": 2,
+          "round": 9,
+          "left": [
+            "bonefan_reaper",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast",
+            "finback_clawbeast"
+          ],
+          "right": [
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "flipthrust_legend",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "bubbleclaw_plaguer",
+            "bubbleclaw_plaguer",
+            "sky_harpooner"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 2,
+          "round": 10,
+          "left": [
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "flipthrust_legend",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "flipthrust_legend",
+            "sky_harpooner",
+            "bubbleclaw_plaguer",
+            "bubbleclaw_plaguer",
+            "bubbleclaw_plaguer",
+            "sky_harpooner"
+          ],
+          "right": [
+            "willyee_char_22_crescent_reaper",
+            "punchcap_mushroom",
+            "willyee_char_54",
+            "willyee_char_54",
+            "willyee_char_22_crescent_reaper",
+            "willyee_char_54",
+            "willyee_char_22_crescent_reaper",
+            "willyee_char_22_crescent_reaper",
+            "willyee_char_22_crescent_reaper",
+            "punchcap_mushroom",
+            "punchcap_mushroom",
+            "punchcap_mushroom",
+            "punchcap_mushroom",
+            "willyee_char_54",
+            "willyee_char_54",
+            "punchcap_mushroom",
+            "willyee_char_54",
+            "willyee_char_54",
+            "punchcap_mushroom",
+            "willyee_char_22_crescent_reaper",
+            "willyee_char_54",
+            "willyee_char_22_crescent_reaper",
+            "willyee_char_54",
+            "willyee_char_54",
+            "willyee_char_54"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 3,
+          "round": 1,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "shield",
+            "shield",
+            "shield"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 3,
+          "round": 2,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger",
+            "darkclaw_harbinger"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 3,
+          "round": 3,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling",
+            "golden_bowling"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 3,
+          "round": 4,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "sword",
+            "sword",
+            "sword"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 3,
+          "round": 5,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "bloodsurge_pillarist",
+            "bloodsurge_pillarist",
+            "bloodsurge_pillarist"
+          ],
+          "family": "single"
+        },
+        {
+          "seed": 3,
+          "round": 6,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "willyee_char_03_axe_wayfarer",
+            "willyee_char_54",
+            "clubnose_forest_troll",
+            "willyee_char_54",
+            "willyee_char_54",
+            "clubnose_forest_troll",
+            "clubnose_forest_troll",
+            "willyee_char_54",
+            "willyee_char_54",
+            "willyee_char_03_axe_wayfarer",
+            "willyee_char_03_axe_wayfarer"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 3,
+          "round": 7,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "gilded_hopper",
+            "flipthrust_legend",
+            "gilded_hopper",
+            "flipthrust_legend",
+            "flipthrust_legend",
+            "gilded_hopper",
+            "gilded_hopper",
+            "flipthrust_legend",
+            "gilded_hopper",
+            "flipthrust_legend",
+            "gilded_hopper",
+            "gilded_hopper",
+            "gilded_hopper",
+            "gilded_hopper"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 3,
+          "round": 8,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "spikeburst_grinder",
+            "willyee_skel_archer",
+            "willyee_skel_archer",
+            "willyee_skel_archer",
+            "willyee_skel_archer",
+            "willyee_skel_archer",
+            "willyee_skel_archer",
+            "willyee_skel_archer"
+          ],
+          "family": "bosses"
+        },
+        {
+          "seed": 3,
+          "round": 9,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "willyee_char_34_goldring_caster",
+            "ghostclaw_lynx",
+            "willyee_char_34_goldring_caster",
+            "willyee_char_34_goldring_caster",
+            "willyee_char_34_goldring_caster",
+            "willyee_char_34_goldring_caster",
+            "ghostclaw_lynx",
+            "willyee_char_34_goldring_caster",
+            "willyee_char_34_goldring_caster",
+            "ghostclaw_lynx",
+            "ghostclaw_lynx",
+            "ghostclaw_lynx",
+            "ghostclaw_lynx",
+            "willyee_char_34_goldring_caster",
+            "ghostclaw_lynx",
+            "willyee_char_34_goldring_caster",
+            "willyee_char_34_goldring_caster",
+            "ghostclaw_lynx",
+            "ghostclaw_lynx"
+          ],
+          "family": "crowd"
+        },
+        {
+          "seed": 3,
+          "round": 10,
+          "left": [
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter",
+            "tumbling_critter"
+          ],
+          "right": [
+            "cyanrise_silithar",
+            "redhorn_dualbeast",
+            "willyee_knight",
+            "willyee_knight"
+          ],
+          "family": "bosses"
+        }
+      ]
+    },
+    "summons": {
+      "status": "PASS",
+      "checks": [
+        "All source scripts parse",
+        "Wraith emits ten unique children within opening 6.2 seconds",
+        "Lich summons exactly four escorts at tick 90 with no enemy deaths",
+        "One corpse yields two skeletons and never duplicates; preexisting dead and child corpses excluded",
+        "Lich concurrent and lifetime ten, including queued children",
+        "Lich corpse eligibility can retry when corpse moves into range",
+        "Lich children expire after 12 seconds, cannot reproduce",
+        "Finite wraith resources survive revival; no refresh exploit",
+        "Shared regular/boss reservation never exceeds 64 alive or 256/512 lifetime caps",
+        "Saturated lifetime record caps refuse summons without consuming charges",
+        "General spawning cap stays nine for all other abilities",
+        "Generator reserves eleven slots for both summoner kinds; overall reservation stays 32"
+      ],
+      "sourceSha256": "71e1597e6ffd98ca8ba090a24e07a3fed40c328dea04d07691bf75b90819597f"
+    },
+    "summonReplay": {
+      "status": "PASS",
+      "replay": {
+        "ticks": 591,
+        "bytes": 40665,
+        "totalChildren": 20,
+        "peakAlive": 28,
+        "checks": [
+          "real recorder accepts all summons",
+          "playback live counts match sampled authoritative ticks",
+          "final alive count matches",
+          "unique replay identities"
+        ]
+      },
+      "normalSimulation": {
+        "meanMs": 1.148,
+        "p95Ms": 2.027,
+        "p99Ms": 2.794,
+        "maxMs": 18.067
+      },
+      "reservationBoundedSimulation": {
+        "initial": 44,
+        "reserved": 64,
+        "peakAlive": 56,
+        "ticks": 600,
+        "meanMs": 2.559,
+        "p95Ms": 5.558,
+        "p99Ms": 8.333,
+        "maxMs": 19.904
+      },
+      "overloadedSimulation": {
+        "initial": 40,
+        "peakAlive": 83,
+        "totalRecords": 100,
+        "ticks": 600,
+        "meanMs": 5.904,
+        "p95Ms": 10.759,
+        "p99Ms": 16.382,
+        "maxMs": 106.606
+      },
+      "limits": "Node simulation only; excludes rendering, device-specific performance and network. Replay used real actors/projectiles with presentation effects omitted."
+    },
+    "openingAudio": {
+      "result": "PASS",
+      "checks": [
+        "exact four-patch scope: all other source bytes unchanged",
+        "all five other UI cues, including count: identical PCM/nodes/parameters/timing",
+        "F PCM output matches chosen cue after master 0.42: no double attenuation",
+        "old bending horn oscillators absent",
+        "F buffer reused; finite source and voice/node cleanup",
+        "mute, pause and suppression apply to F",
+        "voice/node caps and destroy hold; no BGM"
+      ],
+      "maxMasterOutputPCMError": 1.4901161207725444e-09,
+      "outputPeakDbfs": -27.8254376215653,
+      "maxVoices": 6,
+      "maxNodes": 13,
+      "limitations": "Structural Web Audio model plus exact PCM arithmetic. No physical-device listening or Chromium execution available."
+    },
+    "audioLifecycle": {
+      "result": "PASS",
+      "source": "multiplayer-countdown-20261110/integrated/source/index.html",
+      "checks": [
+        "initial load and synthetic event remain silent",
+        "next real gesture retries unresolved resume and drains current cue",
+        "mute is respected; explicit unmute recovers without replaying muted cues",
+        "pause does not auto-resume; explicit resume recovers audio",
+        "recording suppression stays silent and recovers on later input",
+        "visibility return alone stays silent; next input resumes without stale cues",
+        "queued cue older than 700ms is discarded after recovery",
+        "late completion of old request cannot consume new pending queue",
+        "rejected resume clears old cue and later real input recovers",
+        "running context is not resumed repeatedly; six UI effects finite; no BGM"
+      ],
+      "limits": "Web Audio lifecycle and scheduling model; no actual iPhone/WKWebView or physical audibility test."
+    },
+    "scope": {
+      "result": "PASS",
+      "exactPatchAssembly": true,
+      "allImagePayloadsUnchanged": true,
+      "sourceSha256": "71e1597e6ffd98ca8ba090a24e07a3fed40c328dea04d07691bf75b90819597f"
+    },
+    "versions": {
+      "result": "PASS",
+      "checks": [
+        "new host rejects old guest",
+        "old host rejects new guest"
+      ],
+      "oldRevision": "e6aa602d09052f038194ec0f473eb2f40a1d7f6da718fb01ea182e47fb430adb",
+      "newRevision": "0a15770f4cf1bfee18b8074e5b84f9b2cc5e75a6eeffc9296a2c86ebc1f481e2"
+    },
+    "countdownPresentation": {
+      "result": "PASS",
+      "checks": [
+        "existing two-second lead holds 3/2/1; opening aligns exactly with replayStartAt; no simulation hold or commit",
+        "eight renderers display identical stage from identical shared host time",
+        "late replay joins current stage without replaying missed numbers; backwards clock correction cannot duplicate cues",
+        "midbattle reconnect does not restart countdown or horn",
+        "hidden screen, menu, units, home, recording and unready battlefield never show or sound countdown",
+        "blur stays hidden until focus, and focus does not re-cue; backgrounded sequence expires without late opening",
+        "room exit clears the shared overlay before solo play",
+        "result clears countdown and next round gets one new sequence",
+        "notice and all obsolete DOM references removed"
+      ]
+    },
+    "sharedClock": {
+      "result": "PASS",
+      "checks": [
+        "eight actual protocol sessions with device-clock offsets from -200s to +900s agree on all countdown stages",
+        "original replayStartAt remains exactly now + 2000ms",
+        "all clients stay at replay tick zero before the shared start",
+        "all clients progress with the same canonical replay tick after the start",
+        "existing seat reconnect during countdown joins current number",
+        "midbattle reconnect resumes replay without fresh countdown",
+        "replay transfer, shared clock, environment, Money and matchup history remain byte-identical"
+      ],
+      "samples": [
+        {
+          "offset": -1291,
+          "index": null,
+          "tick": 0
+        },
+        {
+          "offset": -1290,
+          "index": 0,
+          "tick": 0
+        },
+        {
+          "offset": -860,
+          "index": 1,
+          "tick": 0
+        },
+        {
+          "offset": -430,
+          "index": 2,
+          "tick": 0
+        },
+        {
+          "offset": 0,
+          "index": 3,
+          "tick": 0
+        },
+        {
+          "offset": 229,
+          "index": 3,
+          "tick": 13
+        },
+        {
+          "offset": 230,
+          "index": null,
+          "tick": 13
+        },
+        {
+          "offset": 500,
+          "index": null,
+          "tick": 30
+        }
+      ],
+      "limits": [
+        "In-memory wire delivery, not physical GRAVITY transport.",
+        "Late replay delivery can only show remaining countdown stages; it never delays the canonical battle."
+      ]
+    }
+  },
+  "browser": {
+    "status": "pending",
+    "note": "Verify the final candidate before promotion."
+  },
+  "limits": [
+    "No native GRAVITY multi-device transport, iPhone audio or external leaderboard receipt verified.",
+    "Earlier fifteen-round candidate remains an archived test release and is not promoted."
+  ]
+}

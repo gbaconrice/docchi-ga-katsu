@@ -1,0 +1,35 @@
+{
+  "format": "docchi-original-procedural-combat-v1",
+  "method": "Original deterministic procedural sound synthesis from readable JavaScript. No new recorded or downloaded samples.",
+  "sourceFile": "combat-audio-bank.js",
+  "sourceSHA256": "4e757d01a7ad41505c5674e3490e0f2b5e0bab2d4b96cfcbcbf3a97ab169593a",
+  "thirdPartyAudioSources": [],
+  "rightsNote": "Original code prepared for this game. No new third-party audio license is required. Existing baseline audio and its license notices remain unchanged. This statement does not dedicate the user’s work to a public license.",
+  "subjectiveListeningApproval": false,
+  "families": [
+    "blade",
+    "blunt",
+    "claw",
+    "stone",
+    "ice",
+    "thunder",
+    "fire",
+    "blast",
+    "magic",
+    "release",
+    "magicRelease"
+  ],
+  "variantsPerFamily": 3,
+  "openingCue": {
+    "name": "F-direction drum and bronze",
+    "origin": "Original deterministic procedural synthesis prepared for this game; not a third-party recording",
+    "runtime": "Embedded signed-16 PCM decoded synchronously once and cached",
+    "sampleRate": 48000,
+    "samples": 50400,
+    "durationSeconds": 1.05,
+    "pcmSha256": "805ece08234f147e1931794f54ea48e3cc4b78956060ef7db4d8835c490c0706",
+    "level": "Audition gain removed; existing master bus attenuation compensated exactly once",
+    "unchanged": "3/2/1 and the five non-opening UI cues preserve their PCM, parameters and timing",
+    "physicalDeviceListeningVerified": false
+  }
+}
