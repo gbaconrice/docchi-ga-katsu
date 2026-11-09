@@ -1,0 +1,45 @@
+{
+  "baselineCommit": "a42af2f8e323c5c2ba05a07e9c53ada79a421e0c",
+  "sourceSha256": "ed3424d9577bde194ac8cfe6cd9423a30336a0483b6d2b3d6de81ff4f8a25b40",
+  "contentRevision": "d8a803ca2f4e03a9423830d16bf81963bb732e3a5eafb26365d375b9d8bd99d3",
+  "requestedChanges": [
+    "fixed 15-round multiplayer and ordinary percentage bets throughout",
+    "zero-G participants keep playing; correct-prediction balance floors 10/30/100G",
+    "shared five-second result display including final result before standings",
+    "ten summons per summoner with preserved team and lifetime caps",
+    "shared-host-clock multiplayer 3/2/1/opening on the battlefield",
+    "participant gold remains visible at zero and after completion",
+    "two redundant sentences removed",
+    "F-direction opening sound only; original 3/2/1 retained"
+  ],
+  "automated": {
+    "sourceSyntax": "PASS (5 inline scripts)",
+    "sourceScope": "PASS (104 exact approved replacements plus sealed baseline)",
+    "feedbackChecks": 18,
+    "countdownLifecycleChecks": 9,
+    "sharedClockAndReconnectChecks": 7,
+    "soloClockChecks": 3,
+    "multiplayerFifteenChecks": 10,
+    "realProtocolClients": 8,
+    "realLedgerRecoveryCases": 60,
+    "headerAndLobbyChecks": 6,
+    "summonerContractChecks": 12,
+    "summonerReplayChecks": 4,
+    "summonerSimulationRuns": 170,
+    "openingAudioChecks": 7,
+    "audioLifecycleChecks": 10,
+    "audioBurstIterations": 1000,
+    "championTransportChecks": 5,
+    "mixedVersionRejectionChecks": 2,
+    "packagingRoundtrip": "PASS",
+    "unchangedImageAssets": 698
+  },
+  "browser": "Pending preview verification",
+  "notVerified": [
+    "Physical iPhone Safari",
+    "Native GRAVITY application",
+    "Physical multi-device transport",
+    "Physical-device audio output",
+    "External leaderboard acceptance receipt"
+  ]
+}
