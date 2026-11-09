@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "checks": [
+    "script parse",
+    "all-finished gate",
+    "shared ranks",
+    "0G included",
+    "departed retained",
+    "spectators excluded",
+    "exact 600-digit gold",
+    "profile fallback",
+    "unsafe avatar rejected",
+    "no state mutation",
+    "actual 12-round wallet/protocol with overtime bankruptcy",
+    "lobby transition",
+    "all-decision-timeout final",
+    "external score once only",
+    "accounting/SDK/protocol byte unchanged"
+  ],
+  "limits": "Local code/protocol tests. Real GRAVITY multiplayer not tested."
+}

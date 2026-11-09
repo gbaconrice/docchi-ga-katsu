@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "input": "/workspace/scratch/0aca2c1c1edc/multiplayer-release-20261109/source/index.html",
+  "sourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "checks": [
+    "host and guest both render same 60s despite guest local clock +9s",
+    "shared deadline updates to 40s without resetting on render",
+    "host selection alone is not confirmation; explicit press confirms and waits for guest",
+    "guest uses same confirm action; pending receipt disables duplicate press; all ready closes automatically",
+    "60s timeout closes unconfirmed session",
+    "deadline boundary, unknown clock, cashed-out exclusion and spectator disabled controls",
+    "integrated HTML contains countdown markup and visually verified high-contrast styling"
+  ],
+  "limits": [
+    "Protocol/wallet tests and direct DOM-control tests; no real Gravity multiple-device verification.",
+    "Visual layout verification is tracked separately."
+  ]
+}

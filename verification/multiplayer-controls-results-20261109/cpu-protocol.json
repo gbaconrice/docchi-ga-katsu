@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "checks": [
+    "one human + seven CPUs / ninth seat rejected",
+    "selection preview is not confirmation",
+    "last human confirmation closes prediction",
+    "canonical replay delivered and acknowledged by all CPUs",
+    "CPU emotes use real scoped reaction wires",
+    "CPU cannot join ranked seat mid-run",
+    "60 second timeout / selection-only CPUs have no bet or balance loss",
+    "10th round: one CPU and human cashout while other CPUs continue",
+    "11th round: finished participants do not block continuation",
+    "last continuing CPU cashout returns to lobby with all final balances retained"
+  ],
+  "final": [
+    {
+      "playerId": "test-player",
+      "balance": 100,
+      "cashoutRound": 10
+    },
+    {
+      "playerId": "cpu-1",
+      "balance": 100,
+      "cashoutRound": 10
+    },
+    {
+      "playerId": "cpu-2",
+      "balance": 100,
+      "cashoutRound": 11
+    },
+    {
+      "playerId": "cpu-3",
+      "balance": 100,
+      "cashoutRound": 12
+    }
+  ],
+  "limits": [
+    "Local real protocol + wallet tests only; no real Gravity transport, native identity, or ranking submission tested."
+  ]
+}

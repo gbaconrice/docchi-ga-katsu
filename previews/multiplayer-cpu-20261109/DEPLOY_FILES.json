@@ -1,0 +1,29 @@
+{
+  "testOnly": true,
+  "minimumBrowserFiles": [
+    "index.html",
+    "game.html",
+    "cpu-room.js",
+    "test-harness.js",
+    "baseline/host-layout.0b679d98d044de1154e4.js",
+    "baseline/game-shell.c1c759793438063a06ad.js",
+    "baseline/boot-errors.fbbf182df287955b44f1.js",
+    "baseline/viewport.7055196e99d934e94664.js",
+    "baseline/game-runtime.feccee92eef40156f487.js",
+    "baseline/home-ambience.ab12f93860a364240609.js",
+    "baseline/game.1ee05625a5bc74a7c02e.css"
+  ],
+  "excludeFromBrowserBundle": [
+    "baseline/game-runtime.897ba96133ae7768f5d6.js",
+    "baseline/game-shell.814db17924bc1fadde9c.js",
+    "baseline/game.65726794bf2bab46ae45.css",
+    "baseline/manifest.json"
+  ],
+  "optionalAuditFiles": [
+    "BASELINE.json",
+    "README.md",
+    "evidence/protocol-results.json",
+    "evidence/isolation-results.json"
+  ],
+  "note": "Publish under a test-only path, never production entry. Baseline manifest, scripts and tests may be retained in Git for reproducibility but are not needed by browser."
+}

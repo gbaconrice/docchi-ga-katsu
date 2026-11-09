@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "environment": "Final integrated source + test-only 2-session queue transport in Cloud Chromium, 390 x 844 iframe",
+  "viewport": "390 x 844 iframe",
+  "observed": [
+    "Host shows 残り60秒 / 確定0/2, 予想を確定 disabled before side selection.",
+    "Select side enables 予想を確定; explicit click changes to 確定済み / 確定1/2.",
+    "Host remains predict while waiting for guest, no automatic commitment on side selection.",
+    "20-second step shows 残り40秒 after host clock synchronization.",
+    "Guest also shows same countdown and explicit 予想を確定; explicit click changes to 確定済み / 確定1/2.",
+    "Other participant confirmation moves actual protocol into locked on both host and guest runs.",
+    "Fresh unconfirmed guest run closes into locked at shared 60s deadline.",
+    "Returning to solo hides multiplayer countdown/progress and restores 対戦開始.",
+    "Final integrated pale-gold countdown and ready count remain readable against brown footer; final-results patch causes no visible change to confirm controls."
+  ],
+  "limitations": [
+    "Not a real GRAVITY room; transport and profile are simulated.",
+    "Native iOS touch behavior and real device network have not been tested.",
+    "Test harness stops at locked rather than recording/playing full battle.",
+    "Screenshots inspected through browser output, not persisted as screenshot files."
+  ],
+  "input": "multiplayer-release-20261109/source/index.html",
+  "sourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237"
+}
