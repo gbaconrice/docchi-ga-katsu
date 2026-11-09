@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "allNonAudioSourceExactlyMatchesVisualCandidate": true,
+  "galleryVisualFilesExact": true,
+  "videoAudioTracks": 0
+}

@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "items": 127,
+  "categories": {
+    "effect": 60,
+    "status": 18,
+    "projectile": 26,
+    "audio": 23
+  },
+  "mediaFiles": 104,
+  "mediaBytes": 45561416,
+  "manifestSHA256": "14b2840a42e5166f40607b7591ed8eee16f8a82780a080ee1933efc3902ae2da",
+  "nativeAudioRenderer": {
+    "file": "native-combat-audio.js",
+    "sha256": "c059f757c79c595e3b772ca2ca78809baeaf2c6f7b0aeba64741a65ac407f50e",
+    "bytes": 680262
+  },
+  "allMediaBytesVerified": true,
+  "containsPrivateReferenceImages": false,
+  "unpublished": true
+}

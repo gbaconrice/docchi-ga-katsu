@@ -1,0 +1,70 @@
+{
+  "tests": "PASS",
+  "sameTickBurst": [
+    {
+      "kind": "blade",
+      "lane": "impact",
+      "time": 1
+    },
+    {
+      "kind": "frost",
+      "lane": "status",
+      "time": 1
+    },
+    {
+      "kind": "blade",
+      "lane": "impact",
+      "time": 1.13
+    },
+    {
+      "kind": "arrow",
+      "lane": "release",
+      "time": 1.13
+    },
+    {
+      "kind": "blade",
+      "lane": "impact",
+      "time": 1.26
+    },
+    {
+      "kind": "arrow",
+      "lane": "release",
+      "time": 1.26
+    },
+    {
+      "kind": "blade",
+      "lane": "impact",
+      "time": 1.3900000000000001
+    },
+    {
+      "kind": "arrow",
+      "lane": "release",
+      "time": 1.3900000000000001
+    },
+    {
+      "kind": "blade",
+      "lane": "impact",
+      "time": 1.52
+    },
+    {
+      "kind": "arrow",
+      "lane": "release",
+      "time": 1.52
+    }
+  ],
+  "maxVoices": 6,
+  "maxNodes": 27,
+  "checks": [
+    "script parse",
+    "contact priority",
+    "three original procedural variants",
+    "tick/battle dedupe",
+    "zero/poison exclusion",
+    "mute/pause/suppression",
+    "1000-batch burst caps",
+    "voice/node cleanup",
+    "windup dedupe",
+    "input immutability"
+  ],
+  "auditoryReview": "Not performed: this runtime cannot hear audio"
+}

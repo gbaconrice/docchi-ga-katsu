@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "runtimeSHA256": "25e4380abd17bbe09900484852d7bae15ef90809c7f25b09e453e8fff20007bc",
+  "timing": [
+    {
+      "delay": 0,
+      "sourceStart": 1.008,
+      "sourceEnd": 1.408,
+      "gainTaperEnd": 1.408
+    },
+    {
+      "delay": 0.05,
+      "sourceStart": 1.058,
+      "sourceEnd": 1.4580000000000002,
+      "gainTaperEnd": 1.4580000000000002
+    },
+    {
+      "delay": 0.15,
+      "sourceStart": 1.158,
+      "sourceEnd": 1.5579999999999998,
+      "gainTaperEnd": 1.5579999999999998
+    }
+  ],
+  "stress": [
+    {
+      "kind": "windup",
+      "played": true,
+      "nodes": 19,
+      "voices": 1
+    },
+    {
+      "kind": "windup",
+      "played": true,
+      "nodes": 29,
+      "voices": 2
+    },
+    {
+      "kind": "windup",
+      "played": true,
+      "nodes": 39,
+      "voices": 3
+    },
+    {
+      "kind": "heal",
+      "played": true,
+      "nodes": 46,
+      "voices": 4
+    },
+    {
+      "kind": "blade",
+      "played": true,
+      "nodes": 48,
+      "voices": 5
+    },
+    {
+      "kind": "blade",
+      "played": false,
+      "nodes": 48,
+      "voices": 5
+    }
+  ],
+  "cleanup": true,
+  "scope": "Structural VM regressions, not browser or listening QA"
+}

@@ -1,0 +1,43 @@
+{
+  "state": "unpublished_local_candidate",
+  "sourceSHA256": "7d9a28e118a2bd0312469d23993cf83e47e28532f4387aecbb8a98375fc3924f",
+  "contentRevision": "997b48b0642d95e67c804645fff1fedeef5b8163ceb3395c042df62465147029",
+  "newAudioBankSHA256": "4e757d01a7ad41505c5674e3490e0f2b5e0bab2d4b96cfcbcbf3a97ab169593a",
+  "stages": [
+    {
+      "id": "major",
+      "module": "inputs/tools/patch-major-effect-art.py",
+      "outputSHA256": "63a0de66bf9d7bd4b67ea80b7eee4d065b0ea590a3f1ad8e0e16f89c168f6d89"
+    },
+    {
+      "id": "geometry",
+      "module": "inputs/tools/patch-geometry-effect-art.py",
+      "outputSHA256": "40bba345d42a59bfe98c1745577ad3297329fe88625cbc06fb047deebf0d0d20"
+    },
+    {
+      "id": "utility",
+      "module": "inputs/tools/patch-utility-effect-art.py",
+      "outputSHA256": "92baa466b6f90d724394cbe4e45db0d7122ad072f5e0169e2c13f0dbdff6933d"
+    },
+    {
+      "id": "status",
+      "module": "inputs/tools/patch-status-projectile-art.py",
+      "outputSHA256": "f04224f5fd6504778c65bb722056148290cb2e392934daa03a5ddd39abf6831f"
+    },
+    {
+      "id": "audio",
+      "module": "inputs/tools/patch-combat-audio.py",
+      "outputSHA256": "d9ebdd00482ac062800077f92be2ea35f89c9b425e80912ddb394594541db170"
+    },
+    {
+      "id": "anchors",
+      "module": "anchor/patch-effect-display-anchors.py",
+      "outputSHA256": "c57d815bff262d3be5d70c5e63331c4ab153bff29b1dd76fd98e2e0283ae0e4f"
+    }
+  ],
+  "allStageInversesExact": true,
+  "oldBaselineExactlyRestored": true,
+  "visualComparisonFilesPreserved": true,
+  "galleryCards": 127,
+  "addedRecordedAudioSamples": 0
+}
