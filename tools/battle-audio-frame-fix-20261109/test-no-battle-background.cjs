@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),assert=require('assert');
-const {load}=require('../../original-combat-audio-20261109/verification/test-integrated-audio.cjs');
+const {load}=require('./test-integrated-audio.cjs');
 const before=fs.readFileSync(process.argv[2],'utf8'),after=fs.readFileSync(process.argv[3],'utf8');
 function battle(html){const f=load(html);f.api.unlockFromGesture({isTrusted:true});f.api.beginBattle('quiet');f.context.advance(2);return f;}
 const old=battle(before),f=battle(after);
