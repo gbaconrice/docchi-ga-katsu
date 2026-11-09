@@ -162,13 +162,17 @@
 #app #gameScreen > .fun-tug[hidden],
 #app #gameScreen #comparison .fun-card-feedback > [hidden] { display:none !important; }
 
-/* Prefer meaningful terrain chunks but let unusually long chunks wrap rather
-   than covering the centered round or wallet in narrow Gravity viewports. */
+/* Wrap only between semantic chunks. Extremely narrow/text-enlarged slots
+   scroll their own full text instead of painting over the round or wallet. */
+#app #gameScreen > #gameTopline #fieldStatus {
+  overflow-x:auto;
+  overflow-y:hidden;
+}
 #fieldStatus .field-chunk {
   display:inline-block;
-  max-width:100%;
-  white-space:normal;
-  overflow-wrap:anywhere;
+  max-width:none;
+  white-space:nowrap;
+  overflow-wrap:normal;
 }
 @media (prefers-reduced-motion:reduce) {
   #app button.fun-pressed { transform:none !important; }

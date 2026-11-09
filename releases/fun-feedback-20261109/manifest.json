@@ -2,8 +2,8 @@
   "format": "docchi-demand-images-v1",
   "releasePath": "releases/fun-feedback-20261109",
   "releaseBase": "https://gbaconrice.github.io/docchi-ga-katsu/releases/fun-feedback-20261109/",
-  "sourceSha256": "3aa045f14cbcb5ae53c091f819e7e881cc3d228d6f1d2fecd1307a6364f1da95",
-  "sourceBytes": 55157605,
+  "sourceSha256": "58a0e98856638a813b817d6f5cf08c310cd250b6845917bc39b0fddfd910ea3e",
+  "sourceBytes": 55157918,
   "scripts": [
     {
       "index": 0,
@@ -29,9 +29,9 @@
     {
       "index": 3,
       "attributes": " id=\"game-runtime\"",
-      "file": "game-runtime.4849b31b05a7bf45be40.js",
-      "originalSha256": "e698b4fa3ecd4a959b1b7799207e92551995898e98179b3bec57b0f93c2ecbbc",
-      "transformedSha256": "4849b31b05a7bf45be401c99e581e6978947d79ed1cb6e5a62afbab330a236bb"
+      "file": "game-runtime.23cdce1e242047b2bb7a.js",
+      "originalSha256": "634097a83b5244c56a5364c0801e38052e601c3648524633981a396e92fef131",
+      "transformedSha256": "23cdce1e242047b2bb7afa2b9bbbe2258432ecd9ec0e889bef65d2f84329fd58"
     },
     {
       "index": 4,
@@ -42,8 +42,8 @@
     }
   ],
   "css": {
-    "file": "game.59d125b8912d1e7ae256.css",
-    "originalSha256": "798b59aeb43ed6dc3b15f0ef0b78a9a7ea9ba32b40de05ed33fbba39e0f709c6"
+    "file": "game.8e32ad1cc3485369a347.css",
+    "originalSha256": "9ba7ce8433bec57d75d23535abb5a820be779151e28cfda45106085c865dc65b"
   },
   "shell": {
     "file": "game-shell.c1c759793438063a06ad.js",
@@ -54,7 +54,7 @@
     "game-shell.c1c759793438063a06ad.js",
     "boot-errors.fbbf182df287955b44f1.js",
     "viewport.7055196e99d934e94664.js",
-    "game-runtime.4849b31b05a7bf45be40.js",
+    "game-runtime.23cdce1e242047b2bb7a.js",
     "home-ambience.1edb4b1ffb94f7b3638d.js"
   ],
   "imageAssets": [
@@ -6418,7 +6418,7 @@
     {
       "file": "GRAVITY_INTEGRATION.md",
       "bytes": 1584,
-      "sha256": "06637140e0dc7c1d4d4b8329c353daf454a959f2e4de7a8c4b65cb63fca4c0d7"
+      "sha256": "783492756e2ec0d995de5a3acf2177aea6a7b95c7ab0abc22e53d0b3dd92bc6c"
     },
     {
       "file": "STATUS_PROJECTILE_PROVENANCE.json",
@@ -6436,9 +6436,9 @@
       "sha256": "fbbf182df287955b44f1b7a246afdad9dac330db096cf9df997971c63a6da6f9"
     },
     {
-      "file": "game-runtime.4849b31b05a7bf45be40.js",
-      "bytes": 6712955,
-      "sha256": "4849b31b05a7bf45be401c99e581e6978947d79ed1cb6e5a62afbab330a236bb"
+      "file": "game-runtime.23cdce1e242047b2bb7a.js",
+      "bytes": 6713183,
+      "sha256": "23cdce1e242047b2bb7afa2b9bbbe2258432ecd9ec0e889bef65d2f84329fd58"
     },
     {
       "file": "game-shell.c1c759793438063a06ad.js",
@@ -6446,14 +6446,14 @@
       "sha256": "c1c759793438063a06ad85930d7925a6c2e61fbc9a0d2a6876210387d751bf41"
     },
     {
-      "file": "game.59d125b8912d1e7ae256.css",
-      "bytes": 150283,
-      "sha256": "59d125b8912d1e7ae2563d04e67f83c341ce585ec7a8bd79c0a0236e60388a42"
+      "file": "game.8e32ad1cc3485369a347.css",
+      "bytes": 150368,
+      "sha256": "8e32ad1cc3485369a3470e70aa326fdef81179efcaa7c1fc6b16bee25f7c8c36"
     },
     {
       "file": "gravity-entry.html",
       "bytes": 9033,
-      "sha256": "f6a90e99c7dca8fc791409b8537721c1841834397dbae0f8fa720f8298fdf90b"
+      "sha256": "e3e6a9bec1dddf4c695d61b50afe671c91385506ec67deb556a82603e5a7e67f"
     },
     {
       "file": "home-ambience.1edb4b1ffb94f7b3638d.js",
@@ -6468,7 +6468,7 @@
     {
       "file": "index.html",
       "bytes": 8962,
-      "sha256": "39cdacd96f59666a0dc9a45c455906339554cc18ecd230c53da1b78dd9d91f07"
+      "sha256": "5a32c1ada15183a3426dc0cc0fab42c8c4d8d0e694bf4845fad8e93a7682939e"
     },
     {
       "file": "licenses/Duelyst-CC0-1.0.txt",
@@ -6496,6 +6496,6 @@
       "sha256": "7055196e99d934e946640720724212096290e06bc6dbe078e2b5ff12a360cabf"
     }
   ],
-  "initialScriptBytes": 6750266,
-  "initialEntryAndCssBytes": 159276
+  "initialScriptBytes": 6750494,
+  "initialEntryAndCssBytes": 159361
 }

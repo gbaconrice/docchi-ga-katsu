@@ -10215,7 +10215,8 @@ function funFieldChunks(text){
  for(let i=0;i<value.length;i++){
   const after=value.slice(i,i+2)==='· '?i+2:value[i]==='に'?i+1:0;
   if(after){if(after>start)parts.push(value.slice(start,after));start=after;i=after-1;continue;}
-  if(i>start&&(value.slice(i,i+2)==='追加'||value.slice(i,i+5)==='ダメージ/')){parts.push(value.slice(start,i));start=i;}
+  const numberStart=/^[+−-]?\d/.test(value.slice(i))&&!/[0-9.+−-]/.test(value[i-1]||'');
+  if(i>start&&(value.slice(i,i+2)==='追加'||value.slice(i,i+5)==='ダメージ/'||numberStart)){parts.push(value.slice(start,i));start=i;}
  }
  if(start<value.length)parts.push(value.slice(start));return parts.filter(Boolean);
 }
@@ -10322,7 +10323,8 @@ const FunFeedback=(()=>{
   const element=ensureGauge();if(!element)return;
   const current=identity(),key=String(current.session)+':'+current.round;
   if(key!==gaugeKey){gaugeKey=key;health.clear();shown=.5;}
-  const visible=screenMode==='game'&&(state==='fight'||state==='result')&&!q('#battle')?.hidden&&!multiRecording;
+  // The existing absolute asset-recovery notice owns this lane until dismissed.
+  const visible=screenMode==='game'&&(state==='fight'||state==='result')&&!q('#battle')?.hidden&&!multiRecording&&q('#assetNoticeBattle')?.hidden!==false;
   if(!visible){showGauge(element,false);shown=.5;return;}
   const target=sideShare();if(target===null){showGauge(element,false);return;}showGauge(element,true);shown+=reduced()?target-shown:(target-shown)*.18;
   element.style.setProperty('--tug',Math.max(0,Math.min(100,shown*100)).toFixed(2)+'%');
