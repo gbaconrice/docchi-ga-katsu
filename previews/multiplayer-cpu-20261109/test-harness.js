@@ -11,6 +11,9 @@ function makeRoom(count=3,options={}){
  if(busy)throw Error('テストルームを準備中です');if(!Number.isInteger(count)||count<1||count>7)throw Error('CPUは1～7人です');busy=true;
  try{
   cancelReplayJob();const old=room;multiSession=null;multiAdapter=null;mockGuest=null;mockQueue=[];old?.close();
+  // The shared HUD uses the normal screen wallet as its initialization guard.
+  // Match the production multiplayer entrance before creating the local room.
+  if(!walletState)freshWallet();
   multiUser='test-player';multiHost=true;multiError='';multiRoundSeen=null;multiPlayback=null;multiReplay=null;multiShownWallets=null;multiLastPump=0;multiHeartbeat=0;multiAutoAdvanceRound=null;lastScreenPhase=null;
   pendingOwnCashoutPost=null;pendingCarryKinds=null;pendingCarryOutcome=null;carryStreak=0;previousArmyKinds=[];initialKinds=[[],[]];initialUnits=[];openingPlan=null;units=[];shots=[];elapsed=0;choice=null;winner=null;battleEnvironment=null;round=1;state='choose';
   reactionChannel?.close();reactionChannel=null;reactionSessionKey=null;reactionOpen=false;

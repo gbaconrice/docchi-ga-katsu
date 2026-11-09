@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "baseCommit": "580e1e3911d3390c1875850b6d65f057bd0e770c",
+  "sourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "unchangedEmbeddedAssets": true,
+  "battleAmbientStillRemoved": true,
+  "hitFrameStillTransparent": true,
+  "testCpuExcludedFromProduction": true
+}

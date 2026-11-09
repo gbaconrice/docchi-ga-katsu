@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": [
+    "production HUD guard reproduced from release",
+    "CPU entrance initializes screen wallet before room callbacks",
+    "first-round terrain label and field attribute are updated",
+    "actual environment preserved across host and all CPU snapshots",
+    "recreating room preserves initialized screen wallet"
+  ],
+  "firstRoundField": "crosswind_ridge"
+}

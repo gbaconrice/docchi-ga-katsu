@@ -43,6 +43,8 @@ node multiplayer-cpu-test-20261109/tests/protocol.test.cjs
 
 `evidence/isolation-results.json`: 統合版との一致、本番へのCPUコード混入なし、外部ランキング・SDK接続・送信再試行の遮断、テスト入口制約の6項目PASS。実行コマンドは `node multiplayer-cpu-test-20261109/tests/isolation.test.cjs PATH_TO_INTEGRATED_RELEASE`。
 
+`evidence/hud-environment-results.json`: テストルーム入口の画面初期化を本番と揃え、共用HUDが初戦から地形を表示すること、CPU全員に同じ地形データが届くことなど5項目PASS。実行コマンドは `node multiplayer-cpu-test-20261109/tests/hud-environment.test.cjs`。初期版の「地図未定」はこの画面初期化漏れによる表示問題で、地形データの欠落ではありませんでした。
+
 2026-11-09のブラウザ手動確認: ロビー作成、CPU追加、5人の予想・確定、CPUエモート、実際の戦闘再生、結果表示、次戦への移行、部屋の作り直し、8人の参加者表示を確認。ゲーム由来のコンソールエラーは観測せず。GRAVITY実接続の検証ではありません。
 
 `tests/browser.test.cjs`は開発環境向けの自動テスト草案です。この実行環境はChromium起動がsocket制約で失敗するため、自動テストの合格は未確認です。上記の確認には別の利用可能なブラウザを使用しました。

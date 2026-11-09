@@ -1,0 +1,18 @@
+{
+  "sourceSha256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "surface": "Native cloud Chrome, local isolated CPU preview",
+  "verified": [
+    "4-player lobby",
+    "terrain sand and healing modifier shown",
+    "starting balance100 and25G stake hint consistent",
+    "60-second shared countdown visibly55 seconds after side selection",
+    "side selection did not confirm, CPU3/4 ready",
+    "explicit confirmation started actual battle",
+    "no game-script or asset errors in observed logs"
+  ],
+  "limitations": [
+    "No real GRAVITY identities or transport",
+    "No real leaderboard submission",
+    "Actual end-to-end12-round browser run not performed; protocol tests and final ranking component separately passed"
+  ]
+}
