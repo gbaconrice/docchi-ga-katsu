@@ -4,6 +4,7 @@
   "checks": [
     "test baseline matches integrated production release byte-for-byte",
     "test entry loads production baseline first and test hooks last",
+    "CPU scripts and game iframe use matching content-hash revisions",
     "production entry and referenced runtime contain no test CPU code",
     "native SDK connection, cashout, bankruptcy, timeout and score retry are blocked",
     "only same-origin ready message posted; native join inputs disabled",

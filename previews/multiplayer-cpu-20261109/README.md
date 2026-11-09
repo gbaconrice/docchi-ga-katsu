@@ -41,7 +41,7 @@ node multiplayer-cpu-test-20261109/tests/protocol.test.cjs
 
 `evidence/protocol-results.json`: 10項目PASS。8人上限、確定待ち、60秒時間切れ、リプレイACK、エモート、10～12戦の終了・続行、全員終了後のロビー復帰と最終残高保持。
 
-`evidence/isolation-results.json`: 統合版との一致、本番へのCPUコード混入なし、外部ランキング・SDK接続・送信再試行の遮断、テスト入口制約の6項目PASS。実行コマンドは `node multiplayer-cpu-test-20261109/tests/isolation.test.cjs PATH_TO_INTEGRATED_RELEASE`。
+`evidence/isolation-results.json`: 統合版との一致、内容ハッシュ付き参照、本番へのCPUコード混入なし、外部ランキング・SDK接続・送信再試行の遮断、テスト入口制約の7項目PASS。実行コマンドは `node multiplayer-cpu-test-20261109/tests/isolation.test.cjs PATH_TO_INTEGRATED_RELEASE`。
 
 `evidence/hud-environment-results.json`: テストルーム入口の画面初期化を本番と揃え、共用HUDが初戦から地形を表示すること、CPU全員に同じ地形データが届くことなど5項目PASS。実行コマンドは `node multiplayer-cpu-test-20261109/tests/hud-environment.test.cjs`。初期版の「地図未定」はこの画面初期化漏れによる表示問題で、地形データの欠落ではありませんでした。
 
@@ -54,3 +54,5 @@ node multiplayer-cpu-test-20261109/tests/protocol.test.cjs
 テスト版を公開する場合も本番と別のパス・入口に置いてください。本番のmanifestからcpu-room.jsやtest-harness.jsを参照しないこと。仮CPUの結果を本番ランキングへ送らないこと。
 
 `DEPLOY_FILES.json`にブラウザ配信に必要な11ファイルと、不要な旧baselineファイルを記録しています。baseline更新後はこの一覧も作り直してください。検証用のmanifestやtestsはGitで保持できますが、ブラウザ実行には不要です。
+
+`refresh-baseline.py`はCPUスクリプトとgame.htmlの参照に内容ハッシュを付けます。CPUスクリプトを修正した後も再生成してください。公開入口のindex.html自体が古くキャッシュされている場合は、新しい入口URLにも版を付けて配布します。
