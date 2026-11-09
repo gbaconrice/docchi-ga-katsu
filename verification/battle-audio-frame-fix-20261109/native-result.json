@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "method": "Native Chromium OfflineAudioContext, actual production audio factories",
+  "before": {
+    "quiet": {
+      "rms": 0.0043798273731243285,
+      "peak": 0.008044769056141376
+    },
+    "impact": {
+      "rms": 0.0060712550542430885,
+      "peak": 0.0369083434343338
+    },
+    "tail": {
+      "rms": 0.004511613767283599,
+      "peak": 0.008955779485404491
+    }
+  },
+  "after": {
+    "quiet": {
+      "rms": 0,
+      "peak": 0
+    },
+    "impact": {
+      "rms": 0.0040725825820363,
+      "peak": 0.03590548783540726
+    },
+    "tail": {
+      "rms": 0,
+      "peak": 0
+    }
+  },
+  "subjectiveHearingEvaluation": false
+}

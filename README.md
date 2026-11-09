@@ -1,5 +1,9 @@
 # どっちが勝つ？
 
+Current release: [battle audio and result frame fix](https://gbaconrice.github.io/docchi-ga-katsu/releases/battle-audio-frame-fix-20261109/gravity-entry.html)
+
+# どっちが勝つ？
+
 ## 新しい戦闘エフェクトと効果音
 
 `original-combat-audio-20261109` の内容と確認方法です。以下は配信先として使うURLです。公開済みかどうかはPagesの実行結果と実際の配信内容で確認してください。

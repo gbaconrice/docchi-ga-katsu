@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "beforeContinuousHz": [
+    55,
+    82.41,
+    110
+  ],
+  "afterContinuousSources": 0,
+  "afterIdleNodes": 1,
+  "noNewSourcesDuring30Seconds": true,
+  "finiteEffectsPreserved": [
+    "attack",
+    "heal",
+    "explosion",
+    "chain"
+  ],
+  "lifecycleRestartsRemainQuiet": true,
+  "effectFunctionsUnchanged": [
+    "startVoice",
+    "endVoice",
+    "stopVoice",
+    "attachSource",
+    "addTone",
+    "addNoise",
+    "playCue",
+    "playSelection",
+    "playInterface",
+    "ingestCombatEvents",
+    "ingestReplayEffects"
+  ],
+  "embeddedAssetsUnchanged": true,
+  "scope": "audio-only comparison",
+  "limits": "Structural Web Audio doubles, not a subjective or physical-device hearing test."
+}

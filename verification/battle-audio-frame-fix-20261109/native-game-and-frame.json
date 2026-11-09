@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "method": "Native Chromium UI",
+  "game": [
+    "home",
+    "solo selection",
+    "battle",
+    "result after 19 seconds"
+  ],
+  "frameFixture": {
+    "before": {
+      "background": "rgb(243, 226, 189)",
+      "border": "rgb(167, 133, 85)",
+      "width": 400,
+      "height": 24.1875
+    },
+    "after": {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgba(0, 0, 0, 0)",
+      "width": 400,
+      "height": 24.1875
+    },
+    "text": "的中：うしみ"
+  },
+  "limitations": [
+    "Frame visual test used isolated production CSS fixture, not live Gravity multiplayer.",
+    "Physical iOS, real Gravity multiplayer and subjective audio quality not tested."
+  ]
+}
