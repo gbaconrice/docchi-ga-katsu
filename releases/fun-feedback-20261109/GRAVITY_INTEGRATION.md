@@ -1,25 +1,15 @@
-# GRAVITY integration
+# GRAVITY feedback integration candidate
 
-Use the complete fixed release at:
+Entry after publication: https://gbaconrice.github.io/docchi-ga-katsu/releases/fun-feedback-20261109/gravity-entry.html
 
-https://gbaconrice.github.io/docchi-ga-katsu/releases/original-combat-audio-20261109/gravity-entry.html
+This candidate rebases every PR #4 feedback feature onto gravity-spacing-20261109. Keep the release manifest, load order and existing shared image URLs. Do not recreate the game or add an iframe. Root entries are not switched by this candidate commit.
 
-Load its JavaScript, CSS and assets in the order and at the paths specified by the release's `manifest.json`. Preserve references to reused assets in earlier fixed releases. Do not combine files from different versions, wrap the game in an iframe, or reimplement it. Every player in the room must use the same content revision.
+The gauge has its own normal-flow row above the field; crown and prediction stamp have a reserved card row below the art/pick lane. Solo ceremony jobs are cancellable and bound to the current session, round, side and stake. Multiplayer confirmation remains immediate.
 
-The root aliases are `index.html` and `GRAVITY_EXTERNAL_ENTRY.html` at https://gbaconrice.github.io/docchi-ga-katsu/. Update these aliases only after the fixed release is deployed and its served contents are verified. These paths describe the intended deployment; this document alone does not confirm publication.
+The simulation, RNG, wallet, replay and protocol implementation remain unchanged. Matchup snapshots gain optional presentationChampion metadata for guest display only. Missing or invalid metadata hides the crown, with no gameplay effect. Six synthesized UI cues use the existing audio engine and mute/unlock/voice limits.
 
-This release updates combat effects, status/projectile presentation and moon/ice-breath display anchors. Combat contact sounds use original readable procedural JavaScript synthesis, with 11 families and 3 variants per family, and no added recorded samples. Contact audio takes priority under the voice limit. Playback scheduling uses the audio clock after cold buffer generation.
+All 698 current image assets and their URLs are preserved, including the Gravity home extension. Existing tall viewport, inverse tap coordinates and native host clearance remain intact.
 
-Preserve original character image bytes, the fixed-body home GIF, baseline background/UI audio, gameplay rules, hit detection, damage and progression. Preserve existing SDK invitation and profile behavior, room joining/waiting/leaving, results, multiplayer synchronization constraints, and score eligibility/submission. Do not present unsupported SDK or multiplayer behavior as working.
+Source SHA-256: 3aa045f14cbcb5ae53c091f819e7e881cc3d228d6f1d2fecd1307a6364f1da95
 
-Source SHA-256: `7d9a28e118a2bd0312469d23993cf83e47e28532f4387aecbb8a98375fc3924f`
-
-Content revision: `997b48b0642d95e67c804645fff1fedeef5b8163ceb3395c042df62465147029`
-
-Comparison: https://gbaconrice.github.io/docchi-ga-katsu/comparisons/original-combat-audio-20261109/
-
-Repository verification reports: `verification/original-combat-audio-20261109/`
-
-Repository reproduction tools: `tools/original-combat-audio-20261109/`
-
-Check loading, mute, overlapping sounds, first playback and screen transitions after integration. Physical GRAVITY multiplayer, actual account profiles, score acceptance/ranking updates, device memory/performance and speaker output require separate live validation. Local and managed-browser tests do not certify those behaviors.
+Reassemble with tools/fun-feedback-20261109/reassemble-demand-source.cjs. See that folder's README for regression tests. Browser results are separate from code/VM verification. Actual iPhone Safari, native GRAVITY profiles/leaderboards and multiple-device native transport are not certified by local tests.

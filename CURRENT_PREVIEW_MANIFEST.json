@@ -1,23 +1,19 @@
 {
-  "release": "releases/multiplayer-controls-results-20261109",
-  "sourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "release": "releases/gravity-spacing-20261109",
+  "sourceSHA256": "1fec6310780fd73198af9accd5892ffdf6a8143988a7b0651830d6d44b66b3cc",
   "contentRevision": "e6aa602d09052f038194ec0f473eb2f40a1d7f6da718fb01ea182e47fb430adb",
-  "baseCommit": "580e1e3911d3390c1875850b6d65f057bd0e770c",
-  "baseSourceSHA256": "4b5bcf1fcf3ee463425b69a4e80e442c1c44376bd2f601d1e9dd92f8187ffcf1",
-  "imageFiles": 697,
+  "baseCommit": "ce64ecd8cff26ca87a2825e88e4c596d64ab720e",
+  "baseSourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "imageFiles": 698,
   "unchangedImageFiles": 697,
-  "newImageFiles": 0,
-  "runtime": "game-runtime.feccee92eef40156f487.js",
-  "runtimeSHA256": "feccee92eef40156f4873b4f967d537273445134c4cfe315b71ed840f1afc586",
-  "css": "game.1ee05625a5bc74a7c02e.css",
-  "verification": "verification/multiplayer-controls-results-20261109/",
-  "reproductionTools": "tools/multiplayer-controls-results-20261109/",
-  "comparison": "comparisons/original-combat-audio-20261109/",
+  "newImageFiles": 1,
+  "runtime": "game-runtime.6d83b6cd94403b2b77f4.js",
+  "runtimeSHA256": "6d83b6cd94403b2b77f4d9e8523c6ab6dface209b3921356f615f2ebc3edeef3",
+  "css": "game.fddf04f39bf47c433ade.css",
   "changes": [
-    "Show shared 60-second prediction countdown and explicit prediction confirmation for host and guests.",
-    "Show final room standings after all original participants finish; preserve ties, zero balances, and departed participants.",
-    "Keep CPU test room isolated from production and block its native SDK and leaderboard submissions.",
-    "Preserve prior battle background removal, frame correction, game rules and normal external score submissions."
+    "Fit the displayed battle canvas to tall Gravity surfaces without changing simulation dimensions or gameplay.",
+    "Correct tall Gravity home composition with one lazy-loaded extension image behind the unchanged original PNG/GIF.",
+    "Preserve native safe areas, controls, audio, shared prediction countdown, standings, protocol, wallet and score behavior."
   ],
   "homeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
   "fixedLampBodies": true,
@@ -27,5 +23,7 @@
     "addedRecordedSamples": 0,
     "bankSHA256": "4e757d01a7ad41505c5674e3490e0f2b5e0bab2d4b96cfcbcbf3a97ab169593a"
   },
-  "deploymentNote": "This manifest identifies release contents; verify Pages deployment and served files separately."
+  "deploymentNote": "This manifest identifies release contents; verify Pages deployment and served files separately.",
+  "nativeGravityVerified": false,
+  "safariVerified": false
 }

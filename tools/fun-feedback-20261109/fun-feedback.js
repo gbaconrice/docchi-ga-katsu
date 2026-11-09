@@ -1,163 +1,160 @@
-/* fun-feedback-20261109: presentation only.
-   Never reads or writes combat, RNG, replay, wallet, settlement or multiplayer wire data.
-   - Tug-of-war gauge of both armies' remaining HP share during the battle.
-   - Champion badge with its win streak on the prediction card.
-   - "Don" on confirm: coins by stake size, then a 予想 seal on the chosen card.
-   - Solo opening countdown (3, 2, 1, 開戦). Multiplayer only gets the horn, never a delay.
-   - Buttons react on touch-down, with a light wooden click. */
-const FunFeedback=(()=>{
- const q=s=>document.querySelector(s);
- const ui=(kind,e)=>audioCall(()=>battleAudio.playUi?.(kind,e));
- const reduced=()=>{try{return !!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;}catch(_){return false;}};
- const later=(fn,ms)=>setTimeout(()=>{try{fn();}catch(_){/* presentation never interrupts play */}},ms);
-
- /* Touch-down reaction and click sound. */
- let pressed=null;
- const release=()=>{if(pressed){pressed.classList.remove('fun-pressed');pressed=null;}};
- const OWN_CUE=new Set(['confirm','red','blue']);
- function onPointerDown(e){
-  const b=e.target?.closest?.('button');
-  if(!b||b.disabled||b.getAttribute('aria-disabled')==='true')return;
-  release();pressed=b;b.classList.add('fun-pressed');
-  if(!OWN_CUE.has(b.id))ui(b.classList.contains('cta-primary')||b.id==='next'?'tapHeavy':'tap',e);
+/* fun-feedback-20261109: bounded presentation state. Combat, wallet and replay
+   stay authoritative. All delayed UI belongs to one session and round. */
+function funChampionMetadata(){
+ const side=openingPlan?.incumbentSide;
+ return Number.isSafeInteger(round)&&round>1&&Number.isSafeInteger(carryStreak)&&carryStreak>=1&&carryStreak<round&&(side===0||side===1)
+  ?{roundId:round,side,streak:carryStreak}:null;
+}
+function funReadChampion(value,roundId){
+ return value&&Number.isSafeInteger(roundId)&&roundId>1&&value.roundId===roundId&&(value.side===0||value.side===1)&&Number.isSafeInteger(value.streak)&&value.streak>=1&&value.streak<roundId
+  ?{side:value.side,streak:value.streak}:null;
+}
+function funFieldChunks(text){
+ // Forward-only scanning works in iOS WebViews without regexp lookbehind.
+ const value=String(text),parts=[];let start=0;
+ for(let i=0;i<value.length;i++){
+  const after=value.slice(i,i+2)==='· '?i+2:value[i]==='に'?i+1:0;
+  if(after){if(after>start)parts.push(value.slice(start,after));start=after;i=after-1;continue;}
+  if(i>start&&(value.slice(i,i+2)==='追加'||value.slice(i,i+5)==='ダメージ/')){parts.push(value.slice(start,i));start=i;}
  }
-
- /* Stake coins and the 予想 seal. */
- const COINS={0:1,10:1,25:2,50:3,75:4,90:4,100:5};
- function sealCard(side){
-  clearSeal();
-  const card=q(side===1?'#blue':'#red');if(!card)return;
-  const seal=document.createElement('span');seal.className='fun-seal';seal.setAttribute('aria-hidden','true');seal.textContent='予想';
-  card.classList.add('fun-sealed');card.appendChild(seal);
- }
- function clearSeal(){
-  for(const card of [q('#red'),q('#blue')]){if(!card)continue;card.classList.remove('fun-sealed');for(const s of [...card.querySelectorAll('.fun-seal')])s.remove();}
- }
- function stakeDon(side,option,e){
-  const n=COINS[option]??2;
-  for(let i=0;i<n;i++)later(()=>ui('coin',e),i*70);
-  later(()=>{ui('stamp',e);sealCard(side);},n*70+40);
-  return n*70+40;
- }
-
- /* Solo countdown overlay. */
- let counting=false;
- function overlay(){
-  let el=q('#funCountdown');
-  if(!el){el=document.createElement('div');el.id='funCountdown';el.className='fun-countdown';el.setAttribute('role','status');el.setAttribute('aria-live','assertive');el.hidden=true;(q('#gameScreen')||document.body).appendChild(el);}
-  return el;
- }
- function showCount(text,final){
-  const el=overlay();el.hidden=false;el.textContent='';
-  const span=document.createElement('span');span.className='fun-count'+(final?' is-final':'')+(reduced()?' is-still':'');span.textContent=text;el.appendChild(span);
- }
- function hideCount(){const el=q('#funCountdown');if(el){el.hidden=true;el.textContent='';}}
- function countdown(start,lead){
-  counting=true;
-  const steps=[['3',false],['2',false],['1',false],['開戦',true]];
-  steps.forEach(([text,final],i)=>later(()=>{showCount(text,final);ui(final?'horn':'count');},lead+i*430));
-  const total=lead+steps.length*430;
-  later(()=>{counting=false;start();},total-200);
-  later(hideCount,total+250);
- }
-
- /* Wrap the final confirm handler; the original handler still does all the work. */
- const confirmButton=q('#confirm'),prevConfirm=confirmButton?.onclick;
- if(confirmButton&&typeof prevConfirm==='function')confirmButton.onclick=function(e){
-  if(counting)return;
-  if(state!=='choose'||selectedSide===null||predictionPreview)return prevConfirm.call(this,e);
-  const side=selectedSide,option=selectedStakeOption;
-  // Only a real tap gets the ceremony. Scripted clicks keep the old, immediate behavior.
-  if(e?.isTrusted!==true)return prevConfirm.call(this,e);
-  audioCall(()=>battleAudio.unlockFromGesture(e));
-  const lead=stakeDon(side,option,e);
-  if(multiSession||document.hidden)return prevConfirm.call(this,e);
-  countdown(()=>{clearSeal();if(state==='choose'&&selectedSide===side)prevConfirm.call(confirmButton,e);},lead+260);
- };
-
- /* Tug-of-war gauge. */
- let gauge=null,shown=0.5;
- function ensureGauge(){
-  if(gauge&&gauge.isConnected)return gauge;
-  const stage=q('#fieldStage');if(!stage)return null;
-  gauge=document.createElement('div');gauge.id='funTug';gauge.className='fun-tug';gauge.hidden=true;gauge.setAttribute('aria-hidden','true');
-  const left=document.createElement('span');left.className='fun-tug-left';
-  const right=document.createElement('span');right.className='fun-tug-right';
-  const knot=document.createElement('i');knot.className='fun-tug-knot';
-  const mine=document.createElement('b');mine.className='fun-tug-mine';
-  gauge.append(left,right,knot,mine);stage.appendChild(gauge);
-  try{gauge.style.setProperty('--tug-left',TEAM_HP_BAR_FILL[0]);gauge.style.setProperty('--tug-right',TEAM_HP_BAR_FILL[1]);}catch(_){}
-  return gauge;
- }
- function sideShare(){
-  const now=[0,0],max=[0,0];
-  for(const u of (Array.isArray(units)?units:[])){
-   if(!u||(u.side!==0&&u.side!==1))continue;
-   const m=Number(bossPresentationMaxHp(u));if(!(m>0))continue;
-   max[u.side]+=m;now[u.side]+=u.dead?0:Math.max(0,Math.min(m,Number(u.hp)||0));
-  }
-  if(!(max[0]>0&&max[1]>0))return null;
-  const a=now[0]/max[0],b=now[1]/max[1];
-  return a+b>0?a/(a+b):0.5;
- }
- function updateGauge(){
-  const g=ensureGauge();if(!g)return;
-  const visible=(state==='fight'||state==='result')&&!q('#battle')?.hidden;
-  if(!visible){g.hidden=true;shown=0.5;return;}
-  const target=sideShare();if(target===null){g.hidden=true;return;}
-  g.hidden=false;
-  shown+=reduced()?(target-shown):(target-shown)*0.18;
-  const pct=Math.max(0,Math.min(100,shown*100));
-  g.style.setProperty('--tug',pct.toFixed(2)+'%');
-  let own=typeof choice==='number'&&(choice===0||choice===1)?choice:null;
-  if(multiSession){const pick=multiSnapshot?.confirmedSides?.find(x=>x.userId===multiUser)?.side;own=pick==='A'?0:pick==='B'?1:null;}
-  g.setAttribute('data-mine',own===null?'none':own===0?'left':'right');
- }
-
- /* Champion badge on the prediction card. */
- let crownKey='';
- function updateCrown(){
-  const champion=state==='choose'&&round>1&&carryStreak>=1&&openingPlan&&[0,1].includes(openingPlan.incumbentSide)?openingPlan.incumbentSide:null;
-  const key=champion===null?'':round+':'+champion+':'+carryStreak;
-  if(key===crownKey)return;crownKey=key;
-  for(const old of document.querySelectorAll('.fun-crown'))old.remove();
-  if(champion===null)return;
-  const card=q(champion===1?'#blue':'#red');if(!card)return;
-  const badge=document.createElement('span');badge.className='fun-crown';badge.setAttribute('aria-label',carryStreak>=2?'王者・'+carryStreak+'連勝中':'王者');
-  badge.textContent=carryStreak>=2?'♛ '+carryStreak+'連勝':'♛ 王者';
-  card.appendChild(badge);
- }
-
- /* Horn when a multiplayer battle starts (solo already had the countdown). */
- let lastState=null;
- function onFrame(){
-  if(lastState==='choose'&&state==='fight'){if(multiSession)ui('horn');clearSeal();}
-  if(state!=='choose'&&lastState==='choose')hideCount();
-  lastState=state;
-  updateGauge();updateCrown();
- }
-
- function install(){
-  if(typeof document.addEventListener==='function'){
-   document.addEventListener('pointerdown',onPointerDown,{capture:true,passive:true});
-   for(const t of ['pointerup','pointercancel','dragstart'])document.addEventListener(t,release,{capture:true,passive:true});
-  }
-  globalThis.addEventListener?.('blur',release);
-  const frameLoop=loop;loop=function(t){frameLoop(t);try{onFrame();}catch(_){/* presentation only */}};
- }
- install();
- return {sideShare,updateGauge,updateCrown,stakeDon,isCounting:()=>counting};
-})();
-
-/* Terrain label: break lines only between meaningful chunks, never inside a word. */
+ if(start<value.length)parts.push(value.slice(start));return parts.filter(Boolean);
+}
 function renderFieldStatus(el,text){
- const parts=String(text).split(/(?<=· )|(?<=に)|(?=追加)|(?=ダメージ\/)/).filter(Boolean);
  if(typeof el.replaceChildren!=='function'||typeof document.createElement!=='function'){el.textContent=text;return;}
  const nodes=[];
- parts.map(p=>p.trim()).filter(Boolean).forEach((p,i,all)=>{
-  const s=document.createElement('span');s.className='field-chunk';s.textContent=p;nodes.push(s);
-  // Keep the visible space after the map name's separator; chunks otherwise sit flush.
-  if(i<all.length-1&&p.endsWith('·'))nodes.push(document.createTextNode(' '));
- });
+ for(const part of funFieldChunks(text)){const value=part.trim();if(!value)continue;const span=document.createElement('span');span.className='field-chunk';span.textContent=value;nodes.push(span);if(value.endsWith('·'))nodes.push(document.createTextNode(' '));}
  el.replaceChildren(...nodes);
 }
+const FunFeedback=(()=>{
+ const q=s=>document.querySelector(s),ui=(kind,event)=>audioCall(()=>battleAudio.playUi?.(kind,event));
+ const reduced=()=>{try{return !!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;}catch(_){return false;}};
+ const card=side=>q(side===1?'#blue':'#red');
+ const COINS={0:1,10:1,25:2,50:3,75:4,90:4,100:5};
+ const OWN_CUE=new Set(['confirm','red','blue','pauseResume','cashOut','soundToggle']);
+ let pressed=null,ceremony=null,serial=0,gauge=null,gaugeKey='',shown=.5,crownKey='',lastPhase='';
+ const health=new Map();
+ function release(){if(pressed){pressed.classList.remove('fun-pressed');pressed=null;}}
+ function onPointerDown(event){
+  const button=event.target?.closest?.('button');
+  if(!button||button.disabled||button.getAttribute('aria-disabled')==='true'||!q('#app')?.contains?.(button))return;
+  release();pressed=button;button.classList.add('fun-pressed');
+  if(!OWN_CUE.has(button.id))ui(button.classList.contains('cta-primary')||button.id==='next'?'tapHeavy':'tap',event);
+ }
+ function feedbackRow(side){
+  const parent=card(side);if(!parent)return null;
+  let row=parent.querySelector('.fun-card-feedback');
+  if(!row){row=document.createElement('span');row.className='fun-card-feedback';const stats=parent.querySelector('.comparison-list');parent.insertBefore(row,stats||null);}
+  return row;
+ }
+ function clearSeal(){for(const old of document.querySelectorAll('.fun-seal'))old.remove();}
+ function sealCard(side){
+  clearSeal();const row=feedbackRow(side);if(!row)return;
+  const seal=document.createElement('span');seal.className='fun-seal';seal.setAttribute('aria-hidden','true');seal.textContent='予想';row.appendChild(seal);
+ }
+ function overlay(){
+  let element=q('#funCountdown');
+  if(!element){element=document.createElement('div');element.id='funCountdown';element.className='fun-countdown';element.hidden=true;element.tabIndex=-1;element.setAttribute('role','status');element.setAttribute('aria-live','polite');q('#gameScreen')?.appendChild(element);}
+  return element;
+ }
+ function hideCount(){const element=q('#funCountdown');if(element){element.hidden=true;element.textContent='';element.removeAttribute('data-counting');}}
+ function identity(){return {session:multiSession?multiSnapshot?.sessionId:walletState?.sessionId,round:multiSession?multiSnapshot?.roundId:round,multi:multiSession||null};}
+ function sameRound(job){const current=identity();return current.session===job.session&&current.round===job.round&&current.multi===job.multi;}
+ function valid(job){
+  return ceremony===job&&!document.hidden&&screenMode==='game'&&state==='choose'&&!predictionPreview&&sameRound(job)&&selectedSide===job.side&&selectedStake===job.stake&&selectedStakeOption===job.option&&(!job.multi||multiSnapshot?.phase==='predict');
+ }
+ function later(job,fn,ms,propagate=false){const timer=setTimeout(()=>{job.timers.delete(timer);if(!valid(job)){if(ceremony===job)cancel();return;}try{fn();}catch(error){cancel();if(propagate)throw error;}},ms);job.timers.add(timer);}
+ function cancel(restoreFocus=false){
+  const job=ceremony;if(job){for(const timer of job.timers)clearTimeout(timer);job.timers.clear();ceremony=null;}
+  hideCount();clearSeal();q('#comparison')?.removeAttribute('data-fun-confirming');
+  // Never write a stale enabled state over the normal game's own controls.
+  if(job&&restoreFocus&&screenMode==='game'&&state==='choose')q('#confirm')?.focus?.();
+ }
+ function beginJob(side,option,event,multi){
+  cancel();const job={...identity(),id:++serial,side,option,stake:selectedStake,event,timers:new Set()};ceremony=job;
+  const count=COINS[option]??2,lead=count*70+40;
+  if(!multi){const element=overlay();element.hidden=false;element.textContent='';element.setAttribute('aria-label','開戦の準備中。Escapeで中止');element.setAttribute('data-counting','preparing');element.focus?.();q('#comparison')?.setAttribute('data-fun-confirming','true');}
+  for(let i=0;i<count;i++)later(job,()=>ui('coin',event),i*70);
+  later(job,()=>{ui('stamp',event);sealCard(side);},lead);
+  return {job,lead};
+ }
+ function startCountdown(side,option,event,confirm){
+  const {job,lead}=beginJob(side,option,event,false),steps=['3','2','1','開戦'];
+  steps.forEach((text,i)=>later(job,()=>{
+   const element=overlay();element.hidden=false;element.setAttribute('data-counting','active');element.removeAttribute('aria-label');element.textContent='';
+   const span=document.createElement('span');span.className='fun-count'+(i===3?' is-final':'')+(reduced()?' is-still':'');span.textContent=text;element.appendChild(span);ui(i===3?'horn':'count');
+  },lead+260+i*430));
+  later(job,()=>{cancel();confirm();},lead+260+steps.length*430-200,true);
+ }
+ const confirmButton=q('#confirm'),previousConfirm=confirmButton?.onclick;
+ if(confirmButton&&typeof previousConfirm==='function')confirmButton.onclick=function(event){
+  if(ceremony&&!ceremony.multi)return;
+  if(state!=='choose'||selectedSide===null||predictionPreview||event?.isTrusted!==true)return previousConfirm.call(this,event);
+  if(screenMode!=='game'||document.hidden||this.disabled)return;
+  audioCall(()=>battleAudio.unlockFromGesture(event));
+  const side=selectedSide,option=selectedStakeOption;
+  if(multiSession){
+   // The original confirm still sends immediately; no multiplayer countdown or protocol delay.
+   const result=previousConfirm.call(this,event);
+   if(state==='choose'&&multiSnapshot?.phase==='predict'&&selectedSide===side)beginJob(side,option,event,true);
+   return result;
+  }
+  startCountdown(side,option,event,()=>previousConfirm.call(confirmButton,event));
+ };
+ function ensureGauge(){
+  if(gauge?.isConnected)return gauge;
+  const screen=q('#gameScreen'),battle=q('#battle');if(!screen||!battle)return null;
+  gauge=document.createElement('div');gauge.id='funTug';gauge.className='fun-tug';gauge.hidden=true;gauge.setAttribute('role','img');
+  const track=document.createElement('span');track.className='fun-tug-track';
+  for(const [tag,name] of [['span','left'],['span','right'],['i','knot'],['b','mine']]){const node=document.createElement(tag);node.className='fun-tug-'+name;node.setAttribute('aria-hidden','true');track.appendChild(node);}
+  gauge.appendChild(track);screen.insertBefore(gauge,battle);
+  gauge.style.setProperty('--tug-left',TEAM_HP_BAR_FILL[0]);gauge.style.setProperty('--tug-right',TEAM_HP_BAR_FILL[1]);return gauge;
+ }
+ function sideShare(){
+  const register=u=>{if(!u||(u.side!==0&&u.side!==1))return;const max=Number(bossPresentationMaxHp(u));if(!(max>0))return;const key=u.side+':'+u.id,old=health.get(key);health.set(key,{side:u.side,max:Math.max(max,old?.max||0)});};
+  for(const unit of Array.isArray(initialUnits)?initialUnits:[])register(unit);
+  for(const unit of Array.isArray(units)?units:[])register(unit);
+  const max=[0,0],now=[0,0];for(const row of health.values())max[row.side]+=row.max;
+  for(const unit of Array.isArray(units)?units:[]){const row=unit&&health.get(unit.side+':'+unit.id);if(row&&!unit.dead)now[unit.side]+=Math.max(0,Math.min(row.max,Number(unit.hp)||0));}
+  if(!(max[0]>0&&max[1]>0))return null;const a=now[0]/max[0],b=now[1]/max[1];return a+b>0?a/(a+b):.5;
+ }
+ function showGauge(element,visible){if(element.hidden===!visible)return;element.hidden=!visible;globalThis.dispatchEvent?.(new Event('docchi:feedback-layout'));}
+ function updateGauge(){
+  const element=ensureGauge();if(!element)return;
+  const current=identity(),key=String(current.session)+':'+current.round;
+  if(key!==gaugeKey){gaugeKey=key;health.clear();shown=.5;}
+  const visible=screenMode==='game'&&(state==='fight'||state==='result')&&!q('#battle')?.hidden&&!multiRecording;
+  if(!visible){showGauge(element,false);shown=.5;return;}
+  const target=sideShare();if(target===null){showGauge(element,false);return;}showGauge(element,true);shown+=reduced()?target-shown:(target-shown)*.18;
+  element.style.setProperty('--tug',Math.max(0,Math.min(100,shown*100)).toFixed(2)+'%');
+  let own=choice===0||choice===1?choice:null;
+  if(multiSession){const pick=multiSnapshot?.confirmedSides?.find(row=>row.userId===multiUser)?.side;own=pick==='A'?0:pick==='B'?1:null;}
+  element.setAttribute('data-mine',own===null?'none':own===0?'left':'right');
+  const advantage=target>.55?'左が優勢':target<.45?'右が優勢':'ほぼ互角';
+  element.setAttribute('aria-label','両軍の残りHPの割合。'+advantage+(own===null?'':'。自分の予想は'+(own===0?'左':'右')));
+ }
+ function updateCrown(){
+  for(const side of [0,1])feedbackRow(side);
+  let champion=null;
+  if(screenMode==='game'&&state==='choose')champion=multiSession?funReadChampion(multiSnapshot?.matchup?.presentationChampion,multiSnapshot?.roundId):funReadChampion(funChampionMetadata(),round);
+  const key=champion?String(identity().session)+':'+round+':'+champion.side+':'+champion.streak:'';
+  if(key===crownKey&&(key===''||q('.fun-crown')))return;crownKey=key;
+  for(const node of document.querySelectorAll('.fun-crown'))node.remove();if(!champion)return;
+  const row=feedbackRow(champion.side);if(!row)return;const badge=document.createElement('span');badge.className='fun-crown';badge.textContent=champion.streak>=2?'♛ '+champion.streak+'連勝':'♛ 王者';badge.setAttribute('aria-label',champion.streak>=2?'王者・'+champion.streak+'連勝中':'王者');row.insertBefore(badge,row.firstChild);
+ }
+ function onFrame(){
+  if(ceremony&&!valid(ceremony))cancel();
+  const phase=screenMode+':'+state;
+  if(lastPhase==='game:choose'&&phase==='game:fight'){if(multiSession)ui('horn');cancel();}
+  lastPhase=phase;updateGauge();updateCrown();
+ }
+ function install(){
+  document.addEventListener?.('pointerdown',onPointerDown,{capture:true,passive:true});
+  for(const type of ['pointerup','pointercancel','dragstart'])document.addEventListener?.(type,release,{capture:true,passive:true});
+  document.addEventListener?.('visibilitychange',()=>{if(document.hidden)cancel();});
+  document.addEventListener?.('keydown',event=>{if(!ceremony||ceremony.multi)return;if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();cancel(true);}else if(event.key==='Tab'){event.preventDefault();overlay().focus?.();}},true);
+  globalThis.addEventListener?.('blur',()=>{release();cancel();});
+  const frameLoop=loop;loop=function(time){frameLoop(time);try{onFrame();}catch(_){/* Presentation failure cannot interrupt the game loop. */}};
+  updateCrown();
+ }
+ install();return {sideShare,updateGauge,updateCrown,cancel,isCounting:()=>!!ceremony&&!ceremony.multi};
+})();

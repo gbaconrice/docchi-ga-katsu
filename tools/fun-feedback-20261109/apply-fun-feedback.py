@@ -7,17 +7,24 @@ terrain line breaks, attack interval on cards)."""
 from pathlib import Path
 import re
 import sys
+import hashlib
+import json
 
 root = Path(__file__).resolve().parent
 source = Path(sys.argv[1]).read_text(encoding='utf8')
+assert hashlib.sha256(source.encode()).hexdigest() == '1fec6310780fd73198af9accd5892ffdf6a8143988a7b0651830d6d44b66b3cc', 'Use the verified current gravity-spacing source'
+
 if 'const FunFeedback=' in source:
     raise SystemExit('fun-feedback already applied')
 
+
+changes=[]
 
 def replace(old, new):
     global source
     assert source.count(old) == 1, f'Expected one anchor: {old[:90]}'
     source = source.replace(old, new, 1)
+    changes.append({"before":old,"after":new})
 
 
 # 1) Original procedural UI sounds in the existing audio engine (same mute, voice limits and unlock rules).
@@ -48,6 +55,16 @@ replace("const timing = facts.attackable && /^基本間隔/.test(facts.timing) ?
 replace("fieldStatus.textContent=inlineFieldLabel(battleEnvironment);",
         "renderFieldStatus(fieldStatus,inlineFieldLabel(battleEnvironment));")
 
+# Optional, display-only snapshot metadata. The protocol, gameplay inputs and
+# replay/wallet modules remain byte-identical; old guests ignore this field.
+replace("function publicMatchup(){return {...(battleEnvironment?{environment:battleEnvironment}:{}),",
+        "function publicMatchup(){const presentationChampion=funChampionMetadata();return {...(presentationChampion?{presentationChampion}:{}),...(battleEnvironment?{environment:battleEnvironment}:{}),")
+# Result cards must reserve the new gauge row as part of the existing upper stack.
+replace("const outer=screen.getBoundingClientRect(),upper=toolbar.getBoundingClientRect();",
+        "const gauge=document.querySelector('#funTug'),upperNode=gauge&&!gauge.hidden?gauge:toolbar;\n    const outer=screen.getBoundingClientRect(),upper=upperNode.getBoundingClientRect();")
+replace("  window.addEventListener?.('pageshow',schedule);\n  measure();",
+        "  window.addEventListener?.('pageshow',schedule);\n  window.addEventListener?.('docchi:feedback-layout',schedule);\n  measure();")
+
 # 3) Styles at the end of the single stylesheet.
 styles = list(re.finditer(r'<style\b[^>]*>[\s\S]*?</style>', source))
 assert len(styles) == 1
@@ -63,4 +80,5 @@ source = source[:end] + '\n' + (root / 'fun-feedback.js').read_text(encoding='ut
 out = Path(sys.argv[2])
 out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(source, encoding='utf8')
+(out.parent / 'changes.json').write_text(json.dumps(changes,ensure_ascii=False,indent=2),encoding='utf8')
 print(out)

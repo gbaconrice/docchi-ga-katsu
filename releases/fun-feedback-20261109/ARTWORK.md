@@ -30,3 +30,7 @@ The licensed image sources are pinned to the Open Duelyst repository at commit `
 The game uses the new effects through existing effect events and lifetimes. Optional display-only identity metadata corrects the moon and ice-breath placement without changing damage, targeting, movement, radii, collision or match results. Existing numeric replay FX rows remain unchanged. Legacy recordings without valid identity data retain their recorded anchors. Optional metadata is omitted if it would exceed the existing replay byte limit.
 
 The separate comparison gallery distinguishes the changed 55 replay-effect kinds from five retained authored raster kinds and the retained dark-claw branch. It also covers 26 projectile/trap kinds, 16 status flags, two stacked-status examples and 23 native audio comparison contexts. Media-card counts are not counts of distinct combat abilities. Browser rendering, comparison audio and physical GRAVITY behavior are separate verification scopes.
+
+
+## 2026-11-09 home extension
+One generated PNG extends only the upper/lower surroundings behind the original PNG/GIF. SHA-256 eaa567bdb27dd4bf612b3a45ba1305363a7391ea1abc4bd413ba68fbe10ba4af, 887×1774, 2484284 bytes. Original images and GIF bytes are unchanged. The original foreground covers the generated center; 12 CSS pixel cut edges are alpha-blended where supported.

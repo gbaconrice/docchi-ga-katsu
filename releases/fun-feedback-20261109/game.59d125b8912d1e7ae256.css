@@ -3109,54 +3109,217 @@ html[data-host-shell="gravity"][data-host-viewport-inset="true"] #bootStatus { p
 }
 #app #gameScreen .prediction-status[hidden] { display:none !important; }
 
-/* fun-feedback-20261109: touch reaction, 予想 seal, champion badge, countdown, tug-of-war gauge. */
-#app button.fun-pressed { transform: translateY(1px) scale(.97) !important; filter: brightness(.9); transition: none !important; }
-#app .army-card { position: relative; }
-#app .army-card .fun-seal {
-  position: absolute; right: 8px; top: 8px; z-index: 3;
-  display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%;
-  border: 3px solid #a8261b; color: #a8261b; background: rgba(255, 244, 222, .55);
-  font: 900 17px/1 "Hiragino Mincho ProN", "Yu Mincho", serif; letter-spacing: .04em;
-  transform: rotate(-14deg); pointer-events: none;
-  animation: fun-seal-in .26s cubic-bezier(.2, 1.7, .4, 1) both;
+/* Review candidate only. Original PNG and GIF remain the foreground layer.
+   The added painting is visible only beyond the original top/bottom edges. */
+html[data-host-shell="gravity"] #app[data-home-reframe="true"]:has(#homeScreen:not([hidden])) {
+  background-image:var(--home-still-image),var(--home-extension-image);
+  background-size:var(--home-reframe-width) auto;
+  background-position:center var(--home-reframe-original-top),center var(--home-reframe-extension-top);
+  background-repeat:no-repeat;
 }
-@keyframes fun-seal-in { from { transform: rotate(-14deg) scale(2.1); opacity: 0; } to { transform: rotate(-14deg) scale(1); opacity: 1; } }
-#app .army-card .fun-crown {
-  position: absolute; left: 8px; top: 8px; z-index: 3;
-  padding: 3px 8px 3px 6px; border-radius: 3px;
-  background: #5b3a12; color: #ffe08a; border: 1px solid #d9a440;
-  font: 800 13px/1.2 system-ui, sans-serif; letter-spacing: .02em; white-space: nowrap; pointer-events: none;
+html[data-host-shell="gravity"] #app[data-home-reframe="true"][data-home-gif="running"]:has(#homeScreen:not([hidden])) {
+  background-image:var(--home-gif-image),var(--home-extension-image);
 }
-.fun-countdown {
-  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center;
-  background: rgba(20, 12, 6, .28); pointer-events: auto; touch-action: none;
+/* Cross-fade only at the cut edges of the original painting. This is not a
+   blur or stretched fill: both layers keep their pixels and aspect ratio.
+   No flame or lamp is inside these outer 12 CSS pixels. */
+@supports (mask-image:linear-gradient(#000,transparent)) or (-webkit-mask-image:linear-gradient(#000,transparent)) {
+html[data-host-shell="gravity"] #app[data-home-reframe="true"]:has(#homeScreen:not([hidden]))::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:var(--home-extension-image);
+  background-size:var(--home-reframe-width) auto;
+  background-position:center var(--home-reframe-extension-top);
+  background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(#000 var(--home-reframe-original-top),transparent calc(var(--home-reframe-original-top) + 12px),transparent calc(var(--home-reframe-original-bottom) - 12px),#000 var(--home-reframe-original-bottom));
+  mask-image:linear-gradient(#000 var(--home-reframe-original-top),transparent calc(var(--home-reframe-original-top) + 12px),transparent calc(var(--home-reframe-original-bottom) - 12px),#000 var(--home-reframe-original-bottom));
 }
-.fun-countdown .fun-count {
-  color: #fff3d0; font: 900 clamp(64px, 26vw, 120px)/1 "Hiragino Mincho ProN", "Yu Mincho", serif;
-  -webkit-text-stroke: 3px #3b2412; paint-order: stroke fill;
-  animation: fun-count-pop .43s cubic-bezier(.2, 1.5, .4, 1) both;
 }
-.fun-countdown .fun-count.is-final { color: #ffd36b; font-size: clamp(52px, 20vw, 96px); }
-.fun-countdown .fun-count.is-still { animation: none; }
-@keyframes fun-count-pop { from { transform: scale(1.8); opacity: 0; } 40% { opacity: 1; } to { transform: scale(1); opacity: 1; } }
-#fieldStage .fun-tug {
-  position: absolute; z-index: 5; top: 6px; left: 12%; right: 12%; height: 10px;
-  border: 1px solid #f1dcae; background: #1c1410; pointer-events: none; overflow: visible;
+@media (prefers-reduced-motion:reduce), (update:slow) {
+  html[data-host-shell="gravity"] #app[data-home-reframe="true"][data-home-gif="running"]:has(#homeScreen:not([hidden])) {
+    background-image:var(--home-still-image),var(--home-extension-image);
+  }
 }
-#fieldStage .fun-tug-left, #fieldStage .fun-tug-right { position: absolute; top: 0; bottom: 0; }
-#fieldStage .fun-tug-left { left: 0; width: var(--tug, 50%); background: var(--tug-left, #3f7fd1); }
-#fieldStage .fun-tug-right { right: 0; width: calc(100% - var(--tug, 50%)); background: var(--tug-right, #c8443a); }
-#fieldStage .fun-tug-knot {
-  position: absolute; top: -4px; bottom: -4px; left: var(--tug, 50%); width: 4px; margin-left: -2px;
-  background: #fff1c9; border: 1px solid #3b2412;
+
+
+/* fun-feedback-20261109, layout-safe revision.
+   New feedback gets its own flow space. Existing artwork, stats, participant
+   picks, host insets, battlefield fitting and controls retain their geometry. */
+#app button.fun-pressed {
+  transform:translateY(1px) scale(.97) !important;
+  filter:brightness(.9);
+  transition:none !important;
 }
-#fieldStage .fun-tug-mine {
-  position: absolute; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffe9a3, #d29a2c 60%, #8a5a14); border: 1px solid #5b3a12; display: none;
+
+/* Both cards reserve the same small feedback row AFTER the preview and BEFORE
+   stats, even without a crown or seal. The existing absolute pick lane stays
+   at the top of the unchanged preview, separate from this new row. */
+#app #gameScreen #comparison .army-card > .fun-card-feedback {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 36px;
+  align-items:center;
+  gap:4px;
+  flex:0 0 auto;
+  min-width:0;
+  min-height:28px;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  pointer-events:none;
 }
-#fieldStage .fun-tug[data-mine="left"] .fun-tug-mine { display: block; left: -18px; }
-#fieldStage .fun-tug[data-mine="right"] .fun-tug-mine { display: block; right: -18px; }
-#fieldStatus .field-chunk { display: inline-block; white-space: nowrap; }
-@media (prefers-reduced-motion: reduce) {
-  #app .army-card .fun-seal { animation: none; }
+#app #gameScreen #comparison .fun-card-feedback > .fun-crown {
+  grid-column:1;
+  grid-row:1;
+  justify-self:start;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+  padding:2px 3px;
+  border:1px solid #a98757;
+  border-radius:2px;
+  color:#67451b;
+  background:transparent;
+  font:800 12px/18px system-ui,sans-serif;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  pointer-events:none;
 }
+#app #gameScreen #comparison .fun-card-feedback > .fun-seal {
+  grid-column:2;
+  grid-row:1;
+  display:grid;
+  place-items:center;
+  box-sizing:border-box;
+  width:36px;
+  height:26px;
+  border:2px solid #a8261b;
+  border-radius:2px;
+  color:#a8261b;
+  background:transparent;
+  font:900 13px/1 "Hiragino Mincho ProN","Yu Mincho",serif;
+  letter-spacing:.04em;
+  pointer-events:none;
+  /* Paint stays inside its cell throughout the impact animation. */
+  animation:fun-seal-in .20s ease-out both;
+}
+@keyframes fun-seal-in {
+  from { transform:scale(.88); opacity:0; }
+  to { transform:scale(1); opacity:1; }
+}
+
+/* A dedicated sibling of #battle, never an overlay inside #fieldStage.
+   26px includes the knot and coin. Existing stage fitting uses the remainder. */
+#app #gameScreen > .fun-tug {
+  position:relative;
+  display:flex;
+  flex:0 0 26px;
+  align-items:center;
+  min-width:0;
+  width:100%;
+  height:26px;
+  box-sizing:border-box;
+  margin:0;
+  padding:0 24px;
+  pointer-events:none;
+}
+#app #gameScreen > .fun-tug .fun-tug-track {
+  position:relative;
+  display:block;
+  flex:1 1 auto;
+  min-width:0;
+  height:10px;
+  box-sizing:border-box;
+  border:1px solid #d2b57c;
+  background:#39291e;
+}
+#app .fun-tug-track > .fun-tug-left,
+#app .fun-tug-track > .fun-tug-right {
+  position:absolute;
+  top:0;
+  bottom:0;
+}
+#app .fun-tug-track > .fun-tug-left {
+  left:0;
+  width:var(--tug,50%);
+  background:var(--tug-left,var(--team-blue,#176ab4));
+}
+#app .fun-tug-track > .fun-tug-right {
+  right:0;
+  width:calc(100% - var(--tug,50%));
+  background:var(--tug-right,var(--team-red,#b93632));
+}
+#app .fun-tug-track > .fun-tug-knot {
+  position:absolute;
+  top:-4px;
+  bottom:-4px;
+  left:var(--tug,50%);
+  width:4px;
+  box-sizing:border-box;
+  margin-left:-2px;
+  border:1px solid #60402a;
+  background:#fff1c9;
+}
+#app .fun-tug-track > .fun-tug-mine {
+  position:absolute;
+  display:none;
+  top:50%;
+  width:14px;
+  height:14px;
+  margin-top:-7px;
+  box-sizing:border-box;
+  border:1px solid #5b3a12;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#ffe9a3,#d29a2c 60%,#8a5a14);
+}
+#app .fun-tug[data-mine="left"] .fun-tug-mine { display:block; left:-19px; }
+#app .fun-tug[data-mine="right"] .fun-tug-mine { display:block; right:-19px; }
+
+/* Contain the short start ceremony inside the game, below native host chrome.
+   Controls must be made inert by the countdown lifecycle, including keyboard. */
+#app #gameScreen > .fun-countdown {
+  position:absolute;
+  inset:0;
+  z-index:35;
+  display:grid;
+  place-items:center;
+  box-sizing:border-box;
+  overflow:hidden;
+  background:rgba(20,12,6,.28);
+  pointer-events:auto;
+  touch-action:none;
+}
+#app .fun-countdown .fun-count {
+  max-width:100%;
+  color:#fff3d0;
+  font:900 clamp(64px,26vw,120px)/1 "Hiragino Mincho ProN","Yu Mincho",serif;
+  -webkit-text-stroke:3px #3b2412;
+  paint-order:stroke fill;
+  animation:fun-count-pop .30s ease-out both;
+}
+#app .fun-countdown .fun-count.is-final { color:#ffd36b; font-size:clamp(52px,20vw,96px); }
+#app .fun-countdown .fun-count.is-still { animation:none; }
+@keyframes fun-count-pop {
+  from { transform:scale(.90); opacity:0; }
+  to { transform:scale(1); opacity:1; }
+}
+#app #gameScreen > .fun-countdown[hidden],
+#app #gameScreen > .fun-tug[hidden],
+#app #gameScreen #comparison .fun-card-feedback > [hidden] { display:none !important; }
+
+/* Prefer meaningful terrain chunks but let unusually long chunks wrap rather
+   than covering the centered round or wallet in narrow Gravity viewports. */
+#fieldStatus .field-chunk {
+  display:inline-block;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+@media (prefers-reduced-motion:reduce) {
+  #app button.fun-pressed { transform:none !important; }
+  #app #gameScreen #comparison .fun-seal,
+  #app .fun-countdown .fun-count { animation:none; }
+}
+
+#app #gameScreen > .fun-countdown[data-counting="preparing"] { background:transparent; }

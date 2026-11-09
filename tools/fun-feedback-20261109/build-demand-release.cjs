@@ -12,20 +12,13 @@ assert(!fs.existsSync(OUT),'Output must not exist');
 const source=fs.readFileSync(SOURCE,'utf8'),dir=path.join(OUT,RELEASE);
 const reuse=JSON.parse(fs.readFileSync(path.join(__dirname,'demand-image-reuse.json'),'utf8'));
 const addedImageAssets=JSON.parse(fs.readFileSync(path.join(__dirname,'added-image-assets.json'),'utf8'));
-// Reuse the images already published by the previous release instead of copying them again.
-const PREVIOUS='multiplayer-controls-results-20261109';
-for(const a of JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','releases',PREVIOUS,'manifest.json'),'utf8')).imageAssets){
- if(reuse[a.sha256])continue;
- const file=a.file.startsWith('../')?a.file:'../'+PREVIOUS+'/'+a.file;
- reuse[a.sha256]={file,url:a.url,bytes:a.bytes,sha256:a.sha256};
-}
 const assets=new Map();
 const write=(name,bytes)=>{const dest=path.join(dir,name);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,bytes);};
 const hashed=(name,ext,bytes)=>{const file=name+'.'+sha(bytes).slice(0,20)+ext;write(file,bytes);return file;};
 function images(text){return text.replace(/data:(image\/(?:png|webp|gif));base64,([A-Za-z0-9+/]+={0,2})/g,(value,mime,b64)=>{
  const bytes=Buffer.from(b64,'base64');assert.equal(bytes.toString('base64'),b64);
  const digest=sha(bytes),prior=reuse[digest],file=prior?prior.file:'images/'+digest+'.'+mime.split('/')[1],url=prior?prior.url:BASE+file;
- if(prior){assert.equal(prior.bytes,bytes.length);assert.equal(prior.sha256,digest);assert(prior.file.startsWith('../multiplayer-controls-results-20261109/images/')||prior.file.startsWith('../gravity-lazy-v3/images/')||prior.file.startsWith('../reconstructed-20261106/assets/')||prior.file.startsWith('../review-fixes-20261107/images/')||prior.file==='../terrain-emote-fix-20261108/images/f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084.gif');}
+ if(prior){assert.equal(prior.bytes,bytes.length);assert.equal(prior.sha256,digest);assert(/^images\/[a-f0-9]{64}\.(?:png|webp|gif)$/.test(prior.file)||prior.file.startsWith('../gravity-spacing-20261109/images/')||prior.file.startsWith('../multiplayer-controls-results-20261109/images/')||prior.file.startsWith('../gravity-lazy-v3/images/')||prior.file.startsWith('../reconstructed-20261106/assets/')||prior.file.startsWith('../review-fixes-20261107/images/')||prior.file==='../terrain-emote-fix-20261108/images/f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084.gif');}
  if(!assets.has(file)){write(file,bytes);assets.set(file,{file,url,mime,sha256:digest,bytes:bytes.length,stringSha256:sha(value),reused:!!prior});}
  return url;
 });}
@@ -72,12 +65,11 @@ for(const name of ['ARTWORK.md','GRAVITY_INTEGRATION.md','EFFECT_ASSETS.json','C
 const licenseDir=path.join(path.dirname(SOURCE),'licenses');assert(fs.existsSync(licenseDir),'Licensing input required');
 for(const name of fs.readdirSync(licenseDir).sort())write('licenses/'+name,fs.readFileSync(path.join(licenseDir,name)));
 const walk=(d,p='')=>fs.readdirSync(d).sort().flatMap(n=>fs.statSync(path.join(d,n)).isDirectory()?walk(path.join(d,n),p+n+'/'):[p+n]);
-const manifest={format:'docchi-demand-images-v1',releasePath:RELEASE,releaseBase:BASE,sourceSha256:sha(source),sourceBytes:Buffer.byteLength(source),scripts:records,css:{file:cssFile,originalSha256:sha(styles[0][2])},shell:{file:shellFile,bodyFile:'body-fragment.html'},loadOrder,imageAssets:[...assets.values()],runtimeEdits:edits,runtimeHelper:helper,reconstructionTemplate:'source-template.html',bytePreservation:'All 574 original image assets and the previous release\'s effect images and existing URLs are reused byte-for-byte, including the fixed-body home GIF. New effect-only image assets are pinned by an independent payload manifest. Original character artwork is unchanged. Packaging never resizes or re-encodes assets; source reassembly must match the sealed standalone input exactly.',limitations:['Browser/network/device verification must be reported separately. Images are fetched when their existing loaders assign Image.src. All metadata stays synchronous. Encoded baseline audio stays byte-for-byte; the continuous battle background and repeated melody were deliberately removed. The new combat bank is original procedural JavaScript, with no added embedded audio samples.']};
+const manifest={format:'docchi-demand-images-v1',releasePath:RELEASE,releaseBase:BASE,sourceSha256:sha(source),sourceBytes:Buffer.byteLength(source),scripts:records,css:{file:cssFile,originalSha256:sha(styles[0][2])},shell:{file:shellFile,bodyFile:'body-fragment.html'},loadOrder,imageAssets:[...assets.values()],runtimeEdits:edits,runtimeHelper:helper,reconstructionTemplate:'source-template.html',bytePreservation:'All 698 existing image assets and URLs are reused byte-for-byte, including the fixed-body home GIF and approved Gravity extension. No new images. Original character artwork is unchanged. Packaging never resizes or re-encodes assets; source reassembly must match the sealed standalone input exactly.',limitations:['Browser/network/device verification must be reported separately. Images are fetched when their existing loaders assign Image.src. All metadata stays synchronous. Encoded baseline audio stays byte-for-byte; the continuous battle background and repeated melody were deliberately removed. The new combat bank is original procedural JavaScript, with no added embedded audio samples.']};
 manifest.entryLoaderSHA256=sha(fs.readFileSync(path.join(__dirname,'entry-loader.cjs')));
 manifest.reusedImages=[...assets.values()].filter(a=>a.reused).length;
 manifest.newImages=[...assets.values()].filter(a=>!a.reused).length;
-// This release adds no images: every image comes from earlier releases.
-assert.equal(manifest.reusedImages,574+addedImageAssets.length);assert.equal(manifest.newImages,0);assert.equal(manifest.imageAssets.filter(a=>a.reused&&a.mime==='image/gif').length,1);
+assert.equal(manifest.reusedImages,698);assert.equal(manifest.newImages,0);assert.equal(manifest.imageAssets.filter(a=>a.reused&&a.mime==='image/gif').length,1);
 manifest.homeAnimation=manifest.imageAssets.find(a=>a.reused&&a.mime==='image/gif');
 manifest.files=walk(dir).map(file=>{const b=fs.readFileSync(path.join(dir,file));return {file,bytes:b.length,sha256:sha(b)};});
 manifest.initialScriptBytes=loadOrder.reduce((n,f)=>n+fs.statSync(path.join(dir,f)).size,0);
