@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja" data-host-shell="gravity"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>どっちが勝つ？</title>
+<script id="docchi-entry-loader">(function entryLoader(config) {
+  var doc = document, root = doc.documentElement, ready = false, finished = false;
+  var index = 0, busy = false, cssReady = false, mode = '', message = '', failed = '';
+  var current = null, cssNode = null, timer = 0, cssTimer = 0, token = 0, cssToken = 0;
+  var runtimeReady = false, runtimeHook = false, retry, status, label, faultUsed = false, preloads = [];
+  var bootstrap = doc.currentScript, nonce = bootstrap && (bootstrap.nonce || bootstrap.getAttribute('nonce'));
+  var urls = config.scripts.map(function (s) { return new URL(config.base + s.file, doc.baseURI).href; });
+  var cssUrl = new URL(config.base + config.cssFile, doc.baseURI).href;
+  function name(url) { return String(url || '').split('#')[0].split('?')[0].split('/').pop(); }
+  function own(url) { return urls.indexOf(url) !== -1; }
+  function draw() {
+    if (!ready || finished) return;
+    status.setAttribute('data-state', mode || 'loading');
+    status.setAttribute('data-loaded', String(index));
+    label.textContent = message || (cssReady ? 'ゲームを読み込んでいます ' + index + '/' + urls.length : '表示を準備しています…');
+    retry.hidden = !mode;
+    retry.disabled = busy;
+    retry.textContent = mode === 'reload' ? '再読み込み' : '再試行';
+  }
+  function fail(kind, text, step) {
+    if (finished || mode === 'reload') return;
+    if (timer) clearTimeout(timer);
+    busy = false; mode = kind; message = text; failed = step;
+    draw();
+  }
+  function runtimeError(event) {
+    // Resource errors have their own callbacks. Opaque/host errors do not identify game failure.
+    if (finished || !event || !event.filename || !own(event.filename)) return;
+    fail('reload', 'ゲームの実行中にエラーが発生しました。' + name(event.filename) + ' 行 ' + (event.lineno || '?') + ': ' + (event.message || '実行エラー') + '。再読み込みしてください。', 'script');
+  }
+  window.addEventListener('error', runtimeError, true);
+  doc.addEventListener('securitypolicyviolation', function (event) {
+    if (finished || event.disposition === 'report') return;
+    var target = event.blockedURI;
+    if ((current && target === current.src) || (!cssReady && target === cssUrl))
+      fail('reload', '通信制限（CSP）でゲームのファイルを読み込めません。' + name(target) + '。この表示をお知らせください。', 'policy');
+  });
+  function loadCss() {
+    var ticket = ++cssToken;
+    mode = ''; message = ''; failed = ''; busy = true;
+    if (cssNode) cssNode.remove();
+    var link = cssNode = doc.createElement('link');
+    link.rel = 'stylesheet'; link.crossOrigin = 'anonymous'; link.href = cssUrl;
+    link.onload = function () {
+      if (ticket !== cssToken || mode === 'reload' || finished) return;
+      clearTimeout(cssTimer); cssReady = true; busy = false; mode = ''; message = ''; draw(); next();
+    };
+    link.onerror = function () {
+      if (ticket !== cssToken || mode === 'reload' || finished) return;
+      clearTimeout(cssTimer); ++cssToken;
+      fail('retry', '表示ファイルを取得できませんでした。通信を確認して再試行してください。' + name(cssUrl), 'css');
+    };
+    cssTimer = setTimeout(function () {
+      if (ticket !== cssToken || cssReady || finished) return;
+      ++cssToken; link.remove();
+      fail('retry', '表示ファイルの読み込みが30秒を超えました。通信を確認して再試行してください。', 'css');
+    }, 30000);
+    doc.head.appendChild(link); draw();
+  }
+  function next() {
+    if (!ready || !cssReady || busy || mode || finished) return;
+    if (index === urls.length) {
+      finished = true; status.setAttribute('data-state', 'ready'); status.remove();
+      // A recovered resource error may have reached the legacy game's boot banner.
+      var bootStatus = doc.getElementById('bootStatus'); if (bootStatus) bootStatus.hidden = true;
+      for (var h = 0; h < preloads.length; h++) preloads[h].remove();
+      doc.dispatchEvent(new CustomEvent('docchi:entry-ready'));
+      return;
+    }
+    var step = index, ticket = ++token, spec = config.scripts[step];
+    var script = doc.createElement('script'); current = script;
+    busy = true; message = ''; draw();
+    script.async = false; script.crossOrigin = 'anonymous';
+    if (spec.id) script.id = spec.id;
+    if (nonce) script.setAttribute('nonce', nonce);
+    // Only a QA entry can carry this setting. The first request is a real HTTP 404.
+    var fault = config.qaFaultStep === step && !faultUsed;
+    if (fault) faultUsed = true;
+    script.src = fault ? urls[step] + '.qa-missing-first-request' : urls[step];
+    if (spec.id === 'game-runtime') {
+      runtimeReady = false;
+      if (!runtimeHook) {
+        var bootComplete = window.__gameBootComplete;
+        window.__gameBootComplete = function () {
+          runtimeReady = true;
+          if (typeof bootComplete === 'function') return bootComplete.apply(this, arguments);
+        };
+        runtimeHook = true;
+      }
+    }
+    script.onload = function () {
+      if (ticket !== token || finished || mode) return;
+      clearTimeout(timer);
+      if (spec.id === 'game-runtime' && !runtimeReady) {
+        fail('reload', 'ゲームの実行完了を確認できませんでした。' + name(urls[step]) + '。再読み込みしてください。', 'script');
+        return;
+      }
+      index++; busy = false; current = null; draw(); next();
+    };
+    script.onerror = function () {
+      if (ticket !== token || finished || mode === 'reload') return;
+      clearTimeout(timer); script.remove(); current = null;
+      fail('retry', 'ゲームのファイルを取得できませんでした（' + (step + 1) + '/' + urls.length + '）。通信を確認して再試行してください。' + name(urls[step]), 'script');
+    };
+    timer = setTimeout(function () {
+      if (ticket !== token || finished || mode) return;
+      // Removing a pending script is not proof that it cannot execute later.
+      // Stop here and reload instead of risking duplicate declarations/side effects.
+      ++token;
+      fail('reload', 'ゲームファイルの読み込みが30秒を超えました。二重実行を防ぐため再読み込みしてください。' + name(urls[step]), 'script');
+    }, 30000);
+    doc.head.appendChild(script);
+  }
+  function start() {
+    if (ready) return;
+    status = doc.getElementById('entryStatus'); label = doc.getElementById('entryMessage'); retry = doc.getElementById('entryRetry');
+    if (!status || !label || !retry) return;
+    ready = true;
+    retry.onclick = function () {
+      if (busy || finished) return;
+      if (mode === 'reload') { busy = true; draw(); location.reload(); return; }
+      if (mode !== 'retry') return;
+      var step = failed; mode = ''; message = ''; failed = '';
+      if (step === 'css') loadCss(); else next();
+    };
+    draw(); next();
+  }
+  doc.addEventListener('DOMContentLoaded', start, { once: true });
+  // Preload hints fetch all six scripts in parallel; execution remains strictly serial.
+  for (var i = 0; i < urls.length; i++) {
+    var hint = doc.createElement('link'); hint.rel = 'preload'; hint.as = 'script'; hint.crossOrigin = 'anonymous'; hint.href = urls[i]; preloads.push(hint); doc.head.appendChild(hint);
+  }
+  loadCss();
+  if (doc.readyState !== 'loading') start();
+})({"base":"https://gbaconrice.github.io/docchi-ga-katsu/releases/fun-feedback-20261109/","cssFile":"game.0481d50bd58c862cf9c6.css","scripts":[{"file":"host-layout.0b679d98d044de1154e4.js","id":"host-layout-config"},{"file":"game-shell.c1c759793438063a06ad.js"},{"file":"boot-errors.fbbf182df287955b44f1.js"},{"file":"viewport.7055196e99d934e94664.js"},{"file":"game-runtime.77b30e3ed4fdd20ee7e4.js","id":"game-runtime"},{"file":"home-ambience.ab12f93860a364240609.js","id":"home-ambience-controller"}]});</script>
+<style>#entryStatus{position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;background:#241b15;color:#fff4d1;font:16px/1.6 system-ui;text-align:center}#entryMessage{max-width:36em;overflow-wrap:anywhere}#entryRetry{min-height:48px;padding:10px 24px;border:1px solid #e4bc73;border-radius:8px;background:#f5d89a;color:#241b15;font:inherit}#entryRetry[hidden]{display:none}</style></head><body><div id="entryStatus" role="status" aria-live="polite" data-state="loading" data-loaded="0"><p id="entryMessage">ゲームを読み込んでいます。表示が続く場合は通信を確認して再読み込みしてください。</p><button id="entryRetry" type="button" hidden>再試行</button></div><noscript>ゲームを遊ぶには JavaScript を有効にしてください。</noscript></body></html>
