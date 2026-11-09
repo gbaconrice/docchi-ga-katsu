@@ -10,6 +10,6 @@ The simulation, RNG, wallet, replay and protocol implementation remain unchanged
 
 All 698 current image assets and their URLs are preserved, including the Gravity home extension. Existing tall viewport, inverse tap coordinates and native host clearance remain intact.
 
-Source SHA-256: 58a0e98856638a813b817d6f5cf08c310cd250b6845917bc39b0fddfd910ea3e
+Source SHA-256: e03fe2aab5e66dd977cd81afeff2b20f93caf29ceee680a0eb4afdfdfde06123
 
 Reassemble with tools/fun-feedback-20261109/reassemble-demand-source.cjs. See that folder's README for regression tests. Browser results are separate from code/VM verification. Actual iPhone Safari, native GRAVITY profiles/leaderboards and multiple-device native transport are not certified by local tests.

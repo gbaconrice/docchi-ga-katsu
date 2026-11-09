@@ -5,6 +5,7 @@ PR #4's features are retained and integrated on `gravity-spacing-20261109`, whos
 - Normal-flow gauge row, outside the battlefield and its frame.
 - Reserved card feedback row for crown and prediction stamp, below artwork and player picks.
 - Stake-dependent 1–5 coin cues, stamp, solo 3/2/1/開戦, immediate multiplayer confirmation and battle horn.
+- Multiplayer coins acknowledge sending, but the prediction stamp waits for the server-confirmed matching side. Rejected or immediately locked predictions cannot leave a late stamp.
 - Cancellable ceremony bound to session, round, side and stake; immediate input shielding; Escape/hidden/blur cleanup; no stale delayed commit.
 - Existing audio engine handles six new procedural cues with the same mute/unlock/voice cap rules. Controls with dedicated cues do not get duplicate generic taps.
 - Guest crown uses validated optional `matchup.presentationChampion` metadata. It never feeds gameplay. Missing/invalid values hide the crown. Protocol version/implementation, physics, wallet, RNG and replay are unchanged, but the optional display field does add 57 bytes to the tested snapshot.

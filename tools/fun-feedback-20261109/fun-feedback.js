@@ -60,8 +60,11 @@ const FunFeedback=(()=>{
  function hideCount(){const element=q('#funCountdown');if(element){element.hidden=true;element.textContent='';element.removeAttribute('data-counting');}}
  function identity(){return {session:multiSession?multiSnapshot?.sessionId:walletState?.sessionId,round:multiSession?multiSnapshot?.roundId:round,multi:multiSession||null};}
  function sameRound(job){const current=identity();return current.session===job.session&&current.round===job.round&&current.multi===job.multi;}
+ function multiAdmitted(){return multiPredictionPending===true||multiSnapshot?.readyIds?.includes(multiUser)===true;}
+ function multiConfirmed(job){return multiSnapshot?.readyIds?.includes(multiUser)===true&&multiSnapshot?.confirmedSides?.some(row=>row.userId===multiUser&&row.side===(job.side===0?'A':'B'))===true;}
+ function tryStamp(job){if(job.stamped||!job.stampDue||(job.multi&&!multiConfirmed(job)))return;job.stamped=true;ui('stamp',job.event);sealCard(job.side);}
  function valid(job){
-  return ceremony===job&&!document.hidden&&screenMode==='game'&&state==='choose'&&!predictionPreview&&sameRound(job)&&selectedSide===job.side&&selectedStake===job.stake&&selectedStakeOption===job.option&&(!job.multi||multiSnapshot?.phase==='predict');
+  return ceremony===job&&!document.hidden&&screenMode==='game'&&state==='choose'&&!predictionPreview&&sameRound(job)&&selectedSide===job.side&&selectedStake===job.stake&&selectedStakeOption===job.option&&(!job.multi||(multiSnapshot?.phase==='predict'&&multiAdmitted()));
  }
  function later(job,fn,ms,propagate=false){const timer=setTimeout(()=>{job.timers.delete(timer);if(!valid(job)){if(ceremony===job)cancel();return;}try{fn();}catch(error){cancel();if(propagate)throw error;}},ms);job.timers.add(timer);}
  function cancel(restoreFocus=false){
@@ -75,7 +78,7 @@ const FunFeedback=(()=>{
   const count=COINS[option]??2,lead=count*70+40;
   if(!multi){const element=overlay();element.hidden=false;element.textContent='';element.setAttribute('aria-label','開戦の準備中。Escapeで中止');element.setAttribute('data-counting','preparing');element.focus?.();q('#comparison')?.setAttribute('data-fun-confirming','true');}
   for(let i=0;i<count;i++)later(job,()=>ui('coin',event),i*70);
-  later(job,()=>{ui('stamp',event);sealCard(side);},lead);
+  later(job,()=>{job.stampDue=true;tryStamp(job);},lead);
   return {job,lead};
  }
  function startCountdown(side,option,event,confirm){
@@ -96,7 +99,7 @@ const FunFeedback=(()=>{
   if(multiSession){
    // The original confirm still sends immediately; no multiplayer countdown or protocol delay.
    const result=previousConfirm.call(this,event);
-   if(state==='choose'&&multiSnapshot?.phase==='predict'&&selectedSide===side)beginJob(side,option,event,true);
+   if(state==='choose'&&multiSnapshot?.phase==='predict'&&selectedSide===side&&multiAdmitted())beginJob(side,option,event,true);
    return result;
   }
   startCountdown(side,option,event,()=>previousConfirm.call(confirmButton,event));
@@ -145,6 +148,7 @@ const FunFeedback=(()=>{
  }
  function onFrame(){
   if(ceremony&&!valid(ceremony))cancel();
+  if(ceremony?.multi)tryStamp(ceremony);
   const phase=screenMode+':'+state;
   if(lastPhase==='game:choose'&&phase==='game:fight'){if(multiSession)ui('horn');cancel();}
   lastPhase=phase;updateGauge();updateCrown();
