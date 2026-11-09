@@ -1,0 +1,777 @@
+{
+  "nativeHeads": [
+    {
+      "role": "emberstring_archer",
+      "placement": {
+        "crop": [
+          7,
+          0,
+          9,
+          16
+        ],
+        "anchor": [
+          8,
+          7
+        ],
+        "scale": 1.15
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercgrenadier.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "d2fc691e9ffca5f4aa281a5476872d71b34e619fd8645e6e2833f69b26bd9312",
+      "sourcePlistSHA256": "07c56d7bd42c6c43a9859f80808b715f7212c9fdb52e7da25cc2cd18723599a3",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            0,
+            972,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercgrenadier_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            1006,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercgrenadier_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            989,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercgrenadier_projectile_002.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            17,
+            972,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercgrenadier_projectile_003.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "tigermask_archer",
+      "placement": {
+        "crop": [
+          64,
+          48,
+          28,
+          19
+        ],
+        "anchor": [
+          27,
+          9
+        ],
+        "scale": 0.8
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_letigress.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "4283b4fa9f7264888868abc6ca466e1c8a14d39794a41b8611321adc76db1fea",
+      "sourcePlistSHA256": "8f6068f048313075317b24f7891906dba3cbe0ca8820fe52ea6216a32d7e3137",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            101,
+            0,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_letigress_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            909,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_letigress_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            808,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_letigress_projectile_002.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "silverflare_archer",
+      "placement": {
+        "crop": [
+          36,
+          25,
+          23,
+          28
+        ],
+        "anchor": [
+          21,
+          14
+        ],
+        "scale": 0.72
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_mercswornavanger.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "4eb1da9b4fe2fe3e6671bb15bcd8504f69d0dbe8d2905cb4374b7257f972fd95",
+      "sourcePlistSHA256": "c16933988ecf0f3d5573bc4ee9b63fb1b1808fb226601722753ece1881198221",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            0,
+            891,
+            80,
+            80
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercswornavanger_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            810,
+            80,
+            80
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercswornavanger_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            729,
+            80,
+            80
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercswornavanger_projectile_002.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            648,
+            80,
+            80
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_mercswornavanger_projectile_003.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "golden_bowling",
+      "placement": {
+        "crop": [
+          75,
+          10,
+          33,
+          35
+        ],
+        "anchor": [
+          31,
+          18
+        ],
+        "scale": 0.58
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f2_ranged.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "6ad920cdc87d2b60ca2e002ec5143956f40f85fc22e5ef1f8055c38b59631304",
+      "sourcePlistSHA256": "9fbffea1e33eed21cedb6d0933784b9adca30d1ccea75057340d996a20b67ca0",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            0,
+            122,
+            110,
+            60
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_ranged_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            0,
+            110,
+            60
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_ranged_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            61,
+            110,
+            60
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_ranged_projectile_002.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            183,
+            110,
+            60
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_ranged_projectile_003.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "brass_flareslinger",
+      "placement": {
+        "crop": [
+          67,
+          59,
+          38,
+          33
+        ],
+        "anchor": [
+          36,
+          17
+        ],
+        "scale": 0.52,
+        "rearFade": [
+          0,
+          0.2,
+          0.45,
+          0.7,
+          0.9
+        ]
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/f2_flareslinger.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "dd56aaa9f51b3b70d15fed66ad9465fc336b57a52e7187ebb8cba42c9a0fd975",
+      "sourcePlistSHA256": "6db29a89351ac89d256e07e4e8bfd1e10fa1c1b08da7a6ee637a7a3ab48b3b00",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            111,
+            222,
+            110,
+            110
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_flareslinger_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            111,
+            111,
+            110,
+            110
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_flareslinger_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            111,
+            0,
+            110,
+            110
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_flareslinger_projectile_002.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            888,
+            110,
+            110
+          ],
+          "durationMs": 83,
+          "sourceFrame": "f2_flareslinger_projectile_003.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "gilded_shooter",
+      "placement": {
+        "crop": [
+          55,
+          51,
+          26,
+          17
+        ],
+        "anchor": [
+          25,
+          8
+        ],
+        "scale": 0.85,
+        "clip": [
+          [
+            0,
+            8
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            21,
+            5
+          ],
+          [
+            26,
+            8
+          ],
+          [
+            21,
+            11
+          ],
+          [
+            16,
+            14
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            8,
+            10
+          ]
+        ]
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_gambler.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "dc35064be76b5be7a325c7720d96b06a1bbe2042802760a0631d432d2d1e01cf",
+      "sourcePlistSHA256": "9b5affab6429d7c7938e2f3ee512d17ee19f42ee37b6c718d6c3b2f67ddc99c9",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            101,
+            0,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_gambler_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            909,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_gambler_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            0,
+            808,
+            100,
+            100
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_gambler_projectile_002.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    },
+    {
+      "role": "lumen_charger",
+      "placement": {
+        "crop": [
+          1,
+          0,
+          15,
+          16
+        ],
+        "anchor": [
+          14,
+          8
+        ],
+        "scale": 0.9
+      },
+      "sourceUrl": "https://github.com/open-duelyst/duelyst/blob/2843f2400854136598631288c2e8dfb8f5173de7/app/resources/units/neutral_luxignis.png",
+      "sourceCommit": "2843f2400854136598631288c2e8dfb8f5173de7",
+      "sourcePNG_SHA256": "56c804a2f08f10285f84282bb42d169cad200eb6bba52cc7d21637d262cf2bcb",
+      "sourcePlistSHA256": "278679cad5aab8ed1a8a08453c2e17a507f6bc1fb114874d3b47195b82cad5a9",
+      "license": "CC0-1.0",
+      "frames": [
+        {
+          "rect": [
+            808,
+            909,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_luxignis_projectile_000.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            808,
+            926,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_luxignis_projectile_001.png",
+          "sourceClip": "projectile"
+        },
+        {
+          "rect": [
+            808,
+            943,
+            16,
+            16
+          ],
+          "durationMs": 83,
+          "sourceFrame": "neutral_luxignis_projectile_002.png",
+          "sourceClip": "projectile"
+        }
+      ],
+      "existingPayloadUnmodified": true,
+      "changesCharacterFrame": false
+    }
+  ],
+  "codeNativeGlyphs": [
+    {
+      "key": "healingblock",
+      "anchor": [
+        7,
+        7
+      ],
+      "rows": [
+        "...............",
+        "..1111...111561",
+        ".123431.123561.",
+        "123454312356131",
+        "123454443561431",
+        "123444445614431",
+        ".1234445614431.",
+        "..12345614431..",
+        "...125614431...",
+        "....5614431....",
+        "...5612331.....",
+        "..561.131......",
+        ".561...1.......",
+        "161............",
+        "..............."
+      ],
+      "palette": [
+        "",
+        "#352a32",
+        "#672f40",
+        "#934153",
+        "#b55d64",
+        "#ad976a",
+        "#ead9a9"
+      ]
+    },
+    {
+      "key": "arrow",
+      "anchor": [
+        17,
+        3
+      ],
+      "rows": [
+        "...........11.....",
+        "1.........1231....",
+        "121111111125541...",
+        "1234444444555541..",
+        "121111111125541...",
+        "1.........1231....",
+        "...........11....."
+      ],
+      "palette": [
+        "",
+        "#342b32",
+        "#755147",
+        "#bd8051",
+        "#e1b16f",
+        "#fff0bc"
+      ]
+    },
+    {
+      "key": "crystal",
+      "anchor": [
+        12,
+        5
+      ],
+      "rows": [
+        ".....11......",
+        "....1231.....",
+        "...123431....",
+        "..12345431...",
+        ".1234555431..",
+        "123455554431.",
+        ".1233444431..",
+        "..12333431...",
+        "...122231....",
+        "....1221.....",
+        ".....11......"
+      ],
+      "palette": [
+        "",
+        "#243447",
+        "#355f78",
+        "#569aab",
+        "#9dd9d6",
+        "#e6faf0"
+      ]
+    },
+    {
+      "key": "vial",
+      "anchor": [
+        10,
+        5
+      ],
+      "rows": [
+        "..111........",
+        "..1231.......",
+        ".12431.......",
+        "12243111.....",
+        "123443231....",
+        "1235434431...",
+        "1235444431...",
+        ".12444431....",
+        "..123331.....",
+        "...1111......"
+      ],
+      "palette": [
+        "",
+        "#263044",
+        "#8e7957",
+        "#426d88",
+        "#62b9c6",
+        "#e6f2cc"
+      ]
+    },
+    {
+      "key": "cinder",
+      "anchor": [
+        18,
+        3
+      ],
+      "rows": [
+        "11..........11.....",
+        "1231.......1231....",
+        ".123111111125541...",
+        "..1234444445555541.",
+        ".123111111125541...",
+        "1231.......1231....",
+        "11..........11....."
+      ],
+      "palette": [
+        "",
+        "#462c2d",
+        "#82513b",
+        "#c78a4d",
+        "#edc580",
+        "#fff2c8"
+      ]
+    }
+  ],
+  "trap": {
+    "width": 25,
+    "height": 23,
+    "anchor": [
+      12,
+      18
+    ],
+    "rows": [
+      ".........................",
+      ".........111111..........",
+      "......11122322211........",
+      "....112233332222211......",
+      "...12333443332232221.....",
+      "..1234433333222222221....",
+      ".123433322222222222221...",
+      ".1233322222222222222221..",
+      "12222222222222222222221..",
+      "1222222111112222222221...",
+      ".11111155555511111111....",
+      "..155665656555555551.....",
+      "....16665656565661.......",
+      "........1677681..........",
+      "........1677681..........",
+      "........1677681..........",
+      ".......916776819.........",
+      "......19916768199........",
+      "....199aa16768aaa91......",
+      "..199aabbaa889aaab991....",
+      "...199aabbbaaabba991.....",
+      ".....1119911991111.......",
+      "........................."
+    ],
+    "palette": {
+      "1": "#311e27",
+      "2": "#661f32",
+      "3": "#8e2e43",
+      "4": "#b74957",
+      "5": "#6f4c4b",
+      "6": "#b49a78",
+      "7": "#e3d8b8",
+      "8": "#8f7a5d",
+      "9": "#302e29",
+      "a": "#514537",
+      "b": "#786342"
+    }
+  },
+  "candidateSHA256": "1b94217dc354c7058192005ab6e1b115889f7ff2a4670e88951420bd8d3c270e",
+  "sourceRendererSHA256": "99ac45eafda642fc8453aa5840e76d12ee31051e9dd2f4fd8a9625a007bb8845",
+  "sharedRegistrySHA256": "c3aa4e422025925ad81479336bc22127fa716b82b35572a0fd31d2b672f0f3ec",
+  "newEmbeddedPayloads": 0,
+  "cacheMaximumUsedGlyphs": 6,
+  "nativeHeadContract": "Only bounded head pixels from existing source cells. At authoritative guided projectile position and current source frame. No historic trail reconstruction. Original body/source atlas is unchanged.",
+  "cachedTaper": {
+    "sourceRole": "brass_flareslinger",
+    "frames": 4,
+    "crop": [
+      67,
+      59,
+      38,
+      33
+    ],
+    "alphaBands": [
+      0,
+      0.2,
+      0.45,
+      0.7,
+      0.9
+    ],
+    "sourcePixelsPerBand": 2,
+    "decodedBytes": 20064,
+    "sourceAtlasUnchanged": true
+  },
+  "sparkBird": {
+    "existingSharedAsset": "f6_bbs_stun_gold",
+    "frames": [
+      22,
+      23,
+      24
+    ],
+    "crop": [
+      63,
+      63,
+      54,
+      54
+    ],
+    "size": [
+      14,
+      14
+    ],
+    "newPayloads": 0
+  },
+  "statusMaterialDerivatives": {
+    "sharedRegistryModified": false,
+    "sourceBodyArtModified": false,
+    "newEmbeddedPayloads": 0,
+    "algorithm": "Existing source frame sampled once; fixed wood/green or cool palette, source-branch horizontal thickening for root, dark one-pixel boundary inside existing dimensions. Stable mature frame retained while original status flag is active. Failed canvas reads are negatively cached and use original status fallback.",
+    "records": [
+      {
+        "key": "root",
+        "existingSourceAsset": "roots_original",
+        "originalSourceFrame": 4,
+        "originalSourceCrop": [
+          0,
+          8,
+          58,
+          62
+        ],
+        "width": 40,
+        "height": 30,
+        "rgbaSHA256": "3460847d68edd1f2aecfe199e0d1e89da156d959e257dc5da2ca3ee65bb0df67",
+        "pngSHA256": "2259904e7ba61c4599c9198255c196c8b427bcf5c056bc61be97f7d260a5cbe9",
+        "pngBytes": 546,
+        "decodedBytes": 4800,
+        "embeddedPayload": false
+      },
+      {
+        "key": "slow",
+        "existingSourceAsset": "energyhaloground_ice",
+        "originalSourceFrame": 2,
+        "originalSourceCrop": [
+          0,
+          0,
+          80,
+          34
+        ],
+        "width": 33,
+        "height": 11,
+        "rgbaSHA256": "3f49e14bb0cab2711c24a8db442d67bfcd44e3608be47b9dad55e1d362263fba",
+        "pngSHA256": "c5e7637afb205a95c22715aadd65fca4548c4539151da62af1ddfffadf583443",
+        "pngBytes": 283,
+        "decodedBytes": 1452,
+        "embeddedPayload": false
+      }
+    ]
+  },
+  "integratedSourceSHA256": "07803f6d77478f069d6516e36927296bf22c18870d9bd2d91f2146590e8248ee"
+}
