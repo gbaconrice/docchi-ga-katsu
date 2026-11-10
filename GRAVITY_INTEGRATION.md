@@ -1,6 +1,6 @@
 # Ten-round multiplayer and battle updates
 
-Entry: https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-20261110/gravity-entry.html
+Entry: https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-names-20261110/gravity-entry.html
 
 Baseline: main a42af2f8e323c5c2ba05a07e9c53ada79a421e0c.
 

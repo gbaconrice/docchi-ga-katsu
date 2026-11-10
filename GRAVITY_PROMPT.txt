@@ -1,6 +1,6 @@
 「どっちが勝つ？」を次の固定版に更新してください。取得したmanifest.json、JS、CSS、画像の識別子を確認し、取得できなければ旧版や推測で代用しないでください。
 
-https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-20261110/gravity-entry.html
+https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-names-20261110/gravity-entry.html
 
 同じ版のファイルをmanifest.jsonの参照先・読込順序どおりに使用してください。旧固定版にある画像参照も保持してください。iframeで包んだり、似たゲームを再実装したり、別版を混ぜたりしないでください。
 
@@ -25,7 +25,7 @@ https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-20261110/g
 
 qa/以下のCPU検証版・合成結果表示テストは本番に取り込まないでください。それらはネイティブルーム・外部スコア送信を無効にした検証専用です。
 
-ソースSHA256: b2cf5c44094f09191fac7a7ad7792ce2032fc0919cfeef767da7fe30be7f69c2
-ゲーム内容識別子: c412c0fb1c4cbe4faad457367317b70d4ec2754fbf5cf8e6db2e7e613e68027b
+ソースSHA256: d6aadfaf4ace0429d0b78f80f5d75c76046aef84db597571a97dd3d7573cb256
+ゲーム内容識別子: 445bfe5cd6e91ace8bfa203f5e138a874a339c1561c38014b48ac40012635f96
 
 参加者全員で同じ版へ更新してください。実GRAVITY/iPhone Safariの表示・音声・画面回転・ホーム復帰・複数端末同期・外部ランキング受付は別途実機確認が必要です。自動テストやブラウザ上のCPU試験を実機GRAVITY検証済みと扱わないでください。

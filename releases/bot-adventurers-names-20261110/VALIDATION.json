@@ -1,0 +1,81 @@
+{
+  "sourceSha256": "d6aadfaf4ace0429d0b78f80f5d75c76046aef84db597571a97dd3d7573cb256",
+  "automated": {
+    "bot": {
+      "result": "PASS",
+      "checks": [
+        "all inline scripts parse; exact solo/ledger/formation/score APIs and human score submission paths preserved",
+        "host-only add/remove, repeated calls bounded at 8 total seats/7 bots, stable names, fake bot hello/departure rejected, arriving human replaces final bot in full pre-game lobby",
+        "host+human+6 bots synchronize all 10 rounds, separate preview/confirmation, mixed wagers, exact real ledger/draw receipts, real replay ACK excluding bots, five-second results and complete named rankings; no round 11",
+        "one real host plus 7 bots complete all ten rounds without phantom replay ACK or forced human prediction",
+        "zero-G bot submits side with 0G stake and receives the normal recovery floor; stopped sessions never resume",
+        "all seven bots at every balance from 1G through 9G confirm valid integer stakes without exceeding funds; same-identity human reconnect preserves balance and bots",
+        "actual final-cashout observer calls only its own human client once; no bot score attempts",
+        "guest snapshot validation rejects duplicated, non-reserved, host and absent bot IDs",
+        "deterministic RNG endpoints select identities20 through14 and1; removal randomly chooses among current occupants; all20 profiles resolve without duplicates",
+        "real SDKAdapter fake-native transport: discovery admits human ahead of virtual seat, BOT labels reach both clients, reserved SDK identity rejected, replay restart keeps bots without waiting for them, exit clears bots, no synthetic native account/send",
+        "actual lobby enablement: host-only initial lobby, disabled during busy/full/restart, hidden after start/on guests/on exit; no difficulty selector"
+      ],
+      "limits": [
+        "In-memory and fake SDK transport; real GRAVITY transport and physical-device UI not exercised here.",
+        "External score acceptance remains unobservable; existing human score path is unchanged."
+      ]
+    },
+    "scope": {
+      "result": "PASS",
+      "checks": [
+        "Only 8 declared patches; all prior CSS and embedded artwork byte-identical",
+        "All scripts parse",
+        "Every submission status hidden; submit still called exactly once and failed-submit retry preserved",
+        "Only multiplayer parenthetical bet explanation removed",
+        "20 distinct katakana identities and image URLs; reserved IDs validate 1–20 only"
+      ]
+    },
+    "tenRounds": "PASS",
+    "sharedClockCountdown": "PASS",
+    "sourceReassembly": {
+      "result": "PASS",
+      "sourceSha256": "d6aadfaf4ace0429d0b78f80f5d75c76046aef84db597571a97dd3d7573cb256",
+      "bytes": 55299191
+    },
+    "headerGoldAndReplay": "PASS",
+    "countdownUI": "PASS",
+    "independentScopeAndBotRegression": "PASS by independent reviewer",
+    "namesOnlyScope": {
+      "result": "PASS",
+      "changedLines": [
+        5855,
+        5966
+      ],
+      "scope": "Only two BOT names and content revision; all other source bytes unchanged."
+    }
+  },
+  "browser": {
+    "status": "Prior candidate PASS; final naming revision smoke pending",
+    "candidateCommit": "c000faa50b22ea8f88c7a858aad9bf9b4a2217b4",
+    "checks": [
+      "Host adds7 BOTs to8 combined seats; add disabled at capacity.",
+      "Remove/add randomly changes individual identities without duplicates; all portraits load in lobby, participant lane and selection cards. No difficulty setting.",
+      "BET parenthetical absent; basic win/loss/draw amounts remain.",
+      "7 BOTs auto-confirm; human confirmation starts visible battlefield3,2,1,opening with clock0, real battle settles then round2 with750G.",
+      "Synthetic final results contain no score-submission commentary.",
+      "320px round10 shows12995G with no horizontal overflow."
+    ],
+    "limits": [
+      "Synthetic final-result fixture uses3 human profiles; final BOT portraits were not separately exercised in browser. Protocol/standings automated tests coverBOT names through ten rounds.",
+      "Synthetic fixture reports replay-transfer warning; fixture has no battle recording and this is not a native-transport check.",
+      "Physical iPhone/native GRAVITY multi-device verification not performed."
+    ]
+  },
+  "limits": [
+    "No physical GRAVITY multi-device or iPhone validation performed in this update. User reports ranking submission working; native receipt not independently inspected."
+  ],
+  "nameRevision": {
+    "changes": {
+      "bot-05": "シグレ",
+      "bot-09": "ヴァルク"
+    },
+    "reason": "Match the ronin and dark knight appearance; other18 names unchanged.",
+    "scope": "Only2 names and contentRevision differ from browser-verified source. All pictures and game behavior are identical."
+  }
+}

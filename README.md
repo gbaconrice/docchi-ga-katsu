@@ -1,6 +1,6 @@
 # どっちが勝つ？
 
-Current release: https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-20261110/gravity-entry.html
+Current release: https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-names-20261110/gravity-entry.html
 
 Twenty distinct adventurer BOT identities, random no-duplicate addition and random removal, no difficulty. Eight combined seats maximum; host-only management before play. Human external scores remain unchanged; BOT scores are never submitted.
 
