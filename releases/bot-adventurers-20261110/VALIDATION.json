@@ -32,10 +32,32 @@
       ]
     },
     "tenRounds": "PASS",
-    "sharedClockCountdown": "PASS"
+    "sharedClockCountdown": "PASS",
+    "sourceReassembly": {
+      "result": "PASS",
+      "sourceSha256": "b2cf5c44094f09191fac7a7ad7792ce2032fc0919cfeef767da7fe30be7f69c2",
+      "bytes": 55299182
+    },
+    "headerGoldAndReplay": "PASS",
+    "countdownUI": "PASS",
+    "independentScopeAndBotRegression": "PASS by independent reviewer"
   },
   "browser": {
-    "status": "Pending independent UI verification"
+    "status": "PASS for requested differences on published candidate",
+    "candidateCommit": "c000faa50b22ea8f88c7a858aad9bf9b4a2217b4",
+    "checks": [
+      "Host adds7 BOTs to8 combined seats; add disabled at capacity.",
+      "Remove/add randomly changes individual identities without duplicates; all portraits load in lobby, participant lane and selection cards. No difficulty setting.",
+      "BET parenthetical absent; basic win/loss/draw amounts remain.",
+      "7 BOTs auto-confirm; human confirmation starts visible battlefield3,2,1,opening with clock0, real battle settles then round2 with750G.",
+      "Synthetic final results contain no score-submission commentary.",
+      "320px round10 shows12995G with no horizontal overflow."
+    ],
+    "limits": [
+      "Synthetic final-result fixture uses3 human profiles; final BOT portraits were not separately exercised in browser. Protocol/standings automated tests coverBOT names through ten rounds.",
+      "Synthetic fixture reports replay-transfer warning; fixture has no battle recording and this is not a native-transport check.",
+      "Physical iPhone/native GRAVITY multi-device verification not performed."
+    ]
   },
   "limits": [
     "No physical GRAVITY multi-device or iPhone validation performed in this update. User reports ranking submission working; native receipt not independently inspected."

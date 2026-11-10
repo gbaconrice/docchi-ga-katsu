@@ -34,3 +34,7 @@ The separate comparison gallery distinguishes the changed 55 replay-effect kinds
 
 ## 2026-11-09 home extension
 One generated PNG extends only the upper/lower surroundings behind the original PNG/GIF. SHA-256 eaa567bdb27dd4bf612b3a45ba1305363a7391ea1abc4bd413ba68fbe10ba4af, 887×1774, 2484284 bytes. Original images and GIF bytes are unchanged. The original foreground covers the generated center; 12 CSS pixel cut edges are alpha-blended where supported.
+
+## Adventurer BOT portraits (2026-11-10)
+
+Twenty new original AI-generated fantasy adventurer portraits are provided as 128×128 PNGs in avatars/bot-01.png through bot-20.png. Names, file hashes and sizes are recorded in manifest.json under botAvatarAssets. These portraits are used only for virtual multiplayer participants; all 698 pre-existing game images retain their original bytes and URLs.

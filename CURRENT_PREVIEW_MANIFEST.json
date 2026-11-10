@@ -1,25 +1,20 @@
 {
-  "release": "releases/multiplayer-ten-bots-20261110",
-  "sourceSHA256": "95dc23249f1b3c6c12799c46316760cd9b8f4e499bb86c537d6ff3139d03bab7",
-  "contentRevision": "696e16a3fcd9a27945896e0a19a95b9628f32712cba6b08952d1ab44ad28ba9e",
-  "baseCommit": "a42af2f8e323c5c2ba05a07e9c53ada79a421e0c",
-  "baseSourceSHA256": "8bc040c9704d5e334835ea1c6c5d4650c3f88b818d85c6db535ee0f5327a722f",
-  "imageFiles": 698,
-  "unchangedImageFiles": 698,
-  "newImageFiles": 0,
-  "runtime": "game-runtime.fca8480475bdb78e244c.js",
-  "runtimeSHA256": "fca8480475bdb78e244c65f04bfab8e0eb71d79850d9887815d7b3181e5c15ed",
+  "release": "releases/bot-adventurers-20261110",
+  "sourceSHA256": "b2cf5c44094f09191fac7a7ad7792ce2032fc0919cfeef767da7fe30be7f69c2",
+  "contentRevision": "c412c0fb1c4cbe4faad457367317b70d4ec2754fbf5cf8e6db2e7e613e68027b",
+  "baseCommit": "29ed11b48f0d212bc2371cce57d39ac69b8529f4",
+  "runtime": "game-runtime.e031699b812e9147f773.js",
+  "runtimeSHA256": "e031699b812e9147f773d3248de3c4e90368056cb5ed8c2e6a921f5f45483162",
   "css": "game.84337aeed121f1f2427c.css",
+  "unchangedImageFiles": 698,
+  "newBotImageFiles": 20,
+  "botPortraitBytes": 672321,
   "changes": [
-    "Multiplayer ten rounds from1000G, escalating correct-prediction profits and recovery floors, continued zero-G participation, shared5-second results.",
-    "Multiplayer mixed species from6, bosses from8 and varied10th-round compositions.",
-    "Host-managed temporary test BOTs, no difficulty selector, eight combined seats, human priority and no BOT score submission.",
-    "Shared battlefield3/2/1/opening, F-direction opening sound, ten children per summoner, zero-balance visibility and redundant sentence removal."
+    "Keep BOT support with20 distinct adventurer names and portraits, randomized no-duplicate addition and randomized removal; no difficulty.",
+    "Hide ranking submission commentary while preserving submission, deduplication and retry.",
+    "Remove multiplayer BET profit/recovery parenthetical only."
   ],
-  "homeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
-  "fixedLampBodies": true,
+  "validation": "releases/bot-adventurers-20261110/VALIDATION.json",
   "nativeGravityVerified": false,
-  "safariVerified": false,
-  "validation": "releases/multiplayer-ten-bots-20261110/VALIDATION.json",
-  "deploymentNote": "Verify the exact promoted commit and served entries separately. Earlier release directories remain archived."
+  "safariVerified": false
 }

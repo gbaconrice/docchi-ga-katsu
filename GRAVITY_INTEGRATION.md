@@ -1,6 +1,6 @@
 # Ten-round multiplayer and battle updates
 
-Entry: https://gbaconrice.github.io/docchi-ga-katsu/releases/multiplayer-ten-bots-20261110/gravity-entry.html
+Entry: https://gbaconrice.github.io/docchi-ga-katsu/releases/bot-adventurers-20261110/gravity-entry.html
 
 Baseline: main a42af2f8e323c5c2ba05a07e9c53ada79a421e0c.
 
@@ -12,10 +12,12 @@ Baseline: main a42af2f8e323c5c2ba05a07e9c53ada79a421e0c.
 - Only the opening cue changes to an original procedural F-direction drum-and-bronze sample. The 3/2/1 and all other UI cues remain unchanged. Mute, audio resume and voice/node caps remain authoritative.
 - Participant gold stays visible at zero and after finishing; pure spectators retain the unknown marker. Both requested redundant menu/lobby sentences are removed.
 
-All 698 existing image assets and URLs are reused byte-for-byte. Native header clearance, terrain, camera coordinates and original artwork are unchanged. All participants must update to the same content revision.
+All 698 existing image assets and URLs are reused byte-for-byte. Twenty BOT portraits are added separately. Native header clearance, terrain, camera coordinates and original artwork are unchanged. All participants must update to the same content revision.
 
 The qa/ pages are isolated test wrappers. They disable native rooms and external score submission and are not loaded by production entries. Do not package them into GRAVITY. Actual iPhone Safari, native GRAVITY transport, device audio and ranking acceptance require separate real-device checks. Consult VALIDATION.json for checks actually completed.
 
-## Temporary test BOTs
+## Adventurer BOTs
 
-The host can add or remove BOTs before round one, with no difficulty setting. Combined player/BOT seats stay within eight. A real player replaces the last virtual seat if the pre-game roster is full. BOT identities are explicitly marked in authoritative snapshots, cannot be impersonated through external protocol input, and never become replay ACK recipients. Their decisions use session identity/round only, not army strength or outcomes. BOT standings are local to the room; only human owners retain the existing final score submission path. Native-adapter replay of a new game keeps the BOT count. These controls and protocol helpers are a removable temporary test feature.
+The host can add or remove BOTs before round one, with no difficulty setting. Combined player/BOT seats stay within eight. A real player replaces the last virtual seat if the pre-game roster is full. BOT identities are explicitly marked in authoritative snapshots, cannot be impersonated through external protocol input, and never become replay ACK recipients. Their decisions use session identity/round only, not army strength or outcomes. BOT standings are local to the room; only human owners retain the existing final score submission path. Native-adapter replay of a new game keeps the BOT count. BOTs remain as a supported lobby option. Twenty fixed katakana names and distinct portrait images are selected randomly without duplicate occupants. Removing a BOT selects one current BOT randomly. There are no difficulty levels.
+
+Submission commentary is hidden, while ScoreBridge, duplicate prevention, native submission, and failed-send retry remain intact. The multiplayer BET hint keeps its basic win/loss/draw amounts, omitting the profit/recovery parenthetical. Wallet rules do not change.

@@ -6402,8 +6402,8 @@
   "files": [
     {
       "file": "ARTWORK.md",
-      "bytes": 4735,
-      "sha256": "a15426ceae3ad902bbb3fb86c0813a345f7bcd0f07905231eac2ecb819001135"
+      "bytes": 5133,
+      "sha256": "4f4fec87a637955e1c1ec55d9b6d134651bf255cb3ae76d113dc037862f77054"
     },
     {
       "file": "COMBAT_AUDIO_ASSETS.json",
@@ -6427,8 +6427,8 @@
     },
     {
       "file": "VALIDATION.json",
-      "bytes": 2914,
-      "sha256": "2c3b1513112ff90d6f6376b87d8ba570e3a2e86e7f96b6c2ad6ba06880bdd739"
+      "bytes": 4350,
+      "sha256": "b9aa961e24375c3522a05b0b46f0823216118add75b6339dfa124ba19c9da6e3"
     },
     {
       "file": "avatars/bot-01.png",
