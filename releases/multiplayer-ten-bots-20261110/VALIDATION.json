@@ -1237,7 +1237,7 @@
     }
   },
   "browser": {
-    "status": "BOT candidate pending browser verification",
+    "status": "PASS for specified isolated Chromium checks",
     "priorTenRoundCandidate": {
       "status": "PASS for specified isolated Chromium checks",
       "candidateCommit": "1c706c8f4093241291391279b7944109c611e62f",
@@ -1277,6 +1277,49 @@
         "CPU peer tests run in one browser and never contact native rooms or external score services",
         "Original automated-CPU wrapper produced intermittent CDP timeouts; latest manual-CPU path completed without reproduction",
         "Physical device audio and native GRAVITY multi-device/leaderboard receipt remain unverified"
+      ]
+    },
+    "currentBotCandidate": {
+      "status": "PASS for specified isolated Chromium checks",
+      "candidateCommit": "52656431fcb2fbeffb4fd75c37b2f2b4c1e03522",
+      "sourceSha256": "95dc23249f1b3c6c12799c46316760cd9b8f4e499bb86c537d6ff3139d03bab7",
+      "checks": [
+        "Normal production host lobby adds seven BOTs to eight combined seats, disables add at capacity, removes and re-adds a BOT, and has no difficulty selector.",
+        "Host plus seven BOTs begin a real recorded and replayed battle; BOTs automatically predict and confirm without manual CPU fixture prediction input.",
+        "Focused battlefield records 3,2,1,opening in order with battlefield visible and replay clock0.0seconds; clock advances and actual settlement goes from1000G to1250G then round2.",
+        "Round2 visibly retains seven BOTs and all seven confirm automatically; pre-game BOT management is absent after start.",
+        "Multiplayer menu opens and closes, with the removed explanatory sentence absent.",
+        "Final-round synthetic UI fixture shows participant0G, recovery1000G and no horizontal overflow at320px; header visually inspected.",
+        "Round10 positive-balance synthetic UI retains all six percentage bets and2x profit; final result shows finalWait5000 and disabled final-rank countdown, then rankings include ties and zero balances with no overtime.",
+        "Replay lobby no longer has redundant new-match explanatory sentence."
+      ],
+      "countdownTrace": [
+        {
+          "count": "3",
+          "battleVisible": true,
+          "clock": "0.0秒 · 1×"
+        },
+        {
+          "count": "2",
+          "battleVisible": true,
+          "clock": "0.0秒 · 1×"
+        },
+        {
+          "count": "1",
+          "battleVisible": true,
+          "clock": "0.0秒 · 1×"
+        },
+        {
+          "count": "開戦",
+          "battleVisible": true,
+          "clock": "0.0秒 · 1×"
+        }
+      ],
+      "limitations": [
+        "BOT browser gameplay exercised one complete battle and advancement to round2, not a full10-round physical-device session. Automated actual-protocol tests cover10 rounds.",
+        "Final-round UI fixture uses synthetic outcomes and controlled clocks, without battle records; its transfer-warning banner is fixture-specific and is not a native-transport check.",
+        "QA wrappers deliberately disable native GRAVITY rooms and external score submission.",
+        "Native GRAVITY multi-device transport, physical iPhone audio, rotation/background recovery and external leaderboard acceptance remain unverified."
       ]
     }
   },

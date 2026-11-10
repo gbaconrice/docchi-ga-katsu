@@ -1,29 +1,25 @@
 {
-  "release": "releases/gravity-spacing-20261109",
-  "sourceSHA256": "1fec6310780fd73198af9accd5892ffdf6a8143988a7b0651830d6d44b66b3cc",
-  "contentRevision": "e6aa602d09052f038194ec0f473eb2f40a1d7f6da718fb01ea182e47fb430adb",
-  "baseCommit": "ce64ecd8cff26ca87a2825e88e4c596d64ab720e",
-  "baseSourceSHA256": "39b84de67edabe0bd24affffcf7cf09871f883b913773f95a19407eefc2f2237",
+  "release": "releases/multiplayer-ten-bots-20261110",
+  "sourceSHA256": "95dc23249f1b3c6c12799c46316760cd9b8f4e499bb86c537d6ff3139d03bab7",
+  "contentRevision": "696e16a3fcd9a27945896e0a19a95b9628f32712cba6b08952d1ab44ad28ba9e",
+  "baseCommit": "a42af2f8e323c5c2ba05a07e9c53ada79a421e0c",
+  "baseSourceSHA256": "8bc040c9704d5e334835ea1c6c5d4650c3f88b818d85c6db535ee0f5327a722f",
   "imageFiles": 698,
-  "unchangedImageFiles": 697,
-  "newImageFiles": 1,
-  "runtime": "game-runtime.6d83b6cd94403b2b77f4.js",
-  "runtimeSHA256": "6d83b6cd94403b2b77f4d9e8523c6ab6dface209b3921356f615f2ebc3edeef3",
-  "css": "game.fddf04f39bf47c433ade.css",
+  "unchangedImageFiles": 698,
+  "newImageFiles": 0,
+  "runtime": "game-runtime.fca8480475bdb78e244c.js",
+  "runtimeSHA256": "fca8480475bdb78e244c65f04bfab8e0eb71d79850d9887815d7b3181e5c15ed",
+  "css": "game.84337aeed121f1f2427c.css",
   "changes": [
-    "Fit the displayed battle canvas to tall Gravity surfaces without changing simulation dimensions or gameplay.",
-    "Correct tall Gravity home composition with one lazy-loaded extension image behind the unchanged original PNG/GIF.",
-    "Preserve native safe areas, controls, audio, shared prediction countdown, standings, protocol, wallet and score behavior."
+    "Multiplayer ten rounds from1000G, escalating correct-prediction profits and recovery floors, continued zero-G participation, shared5-second results.",
+    "Multiplayer mixed species from6, bosses from8 and varied10th-round compositions.",
+    "Host-managed temporary test BOTs, no difficulty selector, eight combined seats, human priority and no BOT score submission.",
+    "Shared battlefield3/2/1/opening, F-direction opening sound, ten children per summoner, zero-balance visibility and redundant sentence removal."
   ],
   "homeGifSHA256": "f194872040aa40216e601203501b678380f3f5fa72fd3f3e58f8f02e8acad084",
   "fixedLampBodies": true,
-  "audio": {
-    "families": 11,
-    "variantsPerFamily": 3,
-    "addedRecordedSamples": 0,
-    "bankSHA256": "4e757d01a7ad41505c5674e3490e0f2b5e0bab2d4b96cfcbcbf3a97ab169593a"
-  },
-  "deploymentNote": "This manifest identifies release contents; verify Pages deployment and served files separately.",
   "nativeGravityVerified": false,
-  "safariVerified": false
+  "safariVerified": false,
+  "validation": "releases/multiplayer-ten-bots-20261110/VALIDATION.json",
+  "deploymentNote": "Verify the exact promoted commit and served entries separately. Earlier release directories remain archived."
 }
