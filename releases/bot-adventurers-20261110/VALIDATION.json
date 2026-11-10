@@ -1,0 +1,43 @@
+{
+  "sourceSha256": "b2cf5c44094f09191fac7a7ad7792ce2032fc0919cfeef767da7fe30be7f69c2",
+  "automated": {
+    "bot": {
+      "result": "PASS",
+      "checks": [
+        "all inline scripts parse; exact solo/ledger/formation/score APIs and human score submission paths preserved",
+        "host-only add/remove, repeated calls bounded at 8 total seats/7 bots, stable names, fake bot hello/departure rejected, arriving human replaces final bot in full pre-game lobby",
+        "host+human+6 bots synchronize all 10 rounds, separate preview/confirmation, mixed wagers, exact real ledger/draw receipts, real replay ACK excluding bots, five-second results and complete named rankings; no round 11",
+        "one real host plus 7 bots complete all ten rounds without phantom replay ACK or forced human prediction",
+        "zero-G bot submits side with 0G stake and receives the normal recovery floor; stopped sessions never resume",
+        "all seven bots at every balance from 1G through 9G confirm valid integer stakes without exceeding funds; same-identity human reconnect preserves balance and bots",
+        "actual final-cashout observer calls only its own human client once; no bot score attempts",
+        "guest snapshot validation rejects duplicated, non-reserved, host and absent bot IDs",
+        "deterministic RNG endpoints select identities20 through14 and1; removal randomly chooses among current occupants; all20 profiles resolve without duplicates",
+        "real SDKAdapter fake-native transport: discovery admits human ahead of virtual seat, BOT labels reach both clients, reserved SDK identity rejected, replay restart keeps bots without waiting for them, exit clears bots, no synthetic native account/send",
+        "actual lobby enablement: host-only initial lobby, disabled during busy/full/restart, hidden after start/on guests/on exit; no difficulty selector"
+      ],
+      "limits": [
+        "In-memory and fake SDK transport; real GRAVITY transport and physical-device UI not exercised here.",
+        "External score acceptance remains unobservable; existing human score path is unchanged."
+      ]
+    },
+    "scope": {
+      "result": "PASS",
+      "checks": [
+        "Only 8 declared patches; all prior CSS and embedded artwork byte-identical",
+        "All scripts parse",
+        "Every submission status hidden; submit still called exactly once and failed-submit retry preserved",
+        "Only multiplayer parenthetical bet explanation removed",
+        "20 distinct katakana identities and image URLs; reserved IDs validate 1–20 only"
+      ]
+    },
+    "tenRounds": "PASS",
+    "sharedClockCountdown": "PASS"
+  },
+  "browser": {
+    "status": "Pending independent UI verification"
+  },
+  "limits": [
+    "No physical GRAVITY multi-device or iPhone validation performed in this update. User reports ranking submission working; native receipt not independently inspected."
+  ]
+}
